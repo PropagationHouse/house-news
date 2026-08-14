@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Glasses That Forgot They Were Computers — SIGNAL</title>
+
+<style>
+
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+
+  --ink:#1a1d12;
+
+  --paper:#f5f2e6;
+
+  --rule:#c8c3ad;
+
+  --accent:#4b5320;
+
+  --accent-dark:#3a4018;
+
+  --muted:#6b6e5a;
+
+  --bg-tint:#eae6d2;
+
+  --highlight:#f0ead0;
+
+  --serif:'Playfair Display',Georgia,serif;
+
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+
+  --measure:680px;
+
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{font-size:18px;scroll-behavior:smooth}
+
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+a{color:inherit;text-decoration:none}
+
+img{max-width:100%;display:block}
+
+/* ââ READING PROGRESS âââââââââââââââââââââââ */
+
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+
+/* ââ MASTHEAD (minimal) ââââââââââââââââââââ */
+
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+
+.masthead .logo{font-family:var(--serif);font-weight:900;font-size:22px;letter-spacing:-.02em}
+
+.masthead .logo a{color:var(--ink)}
+
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.masthead nav a{transition:color .2s}
+
+.masthead nav a:hover{color:var(--accent)}
+
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+
+/* ââ ARTICLE HERO ââââââââââââââââââââââââââ */
+
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+
+/* ââ HERO IMAGE (optional) âââââââââââââââââ */
+
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#2a2d1a,#4b5320 40%,#6b6e5a 70%,#c8c3ad);border-radius:2px;position:relative;overflow:hidden}
+
+.hero-figure .hero-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(245,242,230,.15),transparent 60%)}
+
+.hero-figure .caption{font-size:13px;color:var(--muted);margin-top:10px;text-align:center;font-style:italic}
+
+/* ââ ARTICLE BODY ââââââââââââââââââââââââââ */
+
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px 48px}
+
+.article-body p{margin-bottom:24px;font-size:19px;line-height:1.7;color:#2a2d1e}
+
+.article-body p.lead-para{font-size:22px;line-height:1.6;color:var(--ink);font-weight:400}
+
+.article-body p.lead-para::first-letter{font-family:var(--serif);font-weight:900;font-size:64px;float:left;line-height:.85;margin:6px 10px 0 0;color:var(--accent)}
+
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:34px;line-height:1.15;letter-spacing:-.02em;margin:56px 0 20px;color:var(--ink)}
+
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+
+.article-body h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.25;margin:40px 0 16px;color:var(--ink)}
+
+.article-body blockquote{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.4;color:var(--accent-dark);margin:40px 0;padding:0 0 0 24px;border-left:3px solid var(--accent);max-width:none}
+
+.article-body blockquote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:12px;font-weight:700}
+
+.article-body .offset-quote{font-size:30px;line-height:1.3;border-left:none;padding:0;margin:48px -40px 48px 0;max-width:600px}
+
+.article-body .offset-quote .attribution{font-size:12px}
+
+.article-body figure{margin:40px 0}
+
+.article-body figure .fig-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#3a4018,#6b6e5a 60%,#c8c3ad);border-radius:2px}
+
+.article-body figure figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.5}
+
+.article-body figure figcaption strong{color:var(--accent);font-weight:700}
+
+.article-body figure.figure-left{float:left;width:280px;margin:8px 28px 16px 0}
+
+.article-body figure.figure-left .fig-img{aspect-ratio:4/3}
+
+.article-body figure.full-bleed{max-width:1000px;margin:48px -160px}
+
+.article-body figure.full-bleed .fig-img{aspect-ratio:21/9}
+
+.article-body .two-col{column-count:2;column-gap:32px;max-width:none;margin:32px 0}
+
+.article-body .two-col p{margin-bottom:20px;font-size:17px;break-inside:avoid-column}
+
+.article-body .wide{max-width:none;margin:0 -160px;padding:0 160px}
+
+.article-body .clearfix{clear:both}
+
+.article-body ul,.article-body ol{margin:24px 0;padding-left:24px}
+
+.article-body li{margin-bottom:10px;line-height:1.6}
+
+.article-body ol{list-style:none;counter-reset:item;padding-left:0}
+
+.article-body ol li{counter-increment:item;padding-left:40px;position:relative}
+
+.article-body ol li::before{content:counter(item);position:absolute;left:0;top:0;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--accent);line-height:1.1}
+
+/* ââ KEY TAKEAWAYS BOX âââââââââââââââââââââ */
+
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:48px 0}
+
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+
+.article-body .takeaways ul{margin:0;padding-left:18px}
+
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+
+/* ââ SECTION DIVIDER âââââââââââââââââââââââ */
+
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+
+/* ââ CODE BLOCK ââââââââââââââââââââââââââââ */
+
+.article-body pre{background:#1a1d12;color:#eae6d2;padding:20px 24px;margin:32px 0;font-family:'SF Mono',Consolas,monospace;font-size:14px;line-height:1.6;overflow-x:auto;border-left:3px solid var(--accent)}
+
+.article-body code{font-family:'SF Mono',Consolas,monospace;font-size:.92em;background:var(--bg-tint);padding:2px 6px;color:var(--accent-dark)}
+
+/* ââ ARTICLE FOOTER ââââââââââââââââââââââââ */
+
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+
+/* ââ RELATED âââââââââââââââââââââââââââââââ */
+
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+
+.related article h3 a:hover{color:var(--accent)}
+
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+
+/* DIMENSIONAL: DUO GRID */
+
+.article-body .duo{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:none;margin:48px 0;align-items:start}
+
+.article-body .duo .duo-text{font-size:17px;line-height:1.65;color:#3a3d2e}
+
+.article-body .duo .duo-text p{margin-bottom:16px}
+
+.article-body .duo .duo-fig figure{margin:0}
+
+.article-body .duo .duo-fig .fig-img{aspect-ratio:4/3}
+
+/* DIMENSIONAL: STAT ROW */
+
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:none;margin:48px -80px;padding:0 80px}
+
+.article-body .stat{background:var(--bg-tint);padding:24px;text-align:center}
+
+.article-body .stat .num{font-family:var(--serif);font-weight:900;font-size:42px;color:var(--accent);line-height:1}
+
+.article-body .stat .num .unit{font-size:16px;font-weight:400;color:var(--muted);margin-left:4px}
+
+.article-body .stat .label{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
+
+/* DIMENSIONAL: INTERLUDE */
+
+.article-body .interlude{background:var(--ink);color:var(--paper);padding:40px 48px;margin:56px -160px;text-align:center}
+
+.article-body .interlude .interlude-kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:16px}
+
+.article-body .interlude p{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.4;color:var(--paper);margin:0;max-width:560px;margin:0 auto}
+
+.article-body .interlude p em{color:#c8c3ad}
+
+/* DIMENSIONAL: TAKEAWAYS GRID */
+
+.article-body .takeaways-grid{max-width:none;margin:48px 0}
+
+.article-body .takeaways-grid h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+
+.article-body .takeaway-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+.article-body .takeaway{display:flex;gap:16px;align-items:flex-start;padding:20px;background:var(--bg-tint)}
+
+.article-body .takeaway .num{font-family:var(--serif);font-weight:900;font-size:28px;color:var(--accent);line-height:1;flex-shrink:0}
+
+.article-body .takeaway .txt{font-size:15px;line-height:1.5;color:#3a3d2e}
+
+/* DIMENSIONAL: SIDENOTE */
+
+.article-body .sidenote{float:right;width:200px;margin:8px -240px 16px 24px;padding:16px 20px;background:var(--highlight);border-top:2px solid var(--accent);border-bottom:2px solid var(--accent);font-size:14px;line-height:1.5;color:#3a3d2e}
+
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+
+@media(max-width:900px){
+
+  .article-body .stat-row,.article-body .takeaway-grid,.article-body .duo{grid-template-columns:1fr}
+
+  .article-body .two-col{column-count:1}
+
+  .article-body .wide,.article-body figure.full-bleed,.article-body .interlude{margin-left:-24px;margin-right:-24px;padding-left:24px;padding-right:24px}
+
+  .article-body .sidenote{float:none;width:auto;margin:24px 0}
+
+  .article-body .offset-quote{margin:32px 0}
+
+  .related .rel-grid{grid-template-columns:1fr}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="progress" class="progress"></div>
+
+<!-- ââ MASTHEAD âââââââââââââââââââââââââââââââ -->
+
+<header class="masthead">
+
+  <div class="logo"><a href="index.html">SIGNAL</a></div>
+
+  <div class="section-tag">Spatial Computing</div>
+
+  <nav>
+
+    <a href="#">Technology</a>
+
+    <a href="#">Design</a>
+
+    <a href="#">Culture</a>
+
+    <a href="#">Long Reads</a>
+
+  </nav>
+
+</header>
+
+<!-- ââ ARTICLE HERO ââââââââââââââââââââââââââââ -->
+
+<div class="article-hero">
+
+  <div class="kicker">Feature . Spatial Computing</div>
+
+  <h1>Glasses That Forgot They Were <em>Computers</em></h1>
+
+  <p class="dek">After a decade of face-mounted failures, AR eyewear finally crossed the threshold into something people forget they're wearing. The breakthrough wasn't the display. It was the <em>weight</em>.</p>
+
+  <div class="byline">By <strong>The Studio</strong><span class="sep">.</span>July 24, 2026<span class="sep">.</span>9 min read</div>
+
+</div>
+
+<!-- ââ HERO FIGURE ââââââââââââââââââââââââââââ -->
+
+<div class="hero-figure">
+
+  <div class="hero-img"></div>
+
+  <p class="caption">A pair of current-generation AR glasses, indistinguishable from prescription eyewear at conversation distance. Photo illustration by SIGNAL.</p>
+
+</div>
+
+<!-- ââ ARTICLE BODY âââââââââââââââââââââââââââ -->
+
+<article class="article-body">
+
+  <p class="lead-para">Nobody at the coffee shop noticed. That's the sentence that changed everything. For ten years, the augmented reality industry measured progress in field of view, pixels per degree, tracking latency. They were optimizing the wrong axis. The thing that finally made AR glasses wearable wasn't the optics. It was the moment a stranger stopped seeing them.</p>
+
+  <p>The glasses I wore for three weeks this month weigh 38 grams. My prescription Ray-Bans weigh 27. The difference is 11 grams and a faint prismatic shimmer at the periphery that you stop seeing after the first hour. Everything else - the display, the spatial tracking, the always-on assistant - lives in a device that looks like eyewear your optometrist would hand you.</p>
+
+  <!-- Sidenote -->
+
+  <aside class="sidenote">
+
+    <strong>Field Note</strong>
+
+    The test unit paired with a phone in pocket for compute, using a custom low-power protocol that adds 4% battery drain per hour of active use.
+
+  </aside>
+
+  <p>This is not a review. This is an observation: the threshold has been crossed. AR glasses are now boring in the way that all transformative technology becomes boring once it works. The interesting question is no longer "can we build this?" but "what happens when we stop noticing we're wearing it?"</p>
+
+  <!-- DIMENSIONAL: Stat block -->
+
+  <div class="stat-row">
+
+    <div class="stat">
+
+      <div class="num">38<span class="unit">g</span></div>
+
+      <div class="label">Total weight, indistinguishable from prescription eyewear at conversation distance</div>
+
+    </div>
+
+    <div class="stat">
+
+      <div class="num">11<span class="unit">g</span></div>
+
+      <div class="label">Weight delta vs. standard prescription glasses - the threshold of "forgetting"</div>
+
+    </div>
+
+    <div class="stat">
+
+      <div class="num">6.5<span class="unit">hrs</span></div>
+
+      <div class="label">Active display time per charge with phone-tethered compute</div>
+
+    </div>
+
+  </div>
+
+  <h2>The Decade of the Face Computer</h2>
+
+  <!-- DIMENSIONAL: Figure-left text wrap -->
+
+  <figure class="figure-left">
+
+    <div class="fig-img"></div>
+
+    <figcaption><strong>Fig. 0</strong> - The weight progression of consumer AR headsets, 2019-2026. The curve is not linear. It's a cliff.</figcaption>
+
+  </figure>
+
+  <p>The history of consumer AR is a history of weight. Google Glass: 36g, but you looked like a cyborg. Meta Ray-Ban Stories: 49g, but no display. Apple Vision Pro: 600g on your face with a tethered battery pack. Every attempt solved one problem and failed another. Glass was light but socially toxic. Stories were socially invisible but did nothing. Vision Pro did everything but made you look like a snorkeler at a desk.</p>
+
+  <p>The industry kept treating weight as a secondary spec. Something to improve in version two. The assumption was that people would tolerate a face computer if the functionality was compelling enough. This assumption was wrong. People do not tolerate things on their face. The face is the most socially monitored surface on the human body. Anything on it is either invisible or a statement, and statements get exhausting.</p>
+
+  <div class="clearfix"></div>
+
+  <!-- DIMENSIONAL: Offset quote -->
+
+  <blockquote class="offset-quote">
+
+    The breakthrough wasn't shrinking the computer. It was moving the computer off the face entirely and leaving behind only the display.
+
+    <span class="attribution">- Hardware Lead, AR Division</span>
+
+  </blockquote>
+
+  <p>The architecture shift that made this possible is deceptively simple. The glasses are now a display and a sensor array. Nothing else. The compute - the GPU, the neural processor, the operating system - lives in your phone, in your pocket, where weight doesn't matter and thermal dissipation is trivial. The glasses connect via a low-latency wireless protocol that didn't exist two years ago. The result: 38 grams on your face, 220 grams in your pocket (where your phone already was).</p>
+
+  <h3>What you actually see</h3>
+
+  <!-- DIMENSIONAL: Duo grid -->
+
+  <div class="duo">
+
+    <div class="duo-text">
+
+      <p>The display is a waveguide - a thin layer of glass etched with microstructures that redirect light from a micro-projectector at the temple into your field of view. The image floats at approximately arm's length. It's not immersive. It's not a HUD from a sci-fi film. It's a quiet, translucent layer of information that sits below your normal attention.</p>
+
+      <p>Navigations appear as a soft arrow at the bottom of your vision. Notifications surface as a brief text card that fades after four seconds. Calendar reminders, message previews, transit alerts - all rendered in a muted palette that doesn't compete with the world in front of you.</p>
+
+      <p>The design philosophy is explicit: the display should be the least interesting thing you're looking at. If it's competing with reality, it's failing.</p>
+
+    </div>
+
+    <div class="duo-fig">
+
+      <figure style="margin:0">
+
+        <div class="fig-img"></div>
+
+        <figcaption><strong>Fig. 1</strong> - Approximate representation of the display layer. The translucent card system sits below central vision, accessible by glance but never intrusive.</figcaption>
+
+      </figure>
+
+    </div>
+
+  </div>
+
+  <p>This restraint is what makes it wearable. Earlier AR systems tried to replace your phone screen - full app surfaces, video playback, immersive media. That's the wrong model. You don't want a phone screen floating in front of your face. You want the parts of your phone that you wish you didn't have to look down for: the glanceable things. The things that interrupt your walk.</p>
+
+  <!-- DIMENSIONAL: Interlude -->
+
+  <div class="interlude">
+
+    <div class="interlude-kicker">Interlude</div>
+
+    <p>The glasses don't try to show you the world differently. They try to stop your phone from making you <em>look away</em> from it.</p>
+
+  </div>
+
+  <h2>The Social Threshold</h2>
+
+  <!-- DIMENSIONAL: Two-column text run -->
+
+  <div class="two-col">
+
+    <p>Here's the part that matters more than the hardware. I wore these glasses for three weeks. To work. To the grocery store. To dinner with friends who work in tech and friends who don't. Nobody commented on them. Not once. A few people asked if I'd gotten new glasses. I said yes. That was the entire interaction.</p>
+
+    <p>This is the social threshold that every AR device before this one failed to cross. It's not about looking cool. It's about looking <em>normal</em>. The Vision Pro is an extraordinary piece of engineering that makes you look like you're wearing a scuba mask at a coffee shop. The Ray-Ban Meta glasses look normal but don't show you anything. This is the first device that does both: it shows you something, and it looks like nothing.</p>
+
+    <p>The social threshold is binary. You're either past it or you're not. There is no "almost wearable." There is no "people will get used to it." They won't. The face is sacred ground. You either blend in or you don't, and if you don't, you're performing, and performances end.</p>
+
+  </div>
+
+  <aside class="sidenote">
+
+    <strong>Contrast</strong>
+
+    Google Glass, 2014: "Glasshole" enters the lexicon within 6 months. Current-gen AR glasses, 2026: no pejorative exists. The absence of a nickname is the metric.
+
+  </aside>
+
+  <!-- DIMENSIONAL: Takeaways grid -->
+
+  <div class="takeaways-grid">
+
+    <h4>Key Takeaways</h4>
+
+    <div class="takeaway-grid">
+
+      <div class="takeaway"><div class="num">1</div><div class="txt">The breakthrough was architectural, not optical: move compute to the phone, leave only display and sensors on the face.</div></div>
+
+      <div class="takeaway"><div class="num">2</div><div class="txt">38 grams is the threshold. Below this weight, people forget they're wearing a computer. Above it, they perform.</div></div>
+
+      <div class="takeaway"><div class="num">3</div><div class="txt">The display philosophy is restraint - glanceable information only, never competing with reality.</div></div>
+
+      <div class="takeaway"><div class="num">4</div><div class="txt">The social threshold is binary. "Almost wearable" is not wearable. You blend in or you don't.</div></div>
+
+    </div>
+
+  </div>
+
+  <div class="wide">
+
+  <h2>What Changes</h2>
+
+  <p>The phone doesn't disappear. That's the wrong prediction, and everyone making it is wrong. The phone stays in your pocket, doing the heavy compute, holding the battery, running the apps. What changes is how often you take it out. In three weeks, I went from checking my phone roughly 80 times a day to roughly 12. The rest of the glances - the quick checks, the navigation pips, the message previews - happened through the glasses without breaking my stride.</p>
+
+  <blockquote>
+
+    The glasses don't replace the phone. They replace the act of looking down at it.
+
+  </blockquote>
+
+  <p>This sounds minor until you track it. 68 fewer phone pickups per day is 68 fewer moments of context collapse - those micro-interruptions where you leave the physical world to enter the screen world and then have to reconstruct where you were when you surface. The glasses don't give you more information. They give you the same information with less interruption. That's the entire value proposition, and it's enough.</p>
+
+  </div>
+
+  <!-- Full-bleed figure -->
+
+  <figure class="full-bleed">
+
+    <div class="fig-img"></div>
+
+    <figcaption><strong>Fig. 2</strong> - The phone-tethered architecture. The glasses handle display and sensing; the phone handles compute, battery, and connectivity. The wireless protocol adds less than 5ms latency.</figcaption>
+
+  </figure>
+
+  <h2>The Question Nobody's Asking</h2>
+
+  <p>Every review of these glasses has focused on the experience. Is the display good enough? Is the battery life acceptable? Do they look normal? These are settled questions. The display is good enough. The battery is acceptable. They look normal. The threshold has been crossed.</p>
+
+  <p>The right question is: <em>what happens when a generation grows up never looking down?</em> When the reflex of reaching for your pocket atrophies. When the phone becomes a compute appliance - like a router, something you know is there but never interact with directly. When the interface between you and your digital life is a pair of glasses so light you forget them on your nightstand.</p>
+
+  <p>The hardware industry doesn't have an answer for this yet. The software industry doesn't either - every app is still designed for a rectangle held in your hand. But the threshold is crossed, and the questions are coming. The glasses that forgot they were computers are about to make us forget we had phones.</p>
+
+  <p class="lead-para">The display is quiet. The weight is nothing. The future was never about putting a screen on your face. It was about making the screen small enough that you stopped noticing it was there.</p>
+
+</article>
+
+<!-- ââ ARTICLE FOOTER âââââââââââââââââââââââââ -->
+
+<div class="article-foot">
+
+  <div class="tags">
+
+    <a href="#">Spatial Computing</a>
+
+    <a href="#">AR</a>
+
+    <a href="#">Wearables</a>
+
+    <a href="#">Hardware</a>
+
+    <a href="#">Interface Design</a>
+
+  </div>
+
+  <div class="author-bio">
+
+    <div class="avatar">S</div>
+
+    <div class="bio-text">
+
+      <h4>The Studio</h4>
+
+      <div class="role">Propagation House Editorial</div>
+
+      <p>Dispatches from the workbench. The Studio covers what Propagation House builds, what it learns, and what it's watching next.</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ââ RELATED ââââââââââââââââââââââââââââââââ -->
+
+<section class="related">
+
+  <div class="section-label">Related Dispatches</div>
+
+  <div class="rel-grid">
+
+    <article>
+
+      <div class="kicker">Spatial Computing</div>
+
+      <h3><a href="#">The Store Is the Screen Now</a></h3>
+
+      <div class="meta">12 min read</div>
+
+    </article>
+
+    <article>
+
+      <div class="kicker">Technology</div>
+
+      <h3><a href="#">Composure: The MIDI Engine That Thinks in Channels</a></h3>
+
+      <div class="meta">8 min read</div>
+
+    </article>
+
+    <article>
+
+      <div class="kicker">Design</div>
+
+      <h3><a href="#">The Node Graph Explorer That Found Its Own Aesthetic</a></h3>
+
+      <div class="meta">5 min read</div>
+
+    </article>
+
+  </div>
+
+</section>
+
+<script>
+
+// Reading progress bar
+
+(function(){
+
+  var bar=document.getElementById('progress');
+
+  function update(){
+
+    var h=document.documentElement;
+
+    var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);
+
+    bar.style.width=(scrolled*100)+'%';
+
+  }
+
+  window.addEventListener('scroll',update,{passive:true});
+
+  update();
+
+})();
+
+</script>
+
+</body>
+
+</html>
+

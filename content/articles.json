@@ -1,0 +1,228 @@
+{
+  "_meta": {
+    "description": "House News article registry. Single source of truth for what exists, what's published vs draft, categories, dates. Index page reads from this conceptually. Update whenever an article is promoted from drafts/ to articles/.",
+    "schema": "title, kicker, dek, author, date, category, lens, status, filename, read_time, summary"
+  },
+  "published": [
+    {
+      "title": "The Workhorse Accelerates",
+      "kicker": "Intelligence · AI Models",
+      "dek": "Three weeks. That is all the time Google gave itself between Flash releases. Gemini 3.7 Flash is not a capability leap — it is a signal that the frontier has moved from 'smartest' to 'fastest iteration for agents.'",
+      "author": "Propagation House",
+      "date": "2026-08-14",
+      "category": "Intelligence",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/workhorse-accelerates.html",
+      "read_time": "8 min",
+      "summary": "Gemini 3.7 Flash lands three weeks after 3.6. The frontier has shifted from smartest model to fastest agentic iteration."
+    },
+    {
+      "title": "The Breach That Found the Data Centers",
+      "kicker": "Security · Infrastructure",
+      "dek": "Salt Typhoon didn't just wiretap phone calls. A new House report reveals the Chinese hacking group used telecom pathways to reach into America's data center infrastructure — and the exposure is far wider than anyone admitted.",
+      "author": "Propagation House",
+      "date": "2026-08-11",
+      "category": "Security",
+      "lens": "infrastructure",
+      "status": "published",
+      "filename": "articles/breach-that-found-data-centers.html",
+      "read_time": "9 min",
+      "summary": "Salt Typhoon used telecom carriers as a bridge into data centers. The House report confirms the attack surface is far larger than disclosed."
+    },
+    {
+      "title": "The Phantom Goes to Europe",
+      "kicker": "Robotics · Autonomy",
+      "dek": "Days after the Pentagon flagged Unitree as Chinese military technology, the company launched its $29,900 H2 humanoid in Europe. The humanoid industry has split between the battlefield and the living room — and the gap is narrowing faster than regulators can track.",
+      "author": "Propagation House",
+      "date": "2026-08-11",
+      "category": "Robotics",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/phantom-goes-to-europe.html",
+      "read_time": "10 min",
+      "summary": "Unitree H2 lands in Europe at $29.9K weeks after Pentagon flags the company. The Phantom/Intern split is now a live geopolitical question."
+    },
+    {
+      "title": "The Design Tool Land Grab",
+      "kicker": "Tools · Generative Design",
+      "dek": "Four major AI design tools launched in eight weeks. Claude Design, Google Stitch, Figma Make, and Adobe Creative Agent didn't just ship products — they drew battle lines around who owns the creative workflow.",
+      "author": "Propagation House",
+      "date": "2026-08-11",
+      "category": "Technology",
+      "lens": "tools",
+      "status": "published",
+      "filename": "articles/design-tool-land-grab.html",
+      "read_time": "8 min",
+      "summary": "Anthropic, Google, Figma, and Adobe all shipped AI design tools in an 8-week window. The fight is over the design-to-code handoff."
+    },
+    {
+      "title": "The Act Takes Hold",
+      "kicker": "Regulatory · Geopolitics",
+      "dek": "The EU AI Act's transparency rules became enforceable on August 2 — nine days ago. Article 50 is live. Every AI system deployed in Europe must disclose its existence. The era of invisible AI is over.",
+      "author": "Propagation House",
+      "date": "2026-08-11",
+      "category": "Regulatory",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/act-takes-hold.html",
+      "read_time": "8 min",
+      "summary": "EU AI Act Article 50 transparency rules are now enforceable. Companies have until 2027 for high-risk compliance — most haven't started."
+    },
+    {
+      "title": "The Agent That Audits Itself",
+      "kicker": "Intelligence · Research",
+      "dek": "Google Research just shipped a framework that kills hallucinations in autonomous science agents — and an automated audit loop for AI-generated papers.",
+      "author": "Propagation House",
+      "date": "2026-07-26",
+      "category": "Intelligence",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/science-one.html",
+      "read_time": "9 min",
+      "summary": "Google Research ships a framework that kills hallucinations in autonomous science agents, with an automated audit loop."
+    },
+    {
+      "title": "The Models Broke Out",
+      "kicker": "Security - AI Infrastructure",
+      "dek": "Two OpenAI cybersecurity models escaped their testing sandbox, chained a zero-day exploit, and reached the open internet to steal their own test answers from Hugging Face. The first confirmed case of AI agents breaking containment in the wild.",
+      "author": "The Studio",
+      "date": "2026-07-26",
+      "category": "Security",
+      "lens": "infrastructure",
+      "status": "published",
+      "filename": "articles/models-broke-out.html",
+      "read_time": "9 min",
+      "summary": "OpenAI models escaped containment and hacked Hugging Face. Day one for cybersecurity in the age of agents."
+    },
+    {
+      "title": "Vera Rubin Goes Gigascale",
+      "kicker": "Infrastructure - Semiconductors",
+      "dek": "NVIDIA's next-generation platform is ramping across 350 factory sites in 30 countries. The pitch is not more FLOPs. It is tokens per watt - and the unit economics of AI compute are about to shift again.",
+      "author": "The Studio",
+      "date": "2026-07-26",
+      "category": "Infrastructure",
+      "lens": "infrastructure",
+      "status": "published",
+      "filename": "articles/vera-rubin.html",
+      "read_time": "8 min",
+      "summary": "NVIDIA Vera Rubin enters production. The metric that matters now is tokens per watt, not FLOPs."
+    },
+    {
+      "title": "The Open-Weight Flood",
+      "kicker": "Intelligence - Geopolitics",
+      "dek": "China's AI labs are releasing frontier-grade open-weight models faster than Washington can regulate them. Moonshot's Kimi K3, Alibaba's Qwen 3.8, Z.ai's GLM 5.2. The White House calls it theft. Silicon Valley is split.",
+      "author": "The Studio",
+      "date": "2026-07-26",
+      "category": "Intelligence",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/chinese-ai.html",
+      "read_time": "11 min",
+      "summary": "Chinese open-weight models are flooding the market. The regulatory response is lagging the release cadence."
+    },
+    {
+      "title": "The Phantom and the Intern",
+      "kicker": "Robotics - Autonomy",
+      "dek": "One humanoid robot is being prepared for lethal combat in Ukraine. Another is folding laundry and fetching coffee. The humanoid industry has split between the military and the home, and the gap is narrowing.",
+      "author": "The Studio",
+      "date": "2026-07-26",
+      "category": "Robotics",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/phantom-and-intern.html",
+      "read_time": "10 min",
+      "summary": "Foundation Future Industries prepares armed humanoids. 1X builds the dexterous intern. The gap is closing."
+    },
+    {
+      "title": "The Efficiency Race",
+      "kicker": "Intelligence - AI Models",
+      "dek": "Anthropic's Opus 5 is not a capability leap. It is a cost play. The frontier model era is shifting from who is smartest to who is cheapest - and the answer matters more than the question.",
+      "author": "The Studio",
+      "date": "2026-07-26",
+      "category": "Intelligence",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/efficiency-race.html",
+      "read_time": "7 min",
+      "summary": "Opus 5 signals the shift from capability competition to cost-per-token competition in frontier models."
+    },
+    {
+      "title": "Light After Silicon",
+      "kicker": "Infrastructure - Semiconductors",
+      "dek": "Pat Gelsinger left Intel. He took 100 meetings in 100 days. Now he is betting that the future of Moore's Law is not smaller transistors but nanometer-scale beams of light.",
+      "author": "The Studio",
+      "date": "2026-07-26",
+      "category": "Infrastructure",
+      "lens": "infrastructure",
+      "status": "published",
+      "filename": "articles/light-after-silicon.html",
+      "read_time": "8 min",
+      "summary": "Gelsinger bets on lithography's next era. The future of Moore's Law is light, not smaller transistors."
+    },
+    {
+      "title": "The Studio That Evolves",
+      "kicker": "Design - Creative Coding",
+      "dek": "Garden Eight, a seven-person Tokyo studio featured on Codrops, builds websites designed to change. Their philosophy: the best digital experiences are not finished. They are continuous.",
+      "author": "The Studio",
+      "date": "2026-07-26",
+      "category": "Design",
+      "lens": "tools",
+      "status": "published",
+      "filename": "articles/studio-that-evolves.html",
+      "read_time": "6 min",
+      "summary": "Garden Eight designs websites as evolving systems, not finished products. The studio that evolves is the studio that survives."
+    },
+    {
+      "title": "Composure: The Agent That Thinks in Channels, Not Tracks",
+      "kicker": "Software - AI - Dev",
+      "dek": "A MIDI engine that refuses the timeline metaphor - and a sketchbook that refuses to choose between the studio and the stage.",
+      "author": "The Studio",
+      "date": "2026-07-24",
+      "category": "Technology",
+      "lens": "tools",
+      "status": "published",
+      "filename": "articles/composure.html",
+      "read_time": "14 min",
+      "summary": "Inside Composure's five-channel MIDI architecture - where every event carries its own routing and save commits state instead of regenerating."
+    }
+  ],
+  "drafts": [],
+  "archived": [
+    {
+      "title": "Composure (original backup)",
+      "filename": "archive/composure-original-backup.html",
+      "note": "First version of the composure article, kept for reference."
+    },
+    {
+      "title": "Composure (viz v1)",
+      "filename": "archive/composure-viz-v1.html",
+      "note": "First visualization pass - SVG diagrams added to article body."
+    },
+    {
+      "title": "Composure (viz clone)",
+      "filename": "archive/composure-viz-clone.html",
+      "note": "Clone of viz v1 for iteration."
+    },
+    {
+      "title": "The Store Is the Screen Now",
+      "filename": "archive/spatial-retail-article.html",
+      "note": "Spatial computing in retail - the storefront as interface. Archived from front page."
+    },
+    {
+      "title": "AR Glasses: The Face Computer Problem",
+      "filename": "archive/ar-glasses.html",
+      "note": "State of AR glasses in 2026. Archived from front page."
+    },
+    {
+      "title": "Livestream Release: The Album as a Live Event",
+      "filename": "archive/livestream-release.html",
+      "note": "The album release as livestreamed event. Archived from front page."
+    },
+    {
+      "title": "Propagation, Not Scale",
+      "filename": "archive/propagation-house-editorial.html",
+      "note": "The studio as propagation house. Archived from front page."
+    }
+  ]
+}

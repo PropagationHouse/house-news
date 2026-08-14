@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vera Rubin Goes Gigascale Ã¢Â?Â? house</title>
+<style>
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:'Playfair Display',Georgia,serif;--sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}.hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;text-align:center;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.4}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px 64px;font-size:19px;line-height:1.7;color:#2a2d1e}
+.article-body > *{margin-bottom:28px}
+.article-body p{margin-bottom:28px}
+.article-body p:last-child{margin-bottom:0}
+.article-body > p:first-of-type::first-letter{font-family:var(--serif);font-weight:900;font-size:76px;float:left;line-height:.82;margin:6px 12px 0 0;color:var(--accent);font-style:normal}
+.article-body .lead-para{font-size:21px;line-height:1.6;color:#1a1d12;font-weight:400}
+.article-body .lead-para::first-letter{font-size:inherit;float:none;margin:0;color:inherit;font-family:inherit;font-weight:inherit}
+.article-body em{font-family:var(--serif);font-style:italic;font-size:1.02em;color:var(--accent-dark)}
+.article-body strong{font-weight:700;color:var(--ink)}
+.article-body h2{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.15;letter-spacing:-.015em;margin:56px 0 20px;color:var(--ink);position:relative;padding-top:8px}
+.article-body h2::before{content:'';position:absolute;top:0;left:0;width:40px;height:2px;background:var(--accent)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-style:italic;font-size:24px;line-height:1.2;margin:40px 0 14px;color:var(--accent-dark)}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:30px;line-height:1.3;color:var(--accent-dark);border:none;padding:40px 0;margin:48px -40px;text-align:center;position:relative;max-width:none}
+.article-body .pull-quote::before,.article-body .pull-quote::after{content:'';display:block;width:48px;height:2px;background:var(--accent);margin:0 auto}
+.article-body .pull-quote::before{margin-bottom:24px}
+.article-body .pull-quote::after{margin-top:24px}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body figure{margin:48px -40px}
+.article-body .fig-img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 50%,#4b5320 100%);position:relative;overflow:hidden}
+.article-body .fig-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.article-body .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body figcaption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 40px}
+.article-body figcaption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+.article-body .interlude{background:var(--ink);color:var(--paper);max-width:none;margin:64px 0;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.article-body .interlude::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body .interlude .interlude-kicker{position:relative;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .interlude p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+.article-body .interlude p em{font-style:normal;color:var(--accent)}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+@media (max-width:768px){html{font-size:17px}.article-body{font-size:18px}.article-body .pull-quote{font-size:24px;margin:32px -16px}.article-body h2{font-size:28px}.article-body h3{font-size:20px}.related .rel-grid{grid-template-columns:1fr;gap:24px}.masthead nav{display:none}.article-body .stat-row{grid-template-columns:1fr;border-bottom:none}.article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}.article-body .interlude{padding:40px 24px}.article-body .interlude p{font-size:22px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="masthead">
+  <div class="logo"><a href="../index.html">house</a></div>
+  <div class="section-tag">Infrastructure</div>
+  <nav><a href="../index.html">Dispatches</a><a href="#">Studio</a><a href="#">Field Notes</a><a href="#">Index</a></nav>
+</header>
+
+<div class="article-hero">
+  <div class="kicker">Infrastructure &middot; Semiconductors</div>
+  <h1>Vera Rubin Goes <em>Gigascale</em></h1>
+  <p class="dek">NVIDIA's next-generation platform is ramping across 350 factory sites in 30 countries, backed by 300 partners. The pitch is not more FLOPs. It is <em>tokens per watt</em> - and the unit economics of AI compute are about to shift again.</p>
+  <div class="byline">By <strong>The Studio</strong><span class="sep">&middot;</span>July 26, 2026<span class="sep">&middot;</span>8 min read</div>
+</div>
+
+<div class="hero-figure">
+  <div class="hero-img"><img src="../assets/images/vera-rubin-hero.jpg" alt="A tall liquid-cooled server rack with 72 glowing slots" /></div>
+  <p class="caption">Vera Rubin NVL72 in production. 72 GPUs per rack, liquid-cooled, designed from chip to grid for the lowest token cost in the industry. Illustration by house.</p>
+</div>
+
+<article class="article-body">
+
+  <p class="lead-para">The metric that matters in AI compute has changed. For two years it was FLOPs - raw floating-point operations, the brute-force measure of how much math a chip could do. Then it was tokens per second - how fast a model could generate output. Now, with the Vera Rubin platform entering production at partners worldwide, NVIDIA is making a different argument entirely: <em>tokens per watt</em>.</p>
+
+  <p>The shift is not subtle. FLOPs measure capability. Tokens per second measure speed. Tokens per watt measures <em>economics</em>. It asks: how much does it cost to run this model, not in chip terms but in power terms? And power is the constraint that is actually breaking the industry.</p>
+
+  <aside class="sidenote">
+    <strong>Field Note</strong>
+    CoreWeave's first benchmark on Vera Rubin NVL72 running DeepSeek-R1 showed 10x more tokens per megawatt than Blackwell. That is not an incremental improvement. It is a category shift in unit economics.
+  </aside>
+
+  <p>Vera Rubin NVL72 - the rack-scale configuration, 72 GPUs per rack - is now in production at CoreWeave, Google Cloud, Microsoft Azure, Oracle Cloud Infrastructure, and Nebius. The supply chain spans 350+ factory sites in 30 countries. NVIDIA calls it the largest, most mature rack-scale supply chain ever assembled. That is marketing language, but it is also fact: no previous silicon platform has entered production with this many manufacturing partners at this scale simultaneously.</p>
+
+  <h2>The Power Problem</h2>
+
+  <p>Here is why tokens per watt is the metric that matters now. Data centers are running out of power. Not space, not cooling, not silicon - power. The grid cannot keep up. The Trump EPA is simultaneously considering a rule change that would hand states the power to decide how much public input there is on permits for new power plants - including the gas plants and diesel generators that data centers increasingly rely on. The rollback is being driven, in part, by AI firms that need more data centers and cannot wait for the permitting process.</p>
+
+  <p>This is the context in which Vera Rubin arrives. If the constraint is power, then the platform that delivers the most tokens per watt wins. CoreWeave's benchmark - 10x more tokens per megawatt than Blackwell on DeepSeek-R1 - is the number that matters. It does not mean Vera Rubin is 10x faster. It means for the same power budget, you get 10x more inference throughput. Or: for the same inference workload, you need 10x less power.</p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="num">350<span class="unit">+</span></div>
+      <div class="label">Factory sites across 30 countries in the Vera Rubin supply chain</div>
+    </div>
+    <div class="stat">
+      <div class="num">10<span class="unit">x</span></div>
+      <div class="label">More tokens per megawatt than Blackwell (CoreWeave benchmark, DeepSeek-R1)</div>
+    </div>
+    <div class="stat">
+      <div class="num">300<span class="unit">+</span></div>
+      <div class="label">Global partners backing the platform rollout</div>
+    </div>
+  </div>
+
+  <p>The political dimension is inseparable from the technical one. The same week NVIDIA announced Vera Rubin's ramp, the EPA held a public hearing on a rule that would let states decide how much - if any - public input there can be on permits for new sources of air pollution. The proposed rollback comes as data centers face growing pushback from communities over emissions and power consumption. The AI firms want more data centers. The neighbors want clean air. The EPA may be about to side with the firms.</p>
+
+  <h2>Built in Fort Worth</h2>
+
+  <p>The supply chain story is its own kind of geopolitics. Wistron, a Taiwanese electronics manufacturer, opened an advanced manufacturing plant in Fort Worth, Texas to produce NVIDIA AI systems. The plant is part of the broader onshoring push - bringing semiconductor and system assembly back to the US in response to export controls, tariff threats, and the strategic vulnerability of depending on Taiwan for advanced chip packaging.</p>
+
+  <p>Meanwhile, at the AI Summit in San Francisco, South Korean President Jae Myung Lee appeared with NVIDIA to outline the country's AI future. South Korea is one of the 30 countries in the Vera Rubin supply chain. The geopolitics of AI compute is no longer just about who makes the chips. It is about who assembles the racks, who builds the data centers, who generates the power, and who gets a say in whether any of it can be built at all.</p>
+
+  <div class="divider">* * *</div>
+
+  <h2>The Unit Economics Shift</h2>
+
+  <p>If Vera Rubin delivers on the tokens-per-watt promise, the unit economics of running AI models change. The cost of inference has been falling steadily, but it has been falling because chips got faster. Vera Rubin introduces a second axis: the cost of <em>power</em>. If you can get 10x more tokens per megawatt, your marginal cost per token drops not because the chip is cheaper but because the electricity bill is lower.</p>
+
+  <p>This matters for the business model of AI itself. The race to build frontier models - Anthropic's Opus 5, OpenAI's GPT-5.6, Google's Gemini updates - is a race that consumes enormous amounts of inference compute. Every query costs power. Every agent running in production costs power. If the power cost per token drops by an order of magnitude, the economics of agentic AI - models that run continuously, making dozens of API calls per task - become viable at scale.</p>
+
+  <p class="lead-para">The next platform war in AI will not be won by the model with the best benchmark. It will be won by the platform that delivers the most intelligence per watt. Vera Rubin is NVIDIA's opening bid.</p>
+
+</article>
+
+<div class="article-foot">
+  <div class="tags">
+    <a href="#">NVIDIA</a>
+    <a href="#">Semiconductors</a>
+    <a href="#">Data Centers</a>
+    <a href="#">Compute</a>
+  </div>
+  <div class="author-bio">
+    <div class="avatar">S</div>
+    <div class="bio-text">
+      <h4>The Studio</h4>
+      <div class="role">Propagation House Editorial</div>
+      <p>Dispatches from the workbench. The Studio covers what Propagation House builds, what it learns, and what it's watching next.</p>
+    </div>
+  </div>
+</div>
+
+<section class="related">
+  <div class="section-label">Related Dispatches</div>
+  <div class="rel-grid">
+    <article>
+      <div class="kicker">Security</div>
+      <h3><a href="models-broke-out.html">The Models Broke Out</a></h3>
+      <div class="meta">9 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Intelligence</div>
+      <h3><a href="chinese-ai.html">The Open-Weight Flood</a></h3>
+      <div class="meta">11 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Technology</div>
+      <h3><a href="composure.html">Composure: The Agent That Thinks in Channels</a></h3>
+      <div class="meta">14 min read</div>
+    </article>
+  </div>
+</section>
+
+<script>
+(function(){
+  var bar=document.getElementById('progress');
+  function update(){
+    var h=document.documentElement;
+    var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);
+    bar.style.width=(scrolled*100)+'%';
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+})();
+</script>
+
+</body>
+</html>

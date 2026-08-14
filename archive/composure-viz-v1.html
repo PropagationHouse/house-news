@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Composure: The Agent That Thinks in Channels, Not Tracks — SIGNAL</title>
+<style>
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f5f2e6;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#eae6d2;
+  --highlight:#f0ead0;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+  --measure:680px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ── READING PROGRESS ─────────────────────── */
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+
+/* ── MASTHEAD (minimal) ──────────────────── */
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--serif);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+
+/* ── ARTICLE HERO ────────────────────────── */
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+
+/* ── HERO IMAGE (optional) ───────────────── */
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;text-align:center;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.4}
+
+/* ── NO-IMAGE VARIANT ────────────────────── */
+.article-hero.no-image{padding-bottom:56px;position:relative}
+.article-hero.no-image::after{content:'';display:block;width:60px;height:3px;background:var(--accent);margin:40px auto 0}
+.article-hero.no-image h1{font-size:clamp(44px,7vw,88px)}
+
+/* ── ARTICLE BODY ────────────────────────── */
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px 64px;font-size:19px;line-height:1.7;color:#2a2d1e}
+.article-body > *{margin-bottom:28px}
+.article-body p{margin-bottom:28px}
+.article-body p:last-child{margin-bottom:0}
+
+/* Drop cap — first paragraph */
+.article-body > p:first-of-type::first-letter{font-family:var(--serif);font-weight:900;font-size:76px;float:left;line-height:.82;margin:6px 12px 0 0;color:var(--accent);font-style:normal}
+
+/* Lead paragraph — slightly larger, no drop cap alternative */
+.article-body .lead-para{font-size:21px;line-height:1.6;color:#1a1d12;font-weight:400}
+.article-body .lead-para::first-letter{font-size:inherit;float:none;margin:0;color:inherit;font-family:inherit;font-weight:inherit}
+
+/* Inline emphasis */
+.article-body em{font-family:var(--serif);font-style:italic;font-size:1.02em;color:var(--accent-dark)}
+.article-body strong{font-weight:700;color:var(--ink)}
+
+/* ── SUBHEADINGS ─────────────────────────── */
+.article-body h2{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.15;letter-spacing:-.015em;margin:56px 0 20px;color:var(--ink);position:relative;padding-top:8px}
+.article-body h2::before{content:'';position:absolute;top:0;left:0;width:40px;height:2px;background:var(--accent)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-style:italic;font-size:24px;line-height:1.2;margin:40px 0 14px;color:var(--accent-dark)}
+
+/* ── PULL QUOTE ──────────────────────────── */
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:30px;line-height:1.3;color:var(--accent-dark);border:none;padding:40px 0;margin:48px -40px;text-align:center;position:relative;max-width:none}
+.article-body .pull-quote::before,.article-body .pull-quote::after{content:'';display:block;width:48px;height:2px;background:var(--accent);margin:0 auto}
+.article-body .pull-quote::before{margin-bottom:24px}
+.article-body .pull-quote::after{margin-top:24px}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+
+/* ── BLOCKQUOTE ──────────────────────────── */
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+
+/* ── INLINE FIGURE ───────────────────────── */
+.article-body figure{margin:48px -40px}
+.article-body .fig-img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 50%,#4b5320 100%);position:relative;overflow:hidden}
+.article-body .fig-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.article-body .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body figcaption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 40px}
+.article-body figcaption strong{font-style:normal;color:var(--ink);font-weight:700}
+
+/* ── FULL-BLEED FIGURE ───────────────────── */
+.article-body figure.full-bleed{margin:56px calc(50% - 50vw);max-width:none}
+.article-body figure.full-bleed .fig-img{aspect-ratio:21/9}
+.article-body figure.full-bleed figcaption{padding:0 24px;max-width:var(--measure);margin:10px auto 0}
+
+/* ── SIDENOTES ───────────────────────────── */
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+
+/* ── LISTS ───────────────────────────────── */
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body ol{list-style:none;counter-reset:item;padding-left:0}
+.article-body ol li{counter-increment:item;padding-left:40px;position:relative}
+.article-body ol li::before{content:counter(item);position:absolute;left:0;top:0;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--accent);line-height:1.1}
+
+/* ── KEY TAKEAWAYS BOX ───────────────────── */
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:48px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+
+/* ── SECTION DIVIDER ─────────────────────── */
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+
+/* ── CODE BLOCK ──────────────────────────── */
+.article-body pre{background:#1a1d12;color:#eae6d2;padding:20px 24px;margin:32px 0;font-family:'SF Mono',Consolas,monospace;font-size:14px;line-height:1.6;overflow-x:auto;border-left:3px solid var(--accent)}
+.article-body code{font-family:'SF Mono',Consolas,monospace;font-size:.92em;background:var(--bg-tint);padding:2px 6px;color:var(--accent-dark)}
+.article-body pre code{background:none;padding:0;color:inherit}
+
+/* ── ARTICLE FOOTER ──────────────────────── */
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+
+/* ── RELATED ─────────────────────────────── */
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+
+/* DIMENSIONAL: DUO GRID (text + figure side by side) */
+.article-body .duo{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:none;margin:48px 0;align-items:start}
+.article-body .duo .duo-text{font-size:17px;line-height:1.65;color:#3a3d2e}
+.article-body .duo .duo-text p{margin-bottom:14px}
+.article-body .duo .duo-text p:last-child{margin-bottom:0}
+.article-body .duo .duo-fig .fig-img{aspect-ratio:3/4;background:linear-gradient(160deg,#1a1d12 0%,#3a4018 60%,#4b5320 100%);position:relative;overflow:hidden}
+.article-body .duo .duo-fig .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(245,242,230,.08) 0%,transparent 60%)}
+.article-body .duo .duo-fig figcaption{font-size:13px}
+
+/* DIMENSIONAL: OFFSET QUOTE */
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0 56px calc((var(--measure) - 100%) / 2 - 40px);padding-right:40px;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote::before{content:'\201C';position:absolute;left:-12px;top:-20px;font-size:80px;color:var(--accent);opacity:.25;font-family:var(--serif);line-height:1}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:700}
+
+/* DIMENSIONAL: STAT BLOCK */
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+
+/* DIMENSIONAL: TWO-COLUMN TEXT RUN */
+.article-body .two-col{column-count:2;column-gap:36px;column-rule:1px solid var(--rule);max-width:none;margin:40px 0;font-size:16px;line-height:1.65;color:#3a3d2e}
+.article-body .two-col p{margin-bottom:14px;break-inside:avoid-column}
+.article-body .two-col p:first-child{margin-top:0}
+.article-body .two-col h3{break-after:avoid;break-inside:avoid-column}
+
+/* DIMENSIONAL: WIDE SECTION */
+.article-body .wide{max-width:920px;margin-left:calc((100% - 920px) / 2);margin-right:calc((100% - 920px) / 2)}
+.article-body .wide h2{font-size:34px}
+
+/* DIMENSIONAL: INTERLUDE */
+.article-body .interlude{background:var(--ink);color:var(--paper);max-width:none;margin:64px 0;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.article-body .interlude::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body .interlude .interlude-kicker{position:relative;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .interlude p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+.article-body .interlude p em{font-style:normal;color:var(--accent)}
+
+/* DIMENSIONAL: FIGURE-LEFT / FIGURE-RIGHT */
+.article-body .figure-left{float:left;width:280px;margin:8px 28px 16px 0;max-width:none}
+.article-body .figure-right{float:right;width:280px;margin:8px 0 16px 28px;max-width:none}
+.article-body .figure-left .fig-img,.article-body .figure-right .fig-img{aspect-ratio:3/4;background:linear-gradient(160deg,#2a2e1a 0%,#4b5320 100%)}
+.article-body .figure-left figcaption,.article-body .figure-right figcaption{font-size:12px;margin-top:8px}
+.article-body .clearfix::after{content:'';display:block;clear:both}
+
+/* DIMENSIONAL: TAKEAWAYS GRID */
+.article-body .takeaways-grid{background:var(--bg-tint);border-left:4px solid var(--accent);padding:32px 36px;margin:48px 0;max-width:none}
+.article-body .takeaways-grid h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .takeaways-grid .takeaway-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px}
+.article-body .takeaways-grid .takeaway{display:flex;gap:14px;align-items:flex-start}
+.article-body .takeaways-grid .takeaway .num{font-family:var(--serif);font-weight:900;font-size:24px;color:var(--accent);line-height:1;flex-shrink:0;width:28px}
+.article-body .takeaways-grid .takeaway .txt{font-size:15px;line-height:1.5;color:#3a3d2e}
+
+/* ── RESPONSIVE ──────────────────────────── */
+@media (max-width:768px){
+  html{font-size:17px}
+  .article-body{font-size:18px}
+  .article-body .pull-quote{font-size:24px;margin:32px -16px}
+  .article-body h2{font-size:28px}
+  .article-body h3{font-size:20px}
+  .article-body figure{margin:32px -16px}
+  .article-body figcaption{padding:0 16px}
+  .article-body figure.full-bleed{margin:32px -24px}
+  .related .rel-grid{grid-template-columns:1fr;gap:24px}
+  .masthead nav{display:none}
+  .article-body .duo{grid-template-columns:1fr;gap:20px}
+  .article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px;padding-right:0}
+  .article-body .stat-row{grid-template-columns:1fr;border-bottom:none}
+  .article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}
+  .article-body .two-col{column-count:1}
+  .article-body .interlude{padding:40px 24px}
+  .article-body .interlude p{font-size:22px}
+  .article-body .figure-left,.article-body .figure-right{float:none;width:100%;margin:24px 0}
+  .article-body .takeaways-grid .takeaway-grid{grid-template-columns:1fr}
+}
+
+@media (min-width:1100px){
+  .article-body .sidenote{position:relative;width:200px;float:right;margin:8px -260px 8px 24px;padding:0 0 0 16px;border-left:2px solid var(--rule);border-top:none;font-size:13px}
+  .article-body .sidenote strong{margin-bottom:6px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- ── MASTHEAD ─────────────────────────────── -->
+<header class="masthead">
+  <div class="logo"><a href="index.html">SIGNAL</a></div>
+  <div class="section-tag">Software</div>
+  <nav>
+    <a href="#">Dispatches</a>
+    <a href="#">Studio</a>
+    <a href="#">Field Notes</a>
+    <a href="#">Index</a>
+  </nav>
+</header>
+
+<!-- ── ARTICLE HERO ────────────────────────── -->
+<div class="article-hero">
+  <div class="kicker">Software · AI · Dev</div>
+  <h1>Composure: The Agent That Thinks in <em>Channels</em>, Not Tracks</h1>
+  <p class="dek">A MIDI engine that refuses the timeline metaphor — and what happens when you build a music tool around the way an LLM actually <em>hears</em> a song, instead of the way a human arranges one.</p>
+  <div class="byline">By <strong>The Studio</strong><span class="sep">·</span>July 24, 2026<span class="sep">·</span>10 min read</div>
+</div>
+
+<!-- ── HERO FIGURE ──────────────────────────── -->
+<div class="hero-figure">
+  <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;background:#1a1d12;border-radius:2px">
+    <defs>
+      <linearGradient id="laneGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2a2e1a"/><stop offset="100%" stop-color="#1a1d12"/>
+      </linearGradient>
+    </defs>
+    <rect x="0" y="0" width="800" height="360" fill="url(#laneGrad)"/>
+    <g font-family="'Acumin Pro',sans-serif" font-size="11" font-weight="700" fill="#8a8d6a" letter-spacing="1">
+      <text x="20" y="55">CH 1 - DRUMS</text>
+      <text x="20" y="115">CH 2 - LEAD</text>
+      <text x="20" y="175">CH 3 - MELODY</text>
+      <text x="20" y="235">CH 4 - AMBIENCE</text>
+      <text x="20" y="295">CH 5 - BASS</text>
+    </g>
+    <g opacity="0.12">
+      <rect x="130" y="38" width="650" height="34" fill="#4b5320" rx="2"/>
+      <rect x="130" y="98" width="650" height="34" fill="#4b5320" rx="2"/>
+      <rect x="130" y="158" width="650" height="34" fill="#4b5320" rx="2"/>
+      <rect x="130" y="218" width="650" height="34" fill="#4b5320" rx="2"/>
+      <rect x="130" y="278" width="650" height="34" fill="#4b5320" rx="2"/>
+    </g>
+    <g stroke="#3a4018" stroke-width="0.5" opacity="0.4">
+      <line x1="130" y1="36" x2="130" y2="320"/><line x1="260" y1="36" x2="260" y2="320"/>
+      <line x1="390" y1="36" x2="390" y2="320"/><line x1="520" y1="36" x2="520" y2="320"/>
+      <line x1="650" y1="36" x2="650" y2="320"/><line x1="780" y1="36" x2="780" y2="320"/>
+    </g>
+    <g fill="#f5f2e6">
+      <rect x="140" y="42" width="22" height="26" rx="3"/><rect x="270" y="42" width="22" height="26" rx="3" opacity="0.55"/>
+      <rect x="400" y="42" width="22" height="26" rx="3"/><rect x="530" y="42" width="22" height="26" rx="3" opacity="0.55"/>
+      <rect x="660" y="42" width="22" height="26" rx="3"/>
+      <rect x="205" y="42" width="14" height="26" rx="2" opacity="0.45"/><rect x="335" y="42" width="14" height="26" rx="2" opacity="0.45"/>
+      <rect x="465" y="42" width="14" height="26" rx="2" opacity="0.45"/><rect x="595" y="42" width="14" height="26" rx="2" opacity="0.45"/>
+      <rect x="725" y="42" width="14" height="26" rx="2" opacity="0.45"/>
+    </g>
+    <g fill="#8fa84e">
+      <rect x="160" y="102" width="40" height="26" rx="3"/><rect x="230" y="102" width="30" height="26" rx="3" opacity="0.7"/>
+      <rect x="300" y="102" width="50" height="26" rx="3"/><rect x="380" y="102" width="35" height="26" rx="3" opacity="0.8"/>
+      <rect x="460" y="102" width="45" height="26" rx="3"/><rect x="540" y="102" width="30" height="26" rx="3" opacity="0.6"/>
+      <rect x="620" y="102" width="55" height="26" rx="3"/><rect x="710" y="102" width="35" height="26" rx="3" opacity="0.7"/>
+    </g>
+    <g fill="#c9d480">
+      <rect x="145" y="162" width="28" height="26" rx="3"/><rect x="210" y="162" width="22" height="26" rx="3" opacity="0.8"/>
+      <rect x="265" y="162" width="35" height="26" rx="3"/><rect x="340" y="162" width="25" height="26" rx="3" opacity="0.7"/>
+      <rect x="400" y="162" width="40" height="26" rx="3"/><rect x="475" y="162" width="30" height="26" rx="3" opacity="0.8"/>
+      <rect x="545" y="162" width="28" height="26" rx="3"/><rect x="610" y="162" width="38" height="26" rx="3" opacity="0.7"/>
+      <rect x="685" y="162" width="30" height="26" rx="3"/><rect x="745" y="162" width="20" height="26" rx="3" opacity="0.6"/>
+    </g>
+    <g fill="#6b6e5a" opacity="0.75">
+      <rect x="135" y="222" width="180" height="26" rx="13"/><rect x="340" y="222" width="220" height="26" rx="13"/>
+      <rect x="590" y="222" width="190" height="26" rx="13"/>
+    </g>
+    <g fill="#4b5320">
+      <rect x="145" y="282" width="50" height="26" rx="3"/><rect x="270" y="282" width="45" height="26" rx="3" opacity="0.8"/>
+      <rect x="400" y="282" width="50" height="26" rx="3"/><rect x="530" y="282" width="45" height="26" rx="3" opacity="0.8"/>
+      <rect x="660" y="282" width="50" height="26" rx="3"/>
+    </g>
+    <text x="400" y="345" text-anchor="middle" font-family="'Playfair Display',serif" font-style="italic" font-size="13" fill="#6b6e5a">Five channels. One moment. Every voice addressable, none dependent on another.</text>
+  </svg>
+  <p class="caption">Composure's channel map rendered as a live state diagram. Five lanes, each a distinct instrument voice, each independently mutable without touching the others.</p>
+</div>
+
+<!-- ── ARTICLE BODY ─────────────────────────── -->
+<article class="article-body">
+
+  <p class="lead-para">Every digital audio workstation in the world is built on the same lie. The timeline. The horizontal scroll of bars and clips that pretends a song is a sequence — first this, then that, then this — when anyone who has actually <em>listened</em> to a piece of music knows it isn't. A song is a stack. Drums happen at the same time as the bass happens at the same time as the melody. The timeline is a convenience for editing. It is not what the music <em>is</em>.</p>
+
+  <p>Composure, the in-house MIDI engine we've been running for the last six months, starts from the other end. It does not see a song as a sequence of events along a track. It sees a song as a set of channels — five of them, currently — each one a distinct instrument voice that exists for the entire duration of the piece and can be spoken to independently. Drums. Lead. Melody. Ambience. Bass. The agent does not arrange them. It <em>inhabits</em> them.</p>
+
+  <!-- Sidenote -->
+  <aside class="sidenote">
+    <strong>Field Note</strong>
+    Composure exposes 16 tools over a JSON-RPC endpoint. Five of them are channel operations. The rest handle playback, sessions, and what the codebase calls "mood" — a parameterized emotional frame for generation.
+  </aside>
+
+  <p>This is the part that sounds like a technical detail and is actually a philosophical one. Every other AI music tool I've used — and I've used most of them — treats generation as a one-shot act. You prompt. It produces a song. You prompt again. It produces another song. The output is atomic, finished, sealed. If you don't like the bassline, you regenerate the whole thing and hope the new one keeps the parts you liked. This is the timeline metaphor applied to AI: the model is a track, and you either keep the track or you don't.</p>
+
+  <!-- DIMENSIONAL: Stat block -->
+  <div class="stat-row">
+    <div class="stat">
+      <div class="num">5<span class="unit">ch</span></div>
+      <div class="label">Persistent voices — Drums, Lead, Melody, Ambience, Bass</div>
+    </div>
+    <div class="stat">
+      <div class="num">16<span class="unit">tools</span></div>
+      <div class="label">JSON-RPC surface — channel ops, playback, sessions, mood</div>
+    </div>
+    <div class="stat">
+      <div class="num">0<span class="unit">re-rolls</span></div>
+      <div class="label">Mutations on save — state commits, model never re-generates</div>
+    </div>
+  </div>
+
+  <h2>Channels Are Not Tracks</h2>
+
+  <!-- DIMENSIONAL: Figure-left text wrap -->
+  <figure class="figure-left">
+    <svg viewBox="0 0 280 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;background:#1a1d12;border-radius:4px">
+      <text x="70" y="20" text-anchor="middle" font-family="'Acumin Pro',sans-serif" font-size="9" font-weight="700" fill="#8a8d6a" letter-spacing="1">TIMELINE</text>
+      <g stroke="#3a4018" stroke-width="0.5" opacity="0.5">
+        <line x1="10" y1="30" x2="130" y2="30"/><line x1="10" y1="70" x2="130" y2="70"/>
+        <line x1="10" y1="110" x2="130" y2="110"/><line x1="10" y1="150" x2="130" y2="150"/>
+        <line x1="10" y1="190" x2="130" y2="190"/>
+      </g>
+      <g fill="#4b5320" opacity="0.7">
+        <rect x="12" y="33" width="35" height="30" rx="2"/><rect x="55" y="33" width="40" height="30" rx="2" opacity="0.6"/>
+        <rect x="12" y="73" width="50" height="30" rx="2"/><rect x="70" y="73" width="25" height="30" rx="2" opacity="0.5"/>
+        <rect x="12" y="113" width="30" height="30" rx="2"/><rect x="50" y="113" width="45" height="30" rx="2" opacity="0.6"/><rect x="105" y="113" width="20" height="30" rx="2" opacity="0.4"/>
+        <rect x="12" y="153" width="60" height="30" rx="2" opacity="0.5"/>
+        <rect x="12" y="193" width="40" height="30" rx="2"/><rect x="60" y="193" width="35" height="30" rx="2" opacity="0.6"/>
+      </g>
+      <text x="70" y="240" text-anchor="middle" font-family="'Playfair Display',serif" font-style="italic" font-size="10" fill="#6b6e5a">Sequential. First this,</text>
+      <text x="70" y="254" text-anchor="middle" font-family="'Playfair Display',serif" font-style="italic" font-size="10" fill="#6b6e5a">then that. Edit by</text>
+      <text x="70" y="268" text-anchor="middle" font-family="'Playfair Display',serif" font-style="italic" font-size="10" fill="#6b6e5a">cutting clips.</text>
+      <line x1="140" y1="10" x2="140" y2="370" stroke="#3a4018" stroke-width="1" stroke-dasharray="3,4"/>
+      <text x="210" y="20" text-anchor="middle" font-family="'Acumin Pro',sans-serif" font-size="9" font-weight="700" fill="#8fa84e" letter-spacing="1">CHANNELS</text>
+      <g fill="#4b5320" opacity="0.15">
+        <rect x="150" y="30" width="120" height="30" rx="2"/><rect x="150" y="70" width="120" height="30" rx="2"/>
+        <rect x="150" y="110" width="120" height="30" rx="2"/><rect x="150" y="150" width="120" height="30" rx="2"/>
+        <rect x="150" y="190" width="120" height="30" rx="2"/>
+      </g>
+      <g font-family="'Acumin Pro',sans-serif" font-size="7" font-weight="700" fill="#8a8d6a">
+        <text x="153" y="48">DRUMS</text><text x="153" y="88">LEAD</text>
+        <text x="153" y="128">MELODY</text><text x="153" y="168">AMB</text>
+        <text x="153" y="208">BASS</text>
+      </g>
+      <g fill="#f5f2e6" opacity="0.8"><rect x="185" y="35" width="8" height="20" rx="1"/><rect x="200" y="35" width="8" height="20" rx="1" opacity="0.5"/><rect x="215" y="35" width="8" height="20" rx="1"/><rect x="230" y="35" width="8" height="20" rx="1" opacity="0.5"/><rect x="245" y="35" width="8" height="20" rx="1"/></g>
+      <g fill="#8fa84e"><rect x="180" y="75" width="20" height="20" rx="2"/><rect x="210" y="75" width="15" height="20" rx="2" opacity="0.7"/><rect x="235" y="75" width="25" height="20" rx="2"/></g>
+      <g fill="#c9d480"><rect x="175" y="115" width="14" height="20" rx="2"/><rect x="195" y="115" width="18" height="20" rx="2" opacity="0.8"/><rect x="220" y="115" width="14" height="20" rx="2"/><rect x="240" y="115" width="20" height="20" rx="2" opacity="0.7"/></g>
+      <g fill="#6b6e5a" opacity="0.7"><rect x="170" y="155" width="90" height="20" rx="10"/></g>
+      <g fill="#4b5320"><rect x="180" y="195" width="25" height="20" rx="2"/><rect x="215" y="195" width="20" height="20" rx="2" opacity="0.8"/><rect x="245" y="195" width="20" height="20" rx="2"/></g>
+      <text x="210" y="240" text-anchor="middle" font-family="'Playfair Display',serif" font-style="italic" font-size="10" fill="#8fa84e">Simultaneous. Each</text>
+      <text x="210" y="254" text-anchor="middle" font-family="'Playfair Display',serif" font-style="italic" font-size="10" fill="#8fa84e">voice runs full-length.</text>
+      <text x="210" y="268" text-anchor="middle" font-family="'Playfair Display',serif" font-style="italic" font-size="10" fill="#8fa84e">Edit by channel.</text>
+    </svg>
+    <figcaption><strong>Fig. 0</strong> &mdash; Timeline vs. Channels. Same song, two mental models. Left: events arranged in sequence. Right: five voices running in parallel, each independently addressable.</figcaption>
+  </figure>
+
+  <p>The distinction matters more than it sounds. A track is a container for events — a row in a spreadsheet of time. A channel is a voice — a persistent identity that runs through the entire piece and can be addressed, modified, or replaced without disturbing the others. The difference is the difference between editing a document and having a conversation.</p>
+
+  <p>Concretely: Composure's channel map is fixed at five voices — Drums on channel 1, Lead on 2, Melody on 3, Ambience on 4, Bass on 5. When you ask it to compose, it doesn't produce a single blob of MIDI. It produces five parallel streams, each tagged with its channel, each coherent with the others but independently addressable. You can then say "transpose the bass down a fifth" and only channel 5 changes. The drums, the lead, the melody, the ambience — they hold. The song stays itself. One voice shifts.</p>
+
+  <div class="clearfix"></div>
+
+  <!-- DIMENSIONAL: Offset quote (hangs left, oversized) -->
+  <blockquote class="offset-quote">
+    We didn't want a model that produces songs. We wanted a model that holds a song in its head and lets you talk to the parts of it.
+    <span class="attribution">— Studio Notes, Composure Design Log</span>
+  </blockquote>
+
+  <h3>What the workflow actually looks like</h3>
+
+  <!-- DIMENSIONAL: Duo grid (text + figure side by side) -->
+  <div class="duo">
+    <div class="duo-text">
+      <p>The interaction model is the part that surprised me. Early on, I assumed the right interface would be conversational in the chatbot sense — type instructions, receive music. What actually emerged is closer to directing a band.</p>
+      <p>You don't tell Composure what to play. You tell it what each player should be doing, and it figures out how they fit together. <code>get_channel_map</code> shows the voices. <code>play_midi</code> starts them. <code>modify_playback</code> mutates one without touching the others.</p>
+      <p>When you land on something you want to keep, <code>save_current</code> pulls the in-memory state down to the timeline as a committed take. The model never re-rolls. The song is a living object you're shaping.</p>
+    </div>
+    <div class="duo-fig">
+      <figure style="margin:0">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;background:#1a1d12;border-radius:4px">
+          <defs>
+            <marker id="arrow1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6 Z" fill="#8fa84e"/>
+            </marker>
+            <marker id="arrowloop" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6 Z" fill="#c9d480"/>
+            </marker>
+          </defs>
+          <!-- Node 1: get_channel_map -->
+          <rect x="120" y="15" width="160" height="34" rx="4" fill="#2a2e1a" stroke="#4b5320" stroke-width="1.5"/>
+          <text x="200" y="36" text-anchor="middle" font-family="'SF Mono',Consolas,monospace" font-size="11" fill="#f5f2e6">get_channel_map</text>
+          <line x1="200" y1="49" x2="200" y2="75" stroke="#8fa84e" stroke-width="1.5" marker-end="url(#arrow1)"/>
+          <!-- Node 2: play_midi -->
+          <rect x="130" y="78" width="140" height="34" rx="4" fill="#2a2e1a" stroke="#4b5320" stroke-width="1.5"/>
+          <text x="200" y="99" text-anchor="middle" font-family="'SF Mono',Consolas,monospace" font-size="11" fill="#f5f2e6">play_midi</text>
+          <line x1="200" y1="112" x2="200" y2="138" stroke="#8fa84e" stroke-width="1.5" marker-end="url(#arrow1)"/>
+          <!-- Node 3: modify_playback (with loop) -->
+          <rect x="115" y="141" width="170" height="34" rx="4" fill="#3a4018" stroke="#8fa84e" stroke-width="2"/>
+          <text x="200" y="162" text-anchor="middle" font-family="'SF Mono',Consolas,monospace" font-size="11" fill="#c9d480">modify_playback</text>
+          <!-- Loop arrow back to itself -->
+          <path d="M 285 158 Q 340 158 340 120 Q 340 95 285 95" fill="none" stroke="#c9d480" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowloop)"/>
+          <text x="355" y="130" font-family="'Playfair Display',serif" font-style="italic" font-size="9" fill="#c9d480">iterate</text>
+          <line x1="200" y1="175" x2="200" y2="201" stroke="#8fa84e" stroke-width="1.5" marker-end="url(#arrow1)"/>
+          <!-- Node 4: save_current -->
+          <rect x="130" y="204" width="140" height="34" rx="4" fill="#4b5320" stroke="#8fa84e" stroke-width="2"/>
+          <text x="200" y="225" text-anchor="middle" font-family="'SF Mono',Consolas,monospace" font-size="11" fill="#f5f2e6">save_current</text>
+          <line x1="200" y1="238" x2="200" y2="260" stroke="#8fa84e" stroke-width="1.5" marker-end="url(#arrow1)"/>
+          <!-- Output -->
+          <text x="200" y="278" text-anchor="middle" font-family="'Acumin Pro',sans-serif" font-size="9" font-weight="700" fill="#6b6e5a" letter-spacing="1">TIMELINE COMMIT (no re-roll)</text>
+        </svg>
+        <figcaption><strong>Fig. 1</strong> &mdash; The Composure workflow as a flow. <code>modify_playback</code> loops on itself &mdash; iterate as many times as you want. <code>save_current</code> commits state without regeneration.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <p>This is the move that took me the longest to internalize: <em>save does not regenerate.</em> The instinct, after years of generative tools, is to treat "save" as "produce the final version." Composure treats it as "commit the current state of the channels to the timeline." The distinction is small in description and enormous in practice. It means the model is never re-rolling the dice on something you already liked. It means the song is a living object you're shaping, not a slot machine you're pulling.</p>
+
+  <!-- DIMENSIONAL: Interlude (full-width dark break) -->
+  <div class="interlude">
+    <div class="interlude-kicker">Interlude</div>
+    <p>The timeline metaphor asks: what should come <em>next</em>? The channel metaphor asks: what should each voice be doing <em>right now</em>? Only one of those questions produces a tool you can think in.</p>
+  </div>
+
+  <h2>Why the Metaphor Is the Feature</h2>
+
+  <!-- DIMENSIONAL: Two-column text run -->
+  <div class="two-col">
+    <p>Here's where it gets interesting, and where Composure diverges from the rest of the AI music field. Every major model — Suno, Udio, the open-source clones — has spent the last two years optimizing for fidelity and length. Longer songs. Better audio. More convincing vocals. These are real gains.</p>
+    <p>But they're gains along an axis that assumes the user is a consumer, not a producer. The implicit user of those tools is someone who wants a finished track and is willing to accept whatever the model returns.</p>
+    <p>Composure's implicit user is someone who has an opinion about the bassline. Someone who hears a draft and thinks "the drums are right but the melody is too busy" — and wants to act on that thought without losing the drums. That user does not exist in the Suno interaction model. They cannot exist. The model has no concept of "the drums" as a separable object. It has a waveform.</p>
+  </div>
+
+  <aside class="sidenote">
+    <strong>Contrast</strong>
+    Suno v4: 4-minute stereo audio, no per-stem access. Composure: 5-channel MIDI, per-voice mutation, no audio rendering at all. Different tools for different users — but only one of them assumes you might want to change your mind.
+  </aside>
+
+  <figure class="full-bleed" style="margin:40px 0;max-width:var(--measure)">
+    <table style="width:100%;border-collapse:collapse;font-family:'Acumin Pro',sans-serif;font-size:13px;background:#11130c;border:1px solid #2a2e1a">
+      <thead>
+        <tr style="background:#1a1d12">
+          <th style="text-align:left;padding:10px 14px;color:#8a8d6a;font-size:10px;letter-spacing:1px;border-bottom:1px solid #2a2e1a">AXIS</th>
+          <th style="text-align:left;padding:10px 14px;color:#c9d480;font-size:10px;letter-spacing:1px;border-bottom:1px solid #2a2e1a">COMPOSURE</th>
+          <th style="text-align:left;padding:10px 14px;color:#8a8d6a;font-size:10px;letter-spacing:1px;border-bottom:1px solid #2a2e1a">SUNO / UDIO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:9px 14px;color:#6b6e5a;border-bottom:1px solid #1a1d12">Output format</td><td style="padding:9px 14px;color:#f5f2e6;border-bottom:1px solid #1a1d12">5-channel MIDI</td><td style="padding:9px 14px;color:#f5f2e6;border-bottom:1px solid #1a1d12">Rendered stereo audio</td></tr>
+        <tr><td style="padding:9px 14px;color:#6b6e5a;border-bottom:1px solid #1a1d12">Per-stem access</td><td style="padding:9px 14px;color:#f5f2e6;border-bottom:1px solid #1a1d12">Yes — 5 independent channels</td><td style="padding:9px 14px;color:#f5f2e6;border-bottom:1px solid #1a1d12">No — single waveform</td></tr>
+        <tr><td style="padding:9px 14px;color:#6b6e5a;border-bottom:1px solid #1a1d12">Iteration model</td><td style="padding:9px 14px;color:#f5f2e6;border-bottom:1px solid #1a1d12">Mutate in place, no re-roll</td><td style="padding:9px 14px;color:#f5f2e6;border-bottom:1px solid #1a1d12">Re-generate from prompt</td></tr>
+        <tr><td style="padding:9px 14px;color:#6b6e5a;border-bottom:1px solid #1a1d12">User assumption</td><td style="padding:9px 14px;color:#f5f2e6;border-bottom:1px solid #1a1d12">Producer with opinions</td><td style="padding:9px 14px;color:#f5f2e6;border-bottom:1px solid #1a1d12">Consumer seeking a track</td></tr>
+        <tr><td style="padding:9px 14px;color:#6b6e5a;border-bottom:1px solid #1a1d12">State persistence</td><td style="padding:9px 14px;color:#f5f2e6;border-bottom:1px solid #1a1d12">Yes — save commits to timeline</td><td style="padding:9px 14px;color:#f5f2e6;border-bottom:1px solid #1a1d12">No — each gen is stateless</td></tr>
+        <tr><td style="padding:9px 14px;color:#6b6e5a">Audio fidelity</td><td style="padding:9px 14px;color:#f5f2e6">None (MIDI only)</td><td style="padding:9px 14px;color:#f5f2e6">High (vocals, mix)</td></tr>
+      </tbody>
+    </table>
+    <figcaption style="padding:10px 14px 0;max-width:var(--measure);margin:6px auto 0"><strong>Fig. 4</strong> &mdash; Not better, not worse. Different axes. The tools optimize for opposite assumptions about who is sitting at the keyboard.</figcaption>
+  </figure>
+
+
+  <!-- DIMENSIONAL: Takeaways as 2-col grid -->
+  <div class="takeaways-grid">
+    <h4>Key Takeaways</h4>
+    <div class="takeaway-grid">
+      <div class="takeaway"><div class="num">1</div><div class="txt">Composure models songs as five persistent channels — Drums, Lead, Melody, Ambience, Bass — not as a single timeline of events.</div></div>
+      <div class="takeaway"><div class="num">2</div><div class="txt">Each channel is independently mutable via <code>modify_playback</code>: transpose, add events, scale velocity or tempo, without regenerating the others.</div></div>
+      <div class="takeaway"><div class="num">3</div><div class="txt">"Save" commits the current playback state to the timeline — it does not re-roll the model. Nothing you liked is ever at risk during iteration.</div></div>
+      <div class="takeaway"><div class="num">4</div><div class="txt">The tool trades audio fidelity for structural control. It outputs MIDI, not rendered audio, and assumes the user is a producer with opinions.</div></div>
+    </div>
+  </div>
+
+  <div class="wide">
+  <h2>The Mood Primitive</h2>
+
+  <p>The one piece I haven't talked about yet is <code>create_mood</code>. This is the closest Composure gets to the prompt-and-receive model, and it's telling that even here the metaphor holds. A mood is not a prompt for a song. It's a parameterized emotional frame — tension, brightness, density, motion — that the engine uses to shape generation across all five channels. You set a mood, and the channels respond to it together, the way a band responds to a change in the room. You don't get a song. You get a <em>disposition</em>, and the song emerges from it.</p>
+
+  <p>This is where the channel model pays off in a way that isn't obvious until you use it. A mood shift doesn't replace the material — it colors it. The drums get sparser. The ambience gets darker. The bass pulls back. The melody holds its notes longer. Each channel interprets the mood change in its own voice, and the aggregate is what you hear. It's the difference between "play something sad" and "make what you're playing sadder." The second one is vastly more useful, and it's only possible if the model has persistent state to modify.</p>
+
+  <p>The studio's working theory is that this is the general shape of the next generation of creative AI tools — not bigger models, not better renders, but better <em>objects</em>. Persistent, addressable, mutable state that a human can shape without restarting. The song as a living thing, not a generated artifact. Whether Composure itself is the right implementation of that theory is an open question. That the theory is correct is, at this point, less and less in doubt.</p>
+  <p>The studio's working theory is that this is the general shape of the next generation of creative AI tools Ã¢ÂÂ not bigger models, not better renders, but better <em>objects</em>. Persistent, addressable, mutable state that a human can shape without restarting. The song as a living thing, not a generated artifact. Whether Composure itself is the right implementation of that theory is an open question. That the theory is correct is, at this point, less and less in doubt.</p>
+
+  <figure class="figure-left" style="max-width:420px;margin:40px auto 24px;float:none">
+    <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;background:#1a1d12;border-radius:4px">
+      <g fill="none" stroke="#2a2e1a" stroke-width="1">
+        <polygon points="200,60 320,180 200,300 80,180"/>
+        <polygon points="200,90 290,180 200,270 110,180"/>
+        <polygon points="200,120 260,180 200,240 140,180"/>
+      </g>
+      <g stroke="#2a2e1a" stroke-width="1">
+        <line x1="200" y1="180" x2="200" y2="60"/>
+        <line x1="200" y1="180" x2="320" y2="180"/>
+        <line x1="200" y1="180" x2="200" y2="300"/>
+        <line x1="200" y1="180" x2="80" y2="180"/>
+      </g>
+      <g font-family="'Acumin Pro',sans-serif" font-size="10" font-weight="700" fill="#8a8d6a" letter-spacing="1">
+        <text x="200" y="48" text-anchor="middle">TENSION</text>
+        <text x="335" y="184" text-anchor="start">BRIGHTNESS</text>
+        <text x="200" y="318" text-anchor="middle">DENSITY</text>
+        <text x="65" y="184" text-anchor="end">MOTION</text>
+      </g>
+      <g font-family="'SF Mono',Consolas,monospace" font-size="7" fill="#4b5320">
+        <text x="205" y="94">.75</text>
+        <text x="205" y="124">.50</text>
+        <text x="205" y="154">.25</text>
+      </g>
+      <polygon points="200,126 272,180 200,246 140,180" fill="#8fa84e" fill-opacity="0.18" stroke="#8fa84e" stroke-width="1.5"/>
+      <g fill="#8fa84e">
+        <circle cx="200" cy="126" r="3"/><circle cx="272" cy="180" r="3"/><circle cx="200" cy="246" r="3"/><circle cx="140" cy="180" r="3"/>
+      </g>
+      <polygon points="200,90 230,180 200,222 164,180" fill="#c9d480" fill-opacity="0.22" stroke="#c9d480" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <g fill="#c9d480">
+        <circle cx="200" cy="90" r="3"/><circle cx="230" cy="180" r="3"/><circle cx="200" cy="222" r="3"/><circle cx="164" cy="180" r="3"/>
+      </g>
+      <g font-family="'Acumin Pro',sans-serif" font-size="9" fill="#8a8d6a">
+        <rect x="20" y="332" width="14" height="3" fill="#8fa84e"/>
+        <text x="40" y="336">initial mood</text>
+        <rect x="140" y="332" width="14" height="3" fill="#c9d480"/>
+        <text x="160" y="336">after: "make it sadder"</text>
+      </g>
+      <text x="200" y="352" text-anchor="middle" font-family="'SF Mono',Consolas,monospace" font-size="8" fill="#6b6e5a">create_mood(tension=.75, brightness=.25, density=.35, motion=.30)</text>
+    </svg>
+    <figcaption><strong>Fig. 3</strong> &mdash; Mood as a shape, not a prompt. The dashed polygon shows how one parameter shift reshapes the disposition without replacing the underlying material.</figcaption>
+  </figure>
+
+  </div>
+
+  <!-- Full-bleed figure -->
+  <figure class="full-bleed">
+    <svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;background:#1a1d12;border-radius:2px">
+      <!-- State 1 -->
+      <text x="150" y="18" text-anchor="middle" font-family="'Acumin Pro',sans-serif" font-size="9" font-weight="700" fill="#8a8d6a" letter-spacing="1">STATE 1 - ORIGINAL</text>
+      <g font-family="'Acumin Pro',sans-serif" font-size="7" font-weight="700" fill="#6b6e5a">
+        <text x="15" y="45">DRUMS</text><text x="15" y="80">LEAD</text>
+        <text x="15" y="115">MELODY</text><text x="15" y="150">AMB</text>
+        <text x="15" y="185">BASS</text>
+      </g>
+      <g opacity="0.12"><rect x="55" y="32" width="190" height="18" rx="2" fill="#4b5320"/><rect x="55" y="67" width="190" height="18" rx="2" fill="#4b5320"/><rect x="55" y="102" width="190" height="18" rx="2" fill="#4b5320"/><rect x="55" y="137" width="190" height="18" rx="2" fill="#4b5320"/><rect x="55" y="172" width="190" height="18" rx="2" fill="#4b5320"/></g>
+      <g fill="#f5f2e6"><rect x="60" y="34" width="10" height="14" rx="1"/><rect x="80" y="34" width="10" height="14" rx="1" opacity="0.5"/><rect x="100" y="34" width="10" height="14" rx="1"/><rect x="120" y="34" width="10" height="14" rx="1" opacity="0.5"/><rect x="140" y="34" width="10" height="14" rx="1"/><rect x="160" y="34" width="10" height="14" rx="1" opacity="0.5"/><rect x="180" y="34" width="10" height="14" rx="1"/><rect x="200" y="34" width="10" height="14" rx="1" opacity="0.5"/><rect x="220" y="34" width="10" height="14" rx="1"/></g>
+      <g fill="#8fa84e"><rect x="65" y="69" width="25" height="14" rx="2"/><rect x="100" y="69" width="20" height="14" rx="2" opacity="0.7"/><rect x="130" y="69" width="30" height="14" rx="2"/><rect x="170" y="69" width="22" height="14" rx="2" opacity="0.8"/><rect x="200" y="69" width="35" height="14" rx="2"/></g>
+      <g fill="#c9d480"><rect x="60" y="104" width="18" height="14" rx="2"/><rect x="85" y="104" width="14" height="14" rx="2" opacity="0.8"/><rect x="105" y="104" width="20" height="14" rx="2"/><rect x="135" y="104" width="16" height="14" rx="2" opacity="0.7"/><rect x="160" y="104" width="22" height="14" rx="2"/><rect x="190" y="104" width="18" height="14" rx="2" opacity="0.8"/><rect x="215" y="104" width="25" height="14" rx="2"/></g>
+      <g fill="#6b6e5a" opacity="0.7"><rect x="58" y="139" width="185" height="14" rx="7"/></g>
+      <g fill="#4b5320"><rect x="65" y="174" width="30" height="14" rx="2"/><rect x="105" y="174" width="25" height="14" rx="2" opacity="0.8"/><rect x="140" y="174" width="30" height="14" rx="2"/><rect x="180" y="174" width="25" height="14" rx="2" opacity="0.8"/><rect x="215" y="174" width="25" height="14" rx="2"/></g>
+      <text x="150" y="210" text-anchor="middle" font-family="'SF Mono',Consolas,monospace" font-size="8" fill="#6b6e5a">play_midi(mood: neutral)</text>
+
+      <!-- Arrow -->
+      <path d="M 260 100 L 290 100" fill="none" stroke="#8fa84e" stroke-width="1.5" marker-end="url(#arrow1)"/>
+      <text x="275" y="92" text-anchor="middle" font-family="'Playfair Display',serif" font-style="italic" font-size="9" fill="#8fa84e">transpose</text>
+      <text x="275" y="115" text-anchor="middle" font-family="'SF Mono',Consolas,monospace" font-size="7" fill="#6b6e5a">ch5: -7</text>
+
+      <!-- State 2 -->
+      <text x="450" y="18" text-anchor="middle" font-family="'Acumin Pro',sans-serif" font-size="9" font-weight="700" fill="#8a8d6a" letter-spacing="1">STATE 2 - BASS SHIFTED</text>
+      <g font-family="'Acumin Pro',sans-serif" font-size="7" font-weight="700" fill="#6b6e5a">
+        <text x="315" y="45">DRUMS</text><text x="315" y="80">LEAD</text>
+        <text x="315" y="115">MELODY</text><text x="315" y="150">AMB</text>
+        <text x="315" y="185">BASS</text>
+      </g>
+      <g opacity="0.12"><rect x="355" y="32" width="190" height="18" rx="2" fill="#4b5320"/><rect x="355" y="67" width="190" height="18" rx="2" fill="#4b5320"/><rect x="355" y="102" width="190" height="18" rx="2" fill="#4b5320"/><rect x="355" y="137" width="190" height="18" rx="2" fill="#4b5320"/><rect x="355" y="172" width="190" height="18" rx="2" fill="#4b5320"/></g>
+      <!-- Same as state 1 for drums/lead/melody/amb -->
+      <g fill="#f5f2e6"><rect x="360" y="34" width="10" height="14" rx="1"/><rect x="380" y="34" width="10" height="14" rx="1" opacity="0.5"/><rect x="400" y="34" width="10" height="14" rx="1"/><rect x="420" y="34" width="10" height="14" rx="1" opacity="0.5"/><rect x="440" y="34" width="10" height="14" rx="1"/><rect x="460" y="34" width="10" height="14" rx="1" opacity="0.5"/><rect x="480" y="34" width="10" height="14" rx="1"/><rect x="500" y="34" width="10" height="14" rx="1" opacity="0.5"/><rect x="520" y="34" width="10" height="14" rx="1"/></g>
+      <g fill="#8fa84e"><rect x="365" y="69" width="25" height="14" rx="2"/><rect x="400" y="69" width="20" height="14" rx="2" opacity="0.7"/><rect x="430" y="69" width="30" height="14" rx="2"/><rect x="470" y="69" width="22" height="14" rx="2" opacity="0.8"/><rect x="500" y="69" width="35" height="14" rx="2"/></g>
+      <g fill="#c9d480"><rect x="360" y="104" width="18" height="14" rx="2"/><rect x="385" y="104" width="14" height="14" rx="2" opacity="0.8"/><rect x="405" y="104" width="20" height="14" rx="2"/><rect x="435" y="104" width="16" height="14" rx="2" opacity="0.7"/><rect x="460" y="104" width="22" height="14" rx="2"/><rect x="490" y="104" width="18" height="14" rx="2" opacity="0.8"/><rect x="515" y="104" width="25" height="14" rx="2"/></g>
+      <g fill="#6b6e5a" opacity="0.7"><rect x="358" y="139" width="185" height="14" rx="7"/></g>
+      <!-- BASS: shifted down (highlighted) -->
+      <rect x="355" y="172" width="190" height="18" rx="2" fill="#8fa84e" opacity="0.15"/>
+      <g fill="#c9d480"><rect x="365" y="174" width="30" height="14" rx="2"/><rect x="405" y="174" width="25" height="14" rx="2" opacity="0.8"/><rect x="440" y="174" width="30" height="14" rx="2"/><rect x="480" y="174" width="25" height="14" rx="2" opacity="0.8"/><rect x="515" y="174" width="25" height="14" rx="2"/></g>
+      <text x="450" y="210" text-anchor="middle" font-family="'SF Mono',Consolas,monospace" font-size="8" fill="#8fa84e">modify_playback(ch:5, transpose:-7)</text>
+
+      <!-- Arrow -->
+      <path d="M 560 100 L 590 100" fill="none" stroke="#8fa84e" stroke-width="1.5" marker-end="url(#arrow1)"/>
+      <text x="575" y="92" text-anchor="middle" font-family="'Playfair Display',serif" font-style="italic" font-size="9" fill="#8fa84e">mood shift</text>
+      <text x="575" y="115" text-anchor="middle" font-family="'SF Mono',Consolas,monospace" font-size="7" fill="#6b6e5a">darker</text>
+
+      <!-- State 3 -->
+      <text x="750" y="18" text-anchor="middle" font-family="'Acumin Pro',sans-serif" font-size="9" font-weight="700" fill="#8a8d6a" letter-spacing="1">STATE 3 - MOOD: DARKER</text>
+      <g font-family="'Acumin Pro',sans-serif" font-size="7" font-weight="700" fill="#6b6e5a">
+        <text x="615" y="45">DRUMS</text><text x="615" y="80">LEAD</text>
+        <text x="615" y="115">MELODY</text><text x="615" y="150">AMB</text>
+        <text x="615" y="185">BASS</text>
+      </g>
+      <g opacity="0.12"><rect x="655" y="32" width="190" height="18" rx="2" fill="#4b5320"/><rect x="655" y="67" width="190" height="18" rx="2" fill="#4b5320"/><rect x="655" y="102" width="190" height="18" rx="2" fill="#4b5320"/><rect x="655" y="137" width="190" height="18" rx="2" fill="#4b5320"/><rect x="655" y="172" width="190" height="18" rx="2" fill="#4b5320"/></g>
+      <!-- Drums: sparser -->
+      <g fill="#f5f2e6"><rect x="660" y="34" width="10" height="14" rx="1"/><rect x="700" y="34" width="10" height="14" rx="1"/><rect x="740" y="34" width="10" height="14" rx="1"/><rect x="780" y="34" width="10" height="14" rx="1"/><rect x="820" y="34" width="10" height="14" rx="1"/></g>
+      <!-- Lead: same -->
+      <g fill="#8fa84e"><rect x="665" y="69" width="25" height="14" rx="2"/><rect x="700" y="69" width="20" height="14" rx="2" opacity="0.7"/><rect x="730" y="69" width="30" height="14" rx="2"/><rect x="770" y="69" width="22" height="14" rx="2" opacity="0.8"/><rect x="800" y="69" width="35" height="14" rx="2"/></g>
+      <!-- Melody: notes longer (fewer, wider) -->
+      <g fill="#c9d480"><rect x="660" y="104" width="30" height="14" rx="2"/><rect x="700" y="104" width="35" height="14" rx="2" opacity="0.8"/><rect x="745" y="104" width="40" height="14" rx="2"/><rect x="795" y="104" width="35" height="14" rx="2" opacity="0.7"/></g>
+      <!-- Ambience: darker (shifted color) -->
+      <g fill="#3a4018" opacity="0.9"><rect x="658" y="139" width="185" height="14" rx="7"/></g>
+      <!-- Bass: still shifted from state 2 -->
+      <g fill="#c9d480"><rect x="665" y="174" width="30" height="14" rx="2"/><rect x="705" y="174" width="25" height="14" rx="2" opacity="0.8"/><rect x="740" y="174" width="30" height="14" rx="2"/><rect x="780" y="174" width="25" height="14" rx="2" opacity="0.8"/><rect x="815" y="174" width="25" height="14" rx="2"/></g>
+      <text x="750" y="210" text-anchor="middle" font-family="'SF Mono',Consolas,monospace" font-size="8" fill="#8fa84e">create_mood(tension:+, brightness:-)</text>
+      <text x="750" y="235" text-anchor="middle" font-family="'Playfair Display',serif" font-style="italic" font-size="11" fill="#6b6e5a">Nothing regenerated. Nothing lost.</text>
+    </svg>
+    <figcaption><strong>Fig. 2</strong> &mdash; Three consecutive mutations on the same session. State 1: original. State 2: bass transposed -7 semitones, other channels untouched. State 3: mood shift darkens ambience, sparses drums, lengthens melody notes &mdash; bass retains its transposition. The model never re-rolls.</figcaption>
+  </figure>
+
+  <h2>The Question Nobody's Asking</h2>
+
+  <p>Every review of AI music tools has focused on the output. Does it sound real? Is it long enough? Can it do vocals? These are the wrong questions. The output is going to keep getting better. It already sounds real. It's already long enough.</p>
+
+  <p>The right question is: <em>what kind of object is a song when a model can hold it in its head?</em> A file. A stream. A timeline. A set of channels. A living thing you can talk to the parts of. Each of these implies a different user, a different workflow, a different relationship between the human and the machine. The field has spent two years optimizing the first three. Composure is a bet on the last two.</p>
+
+  <p>The studio doesn't have an answer for whether that bet is right yet. But we're asking. And the fact that we're asking — rather than simply marveling at the output — is why this matters beyond a single MIDI engine.</p>
+
+  <p class="lead-para">The song is not a sequence anymore. The question is what it is instead.</p>
+
+</article>
+
+<!-- ── ARTICLE FOOTER ───────────────────────── -->
+<div class="article-foot">
+  <div class="tags">
+    <a href="#">Software</a>
+    <a href="#">AI</a>
+    <a href="#">MIDI</a>
+    <a href="#">Composure</a>
+    <a href="#">Creative Tools</a>
+    <a href="#">Agents</a>
+  </div>
+  <div class="author-bio">
+    <div class="avatar">S</div>
+    <div class="bio-text">
+      <h4>The Studio</h4>
+      <div class="role">Propagation House Editorial</div>
+      <p>Dispatches from the workbench. The Studio covers what Propagation House builds, what it learns, and what it's watching next.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── RELATED ──────────────────────────────── -->
+<section class="related">
+  <div class="section-label">Related Dispatches</div>
+  <div class="rel-grid">
+    <article>
+      <div class="kicker">Technology</div>
+      <h3><a href="article.html">The Store Is the Screen Now</a></h3>
+      <div class="meta">12 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Design</div>
+      <h3><a href="#">The Node Graph Explorer That Found Its Own Aesthetic</a></h3>
+      <div class="meta">5 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Business</div>
+      <h3><a href="#">Glasser Walks Out of the App Store</a></h3>
+      <div class="meta">6 min read</div>
+    </article>
+  </div>
+</section>
+
+<script>
+// Reading progress bar
+(function(){
+  var bar=document.getElementById('progress');
+  function update(){
+    var h=document.documentElement;
+    var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);
+    bar.style.width=(scrolled*100)+'%';
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+})();
+</script>
+</body>
+</html>

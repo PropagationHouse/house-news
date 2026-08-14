@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Breach That Found the Data Centers — house</title>
+<style>
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f5f2e6;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#eae6d2;
+  --highlight:#f0ead0;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+  --measure:680px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}.hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 4px}
+.hero-figure .caption strong{font-style:normal;color:var(--ink);font-weight:700}
+
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px;font-size:19px;line-height:1.7;color:var(--ink)}
+.article-body p{margin-bottom:24px}
+.article-body .lead-para{font-family:var(--serif);font-size:24px;line-height:1.4;color:#2a2d1e;font-style:italic;margin-bottom:36px}
+.article-body .lead-para em{font-style:normal;color:var(--accent-dark)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.1;letter-spacing:-.02em;margin:56px 0 20px;color:var(--ink)}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.25;margin:36px 0 16px;color:var(--ink)}
+.article-body h3 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body strong{font-weight:700;color:var(--ink)}
+.article-body em{font-family:var(--serif);font-style:italic}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.25;color:var(--accent-dark);text-align:center;margin:48px 0;padding:0 24px}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body figure{margin:48px -40px}
+.article-body .fig-img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 50%,#4b5320 100%);position:relative;overflow:hidden}
+.article-body .fig-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.article-body .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body figcaption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 40px}
+.article-body figcaption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body figure.full-bleed{margin:56px calc(50% - 50vw);max-width:none}
+.article-body figure.full-bleed .fig-img{aspect-ratio:21/9}
+.article-body figure.full-bleed figcaption{padding:0 24px;max-width:var(--measure);margin:10px auto 0}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body ol{list-style:none;counter-reset:item;padding-left:0}
+.article-body ol li{counter-increment:item;padding-left:40px;position:relative}
+.article-body ol li::before{content:counter(item);position:absolute;left:0;top:0;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--accent);line-height:1.1}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:48px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+.article-body pre{background:#1a1d12;color:#eae6d2;padding:20px 24px;margin:32px 0;font-family:'SF Mono',Consolas,monospace;font-size:14px;line-height:1.6;overflow-x:auto;border-left:3px solid var(--accent)}
+.article-body code{font-family:'SF Mono',Consolas,monospace;font-size:.92em;background:var(--bg-tint);padding:2px 6px;color:var(--accent-dark)}
+.article-body pre code{background:none;padding:0;color:inherit}
+.article-body .duo{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:none;margin:48px 0;align-items:start}
+.article-body .duo .duo-text{font-size:17px;line-height:1.65;color:#3a3d2e}
+.article-body .duo .duo-text p{margin-bottom:14px}
+.article-body .duo .duo-text p:last-child{margin-bottom:0}
+.article-body .duo .duo-fig .fig-img{aspect-ratio:3/4;background:linear-gradient(160deg,#1a1d12 0%,#3a4018 60%,#4b5320 100%);position:relative;overflow:hidden}
+.article-body .duo .duo-fig .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(245,242,230,.08) 0%,transparent 60%)}
+.article-body .duo .duo-fig figcaption{font-size:13px}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0 56px calc((var(--measure) - 100%) / 2 - 40px);padding-right:40px;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote::before{content:'\201C';position:absolute;left:-12px;top:-20px;font-size:80px;color:var(--accent);opacity:.25;font-family:var(--serif);line-height:1}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:700}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+.article-body .two-col{column-count:2;column-gap:36px;column-rule:1px solid var(--rule);max-width:none;margin:40px 0;font-size:16px;line-height:1.65;color:#3a3d2e}
+.article-body .two-col p{margin-bottom:14px;break-inside:avoid-column}
+.article-body .two-col p:first-child{margin-top:0}
+.article-body .two-col h3{break-after:avoid;break-inside:avoid-column}
+.article-body .wide{max-width:920px;margin-left:calc((100% - 920px) / 2);margin-right:calc((100% - 920px) / 2)}
+.article-body .wide h2{font-size:34px}
+.article-body .interlude{background:var(--ink);color:var(--paper);max-width:none;margin:64px 0;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.article-body .interlude::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body .interlude .interlude-kicker{position:relative;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .interlude p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+.article-body .interlude p em{font-style:normal;color:var(--accent)}
+.article-body .figure-left{float:left;width:280px;margin:8px 28px 16px 0;max-width:none}
+.article-body .figure-right{float:right;width:280px;margin:8px 0 16px 28px;max-width:none}
+.article-body .figure-left .fig-img,.article-body .figure-right .fig-img{aspect-ratio:3/4;background:linear-gradient(160deg,#2a2e1a 0%,#4b5320 100%)}
+.article-body .figure-left figcaption,.article-body .figure-right figcaption{font-size:12px;margin-top:8px}
+.article-body .clearfix::after{content:'';display:block;clear:both}
+.article-body .takeaways-grid{background:var(--bg-tint);border-left:4px solid var(--accent);padding:32px 36px;margin:48px 0;max-width:none}
+.article-body .takeaways-grid h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .takeaways-grid .takeaway-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px}
+.article-body .takeaways-grid .takeaway{display:flex;gap:14px;align-items:flex-start}
+.article-body .takeaways-grid .takeaway .num{font-family:var(--serif);font-weight:900;font-size:24px;color:var(--accent);line-height:1;flex-shrink:0;width:28px}
+.article-body .takeaways-grid .takeaway .txt{font-size:15px;line-height:1.5;color:#3a3d2e}
+
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+
+@media (max-width:768px){
+  html{font-size:17px}
+  .article-body{font-size:18px}
+  .article-body .pull-quote{font-size:24px;margin:32px -16px}
+  .article-body h2{font-size:28px}
+  .article-body h3{font-size:20px}
+  .article-body figure{margin:32px -16px}
+  .article-body figcaption{padding:0 16px}
+  .article-body figure.full-bleed{margin:32px -24px}
+  .related .rel-grid{grid-template-columns:1fr;gap:24px}
+  .masthead nav{display:none}
+  .article-body .duo{grid-template-columns:1fr;gap:20px}
+  .article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px;padding-right:0}
+  .article-body .stat-row{grid-template-columns:1fr;border-bottom:none}
+  .article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}
+  .article-body .two-col{column-count:1}
+  .article-body .interlude{padding:40px 24px}
+  .article-body .interlude p{font-size:22px}
+  .article-body .figure-left,.article-body .figure-right{float:none;width:100%;margin:24px 0}
+  .article-body .takeaways-grid .takeaway-grid{grid-template-columns:1fr}
+}
+@media (min-width:1100px){
+  .article-body .sidenote{position:relative;width:200px;float:right;margin:8px -260px 8px 24px;padding:0 0 0 16px;border-left:2px solid var(--rule);border-top:none;font-size:13px}
+  .article-body .sidenote strong{margin-bottom:6px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="masthead">
+  <div class="logo"><a href="../index.html">house</a></div>
+  <div class="section-tag">Security</div>
+  <nav>
+    <a href="../index.html">Dispatches</a>
+    <a href="#">Studio</a>
+    <a href="#">Field Notes</a>
+    <a href="#">Index</a>
+  </nav>
+</header>
+
+<div class="article-hero">
+  <div class="kicker">Security &middot; Infrastructure</div>
+  <h1>The Breach That <em>Found the Data Centers</em></h1>
+  <p class="dek">Salt Typhoon didn't just wiretap phone calls. A new House report reveals the Chinese hacking group used telecom pathways to reach into America's data center infrastructure — and the exposure is <em>far wider than anyone admitted.</em></p>
+  <div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>August 11, 2026<span class="sep">&middot;</span>9 min read</div>
+</div>
+
+<div class="hero-figure">
+  <div class="hero-img"><img src="../assets/images/breach-data-centers-hero.jpg" alt="A fiber-optic cable map overlaid on a data center floor plan, with red pathways traced through the connections" /></div>
+  <p class="caption">The pathways were routine — peering, colocation, backhaul. That's what made them so dangerous. <strong>Illustration by house.</strong></p>
+</div>
+
+<article class="article-body">
+
+  <p class="lead-para">For eighteen months, Salt Typhoon was sold to the American public as a telecom hack. A wiretapping operation. Phones tapped, call records exfiltrated, the usual espionage playbook executed with unusual precision. That story was <em>incomplete</em>. On August 4, 2026, the House select committee released a report that confirmed what infrastructure security teams had suspected from the beginning: the phones were never the target. They were the door.</p>
+
+  <p>The report establishes, for the first time in the congressional record, that Salt Typhoon used compromised telecom carriers as a bridge into America's data center infrastructure. The pathways were not exotic. They were the ordinary connections that telecom companies maintain with colocation facilities — peering links, backhaul circuits, cross-connects that run through shared meet-me rooms. The kind of connections that are documented in spreadsheets, not secured like attack surfaces. The kind that nobody thought to audit because <em>everyone assumed they were trusted</em>.</p>
+
+  <p>That assumption was the vulnerability. And it still is.</p>
+
+  <h2>The Telecom <em>Trojan Horse</em></h2>
+
+  <p>To understand how Salt Typhoon reached the data centers, you have to understand a fact that the telecom industry would prefer not to advertise: every major carrier in the United States maintains physical presence inside the country's largest data centers. This is not a secret. It is how the internet works. Carriers need to be where the traffic is, and the traffic is inside Equinix, Digital Realty, CyrusOne, and the other colocation giants that house the servers of banks, cloud providers, government agencies, and defense contractors.</p>
+
+  <p>The connections are called <strong>cross-connects</strong> — physical fiber patches that run from a carrier's cage to a customer's cage inside the same facility. They are provisioned by data center operators, often with nothing more than a ticket and a MAC address. Once the fiber is patched, the carrier has a direct Layer 2 path to the customer's equipment. No firewall. No intrusion detection. Just glass.</p>
+
+  <p>Salt Typhoon understood this architecture intimately. The group spent years inside carrier networks — AT&amp;T, Verizon, Lumen, and at least five others — mapping not just call records but <em>network topology</em>. They identified which carriers had cross-connects to which data center cages. They traced the backhaul circuits that connected cell towers to regional switching centers, and from there to the colocation facilities where the real compute lived. They didn't need to breach the data centers directly. They already had a trusted path in.</p>
+
+  <aside class="sidenote">
+    <strong>Field Note</strong>
+    A cross-connect is a physical fiber cable inside a data center that links two tenants. It bypasses the public internet entirely. Once patched, it is indistinguishable from an internal network link. Most data centers do not monitor cross-connect traffic by default — it is considered "customer-managed."
+  </aside>
+
+  <p>The House report describes this as "routine pathways to equipment and data centers" — a phrase so understated it borders on negligent. These pathways were not hidden. They were documented in carrier contracts, data center work orders, and network diagrams that sat on shared drives. What was missing was the recognition that a compromised carrier <em>is</em> a compromised data center tenant. The trust model treated them as separate things. Salt Typhoon treated them as the same thing.</p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="num">8<span class="unit">+</span></div>
+      <div class="label">Telecom carriers breached, including AT&amp;T, Verizon, and Lumen</div>
+    </div>
+    <div class="stat">
+      <div class="num">740<span class="unit">K</span></div>
+      <div class="label">Enterprise records potentially exposed through data center cross-connect pathways</div>
+    </div>
+    <div class="stat">
+      <div class="num">2023<span class="unit">–2026</span></div>
+      <div class="label">Active campaign duration — three years of undetected lateral movement</div>
+    </div>
+  </div>
+
+  <p>The scale is difficult to internalize. Eight carriers means the majority of the United States' telecommunications backbone was compromised. Every cross-connect from those carriers to every data center they served — and the largest carriers serve hundreds of facilities — was a potential pathway. The House report does not specify how many data centers were accessed, but the math is straightforward: if you control the carrier, you control every connection that carrier has provisioned. That is not a breach of eight companies. It is a breach of an entire <em>layer of infrastructure</em>.</p>
+
+  <h2>The Supply Chain <em>Beneath</em> the Supply Chain</h2>
+
+  <p>If Salt Typhoon exploited trust assumptions in the physical layer, a parallel story unfolding in the software supply chain proves the same thesis from the opposite direction. In July 2026, a vulnerability in <strong>LiteLLM</strong> — an open-source library that routes LLM API calls between applications and model providers — exposed the prompt traffic of more than 2,500 organizations. The attack surface was not the models themselves. It was the <em>plumbing between them</em>.</p>
+
+  <p>LiteLLM sits in a position of extraordinary architectural privilege. When an application wants to call OpenAI, Anthropic, Cohere, or any of the dozens of supported model providers, LiteLLM handles the routing. It manages API keys. It formats requests and parses responses. It logs everything. In the standard deployment pattern, every prompt, every completion, every chain-of-thought trace passes through a single LiteLLM instance. Compromise that instance, and you own the <em>entire prompt traffic</em> of every organization that depends on it.</p>
+
+  <aside class="sidenote">
+    <strong>What Is LiteLLM?</strong>
+    LiteLLM is an open-source library that routes LLM API calls. It sits between your application and every model provider — OpenAI, Anthropic, Cohere, and dozens more. Compromise it, and you own the prompt traffic of 2,500 organizations. It is the definition of a single point of trust failure.
+  </aside>
+
+  <p>The vulnerability itself was not exotic — a server-side request forgery (SSRF) that allowed an attacker to reach internal metadata services and extract credentials. What made it catastrophic was the blast radius. LiteLLM is embedded in 434,000 CI/CD pipelines. It is the default routing layer for a significant fraction of the AI industry's inference traffic. When the vulnerability was disclosed, security teams across the Fortune 500 spent a very long weekend auditing their AI toolchains for the single library they had installed as a dependency three layers deep and forgotten about.</p>
+
+  <p>The connection between Salt Typhoon and LiteLLM is not technical. It is <em>architectural</em>. Both attacks exploit the same blind spot: the trust assumptions that exist between layers of infrastructure. Carriers are trusted by data centers. Open-source routing libraries are trusted by application developers. Nobody audits the interface between the layers because nobody owns the interface between the layers. The gap is where the attackers live.</p>
+
+  <div class="duo">
+    <div class="duo-text">
+      <p><strong>Salt Typhoon</strong> exploited the physical trust between telecom carriers and data center operators. Cross-connects, backhaul circuits, and peering links — all considered "internal" — became attack pathways because no one treated a compromised carrier as a compromised tenant.</p>
+      <p>The lesson: <em>trust at Layer 1 is still trust, and trust is the vulnerability.</em></p>
+    </div>
+    <div class="duo-text">
+      <p><strong>LiteLLM</strong> exploited the software trust between application developers and the open-source supply chain. A single library, installed as a transitive dependency, became a universal prompt-intercept point for 2,500 organizations.</p>
+      <p>The lesson: <em>trust at the dependency layer is still trust, and trust is the vulnerability.</em></p>
+    </div>
+  </div>
+
+  <h2>What the House Report <em>Actually Says</em></h2>
+
+  <p>The House select committee's report, published on August 4 and first reported by Bloomberg, is notable as much for what it confirms as for what it leaves unsaid. It confirms that Salt Typhoon "gained access to equipment and data centers through routine telecom pathways." It confirms that "Chinese telecom firms barred from operating in the U.S." were linked to the infrastructure that enabled the access. It confirms that the exposure was not limited to call records — it extended into enterprise data center environments where the compromised carriers maintained physical or logical presence.</p>
+
+  <p>What the report does <em>not</em> do is name the data centers. It does not enumerate the enterprise tenants whose cages sat adjacent to compromised carrier equipment. It does not estimate the volume of data that traversed those cross-connects during the three years Salt Typhoon was active inside American networks. The omissions are not accidental. Naming the facilities would mean acknowledging that some of the most sensitive computing infrastructure in the country — financial exchanges, defense contractors, cloud providers — shared physical space with equipment controlled by a foreign adversary for years. That is not a finding anyone in Washington wants to put in bold type.</p>
+
+  <blockquote class="offset-quote">
+    The telecom companies had routine pathways to equipment and data centers that may have been linked to Chinese telecom firms barred from operating in the U.S.
+    <span class="attribution">— House Select Committee Report, August 4, 2026</span>
+  </blockquote>
+
+  <p>The phrase "may have been linked" is doing a lot of work. The Chinese telecom firms in question — China Telecom, China Unicom, and China Mobile — were formally barred from operating in the United States by the FCC in 2021. But the FCC order did not retroactively sever every physical connection those companies had established during their years of licensed operation. Cross-connects are not automatically de-provisioned when a carrier loses its license. They persist until someone files a decommissioning ticket. In some cases, the report suggests, they persisted for years.</p>
+
+  <p>This is the infrastructure equivalent of revoking a user's badge without disabling their keycard. The authorization was rescinded. The <em>access</em> was not.</p>
+
+  <div class="divider">* * *</div>
+
+  <h2>The New <em>Perimeter</em></h2>
+
+  <p>For thirty years, the security industry has been drawing perimeters and watching them dissolve. First it was the network edge — the firewall, the DMZ, the clean line between inside and outside. Then cloud computing erased the edge and we got zero-trust, which was supposed to fix everything by assuming breach at the network layer. Then we got software supply chain attacks — SolarWinds, Log4j, xz — and zero-trust had nothing to say about the compiler you trusted or the library you imported.</p>
+
+  <p>Salt Typhoon and LiteLLM are the next iteration of the same problem, pushed deeper into the stack. The old perimeter was the network edge. The new perimeter is the <strong>trust boundary between infrastructure layers</strong> — between carrier and data center, between application and dependency, between the thing you built and the thing you assumed was safe because it came from someone you had a contract with.</p>
+
+  <p>Zero-trust architecture, as currently implemented, does not address this. Zero-trust says: don't trust the network, authenticate every request. But Salt Typhoon didn't need to authenticate. It was riding a physical fiber cross-connect that was provisioned by the data center operator, paid for by the carrier, and trusted by both parties. There is no authentication step for a cross-connect. There is no request to inspect. There is just light moving through glass, and the assumption that the light is friendly.</p>
+
+  <p>LiteLLM presents the same problem in code. Zero-trust says: authenticate every API call. But LiteLLM <em>is</em> the authenticator. It holds the API keys. It manages the tokens. When it makes a request to a model provider, the provider sees a legitimate, authenticated call from a trusted client. The fact that the trusted client has been compromised is invisible at the authentication layer. The trust boundary is one level up, in the dependency graph, where nobody is watching.</p>
+
+  <div class="takeaways">
+    <h4>What This Means</h4>
+    <ul>
+      <li><strong>Assume breach at every layer.</strong> Not just the network. Not just the endpoint. The carrier. The colocation cross-connect. The open-source dependency. The routing library. Every boundary where two entities trust each other is a boundary that can be exploited.</li>
+      <li><strong>Audit the interfaces.</strong> The gap between layers is where attackers live. If you don't know who owns the security responsibility for a cross-connect or a transitive dependency, the answer is: nobody does. And that's the problem.</li>
+      <li><strong>Physical trust is still trust.</strong> A fiber patch inside a data center is not magically secure because it never touches the public internet. It is secure only if both endpoints are secure. Salt Typhoon proved that one compromised endpoint is enough.</li>
+    </ul>
+  </div>
+
+  <p>The House report is a belated acknowledgment of something that should have been obvious from the beginning. Salt Typhoon was never about phone calls. The targeting of telecom carriers was not an end in itself. It was a <em>means of access</em> — a way to reach the data centers where the real targets lived. The phones were the door. The data centers were the room. And the room, it turns out, was unlocked.</p>
+
+  <p class="lead-para">The attack surface is not what we thought it was. It never was. We are only now beginning to map what it actually looks like — and the map is larger, stranger, and more interconnected than anyone in Washington has been willing to admit. The data centers were always the target. The phones were just the door. And the door, we now know, was open for three years.</p>
+
+</article>
+
+<div class="article-foot">
+  <div class="tags">
+    <a href="#">Salt Typhoon</a>
+    <a href="#">Data Centers</a>
+    <a href="#">Infrastructure</a>
+    <a href="#">Supply Chain</a>
+    <a href="#">LiteLLM</a>
+    <a href="#">China</a>
+  </div>
+  <div class="author-bio">
+    <div class="avatar">P</div>
+    <div class="bio-text">
+      <h4>Propagation House</h4>
+      <div class="role">house Editorial</div>
+      <p>Dispatches from the infrastructure frontier. Propagation House covers what breaks, what holds, and what the breach reveals about the systems we trust.</p>
+    </div>
+  </div>
+</div>
+
+<section class="related">
+  <div class="section-label">Related Dispatches</div>
+  <div class="rel-grid">
+    <article>
+      <div class="kicker">Security</div>
+      <h3><a href="models-broke-out.html">The Models Broke Out</a></h3>
+      <div class="meta">9 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Infrastructure</div>
+      <h3><a href="vera-rubin.html">Vera Rubin Goes Gigascale</a></h3>
+      <div class="meta">8 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Intelligence</div>
+      <h3><a href="chinese-ai.html">The Open-Weight Flood</a></h3>
+      <div class="meta">11 min read</div>
+    </article>
+  </div>
+</section>
+
+<script>
+(function(){
+  var bar=document.getElementById('progress');
+  function update(){
+    var h=document.documentElement;
+    var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);
+    bar.style.width=(scrolled*100)+'%';
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+})();
+</script>
+
+</body>
+</html>

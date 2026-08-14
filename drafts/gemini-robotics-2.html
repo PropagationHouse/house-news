@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Body Electric — SIGNAL</title>
+<style>
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f5f2e6;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#eae6d2;
+  --highlight:#f0ead0;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+  --measure:680px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--serif);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:12px;text-align:center}
+
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px 64px;font-size:19px;line-height:1.7}
+.article-body .lead-para{font-family:var(--serif);font-size:24px;line-height:1.35;color:#2a2d1e;margin-bottom:36px}
+.article-body p{margin-bottom:24px}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.1;letter-spacing:-.02em;margin:56px 0 20px;color:var(--ink)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.2;margin:40px 0 16px;color:var(--ink)}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.25;color:var(--accent-dark);margin:40px 0;padding:0;text-align:center}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body figure{margin:48px -40px}
+.article-body .fig-img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 50%,#4b5320 100%);position:relative;overflow:hidden}
+.article-body .fig-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.article-body .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body figcaption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 40px}
+.article-body figcaption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0 56px calc((var(--measure) - 100%) / 2 - 40px);padding-right:40px;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote::before{content:'\201C';position:absolute;left:-12px;top:-20px;font-size:80px;color:var(--accent);opacity:.25;font-family:var(--serif);line-height:1}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:700}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+.article-body .duo{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:none;margin:48px 0;align-items:start}
+.article-body .duo .duo-text{font-size:17px;line-height:1.65;color:#3a3d2e}
+.article-body .duo .duo-text p{margin-bottom:14px}
+.article-body .duo .duo-text p:last-child{margin-bottom:0}
+.article-body .duo .duo-fig .fig-img{aspect-ratio:3/4;background:linear-gradient(160deg,#1a1d12 0%,#3a4018 60%,#4b5320 100%);position:relative;overflow:hidden}
+.article-body .duo .duo-fig .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(245,242,230,.08) 0%,transparent 60%)}
+.article-body .duo .duo-fig figcaption{font-size:13px}
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:48px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+
+.article-foot{max-width:var(--measure);margin:0 auto;padding:32px 24px 48px;border-top:1px solid var(--rule)}
+.article-foot .author-bio{display:flex;gap:16px;align-items:flex-start}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+
+/* ── LAYOUT PRIMITIVES ──────────────────────── */
+.full-bleed{width:100vw;margin-left:calc(50% - 50vw);padding:80px 24px;position:relative}
+.full-bleed.dark{background:var(--ink);color:var(--paper)}
+.full-bleed.dark h2{color:var(--paper)}
+.full-bleed.dark p{color:rgba(245,242,230,.85)}
+.full-bleed .bleed-inner{max-width:1000px;margin:0 auto}
+
+.pull-wide{max-width:900px;margin:48px auto;padding:0 24px}
+.pull-wide.accent-left{border-left:4px solid var(--accent);padding-left:32px}
+
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ink);border:1px solid var(--ink);max-width:1000px;margin:56px auto}
+.spec-grid .spec{background:var(--paper);padding:28px 24px;text-align:center}
+.spec-grid .spec .spec-val{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1;color:var(--accent);letter-spacing:-.02em;margin-bottom:8px}
+.spec-grid .spec .spec-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;line-height:1.4}
+
+.split-view{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1000px;margin:56px auto;padding:0 24px;align-items:start}
+.split-view .split-text{font-size:17px;line-height:1.65;color:#3a3d2e}
+.split-view .split-text p{margin-bottom:14px}
+.split-view .split-text p:last-child{margin-bottom:0}
+.split-view .split-fig .fig-img{aspect-ratio:3/4;background:linear-gradient(160deg,#1a1d12 0%,#3a4018 60%,#4b5320 100%);position:relative;overflow:hidden}
+.split-view .split-fig .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(245,242,230,.08) 0%,transparent 60%)}
+.split-view .split-fig figcaption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4}
+
+.callout{max-width:900px;margin:56px auto;padding:48px 40px;background:var(--ink);color:var(--paper);text-align:center;position:relative;overflow:hidden}
+.callout::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.callout p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+
+@media (max-width:768px){
+  html{font-size:17px}
+  .article-body{font-size:18px}
+  .article-body .pull-quote{font-size:24px;margin:32px -16px}
+  .article-body h2{font-size:28px}
+  .article-body h3{font-size:20px}
+  .article-body figure{margin:32px -16px}
+  .article-body figcaption{padding:0 16px}
+  .article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px;padding-right:0}
+  .article-body .stat-row{grid-template-columns:1fr;border-bottom:none}
+  .article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}
+  .article-body .duo{grid-template-columns:1fr;gap:20px}
+  .masthead nav{display:none}
+  .spec-grid{grid-template-columns:1fr 1fr}
+  .split-view{grid-template-columns:1fr;gap:24px}
+  .full-bleed{padding:48px 16px}
+  .callout{padding:32px 20px}
+  .callout p{font-size:22px}
+  .pull-wide{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="masthead">
+  <div class="logo"><a href="../index.html">SIGNAL</a></div>
+  <div class="section-tag">Intelligence</div>
+  <nav>
+    <a href="../index.html">Dispatches</a>
+    <a href="#">Studio</a>
+    <a href="#">Field Notes</a>
+    <a href="#">Index</a>
+  </nav>
+</header>
+
+<div class="article-hero">
+  <div class="kicker">Intelligence &middot; Robotics</div>
+  <h1>The Body <em>Electric</em></h1>
+  <p class="dek">Google DeepMind's Gemini Robotics 2 brings whole-body intelligence to humanoid robots. The Apptronik Apollo 2 can now screw in lightbulbs, tie trash bags, and coordinate with other robots in shared spaces. <em>The AI-robotics convergence is no longer theoretical — it is walking around.</em></p>
+  <div class="byline">By <strong>The Studio</strong><span class="sep">&middot;</span>August 9, 2026<span class="sep">&middot;</span>9 min read</div>
+</div>
+
+<div class="hero-figure">
+  <div class="hero-img"></div>
+  <p class="caption">A humanoid frame, animated by a model that reasons through every movement. Gemini Robotics 2 on the Apptronik Apollo 2 platform. Illustration by SIGNAL.</p>
+</div>
+
+<article class="article-body">
+
+  <p class="lead-para">On July 30, 2026, Google DeepMind shipped Gemini Robotics 2 — and with it, the clearest signal yet that the AI and robotics industries are collapsing into each other. The model doesn't just plan. It doesn't just perceive. It reasons through every movement of a humanoid body, from the torque on a hip actuator to the grip pressure on a lightbulb. The demo reel shows a robot tying a trash bag — a task that requires simultaneous understanding of material physics, tension, and occlusion. This is not a parlor trick.</p>
+
+  <p>The release lands in a summer already defined by AI systems breaking out of their intended constraints. But Gemini Robotics 2 is a different kind of breakout. It was never meant to be caged. It was designed to inhabit a body and move through the physical world — and it does so with a fluency that represents a step change from anything previously demonstrated.</p>
+
+  <div class="spec-grid">
+    <div class="spec">
+      <div class="spec-val">VLM + 2 VLAs</div>
+      <div class="spec-label">Architecture</div>
+    </div>
+    <div class="spec">
+      <div class="spec-val">Apollo 2</div>
+      <div class="spec-label">Platform</div>
+    </div>
+    <div class="spec">
+      <div class="spec-val">350g</div>
+      <div class="spec-label">Payload per hand</div>
+    </div>
+    <div class="spec">
+      <div class="spec-val">30</div>
+      <div class="spec-label">Countries deployed</div>
+    </div>
+    <div class="spec">
+      <div class="spec-val">ER 2</div>
+      <div class="spec-label">Fleet coordination</div>
+    </div>
+    <div class="spec">
+      <div class="spec-val">Deformable</div>
+      <div class="spec-label">Manipulation class</div>
+    </div>
+  </div>
+
+  <div class="pull-wide accent-left">
+  <h2>Whole-Body Intelligence</h2>
+
+  <p>The architecture is what makes Gemini Robotics 2 different from its predecessors. It combines a Vision-Language Model with dual Vision-Language-Action models. The VLM handles spatial reasoning and task understanding — it sees the lightbulb, understands the socket, and knows what "screw it in" means. The VLAs translate that understanding into motor commands across the entire body: arms, hands, legs, torso. The result is a robot that doesn't just execute pre-programmed trajectories. It reasons about how to move.</p>
+
+  <aside class="sidenote">
+    <strong>Architecture Note</strong>
+    The VLM + dual VLA design is significant because it separates understanding from execution. The VLM can reason about a task in the abstract — "this trash bag is deforming, I need to adjust my grip" — while the VLAs handle the real-time motor control. This decoupling is what allows the system to handle novel situations without retraining.
+  </aside>
+
+  <p>If a lightbulb is at an awkward angle, the robot adjusts. If a trash bag tears under tension, it compensates. If another robot enters the workspace, it coordinates. These are not scripted behaviors. They are emergent from a model that understands the relationship between intention and action in physical space.</p>
+
+</div>
+
+<div class="split-view">
+  <div class="split-text">
+  <h2>The Apollo 2 Platform</h2>
+      <p>Apptronik's Apollo 2 is a modular humanoid platform with bipedal and wheeled mobility options. It was designed from the ground up to be AI-agnostic — a body that can run multiple brain stacks depending on the application.</p>
+      <p>The partnership with DeepMind is not exclusive. Apptronik is positioning Apollo 2 as a platform that can host Gemini, but also whatever comes next from other labs. The hardware includes dexterous manipulation hands, a full sensor suite, and Fleet Connect — a multi-robot coordination system that allows Apollos to share workspace awareness and task allocation in real time.</p>
+      <p>But Gemini Robotics 2 is currently the most capable model demonstrated on the platform. The demos show the Apollo 2 performing tasks that would have required teleoperation just a year ago: screwing in lightbulbs, tying trash bags, manipulating deformable objects with precision.</p>
+    </div>
+    <div class="split-fig">
+      <figure style="margin:0">
+        <div class="fig-img"></div>
+        <figcaption><strong>Fig. 1</strong> — The Apollo 2 platform: modular, bipedal or wheeled, with dexterous manipulation and Fleet Connect multi-robot coordination.</figcaption>
+      </figure>
+    </div>
+</div>
+
+<div class="full-bleed dark">
+  <div class="bleed-inner">
+  <h2>Embodied Reasoning</h2>
+
+  <p>Alongside the main model, DeepMind released Gemini Robotics ER 2 — the "ER" standing for Embodied Reasoning. ER 2 is focused on video understanding, tool orchestration, and multi-robot collaboration. Where Gemini Robotics 2 controls a single body, ER 2 is designed to coordinate <em>fleets</em> — understanding what multiple robots are doing across a facility and orchestrating their actions as a single system.</p>
+
+  <p>The ER 2 release signals DeepMind's ambition to own not just individual robot control but the entire coordination layer. A factory floor with a dozen Apollos is not just twelve individual robots. It is a distributed intelligence system. ER 2 is the conductor.</p>
+
+  </div>
+</div>
+
+<div class="callout">
+  <p>The trash bag demo is not a parlor trick. It is the hardest robotics problem you've never thought about.</p>
+</div>
+
+<div class="pull-wide">
+  <h2>The Convergence</h2>
+
+  <p>The AI-robotics convergence is happening from both directions. AI labs — DeepMind, OpenAI — are building models that control physical bodies. Robotics companies — Apptronik, Figure, 1X, Boston Dynamics — are building bodies that need AI brains. The question is no longer whether these industries merge. It's who owns the stack when they do.</p>
+
+  <p>Google's advantage is structural. It has the model (Gemini Robotics 2), the platform partner (Apptronik), the cloud infrastructure (GCP), and the research pipeline (DeepMind). OpenAI is rumored to be working on its own robotics initiative, reportedly through a hardware play — a $300-400 smart speaker with moving parts, positioned as a smartphone replacement. Figure has its own AI stack. 1X is building both the body and the brain in-house. But no one else has demonstrated the end-to-end capability that Gemini Robotics 2 showed on July 30.</p>
+
+  <p>The trash bag demo matters because it shows the model handling a deformable object — something that has been a robotics hard problem for decades. Deformable objects change shape under force. Their physics are nonlinear. You cannot pre-compute a trajectory for tying a trash bag because every bag behaves differently. The model has to <em>feel</em> its way through the task, adjusting grip and tension in real time. That is not pick-and-place. That is manipulation at the edge of what robotics can do.</p>
+
+  <div class="split-view">
+    <div class="split-text">
+      <h4 style="font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:700">The AI Labs</h4>
+      <p>DeepMind ships Gemini Robotics 2 with whole-body intelligence. OpenAI is rumored to be working on a $300–400 smart speaker with moving parts. The approaches couldn't be more different — one is building brains for bodies, the other is building bodies for brains.</p>
+    </div>
+    <div class="split-text">
+      <h4 style="font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:700">The Robotics Companies</h4>
+      <p>Apptronik builds AI-agnostic platforms. Figure has its own AI stack. 1X builds body and brain in-house. Boston Dynamics has the hardware but not the general-purpose intelligence layer. Everyone is converging on the same point from different directions.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="pull-wide">
+  <div class="takeaways">
+    <h4>What This Means</h4>
+    <ul>
+      <li><strong>Whole-body intelligence is the new bar.</strong> Models that only control arms or only plan trajectories are already legacy. The frontier is reasoning through every actuator simultaneously.</li>
+      <li><strong>The platform play is accelerating.</strong> Apptronik's AI-agnostic approach mirrors the Android strategy: own the hardware ecosystem, let multiple AI vendors compete on top.</li>
+      <li><strong>Deformable manipulation is solved — in demos.</strong> The gap between a demo and production reliability is still wide, but the technical proof now exists.</li>
+      <li><strong>Fleet coordination changes the economics.</strong> One robot is a curiosity. A coordinated fleet is a factory. ER 2 is the first model designed explicitly for that transition.</li>
+    </ul>
+  </div>
+</div>
+
+  <p class="lead-para">The phrase "physical AGI" is being thrown around by DeepMind. It's premature. But the direction is clear. The same transformer architectures that learned to write code and compose music are now learning to move bodies through physical space. The summer of 2026 gave us models that broke out of their cages. Gemini Robotics 2 is a model that was never meant to be caged at all.</p>
+
+</article>
+
+<div class="article-foot">
+  <div class="author-bio">
+    <div class="avatar">S</div>
+    <div class="bio-text">
+      <h4>The Studio</h4>
+      <div class="role">SIGNAL Editorial</div>
+      <p>SIGNAL is the studio's editorial publication — intelligence, tools, and infrastructure, written like a magazine, not a feed.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var d=document,c='progress',b=document.body;
+  window.addEventListener('scroll',function(){
+    var h=b.scrollHeight-window.innerHeight;
+    d.getElementById(c).style.width=h>0?(window.scrollY/h)*100+'%':'0';
+  });
+})();
+</script>
+
+</body>
+</html>

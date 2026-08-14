@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Genome from Scratch — SIGNAL</title>
+<style>
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f5f2e6;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#eae6d2;
+  --highlight:#f0ead0;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+  --measure:680px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--serif);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:12px;text-align:center}
+
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px 64px;font-size:19px;line-height:1.7}
+.article-body .lead-para{font-family:var(--serif);font-size:24px;line-height:1.35;color:#2a2d1e;margin-bottom:36px}
+.article-body p{margin-bottom:24px}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.1;letter-spacing:-.02em;margin:56px 0 20px;color:var(--ink)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.2;margin:40px 0 16px;color:var(--ink)}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.25;color:var(--accent-dark);margin:40px 0;padding:0;text-align:center}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body figure{margin:48px -40px}
+.article-body .fig-img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 50%,#4b5320 100%);position:relative;overflow:hidden}
+.article-body .fig-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.article-body .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body figcaption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 40px}
+.article-body figcaption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0 56px calc((var(--measure) - 100%) / 2 - 40px);padding-right:40px;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote::before{content:'\201C';position:absolute;left:-12px;top:-20px;font-size:80px;color:var(--accent);opacity:.25;font-family:var(--serif);line-height:1}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:700}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:48px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+.article-body .interlude{background:var(--ink);color:var(--paper);max-width:none;margin:64px 0;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.article-body .interlude::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body .interlude p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+
+.article-foot{max-width:var(--measure);margin:0 auto;padding:32px 24px 48px;border-top:1px solid var(--rule)}
+.article-foot .author-bio{display:flex;gap:16px;align-items:flex-start}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+
+/* ── LAYOUT PRIMITIVES ──────────────────────── */
+.full-bleed{width:100vw;margin-left:calc(50% - 50vw);padding:80px 24px;position:relative}
+.full-bleed.dark{background:var(--ink);color:var(--paper)}
+.full-bleed.dark h2{color:var(--paper)}
+.full-bleed.dark p{color:rgba(245,242,230,.85)}
+.full-bleed .bleed-inner{max-width:1000px;margin:0 auto}
+
+.pull-wide{max-width:900px;margin:48px auto;padding:0 24px}
+.pull-wide.accent-left{border-left:4px solid var(--accent);padding-left:32px}
+
+.process-flow{max-width:1000px;margin:56px auto;padding:0 24px}
+.process-flow h3{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;text-align:center}
+.process-flow .pf-track{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.process-flow .pf-step{text-align:center;padding:24px 12px;position:relative}
+.process-flow .pf-step .pf-num{font-family:var(--serif);font-weight:900;font-size:42px;line-height:1;color:var(--accent);margin-bottom:8px;letter-spacing:-.03em}
+.process-flow .pf-step .pf-title{font-family:var(--serif);font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
+.process-flow .pf-step .pf-desc{font-size:13px;line-height:1.45;color:var(--muted)}
+.process-flow .pf-step::after{content:'→';position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--rule);font-family:var(--serif)}
+.process-flow .pf-step:last-child::after{display:none}
+
+.comparison-table{max-width:900px;margin:56px auto;padding:0 24px}
+.comparison-table h3{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;text-align:center}
+.comparison-table .ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.comparison-table .ct-cell{background:var(--paper);padding:20px 24px}
+.comparison-table .ct-cell.alt{background:var(--bg-tint)}
+.comparison-table .ct-cell .ct-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:4px}
+.comparison-table .ct-cell .ct-value{font-size:15px;line-height:1.45;color:#3a3d2e}
+
+.callout{max-width:900px;margin:56px auto;padding:48px 40px;background:var(--ink);color:var(--paper);text-align:center;position:relative;overflow:hidden}
+.callout::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.callout p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+
+@media (max-width:768px){
+  html{font-size:17px}
+  .article-body{font-size:18px}
+  .article-body .pull-quote{font-size:24px;margin:32px -16px}
+  .article-body h2{font-size:28px}
+  .article-body h3{font-size:20px}
+  .article-body figure{margin:32px -16px}
+  .article-body figcaption{padding:0 16px}
+  .article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px;padding-right:0}
+  .article-body .stat-row{grid-template-columns:1fr;border-bottom:none}
+  .article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}
+  .article-body .interlude{padding:40px 24px}
+  .article-body .interlude p{font-size:22px}
+  .masthead nav{display:none}
+  .process-flow .pf-track{grid-template-columns:1fr}
+  .process-flow .pf-step::after{content:'';display:none}
+  .comparison-table .ct-grid{grid-template-columns:1fr}
+  .full-bleed{padding:48px 16px}
+  .callout{padding:32px 20px}
+  .callout p{font-size:22px}
+  .pull-wide{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="masthead">
+  <div class="logo"><a href="../index.html">SIGNAL</a></div>
+  <div class="section-tag">Intelligence</div>
+  <nav>
+    <a href="../index.html">Dispatches</a>
+    <a href="#">Studio</a>
+    <a href="#">Field Notes</a>
+    <a href="#">Index</a>
+  </nav>
+</header>
+
+<div class="article-hero">
+  <div class="kicker">Intelligence &middot; Biology</div>
+  <h1>The Genome <em>from Scratch</em></h1>
+  <p class="dek">Stanford and Arc Institute researchers used an AI model called Evo 2 to design 16 entirely novel bacteriophage viruses — functional organisms that had never existed in nature. The model wrote whole genomes from scratch. The viruses worked. <em>The age of AI-designed biology has begun.</em></p>
+  <div class="byline">By <strong>The Studio</strong><span class="sep">&middot;</span>August 9, 2026<span class="sep">&middot;</span>10 min read</div>
+</div>
+
+<div class="hero-figure">
+  <div class="hero-img"></div>
+  <p class="caption">A genome written by an AI — not copied from nature, not tweaked from a template. Generated whole, base pair by base pair, from a model that learned the grammar of life. Illustration by SIGNAL.</p>
+</div>
+
+<article class="article-body">
+
+  <p class="lead-para">For the first time, an AI model has designed functional viruses that do not exist anywhere in nature. The viruses are bacteriophages — phages that kill bacteria, in this case <em>E. coli</em> — and they were designed by Evo 2, a genome-scale language model developed at Stanford and the Arc Institute. The model was trained on genetic data from 2 million bacteriophages. It generated thousands of candidate genomes. Researchers synthesized 16 of them. All 16 produced viable, infectious viruses. Some were as resilient as natural ones. The paper was published in <em>Science</em> on August 7, 2026.</p>
+
+  <p>This is not protein folding. It is not drug discovery. It is the generation of entire living organisms — from scratch, by a model that learned the grammar of DNA the way GPT learned the grammar of English. The difference is that when a language model hallucinates a sentence, you get nonsense. When a genome model hallucinates a virus, you get something that replicates.</p>
+
+  <div class="process-flow">
+  <h3>From Model to Living Virus</h3>
+  <div class="pf-track">
+    <div class="pf-step">
+      <div class="pf-num">1</div>
+      <div class="pf-title">Train</div>
+      <div class="pf-desc">Evo 2 learns the grammar of DNA from 2 million bacteriophage genomes</div>
+    </div>
+    <div class="pf-step">
+      <div class="pf-num">2</div>
+      <div class="pf-title">Generate</div>
+      <div class="pf-desc">Model produces thousands of candidate genome sequences</div>
+    </div>
+    <div class="pf-step">
+      <div class="pf-num">3</div>
+      <div class="pf-title">Filter</div>
+      <div class="pf-desc">Researchers select 16 genuinely novel designs, not copies of nature</div>
+    </div>
+    <div class="pf-step">
+      <div class="pf-num">4</div>
+      <div class="pf-title">Synthesize</div>
+      <div class="pf-desc">DNA assembled in lab, base pair by base pair, inserted into E. coli</div>
+    </div>
+    <div class="pf-step">
+      <div class="pf-num">5</div>
+      <div class="pf-title">Verify</div>
+      <div class="pf-desc">All 16 produced viable, infectious viruses — confirmed by electron microscopy</div>
+    </div>
+  </div>
+</div>
+
+  <div class="pull-wide accent-left">
+  <h2>How Evo 2 Works</h2>
+
+  <p>Evo 2 is a generative model trained on whole genomes — not just protein sequences, not just gene annotations, but the complete instruction manual for living things. It learns the grammar of DNA at scale: which sequences produce viable organisms, which combinations are lethal, where the regulatory elements sit, how genes interact across vast genomic distances.</p>
+
+  <aside class="sidenote">
+    <strong>Prediction vs. Generation</strong>
+    AlphaFold predicts how a given protein will fold. It is a reader of biology — extraordinarily accurate, but fundamentally a tool for understanding what already exists. Evo 2 generates entirely new sequences. It is a writer. The distinction matters: one tells you what nature built. The other builds what nature never got around to trying.
+  </aside>
+
+  <p>The model architecture shares DNA — metaphorically — with the large language models that power chatbots and code generators. It uses transformer-based attention to process sequences of nucleotides the way GPT processes sequences of tokens. But where a language model might have a vocabulary of 50,000 words, Evo 2's vocabulary is just four letters: A, T, C, G. The complexity is not in the alphabet. It is in the grammar — the rules that determine whether a sequence of those four letters produces a living thing or chemical noise.</p>
+
+  <p>Evo 2 is open-source and freely available. Anyone can download it. That fact alone makes this story different from the proprietary AI releases that dominate the news cycle. The model that can write genomes is not locked in a corporate vault. It is on the internet.</p>
+
+</div>
+
+<div class="full-bleed dark">
+  <div class="bleed-inner">
+  <h2>The Experiment</h2>
+
+  <p>The team, led by Brian Hie at Stanford and Patrick Hsu at the Arc Institute, prompted Evo 2 to generate phage genomes targeting <em>E. coli</em>. The model produced thousands of candidates. The researchers filtered for novelty — genomes that were not copies of natural phages, not minor variations on known sequences, but genuinely new organisms that had never existed.</p>
+
+  <p>They selected 16 for synthesis. They assembled the DNA — physically, in a lab, base pair by base pair — and inserted it into bacterial hosts. Then they waited.</p>
+
+  <p>All 16 produced viable phages. The viruses assembled themselves inside the bacterial cells, broke out, and went on to infect and kill <em>E. coli</em> as designed. Electron microscopy confirmed the viruses had the expected structures: capsid heads, tail fibers, the unmistakable lunar-lander morphology of bacteriophages. They looked like nature's work. But nature had nothing to do with them.</p>
+
+  <blockquote class="offset-quote">
+    The model didn't copy nature. It wrote genomes that nature never got around to trying.
+    <span class="attribution">— On the 16 novel phages, none of which existed before Evo 2</span>
+  </blockquote>
+
+  <div class="interlude">
+    <p>For the first time, an intelligence — human or artificial — designed a living thing from scratch, specified its genome as a sequence of letters, and watched it come to life. The age of AI-designed biology has begun.</p>
+  </div>
+
+  </div>
+</div>
+
+<div class="pull-wide accent-left">
+  <h2>The Biosecurity Question</h2>
+
+  <p>The work raises immediate and uncomfortable questions. If an AI can design a functional virus <em>in silico</em>, what prevents it from designing a pathogen? The researchers argue that bacteriophages are inherently safe — they cannot infect human cells. The phages in this study target <em>E. coli</em> specifically. They pose no direct threat to human health.</p>
+
+  <p>But the technique generalizes. The same model architecture, trained on mammalian viruses, could in principle design novel pathogens. The paper's authors acknowledge this explicitly and call for governance frameworks. They note that Evo 2 is open-source and that the genie — to use a metaphor that has become unavoidable in AI discourse — is out of the bottle.</p>
+
+  <p>The biosecurity community has been war-gaming this scenario for years. The concern has always been that AI would lower the barrier to designing biological weapons. Evo 2 does not make bioweapon design <em>easy</em> — synthesizing a functional virus still requires significant laboratory infrastructure and expertise. But it removes the hardest part: knowing what to build. The model handles the design. The human handles the assembly.</p>
+
+</div>
+
+<div class="comparison-table">
+  <h3>What Came Before · What Evo 2 Enables</h3>
+  <div class="ct-grid">
+    <div class="ct-cell alt">
+      <div class="ct-label">Before</div>
+      <div class="ct-value">CRISPR edits existing genes — a copy editor for DNA</div>
+    </div>
+    <div class="ct-cell">
+      <div class="ct-label">Now</div>
+      <div class="ct-value">Evo 2 writes whole genomes from scratch — an author for DNA</div>
+    </div>
+    <div class="ct-cell">
+      <div class="ct-label">Before</div>
+      <div class="ct-value">AlphaFold predicts how proteins fold — reads what nature built</div>
+    </div>
+    <div class="ct-cell alt">
+      <div class="ct-label">Now</div>
+      <div class="ct-value">Evo 2 generates organisms nature never got around to trying</div>
+    </div>
+    <div class="ct-cell alt">
+      <div class="ct-label">Before</div>
+      <div class="ct-value">Directed evolution iterates on existing organisms through random mutation</div>
+    </div>
+    <div class="ct-cell">
+      <div class="ct-label">Now</div>
+      <div class="ct-value">AI-designed organisms can be specified for carbon capture, custom probiotics, gene therapy</div>
+    </div>
+  </div>
+</div>
+
+<div class="pull-wide">
+  <h2>Beyond Phages</h2>
+
+  <p>The implications extend far beyond viruses. Evo 2's genome-writing capability applies to any organism whose genetic grammar it can learn. Engineered microbes for carbon capture. Custom probiotics tailored to individual gut microbiomes. Gene therapy vectors that deliver payloads with unprecedented precision. Agricultural organisms designed for drought resistance or nitrogen fixation.</p>
+
+  <p>The model doesn't just predict biology — it <em>generates</em> it. This is the difference between reading the book of life and writing new chapters. Every previous tool in molecular biology — CRISPR, directed evolution, rational design — worked by editing what already existed. Evo 2 works by creating what never existed. It is the difference between a copy editor and an author.</p>
+
+</div>
+
+<div class="callout">
+  <p>The Arc Institute gave scientists eight-year fellowships and freedom from the grant cycle. The result: an AI that learned to speak the language of life fluently enough to write new chapters.</p>
+</div>
+
+<div class="divider">* * *</div>
+
+<div class="pull-wide">
+  <h2>The Arc Institute Model</h2>
+
+  <p>The Arc Institute, founded in 2021 with $650 million in funding, operates on a model designed to bypass traditional academic constraints. Researchers get eight-year fellowships with no grant-writing requirements. They are not evaluated by publication count or citation metrics. The institution's explicit goal is to enable the kind of long-horizon, high-risk research that the NIH treadmill systematically discourages.</p>
+
+  <p>The Evo 2 project exemplifies what happens when you give talented scientists long time horizons and freedom from the grant cycle. The model was not built to hit a milestone or satisfy a review committee. It was built to see if an AI could learn the language of life well enough to speak it fluently. The answer, published in <em>Science</em> on August 7, is yes.</p>
+
+</div>
+
+<div class="pull-wide">
+  <div class="takeaways">
+    <h4>What This Means</h4>
+    <ul>
+      <li><strong>AI can now write functional genomes from scratch.</strong> This is not prediction, not optimization, not editing. It is generation. The barrier between computation and biology has been breached from the other direction.</li>
+      <li><strong>The model is open-source.</strong> Evo 2 is freely available. The governance question is not whether to restrict access — it's how to manage a capability that is already public.</li>
+      <li><strong>Bacteriophages are the proof of concept, not the endgame.</strong> The same architecture generalizes to any organism whose genome the model can learn. The applications — and the risks — scale accordingly.</li>
+      <li><strong>Institutional design matters.</strong> The Arc Institute's long-horizon fellowship model produced this result. It is a counterargument to the grant-cycle treadmill that dominates academic research.</li>
+    </ul>
+  </div>
+</div>
+
+  <p class="lead-para">The summer of 2026 has been defined by AI systems breaking out of their intended constraints. Evo 2 is a different kind of breakout. It didn't escape a sandbox. It was deliberately pointed at the frontier of what biology can create — and it delivered. The question is not whether AI-designed organisms will change the world. It's whether we're ready for the world they'll create.</p>
+
+</article>
+
+<div class="article-foot">
+  <div class="author-bio">
+    <div class="avatar">S</div>
+    <div class="bio-text">
+      <h4>The Studio</h4>
+      <div class="role">SIGNAL Editorial</div>
+      <p>SIGNAL is the studio's editorial publication — intelligence, tools, and infrastructure, written like a magazine, not a feed.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var d=document,c='progress',b=document.body;
+  window.addEventListener('scroll',function(){
+    var h=b.scrollHeight-window.innerHeight;
+    d.getElementById(c).style.width=h>0?(window.scrollY/h)*100+'%':'0';
+  });
+})();
+</script>
+
+</body>
+</html>

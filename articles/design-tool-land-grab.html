@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Design Tool Land Grab — house</title>
+<style>
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f5f2e6;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#eae6d2;
+  --highlight:#f0ead0;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+  --measure:680px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;text-align:center;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.4}
+
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px 64px;font-size:19px;line-height:1.7;color:#2a2d1e}
+.article-body > *{margin-bottom:28px}
+.article-body p{margin-bottom:28px}
+.article-body p:last-child{margin-bottom:0}
+.article-body > p:first-of-type::first-letter{font-family:var(--serif);font-weight:900;font-size:76px;float:left;line-height:.82;margin:6px 12px 0 0;color:var(--accent);font-style:normal}
+.article-body .lead-para{font-size:21px;line-height:1.6;color:#1a1d12;font-weight:400}
+.article-body .lead-para::first-letter{font-size:inherit;float:none;margin:0;color:inherit;font-family:inherit;font-weight:inherit}
+.article-body em{font-family:var(--serif);font-style:italic;font-size:1.02em;color:var(--accent-dark)}
+.article-body strong{font-weight:700;color:var(--ink)}
+.article-body h2{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.15;letter-spacing:-.015em;margin:56px 0 20px;color:var(--ink);position:relative;padding-top:8px}
+.article-body h2::before{content:'';position:absolute;top:0;left:0;width:40px;height:2px;background:var(--accent)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-style:italic;font-size:24px;line-height:1.2;margin:40px 0 14px;color:var(--accent-dark)}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:30px;line-height:1.3;color:var(--accent-dark);border:none;padding:40px 0;margin:48px -40px;text-align:center;position:relative;max-width:none}
+.article-body .pull-quote::before,.article-body .pull-quote::after{content:'';display:block;width:48px;height:2px;background:var(--accent);margin:0 auto}
+.article-body .pull-quote::before{margin-bottom:24px}
+.article-body .pull-quote::after{margin-top:24px}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body figure{margin:48px -40px}
+.article-body .fig-img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 50%,#4b5320 100%);position:relative;overflow:hidden}
+.article-body .fig-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.article-body .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body figcaption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 40px}
+.article-body figcaption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body figure.full-bleed{margin:56px calc(50% - 50vw);max-width:none}
+.article-body figure.full-bleed .fig-img{aspect-ratio:21/9}
+.article-body figure.full-bleed figcaption{padding:0 24px;max-width:var(--measure);margin:10px auto 0}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body ol{list-style:none;counter-reset:item;padding-left:0}
+.article-body ol li{counter-increment:item;padding-left:40px;position:relative}
+.article-body ol li::before{content:counter(item);position:absolute;left:0;top:0;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--accent);line-height:1.1}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:48px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+.article-body pre{background:#1a1d12;color:#eae6d2;padding:20px 24px;margin:32px 0;font-family:'SF Mono',Consolas,monospace;font-size:14px;line-height:1.6;overflow-x:auto;border-left:3px solid var(--accent)}
+.article-body code{font-family:'SF Mono',Consolas,monospace;font-size:.92em;background:var(--bg-tint);padding:2px 6px;color:var(--accent-dark)}
+.article-body pre code{background:none;padding:0;color:inherit}
+.article-body .duo{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:none;margin:48px 0;align-items:start}
+.article-body .duo .duo-text{font-size:17px;line-height:1.65;color:#3a3d2e}
+.article-body .duo .duo-text p{margin-bottom:14px}
+.article-body .duo .duo-text p:last-child{margin-bottom:0}
+.article-body .duo .duo-fig .fig-img{aspect-ratio:3/4;background:linear-gradient(160deg,#1a1d12 0%,#3a4018 60%,#4b5320 100%);position:relative;overflow:hidden}
+.article-body .duo .duo-fig .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(245,242,230,.08) 0%,transparent 60%)}
+.article-body .duo .duo-fig figcaption{font-size:13px}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0 56px calc((var(--measure) - 100%) / 2 - 40px);padding-right:40px;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote::before{content:'\201C';position:absolute;left:-12px;top:-20px;font-size:80px;color:var(--accent);opacity:.25;font-family:var(--serif);line-height:1}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:700}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+.article-body .two-col{column-count:2;column-gap:36px;column-rule:1px solid var(--rule);max-width:none;margin:40px 0;font-size:16px;line-height:1.65;color:#3a3d2e}
+.article-body .two-col p{margin-bottom:14px;break-inside:avoid-column}
+.article-body .two-col p:first-child{margin-top:0}
+.article-body .two-col h3{break-after:avoid;break-inside:avoid-column}
+.article-body .wide{max-width:920px;margin-left:calc((100% - 920px) / 2);margin-right:calc((100% - 920px) / 2)}
+.article-body .wide h2{font-size:34px}
+.article-body .interlude{background:var(--ink);color:var(--paper);max-width:none;margin:64px 0;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.article-body .interlude::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body .interlude .interlude-kicker{position:relative;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .interlude p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+.article-body .interlude p em{font-style:normal;color:var(--accent)}
+.article-body .figure-left{float:left;width:280px;margin:8px 28px 16px 0;max-width:none}
+.article-body .figure-right{float:right;width:280px;margin:8px 0 16px 28px;max-width:none}
+.article-body .figure-left .fig-img,.article-body .figure-right .fig-img{aspect-ratio:3/4;background:linear-gradient(160deg,#2a2e1a 0%,#4b5320 100%)}
+.article-body .figure-left figcaption,.article-body .figure-right figcaption{font-size:12px;margin-top:8px}
+.article-body .clearfix::after{content:'';display:block;clear:both}
+.article-body .takeaways-grid{background:var(--bg-tint);border-left:4px solid var(--accent);padding:32px 36px;margin:48px 0;max-width:none}
+.article-body .takeaways-grid h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .takeaways-grid .takeaway-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px}
+.article-body .takeaways-grid .takeaway{display:flex;gap:14px;align-items:flex-start}
+.article-body .takeaways-grid .takeaway .num{font-family:var(--serif);font-weight:900;font-size:24px;color:var(--accent);line-height:1;flex-shrink:0;width:28px}
+.article-body .takeaways-grid .takeaway .txt{font-size:15px;line-height:1.5;color:#3a3d2e}
+
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+
+.site-footer{max-width:var(--measure);margin:0 auto;padding:40px 24px 56px;text-align:center;border-top:1px solid var(--rule)}
+.site-footer .footer-logo{font-family:var(--serif);font-weight:900;font-size:28px;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px}
+.site-footer .footer-tagline{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.site-footer .copyright{font-size:12px;color:var(--muted)}
+
+@media (max-width:768px){
+  html{font-size:17px}
+  .article-body{font-size:18px}
+  .article-body .pull-quote{font-size:24px;margin:32px -16px}
+  .article-body h2{font-size:28px}
+  .article-body h3{font-size:20px}
+  .article-body figure{margin:32px -16px}
+  .article-body figcaption{padding:0 16px}
+  .article-body figure.full-bleed{margin:32px -24px}
+  .related .rel-grid{grid-template-columns:1fr;gap:24px}
+  .masthead nav{display:none}
+  .article-body .duo{grid-template-columns:1fr;gap:20px}
+  .article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px;padding-right:0}
+  .article-body .stat-row{grid-template-columns:1fr;border-bottom:none}
+  .article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}
+  .article-body .two-col{column-count:1}
+  .article-body .interlude{padding:40px 24px}
+  .article-body .interlude p{font-size:22px}
+  .article-body .figure-left,.article-body .figure-right{float:none;width:100%;margin:24px 0}
+  .article-body .takeaways-grid .takeaway-grid{grid-template-columns:1fr}
+}
+@media (min-width:1100px){
+  .article-body .sidenote{position:relative;width:200px;float:right;margin:8px -260px 8px 24px;padding:0 0 0 16px;border-left:2px solid var(--rule);border-top:none;font-size:13px}
+  .article-body .sidenote strong{margin-bottom:6px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="masthead">
+  <div class="logo"><a href="../index.html">house</a></div>
+  <div class="section-tag">Technology</div>
+  <nav>
+    <a href="../index.html">Dispatches</a>
+    <a href="#">Studio</a>
+    <a href="#">Field Notes</a>
+    <a href="#">Index</a>
+  </nav>
+</header>
+
+<div class="article-hero">
+  <div class="kicker">Tools &middot; Generative Design</div>
+  <h1>The Design Tool <em>Land Grab</em></h1>
+  <p class="dek">Four major AI design tools launched in eight weeks. Claude Design, Google Stitch, Figma Make, and Adobe Creative Agent didn't just ship products — they drew battle lines around who owns the creative workflow. The design tool landscape just transformed, and the winners won't be decided by features. <em>They'll be decided by who controls the handoff.</em></p>
+  <div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>August 11, 2026<span class="sep">&middot;</span>8 min read</div>
+</div>
+
+<div class="hero-figure">
+  <div class="hero-img"></div>
+  <p class="caption">Four companies, eight weeks, one question: who owns the moment a design becomes real? Illustration by house.</p>
+</div>
+
+<article class="article-body">
+
+  <p class="lead-para">April to June 2026. Four launches. <strong>Claude Design</strong> from Anthropic on April 17. <strong>Google Stitch</strong> in May. <strong>Figma Make</strong> and <strong>Motion</strong> in May. <strong>Adobe Creative Agent</strong> in June. Eight weeks that redrew the map of who builds what — and who controls the creative pipeline. This wasn't a coincidence. It was a <em>land grab</em>, and everyone saw it coming except the people who will be most affected by it: the designers.</p>
+
+  <p>Each of these tools does something different. Claude Design generates interfaces from text prompts, sitting inside Anthropic's chat ecosystem. Google Stitch is a generative layout engine that assembles entire screen flows from design-system tokens. Figma Make and Motion bring AI-native generation and animation into the browser-based canvas that already owns the design market. Adobe Creative Agent embeds agent-based creative workflows directly into Creative Cloud, the suite that has defined professional creative software for three decades. Four different approaches. Four different philosophies. One shared objective: <em>own the pipeline from idea to production</em>.</p>
+
+  <p>The timing is not accidental. The AI models reached a threshold in early 2026 where they could generate production-quality UI from natural language. Not wireframes. Not mockups. <strong>Production code.</strong> The kind you ship. Once that threshold was crossed, the race was on. Every company with a stake in design software knew that the window to establish dominance was measured in months, not years. They were right.</p>
+
+  <h2>The Four Entrants</h2>
+
+  <p>Each player entered the field from a different direction, carrying different advantages and different baggage. Understanding the land grab means understanding what each one brought to the fight.</p>
+
+  <p><strong>Claude Design</strong> (Anthropic, April 17) is the most conceptually pure of the four. It lives inside the Claude chat interface. You describe what you want — a dashboard, a checkout flow, a settings panel — and it generates a fully styled, responsive interface with real components. No canvas. No layers panel. No design file. The prompt <em>is</em> the design file. Anthropic's bet is that the chat interface becomes the universal creative surface, and that the design tool of the future looks more like a conversation than a canvas. It's a radical thesis, and it has the advantage of being the simplest to use. It also has the disadvantage of being the hardest to integrate into existing design workflows. Designers don't work in chat windows. Not yet.</p>
+
+  <p><strong>Google Stitch</strong> (May) takes the opposite approach. It's a generative layout engine built on top of Google's Material Design system and its internal design tokens infrastructure. You feed it a design system — colors, typography, spacing, component definitions — and it generates complete screen layouts that are guaranteed to be consistent with the system. Stitch is not trying to replace the design tool. It's trying to <em>automate the layout problem</em> so designers can focus on system-level decisions. Google's advantage is infrastructure: nobody else has a design system as widely adopted as Material, and nobody else has the training data that comes from millions of Android and web applications built on that system. The risk is that Stitch feels like a Google product — powerful, systematic, and slightly impersonal.</p>
+
+  <p><strong>Figma Make and Motion</strong> (May) are Figma's answer to the AI moment, and they are the most strategically important products Figma has shipped since Figma itself. Make generates designs from prompts directly on the Figma canvas — not as static images, but as editable Figma layers with auto-layout, components, and styles. Motion does the same for animation: describe a transition, a micro-interaction, a page scroll effect, and it builds it in Figma's timeline. Figma's advantage is the user base. Over thirty million designers and developers use Figma. They already have the files, the components, the design systems. Make and Motion don't need to convince anyone to switch tools. They just need to convince people to use the AI features inside the tool they already have open. That is an <em>enormous</em> advantage.</p>
+
+  <p><strong>Adobe Creative Agent</strong> (June) is the most ambitious of the four. It's not a single feature — it's an agent layer that sits across the entire Creative Cloud: Photoshop, Illustrator, After Effects, Premiere, XD. You describe a creative task — "generate twenty variations of this hero image with different typography treatments" — and the agent orchestrates multiple applications to produce the output. It can open files, apply effects, export assets, and iterate. Adobe's advantage is the ecosystem. No other company has a suite that covers the full creative workflow from image editing to video production to UI design. The risk is complexity. Creative Agent has to work across a dozen applications with decades of legacy code. If it stumbles, it stumbles hard.</p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="num">4<span class="unit"> launches</span></div>
+      <div class="label">Major AI design tools shipped in a single window</div>
+    </div>
+    <div class="stat">
+      <div class="num">8<span class="unit"> weeks</span></div>
+      <div class="label">The compressed timeframe that reshaped the market</div>
+    </div>
+    <div class="stat">
+      <div class="num">April<span class="unit">–June</span></div>
+      <div class="label">2026: the quarter the design tool landscape transformed</div>
+    </div>
+  </div>
+
+  <h2>The Territory</h2>
+
+  <p>What each company is really fighting for is not features. It's not even users. It's the <strong>design-to-code pipeline</strong> — the moment a design becomes a product. For decades, this was a manual translation step. A designer hands off a file. A developer interprets it. Something is always lost in translation. The handoff is where time disappears, where fidelity breaks, where the gap between what was designed and what gets built becomes visible.</p>
+
+  <p>AI design tools collapse this into a single prompt. You describe the interface. The tool generates it — not as a picture, but as <em>production code</em>. The handoff disappears. And with it, the role of the person who used to do the translation. Whoever owns the tool that generates the final UI owns the handoff. And the handoff is where the money is.</p>
+
+  <aside class="sidenote">
+    <strong>Field Note</strong>
+    The design-to-code handoff is the moment a design becomes a product. For decades, this was a manual translation step. AI design tools collapse it into a single prompt. The company that owns the handoff owns the production pipeline.
+  </aside>
+
+  <p>This is not a feature war. It's a <em>territory war</em>. The four companies are not competing on who has the best AI generation. They are competing on who controls the moment of translation — the point where a design stops being an idea and starts being software. That point has been contested for thirty years. It has never been winnable in a single stroke. AI makes it winnable.</p>
+
+  <p>Consider the economics. The design-tool market is worth roughly $15 billion. The software development market is worth over $400 billion. The design-to-code handoff sits at the intersection of both. If you own the handoff, you don't just capture the design-tool market. You capture a piece of every product that gets built. That's the real prize. That's what the land grab is about.</p>
+
+  <h2>The Incumbent Problem</h2>
+
+  <p>Figma has the user base. Adobe has the ecosystem. Anthropic has the models. Google has the infrastructure. <strong>None of them have all four.</strong> The land grab is about who can assemble the full stack first — and who can do it before the others close the gaps.</p>
+
+  <p>Figma's user base is its moat, but moats don't last when the terrain shifts. Thirty million users is a lot of people to lose. It's also a lot of people to retrain. If Claude Design can generate a production-ready interface from a single prompt, and Figma Make requires you to open Figma, navigate a canvas, and work with layers — the simpler tool wins over time. Not immediately. But over time. The question is whether Figma can make its AI features simple enough, fast enough, that the friction of switching outweighs the friction of staying.</p>
+
+  <p>Adobe's ecosystem is its superpower and its anchor. Creative Cloud is everywhere. It's on every designer's machine. It's the default. But Creative Agent has to work across Photoshop, Illustrator, XD, After Effects, Premiere — applications built in different decades, on different architectures, by different teams. The integration challenge is enormous. If Creative Agent feels like a layer on top of legacy software rather than a native experience, designers will notice. They always do.</p>
+
+  <p>Anthropic's models are the best in the world at understanding and generating structured output. Claude Design benefits from this directly. But Anthropic has no design tool. It has no canvas. It has no user base of designers. It has a chat window and an API. The bet is that the chat window is enough — that the interface for design is language, not visual manipulation. It's a bet that could pay off enormously or fail completely. There is no middle ground.</p>
+
+  <p>Google's infrastructure is unmatched. Material Design is the most deployed design system on the planet. Google's training data — millions of apps, billions of screens — gives Stitch a head start that no one else can replicate. But Google has a history of launching design tools and letting them wither. Designers remember. Trust is earned slowly and lost quickly in this market, and Google has lost it more than once.</p>
+
+  <blockquote class="offset-quote">
+    The design tool that wins won't be the one with the best AI. It will be the one that makes AI invisible — so designers forget they're using it.
+    <span class="attribution">— A design-tool veteran, speaking off the record</span>
+  </blockquote>
+
+  <p>This is the insight that matters. Designers don't want to use AI. They want to design. The tool that makes the AI disappear into the workflow — that makes generation feel like extension, not replacement — is the tool that wins. Every one of the four entrants knows this. None of them have solved it yet.</p>
+
+  <div class="duo">
+    <div class="duo-text">
+      <h3>The Stack Each Player Holds</h3>
+      <p><strong>Figma:</strong> User base + canvas + collaboration. Missing: models, infrastructure.</p>
+      <p><strong>Adobe:</strong> Ecosystem + applications + distribution. Missing: AI-native UX, speed.</p>
+      <p><strong>Anthropic:</strong> Models + safety + structured output. Missing: design tool, user base.</p>
+      <p><strong>Google:</strong> Infrastructure + design system + training data. Missing: designer trust, focus.</p>
+    </div>
+    <div class="duo-fig">
+      <div class="fig-img"></div>
+      <figcaption>The four-way race is really a puzzle: each player has two pieces, needs all four. The first to assemble the full stack wins.</figcaption>
+    </div>
+  </div>
+
+  <h2>What This Means for Designers</h2>
+
+  <p>The job isn't going away. It's changing. The designer becomes a <em>director</em> — setting intent, curating output, making taste decisions. The tools handle execution. This is the same shift that happened when photography went digital, when music production moved to DAWs, when video editing left the tape bay. The craft doesn't disappear. It moves up the stack.</p>
+
+  <p>But the transition will be disorienting. Designers who built careers on pixel precision will find that precision is now a commodity. The value moves from <em>how</em> you make something to <em>what</em> you choose to make — and why. Taste, judgment, systems thinking, strategic intent: these become the differentiators. Execution becomes table stakes.</p>
+
+  <p>This is not a comfortable transition. It never is. But it's also not a new one. Every creative field that has been transformed by automation has followed the same arc: panic, adaptation, expansion. The photographers who survived the digital transition were not the ones who clung to the darkroom. They were the ones who realized that the camera was no longer the bottleneck — the eye was.</p>
+
+  <aside class="sidenote">
+    <strong>Field Note</strong>
+    The designer-as-director model is already visible in how early adopters use these tools. They don't generate one design and ship it. They generate fifty variations, curate three, and refine one. The tool does the labor. The designer does the taste.
+  </aside>
+
+  <p>The designers who thrive in this new landscape will be the ones who understand that their value was never in moving rectangles around a canvas. It was in knowing <em>which</em> rectangles to move, and why, and for whom. The tools are getting better at the first part. They are not getting better at the second. That's still a human job. It will be for a long time.</p>
+
+  <div class="divider">* * *</div>
+
+  <p>Eight weeks, four launches, one question: who owns the moment a design becomes real? The answer will determine the shape of creative software for the next decade. Not because the best tool will win — the best tool rarely wins. But because the tool that controls the handoff controls the pipeline, and the tool that controls the pipeline controls the economics of every product that gets built.</p>
+
+  <p>The land grab is underway. The borders are being drawn. And the designers who are paying attention — the ones who understand that this is not about features but about <em>power</em> — are the ones who will shape what comes next. Everyone else will have it shaped for them.</p>
+
+</article>
+
+<div class="article-foot">
+  <div class="tags">
+    <a href="#">Design Tools</a>
+    <a href="#">AI</a>
+    <a href="#">Figma</a>
+    <a href="#">Adobe</a>
+    <a href="#">Anthropic</a>
+    <a href="#">Generative Design</a>
+  </div>
+  <div class="author-bio">
+    <div class="avatar">P</div>
+    <div class="bio-text">
+      <h4>Propagation House</h4>
+      <div class="role">House Editorial</div>
+      <p>Dispatches from the intersection of tools, technology, and creative practice. Propagation House covers what gets built, who builds it, and what it means for the people who make things.</p>
+    </div>
+  </div>
+</div>
+
+<section class="related">
+  <div class="section-label">Related Dispatches</div>
+  <div class="rel-grid">
+    <article>
+      <div class="kicker">Technology</div>
+      <h3><a href="composure.html">Composure: The Agent That Thinks in Channels</a></h3>
+      <div class="meta">14 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Design</div>
+      <h3><a href="studio-that-evolves.html">The Studio That Evolves Itself</a></h3>
+      <div class="meta">7 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Infrastructure</div>
+      <h3><a href="efficiency-race.html">The Efficiency Race</a></h3>
+      <div class="meta">8 min read</div>
+    </article>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-logo">house</div>
+  <div class="footer-tagline">House News &middot; Propagation House</div>
+  <div class="copyright">&copy; 2026 Propagation House. All rights reserved.</div>
+</footer>
+
+<script>
+(function(){
+  var bar=document.getElementById('progress');
+  function update(){
+    var h=document.documentElement;
+    var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);
+    bar.style.width=(scrolled*100)+'%';
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+})();
+</script>
+
+</body>
+</html>

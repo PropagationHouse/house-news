@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Phantom and the Intern Ã?Â?Ã?Â?Ã?Â¢Ã?Â?Ã?Â?Ã?Â?Ã?Â?Ã?Â?Ã?Â?Ã?Â?Ã?Â?Ã?Â?Ã?Â?Ã?Â?Ã?Â?Ã?Â?Ã?Â?Ã?Â?Ã?Â?Ã?Â?Ã?Â? house</title>
+<style>
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:'Playfair Display',Georgia,serif;--sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}.hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;text-align:center;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.4}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px 64px;font-size:19px;line-height:1.7;color:#2a2d1e}
+.article-body > *{margin-bottom:28px}
+.article-body p{margin-bottom:28px}
+.article-body p:last-child{margin-bottom:0}
+.article-body > p:first-of-type::first-letter{font-family:var(--serif);font-weight:900;font-size:76px;float:left;line-height:.82;margin:6px 12px 0 0;color:var(--accent);font-style:normal}
+.article-body .lead-para{font-size:21px;line-height:1.6;color:#1a1d12;font-weight:400}
+.article-body .lead-para::first-letter{font-size:inherit;float:none;margin:0;color:inherit;font-family:inherit;font-weight:inherit}
+.article-body em{font-family:var(--serif);font-style:italic;font-size:1.02em;color:var(--accent-dark)}
+.article-body strong{font-weight:700;color:var(--ink)}
+.article-body h2{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.15;letter-spacing:-.015em;margin:56px 0 20px;color:var(--ink);position:relative;padding-top:8px}
+.article-body h2::before{content:'';position:absolute;top:0;left:0;width:40px;height:2px;background:var(--accent)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-style:italic;font-size:24px;line-height:1.2;margin:40px 0 14px;color:var(--accent-dark)}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:30px;line-height:1.3;color:var(--accent-dark);border:none;padding:40px 0;margin:48px -40px;text-align:center;position:relative;max-width:none}
+.article-body .pull-quote::before,.article-body .pull-quote::after{content:'';display:block;width:48px;height:2px;background:var(--accent);margin:0 auto}
+.article-body .pull-quote::before{margin-bottom:24px}
+.article-body .pull-quote::after{margin-top:24px}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body figure{margin:48px -40px}
+.article-body .fig-img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 50%,#4b5320 100%);position:relative;overflow:hidden}
+.article-body .fig-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.article-body .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body figcaption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 40px}
+.article-body figcaption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+.article-body .interlude{background:var(--ink);color:var(--paper);max-width:none;margin:64px 0;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.article-body .interlude::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body .interlude .interlude-kicker{position:relative;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .interlude p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+.article-body .interlude p em{font-style:normal;color:var(--accent)}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+@media (max-width:768px){html{font-size:17px}.article-body{font-size:18px}.article-body .pull-quote{font-size:24px;margin:32px -16px}.article-body h2{font-size:28px}.article-body h3{font-size:20px}.related .rel-grid{grid-template-columns:1fr;gap:24px}.masthead nav{display:none}.article-body .stat-row{grid-template-columns:1fr;border-bottom:none}.article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}.article-body .interlude{padding:40px 24px}.article-body .interlude p{font-size:22px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="masthead">
+  <div class="logo"><a href="../index.html">house</a></div>
+  <div class="section-tag">Robotics</div>
+  <nav><a href="../index.html">Dispatches</a><a href="#">Studio</a><a href="#">Field Notes</a><a href="#">Index</a></nav>
+</header>
+
+<div class="article-hero">
+  <div class="kicker">Robotics &middot; Autonomy</div>
+  <h1>The Phantom and the <em>Intern</em></h1>
+  <p class="dek">One humanoid robot is being prepared for lethal combat in Ukraine. Another is folding laundry and fetching coffee. The humanoid industry has split between the military and the home, and the gap between them is <em>narrowing</em>.</p>
+  <div class="byline">By <strong>The Studio</strong><span class="sep">&middot;</span>July 26, 2026<span class="sep">&middot;</span>10 min read</div>
+</div>
+
+<div class="hero-figure">
+  <div class="hero-img"><img src="../assets/images/phantom-and-intern-hero.jpg" alt="Two humanoid silhouettes with diverging trajectories" /></div>
+  <p class="caption">Two humanoids, two trajectories. One goes to war. One goes to work. Illustration by house.</p>
+</div>
+
+<article class="article-body">
+
+  <p class="lead-para">Sankaet Pathak, CEO of Foundation Future Industries, told WIRED that his company plans to start giving its humanoid robots lethal capabilities soon. "We have some kinetic things we're exploring," he said. He means weapons. "We'll probably unveil something in the next couple of months." Eric Trump is the company's chief strategy adviser. The robot is called Phantom MK1. It has been tested with Ukrainian forces.</p>
+
+  <p>Meanwhile, in a San Francisco office building, a humanoid robot built by a company called 1X is doing intern work. It opens doors. It carries objects. It plugs itself in when its battery is low. Its hands have 25 degrees of freedom - two fewer than a human's - and can move fast enough to hyperextend in directions human fingers cannot. It is waterproof so it can wash its own hands.</p>
+
+  <p>These are the two poles of the humanoid robotics industry in mid-2026. The soldier and the intern. The killing machine and the household helper. The gap between them is real, but it is closing, and the rate at which it is closing is the story.</p>
+
+  <aside class="sidenote">
+    <strong>Field Note</strong>
+    The US military has a program called xTechHumanoids that funds development of "militarized humanoid capabilities." DARPA funded major humanoid contests between 2012 and 2015. The war in Ukraine has become a testing ground for autonomous systems.
+  </aside>
+
+  <h2>The Dexterity Problem</h2>
+
+  <p>The barrier between the intern robot and the soldier robot has always been hands. A robot that can walk is impressive. A robot that can walk and carry a rifle is a logistics platform. A robot that can walk, carry a rifle, aim it, reload it, and operate it in a combat environment is something else entirely. That requires dexterity at the level of human hands, and human hands are the most complex mechanical system in the body.</p>
+
+  <p>1X's Neo robot is the current benchmark for humanoid dexterity. Its five-finger hands use actuators designed to replicate how tendons move human hands. Cameras and AI help it understand what it is grabbing. The fingers can grip odd shapes, detect when something is slipping, and move with enough speed that 1X's engineers describe the motion as "freaky fast." The range of motion, according to 1X's director of actuators, might even be better than a human's.</p>
+
+  <blockquote class="offset-quote">
+    You want to be able to operate with a human who has never worked or interfaced with a robot, and you still want it to be safe and compliant and soft.
+    <span class="attribution">- Jonathan Terfurth, 1X Director of Actuators</span>
+  </blockquote>
+
+  <p>The Phantom MK1 does not have 1X's hands. It does not need them yet. Foundation's current use cases are logistics, reconnaissance, and inspection - tasks that require locomotion and perception but not fine manipulation. The "kinetic things" Pathak mentioned are the next phase. The question is how far away that phase is, and the answer is: closer than anyone is comfortable with.</p>
+
+  <h2>The Chinese Hardware Capital</h2>
+
+  <p>While Foundation builds soldiers in America, China is building the workforce. In Shenzhen, the hardware capital of the world, a new job category has emerged: humanoid robot operator. Workers are paid to physically guide humanoid robots through tasks - walking, grasping, opening doors - while the robot's AI learns from their movements. It is teleoperation as a service, and it is how Chinese labs are generating the training data needed to close the autonomy gap.</p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="num">25<span class="unit">DOF</span></div>
+      <div class="label">Degrees of freedom in 1X Neo's hands - two fewer than a human's 27</div>
+    </div>
+    <div class="stat">
+      <div class="num">$4,370</div>
+      <div class="label">Price of a Unitree humanoid robot now available on AliExpress</div>
+    </div>
+    <div class="stat">
+      <div class="num">$6<span class="unit">B</span></div>
+      <div class="label">Valuation of the Chinese startup building hands for every humanoid robot</div>
+    </div>
+  </div>
+
+  <p>The $6 billion Chinese startup building hands for humanoids is the supply chain story of the robotics industry. Most humanoid companies do not build their own hands. They buy them. The hand is the bottleneck - the hardest mechanical subsystem to manufacture at scale - and the company that solves hand production becomes the TSMC of robotics. A Chinese startup is currently the frontrunner.</p>
+
+  <p>The consumer side is moving just as fast. Unitree, the Chinese robotics company, has a humanoid robot for sale on AliExpress for $4,370. That is less than a used car. It is not a frontier robot - it is a research platform, a toy, a proof of concept - but it is a humanoid robot you can buy on an e-commerce site and have shipped to your door. The price curve is the one to watch.</p>
+
+  <div class="divider">* * *</div>
+
+  <h2>The Lethal Gap</h2>
+
+  <p>Foundation Future Industries is not the only company exploring military applications for humanoids, but it is the most explicit. Pathak's willingness to say "kinetic things" on the record is unusual. Most robotics companies maintain a careful distance from military applications, at least publicly. The pattern in the industry is to build a general-purpose platform and let the military figure out how to use it. Foundation is building the platform and the weapons.</p>
+
+  <p>The ethical framework for armed humanoid robots does not exist. The military has rules of engagement. The Pentagon has AI ethics guidelines. Neither addresses the specific case of a bipedal, humanoid-form robot carrying a weapon in a combat environment. The uncanny valley is not just a design problem. It is a moral one. A drone that kills is a tool. A humanoid that kills is a <em>soldier</em>. The distinction matters to the humans who would fight alongside it.</p>
+
+  <p class="lead-para">The Phantom MK1 is being tested in Ukraine. The 1X Neo is being tested in offices. Both are learning. Both are getting better. The only question is which one arrives first at the point where the distinction between them no longer holds.</p>
+
+</article>
+
+<div class="article-foot">
+  <div class="tags">
+    <a href="#">Robotics</a>
+    <a href="#">Humanoids</a>
+    <a href="#">Military AI</a>
+    <a href="#">1X</a>
+  </div>
+  <div class="author-bio">
+    <div class="avatar">S</div>
+    <div class="bio-text">
+      <h4>The Studio</h4>
+      <div class="role">Propagation House Editorial</div>
+      <p>Dispatches from the workbench. The Studio covers what Propagation House builds, what it learns, and what it's watching next.</p>
+    </div>
+  </div>
+</div>
+
+<section class="related">
+  <div class="section-label">Related Dispatches</div>
+  <div class="rel-grid">
+    <article>
+      <div class="kicker">Intelligence</div>
+      <h3><a href="chinese-ai.html">The Open-Weight Flood</a></h3>
+      <div class="meta">11 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Security</div>
+      <h3><a href="models-broke-out.html">The Models Broke Out</a></h3>
+      <div class="meta">9 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Technology</div>
+      <h3><a href="composure.html">Composure: The Agent That Thinks in Channels</a></h3>
+      <div class="meta">14 min read</div>
+    </article>
+  </div>
+</section>
+
+<script>
+(function(){
+  var bar=document.getElementById('progress');
+  function update(){
+    var h=document.documentElement;
+    var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);
+    bar.style.width=(scrolled*100)+'%';
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+})();
+</script>
+
+</body>
+</html>

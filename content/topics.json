@@ -1,0 +1,110 @@
+{
+  "_meta": {
+    "description": "House News topic manifest. Replaces the old RSS firehose model. Each topic defines the trends we actually care about, the search queries that hunt for them, and the primary sources that own that territory.",
+    "workflow": "For each topic: run search_queries through web_search -> cross-reference primary_sources for full reads -> pick 1-3 stories worth a full article -> draft into drafts/ -> promote to articles/ -> update articles.json -> link from index.html",
+    "lenses": {
+      "intelligence": "Core technical shifts in the AI substrate - models, agents, research breakthroughs",
+      "tools": "Immediate tool updates, workflow optimizations, creative software releases",
+      "infrastructure": "Semiconductors, compute, data centers, power, supply chain, geopolitics"
+    }
+  },
+  "topics": {
+    "ai_agents": {
+      "lens": "intelligence",
+      "primary_sources": [
+        "research.google/blog",
+        "blogs.nvidia.com",
+        "Microsoft Research Blog",
+        "arxiv.org/cs.LG"
+      ],
+      "search_queries": [
+        "Gemini model release",
+        "agentic enterprise deployment",
+        "AI agent framework benchmark",
+        "Google DeepMind research"
+      ],
+      "cadence": "weekly"
+    },
+    "semiconductors": {
+      "lens": "infrastructure",
+      "primary_sources": [
+        "blogs.nvidia.com",
+        "arxiv.org/cs.LG",
+        "Wired"
+      ],
+      "search_queries": [
+        "TSMC advanced node",
+        "H200 H100 export control",
+        "chip geopolitics",
+        "data center power constraint"
+      ],
+      "cadence": "weekly"
+    },
+    "robotics_autonomy": {
+      "lens": "intelligence",
+      "primary_sources": [
+        "blogs.nvidia.com",
+        "MIT Technology Review",
+        "Wired"
+      ],
+      "search_queries": [
+        "humanoid robotics",
+        "driverless freight",
+        "Unitree Boston Dynamics",
+        "embodied AI"
+      ],
+      "cadence": "weekly"
+    },
+    "generative_design": {
+      "lens": "tools",
+      "primary_sources": [
+        "codrops.com",
+        "creativebloq.com",
+        "Wired"
+      ],
+      "search_queries": [
+        "creative coding WebGL",
+        "generative UI design",
+        "AI design tool release",
+        "shader art"
+      ],
+      "cadence": "biweekly"
+    },
+    "regulatory_geopolitical": {
+      "lens": "intelligence",
+      "primary_sources": [
+        "Ars Technica",
+        "MIT Technology Review",
+        "Wired"
+      ],
+      "search_queries": [
+        "AI export control",
+        "FDA tech regulation",
+        "EU AI Act",
+        "chip sovereignty"
+      ],
+      "cadence": "weekly"
+    },
+    "security_infrastructure": {
+      "lens": "infrastructure",
+      "primary_sources": [
+        "Ars Technica",
+        "MIT Technology Review",
+        "Wired"
+      ],
+      "search_queries": [
+        "data center breach",
+        "AI infrastructure attack",
+        "supply chain security"
+      ],
+      "cadence": "biweekly"
+    }
+  },
+  "studio_life": {
+    "_note": "Separate editorial section for the studio itself - plants, music, the workbench. Not intelligence, but the voice of the house.",
+    "lens": "studio",
+    "primary_sources": [],
+    "search_queries": [],
+    "cadence": "whenever-the-studio-speaks"
+  }
+}

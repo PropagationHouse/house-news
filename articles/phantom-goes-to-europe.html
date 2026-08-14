@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Phantom Goes to Europe — house</title>
+<style>
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f5f2e6;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#eae6d2;
+  --highlight:#f0ead0;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+  --measure:680px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ── READING PROGRESS ─────────────────────── */
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+
+/* ── MASTHEAD ─────────────────────────────── */
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+
+/* ── ARTICLE HERO ─────────────────────────── */
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+
+/* ── HERO FIGURE ──────────────────────────── */
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}.hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;text-align:center;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.4}
+
+/* ── ARTICLE BODY ─────────────────────────── */
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px 64px;font-size:19px;line-height:1.7;color:#2a2d1e}
+.article-body > *{margin-bottom:28px}
+.article-body p{margin-bottom:28px}
+.article-body p:last-child{margin-bottom:0}
+
+/* Drop cap */
+.article-body > p:first-of-type::first-letter{font-family:var(--serif);font-weight:900;font-size:76px;float:left;line-height:.82;margin:6px 12px 0 0;color:var(--accent);font-style:normal}
+
+/* Lead paragraph */
+.article-body .lead-para{font-size:21px;line-height:1.6;color:#1a1d12;font-weight:400}
+.article-body .lead-para::first-letter{font-size:inherit;float:none;margin:0;color:inherit;font-family:inherit;font-weight:inherit}
+
+/* Inline emphasis */
+.article-body em{font-family:var(--serif);font-style:italic;font-size:1.02em;color:var(--accent-dark)}
+.article-body strong{font-weight:700;color:var(--ink)}
+
+/* ── SUBHEADINGS ──────────────────────────── */
+.article-body h2{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.15;letter-spacing:-.015em;margin:56px 0 20px;color:var(--ink);position:relative;padding-top:8px}
+.article-body h2::before{content:'';position:absolute;top:0;left:0;width:40px;height:2px;background:var(--accent)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-style:italic;font-size:24px;line-height:1.2;margin:40px 0 14px;color:var(--accent-dark)}
+
+/* ── BLOCKQUOTE ───────────────────────────── */
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+
+/* ── OFFSET QUOTE ─────────────────────────── */
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0 56px calc((var(--measure) - 100%) / 2 - 40px);padding-right:40px;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote::before{content:'\201C';position:absolute;left:-12px;top:-20px;font-size:80px;color:var(--accent);opacity:.25;font-family:var(--serif);line-height:1}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:700}
+
+/* ── SIDENOTES ────────────────────────────── */
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+
+/* ── STAT ROW ─────────────────────────────── */
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+
+/* ── SECTION DIVIDER ──────────────────────── */
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+
+/* ── DUO GRID ─────────────────────────────── */
+.article-body .duo{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:none;margin:48px 0;align-items:start}
+.article-body .duo .duo-text{font-size:17px;line-height:1.65;color:#3a3d2e}
+.article-body .duo .duo-text p{margin-bottom:14px}
+.article-body .duo .duo-text p:last-child{margin-bottom:0}
+.article-body .duo .duo-fig .fig-img{aspect-ratio:3/4;background:linear-gradient(160deg,#1a1d12 0%,#3a4018 60%,#4b5320 100%);position:relative;overflow:hidden}
+.article-body .duo .duo-fig .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(245,242,230,.08) 0%,transparent 60%)}
+.article-body .duo .duo-fig figcaption{font-size:13px}
+
+/* ── INLINE FIGURE ────────────────────────── */
+.article-body figure{margin:48px -40px}
+.article-body .fig-img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 50%,#4b5320 100%);position:relative;overflow:hidden}.fig-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.article-body .fig-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.article-body .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body figcaption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 40px}
+.article-body figcaption strong{font-style:normal;color:var(--ink);font-weight:700}
+
+/* ── ARTICLE FOOTER ───────────────────────── */
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+
+/* ── RELATED ──────────────────────────────── */
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+
+/* ── RESPONSIVE ───────────────────────────── */
+@media (max-width:768px){
+  html{font-size:17px}
+  .article-body{font-size:18px}
+  .article-body h2{font-size:28px}
+  .article-body h3{font-size:20px}
+  .article-body .offset-quote{font-size:24px;margin:40px 0;padding-left:20px}
+  .article-body .stat-row{grid-template-columns:1fr;border-bottom:none}
+  .article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}
+  .article-body .duo{grid-template-columns:1fr;gap:20px}
+  .article-body figure{margin:32px -16px}
+  .article-body figcaption{padding:0 16px}
+  .related .rel-grid{grid-template-columns:1fr;gap:24px}
+  .masthead nav{display:none}
+}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="masthead">
+  <div class="logo"><a href="../index.html">house</a></div>
+  <div class="section-tag">Robotics</div>
+  <nav><a href="../index.html">Dispatches</a><a href="#">Studio</a><a href="#">Field Notes</a><a href="#">Index</a></nav>
+</header>
+
+<div class="article-hero">
+  <div class="kicker">Robotics &middot; Autonomy</div>
+  <h1>The Phantom Goes to <em>Europe</em></h1>
+  <p class="dek">Days after the Pentagon flagged Unitree as Chinese military technology, the company launched its $29,900 H2 humanoid in Europe. The humanoid industry has split between the battlefield and the living room — and the gap is <em>narrowing faster than regulators can track</em>.</p>
+  <div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>August 11, 2026<span class="sep">&middot;</span>10 min read</div>
+</div>
+
+<div class="hero-figure">
+  <div class="hero-img"><img src="../assets/images/phantom-goes-to-europe-hero.jpg" alt="Unitree H2 humanoid robot standing in a European plaza, dawn light" /></div>
+  <p class="caption">The Unitree H2, launched in Europe on July 22, 2026. A $29,900 humanoid from a company the Pentagon just added to its Section 1260H list. Illustration by house.</p>
+</div>
+
+<article class="article-body">
+
+  <p class="lead-para">In late July, we published a piece called <a href="phantom-and-intern.html"><em>"The Phantom and the Intern"</em></a> — a dispatch about two humanoid robots and the futures they implied. The Phantom MK1, built by Foundation Future Industries, was being tested with Ukrainian forces. The 1X Neo, built in San Francisco, was folding laundry and opening doors in an office. The split was clean. The soldier and the intern. The weapon and the helper. Two weeks later, that split is no longer theoretical. It has a price tag, a launch date, and a shipping address in Europe.</p>
+
+  <p>On July 22, 2026, Unitree Robotics — the Hangzhou-based company best known for its quadruped robots — launched the <strong>H2 humanoid</strong> for commercial sale in Europe. The price: <strong>$29,900</strong>. The timing: less than a month after the Pentagon added Unitree to its <strong>Section 1260H list</strong> of Chinese military-linked companies. The humanoid industry's two futures — the battlefield and the living room — are now arriving on the same shipping container, and the container has a Chinese return address.</p>
+
+  <h2>The H2 Landing</h2>
+
+  <p>The Unitree H2 is not a research prototype. It is a product with a spec sheet, a warranty, and a checkout page. Standing 1.8 meters tall and weighing 70 kilograms, the H2 walks at 1.5 meters per second, carries a payload of up to 30 kilograms, and runs for approximately two hours on a single charge. Its hands have 12 degrees of freedom — fewer than 1X's Neo and its 25-DOF hands, but enough for the kind of general-purpose manipulation that makes a humanoid useful outside a lab.</p>
+
+  <p>The European launch began with commercial sales in <strong>Germany, France, and the Netherlands</strong>, with Asia and North America to follow. Unitree has framed the H2 as a platform for research, light industry, and service applications. The company's marketing materials show the robot carrying boxes, opening doors, and navigating warehouse environments. Nothing in the promotional video suggests a weapon. Nothing in the price tag suggests a military procurement program. The H2 costs less than a Tesla Model 3. It costs less than most industrial robot arms. It costs less than the annual salary of the warehouse worker it is designed to replace.</p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="num">$29.9<span class="unit">K</span></div>
+      <div class="label">Unitree H2 consumer price — less than a Tesla Model 3</div>
+    </div>
+    <div class="stat">
+      <div class="num">~90<span class="unit">K</span></div>
+      <div class="label">Estimated humanoid shipments in 2026, per Bank of America analysts</div>
+    </div>
+    <div class="stat">
+      <div class="num">1260<span class="unit">H</span></div>
+      <div class="label">Pentagon statutory list of Chinese military-linked companies</div>
+    </div>
+  </div>
+
+  <p>The H2's price point is the house. At $29,900, Unitree is not selling to generals. It is selling to universities, logistics companies, small manufacturers, and — eventually — to anyone with a garage big enough to store a human-sized machine. The same price curve that put a quadcopter in every hobbyist's backpack is now bending toward humanoids. The question is what happens when the hobbyist can afford a robot that can walk, carry, and manipulate objects with two hands. The answer depends on who built it.</p>
+
+  <h2>The Pentagon's List</h2>
+
+  <p>In June 2026, the U.S. Department of Defense added Unitree Robotics to the <strong>Section 1260H list</strong> — the statutory roster of Chinese military companies operating directly or indirectly in the United States. The designation does not ban Unitree from selling products in the U.S., not yet. But it is the first formal step toward export controls, investment restrictions, and procurement bans. It is the Pentagon saying, in the language of statute: <em>this company answers to a military chain of command.</em></p>
+
+  <p>Unitree's response was swift and consistent with the playbook. The company stated that it is a <strong>commercial robotics firm</strong> with no military affiliations, that its products are designed for civilian applications, and that the Pentagon's designation is a political move untethered from evidence. The statement was issued from Hangzhou, where Unitree's headquarters sit inside the same industrial ecosystem that produces drones for the People's Liberation Army. The distinction between commercial and military in that ecosystem has always been porous. The Section 1260H designation is the Pentagon's way of saying it no longer believes the distinction exists at all.</p>
+
+  <aside class="sidenote">
+    <strong>Field Note</strong>
+    Section 1260H is the statutory list of Chinese military companies operating directly or indirectly in the United States. Inclusion doesn't ban sales — yet — but it is the first step toward export controls, investment prohibitions, and mandatory divestment. The list was created by the National Defense Authorization Act and is maintained by the Secretary of Defense. Companies on the list are presumed to contribute to China's military-civil fusion strategy.
+  </aside>
+
+  <p>The timing of the H2's European launch — weeks after the 1260H designation — is unlikely to be a coincidence. Unitree knew the designation was coming. The company had been under Pentagon review for months. The European launch was the countermove: get the product into Western markets before the regulatory walls go up. Europe, for now, is the path of least resistance.</p>
+
+  <h2>The European Door</h2>
+
+  <p>Why Europe? The answer is regulatory geography. The <strong>EU AI Act's</strong> provisions for high-risk robotics systems do not fully take effect until 2027. Until then, humanoid robots — even those capable of autonomous navigation and physical manipulation — fall into a regulatory gap. They are not consumer products in the traditional sense, and they are not industrial machinery subject to existing safety directives. They are a new category, and the law has not caught up.</p>
+
+  <p>The United States, by contrast, is hardening. The Section 1260H list is one front. The <strong>Committee on Foreign Investment in the United States</strong> (CFIUS) is another. Export controls on advanced robotics components — actuators, sensors, AI training hardware — are expanding. A Chinese humanoid company trying to sell directly into the U.S. market in 2026 faces a gauntlet of national security reviews, each of which can kill a deal without explanation. Europe, for all its regulatory ambition, is still writing the rules. Unitree is walking through the door before it closes.</p>
+
+  <div class="duo">
+    <div class="duo-text">
+      <p>The European strategy is not unique to Unitree. Chinese robotics firms have been using Europe as a beachhead for Western market entry for years. DJI did it with drones. BYD is doing it with electric vehicles. The pattern is consistent: launch in Germany or the Netherlands, build a commercial presence, accumulate case law and regulatory precedent, and then use that foothold to argue for market access elsewhere.</p>
+      <p>What makes the humanoid case different is the <strong>dual-use nature of the hardware</strong>. A drone is a drone. A car is a car. A humanoid robot that can walk, carry, and manipulate objects is a logistics platform on Monday and a weapons platform on Tuesday. The same hands that stack boxes can hold a rifle. The same vision system that navigates a warehouse can track a target.</p>
+    </div>
+    <div class="duo-fig">
+      <figure style="margin:0">
+        <div class="fig-img"><img src="../assets/images/phantom-goes-to-europe-fig1.jpg" alt="Map of Europe with regulatory timeline overlay showing the EU AI Act gap" /></div>
+        <figcaption><strong>Fig. 1</strong> — The regulatory window. EU AI Act high-risk robotics provisions don't fully activate until 2027. Chinese humanoid makers are entering now.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <p>The European Commission is aware of the gap. Internal discussions about fast-tracking robotics provisions under the AI Act have accelerated since the H2 launch. But the European regulatory machinery moves at the speed of consensus, and consensus among 27 member states on the definition of a "high-risk" humanoid is not imminent. Unitree has time. The question is what it does with it.</p>
+
+  <blockquote class="offset-quote">
+    The question is not whether a $30,000 humanoid can do useful work. The question is whether the company that built it answers to Beijing.
+    <span class="attribution">— house, August 2026</span>
+  </blockquote>
+
+  <h2>The Narrowing Gap</h2>
+
+  <p>When we wrote about the Phantom and the Intern in July, the split felt structural. Foundation Future Industries was building a soldier. 1X was building a helper. The hardware was different, the software was different, the business models were different. The split was clean because the use cases were clean. Combat requires one set of capabilities. Household assistance requires another. The gap between them was measured in degrees of freedom, in actuator torque, in the moral distance between carrying a box and carrying a weapon.</p>
+
+  <p>Three weeks later, that gap looks more like a gradient. <strong>Tesla Optimus</strong> is moving toward production at scale, with Elon Musk claiming internal deployment at Tesla factories by late 2026. <strong>XPENG</strong>, the Chinese EV maker, has demonstrated its Iron humanoid performing assembly tasks. <strong>Apptronik</strong> has signed partnerships with logistics providers. <strong>Boston Dynamics</strong> — the company that defined the category — has retired Atlas as a research platform and is building a commercial version. Everyone is pushing toward production. Bank of America estimates <strong>~90,000 humanoid units</strong> will ship globally in 2026. The number is not science fiction. It is a supply-chain forecast.</p>
+
+  <p>The military/commercial distinction is blurring because the same hardware serves both. A humanoid that can carry 30 kilograms in a warehouse can carry 30 kilograms of ordnance. A humanoid that can navigate autonomously through a factory can navigate autonomously through a combat zone. The <em>platform</em> is dual-use by default. The only thing that distinguishes a logistics robot from a combat robot is the software stack — and the software stack is the part nobody can see.</p>
+
+  <p>This is the problem that the Phantom and the Intern identified in July, and it is the problem that Unitree's European launch makes concrete. The Phantom MK1 was explicitly armed. The 1X Neo was explicitly civilian. Unitree's H2 is neither — and both. It is a general-purpose platform sold at a consumer price point by a company the Pentagon says is military-linked. It is the grey zone made physical. It walks. It carries. It costs $29,900. What it does next depends on who writes the code.</p>
+
+  <div class="divider">* * *</div>
+
+  <p class="lead-para">"The Phantom and the Intern" was about two futures. Unitree entering Europe proves those futures are arriving on the same shipping container. The hardware is dual-use by default. The question is who controls the software stack — and what it's programmed to do when nobody's watching.</p>
+
+</article>
+
+<div class="article-foot">
+  <div class="tags">
+    <a href="#">Robotics</a>
+    <a href="#">Humanoids</a>
+    <a href="#">Unitree</a>
+    <a href="#">Military AI</a>
+    <a href="#">Europe</a>
+    <a href="#">Export Controls</a>
+  </div>
+  <div class="author-bio">
+    <div class="avatar">P</div>
+    <div class="bio-text">
+      <h4>Propagation House</h4>
+      <div class="role">house Editorial</div>
+      <p>Dispatches from the intersection of autonomy, intelligence, and geopolitics. Propagation House tracks the systems that are reshaping the world — before they reshape it.</p>
+    </div>
+  </div>
+</div>
+
+<section class="related">
+  <div class="section-label">Related Dispatches</div>
+  <div class="rel-grid">
+    <article>
+      <div class="kicker">Robotics</div>
+      <h3><a href="phantom-and-intern.html">The Phantom and the Intern</a></h3>
+      <div class="meta">10 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Intelligence</div>
+      <h3><a href="chinese-ai.html">The Open-Weight Flood</a></h3>
+      <div class="meta">11 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Security</div>
+      <h3><a href="models-broke-out.html">The Models Broke Out</a></h3>
+      <div class="meta">9 min read</div>
+    </article>
+  </div>
+</section>
+
+<script>
+(function(){
+  var bar=document.getElementById('progress');
+  function update(){
+    var h=document.documentElement;
+    var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);
+    bar.style.width=(scrolled*100)+'%';
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+})();
+</script>
+
+</body>
+</html>

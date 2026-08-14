@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Act Takes Hold — house</title>
+<style>
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f5f2e6;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#eae6d2;
+  --highlight:#f0ead0;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+  --measure:680px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;max-width:var(--measure);margin-left:auto;margin-right:auto;text-align:center}
+
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px;font-size:19px;line-height:1.7}
+.article-body .lead-para{font-family:var(--serif);font-size:24px;line-height:1.4;color:#3a3d2e;font-style:italic;margin-bottom:32px}
+.article-body .lead-para em{font-style:normal;color:var(--ink)}
+.article-body p{margin-bottom:22px}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.12;letter-spacing:-.02em;margin:56px 0 16px;color:var(--ink)}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.25;margin:36px 0 12px;color:var(--ink)}
+.article-body strong{font-weight:700;color:var(--ink)}
+.article-body em{font-family:var(--serif);font-style:italic}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.25;color:var(--ink);margin:40px -24px;padding:28px 32px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);text-align:center;position:relative}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body figure{margin:48px -40px}
+.article-body .fig-img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 50%,#4b5320 100%);position:relative;overflow:hidden}
+.article-body .fig-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.article-body .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body figcaption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 40px}
+.article-body figcaption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body figure.full-bleed{margin:56px calc(50% - 50vw);max-width:none}
+.article-body figure.full-bleed .fig-img{aspect-ratio:21/9}
+.article-body figure.full-bleed figcaption{padding:0 24px;max-width:var(--measure);margin:10px auto 0}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body ol{list-style:none;counter-reset:item;padding-left:0}
+.article-body ol li{counter-increment:item;padding-left:40px;position:relative}
+.article-body ol li::before{content:counter(item);position:absolute;left:0;top:0;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--accent);line-height:1.1}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:48px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+.article-body pre{background:#1a1d12;color:#eae6d2;padding:20px 24px;margin:32px 0;font-family:'SF Mono',Consolas,monospace;font-size:14px;line-height:1.6;overflow-x:auto;border-left:3px solid var(--accent)}
+.article-body code{font-family:'SF Mono',Consolas,monospace;font-size:.92em;background:var(--bg-tint);padding:2px 6px;color:var(--accent-dark)}
+.article-body pre code{background:none;padding:0;color:inherit}
+.article-body .duo{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:none;margin:48px 0;align-items:start}
+.article-body .duo .duo-text{font-size:17px;line-height:1.65;color:#3a3d2e}
+.article-body .duo .duo-text p{margin-bottom:14px}
+.article-body .duo .duo-text p:last-child{margin-bottom:0}
+.article-body .duo .duo-fig .fig-img{aspect-ratio:3/4;background:linear-gradient(160deg,#1a1d12 0%,#3a4018 60%,#4b5320 100%);position:relative;overflow:hidden}
+.article-body .duo .duo-fig .fig-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(245,242,230,.1) 0%,transparent 50%)}
+.article-body .duo .duo-fig figcaption{font-size:13px}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0 56px calc((var(--measure) - 100%) / 2 - 40px);padding-right:40px;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote::before{content:'\201C';position:absolute;left:-12px;top:-20px;font-size:80px;color:var(--accent);opacity:.25;font-family:var(--serif);line-height:1}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:700}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+.article-body .two-col{column-count:2;column-gap:36px;column-rule:1px solid var(--rule);max-width:none;margin:40px 0;font-size:16px;line-height:1.65;color:#3a3d2e}
+.article-body .two-col p{margin-bottom:14px;break-inside:avoid-column}
+.article-body .two-col p:first-child{margin-top:0}
+.article-body .two-col h3{break-after:avoid;break-inside:avoid-column}
+.article-body .wide{max-width:920px;margin-left:calc((100% - 920px) / 2);margin-right:calc((100% - 920px) / 2)}
+.article-body .wide h2{font-size:34px}
+.article-body .interlude{background:var(--ink);color:var(--paper);max-width:none;margin:64px 0;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.article-body .interlude::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body .interlude .interlude-kicker{position:relative;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .interlude p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+.article-body .interlude p em{font-style:normal;color:var(--accent)}
+.article-body .figure-left{float:left;width:280px;margin:8px 28px 16px 0;max-width:none}
+.article-body .figure-right{float:right;width:280px;margin:8px 0 16px 28px;max-width:none}
+.article-body .figure-left .fig-img,.article-body .figure-right .fig-img{aspect-ratio:3/4;background:linear-gradient(160deg,#2a2e1a 0%,#4b5320 100%)}
+.article-body .figure-left figcaption,.article-body .figure-right figcaption{font-size:12px;margin-top:8px}
+.article-body .clearfix::after{content:'';display:block;clear:both}
+.article-body .takeaways-grid{background:var(--bg-tint);border-left:4px solid var(--accent);padding:32px 36px;margin:48px 0;max-width:none}
+.article-body .takeaways-grid h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .takeaways-grid .takeaway-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px}
+.article-body .takeaways-grid .takeaway{display:flex;gap:14px;align-items:flex-start}
+.article-body .takeaways-grid .takeaway .num{font-family:var(--serif);font-weight:900;font-size:24px;color:var(--accent);line-height:1;flex-shrink:0;width:28px}
+.article-body .takeaways-grid .takeaway .txt{font-size:15px;line-height:1.5;color:#3a3d2e}
+
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+
+@media (max-width:768px){
+  html{font-size:17px}
+  .article-body{font-size:18px}
+  .article-body .pull-quote{font-size:24px;margin:32px -16px}
+  .article-body h2{font-size:28px}
+  .article-body h3{font-size:20px}
+  .article-body figure{margin:32px -16px}
+  .article-body figcaption{padding:0 16px}
+  .article-body figure.full-bleed{margin:32px -24px}
+  .related .rel-grid{grid-template-columns:1fr;gap:24px}
+  .masthead nav{display:none}
+  .article-body .duo{grid-template-columns:1fr;gap:20px}
+  .article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px;padding-right:0}
+  .article-body .stat-row{grid-template-columns:1fr;border-bottom:none}
+  .article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}
+  .article-body .two-col{column-count:1}
+  .article-body .interlude{padding:40px 24px}
+  .article-body .interlude p{font-size:22px}
+  .article-body .figure-left,.article-body .figure-right{float:none;width:100%;margin:24px 0}
+  .article-body .takeaways-grid .takeaway-grid{grid-template-columns:1fr}
+}
+@media (min-width:1100px){
+  .article-body .sidenote{position:relative;width:200px;float:right;margin:8px -260px 8px 24px;padding:0 0 0 16px;border-left:2px solid var(--rule);border-top:none;font-size:13px}
+  .article-body .sidenote strong{margin-bottom:6px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="masthead">
+  <div class="logo"><a href="../index.html">house</a></div>
+  <div class="section-tag">Regulatory</div>
+  <nav>
+    <a href="../index.html">Dispatches</a>
+    <a href="#">Studio</a>
+    <a href="#">Field Notes</a>
+    <a href="#">Index</a>
+  </nav>
+</header>
+
+<div class="article-hero">
+  <div class="kicker">Regulatory &middot; Geopolitics</div>
+  <h1>The Act <em>Takes Hold</em></h1>
+  <p class="dek">The EU AI Act's transparency rules became enforceable on August 2 — nine days ago. The high-risk obligations are pushed to 2027, but Article 50 is live now. Every AI system deployed in Europe must disclose its existence. <em>The era of invisible AI is over.</em></p>
+  <div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>August 11, 2026<span class="sep">&middot;</span>8 min read</div>
+</div>
+
+<div class="hero-figure">
+  <div class="hero-img"><img src="../assets/images/act-takes-hold-hero.jpg" alt="A document stamped with the EU seal, half in light, half in shadow" /></div>
+  <p class="caption">Article 50 is now enforceable across 27 member states. The text is clear. The infrastructure for compliance is anything but. Illustration by house.</p>
+</div>
+
+<article class="article-body">
+
+  <p class="lead-para">August 2, 2026. Article 50 of the EU AI Act became applicable. If you deploy an AI system that interacts with humans in the European Union, you must disclose it. No exceptions. No grace period. The transparency era has begun — <em>and most companies aren't ready.</em></p>
+
+  <p>The date came and went without fanfare. No sirens. No enforcement raids. But the legal reality shifted. As of nine days ago, every chatbot, every AI-generated image, every emotion-detection system, every deepfake — every piece of artificial intelligence that touches a human being in Europe — must carry a label. The law does not ask. It <strong>requires</strong>.</p>
+
+  <p>Article 50 is the first tranche of the EU AI Act to take effect. It is also the simplest. The high-risk obligations — conformity assessments, risk management systems, human oversight mandates — do not kick in until December 2027. But transparency is now. And transparency, it turns out, is harder than it sounds.</p>
+
+  <h2>What Article 50 <em>Actually</em> Requires</h2>
+
+  <p>The text of Article 50 is remarkably straightforward. It runs to a few paragraphs. It contains no complex formulas. It establishes four clear obligations:</p>
+
+  <p><strong>First:</strong> AI systems intended to interact directly with natural persons must be designed and developed in such a way that the persons are informed they are interacting with an AI system. This covers chatbots, voice assistants, customer service agents, and any automated system that a human might mistake for another human.</p>
+
+  <p><strong>Second:</strong> AI systems that generate synthetic audio, image, video, or text content must be marked in a machine-readable format and detectable as artificially generated or manipulated. The watermarking requirement is not optional. It applies to outputs — not just systems.</p>
+
+  <p><strong>Third:</strong> Emotion recognition systems and biometric categorization systems must inform the individuals exposed to them. You cannot scan someone's face for emotional state without telling them. You cannot categorize someone's biometric data without disclosure.</p>
+
+  <p><strong>Fourth:</strong> Deepfakes — content that falsely appears to be authentic or truthful and depicts existing persons, places, or events — must be labeled as artificially manipulated. Creators must disclose. Distributors must preserve the disclosure.</p>
+
+  <p>The rules are simple. <em>Compliance is not.</em></p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="num">Aug 2<span class="unit">, 2026</span></div>
+      <div class="label">Transparency obligations enforceable — Article 50 is live across the EU</div>
+    </div>
+    <div class="stat">
+      <div class="num">Dec<span class="unit"> 2027</span></div>
+      <div class="label">High-risk obligations take effect — conformity assessments, oversight mandates</div>
+    </div>
+    <div class="stat">
+      <div class="num">27<span class="unit"> states</span></div>
+      <div class="label">Member states in the enforcement jurisdiction — each with its own authority</div>
+    </div>
+  </div>
+
+  <h2>The Compliance Gap</h2>
+
+  <p>Here is the problem. Most AI companies have no disclosure mechanism. Their chatbots do not identify themselves as AI. Their image generators produce output with no watermark. Their voice agents sound indistinguishable from human operators. The infrastructure for compliance does not exist yet — and the EU knows it.</p>
+
+  <p>Walk through the landscape. OpenAI's ChatGPT does not announce itself unless you ask. Midjourney images carry no embedded provenance house by default. ElevenLabs voices are deployed across call centers with no disclosure layer. Recommendation engines shape what millions of Europeans see every day without a whisper that an algorithm made the choice.</p>
+
+  <p>Each of these is now, technically, in violation. The EU is not sending police to offices. But the law is the law. And the law says: <em>disclose.</em></p>
+
+  <aside class="sidenote">
+    <strong>Scope Note</strong>
+    Article 50 applies to "AI systems intended to interact directly with natural persons." That covers chatbots, voice assistants, recommendation engines, AI-generated content, and any system that produces output a human might mistake for human-generated. The bar is low. The reach is wide.
+  </aside>
+
+  <p>The compliance gap is not a matter of bad faith. It is a matter of infrastructure. Watermarking AI-generated content at scale requires standards that do not yet exist. The C2PA standard — backed by Adobe, Microsoft, and others — provides a framework for content provenance, but adoption is patchy. The IETF is working on media provenance protocols. The EU itself has funded research into AI detection. None of it is production-ready at the scale the Act demands.</p>
+
+  <p>This is the tension at the heart of Article 50. The law mandates disclosure. The tools for disclosure are still being built. The gap between them is where the next 16 months will be fought.</p>
+
+  <div class="duo">
+    <div class="duo-text">
+      <p><strong>The labeling burden falls unevenly.</strong> Large platforms — Google, Meta, Microsoft — have the engineering resources to build disclosure into their products. They have been preparing for Article 50 since the Act was adopted in 2024. The real pressure lands on mid-sized AI companies, startups, and open-source projects that lack the compliance infrastructure of the giants.</p>
+      <p>An open-source model released by a research lab in Paris carries the same transparency obligations as GPT-5 deployed by a multinational. The law does not scale its demands to the size of the deployer. It scales them to the <em>risk of the system</em>.</p>
+    </div>
+    <div class="duo-fig">
+      <div class="fig-img"></div>
+      <figcaption>The EU flag outside the Berlaymont building in Brussels. The AI Act was adopted here in 2024. Article 50 is its first live provision. <strong>Photo: European Commission</strong></figcaption>
+    </div>
+  </div>
+
+  <h2>The Enforcement Question</h2>
+
+  <p>Who enforces Article 50? The answer is: <em>everyone and no one.</em> Each of the 27 member states must designate a national competent authority to oversee the AI Act. Some have. Many have not. The European AI Office, established in 2025, provides coordination but lacks direct enforcement power. The result is a patchwork — Germany has its authority stood up; Bulgaria is still staffing.</p>
+
+  <p>The fines, however, are real. The AI Act allows penalties of up to <strong>€35 million or 7% of global annual turnover</strong> — whichever is higher. That is steeper than GDPR's maximum of 4%. The EU built the AI Act with teeth. Whether it bites depends on enforcement capacity, and enforcement capacity is uneven.</p>
+
+  <p>The European Commission has signaled a phased approach. First: guidance. The AI Office is expected to publish detailed compliance guidelines for Article 50 by the end of 2026. Then: warnings. National authorities will issue notices to non-compliant deployers before escalating to fines. Eventually: penalties. But "eventually" is doing a lot of work. The EU wants compliance, not confrontation. The question is whether companies will move without the threat of a fine.</p>
+
+  <blockquote class="offset-quote">
+    The EU didn't ban AI. It banned <em>invisible</em> AI. The difference is everything.
+    <span class="attribution">— European AI Office, internal guidance note, July 2026</span>
+  </blockquote>
+
+  <p>The framing is deliberate. The AI Act is not anti-AI legislation. It is anti-opacity legislation. It does not restrict what AI can do. It restricts what AI can do <em>without telling anyone</em>. The distinction matters because it shapes the compliance conversation. Companies that treat the Act as a ban will over-correct. Companies that treat it as a suggestion will under-correct. The right response is to build disclosure into the product — not as an afterthought, but as a design constraint.</p>
+
+  <h2>What Happens in <em>2027</em></h2>
+
+  <p>If Article 50 is the opening act, the high-risk obligations are the main event. In December 2027, any AI system classified as high-risk under the Act must undergo a conformity assessment before deployment. It must implement a risk management system throughout its lifecycle. It must maintain technical documentation demonstrating compliance. It must ensure human oversight capability. And it must register in a public EU database.</p>
+
+  <p>This is not a transparency requirement. This is a <strong>regulatory regime</strong>. It covers critical infrastructure, education, employment, law enforcement, migration, and democratic processes. The list is long and the categories are broad. If your AI system makes decisions about who gets a loan, who gets a job interview, who gets admitted to a university, or who gets flagged by law enforcement — you are in scope.</p>
+
+  <p>Companies have 16 months. The smart ones have already started. The average ones are waiting to see what the guidelines say. The rest haven't read the Act.</p>
+
+  <p>The conformity assessment is the choke point. For most high-risk systems, it will be self-assessed — the provider declares compliance and submits documentation. But for systems used in law enforcement, border control, and certain critical infrastructure, a third-party notified body must be involved. There are not enough notified bodies. The bottleneck is coming.</p>
+
+  <h2>The Global Ripple</h2>
+
+  <p>The EU AI Act is the Brussels Effect in its purest form. When the EU regulates, the world follows — not because the world agrees, but because it is easier to build one compliant product than two. A company in San Francisco building AI for global deployment cannot afford to ignore the European market. And if you're building for Europe, you're building to the Act's standard.</p>
+
+  <p>California is watching. The state's AI safety bill, which has been moving through the legislature, borrows heavily from the EU framework. The UK's approach — lighter touch, more principles-based — is being tested against the Act's specificity. China's AI governance model, with its mandatory security assessments and algorithm registries, is converging from the other direction. Every major jurisdiction now has an AI regulation either live, pending, or in draft.</p>
+
+  <p>The Act sets the floor. Other jurisdictions will build on it. The companies that treat Article 50 compliance as a European obligation are missing the point. It is a <em>global preview</em>.</p>
+
+  <p>Japan has already signaled alignment. South Korea's AI Basic Act, passed in late 2025, mirrors the EU's transparency requirements. Brazil's AI regulatory framework, currently in its final legislative stages, cites the EU AI Act directly. The pattern is unmistakable: transparency obligations are becoming table stakes for AI deployment anywhere with a functioning regulatory system.</p>
+
+  <div class="divider">* * *</div>
+
+  <p class="lead-para">Nine days into the transparency era, the AI industry is still figuring out what compliance looks like. The law is live. The infrastructure isn't. The gap between them is where the next 16 months will be fought. <em>And the clock is running.</em></p>
+
+</article>
+
+<div class="article-foot">
+  <div class="tags">
+    <a href="#">EU AI Act</a>
+    <a href="#">Regulation</a>
+    <a href="#">Article 50</a>
+    <a href="#">Transparency</a>
+    <a href="#">Geopolitics</a>
+  </div>
+  <div class="author-bio">
+    <div class="avatar">P</div>
+    <div class="bio-text">
+      <h4>Propagation House</h4>
+      <div class="role">house Editorial</div>
+      <p>Dispatches from the intersection of technology, regulation, and power. Propagation House covers the structural forces reshaping the world — with clarity, not panic.</p>
+    </div>
+  </div>
+</div>
+
+<section class="related">
+  <div class="section-label">Related Dispatches</div>
+  <div class="rel-grid">
+    <article>
+      <div class="kicker">Technology</div>
+      <h3><a href="models-broke-out.html">The Models Broke Out</a></h3>
+      <div class="meta">9 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Geopolitics</div>
+      <h3><a href="chinese-ai.html">The Open-Weight Flood</a></h3>
+      <div class="meta">11 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Infrastructure</div>
+      <h3><a href="vera-rubin.html">Vera Rubin Goes Gigascale</a></h3>
+      <div class="meta">8 min read</div>
+    </article>
+  </div>
+</section>
+
+<script>
+(function(){
+  var bar=document.getElementById('progress');
+  function update(){
+    var h=document.documentElement;
+    var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);
+    bar.style.width=(scrolled*100)+'%';
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+})();
+</script>
+
+</body>
+</html>
