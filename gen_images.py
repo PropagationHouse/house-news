@@ -77,6 +77,11 @@ IMAGES = [
         "aspect_ratio": "16:9",
     },
     {
+        "filename": "phantom-goes-public-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a humanoid robot silhouette standing in a dim exchange hall, a glowing ticker tape of rising share prices and Chinese numerals reflected across its matte metal torso and a marble floor. Muted olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
         "filename": "workhorse-accelerates-hero.jpg",
         "prompt": "Editorial photograph, archival darkroom print: a massive cast-iron flywheel and locomotive drive shaft assembly in mid-spin, motion blur radiating outward, dramatic side lighting with long amber shadows across riveted metal surfaces. Deep olive greens and warm cream highlights with oxidized copper accents and bone-white machinery dust in the air. Subtle horizontal scanline texture, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
         "aspect_ratio": "16:9",

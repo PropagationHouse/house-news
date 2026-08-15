@@ -5,6 +5,19 @@
   },
   "published": [
     {
+      "title": "The Phantom Goes Public",
+      "kicker": "Robotics · Markets",
+      "dek": "Unitree priced its Shanghai IPO at $9 billion and watched retail demand run past 8,000x oversubscription. The humanoid race just left the lab and entered the ticker tape — and the fight over whose robots get built is now settled in market capitalization, not demo reels.",
+      "author": "Propagation House",
+      "date": "2026-08-15",
+      "category": "Robotics",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/phantom-goes-public.html",
+      "read_time": "8 min",
+      "summary": "Unitree becomes the first mainland-listed humanoid maker at a $9B valuation, with 8,000x retail oversubscription. The humanoid race enters its capitalist phase."
+    },
+    {
       "title": "The Workhorse Accelerates",
       "kicker": "Intelligence · AI Models",
       "dek": "Three weeks. That is all the time Google gave itself between Flash releases. Gemini 3.7 Flash is not a capability leap — it is a signal that the frontier has moved from 'smartest' to 'fastest iteration for agents.'",
