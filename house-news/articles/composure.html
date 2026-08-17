@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Composure: The Agent That Thinks in Channels, Not Tracks — house</title>
+<title>Composure: The Agent That Thinks in Channels, Not Tracks â€” house</title>
 <style>
-@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
-@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
-@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
-@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
 
 :root{
@@ -72,10 +72,10 @@ img{max-width:100%;display:block}
 .article-body p{margin-bottom:28px}
 .article-body p:last-child{margin-bottom:0}
 
-/* Drop cap — first paragraph */
+/* Drop cap â€” first paragraph */
 .article-body > p:first-of-type::first-letter{font-family:var(--serif);font-weight:900;font-size:76px;float:left;line-height:.82;margin:6px 12px 0 0;color:var(--accent);font-style:normal}
 
-/* Lead paragraph — slightly larger, no drop cap alternative */
+/* Lead paragraph â€” slightly larger, no drop cap alternative */
 .article-body .lead-para{font-size:21px;line-height:1.6;color:#1a1d12;font-weight:400}
 .article-body .lead-para::first-letter{font-size:inherit;float:none;margin:0;color:inherit;font-family:inherit;font-weight:inherit}
 
@@ -261,10 +261,10 @@ img{max-width:100%;display:block}
 
 <!-- -- ARTICLE HERO -------------------------- -->
 <div class="article-hero">
-  <div class="kicker">Software · AI · Dev</div>
+  <div class="kicker">Software Â· AI Â· Dev</div>
   <h1>Composure: The Agent That Thinks in <em>Channels</em>, Not Tracks</h1>
-  <p class="dek">A MIDI engine that refuses the timeline metaphor — and a sketchbook that refuses to choose between the studio and the stage. What happens when you build a music tool around the way an LLM actually <em>hears</em> a song, instead of the way a human arranges one.</p>
-  <div class="byline">By <strong>The Studio</strong><span class="sep">·</span>July 24, 2026<span class="sep">·</span>14 min read</div>
+  <p class="dek">A MIDI engine that refuses the timeline metaphor â€” and a sketchbook that refuses to choose between the studio and the stage. What happens when you build a music tool around the way an LLM actually <em>hears</em> a song, instead of the way a human arranges one.</p>
+  <div class="byline">By <strong>The Studio</strong><span class="sep">Â·</span>July 24, 2026<span class="sep">Â·</span>14 min read</div>
 </div>
 
 <!-- -- HERO FIGURE ---------------------------- -->
@@ -276,31 +276,31 @@ img{max-width:100%;display:block}
 <!-- -- ARTICLE BODY --------------------------- -->
 <article class="article-body">
 
-  <p class="lead-para">Every digital audio workstation in the world is built on the same lie. The timeline. The horizontal scroll of bars and clips that pretends a song is a sequence — first this, then that, then this — when anyone who has actually <em>listened</em> to a piece of music knows it isn't. A song is a stack. Drums happen at the same time as the bass happens at the same time as the melody. The timeline is a convenience for editing. It is not what the music <em>is</em>.</p>
+  <p class="lead-para">Every digital audio workstation in the world is built on the same lie. The timeline. The horizontal scroll of bars and clips that pretends a song is a sequence â€” first this, then that, then this â€” when anyone who has actually <em>listened</em> to a piece of music knows it isn't. A song is a stack. Drums happen at the same time as the bass happens at the same time as the melody. The timeline is a convenience for editing. It is not what the music <em>is</em>.</p>
 
-  <p>Composure, the in-house MIDI engine we've been running for the last six months, starts from the other end. It does not see a song as a sequence of events along a track. It sees a song as a set of channels — five of them, currently — each one a distinct instrument voice that exists for the entire duration of the piece and can be spoken to independently. Drums. Lead. Melody. Ambience. Bass. The agent does not arrange them. It <em>inhabits</em> them.</p>
+  <p>Composure, the in-house MIDI engine we've been running for the last six months, starts from the other end. It does not see a song as a sequence of events along a track. It sees a song as a set of channels â€” five of them, currently â€” each one a distinct instrument voice that exists for the entire duration of the piece and can be spoken to independently. Drums. Lead. Melody. Ambience. Bass. The agent does not arrange them. It <em>inhabits</em> them.</p>
 
   <!-- Sidenote -->
   <aside class="sidenote">
     <strong>Field Note</strong>
-    Composure exposes 16 tools over a JSON-RPC endpoint. Five of them are channel operations. The rest handle playback, sessions, and what the codebase calls "mood" — a parameterized emotional frame for generation.
+    Composure exposes 16 tools over a JSON-RPC endpoint. Five of them are channel operations. The rest handle playback, sessions, and what the codebase calls "mood" â€” a parameterized emotional frame for generation.
   </aside>
 
-  <p>This is the part that sounds like a technical detail and is actually a philosophical one. Every other AI music tool I've used — and I've used most of them — treats generation as a one-shot act. You prompt. It produces a song. You prompt again. It produces another song. The output is atomic, finished, sealed. If you don't like the bassline, you regenerate the whole thing and hope the new one keeps the parts you liked. This is the timeline metaphor applied to AI: the model is a track, and you either keep the track or you don't.</p>
+  <p>This is the part that sounds like a technical detail and is actually a philosophical one. Every other AI music tool I've used â€” and I've used most of them â€” treats generation as a one-shot act. You prompt. It produces a song. You prompt again. It produces another song. The output is atomic, finished, sealed. If you don't like the bassline, you regenerate the whole thing and hope the new one keeps the parts you liked. This is the timeline metaphor applied to AI: the model is a track, and you either keep the track or you don't.</p>
 
   <!-- DIMENSIONAL: Stat block -->
   <div class="stat-row">
     <div class="stat">
       <div class="num">5<span class="unit">ch</span></div>
-      <div class="label">Persistent voices — Drums, Lead, Melody, Ambience, Bass</div>
+      <div class="label">Persistent voices â€” Drums, Lead, Melody, Ambience, Bass</div>
     </div>
     <div class="stat">
       <div class="num">16<span class="unit">tools</span></div>
-      <div class="label">JSON-RPC surface — channel ops, playback, sessions, mood</div>
+      <div class="label">JSON-RPC surface â€” channel ops, playback, sessions, mood</div>
     </div>
     <div class="stat">
       <div class="num">0<span class="unit">re-rolls</span></div>
-      <div class="label">Mutations on save — state commits, model never re-generates</div>
+      <div class="label">Mutations on save â€” state commits, model never re-generates</div>
     </div>
   </div>
 
@@ -309,19 +309,19 @@ img{max-width:100%;display:block}
   <!-- DIMENSIONAL: Figure-left text wrap -->
   <figure class="figure-left">
     <div class="fig-img"><img src="../assets/images/composure-fig0.jpg" alt="Five parallel horizontal lanes with distinct geometric patterns - channel map" /></div>
-    <figcaption><strong>Fig. 0</strong> — The channel map as a live state diagram. Five lanes, each independently addressable, each running for the full duration of the piece.</figcaption>
+    <figcaption><strong>Fig. 0</strong> â€” The channel map as a live state diagram. Five lanes, each independently addressable, each running for the full duration of the piece.</figcaption>
   </figure>
 
-  <p>The distinction matters more than it sounds. A track is a container for events — a row in a spreadsheet of time. A channel is a voice — a persistent identity that runs through the entire piece and can be addressed, modified, or replaced without disturbing the others. The difference is the difference between editing a document and having a conversation.</p>
+  <p>The distinction matters more than it sounds. A track is a container for events â€” a row in a spreadsheet of time. A channel is a voice â€” a persistent identity that runs through the entire piece and can be addressed, modified, or replaced without disturbing the others. The difference is the difference between editing a document and having a conversation.</p>
 
-  <p>Concretely: Composure's channel map is fixed at five voices — Drums on channel 1, Lead on 2, Melody on 3, Ambience on 4, Bass on 5. When you ask it to compose, it doesn't produce a single blob of MIDI. It produces five parallel streams, each tagged with its channel, each coherent with the others but independently addressable. You can then say "transpose the bass down a fifth" and only channel 5 changes. The drums, the lead, the melody, the ambience — they hold. The song stays itself. One voice shifts.</p>
+  <p>Concretely: Composure's channel map is fixed at five voices â€” Drums on channel 1, Lead on 2, Melody on 3, Ambience on 4, Bass on 5. When you ask it to compose, it doesn't produce a single blob of MIDI. It produces five parallel streams, each tagged with its channel, each coherent with the others but independently addressable. You can then say "transpose the bass down a fifth" and only channel 5 changes. The drums, the lead, the melody, the ambience â€” they hold. The song stays itself. One voice shifts.</p>
 
   <div class="clearfix"></div>
 
   <!-- DIMENSIONAL: Offset quote (hangs left, oversized) -->
   <blockquote class="offset-quote">
     We didn't want a model that produces songs. We wanted a model that holds a song in its head and lets you talk to the parts of it.
-    <span class="attribution">— Studio Notes, Composure Design Log</span>
+    <span class="attribution">â€” Studio Notes, Composure Design Log</span>
   </blockquote>
 
   <h3>What the workflow actually looks like</h3>
@@ -329,14 +329,14 @@ img{max-width:100%;display:block}
   <!-- DIMENSIONAL: Duo grid (text + figure side by side) -->
   <div class="duo">
     <div class="duo-text">
-      <p>The interaction model is the part that surprised me. Early on, I assumed the right interface would be conversational in the chatbot sense — type instructions, receive music. What actually emerged is closer to directing a band.</p>
+      <p>The interaction model is the part that surprised me. Early on, I assumed the right interface would be conversational in the chatbot sense â€” type instructions, receive music. What actually emerged is closer to directing a band.</p>
       <p>You don't tell Composure what to play. You tell it what each player should be doing, and it figures out how they fit together. <code>get_channel_map</code> shows the voices. <code>play_midi</code> starts them. <code>modify_playback</code> mutates one without touching the others.</p>
       <p>When you land on something you want to keep, <code>save_current</code> pulls the in-memory state down to the timeline as a committed take. The model never re-rolls. The song is a living object you're shaping.</p>
     </div>
     <div class="duo-fig">
       <figure style="margin:0">
         <div class="fig-img"><img src="../assets/images/composure-fig1.jpg" alt="Split view showing channel map and a single highlighted lane being modified" /></div>
-        <figcaption><strong>Fig. 1</strong> — A session mid-modification. The channel map on the left shows the five voices. The modify_playback call on the right transposes only channel 5 — the bass — without regenerating any of the other four.</figcaption>
+        <figcaption><strong>Fig. 1</strong> â€” A session mid-modification. The channel map on the left shows the five voices. The modify_playback call on the right transposes only channel 5 â€” the bass â€” without regenerating any of the other four.</figcaption>
       </figure>
     </div>
   </div>
@@ -353,23 +353,23 @@ img{max-width:100%;display:block}
 
   <!-- DIMENSIONAL: Two-column text run -->
   <div class="two-col">
-    <p>Here's where it gets interesting, and where Composure diverges from the rest of the AI music field. Every major model — Suno, Udio, the open-source clones — has spent the last two years optimizing for fidelity and length. Longer songs. Better audio. More convincing vocals. These are real gains.</p>
+    <p>Here's where it gets interesting, and where Composure diverges from the rest of the AI music field. Every major model â€” Suno, Udio, the open-source clones â€” has spent the last two years optimizing for fidelity and length. Longer songs. Better audio. More convincing vocals. These are real gains.</p>
     <p>But they're gains along an axis that assumes the user is a consumer, not a producer. The implicit user of those tools is someone who wants a finished track and is willing to accept whatever the model returns.</p>
-    <p>Composure's implicit user is someone who has an opinion about the bassline. Someone who hears a draft and thinks "the drums are right but the melody is too busy" — and wants to act on that thought without losing the drums. That user does not exist in the Suno interaction model. They cannot exist. The model has no concept of "the drums" as a separable object. It has a waveform.</p>
+    <p>Composure's implicit user is someone who has an opinion about the bassline. Someone who hears a draft and thinks "the drums are right but the melody is too busy" â€” and wants to act on that thought without losing the drums. That user does not exist in the Suno interaction model. They cannot exist. The model has no concept of "the drums" as a separable object. It has a waveform.</p>
   </div>
 
   <aside class="sidenote">
     <strong>Contrast</strong>
-    Suno v4: 4-minute stereo audio, no per-stem access. Composure: 5-channel MIDI, per-voice mutation, no audio rendering at all. Different tools for different users — but only one of them assumes you might want to change your mind.
+    Suno v4: 4-minute stereo audio, no per-stem access. Composure: 5-channel MIDI, per-voice mutation, no audio rendering at all. Different tools for different users â€” but only one of them assumes you might want to change your mind.
   </aside>
 
   <!-- DIMENSIONAL: Takeaways as 2-col grid -->
   <div class="takeaways-grid">
     <h4>Key Takeaways</h4>
     <div class="takeaway-grid">
-      <div class="takeaway"><div class="num">1</div><div class="txt">Composure models songs as five persistent channels — Drums, Lead, Melody, Ambience, Bass — not as a single timeline of events.</div></div>
+      <div class="takeaway"><div class="num">1</div><div class="txt">Composure models songs as five persistent channels â€” Drums, Lead, Melody, Ambience, Bass â€” not as a single timeline of events.</div></div>
       <div class="takeaway"><div class="num">2</div><div class="txt">Each channel is independently mutable via <code>modify_playback</code>: transpose, add events, scale velocity or tempo, without regenerating the others.</div></div>
-      <div class="takeaway"><div class="num">3</div><div class="txt">"Save" commits the current playback state to the timeline — it does not re-roll the model. Nothing you liked is ever at risk during iteration.</div></div>
+      <div class="takeaway"><div class="num">3</div><div class="txt">"Save" commits the current playback state to the timeline â€” it does not re-roll the model. Nothing you liked is ever at risk during iteration.</div></div>
       <div class="takeaway"><div class="num">4</div><div class="txt">The tool trades audio fidelity for structural control. It outputs MIDI, not rendered audio, and assumes the user is a producer with opinions.</div></div>
     </div>
   </div>
@@ -377,24 +377,24 @@ img{max-width:100%;display:block}
   <div class="wide">
   <h2>The Mood Primitive</h2>
 
-  <p>The one piece I haven't talked about yet is <code>create_mood</code>. This is the closest Composure gets to the prompt-and-receive model, and it's telling that even here the metaphor holds. A mood is not a prompt for a song. It's a parameterized emotional frame — tension, brightness, density, motion — that the engine uses to shape generation across all five channels. You set a mood, and the channels respond to it together, the way a band responds to a change in the room. You don't get a song. You get a <em>disposition</em>, and the song emerges from it.</p>
+  <p>The one piece I haven't talked about yet is <code>create_mood</code>. This is the closest Composure gets to the prompt-and-receive model, and it's telling that even here the metaphor holds. A mood is not a prompt for a song. It's a parameterized emotional frame â€” tension, brightness, density, motion â€” that the engine uses to shape generation across all five channels. You set a mood, and the channels respond to it together, the way a band responds to a change in the room. You don't get a song. You get a <em>disposition</em>, and the song emerges from it.</p>
 
-  <p>This is where the channel model pays off in a way that isn't obvious until you use it. A mood shift doesn't replace the material — it colors it. The drums get sparser. The ambience gets darker. The bass pulls back. The melody holds its notes longer. Each channel interprets the mood change in its own voice, and the aggregate is what you hear. It's the difference between "play something sad" and "make what you're playing sadder." The second one is vastly more useful, and it's only possible if the model has persistent state to modify.</p>
+  <p>This is where the channel model pays off in a way that isn't obvious until you use it. A mood shift doesn't replace the material â€” it colors it. The drums get sparser. The ambience gets darker. The bass pulls back. The melody holds its notes longer. Each channel interprets the mood change in its own voice, and the aggregate is what you hear. It's the difference between "play something sad" and "make what you're playing sadder." The second one is vastly more useful, and it's only possible if the model has persistent state to modify.</p>
 
-  <p>The studio's working theory is that this is the general shape of the next generation of creative AI tools — not bigger models, not better renders, but better <em>objects</em>. Persistent, addressable, mutable state that a human can shape without restarting. The song as a living thing, not a generated artifact. Whether Composure itself is the right implementation of that theory is an open question. That the theory is correct is, at this point, less and less in doubt.</p>
+  <p>The studio's working theory is that this is the general shape of the next generation of creative AI tools â€” not bigger models, not better renders, but better <em>objects</em>. Persistent, addressable, mutable state that a human can shape without restarting. The song as a living thing, not a generated artifact. Whether Composure itself is the right implementation of that theory is an open question. That the theory is correct is, at this point, less and less in doubt.</p>
   </div>
 
   <!-- Full-bleed figure -->
   <figure class="full-bleed">
     <div class="fig-img"><img src="../assets/images/composure-fig2.jpg" alt="Three sequential frames showing progressive mutations to stacked horizontal lanes" /></div>
-    <figcaption><strong>Fig. 2</strong> — Three consecutive <code>modify_playback</code> calls on the same session. Channel 5 (bass) transposed down a fifth, then channel 3 (melody) velocity scaled to 70%, then a mood shift applied across all channels. The timeline shows the committed state after each operation. Nothing was regenerated. Nothing was lost.</figcaption>
+    <figcaption><strong>Fig. 2</strong> â€” Three consecutive <code>modify_playback</code> calls on the same session. Channel 5 (bass) transposed down a fifth, then channel 3 (melody) velocity scaled to 70%, then a mood shift applied across all channels. The timeline shows the committed state after each operation. Nothing was regenerated. Nothing was lost.</figcaption>
   </figure>
 
   <h2>The Sketchbook in Your Bag</h2>
 
-  <p>So far I've been describing Composure as an engine — a thing that lives on a desktop and thinks in channels. That's the spine of it. But the reason the tool is called "Sonic Sketchbook" in the studio's internal naming, and the reason it has quietly become the most-used piece of software in this building, is that the engine is wrapped in a product that assumes you are not always at your desk.</p>
+  <p>So far I've been describing Composure as an engine â€” a thing that lives on a desktop and thinks in channels. That's the spine of it. But the reason the tool is called "Sonic Sketchbook" in the studio's internal naming, and the reason it has quietly become the most-used piece of software in this building, is that the engine is wrapped in a product that assumes you are not always at your desk.</p>
 
-  <p>The tablet app is where the metaphor completes itself. On a phone or a tablet, Composure stops being a workstation and becomes a notepad. You can structure a song as MIDI — drop in a bassline, sketch a melody, block out a drum pattern — the way you'd jot down a lyric on a napkin. The same channel model applies. Five voices, each addressable, each persistent. But the interface is built for thumbs and transit, not for a studio chair.</p>
+  <p>The tablet app is where the metaphor completes itself. On a phone or a tablet, Composure stops being a workstation and becomes a notepad. You can structure a song as MIDI â€” drop in a bassline, sketch a melody, block out a drum pattern â€” the way you'd jot down a lyric on a napkin. The same channel model applies. Five voices, each addressable, each persistent. But the interface is built for thumbs and transit, not for a studio chair.</p>
 
   <aside class="sidenote">
     <strong>Field Note</strong>
@@ -403,22 +403,22 @@ img{max-width:100%;display:block}
 
   <p>Here is the part that still catches me off guard every time I use it: the sketch saves as <em>both</em> MIDI and sheet music, from the same data, at the same time. Not as an export step. Not as a conversion. The two representations are the same object, rendered two ways. Which sounds like a minor feature until you think about who it's for.</p>
 
-  <p>A producer who works in MIDI at home — who thinks in piano rolls, velocity lanes, quantize grids — meets a session musician who reads staff notation. In every other tool, that meeting involves a translation step. Someone has to re-enter the part, or run a converter, or sit with a printout and a laptop open side by side, guessing at what the other person means. Composure removes the gap. The producer sketches the melody on the tablet. The musician reads the staff. They are looking at the same object. If the producer needs a live take of that melody for a sample, the musician plays the section in front of them — they don't need to know what MIDI is, and the producer doesn't need to know what clef they're reading.</p>
+  <p>A producer who works in MIDI at home â€” who thinks in piano rolls, velocity lanes, quantize grids â€” meets a session musician who reads staff notation. In every other tool, that meeting involves a translation step. Someone has to re-enter the part, or run a converter, or sit with a printout and a laptop open side by side, guessing at what the other person means. Composure removes the gap. The producer sketches the melody on the tablet. The musician reads the staff. They are looking at the same object. If the producer needs a live take of that melody for a sample, the musician plays the section in front of them â€” they don't need to know what MIDI is, and the producer doesn't need to know what clef they're reading.</p>
 
   <blockquote class="offset-quote">
     One file. Two representations. The producer sees a piano roll. The violinist sees a staff. Neither has to learn the other's language.
-    <span class="attribution">— Studio Notes, Composure Design Log</span>
+    <span class="attribution">â€” Studio Notes, Composure Design Log</span>
   </blockquote>
 
   <h3>Audio in, MIDI out</h3>
 
-  <p>The sketchbook also listens. Hum a melody into the tablet and Composure transcribes it — not to a recording, but to MIDI. The audio becomes notes. A sung phrase becomes a channel you can transpose, mutate, hand to a different instrument. This is the feature I underestimated for the longest time, because I assumed it would be a novelty — a party trick for voice memos. It isn't. It is the fastest path from "thing in my head" to "thing the engine can hold" that I have ever used. You hum. It transcribes. You shape. The loop from idea to mutable object is under ten seconds.</p>
+  <p>The sketchbook also listens. Hum a melody into the tablet and Composure transcribes it â€” not to a recording, but to MIDI. The audio becomes notes. A sung phrase becomes a channel you can transpose, mutate, hand to a different instrument. This is the feature I underestimated for the longest time, because I assumed it would be a novelty â€” a party trick for voice memos. It isn't. It is the fastest path from "thing in my head" to "thing the engine can hold" that I have ever used. You hum. It transcribes. You shape. The loop from idea to mutable object is under ten seconds.</p>
 
-  <p>Built into the same workspace is a sampler. Source your audio from a library, from a field recording, from anything you've captured — the sampler pulls it into the channel model alongside the MIDI. You can build a section from sampled material, then transfer the whole session back to a desktop DAW when you're ready to finish. The sketchbook is not trying to replace the DAW. It is trying to be the thing you reach for in the hour between having the idea and being able to open the DAW.</p>
+  <p>Built into the same workspace is a sampler. Source your audio from a library, from a field recording, from anything you've captured â€” the sampler pulls it into the channel model alongside the MIDI. You can build a section from sampled material, then transfer the whole session back to a desktop DAW when you're ready to finish. The sketchbook is not trying to replace the DAW. It is trying to be the thing you reach for in the hour between having the idea and being able to open the DAW.</p>
 
   <aside class="sidenote">
     <strong>On Lyria</strong>
-    Lyria is available inside the sampler for users who want to generate audio on the fly. It is a secondary option — a tool inside a tool — not the point of the product. The point is that whatever you source, sampled or generated or hummed, lands in the same channel space and becomes the same kind of object.
+    Lyria is available inside the sampler for users who want to generate audio on the fly. It is a secondary option â€” a tool inside a tool â€” not the point of the product. The point is that whatever you source, sampled or generated or hummed, lands in the same channel space and becomes the same kind of object.
   </aside>
 
   <h3>The tablet as controller</h3>
@@ -433,7 +433,7 @@ img{max-width:100%;display:block}
 
   <p>The right question is: <em>what kind of object is a song when a model can hold it in its head?</em> A file. A stream. A timeline. A set of channels. A living thing you can talk to the parts of. Each of these implies a different user, a different workflow, a different relationship between the human and the machine. The field has spent two years optimizing the first three. Composure is a bet on the last two.</p>
 
-  <p>The studio doesn't have an answer for whether that bet is right yet. But we're asking. And the fact that we're asking — rather than simply marveling at the output — is why this matters beyond a single MIDI engine.</p>
+  <p>The studio doesn't have an answer for whether that bet is right yet. But we're asking. And the fact that we're asking â€” rather than simply marveling at the output â€” is why this matters beyond a single MIDI engine.</p>
 
   <p class="lead-para">The song is not a sequence anymore. The question is what it is instead.</p>
 

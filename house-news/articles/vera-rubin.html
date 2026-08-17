@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Light After Silicon house</title>
+<title>Vera Rubin Goes Gigascale — house</title>
 <style>
-@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
-@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
-@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
-@font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
 :root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:'Playfair Display',Georgia,serif;--sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;--measure:680px}
 *{margin:0;padding:0;box-sizing:border-box}
 html{font-size:18px;scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antiased;text-rendering:optimizeLegibility}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
@@ -106,74 +106,76 @@ img{max-width:100%;display:block}
 
 <div class="article-hero">
   <div class="kicker">Infrastructure &middot; Semiconductors</div>
-  <h1>Light After <em>Silicon</em></h1>
-  <p class="dek">Pat Gelsinger left Intel. He took 100 meetings in 100 days. Now he is betting that the future of Moore's Law is not smaller transistors but nanometer-scale beams of light. The former Intel CEO wants to jumpstart lithography's next era.</p>
+  <h1>Vera Rubin Goes <em>Gigascale</em></h1>
+  <p class="dek">NVIDIA's next-generation platform is ramping across 350 factory sites in 30 countries, backed by 300 partners. The pitch is not more FLOPs. It is <em>tokens per watt</em> - and the unit economics of AI compute are about to shift again.</p>
   <div class="byline">By <strong>The Studio</strong><span class="sep">&middot;</span>July 26, 2026<span class="sep">&middot;</span>8 min read</div>
 </div>
 
 <div class="hero-figure">
-  <div class="hero-img"><img src="../assets/images/light-after-silicon-hero.jpg" alt="A beam of light refracting through a silicon wafer" /></div>
-  <p class="caption">EUV lithography: printing chips with light at 13.5 nanometers. Gelsinger wants to go shorter. Illustration by house.</p>
+  <div class="hero-img"><img src="../assets/images/vera-rubin-hero.jpg" alt="A tall liquid-cooled server rack with 72 glowing slots" /></div>
+  <p class="caption">Vera Rubin NVL72 in production. 72 GPUs per rack, liquid-cooled, designed from chip to grid for the lowest token cost in the industry. Illustration by house.</p>
 </div>
 
 <article class="article-body">
 
-  <p class="lead-para">Pat Gelsinger departed Intel as CEO in late 2024. He held 100 meetings in 100 days. In March 2026, he announced he had taken a position as general partner at Playground Capital, a venture firm specializing in deep tech. His thesis: the best way to break the impasse in semiconductor manufacturing is through advances in lithography - etching chips using nanometer-scale beams of light.</p>
+  <p class="lead-para">The metric that matters in AI compute has changed. For two years it was FLOPs - raw floating-point operations, the brute-force measure of how much math a chip could do. Then it was tokens per second - how fast a model could generate output. Now, with the Vera Rubin platform entering production at partners worldwide, NVIDIA is making a different argument entirely: <em>tokens per watt</em>.</p>
 
-  <p>This is not a retirement project. It is a bet on the physical limits of the most important manufacturing process in the world. Moore's Law - the prediction by Intel co-founder Gordon Moore that the number of transistors on a chip would double roughly every two years - held true for decades. It is now hitting physics. Further shrinking atomic-scale transistors has become prohibitively difficult and expensive. The industry needs a new path, and Gelsinger thinks it is light.</p>
+  <p>The shift is not subtle. FLOPs measure capability. Tokens per second measure speed. Tokens per watt measures <em>economics</em>. It asks: how much does it cost to run this model, not in chip terms but in power terms? And power is the constraint that is actually breaking the industry.</p>
 
   <aside class="sidenote">
     <strong>Field Note</strong>
-    The leading lithography technology, developed by the Dutch company ASML, lets chip manufacturers print using 13.5-nanometer wavelength light - extreme ultraviolet (EUV). The ability to cram more transistors onto a chip depends on printing with ever-shorter wavelengths.
+    CoreWeave's first benchmark on Vera Rubin NVL72 running DeepSeek-R1 showed 10x more tokens per megawatt than Blackwell. That is not an incremental improvement. It is a category shift in unit economics.
   </aside>
 
-  <h2>The Lithography Wall</h2>
+  <p>Vera Rubin NVL72 - the rack-scale configuration, 72 GPUs per rack - is now in production at CoreWeave, Google Cloud, Microsoft Azure, Oracle Cloud Infrastructure, and Nebius. The supply chain spans 350+ factory sites in 30 countries. NVIDIA calls it the largest, most mature rack-scale supply chain ever assembled. That is marketing language, but it is also fact: no previous silicon platform has entered production with this many manufacturing partners at this scale simultaneously.</p>
 
-  <p>Here is the problem. EUV lithography at 13.5 nanometers is already in production at TSMC, Samsung, and Intel. It is how the most advanced chips in the world are made. But the next step - high-NA EUV, which uses a larger numerical aperture to print even finer features - is staggeringly expensive. Each ASML high-NA machine costs upward of $350 million. TSMC has reportedly hesitated on ordering them, preferring to extend the life of current EUV with multi-patterning techniques instead.</p>
+  <h2>The Power Problem</h2>
 
-  <p>Gelsinger's argument is that the industry cannot multi-pattern its way to the next node indefinitely. The cost and complexity of splitting a single chip layer into multiple exposure steps grows nonlinearly. At some point, the economics break. The only way forward is shorter wavelengths - pushing beyond EUV into what the industry calls "beyond EUV" or x-ray lithography. That requires new light sources, new optics, new resists. It is a deep tech problem, not an engineering optimization.</p>
+  <p>Here is why tokens per watt is the metric that matters now. Data centers are running out of power. Not space, not cooling, not silicon - power. The grid cannot keep up. The Trump EPA is simultaneously considering a rule change that would hand states the power to decide how much public input there is on permits for new power plants - including the gas plants and diesel generators that data centers increasingly rely on. The rollback is being driven, in part, by AI firms that need more data centers and cannot wait for the permitting process.</p>
+
+  <p>This is the context in which Vera Rubin arrives. If the constraint is power, then the platform that delivers the most tokens per watt wins. CoreWeave's benchmark - 10x more tokens per megawatt than Blackwell on DeepSeek-R1 - is the number that matters. It does not mean Vera Rubin is 10x faster. It means for the same power budget, you get 10x more inference throughput. Or: for the same inference workload, you need 10x less power.</p>
 
   <div class="stat-row">
     <div class="stat">
-      <div class="num">13.5<span class="unit">nm</span></div>
-      <div class="label">Current EUV wavelength - the industry standard for advanced chips</div>
+      <div class="num">350<span class="unit">+</span></div>
+      <div class="label">Factory sites across 30 countries in the Vera Rubin supply chain</div>
     </div>
     <div class="stat">
-      <div class="num">$350<span class="unit">M</span></div>
-      <div class="label">Estimated cost of a single ASML high-NA EUV machine</div>
+      <div class="num">10<span class="unit">x</span></div>
+      <div class="label">More tokens per megawatt than Blackwell (CoreWeave benchmark, DeepSeek-R1)</div>
     </div>
     <div class="stat">
-      <div class="num">100<span class="unit">mtgs</span></div>
-      <div class="label">Meetings Gelsinger took in 100 days before choosing his next move</div>
+      <div class="num">300<span class="unit">+</span></div>
+      <div class="label">Global partners backing the platform rollout</div>
     </div>
   </div>
 
-  <h2>The Geopolitical Lens</h2>
+  <p>The political dimension is inseparable from the technical one. The same week NVIDIA announced Vera Rubin's ramp, the EPA held a public hearing on a rule that would let states decide how much - if any - public input there can be on permits for new sources of air pollution. The proposed rollback comes as data centers face growing pushback from communities over emissions and power consumption. The AI firms want more data centers. The neighbors want clean air. The EPA may be about to side with the firms.</p>
 
-  <p>The lithography race is inseparable from the chip sovereignty question. ASML, based in the Netherlands, is the only company in the world that makes EUV lithography machines. The US has used export controls to prevent ASML from selling its most advanced machines to China. TSMC, in Taiwan, is the largest buyer. The entire advanced semiconductor supply chain runs through two countries and one company.</p>
+  <h2>Built in Fort Worth</h2>
 
-  <p>Gelsinger's move into deep tech venture capital is, implicitly, a bet that this bottleneck cannot hold. If the US wants chip sovereignty - the ability to manufacture advanced semiconductors domestically - it needs domestic lithography capability. No US company currently makes EUV machines. The technology is so complex, and ASML's lead so large, that catching up requires not incremental improvement but a generational leap. Gelsinger is looking for the startups that might make that leap.</p>
+  <p>The supply chain story is its own kind of geopolitics. Wistron, a Taiwanese electronics manufacturer, opened an advanced manufacturing plant in Fort Worth, Texas to produce NVIDIA AI systems. The plant is part of the broader onshoring push - bringing semiconductor and system assembly back to the US in response to export controls, tariff threats, and the strategic vulnerability of depending on Taiwan for advanced chip packaging.</p>
 
-  <p>The same week Gelsinger's plans were reported, Wistron opened a manufacturing plant in Fort Worth, Texas to produce NVIDIA AI systems. The onshoring trend is real, but it is assembly, not lithography. You can build a data center in Texas. You still cannot print the chips that go in it without a machine from Veldhoven.</p>
+  <p>Meanwhile, at the AI Summit in San Francisco, South Korean President Jae Myung Lee appeared with NVIDIA to outline the country's AI future. South Korea is one of the 30 countries in the Vera Rubin supply chain. The geopolitics of AI compute is no longer just about who makes the chips. It is about who assembles the racks, who builds the data centers, who generates the power, and who gets a say in whether any of it can be built at all.</p>
 
   <div class="divider">* * *</div>
 
-  <h2>Why This Matters for AI</h2>
+  <h2>The Unit Economics Shift</h2>
 
-  <p>The connection to AI compute is direct. Every advance in AI model capability depends on advances in chip density. More transistors per square millimeter means more compute per chip, which means larger models, faster inference, and lower cost per token. If Moore's Law slows - if the cost per transistor stops declining - the economics of AI training and inference shift. The capability curve flattens. The efficiency race that Anthropic's Opus 5 represents becomes a zero-sum game: you can only get cheaper by getting smaller, and you can only get smaller if lithography keeps advancing.</p>
+  <p>If Vera Rubin delivers on the tokens-per-watt promise, the unit economics of running AI models change. The cost of inference has been falling steadily, but it has been falling because chips got faster. Vera Rubin introduces a second axis: the cost of <em>power</em>. If you can get 10x more tokens per megawatt, your marginal cost per token drops not because the chip is cheaper but because the electricity bill is lower.</p>
 
-  <p>Gelsinger is betting that it can. Not through the same EUV technology that ASML has perfected, but through something new. Light at shorter wavelengths. New physics. The kind of breakthrough that does not come from optimizing an existing process but from changing the process entirely.</p>
+  <p>This matters for the business model of AI itself. The race to build frontier models - Anthropic's Opus 5, OpenAI's GPT-5.6, Google's Gemini updates - is a race that consumes enormous amounts of inference compute. Every query costs power. Every agent running in production costs power. If the power cost per token drops by an order of magnitude, the economics of agentic AI - models that run continuously, making dozens of API calls per task - become viable at scale.</p>
 
-  <p class="lead-para">Moore's Law is not a law of physics. It is a bet that has paid off for sixty years. Gelsinger is placing the next one.</p>
+  <p class="lead-para">The next platform war in AI will not be won by the model with the best benchmark. It will be won by the platform that delivers the most intelligence per watt. Vera Rubin is NVIDIA's opening bid.</p>
 
 </article>
 
 <div class="article-foot">
   <div class="tags">
-    <a href="#">Lithography</a>
+    <a href="#">NVIDIA</a>
     <a href="#">Semiconductors</a>
-    <a href="#">Moore's Law</a>
-    <a href="#">ASML</a>
+    <a href="#">Data Centers</a>
+    <a href="#">Compute</a>
   </div>
   <div class="author-bio">
     <div class="avatar">S</div>
@@ -189,19 +191,19 @@ img{max-width:100%;display:block}
   <div class="section-label">Related Dispatches</div>
   <div class="rel-grid">
     <article>
-      <div class="kicker">Infrastructure</div>
-      <h3><a href="vera-rubin.html">Vera Rubin Goes Gigascale</a></h3>
-      <div class="meta">8 min read</div>
-    </article>
-    <article>
-      <div class="kicker">Intelligence</div>
-      <h3><a href="efficiency-race.html">The Efficiency Race</a></h3>
-      <div class="meta">7 min read</div>
+      <div class="kicker">Security</div>
+      <h3><a href="models-broke-out.html">The Models Broke Out</a></h3>
+      <div class="meta">9 min read</div>
     </article>
     <article>
       <div class="kicker">Intelligence</div>
       <h3><a href="chinese-ai.html">The Open-Weight Flood</a></h3>
       <div class="meta">11 min read</div>
+    </article>
+    <article>
+      <div class="kicker">Technology</div>
+      <h3><a href="composure.html">Composure: The Agent That Thinks in Channels</a></h3>
+      <div class="meta">14 min read</div>
     </article>
   </div>
 </section>
