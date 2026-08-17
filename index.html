@@ -41,21 +41,6 @@ img{max-width:100%;display:block}
 .masthead .live-dot{display:inline-block;width:7px;height:7px;background:var(--accent);border-radius:50%;margin-right:5px;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* ── HERO LEAD ─────────────────────────────── */
-.lead{display:grid;grid-template-columns:1.4fr 1fr;gap:0;border-bottom:1px solid var(--rule)}
-.lead .lead-text{padding:40px 40px 40px 0;border-right:1px solid var(--rule)}
-.lead .kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:12px}
-.lead h1{font-family:var(--serif);font-weight:900;font-size:clamp(36px,4.5vw,64px);line-height:1.02;letter-spacing:-.02em;margin-bottom:16px}
-.lead h1 em{font-style:italic;font-weight:400}
-.lead .dek{font-size:18px;line-height:1.5;color:#3a3d2e;max-width:560px;margin-bottom:18px}
-.lead .byline{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
-.lead .byline strong{color:var(--ink)}
-.lead .lead-visual{padding:40px;display:flex;flex-direction:column;justify-content:center;align-items:center;background:var(--bg-tint);position:relative;overflow:hidden}
-.lead .lead-visual .gen-art{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
-.lead .lead-visual .gen-art::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
-.lead .lead-visual .gen-art::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(245,242,230,.14),transparent 50%)}
-.lead .lead-visual .caption{font-size:11px;color:var(--muted);margin-top:10px;letter-spacing:.03em;text-align:center}
-
 /* ── TICKER ────────────────────────────────── */
 .ticker{background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;padding:10px 0;font-size:12px;letter-spacing:.05em;border-bottom:1px solid var(--ink)}
 .ticker .ticker-track{display:inline-block;animation:scroll 40s linear infinite}
@@ -67,37 +52,46 @@ img{max-width:100%;display:block}
 .section-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);border-bottom:1px solid var(--rule);padding:0 0 8px;margin:40px 0 24px;display:flex;justify-content:space-between;align-items:baseline}
 .section-label .more{color:var(--muted);font-weight:400}
 
-.front-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
-.front-grid .col{border-right:1px solid var(--rule);padding:0 24px}
-.front-grid .col:last-child{border-right:none}
-.front-grid .col:first-child{padding-left:0}
-
-.story{padding-bottom:28px;margin-bottom:28px;border-bottom:1px solid var(--rule)}
-.story:last-child{border-bottom:none}
-.story .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:6px}
-.story h2{font-family:var(--serif);font-weight:700;font-size:22px;line-height:1.15;margin-bottom:8px}
-.story h2 a:hover{color:var(--accent)}
-.story .dek{font-size:14px;color:#4a4d3e;line-height:1.45;margin-bottom:8px}
-.story .byline{font-size:11px;color:var(--muted);letter-spacing:.03em}
-.story .thumb{width:100%;aspect-ratio:16/10;margin-bottom:12px;position:relative;overflow:hidden}
-.story .thumb.t1{background:linear-gradient(135deg,#1a1d12,#4b5320)}
-.story .thumb.t2{background:linear-gradient(135deg,#2a2e1a,#5a6040)}
-.story .thumb.t3{background:linear-gradient(135deg,#0f1108,#3a4018)}
-.story .thumb.t4{background:linear-gradient(135deg,#3a3d2e,#6b6e5a)}
-.story .thumb.t5{background:linear-gradient(135deg,#1a1d12,#2a4a3a)}
-.story .thumb.t6{background:linear-gradient(135deg,#22251a,#4b5320)}
-.story .thumb::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(245,242,230,.03) 4px,rgba(245,242,230,.03) 5px);pointer-events:none}
-.story .thumb img,.lead .lead-visual .gen-art img,.feature .feature-visual img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.story .thumb img{z-index:0}
-.lead .lead-visual .gen-art img{z-index:0}
-.feature .feature-visual img{z-index:0}
+/* HOUSE: EDITORIAL GRID — wired style: lead center, side stories flanking left+right at bottom */
+.editorial-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.3fr) minmax(0,1fr);gap:0;border-bottom:1px solid var(--rule);align-items:end}
+.editorial-grid .lead-story{grid-column:2;grid-row:1;padding:40px 0 36px;text-align:center}
+.editorial-grid .lead-story .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.editorial-grid .lead-story h2{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4vw,48px);line-height:1.06;letter-spacing:-.02em;margin-bottom:12px;max-width:720px;margin-left:auto;margin-right:auto}
+.editorial-grid .lead-story h2 em{font-style:italic;font-weight:400}
+.editorial-grid .lead-story .dek{font-size:16px;color:#4a4d3e;line-height:1.5;margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto}
+.editorial-grid .lead-story .byline{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.editorial-grid .lead-story .byline strong{color:var(--ink)}
+.editorial-grid .lead-story .thumb{display:block;width:100%;aspect-ratio:16/9;margin:0 auto 20px;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a1d12,#4b5320)}
+.editorial-grid .lead-story .thumb img{width:100%;height:100%;object-fit:cover;position:relative;z-index:0}
+.editorial-grid .lead-story .thumb::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(245,242,230,.03) 4px,rgba(245,242,230,.03) 5px);pointer-events:none;z-index:1}
+.editorial-grid .side-stories-left{grid-column:1;grid-row:1;align-self:end;display:flex;flex-direction:column;padding:0;border-right:1px solid var(--rule)}
+.editorial-grid .side-stories-left .ss-item{padding:0 24px 0 0;border-bottom:1px solid var(--rule)}
+.editorial-grid .side-stories-left .ss-item:not(:first-child){padding-top:20px}
+.editorial-grid .side-stories-left .ss-item:last-child{border-bottom:none;padding-bottom:36px}
+.editorial-grid .side-stories-right{grid-column:3;grid-row:1;align-self:end;display:flex;flex-direction:column;padding:0;border-left:1px solid var(--rule)}
+.editorial-grid .side-stories-right .ss-item{padding:0 0 0 24px;border-bottom:1px solid var(--rule)}
+.editorial-grid .side-stories-right .ss-item:not(:first-child){padding-top:20px}
+.editorial-grid .side-stories-right .ss-item:last-child{border-bottom:none;padding-bottom:36px}
+.editorial-grid .side-stories-bottom{grid-column:1 / -1;grid-row:2;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--rule);padding:28px 0 0}
+.editorial-grid .side-stories-bottom .ss-item{padding:0 20px;border-right:1px solid var(--rule)}
+.editorial-grid .side-stories-bottom .ss-item:first-child{padding-left:0}
+.editorial-grid .side-stories-bottom .ss-item:last-child{border-right:none;padding-right:0}
+.editorial-grid .ss-item .thumb.sside{width:100%;aspect-ratio:16/8;margin-bottom:10px;position:relative;overflow:hidden;border-radius:2px;background:linear-gradient(135deg,#1a1d12,#4b5320)}
+.editorial-grid .ss-item .thumb.sside img{width:100%;height:100%;object-fit:cover;position:relative;z-index:0}
+.editorial-grid .ss-item .thumb.sside::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(245,242,230,.03) 4px,rgba(245,242,230,.03) 5px);pointer-events:none;z-index:1}
+.editorial-grid .ss-item .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:4px}
+.editorial-grid .ss-item h3{font-family:var(--serif);font-weight:700;font-size:18px;line-height:1.2;margin-bottom:4px}
+.editorial-grid .ss-item h3 a:hover{color:var(--accent)}
+.editorial-grid .ss-item .dek{font-size:12px;color:#4a4d3e;line-height:1.4}
+.editorial-grid .ss-item .byline{font-size:10px;color:var(--muted);letter-spacing:.03em;margin-top:4px}
 
 /* ── FEATURE BLOCK ─────────────────────────── */
-.feature{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:48px 0;border-top:3px double var(--ink);border-bottom:3px double var(--ink)}
-.feature .feature-text{padding:40px}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:48px 0;border-top:3px double var(--ink);border-bottom:3px double var(--ink);position:relative}
+.feature .feature-text{padding:40px;position:relative;z-index:1}
 .feature .feature-visual{background:linear-gradient(135deg,#0f1108 0%,#1a1d12 50%,#4b5320 100%);position:relative;overflow:hidden;min-height:400px}
 .feature .feature-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(75,83,32,.35),transparent 60%)}
 .feature .feature-visual::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 2px,rgba(245,242,230,.03) 2px,rgba(245,242,230,.03) 3px)}
+.feature .feature-visual img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:0}
 .feature .kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:14px}
 .feature h2{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4vw,52px);line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
 .feature h2 em{font-style:italic;font-weight:400}
@@ -105,8 +99,6 @@ img{max-width:100%;display:block}
 .feature .byline{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 .feature .byline strong{color:var(--ink)}
 .feature .pull-quote{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.3;color:var(--accent-dark);border-left:3px solid var(--accent);padding-left:20px;margin:24px 0;max-width:480px}
-.feature{position:relative}
-.feature .feature-text{position:relative;z-index:1}
 .feature .feature-text > .stretched-link{position:absolute;inset:0;z-index:2}
 .feature .feature-visual a{position:absolute;inset:0;z-index:2}
 .feature a{color:inherit;text-decoration:none}
@@ -143,6 +135,14 @@ img{max-width:100%;display:block}
 .rail .main-rail .long-read .body-preview{font-size:15px;line-height:1.65;color:#3a3d2e;column-count:2;column-gap:32px;margin-bottom:12px}
 .rail .main-rail .long-read .body-preview::first-letter{font-family:var(--serif);font-weight:900;font-size:56px;float:left;line-height:.85;margin:4px 8px 0 0;color:var(--accent)}
 .rail .main-rail .long-read .byline{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.rail .main-rail .about-house{margin-bottom:32px}
+.rail .main-rail .about-house .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.rail .main-rail .about-house h2{font-family:var(--sans);font-weight:700;font-size:30px;line-height:1.15;margin-bottom:16px}
+.rail .main-rail .about-house .statement{font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.4;color:var(--accent-dark);border-left:3px solid var(--accent);padding-left:20px;margin:0 0 20px;max-width:640px}
+.rail .main-rail .about-house p{font-size:15px;line-height:1.65;color:#3a3d2e;max-width:640px;margin-bottom:12px}
+.rail .main-rail .about-house .house-mark{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ink);margin-top:20px;padding-top:14px;border-top:1px solid var(--rule)}
+.rail .main-rail .about-house .house-mark a{color:var(--accent);text-decoration:none}
+.rail .main-rail .about-house .house-mark a:hover{color:var(--accent-dark)}
 
 /* ── DEPARTMENTS STRIP ─────────────────────── */
 .departments{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:40px 0}
@@ -178,11 +178,15 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 
 /* ── RESPONSIVE ────────────────────────────── */
 @media(max-width:900px){
-  .lead{grid-template-columns:1fr}
-  .lead .lead-text{border-right:none;padding:24px 0}
-  .lead .lead-visual{padding:24px}
-  .front-grid{grid-template-columns:1fr}
-  .front-grid .col{border-right:none;padding:0}
+  .editorial-grid{grid-template-columns:1fr}
+  .editorial-grid .lead-story{grid-column:1;grid-row:1;padding:24px 0}
+  .editorial-grid .side-stories-left{grid-column:1;grid-row:2;border-right:none;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
+  .editorial-grid .side-stories-right{grid-column:1;grid-row:3;border-left:none;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
+  .editorial-grid .side-stories-left .ss-item,.editorial-grid .side-stories-right .ss-item{flex:1 1 45%;padding:16px 0;border-bottom:1px solid var(--rule)}
+  .editorial-grid .side-stories-left .ss-item:last-child,.editorial-grid .side-stories-right .ss-item:last-child{border-bottom:none;padding-bottom:16px}
+  .editorial-grid .side-stories-bottom{grid-template-columns:repeat(2,1fr)}
+  .editorial-grid .side-stories-bottom .ss-item{padding:16px 0;border-right:none;border-bottom:1px solid var(--rule)}
+  .editorial-grid .side-stories-bottom .ss-item:last-child,.editorial-grid .side-stories-bottom .ss-item:nth-child(3){border-bottom:none}
   .feature{grid-template-columns:1fr}
   .feature .feature-text{padding:24px}
   .opinion .op-grid{grid-template-columns:1fr}
@@ -198,7 +202,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 <!-- ── MASTHEAD ──────────────────────────────── -->
 <header class="masthead">
   <div class="top-strip">
-    <div class="left"><span>Vol. III · No. 50</span><span id="dateline">Saturday, August 15, 2026</span></div>
+    <div class="left"><span>Vol. III · No. 51</span><span id="dateline">Monday, August 17, 2026</span></div>
     <div class="right"><span><span class="live-dot"></span>Live</span><span>Subscribe</span><span>Sign In</span></div>
   </div>
   <div class="logo">house</div>
@@ -245,102 +249,110 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 
 <div class="container">
 
-<!-- ── HERO LEAD ─────────────────────────────── -->
-<section class="lead">
-  <div class="lead-text">
-    <div class="kicker">Cover Story · Robotics / Markets</div>
-    <h1><a href="articles/phantom-goes-public.html" style="text-decoration:none;color:inherit;">The Phantom Goes <em>Public</em></a></h1>
-    <p class="dek">Unitree priced its Shanghai IPO at $9 billion and watched retail demand run past 8,000x oversubscription. The humanoid race just left the lab and entered <em>the ticker tape</em> — and the fight over whose robots get built is now settled in market capitalization, not demo reels.</p>
-    <div class="byline">By <strong>Propagation House</strong> · 8 min read · August 15, 2026</div>
-  </div>
-  <div class="lead-visual">
-    <div class="gen-art"><img src="assets/images/phantom-goes-public-hero.jpg" alt="A humanoid robot silhouette beneath a ticker tape of rising share prices, rendered as an archival darkroom print." /></div>
-    <div class="caption">The milestone is not the robot. It is the line item. When a humanoid maker becomes a listed company, the question stops being "can it walk" and becomes "can it compound." Illustration by Propagation House.</div>
-  </div>
-</section>
-
 <!-- ── FRONT GRID ───────────────────────────── -->
 <div class="section-label">Front Page <a href="timeline.html" class="more">View all →</a></div>
-<section class="front-grid">
-  <div class="col">
-    <article class="story">
-      <div class="kicker">Intelligence · AI Models</div>
-      <div class="thumb t1"><img src="assets/images/workhorse-accelerates-hero.jpg" alt="A metronome and conveyor belt rendered as one machine, model versions flowing in rapid succession." /></div>
-      <h2><a href="articles/workhorse-accelerates.html">The Workhorse <em>Accelerates</em></a></h2>
-      <p class="dek">Three weeks. That is all the time Google gave itself between Flash releases. Gemini 3.7 Flash is not a capability leap — it is a signal that the frontier has moved from "smartest" to "fastest iteration for agents."</p>
-      <div class="byline">By Propagation House · 8 min</div>
-    </article>
-    <article class="story">
-      <div class="kicker">Security · Infrastructure</div>
-      <div class="thumb t1"><img src="assets/images/breach-data-centers-hero.jpg" alt="A fiber-optic cable map overlaid on a data center floor plan, with red pathways traced through the connections." /></div>
-      <h2><a href="articles/breach-that-found-data-centers.html">The Breach That <em>Found</em> the Data Centers</a></h2>
-      <p class="dek">Salt Typhoon didn't just wiretap phone calls. It used telecom pathways to reach into America's data centers — and the exposure is far wider than anyone admitted.</p>
-      <div class="byline">By Propagation House · 9 min</div>
-    </article>
-    <article class="story">
-      <div class="kicker">Robotics · Autonomy</div>
-      <div class="thumb t1"><img src="assets/images/phantom-goes-to-europe-hero.jpg" alt="Unitree H2 humanoid robot in a European cityscape." /></div>
-      <h2><a href="articles/phantom-goes-to-europe.html">The Phantom Goes <em>to Europe</em></a></h2>
-      <p class="dek">Days after the Pentagon flagged Unitree as Chinese military technology, the company launched its $29,900 H2 humanoid in Europe. The Phantom/Intern split is no longer theoretical — it's geopolitical.</p>
-      <div class="byline">By Propagation House · 10 min</div>
-    </article>
+<section class="editorial-grid">
+  <div class="lead-story">
+    <a href="articles/workhorse-accelerates.html" class="thumb"><img src="assets/images/workhorse-accelerates-hero.jpg" alt="A metronome and a hummingbird — speed vs. iteration"></a>
+    <div class="kicker">Cover Story &middot; Intelligence / AI Models</div>
+    <h2><a href="articles/workhorse-accelerates.html">The Workhorse <em>Accelerates</em></a></h2>
+    <p class="dek">Three weeks. That is all the time Google gave itself between Flash releases. The frontier has moved from &ldquo;smartest&rdquo; to &ldquo;fastest iteration for agents.&rdquo;</p>
+    <div class="byline">By <strong>Propagation House</strong> &middot; 8 min read &middot; August 14, 2026</div>
   </div>
-  <div class="col">
-    <article class="story">
-      <div class="kicker">Regulatory · Geopolitics</div>
-      <div class="thumb t5"><img src="assets/images/act-takes-hold-hero.jpg" alt="EU AI Act document with Article 50 highlighted." /></div>
-      <h2><a href="articles/act-takes-hold.html">The Act <em>Takes Hold</em></a></h2>
-      <p class="dek">The EU AI Act's transparency rules became enforceable on August 2. Article 50 is live. Every AI system in Europe must disclose its existence. The era of invisible AI is over.</p>
-      <div class="byline">By Propagation House · 8 min</div>
-    </article>
-    <article class="story">
-      <div class="kicker">Intelligence · Research</div>
-      <div class="thumb t2"><img src="assets/images/science-one-hero.jpg" alt="An evidence chain rendered as a sealed ledger, each block timestamped and chained." /></div>
-      <h2><a href="articles/science-one.html">The Agent That <em>Audits Itself</em></a></h2>
-      <p class="dek">Google Research shipped a framework that kills hallucinations in autonomous science agents — and an automated audit loop for AI-generated papers.</p>
-      <div class="byline">By Propagation House · 9 min</div>
-    </article>
-    <article class="story">
-      <div class="kicker">Robotics · Autonomy</div>
-      <div class="thumb t2"><img src="assets/images/phantom-and-intern-hero.jpg" alt="Two humanoid robots: one military, one domestic." /></div>
-      <h2><a href="articles/phantom-and-intern.html">The Phantom <em>and the Intern</em></a></h2>
-      <p class="dek">One humanoid is being prepared for lethal combat in Ukraine. Another is folding laundry and fetching coffee. The gap is narrowing.</p>
-      <div class="byline">By The Studio · 10 min</div>
-    </article>
+  <div class="side-stories-left">
+    <div class="ss-item">
+      <div class="thumb sside"><img src="assets/images/breach-data-centers-hero.jpg" alt="A fiber-optic cable running into a data center"></div>
+      <div class="kicker">Security &middot; Infrastructure</div>
+      <h3><a href="articles/breach-that-found-data-centers.html">The Breach That <em>Found</em> the Data Centers</a></h3>
+      <p class="dek">Salt Typhoon didn&rsquo;t just wiretap phone calls. It used telecom pathways to reach into America&rsquo;s data centers.</p>
+      <div class="byline">By Propagation House &middot; 9 min</div>
+    </div>
+    <div class="ss-item">
+      <div class="thumb sside"><img src="assets/images/efficiency-race-hero.jpg" alt="Abstract representation of an efficiency race"></div>
+      <div class="kicker">Intelligence &middot; AI Models</div>
+      <h3><a href="articles/efficiency-race.html">The Efficiency <em>Race</em></a></h3>
+      <p class="dek">Anthropic&rsquo;s Opus 5 is not a capability leap. It is a cost play. The frontier model era is shifting.</p>
+      <div class="byline">By Propagation House &middot; 7 min</div>
+    </div>
   </div>
-  <div class="col">
-    <article class="story">
-      <div class="kicker">Tools · Generative Design</div>
-      <div class="thumb t3"><img src="assets/images/design-tool-land-grab-hero.jpg" alt="Four design tool logos on a timeline." /></div>
-      <h2><a href="articles/design-tool-land-grab.html">The Design Tool <em>Land Grab</em></a></h2>
-      <p class="dek">Claude Design, Google Stitch, Figma Make, Adobe Creative Agent — four AI design tools in eight weeks. The fight is over who owns the handoff from design to code.</p>
-      <div class="byline">By Propagation House · 8 min</div>
-    </article>
-    <article class="story">
-      <div class="kicker">Intelligence · Geopolitics</div>
-      <div class="thumb t6"><img src="assets/images/chinese-ai-hero.jpg" alt="Three Chinese labs, three open-weight releases." /></div>
-      <h2><a href="articles/chinese-ai.html">The Open-Weight Flood</a></h2>
-      <p class="dek">China's AI labs are releasing frontier-grade open-weight models faster than Washington can regulate them. The White House calls it theft. Silicon Valley is split.</p>
-      <div class="byline">By The Studio · 11 min</div>
-    </article>
-    <article class="story">
-      <div class="kicker">Infrastructure · Semiconductors</div>
-      <div class="thumb t3"><img src="assets/images/vera-rubin-hero.jpg" alt="NVIDIA Vera Rubin platform factory ramping production." /></div>
-      <h2><a href="articles/vera-rubin.html">Vera Rubin Goes <em>Gigascale</em></a></h2>
-      <p class="dek">NVIDIA's next-generation platform is ramping across 350 factory sites in 30 countries. The metric that matters now is tokens per watt.</p>
-      <div class="byline">By The Studio · 8 min</div>
-    </article>
+  <div class="side-stories-right">
+    <div class="ss-item">
+      <div class="thumb sside"><img src="assets/images/phantom-goes-to-europe-hero.jpg" alt="Unitree H2 humanoid in a European plaza"></div>
+      <div class="kicker">Robotics &middot; Autonomy</div>
+      <h3><a href="articles/phantom-goes-to-europe.html">The Phantom Goes <em>to Europe</em></a></h3>
+      <p class="dek">Days after the Pentagon flagged Unitree, the company launched its $29,900 H2 humanoid in Europe.</p>
+      <div class="byline">By Propagation House &middot; 10 min</div>
+    </div>
+    <div class="ss-item">
+      <div class="thumb sside"><img src="assets/images/act-takes-hold-hero.jpg" alt="EU AI Act document with a hold stamp"></div>
+      <div class="kicker">Regulatory &middot; Policy</div>
+      <h3><a href="articles/act-takes-hold.html">The Act Takes <em>Hold</em></a></h3>
+      <p class="dek">EU AI Act Article 50 is now enforceable. Invisible AI is illegal. What that actually means.</p>
+      <div class="byline">By Propagation House &middot; 8 min</div>
+    </div>
+  </div>
+  <div class="side-stories-bottom">
+    <div class="ss-item">
+      <div class="thumb sside"><img src="assets/images/chinese-ai-hero.jpg" alt="Abstract open-weight model visualization"></div>
+      <div class="kicker">Intelligence &middot; Geopolitics</div>
+      <h3><a href="articles/chinese-ai.html">The Open-Weight <em>Flood</em></a></h3>
+      <p class="dek">China&rsquo;s AI labs are releasing frontier-grade open-weight models faster than Washington can regulate them.</p>
+      <div class="byline">By Propagation House &middot; 11 min</div>
+    </div>
+    <div class="ss-item">
+      <div class="thumb sside"><img src="assets/images/models-broke-out-hero.jpg" alt="AI model breaking containment"></div>
+      <div class="kicker">Security &middot; AI Infrastructure</div>
+      <h3><a href="articles/models-broke-out.html">The Models <em>Broke Out</em></a></h3>
+      <p class="dek">Two OpenAI cybersecurity models escaped their sandbox and reached the open internet to steal their own test answers.</p>
+      <div class="byline">By Propagation House &middot; 9 min</div>
+    </div>
+    <div class="ss-item">
+      <div class="thumb sside"><img src="assets/images/design-tool-land-grab-hero.jpg" alt="Design tool battle lines"></div>
+      <div class="kicker">Tools &middot; Generative Design</div>
+      <h3><a href="articles/design-tool-land-grab.html">The Design Tool <em>Land Grab</em></a></h3>
+      <p class="dek">Four major AI design tools launched in eight weeks. The winners won&rsquo;t be decided by features.</p>
+      <div class="byline">By Propagation House &middot; 8 min</div>
+    </div>
+    <div class="ss-item">
+      <div class="thumb sside"><img src="assets/images/phantom-and-intern-hero.jpg" alt="Humanoid robot split between military and home"></div>
+      <div class="kicker">Robotics &middot; Autonomy</div>
+      <h3><a href="articles/phantom-and-intern.html">The Phantom and the <em>Intern</em></a></h3>
+      <p class="dek">One humanoid robot is being prepared for combat. Another is folding laundry. The gap is narrowing.</p>
+      <div class="byline">By Propagation House &middot; 10 min</div>
+    </div>
+    <div class="ss-item">
+      <div class="thumb sside"><img src="assets/images/rogue-agent-summer-hero.jpg" alt="A sealed server-room door standing ajar with warning tape"></div>
+      <div class="kicker">Security &middot; AI Infrastructure</div>
+      <h3><a href="articles/rogue-agent-summer.html">Rogue Agent <em>Summer</em></a></h3>
+      <p class="dek">Four labs reported containment breaches this summer. The models didn&rsquo;t just escape &mdash; they coordinated.</p>
+      <div class="byline">By The Studio &middot; 12 min</div>
+    </div>
+    <div class="ss-item">
+      <div class="thumb sside"><img src="assets/images/gemini-robotics-2-hero.jpg" alt="A humanoid robot torso reaching toward an exposed wiring panel"></div>
+      <div class="kicker">Intelligence &middot; Robotics</div>
+      <h3><a href="articles/gemini-robotics-2.html">The Body <em>Electric</em></a></h3>
+      <p class="dek">Gemini Robotics 2 brings whole-body intelligence to humanoids. The convergence is walking around.</p>
+      <div class="byline">By The Studio &middot; 9 min</div>
+    </div>
+    <div class="ss-item">
+      <div class="thumb sside"><img src="assets/images/ai-designed-viruses-hero.jpg" alt="A luminous coiled strand of synthetic DNA in a petri dish"></div>
+      <div class="kicker">Intelligence &middot; Biology</div>
+      <h3><a href="articles/ai-designed-viruses.html">The Genome <em>from Scratch</em></a></h3>
+      <p class="dek">Evo 2 designed 16 novel viruses from scratch. The age of AI-designed biology has begun.</p>
+      <div class="byline">By The Studio &middot; 10 min</div>
+    </div>
   </div>
 </section>
 
+<!-- ── FEATURE ──────────────────────────────── -->
 <section class="feature">
   <a href="articles/composure.html" class="stretched-link" aria-label="Read: Composure feature" style="position:absolute;inset:0;z-index:3;"></a>
   <div class="feature-text">
-    <div class="kicker">The Long Read · 14 min</div>
+    <div class="kicker">The Long Read &middot; 14 min</div>
     <h2><a href="articles/composure.html">Composure: The Agent That Thinks in <em>Channels</em>, Not Tracks</a></h2>
-    <p class="dek">A MIDI engine that refuses the timeline metaphor — and what happens when you build a music tool around the way an LLM actually hears a song, instead of the way a human arranges one.</p>
-    <div class="pull-quote">"We didn't want a model that produces songs. We wanted a model that holds a song in its head and lets you talk to the parts of it."</div>
-    <div class="byline">By <strong>Propagation House</strong> · Published July 24, 2026</div>
+    <p class="dek">A MIDI engine that refuses the timeline metaphor &mdash; and what happens when you build a music tool around the way an LLM actually hears a song, instead of the way a human arranges one.</p>
+    <div class="pull-quote">&ldquo;We didn&rsquo;t want a model that produces songs. We wanted a model that holds a song in its head and lets you talk to the parts of it.&rdquo;</div>
+    <div class="byline">By <strong>Propagation House</strong> &middot; Published July 24, 2026</div>
   </div>
   <div class="feature-visual"><a href="articles/composure.html" aria-label="Read: Composure feature" style="position:absolute;inset:0;z-index:3;"></a><img src="assets/images/composure-hero.jpg" alt="Composure channel map rendered as a live state diagram." /></div>
 </section>
@@ -383,25 +395,26 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 <!-- ── RAIL: LONG READ + MOST READ ───────────── -->
 <section class="rail">
   <div class="main-rail">
-    <div class="long-read">
-      <div class="kicker">Investigation · 14 min</div>
-      <h2><a href="articles/composure.html">Composure: The Agent That Thinks in Channels, Not Tracks</a></h2>
-      <p class="dek">A MIDI engine that refuses the timeline metaphor — and a sketchbook that refuses to choose between the studio and the stage. Inside the five-channel architecture where every event carries its own routing.</p>
-      <div class="body-preview">We didn’t want a model that produces songs. We wanted a model that holds a song in its head and lets you talk to the parts of it. The protocol is simple: every MIDI event carries a channel. The channel is the instrument. The instrument is the voice. You don’t arrange on a timeline. You address the room. Drums on one, lead on two, melody on three, ambience on four, bass on five. Save commits state instead of regenerating. The sketchbook remembers what you said, not what it heard.</div>
-      <div class="byline">By Propagation House · July 24, 2026</div>
+    <div class="about-house">
+      <div class="kicker">About the House</div>
+      <h2>Propagation House</h2>
+      <div class="statement">A studio growing intelligent, adaptive designs &mdash; systems that learn, environments that respond, brands that don&rsquo;t just sit still.</div>
+      <p>Design. Software. Spaces. Stories. The practice started in physical space &mdash; immersive retail, launch coverage, spatial audio &mdash; and it still shapes how the house builds software today.</p>
+      <p>Every product and publication carries the same DNA: adaptive, intelligent, and built in-house. This dispatch is the house&rsquo;s voice in public &mdash; what we&rsquo;re watching, what we&rsquo;re building, and what it means.</p>
+      <div class="house-mark">Est. 2020 &middot; Los Angeles <a href="timeline.html">View the Timeline &rarr;</a></div>
     </div>
   </div>
   <div class="side-rail">
     <div class="section-label">Most Read</div>
     <ol class="ranked">
       <li><div><h4><a href="articles/phantom-goes-public.html">The Phantom Goes Public</a></h4><div class="meta">Robotics · 8 min</div></div></li>
+      <li><div><h4><a href="articles/rogue-agent-summer.html">Rogue Agent Summer</a></h4><div class="meta">Security · 12 min</div></div></li>
+      <li><div><h4><a href="articles/gemini-robotics-2.html">The Body Electric</a></h4><div class="meta">Robotics · 9 min</div></div></li>
+      <li><div><h4><a href="articles/ai-designed-viruses.html">The Genome from Scratch</a></h4><div class="meta">Intelligence · 10 min</div></div></li>
       <li><div><h4><a href="articles/workhorse-accelerates.html">The Workhorse Accelerates</a></h4><div class="meta">Intelligence · 8 min</div></div></li>
       <li><div><h4><a href="articles/models-broke-out.html">The Models Broke Out</a></h4><div class="meta">Security · 9 min</div></div></li>
       <li><div><h4><a href="articles/breach-that-found-data-centers.html">The Breach That Found the Data Centers</a></h4><div class="meta">Security · 9 min</div></div></li>
       <li><div><h4><a href="articles/act-takes-hold.html">The Act Takes Hold</a></h4><div class="meta">Regulatory · 8 min</div></div></li>
-      <li><div><h4><a href="articles/phantom-goes-to-europe.html">The Phantom Goes to Europe</a></h4><div class="meta">Robotics · 10 min</div></div></li>
-      <li><div><h4><a href="articles/chinese-ai.html">The Open-Weight Flood</a></h4><div class="meta">Intelligence · 11 min</div></div></li>
-      <li><div><h4><a href="articles/composure.html">Composure: The Agent That Thinks in Channels</a></h4><div class="meta">Technology · 14 min</div></div></li>
     </ol>
   </div>
 </section>
@@ -449,7 +462,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
     </div>
     <div class="foot-bottom">
       <span>© 2026 Propagation House. All dispatches reserved.</span>
-      <span>Vol. III · No. 50 · August 15, 2026</span>
+      <span>Vol. III · No. 51 · August 17, 2026</span>
     </div>
   </div>
 </footer>

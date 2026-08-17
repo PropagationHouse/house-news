@@ -1,6 +1,6 @@
 """
-SIGNAL Image Generator — uses OpenRouter Image API
-Generates hero images and inline figures for SIGNAL articles.
+House News Article Image Generator — uses OpenRouter Image API
+Generates hero images and inline figures for House News articles.
 Usage: python gen_images.py [--dry-run] [--model MODEL]
 """
 import json, subprocess, base64, os, sys, time, argparse
@@ -8,7 +8,7 @@ from pathlib import Path
 
 API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 API_URL = "https://openrouter.ai/api/v1/images"
-OUTPUT_DIR = Path(r"C:\Users\Bl0ck\AppData\Roaming\Substrate\workspace\projects\house-news\assets\images")
+OUTPUT_DIR = Path(r"C:\Users\Bl0ck\AppData\Roaming\Substrate\workspace\projects\Propagation House Website Rebuild\house-news\assets\images")
 DEFAULT_MODEL = "google/gemini-3.1-flash-image"  # cheap, fast, good
 
 # ============================================================

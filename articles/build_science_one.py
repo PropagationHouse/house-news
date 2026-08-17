@@ -2,7 +2,7 @@
 import json
 
 # Template CSS from act-takes-hold
-with open(r'C:\Users\Bl0ck\AppData\Roaming\Substrate\workspace\projects\house-news\articles\act-takes-hold.html', 'r', encoding='utf-8') as f:
+with open(r'C:\Users\Bl0ck\AppData\Roaming\Substrate\workspace\projects\Propagation House Website Rebuild\house-news\articles\act-takes-hold.html', 'r', encoding='utf-8') as f:
     template = f.read()
 
 # Extract CSS block
@@ -216,7 +216,7 @@ html_top = """<!DOCTYPE html>
 
 full = html_top + css_block + after_style + body + script_block + "\n\n</body>\n</html>"
 
-output_path = r'C:\Users\Bl0ck\AppData\Roaming\Substrate\workspace\projects\house-news\articles\science-one.html'
+output_path = r'C:\Users\Bl0ck\AppData\Roaming\Substrate\workspace\projects\Propagation House Website Rebuild\house-news\articles\science-one.html'
 with open(output_path, 'w', encoding='utf-8') as f:
     f.write(full)
 
