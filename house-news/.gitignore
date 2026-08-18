@@ -29,3 +29,12 @@ venv/
 # Logs
 *.log
 .vercel
+
+# Scratch / temp tooling (keep locally for torn-edge work, never commit)
+temp_*.py
+temp_*.png
+temp_*.txt
+*.bak
+
+# Torn-edge strip assets (keep locally for reuse, not committed)
+assets/images/torn-*-strip.png
