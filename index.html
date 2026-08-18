@@ -225,7 +225,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 <header class="masthead">
   <div class="top-strip">
     <div class="left"><span>Est. 2020 &middot; Los Angeles</span><span id="dateline">Friday, August 14, 2026</span></div>
-    <div class="right"><span><span class="live-dot"></span>Live</span><span>Subscribe</span></div>
+    <div class="right"><span><span class="live-dot"></span>Live</span><span><a href="house-news/subscribe.html">Subscribe</a></span></div>
   </div>
   <div class="logo">propagation house</div>
   <div class="tagline">Intelligent &amp; Adaptive Design &middot; Since 2020</div>
@@ -498,8 +498,8 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 <section class="newsletter">
   <h2>The House Dispatch</h2>
   <p>One email. Every Thursday. What the house built, what it learned, and what it&rsquo;s watching next.</p>
-  <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed \2713'">
-    <input type="email" placeholder="your@email.com" required>
+  <form action="house-news/subscribe.html" method="get" onsubmit="var e=this.querySelector('input[type=email]');if(e&&e.value){e.name='email';}">
+    <input type="email" name="email" placeholder="your@email.com" required>
     <button type="submit">Subscribe</button>
   </form>
 </section>
@@ -524,7 +524,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
       </div>
       <div>
         <h4>Connect</h4>
-        <ul><li><a href="#about">About</a></li><li><a href="#top">Subscribe</a></li><li><a href="mailto:hello@propagation.house">Contact</a></li><li><a href="house-news/">House</a></li></ul>
+        <ul><li><a href="#about">About</a></li><li><a href="house-news/subscribe.html">Subscribe</a></li><li><a href="mailto:hello@propagation.house">Contact</a></li><li><a href="house-news/">House</a></li></ul>
       </div>
     </div>
     <div class="foot-bottom">

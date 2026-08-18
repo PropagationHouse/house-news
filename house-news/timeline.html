@@ -51,6 +51,8 @@ img{max-width:100%;display:block}
 .filter-btn{font-family:var(--sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:6px 16px;border:1px solid var(--rule);background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
 .filter-btn:hover{color:var(--ink);border-color:var(--ink)}
 .filter-btn.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.filter-note{display:inline-block;margin-left:8px;font-family:var(--sans);font-size:11px;letter-spacing:.04em;color:var(--muted);vertical-align:middle}
+.filter-note a{color:var(--accent);text-decoration:underline;margin-left:4px}
 
 /* ── TIMELINE ─────────────────────────────── */
 .timeline{padding:40px 0 80px}
@@ -129,17 +131,17 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 <header class="masthead">
   <div class="top-strip">
     <div class="left"><span>Vol. III · The Archive</span><span id="dateline"></span></div>
-    <div class="right"><span><a href="index.html">← Front Page</a></span><span>Subscribe</span></div>
+    <div class="right"><span><a href="index.html">Front Page</a></span><span><a href="subscribe.html">Subscribe</a></span></div>
   </div>
   <div class="logo"><a href="index.html">house</a></div>
   <div class="tagline">The Complete Dispatches &middot; Every Story, Every Issue</div>
   <nav>
     <a href="index.html">Front Page</a>
     <a href="timeline.html" class="active">Timeline</a>
-    <a href="#">Technology</a>
-    <a href="#">Design</a>
-    <a href="#">Culture</a>
-    <a href="#">Ideas</a>
+    <a href="timeline.html">Technology</a>
+    <a href="timeline.html">Design</a>
+    <a href="timeline.html">Culture</a>
+    <a href="timeline.html">Ideas</a>
   </nav>
 </header>
 
@@ -432,15 +434,15 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
       </div>
       <div>
         <h4>Sections</h4>
-        <ul><li><a href="#">Technology</a></li><li><a href="#">Design</a></li><li><a href="#">Culture</a></li><li><a href="#">Ideas</a></li></ul>
+        <ul><li><a href="timeline.html">Technology</a></li><li><a href="timeline.html">Design</a></li><li><a href="timeline.html">Culture</a></li><li><a href="timeline.html">Ideas</a></li></ul>
       </div>
       <div>
         <h4>Navigate</h4>
-        <ul><li><a href="index.html">Front Page</a></li><li><a href="timeline.html">Timeline</a></li><li><a href="#">Archive</a></li><li><a href="#">About</a></li></ul>
+        <ul><li><a href="index.html">Front Page</a></li><li><a href="timeline.html">Timeline</a></li><li><a href="timeline.html">Archive</a></li><li><a href="../index.html#about">About</a></li></ul>
       </div>
       <div>
         <h4>Connect</h4>
-        <ul><li><a href="#">Newsletter</a></li><li><a href="#">RSS</a></li><li><a href="#">Contact</a></li></ul>
+        <ul><li><a href="subscribe.html">Newsletter</a></li><li><a href="feed.xml">RSS</a></li><li><a href="mailto:hello@propagation.house">Contact</a></li></ul>
       </div>
     </div>
     <div class="copy">&copy; 2026 Propagation House. All rights reserved.</div>
@@ -882,45 +884,88 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
     filteredCount.textContent = visible;
   }
 
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  function applyFilter(btn){
+    btns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
 
-      const filter = btn.dataset.filter;
-      const isLens = btn.dataset.lens === 'true';
-      let visible = 0;
+    const filter = btn.dataset.filter;
+    const isLens = btn.dataset.lens === 'true';
+    let visible = 0;
 
-      items.forEach(item => {
-        if(filter === 'all'){
+    items.forEach(item => {
+      if(filter === 'all'){
+        item.classList.remove('hidden');
+        visible++;
+      } else if(isLens){
+        if(item.dataset.lens === filter){
           item.classList.remove('hidden');
           visible++;
-        } else if(isLens){
-          if(item.dataset.lens === filter){
-            item.classList.remove('hidden');
-            visible++;
-          } else {
-            item.classList.add('hidden');
-          }
         } else {
-          if(item.dataset.category === filter){
-            item.classList.remove('hidden');
-            visible++;
-          } else {
-            item.classList.add('hidden');
-          }
+          item.classList.add('hidden');
+        }
+      } else {
+        if(item.dataset.category === filter){
+          item.classList.remove('hidden');
+          visible++;
+        } else {
+          item.classList.add('hidden');
+        }
+      }
+    });
+
+    // Hide empty date groups
+    groups.forEach(group => {
+      const visibleItems = group.querySelectorAll('.timeline-item:not(.hidden)');
+      group.style.display = visibleItems.length === 0 ? 'none' : '';
+    });
+
+    updateCount(visible);
+  }
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => applyFilter(btn));
+  });
+
+  // Deep-link support: ?category=Robotics or ?lens=tools auto-applies the filter
+  (function(){
+    var params = new URLSearchParams(window.location.search);
+    var cat = params.get('category');
+    var lens = params.get('lens');
+    var target = null;
+    if(cat){
+      target = Array.prototype.find.call(btns, b => b.dataset.filter === cat && b.dataset.lens !== 'true');
+    } else if(lens){
+      target = Array.prototype.find.call(btns, b => b.dataset.filter === lens && b.dataset.lens === 'true');
+    }
+    if(target){
+      applyFilter(target);
+    } else if(cat){
+      // Tag deep-link (e.g. ?category=MIDI): no matching filter button,
+      // so match the tag text against timeline items instead.
+      btns.forEach(b => b.classList.remove('active'));
+      var q = cat.toLowerCase();
+      var visible = 0;
+      items.forEach(item => {
+        var hay = (item.textContent || '').toLowerCase();
+        if(hay.indexOf(q) !== -1){
+          item.classList.remove('hidden');
+          visible++;
+        } else {
+          item.classList.add('hidden');
         }
       });
-
-      // Hide empty date groups
       groups.forEach(group => {
-        const visibleItems = group.querySelectorAll('.timeline-item:not(.hidden)');
+        var visibleItems = group.querySelectorAll('.timeline-item:not(.hidden)');
         group.style.display = visibleItems.length === 0 ? 'none' : '';
       });
-
       updateCount(visible);
-    });
-  });
+      var note = document.createElement('div');
+      note.className = 'filter-note';
+      note.innerHTML = 'Showing stories tagged <strong>' + cat.replace(/</g,'&lt;') + '</strong> &middot; <a href="timeline.html">Clear filter</a>';
+      var bar = document.querySelector('.filter-bar');
+      if(bar) bar.appendChild(note);
+    }
+  })();
 
   // Set dateline
   const now = new Date();

@@ -203,17 +203,17 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 <header class="masthead">
   <div class="top-strip">
     <div class="left"><span>Vol. III · No. 52</span><span id="dateline">Monday, August 17, 2026</span></div>
-    <div class="right"><span><span class="live-dot"></span>Live</span><span>Subscribe</span><span>Sign In</span></div>
+    <div class="right"><span><span class="live-dot"></span>Live</span><span><a href="subscribe.html">Subscribe</a></span></div>
   </div>
   <div class="logo">house</div>
   <div class="tagline">Dispatches from the Edge of Culture &middot; Technology &middot; Design</div>
   <nav>
-    <a href="#">World</a>
-    <a href="#">Technology</a>
-    <a href="#">Design</a>
-    <a href="#">Culture</a>
-    <a href="#">Business</a>
-    <a href="#">Ideas</a>
+    <a href="timeline.html">World</a>
+    <a href="timeline.html">Technology</a>
+    <a href="timeline.html">Design</a>
+    <a href="timeline.html">Culture</a>
+    <a href="timeline.html">Business</a>
+    <a href="timeline.html">Ideas</a>
     <a href="timeline.html">Timeline</a>
     <a href="../index.html">Studio</a>
   </nav>
@@ -425,9 +425,9 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 
 <!-- ── DEPARTMENTS ───────────────────────────── -->
 <section class="departments">
-  <div class="dept"><a href="#"><h3>Studio Notes</h3><p>Daily dispatches from the workbench</p></a></div>
-  <div class="dept"><a href="#"><h3>Research</h3><p>Open experiments and field reports</p></a></div>
-  <div class="dept"><a href="#"><h3>Journal</h3><p>Long-form essays on craft & culture</p></a></div>
+  <div class="dept"><a href="../index.html#house"><h3>Studio Notes</h3><p>Daily dispatches from the workbench</p></a></div>
+  <div class="dept"><a href="timeline.html"><h3>Research</h3><p>Open experiments and field reports</p></a></div>
+  <div class="dept"><a href="../index.html"><h3>Journal</h3><p>Long-form essays on craft & culture</p></a></div>
   <div class="dept"><a href="timeline.html"><h3>Archive</h3><p>Every issue, every story</p></a></div>
 </section>
 
@@ -435,8 +435,8 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 <section class="newsletter">
   <h2>The House Dispatch</h2>
   <p>One email. Every Thursday. What the house built, what it learned, and what it's watching next.</p>
-  <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓'">
-    <input type="email" placeholder="your@email.com" required>
+  <form action="subscribe.html" method="get" onsubmit="var e=this.querySelector('input[type=email]');if(e&&e.value){e.name='email';}">
+    <input type="email" name="email" placeholder="your@email.com" required>
     <button type="submit">Subscribe</button>
   </form>
 </section>
@@ -453,7 +453,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
       </div>
       <div>
         <h4>Sections</h4>
-        <ul><li><a href="#">Technology</a></li><li><a href="#">Design</a></li><li><a href="#">Culture</a></li><li><a href="#">Business</a></li><li><a href="#">Ideas</a></li></ul>
+        <ul><li><a href="timeline.html">Technology</a></li><li><a href="timeline.html">Design</a></li><li><a href="timeline.html">Culture</a></li><li><a href="timeline.html">Business</a></li><li><a href="timeline.html">Ideas</a></li></ul>
       </div>
       <div>
         <h4>Studio</h4>
@@ -461,7 +461,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
       </div>
       <div>
         <h4>Follow</h4>
-        <ul><li><a href="#">Newsletter</a></li><li><a href="#">RSS</a></li><li><a href="#">X / Twitter</a></li><li><a href="#">GitHub</a></li></ul>
+        <ul><li><a href="subscribe.html">Newsletter</a></li><li><a href="feed.xml">RSS</a></li><li><a href="https://github.com/PropagationHouse/house-news">GitHub</a></li></ul>
       </div>
     </div>
     <div class="foot-bottom">
