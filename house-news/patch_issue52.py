@@ -117,8 +117,15 @@ new_nodes = '''    {id:'superman-leaps', title:'Superman Leaps', href:'articles/
       tags:['regulation','humanoid','permitting','labor','safety','embodied-ai']},
 '''
 # Insert before the line '  ];' that closes ARTICLES
+# IMPORTANT: the last existing node must have a trailing comma, otherwise the
+# graph JS dies with a syntax error and the whole node graph disappears.
 articles_close = tl.find('  ];')
 assert articles_close != -1
+# Ensure the previous line ends with ',' (append one if missing)
+prev_end = tl.rfind('\n', 0, articles_close)
+prev_line = tl[prev_end:articles_close]
+if not prev_line.rstrip().endswith(','):
+    tl = tl[:articles_close] + ',' + tl[articles_close:]
 tl = tl[:articles_close] + new_nodes + tl[articles_close:]
 print("TIMELINE: 3 nodes added to ARTICLES")
 
