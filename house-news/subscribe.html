@@ -74,6 +74,9 @@
   var msg=document.getElementById('subMsg');
   var KEY='house_dispatch_subscribed';
 
+  // Collector endpoint (Google Apps Script web app). Leave empty to fall back to mailto.
+  var SCRIPT_URL='';
+
   function show(html,cls){
     msg.className='sub-msg '+cls;
     msg.innerHTML=html;
@@ -104,14 +107,26 @@
     btn.textContent='Subscribed \u2713';
     show('You&rsquo;re on the list, <span class="msg-email">'+val+'</span>. The next House Dispatch lands in your inbox Thursday morning. <a href="index.html">Back to the front page &rarr;</a>', 'ok');
 
-    // Compose a confirmation email as a durable record (mailto fallback).
-    // Swap the address below for your newsletter provider/webhook when ready.
+    // Save to the collector (Google Sheet). If no endpoint is configured yet,
+    // fall back to a mailto record so no one is silently lost.
+    if(SCRIPT_URL){
+      fetch(SCRIPT_URL, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({email:val, source:'subscribe.html'})
+      }).catch(function(){ mailtoFallback(val); });
+    } else {
+      mailtoFallback(val);
+    }
+  });
+
+  function mailtoFallback(val){
     var subject=encodeURIComponent('House Dispatch subscription: '+val);
     var body=encodeURIComponent('Please add '+val+' to the House Dispatch mailing list.\n\n- Propagation House');
     var a=document.createElement('a');
     a.href='mailto:hello@propagation.house?subject='+subject+'&body='+body;
     a.click();
-  });
+  }
 })();
 </script>
 </body>
