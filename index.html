@@ -21,12 +21,12 @@
 
 :root{
   --ink:#1a1d12;
-  --paper:#f5f2e6;
+  --paper:#f6f1e2;
   --rule:#c8c3ad;
   --accent:#4b5320;
   --accent-dark:#3a4018;
   --muted:#6b6e5a;
-  --bg-tint:#eae6d2;
+  --bg-tint:#ece5cf;
   --serif:'Playfair Display',Georgia,serif;
   --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
 }
@@ -57,7 +57,7 @@ img{max-width:100%;display:block}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* HERO */
-.hero{padding:80px 0 64px;text-align:center;border-bottom:1px solid var(--rule)}
+.hero{padding:0;text-align:center}
 .hero .hero-kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
 .hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(40px,5vw,72px);line-height:1.05;letter-spacing:-.02em;margin-bottom:20px;max-width:800px;margin-left:auto;margin-right:auto}
 .hero h1 em{font-style:italic;font-weight:400}
@@ -75,12 +75,24 @@ img{max-width:100%;display:block}
 .section-head .more{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ink);white-space:nowrap;padding-bottom:8px;border-bottom:2px solid var(--accent);align-self:end}
 .section-head .more:hover{color:var(--accent)}
 
-/* TORN PAPER DIVIDERS - single-zone test: .paper-tear used at the House->Products seam */
+/* HERO AS PAPER SHEET — the studio statement lives on a large sheet with naturally ragged semi-rough edges. The sheet's own ragged bottom edge IS the barrier line into House — no separate divider asset needed. */
+.hero{position:relative;text-align:center;isolation:isolate;background:transparent}
+.hero .hero-bg{position:relative;width:100%;height:auto;display:block;z-index:0;filter:drop-shadow(0 6px 18px rgba(26,29,18,.14));-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 110px),transparent 100%);mask-image:linear-gradient(to bottom,#000 calc(100% - 110px),transparent 100%)}
+.hero .hero-inner{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px}
+.hero .hero-inner .hero-pills{margin-bottom:0}
+@media(min-width:1024px){.hero .hero-inner{padding:0 48px}}
+
+/* TORN PAPER DIVIDERS — containment rhythm: drop-tear opens the House corridor (ragged bottom hangs into the section), up-tear opens the Products sheet (ragged top), down-tear closes it (ragged bottom) */
 .paper-tear{position:relative;width:100%;line-height:0;pointer-events:none}
 .paper-tear img{width:100%;height:auto;display:block;filter:drop-shadow(0 2px 6px rgba(26,29,18,.08))}
 .paper-tear{margin:0 -12px;width:calc(100% + 24px);max-width:none}
 @media(min-width:1024px){.paper-tear{margin:0 -24px;width:calc(100% + 48px)}}
 @media(min-width:1440px){.paper-tear{margin-left:-50vw;margin-right:-50vw;width:100vw}}
+
+/* section-head.tear-up — header drops down so the paper tears cleanly against the content, with a soft gradient instead of a hard competing line */
+.section-head.tear-up{padding-top:96px}
+.paper-tear.paper-tear-up img{-webkit-mask-image:linear-gradient(to bottom,#000 52%,transparent 100%);mask-image:linear-gradient(to bottom,#000 52%,transparent 100%)}
+@media(max-width:1023px){.section-head.tear-up{padding-top:64px}}
 
 /* HOUSE: EDITORIAL GRID — wired style: lead center, side stories flanking left+right at bottom */
 .editorial-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.3fr) minmax(0,1fr);gap:0;border-bottom:1px solid var(--rule);align-items:end}
@@ -265,14 +277,17 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-kicker">The House &middot; August 2026</div>
-  <h1>A studio growing <em>intelligent, adaptive</em> designs.</h1>
-  <p class="hero-dek">Design. Software. Spaces. Stories. We build systems that learn, environments that respond, and brands that don&rsquo;t just sit still &mdash; they propagate.</p>
-  <div class="hero-pills">
-    <a href="#house">House &middot; News &amp; Research</a>
-    <a href="#products">Products</a>
-    <a href="#multimedia">Multimedia</a>
-    <a href="#merch">Merchandise</a>
+  <img class="hero-bg" src="assets/paper/paper sheet semi-rough edges.png" alt="" aria-hidden="true">
+  <div class="hero-inner">
+    <div class="hero-kicker">The House &middot; August 2026</div>
+    <h1>A studio growing <em>intelligent, adaptive</em> designs.</h1>
+    <p class="hero-dek">Design. Software. Spaces. Stories. We build systems that learn, environments that respond, and brands that don&rsquo;t just sit still &mdash; they propagate.</p>
+    <div class="hero-pills">
+      <a href="#house">House &middot; News &amp; Research</a>
+      <a href="#products">Products</a>
+      <a href="#multimedia">Multimedia</a>
+      <a href="#merch">Merchandise</a>
+    </div>
   </div>
 </section>
 
@@ -387,11 +402,11 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   </div>
 </section>
 
-<!-- TORN PAPER DIVIDER: single zone test — House corridor ends, tear at bottom (paper hangs from above, torn edge drops into Products) -->
-<div class="paper-tear" aria-hidden="true"><img src="assets/images/torn-down-strip.png" alt=""></div>
+<!-- TORN PAPER DIVIDER: Products corridor top edge — upward tear (paper hangs up into House, contains the Products zone) -->
+<div class="paper-tear paper-tear-up" aria-hidden="true"><img src="assets/images/torn-up-strip.png" alt=""></div>
 
 <!-- 02 PRODUCTS -->
-<div class="section-head" id="products">
+<div class="section-head tear-up" id="products">
   <div class="num">02</div>
   <div class="info">
     <div class="kicker">Products &middot; Software &amp; Experiences</div>
@@ -440,7 +455,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   </div>
 </section>
 
-<!-- TORN PAPER DIVIDER: Products corridor ends, tear at bottom (paper hangs from above, torn edge drops into Multimedia) -->
+<!-- TORN PAPER DIVIDER: Products corridor bottom edge — downward tear (paper hangs down into Multimedia, closes the sheet) -->
 <div class="paper-tear" aria-hidden="true"><img src="assets/images/torn-down-strip.png" alt=""></div>
 
 <!-- 03 MULTIMEDIA -->
