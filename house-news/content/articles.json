@@ -276,6 +276,28 @@
       "filename": "articles/composure.html",
       "read_time": "14 min",
       "summary": "Inside Composure's five-channel MIDI architecture - where every event carries its own routing and save commits state instead of regenerating."
+    },
+    {
+      "title": "The Guarantee That Underwrites the Future",
+      "date": "2026-08-18",
+      "kicker": "Infrastructure – Markets",
+      "lens": "infrastructure",
+      "category": "Infrastructure",
+      "filename": "articles/ohio-guarantee.html",
+      "read_time": "9 min",
+      "summary": "Nvidia agreed to back up to $105 billion in financing for OpenAI’s Ohio data center campus — a backstop, not a check. The AI arms race just acquired a balance sheet.",
+      "author": "Propagation House"
+    },
+    {
+      "title": "The Toll Road Changes Hands",
+      "date": "2026-08-18",
+      "kicker": "Tools – Markets",
+      "lens": "tools",
+      "category": "Technology",
+      "filename": "articles/openrouter-toll.html",
+      "read_time": "7 min",
+      "summary": "Stripe is buying OpenRouter for more than $7 billion — the gateway that lets developers call every model from one API. The most important toll booth in AI just became a payments company’s moat.",
+      "author": "Propagation House"
     }
   ],
   "drafts": [],

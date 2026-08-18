@@ -101,6 +101,16 @@ IMAGES = [
         "prompt": "Editorial photograph, archival darkroom print: a humanoid robot standing before a municipal government counter, a permitting form and rubber stamp on the desk in front of it, bureaucratic fluorescent light falling through blinds in long shadows. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
         "aspect_ratio": "16:9",
     },
+    {
+        "filename": "ohio-guarantee-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: an immense electrical substation at dusk seen from a low gravel lot, transmission towers receding into haze, a single amber warning light blinking atop the nearest tower, heat shimmer above transformer banks. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
+        "filename": "openrouter-toll-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a vintage toll booth on an open highway at dusk, ledger books and a rubber stamp on the counter, a thin ribbon of fiber-optic light receding along the road, small brass plaque reading ROUTE in engraved caps. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
     # --- INLINE FIGURES ---
     {
         "filename": "composure-fig0.jpg",
