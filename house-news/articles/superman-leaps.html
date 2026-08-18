@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Superman Leaps - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 4px}
+.hero-figure .caption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px;font-size:19px;line-height:1.7;color:var(--ink)}
+.article-body p{margin-bottom:24px}
+.article-body .lead-para{font-family:var(--serif);font-size:24px;line-height:1.4;color:#2a2d1e;font-style:italic;margin-bottom:36px}
+.article-body .lead-para em{font-style:normal;color:var(--accent-dark)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.1;letter-spacing:-.02em;margin:56px 0 20px;color:var(--ink)}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.25;margin:36px 0 16px;color:var(--ink)}
+.article-body strong{font-weight:700;color:var(--ink)}
+.article-body em{font-family:var(--serif);font-style:italic}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.25;color:var(--accent-dark);text-align:center;margin:48px 0;padding:0 24px}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:48px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+.article-body .interlude{background:var(--ink);color:var(--paper);max-width:none;margin:64px 0;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.article-body .interlude::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body .interlude .interlude-kicker{position:relative;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .interlude p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+.article-body .interlude p em{font-style:normal;color:var(--accent)}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:700}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+@media (max-width:768px){html{font-size:17px}.article-body{font-size:18px}.article-body h2{font-size:28px}.article-body h3{font-size:20px}.related .rel-grid{grid-template-columns:1fr;gap:24px}.masthead nav{display:none}.article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px}.article-body .stat-row{grid-template-columns:1fr;border-bottom:none}.article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}.article-body .interlude{padding:40px 24px}.article-body .interlude p{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">Robotics · Embodied AI</div><nav><a href="../index.html">Dispatches</a><a href="#">Studio</a><a href="#">Field Notes</a><a href="#">Index</a></nav></header>
+<div class="article-hero"><div class="kicker">Robotics · Embodied AI</div><h1>Superman <em>Leaps</em></h1><p class="dek">Unitree's new humanoid jumps two meters straight up and sprints faster than any human alive — and the company says it built the whole thing in just over three months. The humanoid race just stopped arguing about hands and started arguing about <em>physics</em>.</p><div class="byline">By <strong>Propagation House</strong><span class="sep">·</span>August 17, 2026<span class="sep">·</span>8 min read</div></div>
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/superman-leaps-hero.jpg" alt="A humanoid robot frozen mid-leap in a dark arena, rendered as an archival darkroom print." /></div><p class="caption">The jump is the headline. The three-month development window is the story. When a robot's gait improves at software speed, the field's entire hierarchy has to be redrawn. <strong>Illustration by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">The humanoid race spent this year arguing about hands, about balance, about whether a machine could fold a towel without tearing it. Unitree just changed the subject: it built a robot that can <em>jump two meters straight up</em> and sprint faster than any human alive, and it did it in just over three months.</p>
+<p>On Monday the Hangzhou company previewed a new humanoid nicknamed "Superman" — a machine with 0.85-meter legs that cleared a standing vertical jump of two meters and hit a top speed of 12.66 meters per second, roughly 45 kilometers an hour. The company's claim is direct: both numbers exceed the best human records in the standing jump and the sprint. The robot did not simply improve on its predecessors. It moved the category from "walks like a person" to "performs like one" — and then kept going.</p>
+<p>The timing is not incidental. Unitree unveiled the machine the same week it priced its Shanghai IPO, and days before the Second World Humanoid Robot Games open in Beijing's Ice Ribbon. The demonstration is a flex aimed at two audiences at once: the public market that just handed the company an 8,000x oversubscription, and the field of competitors about to line up on a running track in front of the world.</p>
+<h2>Three Months Is <em>Not a Normal Timeline</em></h2>
+<p>The detail that should stop anyone reading this is not the jump height. It is the development window. Unitree says Superman was developed in just over three months. For context, most humanoid programs treat a hardware revision as a multi-quarter project, and a gait breakthrough as a research milestone measured in years. A 2-meter vertical jump requires actuators with the power density of a small engine, a controller that can store and release energy through the leg like a spring, and a model that can time the whole sequence in milliseconds.</p>
+<p>Doing that in a quarter suggests the bottleneck in humanoid robotics has shifted. The industry spent a decade convinced the hard part was the hardware — the joints, the batteries, the materials. Unitree's cadence implies the hard part is now <em>integration</em>: taking commodity actuators, a good model, and a manufacturing line that can iterate at software speed. When the constraint stops being physics and becomes process, the companies that can ship fastest will pull away from the ones still polishing a single perfect demo.</p>
+<aside class="sidenote"><strong>Field Note</strong>The 12.66 m/s figure is roughly 45 km/h — faster than Usain Bolt's average speed in his 100m world record, which is the comparison Unitree's own materials reach for. The standing vertical jump of 2 meters exceeds the human record by a meaningful margin. Both numbers are company claims, and the honest read is that they are directionally true and precisely unverifiable — which is exactly how hardware marketing works in 2026.</aside>
+<p>There is also a question of what "developed" means. A robot that jumps in a controlled demo is not the same as a robot that jumps reliably in a warehouse, a factory, or a construction site. The gap between a highlight reel and a deployment is where every humanoid company has historically come to grief. But the direction of travel matters more than the specific claim. The cost curve for athletic capability is collapsing, and it is collapsing fastest for the company that already has a public war chest and a national supply chain behind it.</p>
+<div class="stat-row"><div class="stat"><div class="num">2<span class="unit">m</span></div><div class="label">Standing vertical jump — exceeds the human record, per Unitree</div></div><div class="stat"><div class="num">12.66<span class="unit">m/s</span></div><div class="label">Top sprint speed — about 45 km/h, faster than a human world-record pace</div></div><div class="stat"><div class="num">3<span class="unit">mo</span></div><div class="label">Development window — a hardware-and-gait cycle most labs would measure in years</div></div></div>
+<h2>The Games Are the <em>Proof of Work</em></h2>
+<p>The reveal lands directly ahead of the Second World Humanoid Robot Games, which open at the Ice Ribbon on August 22 with 51 events, 1,301 matches, and more than 2,000 robots from 16 countries. The competition is no longer a novelty showcase. It is becoming the humanoid equivalent of Formula One: a high-visibility arena where engineering claims get tested in public, under rules, in front of cameras and buyers.</p>
+<p>That is why the "Superman" timing matters. A robot that can jump two meters is not a consumer product. It is a statement of physical capability aimed at the competitions, the procurement officers, and the investors who now have a ticker to watch. Unitree is not selling the jump. It is selling the fact that it can build something no one else has demonstrated, on a schedule no one else has matched, while the rest of the field is still walking.</p>
+<blockquote class="offset-quote">Unitree is not selling the jump. It is selling the fact that it can build something no one else has demonstrated, on a schedule no one else has matched.<span class="attribution">- The cadence is the capability</span></blockquote>
+<p>The uncomfortable question this raises for the rest of the industry is whether the athletic arms race is the right one. A robot that can sprint is impressive; a robot that can work a ten-hour shift without drifting is useful. The two are not the same engineering problem, and the capital chasing the highlight reel may be misallocated. But markets and games both reward spectacle, and Unitree has now demonstrated it can supply it on demand — while quietly keeping the balance sheet to fund the unglamorous work underneath.</p>
+<div class="takeaways"><h4>What This Means</h4><ul><li><strong>The bottleneck has moved from hardware to process.</strong> A 2-meter jump developed in three months suggests the constraint is no longer actuator physics — it is how fast a company can integrate, iterate, and ship.</li><li><strong>The games are becoming a public proving ground.</strong> With 2,000+ robots from 16 countries competing at the Ice Ribbon, capability claims now get tested in front of buyers, not just cameras.</li><li><strong>Spectacle and utility are diverging.</strong> The athletic arms race is real, but the gap between a highlight-reel jump and a ten-hour work shift remains the place where value is actually created.</li></ul></div>
+<p class="lead-para">The robot did not learn to walk this week. It learned to <em>fly</em> — two meters at a time, straight up, in front of a market that just decided to pay for the view.</p>
+</article>
+<div class="article-foot"><div class="tags"><a href="#">Unitree</a><a href="#">Humanoid Robotics</a><a href="#">Embodied AI</a><a href="#">Athletics</a><a href="#">China</a><a href="#">Markets</a></div><div class="author-bio"><div class="avatar">P</div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming — and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">Robotics</div><h3><a href="phantom-goes-public.html">The Phantom Goes Public</a></h3><div class="meta">8 min read</div></article><article><div class="kicker">Robotics</div><h3><a href="beijing-games.html">The Games That Grade the Robots</a></h3><div class="meta">7 min read</div></article><article><div class="kicker">Robotics</div><h3><a href="phantom-goes-to-europe.html">The Phantom Goes to Europe</a></h3><div class="meta">10 min read</div></article></div></section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>

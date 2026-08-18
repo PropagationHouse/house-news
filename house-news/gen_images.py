@@ -86,6 +86,21 @@ IMAGES = [
         "prompt": "Editorial photograph, archival darkroom print: a massive cast-iron flywheel and locomotive drive shaft assembly in mid-spin, motion blur radiating outward, dramatic side lighting with long amber shadows across riveted metal surfaces. Deep olive greens and warm cream highlights with oxidized copper accents and bone-white machinery dust in the air. Subtle horizontal scanline texture, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
         "aspect_ratio": "16:9",
     },
+    {
+        "filename": "superman-leaps-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a humanoid robot captured mid-leap in a dark arena, frozen at the apex of a two-meter vertical jump, long legs fully extended, motion blur trailing from the ankles, dramatic amber side lighting casting a long shadow across a concrete floor. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
+        "filename": "beijing-games-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: rows of humanoid robots lining up on a running track inside a vast speed-skating oval at dawn, the Ice Ribbon's steel roof beams arcing overhead, dust and haze catching amber light. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
+        "filename": "san-mateo-permit-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a humanoid robot standing before a municipal government counter, a permitting form and rubber stamp on the desk in front of it, bureaucratic fluorescent light falling through blinds in long shadows. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
     # --- INLINE FIGURES ---
     {
         "filename": "composure-fig0.jpg",
