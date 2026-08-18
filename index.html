@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -75,7 +75,12 @@ img{max-width:100%;display:block}
 .section-head .more{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ink);white-space:nowrap;padding-bottom:8px;border-bottom:2px solid var(--accent);align-self:end}
 .section-head .more:hover{color:var(--accent)}
 
-/* TORN PAPER DIVIDERS — removed; revisit with proper torn-edge strip assets */
+/* TORN PAPER DIVIDERS - single-zone test: .paper-tear used at the House->Products seam */
+.paper-tear{position:relative;width:100%;line-height:0;pointer-events:none}
+.paper-tear img{width:100%;height:auto;display:block;filter:drop-shadow(0 2px 6px rgba(26,29,18,.08))}
+.paper-tear{margin:0 -12px;width:calc(100% + 24px);max-width:none}
+@media(min-width:1024px){.paper-tear{margin:0 -24px;width:calc(100% + 48px)}}
+@media(min-width:1440px){.paper-tear{margin-left:-50vw;margin-right:-50vw;width:100vw}}
 
 /* HOUSE: EDITORIAL GRID — wired style: lead center, side stories flanking left+right at bottom */
 .editorial-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.3fr) minmax(0,1fr);gap:0;border-bottom:1px solid var(--rule);align-items:end}
@@ -382,6 +387,9 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   </div>
 </section>
 
+<!-- TORN PAPER DIVIDER: single zone test — House corridor ends, tear at bottom (paper hangs from above, torn edge drops into Products) -->
+<div class="paper-tear" aria-hidden="true"><img src="assets/images/torn-down-strip.png" alt=""></div>
+
 <!-- 02 PRODUCTS -->
 <div class="section-head" id="products">
   <div class="num">02</div>
@@ -431,6 +439,9 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
     <span class="prod-tag">Coming</span>
   </div>
 </section>
+
+<!-- TORN PAPER DIVIDER: Products corridor ends, tear at bottom (paper hangs from above, torn edge drops into Multimedia) -->
+<div class="paper-tear" aria-hidden="true"><img src="assets/images/torn-down-strip.png" alt=""></div>
 
 <!-- 03 MULTIMEDIA -->
 <div class="section-head" id="multimedia">
