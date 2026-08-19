@@ -108,7 +108,17 @@ IMAGES = [
     },
     {
         "filename": "openrouter-toll-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a vintage toll booth on an open highway at dusk, ledger books and a rubber stamp on the counter, a thin ribbon of fiber-optic light receding along the road, small brass plaque reading ROUTE in engraved caps. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "prompt": "Editorial photograph, archival darkroom print: vintage toll booth on an open highway at dusk, ledger books and a rubber stamp on the counter, a thin ribbon of fiber-optic light receding along the road, small brass plaque reading ROUTE in engraved caps. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
+        "filename": "tsmc-capacity-wall-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: an enormous semiconductor fab cleanroom floor seen from a high catwalk, rows of lithography machines and sealed glass bays stretching to a horizon that ends in a massive raw concrete wall, tiny figures in pale bunny suits working under amber sodium lights, faint haze and dust catching the light. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
+        "filename": "litellm-poison-pill-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a single oversized gelatin capsule lying on a vintage network routing map spread across a dark desk, a frayed fiber-optic patch cable coiled beside it, a small glass vial of dark liquid and a rubber stamp nearby, one amber warning lamp glowing through haze. Deep olive, near-black, and paper-cream palette, heavy film grain, document-scan artifacts, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
         "aspect_ratio": "16:9",
     },
     # --- INLINE FIGURES ---
