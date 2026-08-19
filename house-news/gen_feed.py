@@ -20,7 +20,7 @@ for fn in files:
     if dtm:
         d = datetime.strptime(dtm.group(1), '%B %d, %Y')
         pub = format_datetime(d)
-    url = 'https://house-news.vercel.app/house-news/articles/' + fn
+    url = 'https://www.propagation.house/house-news/articles/' + fn
     items.append((pub, title, dek, url))
 
 items.sort(key=lambda x: x[0], reverse=True)
@@ -30,10 +30,10 @@ out.append('<?xml version="1.0" encoding="UTF-8"?>')
 out.append('<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">')
 out.append('<channel>')
 out.append('<title>house \u2014 Dispatches from the Edge of Culture, Technology &amp; Design</title>')
-out.append('<link>https://house-news.vercel.app/house-news/</link>')
+out.append('<link>https://www.propagation.house/house-news/</link>')
 out.append('<description>Dispatches from Propagation House. What the machines are becoming \u2014 and what it means for the people who build, fund, and regulate them.</description>')
 out.append('<language>en-us</language>')
-out.append('<atom:link href="https://house-news.vercel.app/house-news/feed.xml" rel="self" type="application/rss+xml"/>')
+out.append('<atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>')
 for pub, title, dek, url in items:
     out.append('<item>')
     out.append('<title>%s</title>' % esc(title))
