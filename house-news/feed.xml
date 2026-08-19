@@ -7,6 +7,34 @@
 <language>en-us</language>
 <atom:link href="https://house-news.vercel.app/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Poison Pill in the AI Gateway</title>
+<link>https://house-news.vercel.app/house-news/articles/litellm-poison-pill.html</link>
+<guid isPermaLink="true">https://house-news.vercel.app/house-news/articles/litellm-poison-pill.html</guid>
+<pubDate>Wed, 19 Aug 2026 00:00:00 -0000</pubDate>
+<description>A poisoned update to LiteLLM &amp;mdash; the open-source gateway that routes AI calls for thousands of companies &amp;mdash; harvested credentials from more than 2,500 organizations and 434,000 CI/CD pipelines. The AI stack&amp;rsquo;s softest layer just got breached.</description>
+</item>
+<item>
+<title>The Foundry That Can't Say Everything</title>
+<link>https://house-news.vercel.app/house-news/articles/tsmc-capacity-wall.html</link>
+<guid isPermaLink="true">https://house-news.vercel.app/house-news/articles/tsmc-capacity-wall.html</guid>
+<pubDate>Wed, 19 Aug 2026 00:00:00 -0000</pubDate>
+<description>TSMC has told Nvidia, Broadcom, and its other biggest customers that it cannot build all the AI chips they want &amp;mdash; not because the demand is fake, but because the physical plant has limits. The buildout just hit its wall.</description>
+</item>
+<item>
+<title>The Guarantee That Underwrites the Future</title>
+<link>https://house-news.vercel.app/house-news/articles/ohio-guarantee.html</link>
+<guid isPermaLink="true">https://house-news.vercel.app/house-news/articles/ohio-guarantee.html</guid>
+<pubDate>Tue, 18 Aug 2026 00:00:00 -0000</pubDate>
+<description>Nvidia agreed to back up to $105 billion in financing for OpenAI&amp;rsquo;s Ohio data center campus &amp;mdash; not a check, but a backstop, a promise that the power stays on and the lease stays paid. The AI arms race just acquired a balance sheet.</description>
+</item>
+<item>
+<title>The Toll Road Changes Hands</title>
+<link>https://house-news.vercel.app/house-news/articles/openrouter-toll.html</link>
+<guid isPermaLink="true">https://house-news.vercel.app/house-news/articles/openrouter-toll.html</guid>
+<pubDate>Tue, 18 Aug 2026 00:00:00 -0000</pubDate>
+<description>Stripe is buying OpenRouter for more than $7 billion &amp;mdash; the gateway that lets developers call every model from one API. The most important toll booth in AI just became a payments company&amp;rsquo;s moat.</description>
+</item>
+<item>
 <title>The Act Takes Hold</title>
 <link>https://house-news.vercel.app/house-news/articles/act-takes-hold.html</link>
 <guid isPermaLink="true">https://house-news.vercel.app/house-news/articles/act-takes-hold.html</guid>

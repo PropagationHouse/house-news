@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Robot Prices Itself - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 4px}
+.hero-figure .caption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px;font-size:19px;line-height:1.7;color:var(--ink)}
+.article-body p{margin-bottom:24px}
+.article-body .lead-para{font-family:var(--serif);font-size:24px;line-height:1.4;color:#2a2d1e;font-style:italic;margin-bottom:36px}
+.article-body .lead-para em{font-style:normal;color:var(--accent-dark)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.1;letter-spacing:-.02em;margin:56px 0 20px;color:var(--ink)}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.25;margin:36px 0 16px;color:var(--ink)}
+.article-body strong{font-weight:700;color:var(--ink)}
+.article-body em{font-family:var(--serif);font-style:italic}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.25;color:var(--accent-dark);text-align:center;margin:48px 0;padding:0 24px}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:48px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+.article-body .interlude{background:var(--ink);color:var(--paper);max-width:none;margin:64px 0;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.article-body .interlude::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body .interlude .interlude-kicker{position:relative;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .interlude p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+.article-body .interlude p em{font-style:normal;color:var(--accent)}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:700}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+@media (max-width:768px){html{font-size:17px}.article-body{font-size:18px}.article-body h2{font-size:28px}.article-body h3{font-size:20px}.related .rel-grid{grid-template-columns:1fr;gap:24px}.masthead nav{display:none}.article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px}.article-body .stat-row{grid-template-columns:1fr;border-bottom:none}.article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}.article-body .interlude{padding:40px 24px}.article-body .interlude p{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">Robotics · Markets</div><nav><a href="../index.html">Dispatches</a><a href="../index.html#house">Studio</a><a href="../timeline.html">Field Notes</a><a href="../timeline.html">Index</a></nav></header>
+<div class="article-hero"><div class="kicker">Robotics · Markets</div><h1>The Robot <em>Prices Itself</em></h1><p class="dek">Unitree closed its first day of trading up 460 percent, at a market value near fifty billion dollars, after an offering more than eight thousand times oversubscribed. The humanoid race just got a ticker — and a number it can no longer hide behind.</p><div class="byline">By <strong>Propagation House</strong><span class="sep">·</span>August 19, 2026<span class="sep">·</span>9 min read</div></div>
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/the-robot-prices-itself-hero.jpg" alt="A humanoid robot silhouetted against a dark ticker board, rendered as an archival darkroom print." /></div><p class="caption">The jump was the headline last week. This week the market put a number on it — and the number is the story. When a robot company's valuation outruns its revenue, the industry stops being a technology story and becomes a <em>capital</em> story. <strong>Illustration by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">Last week Unitree showed the world a robot that can jump two meters and sprint faster than any human alive. This week the market answered with a number: <em>845 yuan</em>, up 460 percent on the first day it could be bought, valuing the Hangzhou company at roughly fifty billion dollars.</p>
+<p>Unitree began trading on Shanghai's STAR Market on Wednesday after raising about 6.1 billion yuan — roughly $905 million — in an offering that was more than 8,000 times oversubscribed by retail investors. The stock opened at 1,100 yuan, up 629 percent from its 150.8 yuan IPO price, before closing at 845 yuan. At the close, the company that sells humanoid robots was worth more than many of the automakers and chip firms it hopes to one day work alongside.</p>
+<p>This is not a technology story anymore. It is a capital story, and the two are pulling in opposite directions. The technology is real but early; the valuation is enormous and immediate. The gap between them is where the next several years of this industry will be decided.</p>
+<h2>A Number the <em>Industry Can't Dodge</em></h2>
+<p>For years, humanoid robotics lived in the comfortable ambiguity of the demo reel. Companies could show a robot folding laundry, running a warehouse aisle, or jumping two meters, and the conversation would stop at "impressive." There was no price for any of it, because there was no public market forcing the question. Unitree just ended that era. Every humanoid company now has a comparable — a live, trading multiple that says what the market believes a robot maker is worth.</p>
+<p>That is a double-edged sword. On one side, it legitimizes the category: capital is now flowing into the sector at a scale that makes it a serious industrial bet rather than a research curiosity. On the other, it imposes a brutal discipline. A company trading at a valuation that outruns its actual revenue must keep delivering spectacle to justify the number — and spectacle is expensive, and it does not always scale into the unglamorous work of reliable ten-hour shifts in factories.</p>
+<aside class="sidenote"><strong>Field Note</strong>The oversubscription figure — more than 8,000 times — is a Chinese retail-market phenomenon as much as a robotics one. Retail investors in Shanghai's STAR Market have a history of piling into thematic listings, and the humanoid theme is among the hottest of 2026. The number says more about the demand for a robotics ticker than about Unitree's current earnings, which are modest relative to the valuation the market assigned it.</aside>
+<p>The timing is also deliberate. Unitree priced and listed this offering in the same window it unveiled the "Superman" robot and days before the Second World Humanoid Robot Games open in Beijing. The company is not just selling robots. It is selling a narrative — of a maker that can leap, sprint, and now raise capital faster than anyone else in the field. The market bought the narrative, and then some.</p>
+<div class="stat-row"><div class="stat"><div class="num">460<span class="unit">%</span></div><div class="label">First-day close above the IPO price — a 629% intraday peak</div></div><div class="stat"><div class="num">$50<span class="unit">B</span></div><div class="label">Market value at the close, roughly, per Reuters</div></div><div class="stat"><div class="num">8,000<span class="unit">x</span></div><div class="label">Oversubscription of the offering by retail investors</div></div></div>
+<h2>The <em>Superman Premium</em></h2>
+<p>There is a name for what happened on the trading floor this week: the Superman premium. Unitree's valuation is not being set by its current sales of quadruped and humanoid robots. It is being set by what the market believes the company's demonstrated capability — the two-meter jump, the 12.66 meter-per-second sprint, the three-month development cycle — implies about the future. Investors are not buying a robot maker. They are buying the option on the company that appears best positioned to win the humanoid race.</p>
+<p>That is a dangerous kind of money to raise. It is cheap, abundant, and impatient. It rewards the highlight reel and punishes the slow, unglamorous work of reliability, safety, and unit economics. The companies that cash in on the premium must be disciplined enough to spend it on the boring stuff — the manufacturing line, the field trials, the ten-thousand-hour reliability data — rather than on the next demo that keeps the multiple alive.</p>
+<blockquote class="offset-quote">Investors are not buying a robot maker. They are buying the option on the company that appears best positioned to win the humanoid race.<span class="attribution">- The premium is a bet, not a balance sheet</span></blockquote>
+<p>The uncomfortable truth is that the market may be pricing the category correctly even if it is overpricing the company. A fifty-billion-dollar valuation for a company whose revenue is still modest looks frothy by any traditional metric. But the same market is betting that humanoids become a mass-manufactured category within a decade, and that the company with the fastest cadence, the deepest war chest, and the most aggressive public posture will own the largest share of it. That is a thesis about the future of labor, and it is being tested in real time on a trading screen.</p>
+<div class="takeaways"><h4>What This Means</h4><ul><li><strong>The humanoid race now has a ticker.</strong> Unitree's listing gives every competitor a live, trading valuation to measure against — and a number they can no longer hide behind.</li><li><strong>Capital is both a weapon and a trap.</strong> The war chest funds the unglamorous work of reliability and scale, but impatient money also rewards spectacle over substance.</li><li><strong>The premium is a bet on the future of labor.</strong> A $50B valuation for a modest-revenue robot maker is only rational if humanoids become a mass-manufactured category within a decade.</li></ul></div>
+<p class="lead-para">The robot jumped two meters last week. This week the market jumped <em>with</em> it — and now the whole industry has to live with the number.</p>
+</article>
+<div class="article-foot"><div class="tags"><a href="../timeline.html?category=Unitree">Unitree</a><a href="../timeline.html?category=Humanoid Robotics">Humanoid Robotics</a><a href="../timeline.html?category=Markets">Markets</a><a href="../timeline.html?category=IPO">IPO</a><a href="../timeline.html?category=China">China</a><a href="../timeline.html?category=Capital">Capital</a></div><div class="author-bio"><div class="avatar">P</div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming — and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">Robotics · Embodied AI</div><h3><a href="superman-leaps.html">Superman Leaps</a></h3><div class="meta">8 min read</div></article><article><div class="kicker">Robotics · Competition</div><h3><a href="beijing-games.html">The Games That Grade the Robots</a></h3><div class="meta">7 min read</div></article><article><div class="kicker">Robotics</div><h3><a href="phantom-goes-public.html">The Phantom Goes Public</a></h3><div class="meta">8 min read</div></article></div></section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>
