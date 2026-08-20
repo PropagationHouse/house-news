@@ -1895,6 +1895,11 @@
         .border-brand-500\/25 { border-color: rgba(75,83,32,0.25) !important; }
         .hover\:bg-brand-500:hover { background:#6b7d38 !important; }
 
+        /* ── CTA buttons on olive green: cream text (global .text-white remap would wash labels to ink) ── */
+        a.bg-brand-600 { color:#fdfbf4 !important; }
+        a.bg-brand-600:hover { color:#fdfbf4 !important; }
+        a.bg-brand-600 svg { color:#fdfbf4 !important; }
+
         /* ── Terminal blocks: dark → paper ── */
         .terminal-bg { background: linear-gradient(180deg,#f6f1e2 0%,#ece5cf 100%) !important; }
         .terminal-bg .text-gray-200, .terminal-bg .text-gray-300 { color:#1a1d12 !important; }
@@ -1924,6 +1929,71 @@
         .diagram-panel svg line[stroke="#c9b896"] { stroke:#4b5320; }
         .diagram-panel svg rect[stroke="#c9b896"] { stroke:#4b5320; }
         .diagram-panel svg text[fill="#c9b896"] { fill:#4b5320; }
+
+        /* ── DIAGRAM RESTYLE: kill the dark terminal panel, remap neon accents
+           to the house paper palette (ink + olive + warm bronze) so the
+           architecture diagrams match the rest of the page ── */
+        .diagram-bg {
+            background: linear-gradient(180deg,#fdfbf4 0%,#f6f1e2 45%,#ece5cf 100%) !important;
+            border: 1px solid rgba(75,83,32,0.18) !important;
+        }
+        .diagram-panel .glow { box-shadow: 0 0 60px rgba(75,83,32,0.08), 0 0 120px rgba(75,83,32,0.03) !important; }
+
+        /* gradient-filled container bands */
+        .diagram-panel svg rect[fill="url(#glow-blue)"] { fill:#ece5cf !important; stroke:#4b5320 !important; }
+        .diagram-panel svg rect[fill="url(#glow-green)"] { fill:#ece5cf !important; stroke:#6b7d38 !important; }
+
+        /* neon text → warm earthy tones */
+        .diagram-panel svg text[fill="#4ade80"], .diagram-panel svg text[fill="#86efac"],
+        .diagram-panel svg text[fill="#6ee7b7"], .diagram-panel svg text[fill="#34d399"] { fill:#4f6b2f !important; }
+        .diagram-panel svg text[fill="#22d3ee"], .diagram-panel svg text[fill="#67e8f9"] { fill:#2f6b66 !important; }
+        .diagram-panel svg text[fill="#fbbf24"], .diagram-panel svg text[fill="#fde68a"],
+        .diagram-panel svg text[fill="#fdba74"], .diagram-panel svg text[fill="#fb923c"] { fill:#8a5f2f !important; }
+        .diagram-panel svg text[fill="#a78bfa"], .diagram-panel svg text[fill="#c4b5fd"] { fill:#6b4f8a !important; }
+        .diagram-panel svg text[fill="#f472b6"], .diagram-panel svg text[fill="#f9a8d4"],
+        .diagram-panel svg text[fill="#fda4af"] { fill:#8a4f6b !important; }
+        .diagram-panel svg text[fill="#f87171"], .diagram-panel svg text[fill="#fca5a5"] { fill:#8a3a2f !important; }
+
+        /* neon rect tint / chip fills */
+        .diagram-panel svg rect[fill="#4ade80"] { fill:#4f6b2f !important; }
+        .diagram-panel svg rect[fill="#22d3ee"] { fill:#2f6b66 !important; }
+        .diagram-panel svg rect[fill="#fbbf24"] { fill:#8a5f2f !important; }
+        .diagram-panel svg rect[fill="#fb923c"] { fill:#8a5f2f !important; }
+        .diagram-panel svg rect[fill="#a78bfa"] { fill:#6b4f8a !important; }
+        .diagram-panel svg rect[fill="#34d399"] { fill:#2f7567 !important; }
+        .diagram-panel svg rect[fill="#f87171"], .diagram-panel svg rect[fill="#fb7185"] { fill:#8a3a2f !important; }
+        .diagram-panel svg rect[fill="#f472b6"] { fill:#8a4f6b !important; }
+
+        /* neon strokes / paths / arrowheads / circles */
+        .diagram-panel svg line[stroke="#4ade80"], .diagram-panel svg line[stroke="#34d399"] { stroke:#4f6b2f !important; }
+        .diagram-panel svg line[stroke="#22d3ee"] { stroke:#2f6b66 !important; }
+        .diagram-panel svg line[stroke="#fbbf24"], .diagram-panel svg line[stroke="#fb923c"] { stroke:#8a5f2f !important; }
+        .diagram-panel svg line[stroke="#a78bfa"] { stroke:#6b4f8a !important; }
+        .diagram-panel svg line[stroke="#f87171"], .diagram-panel svg line[stroke="#fb7185"] { stroke:#8a3a2f !important; }
+        .diagram-panel svg path[stroke="#fbbf24"], .diagram-panel svg path[stroke="#22d3ee"],
+        .diagram-panel svg path[stroke="#a78bfa"], .diagram-panel svg path[stroke="#4ade80"],
+        .diagram-panel svg path[stroke="#f87171"], .diagram-panel svg path[stroke="#f472b6"] { stroke:#4b5320 !important; }
+        .diagram-panel svg polygon[fill="#c9b896"] { fill:#4b5320 !important; }
+        .diagram-panel svg polygon[fill="#a78bfa"] { fill:#6b4f8a !important; }
+        .diagram-panel svg polygon[fill="#4ade80"] { fill:#4f7b2f !important; }
+        .diagram-panel svg circle[fill="#4ade80"] { fill:#4f7b2f !important; }
+        .diagram-panel svg circle[fill="#22d3ee"] { fill:#2f6b66 !important; }
+        .diagram-panel svg circle[fill="#34d399"] { fill:#2f7567 !important; }
+        .diagram-panel svg circle[fill="#a78bfa"] { fill:#6b4f8a !important; }
+        .diagram-panel svg circle[fill="#fbbf24"] { fill:#8a5f2f !important; }
+        .diagram-panel svg circle[fill="#f472b6"] { fill:#8a4f6b !important; }
+        .diagram-panel svg circle[fill="#f87171"], .diagram-panel svg circle[fill="#fb7185"] { fill:#8a3a2f !important; }
+        .diagram-panel svg circle[fill="#fb923c"] { fill:#8a5f2f !important; }
+        .diagram-panel svg circle[fill="#67e8f9"] { fill:#2f6b66 !important; }
+        /* arrowhead markers */
+        .diagram-panel svg marker polygon[fill="#c9b896"] { fill:#4b5320 !important; }
+        .diagram-panel svg marker polygon[fill="#4ade80"] { fill:#4f7b2f !important; }
+        .diagram-panel svg marker polygon[fill="#22d3ee"] { fill:#2f6b66 !important; }
+        .diagram-panel svg marker polygon[fill="#a78bfa"] { fill:#6b4f8a !important; }
+        .diagram-panel svg marker polygon[fill="#fbbf24"], .diagram-panel svg marker polygon[fill="#fb923c"] { fill:#8a5f2f !important; }
+        .diagram-panel svg marker polygon[fill="#f87171"], .diagram-panel svg marker polygon[fill="#fb7185"] { fill:#8a3a2f !important; }
+        .diagram-panel svg marker polygon[fill="#34d399"], .diagram-panel svg marker polygon[fill="#2dd4bf"] { fill:#2f7567 !important; }
+        .diagram-panel svg marker polygon[fill="#6b7280"] { fill:#6b6e5a !important; }
 
         /* ── Stat glow softened for paper ── */
         .stat-glow { text-shadow: 0 0 24px rgba(75,83,32,0.18); }
