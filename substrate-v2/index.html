@@ -134,8 +134,8 @@
             </div>
             <div class="hidden md:flex items-center gap-10 text-[15px] text-gray-400 font-medium">
                 <a href="#features" class="hover:text-white transition">Features</a>
-                <a href="#architecture" class="hover:text-white transition">Architecture</a>
                 <a href="#tools" class="hover:text-white transition">Tools</a>
+                <a href="#architecture" class="hover:text-white transition">Architecture</a>
                 <a href="philosophy.html" class="hover:text-white transition">Philosophy</a>
                 <a href="#download" class="hover:text-white transition">Download</a>
                 <a href="https://github.com/propagationhouse/substrate" target="_blank" class="flex items-center gap-2 bg-white/[0.06] hover:bg-white/[0.12] px-5 py-2.5 rounded-xl transition border border-white/[0.08]">
@@ -147,18 +147,21 @@
     </nav>
 
     <!-- ==================== HERO ==================== -->
-    <section class="relative min-h-[100vh] flex items-center justify-center pt-16 grid-bg">
-        <div class="relative max-w-5xl mx-auto px-8 text-center py-24">
+    <section class="relative min-h-[100vh] flex items-center justify-center pt-16 grid-bg overflow-hidden">
+        <img src="../assets/images/beige-paper-torn.png" alt="" aria-hidden="true" class="hero-paper-img">
+        <div class="relative z-10 max-w-5xl mx-auto px-8 text-center py-24">
             <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-base font-semibold mb-10 tracking-wide">
                 <span class="w-2.5 h-2.5 rounded-full bg-brand-400 animate-pulse"></span>
                 Source Available &middot; BSL 1.1
             </div>
 
-            <h1 class="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-white leading-[0.9] tracking-tighter mb-6">Substrate</h1>
-            <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-300 leading-snug tracking-tight mb-8">
-                The Intelligence Layer:<br>
-                <span class="gradient-text">A Mind for Your Machine.</span>
-            </p>
+            <div class="title-paper-wrap">
+                <h1 class="relative text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-white leading-[0.9] tracking-tighter mb-6">Substrate</h1>
+                <p class="relative text-2xl sm:text-3xl md:text-4xl font-bold text-gray-300 leading-snug tracking-tight mb-8">
+                    The Intelligence Layer:<br>
+                    <span class="gradient-text">A Mind for Your Machine.</span>
+                </p>
+            </div>
 
             <div class="max-w-2xl mx-auto mb-14 space-y-5 text-left">
                 <p class="text-lg md:text-xl text-gray-400 leading-relaxed">
@@ -953,6 +956,115 @@
     <!-- ── PAPER TEAR DIVIDER ── -->
     <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip.png" alt=""></div>
 
+    <!-- ==================== TOOLS ==================== -->
+    <section id="tools" class="py-28 md:py-40 relative">
+        <div class="gradient-line max-w-4xl mx-auto mb-28"></div>
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="text-center mb-20">
+                <p class="text-brand-400 text-lg font-bold uppercase tracking-widest mb-4">Tool Ecosystem</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight">Built-in tools.<br><span class="gradient-text">Extensible by design.</span></h2>
+                <p class="text-2xl text-gray-400 max-w-3xl mx-auto mt-6 leading-relaxed">Every tool the agent needs to control your desktop, automate workflows, and interact with the world &mdash; plus MCP support for adding your own.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">bash</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">text_editor</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">computer</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">browser</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">memory</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">web_search</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">web_fetch</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">generate_image</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">pdf</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">obsidian</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">skill</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">learn</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">media</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">look</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">notify</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">agent</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">macro</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-lime-500/10 border border-lime-500/25 text-base font-mono text-lime-300 font-semibold">gmail</span>
+                <span class="tool-pill px-5 py-3 rounded-2xl bg-purple-500/10 border border-purple-500/25 text-base font-mono text-purple-300 font-semibold">+ MCP servers</span>
+            </div>
+            <p class="text-center text-gray-500 text-sm mt-4">Core tools (highlighted) are always loaded. On-demand tools load automatically when relevant keywords are detected.</p>
+            <p class="text-center text-gray-500 text-lg mt-10">Tools load on-demand based on conversation context &mdash; no wasted tokens.</p>
+
+            <!-- Emergent tools & skill creation -->
+            <div class="mt-16 bg-white/[0.025] border border-green-500/[0.15] rounded-3xl p-8 md:p-12 max-w-5xl mx-auto">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-7 h-7 text-green-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-black text-2xl">Emergent Tools &amp; Autonomous Skill Creation</h3>
+                        <p class="text-gray-400 text-base mt-1">The agent doesn't just use tools &mdash; it <span class="text-green-400 font-semibold">creates new ones</span>.</p>
+                    </div>
+                </div>
+
+                <p class="text-gray-400 text-lg leading-relaxed mb-8">When the agent encounters a complex multi-step workflow, it can autonomously write scripts, save them as reusable skills, and invoke them in future tasks. Your toolset grows organically from real usage &mdash; no manual configuration needed. A real-world example: the agent taught itself to perform generative music on a connected MIDI synthesizer, composing and playing jazz, ambient, and chill progressions in real time &mdash; a capability that was never explicitly programmed.</p>
+
+                <!-- Flow: 3 steps -->
+                <div class="grid md:grid-cols-3 gap-5 mb-8">
+                    <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 text-center">
+                        <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center mx-auto mb-4">
+                            <span class="text-brand-400 font-black text-lg">1</span>
+                        </div>
+                        <h4 class="text-white font-bold text-base mb-2">Discover</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">Agent encounters a complex task and writes a multi-step script or automation to solve it.</p>
+                    </div>
+                    <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 text-center">
+                        <div class="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center mx-auto mb-4">
+                            <span class="text-yellow-400 font-black text-lg">2</span>
+                        </div>
+                        <h4 class="text-white font-bold text-base mb-2">Draft</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">Saves the solution as an emergent skill in <code class="text-gray-300 bg-white/[0.06] px-1.5 py-0.5 rounded text-xs">workspace/emergent/</code> with trigger words and documentation.</p>
+                    </div>
+                    <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 text-center">
+                        <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center mx-auto mb-4">
+                            <span class="text-green-400 font-black text-lg">3</span>
+                        </div>
+                        <h4 class="text-white font-bold text-base mb-2">Promote</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">After user confirmation, the skill is promoted to the permanent <code class="text-gray-300 bg-white/[0.06] px-1.5 py-0.5 rounded text-xs">skills/</code> directory &mdash; available forever.</p>
+                    </div>
+                </div>
+
+                <!-- Extra details -->
+                <div class="grid md:grid-cols-2 gap-5">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                        </div>
+                        <div>
+                            <h5 class="text-white font-semibold text-sm mb-1">F9 UI recording</h5>
+                            <p class="text-gray-500 text-xs leading-relaxed">Press F9 to record your UI actions (clicks, keystrokes, navigation). The recording is saved and can be turned into a reusable skill the agent can replay.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                        </div>
+                        <div>
+                            <h5 class="text-white font-semibold text-sm mb-1">YAML frontmatter format</h5>
+                            <p class="text-gray-500 text-xs leading-relaxed">Each skill is a Markdown file with name, description, triggers, and step-by-step instructions. Easy to read, edit, and share.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-rose-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <svg class="w-4 h-4 text-rose-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                        <div>
+                            <h5 class="text-white font-semibold text-sm mb-1">Auto-matched by trigger words</h5>
+                            <p class="text-gray-500 text-xs leading-relaxed">Skills are scanned at prompt build time and matched to user requests via trigger keywords. The agent checks skills before improvising.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PAPER TEAR DIVIDER ── -->
+    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip.png" alt=""></div>
+
     <!-- ==================== ARCHITECTURE ==================== -->
     <section id="architecture" class="py-28 md:py-40 relative">
         <div class="gradient-line max-w-4xl mx-auto mb-28"></div>
@@ -1580,115 +1692,6 @@
     </script>
 
     <!-- ── PAPER TEAR DIVIDER ── -->
-    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip.png" alt=""></div>
-
-    <!-- ==================== TOOLS ==================== -->
-    <section id="tools" class="py-28 md:py-40 relative">
-        <div class="gradient-line max-w-4xl mx-auto mb-28"></div>
-        <div class="max-w-6xl mx-auto px-8">
-            <div class="text-center mb-20">
-                <p class="text-brand-400 text-lg font-bold uppercase tracking-widest mb-4">Tool Ecosystem</p>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight">Built-in tools.<br><span class="gradient-text">Extensible by design.</span></h2>
-                <p class="text-2xl text-gray-400 max-w-3xl mx-auto mt-6 leading-relaxed">Every tool the agent needs to control your desktop, automate workflows, and interact with the world &mdash; plus MCP support for adding your own.</p>
-            </div>
-            <div class="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">bash</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">text_editor</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">computer</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">browser</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">memory</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">web_search</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">web_fetch</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">generate_image</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">pdf</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">obsidian</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">skill</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">learn</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">media</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">look</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">notify</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">agent</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">macro</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-lime-500/10 border border-lime-500/25 text-base font-mono text-lime-300 font-semibold">gmail</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-purple-500/10 border border-purple-500/25 text-base font-mono text-purple-300 font-semibold">+ MCP servers</span>
-            </div>
-            <p class="text-center text-gray-500 text-sm mt-4">Core tools (highlighted) are always loaded. On-demand tools load automatically when relevant keywords are detected.</p>
-            <p class="text-center text-gray-500 text-lg mt-10">Tools load on-demand based on conversation context &mdash; no wasted tokens.</p>
-
-            <!-- Emergent tools & skill creation -->
-            <div class="mt-16 bg-white/[0.025] border border-green-500/[0.15] rounded-3xl p-8 md:p-12 max-w-5xl mx-auto">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                        <svg class="w-7 h-7 text-green-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-                    </div>
-                    <div>
-                        <h3 class="text-white font-black text-2xl">Emergent Tools &amp; Autonomous Skill Creation</h3>
-                        <p class="text-gray-400 text-base mt-1">The agent doesn't just use tools &mdash; it <span class="text-green-400 font-semibold">creates new ones</span>.</p>
-                    </div>
-                </div>
-
-                <p class="text-gray-400 text-lg leading-relaxed mb-8">When the agent encounters a complex multi-step workflow, it can autonomously write scripts, save them as reusable skills, and invoke them in future tasks. Your toolset grows organically from real usage &mdash; no manual configuration needed. A real-world example: the agent taught itself to perform generative music on a connected MIDI synthesizer, composing and playing jazz, ambient, and chill progressions in real time &mdash; a capability that was never explicitly programmed.</p>
-
-                <!-- Flow: 3 steps -->
-                <div class="grid md:grid-cols-3 gap-5 mb-8">
-                    <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 text-center">
-                        <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center mx-auto mb-4">
-                            <span class="text-brand-400 font-black text-lg">1</span>
-                        </div>
-                        <h4 class="text-white font-bold text-base mb-2">Discover</h4>
-                        <p class="text-gray-400 text-sm leading-relaxed">Agent encounters a complex task and writes a multi-step script or automation to solve it.</p>
-                    </div>
-                    <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 text-center">
-                        <div class="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center mx-auto mb-4">
-                            <span class="text-yellow-400 font-black text-lg">2</span>
-                        </div>
-                        <h4 class="text-white font-bold text-base mb-2">Draft</h4>
-                        <p class="text-gray-400 text-sm leading-relaxed">Saves the solution as an emergent skill in <code class="text-gray-300 bg-white/[0.06] px-1.5 py-0.5 rounded text-xs">workspace/emergent/</code> with trigger words and documentation.</p>
-                    </div>
-                    <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 text-center">
-                        <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center mx-auto mb-4">
-                            <span class="text-green-400 font-black text-lg">3</span>
-                        </div>
-                        <h4 class="text-white font-bold text-base mb-2">Promote</h4>
-                        <p class="text-gray-400 text-sm leading-relaxed">After user confirmation, the skill is promoted to the permanent <code class="text-gray-300 bg-white/[0.06] px-1.5 py-0.5 rounded text-xs">skills/</code> directory &mdash; available forever.</p>
-                    </div>
-                </div>
-
-                <!-- Extra details -->
-                <div class="grid md:grid-cols-2 gap-5">
-                    <div class="flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-                        </div>
-                        <div>
-                            <h5 class="text-white font-semibold text-sm mb-1">F9 UI recording</h5>
-                            <p class="text-gray-500 text-xs leading-relaxed">Press F9 to record your UI actions (clicks, keystrokes, navigation). The recording is saved and can be turned into a reusable skill the agent can replay.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-                        </div>
-                        <div>
-                            <h5 class="text-white font-semibold text-sm mb-1">YAML frontmatter format</h5>
-                            <p class="text-gray-500 text-xs leading-relaxed">Each skill is a Markdown file with name, description, triggers, and step-by-step instructions. Easy to read, edit, and share.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-rose-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <svg class="w-4 h-4 text-rose-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                        </div>
-                        <div>
-                            <h5 class="text-white font-semibold text-sm mb-1">Auto-matched by trigger words</h5>
-                            <p class="text-gray-500 text-xs leading-relaxed">Skills are scanned at prompt build time and matched to user requests via trigger keywords. The agent checks skills before improvising.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── PAPER TEAR DIVIDER ── -->
     <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip.png" alt=""></div>
 
     <!-- ==================== DOWNLOAD ==================== -->
@@ -1696,8 +1699,11 @@
         <div class="gradient-line max-w-4xl mx-auto mb-28"></div>
         <div class="max-w-4xl mx-auto px-8 text-center">
             <p class="text-brand-400 text-lg font-bold uppercase tracking-widest mb-4">Download</p>
-            <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight mb-6">Adopt a Substrate</h2>
-            <p class="text-2xl text-gray-400 max-w-3xl mx-auto mb-14 leading-relaxed">One-click installer for Windows. Python dependencies are installed automatically on first launch.</p>
+            <div class="title-paper-wrap">
+                <img src="../assets/images/paper-sheet-semi-rough.png" alt="" aria-hidden="true" class="title-paper-img title-paper-adopt">
+                <h2 class="relative text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight mb-6">Adopt a Substrate</h2>
+                <p class="relative text-2xl text-gray-400 max-w-3xl mx-auto mb-14 leading-relaxed">One-click installer for Windows. Python dependencies are installed automatically on first launch.</p>
+            </div>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-5 mb-12">
                 <a href="https://github.com/propagationhouse/substrate/releases/latest" target="_blank" class="px-10 py-5 bg-brand-600 hover:bg-brand-500 text-white text-xl font-bold rounded-2xl transition shadow-xl shadow-brand-600/30 flex items-center gap-3">
@@ -1921,6 +1927,23 @@
 
         /* ── Selection ── */
         ::selection { background: rgba(75,83,32,0.22); }
+
+        /* ── TORN PAPER SHEET BEHIND TITLE — beige paper with torn edges layered
+           behind headline blocks. The sheet is inset so its ragged rim frames the
+           text; a soft drop shadow lifts it off the cream ground. ── */
+        .title-paper-wrap { position:relative; display:inline-block; }
+        .title-paper-img { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:0; pointer-events:none; filter:drop-shadow(0 14px 30px rgba(26,29,18,.10)); }
+        .title-paper-adopt { width:150%; max-width:none; }
+        @media (max-width: 768px) {
+            .title-paper-adopt { width:180%; }
+        }
+
+        /* ── HERO PAPER: torn beige sheet behind the full hero —
+           spans behind title + CTA buttons, torn edge dips just past them.
+           Positioned top-anchored so the ragged bottom lands below the CTAs. ── */
+        .hero-paper-img { position:absolute; top:-6%; left:50%; transform:translateX(-50%); width:140%; max-width:none; z-index:0; pointer-events:none; filter:drop-shadow(0 18px 40px rgba(26,29,18,.14)); }
+        @media (min-width:768px){ .hero-paper-img{ top:-22%; width:128%; } }
+        @media (min-width:1280px){ .hero-paper-img{ top:-32%; width:112%; } }
 
         /* ── AVATAR DEMO: dark app mockup → cream paper app window ── */
         .app-demo > .rounded-3xl { background: linear-gradient(180deg,#f6f1e2 0%,#ece5cf 100%) !important; border-color: rgba(75,83,32,0.2) !important; }
