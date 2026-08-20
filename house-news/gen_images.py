@@ -142,6 +142,21 @@ IMAGES = [
         "prompt": "Technical map illustration, archival darkroom print style: a stylized map of Europe on aged cream paper, key cities marked with small amber dots (Berlin, Paris, Amsterdam, London), subtle data flow lines in olive ink connecting them. Grain texture, scanline overlay, research dossier aesthetic. 4:3",
         "aspect_ratio": "4:3",
     },
+    {
+        "filename": "compute-leaks-around-wall-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a massive concrete border wall at night with glowing fiber-optic light leaking around its edge, seeping through the gap like water finding a path. Muted olive, near-black, and paper-cream palette. Film grain, scanlines, editorial restraint, magazine-feature composition. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
+        "filename": "agents-get-handlers-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a row of autonomous agent workstations in a dim control room, each with a single human supervisor at a console, leashes and routing diagrams on the wall. Muted olive, near-black, and paper-cream palette. Film grain, scanlines, editorial restraint. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
+        "filename": "the-robot-prices-itself-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a humanoid robot silhouette standing before a dark stock ticker board, numbers glowing faintly amber, the figure half in shadow half in light. Muted olive, near-black, and paper-cream palette. Heavy film grain, scanlines, editorial restraint, magazine-feature composition. No neon, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
 ]
 
 def generate_image(model, prompt, aspect_ratio, output_path, dry_run=False):

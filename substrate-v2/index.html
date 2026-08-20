@@ -127,12 +127,16 @@
     <nav class="fixed top-0 w-full z-50 bg-[#f6f1e2]/85 backdrop-blur-2xl border-b border-[#4b5320]/20">
         <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-4">
-                <a href="#" class="flex items-center gap-2.5">
-                    <img src="ph-mark.png" alt="Propagation House" class="w-6 h-6 opacity-50">
+                <a href="https://www.propagation.house" class="flex items-center gap-2.5 group">
+                    <img src="ph-mark.png" alt="Propagation House" class="w-6 h-6 opacity-50 group-hover:opacity-80 transition">
                     <span class="text-white font-bold text-xl tracking-tight">Substrate</span>
                 </a>
             </div>
             <div class="hidden md:flex items-center gap-10 text-[15px] text-gray-400 font-medium">
+                <a href="https://www.propagation.house" class="hover:text-white transition flex items-center gap-1.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    Propagation House
+                </a>
                 <a href="#features" class="hover:text-white transition">Features</a>
                 <a href="#tools" class="hover:text-white transition">Tools</a>
                 <a href="#architecture" class="hover:text-white transition">Architecture</a>
@@ -150,12 +154,11 @@
     <section class="relative min-h-[100vh] flex items-center justify-center pt-16 grid-bg overflow-hidden">
         <img src="../assets/images/paper-sheet-semi-rough.png" alt="" aria-hidden="true" class="hero-paper-img">
         <div class="relative z-10 max-w-5xl mx-auto px-8 text-center py-24">
-            <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-base font-semibold mb-10 tracking-wide">
-                <span class="w-2.5 h-2.5 rounded-full bg-brand-400 animate-pulse"></span>
-                Source Available &middot; BSL 1.1
-            </div>
-
             <div class="title-paper-wrap">
+                <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-base font-semibold mb-8 tracking-wide">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-400 animate-pulse"></span>
+                    Source Available &middot; BSL 1.1
+                </div>
                 <h1 class="relative text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-white leading-[0.9] tracking-tighter mb-6">Substrate</h1>
                 <p class="relative text-2xl sm:text-3xl md:text-4xl font-bold text-gray-300 leading-snug tracking-tight mb-8">
                     The Intelligence Layer:<br>
@@ -1931,7 +1934,7 @@
         /* ── TORN PAPER SHEET BEHIND TITLE — beige paper with torn edges layered
            behind headline blocks. The sheet is inset so its ragged rim frames the
            text; a soft drop shadow lifts it off the cream ground. ── */
-        .title-paper-wrap { position:relative; display:inline-block; }
+        .title-paper-wrap { position:relative; display:block; margin-left:auto; margin-right:auto; width:fit-content; }
         .title-paper-img { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:0; pointer-events:none; filter:drop-shadow(0 14px 30px rgba(26,29,18,.10)); }
         .title-paper-adopt { width:150%; max-width:none; }
         @media (max-width: 768px) {
