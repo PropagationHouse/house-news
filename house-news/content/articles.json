@@ -5,6 +5,19 @@
               },
     "published":  [
                       {
+                          "summary":  "Unitree closed its first day of trading on Shanghai's STAR Market up 460 percent, at a market value near fifty billion dollars, after an offering more than 8,000 times oversubscribed. The humanoid race got a ticker — and a number it can no longer hide behind.",
+                          "filename":  "articles/the-robot-prices-itself.html",
+                          "lens":  "intelligence",
+                          "kicker":  "Robotics · Markets",
+                          "category":  "Robotics",
+                          "author":  "Propagation House",
+                          "date":  "2026-08-20",
+                          "read_time":  "9 min",
+                          "status":  "published",
+                          "dek":  "Unitree closed its first day of trading up 460 percent, at a market value near fifty billion dollars, after an offering more than eight thousand times oversubscribed. The humanoid race just got a ticker — and a number it can no longer hide behind.",
+                          "title":  "The Robot Prices Itself"
+                      },
+                      {
                           "summary":  "TSMC has warned Nvidia, Broadcom, and other key customers it cannot meet all demand for advanced AI chips as fab, packaging, equipment, and power capacity hit physical limits.",
                           "filename":  "articles/tsmc-capacity-wall.html",
                           "lens":  "infrastructure",
