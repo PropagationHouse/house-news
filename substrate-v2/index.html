@@ -1715,7 +1715,7 @@
                 </a>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto text-left">
+            <div class="relative z-10 grid md:grid-cols-3 gap-6 max-w-3xl mx-auto text-left">
                 <div class="bg-white/[0.025] border border-white/[0.06] rounded-2xl p-6">
                     <div class="text-brand-400 font-bold text-sm uppercase tracking-wider mb-2">Version</div>
                     <div class="text-white font-bold text-lg">v1.2.0</div>
@@ -2006,7 +2006,7 @@
            text; a soft drop shadow lifts it off the cream ground. ── */
         .title-paper-wrap { position:relative; display:block; margin-left:auto; margin-right:auto; width:fit-content; }
         .title-paper-img { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:0; pointer-events:none; filter:drop-shadow(0 14px 30px rgba(26,29,18,.10)); }
-        .title-paper-adopt { width:150%; max-width:none; }
+        .title-paper-adopt { width:132%; max-width:none; -webkit-mask-image:radial-gradient(ellipse 92% 90% at 50% 42%, #000 74%, transparent 100%); mask-image:radial-gradient(ellipse 92% 90% at 50% 42%, #000 74%, transparent 100%); }
         @media (max-width: 768px) {
             .title-paper-adopt { width:180%; }
         }
