@@ -148,7 +148,7 @@
 
     <!-- ==================== HERO ==================== -->
     <section class="relative min-h-[100vh] flex items-center justify-center pt-16 grid-bg overflow-hidden">
-        <img src="../assets/images/beige-paper-torn.png" alt="" aria-hidden="true" class="hero-paper-img">
+        <img src="../assets/images/paper-sheet-semi-rough.png" alt="" aria-hidden="true" class="hero-paper-img">
         <div class="relative z-10 max-w-5xl mx-auto px-8 text-center py-24">
             <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-base font-semibold mb-10 tracking-wide">
                 <span class="w-2.5 h-2.5 rounded-full bg-brand-400 animate-pulse"></span>
@@ -1938,12 +1938,13 @@
             .title-paper-adopt { width:180%; }
         }
 
-        /* ── HERO PAPER: torn beige sheet behind the full hero —
+        /* ── HERO PAPER: white torn sheet behind the full hero —
            spans behind title + CTA buttons, torn edge dips just past them.
-           Positioned top-anchored so the ragged bottom lands below the CTAs. ── */
-        .hero-paper-img { position:absolute; top:-6%; left:50%; transform:translateX(-50%); width:140%; max-width:none; z-index:0; pointer-events:none; filter:drop-shadow(0 18px 40px rgba(26,29,18,.14)); }
-        @media (min-width:768px){ .hero-paper-img{ top:-22%; width:128%; } }
-        @media (min-width:1280px){ .hero-paper-img{ top:-32%; width:112%; } }
+           Positioned top-anchored so the ragged bottom lands just below the CTAs.
+           Desktop uses a fixed pixel sheet (not % of viewport) so the torn edge
+           stays put just past the buttons at every width. ── */
+        .hero-paper-img { position:absolute; top:-6%; left:50%; transform:translateX(-50%); width:150%; max-width:none; z-index:0; pointer-events:none; filter:drop-shadow(0 18px 40px rgba(26,29,18,.14)); }
+        @media (min-width:768px){ .hero-paper-img{ top:auto; bottom:37%; width:1500px; max-width:none; } }
 
         /* ── AVATAR DEMO: dark app mockup → cream paper app window ── */
         .app-demo > .rounded-3xl { background: linear-gradient(180deg,#f6f1e2 0%,#ece5cf 100%) !important; border-color: rgba(75,83,32,0.2) !important; }
