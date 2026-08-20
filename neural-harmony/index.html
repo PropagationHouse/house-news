@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Harmony | Propagation House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --accent: #b4a0ff; --accent-rgb: 180,160,255;
+            --cyan: #7dd3fc; --cyan-rgb: 125,211,252;
+            --rose: #fda4af; --rose-rgb: 253,164,175;
+            --orange: #fb923c; --orange-rgb: 251,146,60;
+            --emerald: #6ee7b7;
+            --glass: rgba(12,12,20,0.55);
+            --glass-border: rgba(255,255,255,0.08);
+            --glass-border-hi: rgba(255,255,255,0.14);
+            --glass-blur: 24px;
+            --text: #f0f0f8;
+            --text-dim: rgba(255,255,255,0.55);
+            --text-muted: rgba(255,255,255,0.3);
+            --surface: #0a0a0f;
+        }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--surface); color: var(--text);
+            min-height: 100vh; overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        .bg-layer {
+            position: fixed; inset: 0; z-index: 0;
+            background: radial-gradient(ellipse at 30% 15%, rgba(var(--accent-rgb),0.05) 0%, transparent 55%),
+                        radial-gradient(ellipse at 75% 85%, rgba(var(--cyan-rgb),0.03) 0%, transparent 55%);
+        }
+
+        /* ─── Nav ─── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: var(--glass);
+            backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur));
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between; height: 52px;
+        }
+        .nav-brand { font-size: 13px; font-weight: 600; letter-spacing: -0.3px; }
+        .nav-brand span { color: var(--text-dim); font-weight: 400; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a {
+            font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 1px;
+            color: var(--text-muted); text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+
+        /* ─── Walkthrough Layout ─── */
+        .walkthrough {
+            position: relative; z-index: 1;
+            max-width: 1100px; margin: 0 auto;
+            display: flex; gap: 60px;
+            padding: 0 24px;
+        }
+        .phone-col {
+            width: 300px; flex-shrink: 0;
+            position: sticky; top: 80px;
+            height: calc(100vh - 100px);
+            display: flex; align-items: center;
+        }
+        .steps-col {
+            flex: 1; padding: 6rem 0 4rem;
+            display: flex; flex-direction: column;
+        }
+
+        /* ─── Phone Mockup ─── */
+        .phone {
+            width: 280px; height: 570px;
+            border-radius: 32px;
+            background: var(--surface);
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(var(--accent-rgb),0.04);
+            overflow: hidden; position: relative;
+        }
+        .phone-notch {
+            width: 100px; height: 18px; margin: 0 auto;
+            background: var(--surface); border-radius: 0 0 14px 14px;
+            position: relative; z-index: 10;
+        }
+        .phone-screen {
+            padding: 4px 10px 10px;
+            height: calc(100% - 18px);
+            overflow-y: auto; overflow-x: hidden;
+            scrollbar-width: none; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+        }
+        .phone-screen::-webkit-scrollbar { display: none; }
+
+        /* Highlight overlay */
+        .phone-highlight {
+            position: absolute; inset: 0; z-index: 20;
+            pointer-events: none; transition: opacity 0.2s;
+            opacity: 0;
+        }
+        .phone-highlight.active { opacity: 1; }
+        .phone-highlight-mask {
+            position: absolute; inset: 0;
+            background: rgba(0,0,0,0.55);
+            transition: clip-path 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+        .phone-highlight-ring {
+            position: absolute;
+            border: 2px solid rgba(var(--accent-rgb),0.6);
+            border-radius: 14px;
+            box-shadow: 0 0 20px rgba(var(--accent-rgb),0.2), inset 0 0 20px rgba(var(--accent-rgb),0.05);
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        /* ─── Step Cards ─── */
+        .step {
+            min-height: auto;
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 2.5rem 0;
+            opacity: 0.2;
+            transform: translateY(8px);
+            transition: opacity 0.3s, transform 0.3s;
+            cursor: default;
+        }
+        .step.active {
+            opacity: 1; transform: translateY(0);
+        }
+        .step:hover {
+            opacity: 0.8;
+        }
+        .step.active:hover {
+            opacity: 1;
+        }
+        .step-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 2px;
+            color: var(--accent); margin-bottom: 12px;
+        }
+        .step h2 {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 700; letter-spacing: -0.02em;
+            margin-bottom: 12px; line-height: 1.2;
+        }
+        .step p {
+            font-size: 14px; color: var(--text-dim);
+            line-height: 1.7; max-width: 420px;
+        }
+        .step-detail {
+            margin-top: 16px; padding: 14px 16px;
+            background: var(--glass);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            border-radius: 14px; position: relative; overflow: hidden;
+        }
+        .step-detail::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+        }
+        .step-detail-row {
+            display: flex; align-items: center; gap: 10px;
+            padding: 4px 0;
+        }
+        .step-detail-row + .step-detail-row {
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+        .step-detail-dot {
+            width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+        }
+        .step-detail-text {
+            font-size: 12px; color: var(--text-dim); line-height: 1.5;
+        }
+
+        /* ─── Hero (first step) ─── */
+        .hero-step {
+            min-height: 70vh; justify-content: center;
+        }
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 4px 12px; border-radius: 100px;
+            background: rgba(var(--accent-rgb),0.06);
+            border: 1px solid rgba(var(--accent-rgb),0.15);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 1.5px;
+            color: var(--accent); margin-bottom: 1.5rem;
+        }
+        .hero-tag-dot {
+            width: 5px; height: 5px; border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 6px rgba(var(--accent-rgb),0.5);
+            animation: glow-pulse 2s ease-in-out infinite;
+        }
+        @keyframes glow-pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        .hero-cta {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border-radius: 12px; margin-top: 1.5rem;
+            font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+            background: rgba(var(--accent-rgb),0.12);
+            border: 1.5px solid rgba(var(--accent-rgb),0.25);
+            color: var(--accent); cursor: pointer; text-decoration: none;
+            transition: all 0.2s;
+        }
+        .hero-cta:hover {
+            background: rgba(var(--accent-rgb),0.18);
+            border-color: rgba(var(--accent-rgb),0.4);
+            box-shadow: 0 0 20px rgba(var(--accent-rgb),0.08);
+        }
+        .hero-cta svg { width: 14px; height: 14px; }
+
+        /* ─── Purchase Section ─── */
+        .purchase-box {
+            margin-top: 1.5rem; padding: 20px;
+            background: var(--glass);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; position: relative; overflow: hidden;
+            max-width: 380px;
+        }
+        .purchase-box::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb),0.15), transparent);
+        }
+        .purchase-price {
+            font-size: 2rem; font-weight: 700; letter-spacing: -0.03em;
+            color: var(--text); margin-bottom: 4px;
+        }
+        .purchase-price span {
+            font-size: 0.85rem; font-weight: 400; color: var(--text-dim); margin-left: 4px;
+        }
+        .purchase-note {
+            font-size: 11px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.5;
+        }
+        .buy-btn {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            width: 100%; padding: 12px 20px; border-radius: 12px;
+            font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+            background: linear-gradient(135deg, rgba(var(--accent-rgb),0.2), rgba(var(--cyan-rgb),0.12));
+            border: 1.5px solid rgba(var(--accent-rgb),0.3);
+            color: var(--text); cursor: pointer; text-decoration: none;
+            transition: all 0.25s;
+        }
+        .buy-btn:hover {
+            background: linear-gradient(135deg, rgba(var(--accent-rgb),0.3), rgba(var(--cyan-rgb),0.2));
+            border-color: rgba(var(--accent-rgb),0.5);
+            box-shadow: 0 0 24px rgba(var(--accent-rgb),0.12);
+            transform: translateY(-1px);
+        }
+        .buy-btn svg { width: 16px; height: 16px; }
+        .purchase-badges {
+            display: flex; align-items: center; gap: 12px; margin-top: 12px;
+        }
+        .purchase-badge {
+            display: flex; align-items: center; gap: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7px; text-transform: uppercase; letter-spacing: 0.8px;
+            color: var(--text-muted);
+        }
+        .purchase-badge svg { width: 10px; height: 10px; color: var(--emerald); }
+
+        /* ─── Footer ─── */
+        footer {
+            position: relative; z-index: 1;
+            border-top: 1px solid var(--glass-border); padding: 1.5rem 0;
+        }
+        .footer-inner {
+            max-width: 1100px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .footer-brand { font-size: 11px; color: var(--text-muted); }
+        .footer-brand a { color: var(--text-dim); text-decoration: none; font-weight: 500; }
+        .footer-right {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7px; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        /* ─── Mini App UI (inside phone) ─── */
+        .m-header { display: flex; align-items: center; justify-content: space-between; padding: 6px 0 8px; }
+        .m-brand { font-size: 7px; font-weight: 600; letter-spacing: -0.2px; }
+        .m-brand span { color: var(--text-dim); font-weight: 400; font-size: 6px; }
+        .m-icon { width: 16px; height: 16px; border-radius: 4px; border: 1px solid var(--glass-border); background: var(--glass); display: flex; align-items: center; justify-content: center; color: var(--text-dim); }
+        .m-icon svg { width: 7px; height: 7px; }
+        .m-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 11px; padding: 7px 8px; margin-bottom: 4px; position: relative; overflow: hidden; cursor: pointer; transition: border-color 0.2s; }
+        .m-card:hover { border-color: rgba(var(--accent-rgb),0.3); }
+        .m-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); }
+        .m-card-label { font-family: 'JetBrains Mono', monospace; font-size: 5px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 5px; }
+        .m-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; }
+        .m-brainwave { display: flex; align-items: center; gap: 3px; padding: 2px 5px; border-radius: 5px; background: rgba(var(--accent-rgb),0.06); border: 1px solid rgba(var(--accent-rgb),0.12); }
+        .m-brainwave-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 4px rgba(var(--accent-rgb),0.5); animation: glow-pulse 2s ease-in-out infinite; }
+        .m-brainwave-text { font-family: 'JetBrains Mono', monospace; font-size: 5px; color: var(--accent); }
+        .m-play { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); background: rgba(var(--accent-rgb),0.12); display: flex; align-items: center; justify-content: center; color: var(--accent); animation: play-pulse 3s ease-in-out infinite; }
+        .m-play svg { width: 7px; height: 7px; }
+        @keyframes play-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb),0); }
+            50% { box-shadow: 0 0 8px 2px rgba(var(--accent-rgb),0.25); }
+        }
+        .m-viz { width: 100%; height: 22px; border-radius: 6px; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.04); margin-bottom: 5px; position: relative; box-shadow: inset 0 1px 4px rgba(0,0,0,0.3); overflow: hidden; }
+        .m-viz canvas { width: 100%; height: 100%; display: block; }
+        .m-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px; }
+        .m-lbl { font-family: 'JetBrains Mono', monospace; font-size: 5px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.3px; color: var(--text-dim); }
+        .m-val { font-family: 'JetBrains Mono', monospace; font-size: 5px; color: var(--text-muted); }
+        .m-val.hi { color: var(--accent); font-weight: 600; }
+        .m-slider { position: relative; width: 100%; height: 2px; border-radius: 1px; background: rgba(255,255,255,0.08); margin: 4px 0; pointer-events: none; }
+        .m-slider-thumb { position: absolute; top: 50%; left: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 4px rgba(var(--accent-rgb),0.4); transform: translate(-50%, -50%); will-change: transform; }
+        .m-slider.cy .m-slider-thumb { background: var(--cyan); box-shadow: 0 0 4px rgba(var(--cyan-rgb),0.4); }
+        .m-slider.ro .m-slider-thumb { background: var(--rose); box-shadow: 0 0 4px rgba(var(--rose-rgb),0.4); }
+        .m-card:hover .m-card-label { color: var(--accent); transition: color 0.2s; }
+        .m-bands { display: flex; justify-content: space-between; padding: 0 1px; }
+        .m-band-mark { font-family: 'JetBrains Mono', monospace; font-size: 4px; color: var(--text-muted); opacity: 0.7; }
+        .m-section + .m-section { margin-top: 5px; padding-top: 5px; border-top: 1px solid rgba(255,255,255,0.04); }
+        .m-pills { display: flex; gap: 2px; }
+        .m-pill { padding: 2px 4px; border-radius: 3px; font-family: 'JetBrains Mono', monospace; font-size: 4px; font-weight: 500; text-transform: uppercase; color: var(--text-muted); background: rgba(255,255,255,0.02); border: 1px solid transparent; }
+        .m-pill.active { color: var(--cyan); background: rgba(var(--cyan-rgb),0.08); border-color: rgba(var(--cyan-rgb),0.2); }
+        .m-noise-pills { display: flex; gap: 2px; margin-bottom: 4px; }
+        .m-noise-pill { flex: 1; padding: 3px 0; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 4px; font-weight: 500; color: var(--text-muted); border-radius: 4px; background: rgba(255,255,255,0.02); border: 1px solid transparent; }
+        .m-noise-pill.active { color: var(--accent); background: rgba(var(--accent-rgb),0.08); border-color: rgba(var(--accent-rgb),0.2); }
+        .m-vol-row { display: flex; align-items: center; gap: 3px; }
+        .m-vol-row .m-slider { flex: 1; }
+        .m-vol-icon { width: 7px; height: 7px; color: var(--text-muted); }
+        .m-wave-row { display: flex; gap: 3px; }
+        .m-wave-box { flex: 1; height: 22px; border-radius: 5px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.04); overflow: hidden; box-shadow: inset 0 1px 4px rgba(0,0,0,0.3); }
+        .m-wave-box canvas { width: 100%; height: 100%; display: block; }
+        .m-eq-tabs { display: flex; gap: 1px; background: rgba(255,255,255,0.02); border-radius: 3px; padding: 1px; }
+        .m-eq-tab { flex: 1; padding: 2px 0; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 4px; font-weight: 500; color: var(--text-muted); border-radius: 2px; }
+        .m-eq-tab.active { color: var(--text); background: rgba(255,255,255,0.06); }
+        .m-eq-viz { width: 100%; height: 26px; border-radius: 5px; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.04); margin-bottom: 4px; overflow: hidden; }
+        .m-eq-viz canvas { width: 100%; height: 100%; display: block; }
+        .m-eq-bands { display: flex; justify-content: space-between; gap: 1px; }
+        .m-eq-band { display: flex; flex-direction: column; align-items: center; gap: 1px; flex: 1; }
+        .m-eq-track { width: 3px; height: 26px; border-radius: 2px; background: rgba(255,255,255,0.06); position: relative; box-shadow: inset 0 1px 2px rgba(0,0,0,0.3); }
+        .m-eq-thumb { position: absolute; left: 50%; top: 50%; width: 7px; height: 3px; border-radius: 2px; background: linear-gradient(180deg, #fff, #ddd); box-shadow: 0 1px 2px rgba(0,0,0,0.4); will-change: transform; transform: translate(-50%, -50%); }
+        .m-eq-lbl { font-family: 'JetBrains Mono', monospace; font-size: 3px; color: var(--text-muted); }
+        .m-presets { display: flex; gap: 3px; overflow-x: auto; padding: 1px 0; }
+        .m-presets::-webkit-scrollbar { display: none; }
+        .m-preset { flex-shrink: 0; width: 52px; padding: 5px 4px; border-radius: 6px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.02); display: flex; flex-direction: column; gap: 2px; }
+        .m-preset.active { border-color: rgba(var(--accent-rgb),0.4); background: rgba(var(--accent-rgb),0.06); }
+        .m-preset-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--accent); opacity: 0.5; margin-bottom: 1px; }
+        .m-preset-name { font-size: 5px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .m-preset-meta { font-family: 'JetBrains Mono', monospace; font-size: 4px; color: var(--text-muted); }
+
+        /* ─── Responsive (Mobile) ─── */
+        @media (max-width: 860px) {
+            html, body {
+                overflow: hidden; height: 100vh; height: 100dvh;
+                position: fixed; width: 100%;
+                touch-action: none;
+            }
+            .walkthrough {
+                position: relative;
+                flex-direction: column; gap: 0; align-items: center;
+                height: calc(100vh - 52px); height: calc(100dvh - 52px);
+                margin-top: 52px; overflow: hidden;
+            }
+            /* Phone becomes a faded background element */
+            .phone-col {
+                position: absolute; top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1; width: auto; height: auto;
+                opacity: 0.12;
+                pointer-events: none;
+                padding: 0;
+            }
+            .phone {
+                width: 220px; height: 448px; border-radius: 28px;
+                margin: 0 auto;
+            }
+            .phone-notch { width: 80px; height: 14px; border-radius: 0 0 10px 10px; }
+            .phone-screen { padding: 3px 8px 8px; }
+            .phone-highlight { display: none; }
+
+            /* Text slides fill the full viewport */
+            .steps-col {
+                position: relative; z-index: 5;
+                flex: 1; min-height: 0; width: 100%;
+                flex-direction: row; flex-wrap: nowrap;
+                overflow-x: scroll; overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding: 0; gap: 0;
+                scrollbar-width: none;
+                display: flex; align-items: center;
+            }
+            .steps-col::-webkit-scrollbar { display: none; }
+            .steps-col::before, .steps-col::after {
+                content: ''; flex-shrink: 0; width: 8vw; min-width: 8vw; height: 1px;
+            }
+            .step {
+                min-width: 84vw; max-width: 84vw;
+                flex-shrink: 0;
+                scroll-snap-align: center;
+                padding: 1.5rem 1.5rem;
+                min-height: auto;
+                overflow-y: auto;
+                max-height: 100%;
+                display: flex; flex-direction: column; justify-content: center;
+                align-items: center; text-align: center;
+            }
+            .step h2 { font-size: 1.3rem; margin-bottom: 0.6rem; }
+            .step p { font-size: 1rem; line-height: 1.6; }
+            /* UI cutout preview above text — animated */
+            .step-preview {
+                width: 100%; max-width: 320px;
+                margin-bottom: 1rem;
+                border-radius: 12px;
+                background: rgba(12,12,20,0.7);
+                border: 1px solid rgba(255,255,255,0.08);
+                padding: 6px 8px;
+                pointer-events: none;
+                overflow: hidden;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                opacity: 0; transform: translateY(12px) scale(0.95);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+            .step.active .step-preview {
+                opacity: 1; transform: translateY(0) scale(1);
+            }
+            .step-preview .m-card {
+                background: transparent; border: none;
+                margin: 0; font-size: 5px;
+            }
+            .hero-step { min-height: auto; }
+            .nav-links { display: none; }
+            /* Mobile dot indicators - bottom of screen */
+            .mobile-dots {
+                position: absolute; bottom: 16px; left: 0; right: 0;
+                display: flex; justify-content: center; gap: 8px;
+                z-index: 10; padding: 0;
+            }
+            .mobile-dot {
+                width: 8px; height: 8px; border-radius: 50%;
+                background: rgba(255,255,255,0.2);
+                transition: all 0.3s;
+            }
+            .mobile-dot.active {
+                background: var(--accent);
+                box-shadow: 0 0 10px rgba(var(--accent-rgb),0.5);
+                transform: scale(1.3);
+            }
+            /* Swipe hint */
+            .swipe-hint {
+                position: absolute; bottom: 36px; left: 0; right: 0;
+                display: flex; align-items: center; justify-content: center; gap: 6px;
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 9px; text-transform: uppercase; letter-spacing: 1.5px;
+                color: var(--text-muted); z-index: 10;
+                animation: hint-fade 4s ease-out forwards;
+            }
+            .swipe-hint svg { width: 14px; height: 14px; animation: hint-slide 1.5s ease-in-out infinite; }
+            @keyframes hint-slide { 0%,100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+            @keyframes hint-fade { 0%,70% { opacity: 1; } 100% { opacity: 0; pointer-events: none; } }
+            /* Purchase box adjustments */
+            .purchase-box { max-width: 100%; }
+            footer { display: none; }
+            .bg-layer { position: absolute; }
+        }
+        /* Hide mobile-only elements on desktop (full layout) */
+        .step-preview { display: none; }
+        @media (max-width: 860px) { .step-preview { display: block; } }
+        @media (min-width: 861px) {
+            .mobile-dots, .swipe-hint { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-layer"></div>
+
+    <nav>
+        <div class="nav-inner">
+            <div class="nav-brand">Neural Harmony <span>by Propagation House</span></div>
+            <div class="nav-links">
+                <a href="#step-engine">Engine</a>
+                <a href="#step-noise">Noise</a>
+                <a href="#step-viz">Visualizer</a>
+                <a href="#step-eq">EQ</a>
+                <a href="#step-presets">Presets</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="walkthrough">
+        <!-- Sticky Phone -->
+        <div class="phone-col">
+            <div class="phone" id="phone">
+                <div class="phone-notch"></div>
+                <div class="phone-screen" id="phoneScreen">
+                    <!-- Mini Header -->
+                    <div class="m-header">
+                        <div class="m-brand">Neural Harmony <span>by Propagation House</span></div>
+                        <div class="m-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06"/></svg></div>
+                    </div>
+                    <!-- Binaural Engine Card -->
+                    <div class="m-card" data-section="engine">
+                        <div class="m-card-header">
+                            <div class="m-card-label">Binaural Engine</div>
+                            <div style="display:flex;align-items:center;gap:4px;">
+                                <div class="m-brainwave"><div class="m-brainwave-dot"></div><span class="m-brainwave-text">Alpha (10.0 Hz)</span></div>
+                                <div class="m-play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,4 20,12 8,20"/></svg></div>
+                            </div>
+                        </div>
+                        <div class="m-viz"><canvas id="miniViz"></canvas></div>
+                        <div class="m-section">
+                            <div class="m-row"><span class="m-lbl">Left Ear</span><span class="m-val">200.0 Hz</span></div>
+                            <div class="m-slider cy" data-init="0.375"><div class="m-slider-thumb"></div></div>
+                        </div>
+                        <div class="m-section">
+                            <div class="m-row"><span class="m-lbl">Right Ear</span><span class="m-val">210.0 Hz</span></div>
+                            <div class="m-slider ro" data-init="0.396"><div class="m-slider-thumb"></div></div>
+                        </div>
+                        <div class="m-section">
+                            <div class="m-row"><span class="m-lbl">Beat Frequency</span><span class="m-val hi">Alpha (10.0 Hz)</span></div>
+                            <div class="m-slider" data-init="0.24" style="opacity:0.6;"><div class="m-slider-thumb"></div></div>
+                            <div class="m-bands"><span class="m-band-mark">Delta</span><span class="m-band-mark">Theta</span><span class="m-band-mark">Alpha</span><span class="m-band-mark">Beta</span><span class="m-band-mark">Gamma</span></div>
+                        </div>
+                        <div class="m-section">
+                            <div class="m-row"><span class="m-lbl">Waveform</span>
+                                <div class="m-pills"><div class="m-pill active">Sine</div><div class="m-pill">Tri</div><div class="m-pill">Sq</div><div class="m-pill">Saw</div></div>
+                            </div>
+                        </div>
+                        <div class="m-section">
+                            <div class="m-row"><span class="m-lbl">Tone Volume</span><span class="m-val">80%</span></div>
+                            <div class="m-vol-row">
+                                <svg class="m-vol-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/></svg>
+                                <div class="m-slider" data-init="0.8" style="flex:1;"><div class="m-slider-thumb"></div></div><span class="m-val">80</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Noise Generator -->
+                    <div class="m-card" data-section="noise">
+                        <div class="m-card-label">Noise Generator</div>
+                        <div class="m-noise-pills">
+                            <div class="m-noise-pill active">Off</div><div class="m-noise-pill">White</div><div class="m-noise-pill">Pink</div><div class="m-noise-pill">Brown</div><div class="m-noise-pill">Blue</div>
+                        </div>
+                        <div class="m-vol-row">
+                            <svg class="m-vol-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/></svg>
+                            <div class="m-slider" data-init="0" style="flex:1;"><div class="m-slider-thumb"></div></div><span class="m-val">0</span>
+                        </div>
+                    </div>
+                    <!-- Waveform / Spectrum -->
+                    <div class="m-card" data-section="viz" style="padding:5px 7px;">
+                        <div class="m-wave-row">
+                            <div style="flex:1;"><div class="m-card-label" style="margin-bottom:2px;">Waveform</div><div class="m-wave-box"><canvas id="miniWave"></canvas></div></div>
+                            <div style="flex:1;"><div class="m-card-label" style="margin-bottom:2px;">Spectrum</div><div class="m-wave-box"><canvas id="miniSpec"></canvas></div></div>
+                        </div>
+                    </div>
+                    <!-- EQ -->
+                    <div class="m-card" data-section="eq">
+                        <div class="m-card-header">
+                            <div class="m-card-label">Parametric EQ</div>
+                            <div class="m-eq-tabs"><div class="m-eq-tab active">M</div><div class="m-eq-tab">L</div><div class="m-eq-tab">R</div></div>
+                        </div>
+                        <div class="m-eq-viz"><canvas id="miniEQ"></canvas></div>
+                        <div class="m-eq-bands" id="miniEQBands"></div>
+                    </div>
+                    <!-- Presets -->
+                    <div class="m-card" data-section="presets">
+                        <div class="m-card-label">Presets</div>
+                        <div class="m-presets">
+                            <div class="m-preset active"><div class="m-preset-dot"></div><div class="m-preset-name">Deep Sleep</div><div class="m-preset-meta">2.5Hz beat</div></div>
+                            <div class="m-preset"><div class="m-preset-dot"></div><div class="m-preset-name">Relaxation</div><div class="m-preset-meta">6Hz beat</div></div>
+                            <div class="m-preset"><div class="m-preset-dot"></div><div class="m-preset-name">Calm Focus</div><div class="m-preset-meta">10Hz beat</div></div>
+                            <div class="m-preset"><div class="m-preset-dot"></div><div class="m-preset-name">Concentration</div><div class="m-preset-meta">16Hz beat</div></div>
+                            <div class="m-preset"><div class="m-preset-dot"></div><div class="m-preset-name">Peak Attention</div><div class="m-preset-meta">40Hz beat</div></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Highlight Overlay -->
+                <div class="phone-highlight" id="phoneHighlight">
+                    <div class="phone-highlight-mask" id="highlightMask"></div>
+                    <div class="phone-highlight-ring" id="highlightRing"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile: swipe hint + dots -->
+        <div class="swipe-hint">
+            <span>Swipe to explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="mobile-dots" id="mobileDots"></div>
+
+        <!-- Scrolling Steps -->
+        <div class="steps-col">
+            <!-- Hero -->
+            <div class="step hero-step active" data-target="none" id="step-hero">
+                <div class="hero-tag"><div class="hero-tag-dot"></div><span>Precision Audio Engine</span></div>
+                <h2>Neural Harmony</h2>
+                <p>A research-backed binaural beat engine with 10-band EQ, noise generator, &amp; sub-hertz precision. Built for focus, sleep, &amp; cognition.</p>
+                <a href="#step-cta" class="hero-cta" id="heroCta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    Get Neural Harmony
+                </a>
+            </div>
+
+            <!-- Binaural Engine -->
+            <div class="step" data-target="engine" id="step-engine">
+                <div class="step-number">01 — Binaural Engine</div>
+                <h2>Dual-frequency precision</h2>
+                <p>Set independent left &amp; right ear frequencies with 0.1 Hz step controls. Your brain perceives the difference as a binaural beat that entrains brainwave activity.</p>
+                <div class="step-detail">
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:var(--cyan);box-shadow:0 0 6px rgba(var(--cyan-rgb),0.5);"></div>
+                        <span class="step-detail-text">Left ear carrier — cyan channel, 20–500 Hz</span>
+                    </div>
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:var(--rose);box-shadow:0 0 6px rgba(var(--rose-rgb),0.5);"></div>
+                        <span class="step-detail-text">Right ear carrier — rose channel, 20–500 Hz</span>
+                    </div>
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:var(--accent);box-shadow:0 0 6px rgba(var(--accent-rgb),0.5);"></div>
+                        <span class="step-detail-text">Beat frequency — Delta through Gamma bands</span>
+                    </div>
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:var(--emerald);box-shadow:0 0 6px var(--emerald);"></div>
+                        <span class="step-detail-text">Sine, triangle, square, sawtooth waveforms</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Noise Generator -->
+            <div class="step" data-target="noise" id="step-noise">
+                <div class="step-number">02 — Noise Generator</div>
+                <h2>Mask distractions with colored noise</h2>
+                <p>Four noise types — white, pink, brown, &amp; blue — each generated with a 60-second buffer &amp; 1-second overlap-add crossfade for seamless looping with zero audible seams.</p>
+                <div class="step-detail">
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:#fff;"></div>
+                        <span class="step-detail-text">White — equal energy across all frequencies</span>
+                    </div>
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:#f0a0c0;"></div>
+                        <span class="step-detail-text">Pink — 1/f power spectrum, natural sounding</span>
+                    </div>
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:#a0785a;"></div>
+                        <span class="step-detail-text">Brown — deep rumble, strong low-end</span>
+                    </div>
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:var(--cyan);box-shadow:0 0 6px rgba(var(--cyan-rgb),0.4);"></div>
+                        <span class="step-detail-text">Blue — high-frequency emphasis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualizer -->
+            <div class="step" data-target="viz" id="step-viz">
+                <div class="step-number">03 — Real-time Visualizer</div>
+                <h2>See your sound</h2>
+                <p>Live waveform &amp; frequency spectrum displays driven by the Web Audio API's analyser nodes. Watch the binaural interaction in real-time as you adjust parameters.</p>
+            </div>
+
+            <!-- EQ -->
+            <div class="step" data-target="eq" id="step-eq">
+                <div class="step-number">04 — 10-Band Parametric EQ</div>
+                <h2>Shape every frequency</h2>
+                <p>Full parametric equalization from 31 Hz to 16 kHz with independent master, left, &amp; right channel controls. Each band adjustable ±12 dB with 0.5 dB precision.</p>
+                <div class="step-detail">
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:var(--accent);box-shadow:0 0 6px rgba(var(--accent-rgb),0.5);"></div>
+                        <span class="step-detail-text">Master EQ — shapes the combined output</span>
+                    </div>
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:var(--cyan);box-shadow:0 0 6px rgba(var(--cyan-rgb),0.4);"></div>
+                        <span class="step-detail-text">Left channel EQ — independent shaping</span>
+                    </div>
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:var(--rose);box-shadow:0 0 6px rgba(var(--rose-rgb),0.4);"></div>
+                        <span class="step-detail-text">Right channel EQ — independent shaping</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presets -->
+            <div class="step" data-target="presets" id="step-presets">
+                <div class="step-number">05 — Research-Backed Presets</div>
+                <h2>Presets backed by neuroscience</h2>
+                <p>Five presets built from published neuroscience research — each with calibrated carrier frequencies, noise configurations, &amp; EQ curves optimized for their target brainwave state. Users can also save &amp; create their own, building a library of presets for any purpose.</p>
+                <div class="step-detail">
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:var(--accent);"></div>
+                        <span class="step-detail-text">Deep Sleep — 2.5 Hz delta, brown noise, warm EQ</span>
+                    </div>
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:var(--cyan);"></div>
+                        <span class="step-detail-text">Relaxation — 6 Hz theta, pink noise</span>
+                    </div>
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:var(--emerald);"></div>
+                        <span class="step-detail-text">Calm Focus — 10 Hz alpha, pure tone</span>
+                    </div>
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:var(--orange);"></div>
+                        <span class="step-detail-text">Concentration — 16 Hz beta, pure tone</span>
+                    </div>
+                    <div class="step-detail-row">
+                        <div class="step-detail-dot" style="background:var(--rose);"></div>
+                        <span class="step-detail-text">Peak Attention — 40 Hz gamma, white noise</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Purchase / CTA -->
+            <div class="step" data-target="none" id="step-cta">
+                <div class="step-number">Get It</div>
+                <h2>Ready to try Neural Harmony?</h2>
+                <p>No accounts, no tracking, no subscriptions. Just headphones &amp; intention.</p>
+                <div class="purchase-box">
+                    <div class="purchase-price">$1.99 <span>one-time</span></div>
+                    <div class="purchase-note">Instant download after payment. Works on any Android device.</div>
+                    <a href="https://buy.stripe.com/3cI8wI6Ar88TbIdezJasg01" class="buy-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        Purchase Neural Harmony
+                    </a>
+                    <div class="purchase-badges">
+                        <div class="purchase-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            Secure checkout
+                        </div>
+                        <div class="purchase-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            No subscription
+                        </div>
+                        <div class="purchase-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                            Instant download
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand"><a href="https://propagation.house">Propagation House</a> — Neural Harmony</div>
+            <div class="footer-right">Research-backed audio engineering</div>
+        </div>
+    </footer>
+
+    <script>
+    // ── Build mini EQ bands ──
+    (function(){
+        var w = document.getElementById('miniEQBands');
+        ['31','62','125','250','500','1k','2k','4k','8k','16k'].forEach(function(l){
+            var b = document.createElement('div'); b.className = 'm-eq-band';
+            b.innerHTML = '<div class="m-eq-track"><div class="m-eq-thumb"></div></div><span class="m-eq-lbl">'+l+'</span>';
+            w.appendChild(b);
+        });
+    })();
+
+    // ── Clone UI card previews into each step (for compact/mobile view) ──
+    (function(){
+        var steps = document.querySelectorAll('.step[data-target]');
+        var phone = document.getElementById('phone');
+        steps.forEach(function(step){
+            var target = step.dataset.target;
+            if(target === 'none') return;
+            var card = phone.querySelector('.m-card[data-section="' + target + '"]');
+            if(!card) return;
+            var preview = document.createElement('div');
+            preview.className = 'step-preview';
+            var clone = card.cloneNode(true);
+            clone.removeAttribute('data-section');
+            var canvases = clone.querySelectorAll('canvas');
+            canvases.forEach(function(c){
+                if(c.id) c.id = 'preview-' + c.id;
+            });
+            var eqBands = clone.querySelector('#miniEQBands');
+            if(eqBands) eqBands.id = 'previewEQBands';
+            preview.appendChild(clone);
+            step.insertBefore(preview, step.firstChild);
+        });
+        // Build EQ bands in cloned preview if present
+        var previewBands = document.getElementById('previewEQBands');
+        if(previewBands && previewBands.children.length === 0){
+            ['31','62','125','250','500','1k','2k','4k','8k','16k'].forEach(function(l){
+                var b = document.createElement('div'); b.className = 'm-eq-band';
+                b.innerHTML = '<div class="m-eq-track"><div class="m-eq-thumb"></div></div><span class="m-eq-lbl">'+l+'</span>';
+                previewBands.appendChild(b);
+            });
+        }
+    })();
+
+    // ── Mini canvas animations (phone + preview clones) ──
+    (function(){
+        var dpr = devicePixelRatio || 1, t = 0;
+        function ic(c){ var r=c.parentElement.getBoundingClientRect(); if(r.width<1||r.height<1) return null; c.width=r.width*dpr; c.height=r.height*dpr; var x=c.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0); return{x:x,w:r.width,h:r.height}; }
+
+        function drawViz(id){
+            var v=document.getElementById(id); if(!v) return;
+            var o=ic(v); if(!o) return;
+            o.x.clearRect(0,0,o.w,o.h);
+            o.x.strokeStyle='rgba(125,211,252,0.4)';o.x.lineWidth=1;o.x.beginPath();for(var i=0;i<o.w;i++){var y=o.h/2+Math.sin(i*0.08+t*2)*o.h*0.25;i===0?o.x.moveTo(i,y):o.x.lineTo(i,y);}o.x.stroke();
+            o.x.strokeStyle='rgba(253,164,175,0.4)';o.x.beginPath();for(var j=0;j<o.w;j++){var y2=o.h/2+Math.sin(j*0.08+t*2+0.5)*o.h*0.2;j===0?o.x.moveTo(j,y2):o.x.lineTo(j,y2);}o.x.stroke();
+        }
+        function drawWave(id){
+            var wc=document.getElementById(id); if(!wc) return;
+            var o2=ic(wc); if(!o2) return;
+            o2.x.clearRect(0,0,o2.w,o2.h);
+            var g=o2.x.createLinearGradient(0,0,o2.w,0);g.addColorStop(0,'rgba(251,146,60,0.6)');g.addColorStop(1,'rgba(253,164,175,0.4)');
+            o2.x.strokeStyle=g;o2.x.lineWidth=1;o2.x.beginPath();for(var k=0;k<o2.w;k++){var yw=o2.h/2+Math.sin(k*0.12+t*3)*o2.h*0.3+Math.sin(k*0.06+t*1.5)*o2.h*0.1;k===0?o2.x.moveTo(k,yw):o2.x.lineTo(k,yw);}o2.x.stroke();
+        }
+        function drawSpec(id){
+            var sc=document.getElementById(id); if(!sc) return;
+            var o3=ic(sc); if(!o3) return;
+            o3.x.clearRect(0,0,o3.w,o3.h);
+            var bars=14,bw=o3.w/bars;for(var b=0;b<bars;b++){var vv=0.2+Math.sin(b*0.7+t*1.5)*0.3+Math.random()*0.08;vv=Math.max(0.05,Math.min(1,vv));o3.x.fillStyle='rgba(180,160,255,'+(0.2+vv*0.4)+')';o3.x.fillRect(b*bw,o3.h-vv*o3.h,bw-0.5,vv*o3.h);}
+        }
+        function drawEQ(id){
+            var ec=document.getElementById(id); if(!ec) return;
+            var o4=ic(ec); if(!o4) return;
+            o4.x.clearRect(0,0,o4.w,o4.h);
+            o4.x.strokeStyle='rgba(255,255,255,0.04)';o4.x.lineWidth=0.5;o4.x.beginPath();o4.x.moveTo(0,o4.h/2);o4.x.lineTo(o4.w,o4.h/2);o4.x.stroke();
+            o4.x.strokeStyle='rgba(180,160,255,0.5)';o4.x.lineWidth=1;o4.x.beginPath();for(var e=0;e<o4.w;e++){var nx=e/o4.w;var ye=o4.h/2+Math.sin(nx*Math.PI*4)*o4.h*0.15*Math.sin(t*0.3+nx*2);e===0?o4.x.moveTo(e,ye):o4.x.lineTo(e,ye);}o4.x.stroke();
+        }
+
+        function frame(){
+            t+=0.04;
+            // Phone originals
+            drawViz('miniViz'); drawWave('miniWave'); drawSpec('miniSpec'); drawEQ('miniEQ');
+            // Preview clones
+            drawViz('preview-miniViz'); drawWave('preview-miniWave'); drawSpec('preview-miniSpec'); drawEQ('preview-miniEQ');
+            requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+    })();
+
+    // ── Auto-animate sliders & EQ thumbs (GPU-composited, sub-pixel smooth) ──
+    (function(){
+        var sliderEls = document.querySelectorAll('.m-slider');
+        var eqThumbs = document.querySelectorAll('.m-eq-thumb');
+
+        // Build slider data: each has a thumb element, base position (0-1), and current lerped position
+        var sliders = [];
+        sliderEls.forEach(function(el, i){
+            var thumb = el.querySelector('.m-slider-thumb');
+            if(!thumb) return;
+            var base = parseFloat(el.dataset.init) || 0;
+            sliders.push({ el: el, thumb: thumb, base: base, current: base });
+        });
+        var eqCurrent = [];
+        eqThumbs.forEach(function(){ eqCurrent.push(0); }); // 0 = centered
+
+        var t = 0;
+        function drift(){
+            t += 0.005;
+            // Slider thumbs: position via transform translateX (GPU composited)
+            for(var i = 0; i < sliders.length; i++){
+                var s = sliders[i];
+                var w = s.el.offsetWidth;
+                // Multi-harmonic organic drift around base position
+                var target = s.base
+                    + Math.sin(t * (0.3 + i * 0.07) + i * 2.1) * 0.03
+                    + Math.sin(t * (0.11 + i * 0.04) + i * 0.7) * 0.018;
+                target = Math.max(0, Math.min(1, target));
+                // Ultra-smooth lerp
+                s.current += (target - s.current) * 0.02;
+                var px = s.current * w;
+                s.thumb.style.transform = 'translate3d(' + px + 'px, -50%, 0)';
+            }
+            // EQ thumbs: vertical offset via transform translateY (GPU composited)
+            for(var j = 0; j < eqThumbs.length; j++){
+                var target2 = Math.sin(t * (0.22 + j * 0.045) + j * 1.1) * 8
+                            + Math.sin(t * (0.09 + j * 0.025) + j * 2.5) * 4;
+                eqCurrent[j] += (target2 - eqCurrent[j]) * 0.02;
+                eqThumbs[j].style.transform = 'translate(-50%, calc(-50% + ' + eqCurrent[j] + 'px))';
+            }
+            requestAnimationFrame(drift);
+        }
+        requestAnimationFrame(drift);
+    })();
+
+    // ── Bidirectional highlight system (scroll + hover, desktop + mobile) ──
+    (function(){
+        var steps = document.querySelectorAll('.step');
+        var stepsCol = document.querySelector('.steps-col');
+        var cards = document.querySelectorAll('.m-card[data-section]');
+        var phone = document.getElementById('phone');
+        var screen = document.getElementById('phoneScreen');
+        var highlight = document.getElementById('phoneHighlight');
+        var mask = document.getElementById('highlightMask');
+        var ring = document.getElementById('highlightRing');
+        var dotsContainer = document.getElementById('mobileDots');
+        var currentTarget = 'none';
+        var hoverLocked = false;
+
+        // Detect mobile layout
+        function isMobile(){ return window.innerWidth <= 860; }
+
+        // Build mobile dot indicators
+        var dots = [];
+        steps.forEach(function(s, i){
+            var dot = document.createElement('div');
+            dot.className = 'mobile-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', function(){
+                if(isMobile()){
+                    var stepEl = steps[i];
+                    stepsCol.scrollTo({ left: stepEl.offsetLeft - (stepsCol.offsetWidth - stepEl.offsetWidth) / 2, behavior: 'smooth' });
+                }
+            });
+            dotsContainer.appendChild(dot);
+            dots.push(dot);
+        });
+
+        function updateDots(activeIndex){
+            dots.forEach(function(d, i){ d.classList.toggle('active', i === activeIndex); });
+        }
+
+        function getCardRect(section){
+            var card = phone.querySelector('[data-section="'+section+'"]');
+            if(!card) return null;
+            var phoneRect = phone.getBoundingClientRect();
+            var cardRect = card.getBoundingClientRect();
+            return { top: cardRect.top - phoneRect.top, left: cardRect.left - phoneRect.left, width: cardRect.width, height: cardRect.height };
+        }
+
+        function positionHighlight(section){
+            var r = getCardRect(section);
+            if(!r) return;
+            var pad = 4;
+            var t = r.top - pad, l = r.left - pad, w = r.width + pad*2, h = r.height + pad*2;
+            mask.style.clipPath = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% '+t+'px, '+l+'px '+t+'px, '+l+'px '+(t+h)+'px, '+(l+w)+'px '+(t+h)+'px, '+(l+w)+'px '+t+'px, 0% '+t+'px)';
+            ring.style.top = t+'px'; ring.style.left = l+'px'; ring.style.width = w+'px'; ring.style.height = h+'px';
+            highlight.classList.add('active');
+        }
+
+        function activate(section, scrollPhone, scrollStep){
+            if(section === currentTarget && !scrollStep) return;
+            currentTarget = section;
+
+            steps.forEach(function(s, i){
+                var isActive = s.dataset.target === section;
+                s.classList.toggle('active', isActive);
+                if(isActive) updateDots(i);
+            });
+
+            if(section === 'none'){
+                highlight.classList.remove('active');
+                var hero = document.getElementById('step-hero');
+                if(hero){ hero.classList.add('active'); updateDots(0); }
+                return;
+            }
+
+            if(scrollPhone){
+                var card = phone.querySelector('[data-section="'+section+'"]');
+                if(card) screen.scrollTo({top: Math.max(0, card.offsetTop - 20), behavior: 'smooth'});
+                setTimeout(function(){ positionHighlight(section); }, 200);
+            } else {
+                positionHighlight(section);
+            }
+
+            if(scrollStep && !isMobile()){
+                var matchStep = null;
+                steps.forEach(function(s){ if(s.dataset.target === section) matchStep = s; });
+                if(matchStep) matchStep.scrollIntoView({behavior: 'smooth', block: 'center'});
+            }
+        }
+
+        // ── Phone card hover → activates step text (desktop only) ──
+        cards.forEach(function(card){
+            card.addEventListener('mouseenter', function(){
+                if(isMobile()) return;
+                hoverLocked = true;
+                activate(card.dataset.section, false, true);
+            });
+            card.addEventListener('click', function(){
+                activate(card.dataset.section, false, !isMobile());
+            });
+        });
+        phone.addEventListener('mouseleave', function(){
+            hoverLocked = false;
+            if(!isMobile()) findClosestStepDesktop();
+        });
+
+        // ── Step hover → highlights phone card (desktop only) ──
+        steps.forEach(function(s){
+            s.addEventListener('mouseenter', function(){
+                if(isMobile()) return;
+                if(s.dataset.target && s.dataset.target !== 'none'){
+                    activate(s.dataset.target, true, false);
+                }
+            });
+        });
+
+        // ── Desktop: vertical scroll activation ──
+        function findClosestStepDesktop(){
+            if(hoverLocked || isMobile()) return;
+            var centerY = window.innerHeight * 0.45;
+            var closest = null, closestDist = Infinity;
+            steps.forEach(function(s){
+                var rect = s.getBoundingClientRect();
+                var mid = rect.top + rect.height / 2;
+                var dist = Math.abs(mid - centerY);
+                if(dist < closestDist){ closest = s; closestDist = dist; }
+            });
+            if(closest) activate(closest.dataset.target, true, false);
+        }
+
+        var scrollTick = false;
+        window.addEventListener('scroll', function(){
+            if(hoverLocked || isMobile()) return;
+            if(!scrollTick){
+                scrollTick = true;
+                requestAnimationFrame(function(){ findClosestStepDesktop(); scrollTick = false; });
+            }
+        });
+
+        // ── Mobile: horizontal scroll activation ──
+        function findClosestStepMobile(){
+            if(!isMobile()) return;
+            var scrollLeft = stepsCol.scrollLeft;
+            var containerWidth = stepsCol.offsetWidth;
+            var centerX = scrollLeft + containerWidth / 2;
+            var closest = null, closestDist = Infinity, closestIdx = 0;
+            steps.forEach(function(s, i){
+                var mid = s.offsetLeft + s.offsetWidth / 2;
+                var dist = Math.abs(mid - centerX);
+                if(dist < closestDist){ closest = s; closestDist = dist; closestIdx = i; }
+            });
+            if(closest){
+                activate(closest.dataset.target, true, false);
+                updateDots(closestIdx);
+            }
+        }
+
+        var hScrollTick = false;
+        stepsCol.addEventListener('scroll', function(){
+            if(!isMobile()) return;
+            if(!hScrollTick){
+                hScrollTick = true;
+                requestAnimationFrame(function(){ findClosestStepMobile(); hScrollTick = false; });
+            }
+        });
+
+        // Initial state
+        if(isMobile()) findClosestStepMobile();
+        else findClosestStepDesktop();
+
+        // Handle resize between mobile/desktop
+        window.addEventListener('resize', function(){
+            if(isMobile()) findClosestStepMobile();
+            else findClosestStepDesktop();
+        });
+    })();
+
+    // ── Hero CTA: scroll to purchase slide in compact view ──
+    (function(){
+        var cta = document.getElementById('heroCta');
+        var stepsCol = document.querySelector('.steps-col');
+        if(!cta) return;
+        cta.addEventListener('click', function(e){
+            var isCompact = getComputedStyle(stepsCol).flexDirection === 'row';
+            if(isCompact){
+                e.preventDefault();
+                var target = document.getElementById('step-cta');
+                if(target){
+                    var scrollTo = target.offsetLeft - (stepsCol.offsetWidth - target.offsetWidth) / 2;
+                    stepsCol.scrollTo({ left: scrollTo, behavior: 'smooth' });
+                }
+            }
+        });
+    })();
+
+    // ── Compact view: ALL swipes & wheel scroll the carousel horizontally ──
+    (function(){
+        var stepsCol = document.querySelector('.steps-col');
+        var steps = document.querySelectorAll('.step');
+
+        // Detect if horizontal carousel layout is active
+        function isCompact(){
+            return getComputedStyle(stepsCol).flexDirection === 'row';
+        }
+
+        function snapToNearest(){
+            var scrollCenter = stepsCol.scrollLeft + stepsCol.offsetWidth / 2;
+            var closest = 0, closestDist = Infinity;
+            for(var i = 0; i < steps.length; i++){
+                var stepCenter = steps[i].offsetLeft + steps[i].offsetWidth / 2;
+                var dist = Math.abs(stepCenter - scrollCenter);
+                if(dist < closestDist){ closestDist = dist; closest = i; }
+            }
+            var target = steps[closest].offsetLeft - (stepsCol.offsetWidth - steps[closest].offsetWidth) / 2;
+            stepsCol.scrollTo({ left: target, behavior: 'smooth' });
+        }
+
+        // Wheel events — one slide per wheel tick for smooth navigation
+        var wheelTimer = null;
+        var wheelAccum = 0;
+        var currentSlide = 0;
+        function handleWheel(e){
+            if(!isCompact()) return;
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            wheelAccum += (e.deltaY || e.deltaX);
+            clearTimeout(wheelTimer);
+            // Once accumulated enough delta, advance one slide
+            if(Math.abs(wheelAccum) > 30){
+                var dir = wheelAccum > 0 ? 1 : -1;
+                currentSlide = Math.max(0, Math.min(steps.length - 1, currentSlide + dir));
+                var target = steps[currentSlide].offsetLeft - (stepsCol.offsetWidth - steps[currentSlide].offsetWidth) / 2;
+                stepsCol.scrollTo({ left: target, behavior: 'smooth' });
+                wheelAccum = 0;
+            }
+            wheelTimer = setTimeout(function(){ wheelAccum = 0; }, 200);
+        }
+        // Keep currentSlide in sync with manual scrolling
+        stepsCol.addEventListener('scroll', function(){
+            if(!isCompact()) return;
+            var scrollL = stepsCol.scrollLeft + stepsCol.offsetWidth / 2;
+            for(var i = 0; i < steps.length; i++){
+                if(steps[i].offsetLeft + steps[i].offsetWidth / 2 > scrollL - steps[i].offsetWidth / 2){
+                    currentSlide = i; break;
+                }
+            }
+        });
+        window.addEventListener('wheel', handleWheel, {passive: false, capture: true});
+        document.addEventListener('wheel', handleWheel, {passive: false});
+
+        // Touch: any swipe direction scrolls carousel horizontally
+        var startY = 0, startX = 0, startScroll = 0;
+        var lastDelta = 0;
+
+        document.addEventListener('touchstart', function(e){
+            if(!isCompact()) return;
+            startY = e.touches[0].clientY;
+            startX = e.touches[0].clientX;
+            startScroll = stepsCol.scrollLeft;
+            lastDelta = 0;
+        }, {passive: true});
+
+        document.addEventListener('touchmove', function(e){
+            if(!isCompact()) return;
+            e.preventDefault();
+            var dx = startX - e.touches[0].clientX;
+            var dy = startY - e.touches[0].clientY;
+            var delta = Math.abs(dx) > Math.abs(dy) ? dx : dy;
+            stepsCol.scrollLeft = startScroll + delta * 1.5;
+            lastDelta = delta;
+        }, {passive: false});
+
+        document.addEventListener('touchend', function(){
+            if(!isCompact()) return;
+            snapToNearest();
+        }, {passive: true});
+    })();
+
+    </script>
+</body>
+</html>

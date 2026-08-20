@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0;url=/d/a7f9e2c1b4d8/">
+    <title>Thank You | Neural Harmony</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --accent: #b4a0ff; --accent-rgb: 180,160,255;
+            --cyan: #7dd3fc; --cyan-rgb: 125,211,252;
+            --emerald: #6ee7b7; --emerald-rgb: 110,231,183;
+            --glass: rgba(12,12,20,0.55);
+            --glass-border: rgba(255,255,255,0.08);
+            --glass-blur: 24px;
+            --text: #f0f0f8;
+            --text-dim: rgba(255,255,255,0.55);
+            --text-muted: rgba(255,255,255,0.3);
+            --surface: #0a0a0f;
+        }
+        html { font-size: 16px; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--surface); color: var(--text);
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            -webkit-font-smoothing: antialiased;
+        }
+        .bg-layer {
+            position: fixed; inset: 0; z-index: 0;
+            background: radial-gradient(ellipse at 30% 15%, rgba(var(--accent-rgb),0.05) 0%, transparent 55%),
+                        radial-gradient(ellipse at 75% 85%, rgba(var(--cyan-rgb),0.03) 0%, transparent 55%);
+        }
+        .container {
+            position: relative; z-index: 1;
+            max-width: 480px; width: 100%; padding: 0 24px; text-align: center;
+        }
+        .check-ring {
+            width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 24px;
+            background: rgba(var(--emerald-rgb),0.08);
+            border: 2px solid rgba(var(--emerald-rgb),0.3);
+            display: flex; align-items: center; justify-content: center;
+            animation: check-appear 0.6s ease-out;
+        }
+        .check-ring svg { width: 32px; height: 32px; color: var(--emerald); }
+        @keyframes check-appear {
+            0% { transform: scale(0.5); opacity: 0; }
+            60% { transform: scale(1.08); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        h1 {
+            font-size: 1.8rem; font-weight: 700; letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            font-size: 14px; color: var(--text-dim); line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        .download-card {
+            background: var(--glass);
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 24px; text-align: left;
+            position: relative; overflow: hidden;
+        }
+        .download-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb),0.15), transparent);
+        }
+        .download-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px; font-weight: 500; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--accent); margin-bottom: 12px;
+        }
+        .download-btn {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            width: 100%; padding: 14px 20px; border-radius: 12px;
+            font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+            background: linear-gradient(135deg, rgba(var(--accent-rgb),0.2), rgba(var(--cyan-rgb),0.12));
+            border: 1.5px solid rgba(var(--accent-rgb),0.3);
+            color: var(--text); cursor: pointer; text-decoration: none;
+            transition: all 0.25s;
+        }
+        .download-btn:hover {
+            background: linear-gradient(135deg, rgba(var(--accent-rgb),0.3), rgba(var(--cyan-rgb),0.2));
+            border-color: rgba(var(--accent-rgb),0.5);
+            box-shadow: 0 0 24px rgba(var(--accent-rgb),0.12);
+            transform: translateY(-1px);
+        }
+        .download-btn svg { width: 16px; height: 16px; }
+        .instructions {
+            margin-top: 16px; padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+        .instructions p {
+            font-size: 12px; color: var(--text-muted); line-height: 1.7;
+            margin-bottom: 6px;
+        }
+        .instructions strong { color: var(--text-dim); }
+        .back-link {
+            display: inline-block; margin-top: 24px;
+            font-size: 12px; color: var(--text-muted); text-decoration: none;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--text-dim); }
+        .email-notice {
+            display: flex; align-items: flex-start; gap: 12px;
+            padding: 14px; margin-bottom: 16px;
+            background: rgba(var(--accent-rgb),0.06);
+            border: 1px solid rgba(var(--accent-rgb),0.15);
+            border-radius: 10px;
+        }
+        .email-notice svg { width: 28px; height: 28px; flex-shrink: 0; color: var(--accent); margin-top: 2px; }
+        .email-notice p { font-size: 12px; color: var(--text-dim); line-height: 1.7; margin: 0; }
+    </style>
+</head>
+<body>
+    <div class="bg-layer"></div>
+    <div class="container">
+        <div class="check-ring">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h1>Thank you!</h1>
+        <p class="subtitle">Your purchase of Neural Harmony is complete. A download link has been sent to your email.</p>
+        <div class="download-card">
+            <div class="download-label">Check Your Email</div>
+            <div class="email-notice">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <p>Stripe has sent a secure download link to the email address you used during checkout. Check your inbox (and spam folder) for an email from Stripe.</p>
+            </div>
+            <div class="instructions">
+                <p><strong>1.</strong> Open the download link from your email on your Android device</p>
+                <p><strong>2.</strong> Install the APK — you may need to allow installs from unknown sources in Settings</p>
+                <p><strong>3.</strong> Put on headphones and enjoy</p>
+            </div>
+        </div>
+        <a href="/" class="back-link">&larr; Back to Neural Harmony</a>
+    </div>
+</body>
+</html>

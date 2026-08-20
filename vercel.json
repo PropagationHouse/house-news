@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/substrate", "destination": "/substrate/index.html" },
+    { "source": "/substrate/", "destination": "/substrate/index.html" },
+    { "source": "/swarmfront", "destination": "/swarmfront/index.html" },
+    { "source": "/swarmfront/", "destination": "/swarmfront/index.html" },
+    { "source": "/neural-harmony", "destination": "/neural-harmony/index.html" },
+    { "source": "/neural-harmony/", "destination": "/neural-harmony/index.html" }
+  ]
+}
