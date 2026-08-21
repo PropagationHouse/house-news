@@ -5,6 +5,8 @@
     { "source": "/swarmfront", "destination": "/swarmfront/index.html" },
     { "source": "/swarmfront/", "destination": "/swarmfront/index.html" },
     { "source": "/neural-harmony", "destination": "/neural-harmony/index.html" },
-    { "source": "/neural-harmony/", "destination": "/neural-harmony/index.html" }
+    { "source": "/neural-harmony/", "destination": "/neural-harmony/index.html" },
+    { "source": "/composure", "destination": "/composure/index.html" },
+    { "source": "/composure/", "destination": "/composure/index.html" }
   ]
 }
