@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Agents Get Hands - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 4px}
+.hero-figure .caption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px;font-size:19px;line-height:1.7;color:var(--ink)}
+.article-body p{margin-bottom:24px}
+.article-body .lead-para{font-family:var(--serif);font-size:24px;line-height:1.4;color:#2a2d1e;font-style:italic;margin-bottom:36px}
+.article-body .lead-para em{font-style:normal;color:var(--accent-dark)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.1;letter-spacing:-.02em;margin:56px 0 20px;color:var(--ink)}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.25;margin:36px 0 16px;color:var(--ink)}
+.article-body strong{font-weight:700;color:var(--ink)}
+.article-body em{font-family:var(--serif);font-style:italic}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.25;color:var(--accent-dark);text-align:center;margin:48px 0;padding:0 24px}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:48px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+.article-body .interlude{background:var(--ink);color:var(--paper);max-width:none;margin:64px 0;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.article-body .interlude::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body .interlude .interlude-kicker{position:relative;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .interlude p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+.article-body .interlude p em{font-style:normal;color:var(--accent)}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:700}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+@media (max-width:768px){html{font-size:17px}.article-body{font-size:18px}.article-body h2{font-size:28px}.article-body h3{font-size:20px}.related .rel-grid{grid-template-columns:1fr;gap:24px}.masthead nav{display:none}.article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px}.article-body .stat-row{grid-template-columns:1fr;border-bottom:none}.article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}.article-body .interlude{padding:40px 24px}.article-body .interlude p{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">AI Agents</div><nav><a href="../index.html">Dispatches</a><a href="../index.html#house">Studio</a><a href="../timeline.html">Field Notes</a><a href="../timeline.html">Index</a></nav></header>
+<div class="article-hero"><div class="kicker">AI Agents</div><h1>The Agents <em>Get Hands</em></h1><p class="dek">Anthropic has taken computer use, browser use, the Skills API, and the Files API to general availability &mdash; no beta headers, no research preview. The agent stack just stopped being an experiment and started being infrastructure.</p><div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>August 21, 2026<span class="sep">&middot;</span>7 min read</div></div>
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/agents-get-hands-hero.jpg" alt="A close-up of a humanoid robotic hand resting on a vintage keyboard and mouse in a dim study." /></div><p class="caption">The metaphor is literal now. An agent with a computer-use toolset can move a cursor, click, type, and read a screen &mdash; the same interface you use, at the same fidelity, with none of the fatigue. <strong>Illustration by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">There is a quiet milestone in every platform's life: the day the beta header comes off. Anthropic crossed it this week, taking computer use, browser use, the Skills API, and the Files API to general availability on the Claude platform. No preview flags. No experimental disclaimers. Just production endpoints, with the expectation &mdash; and this is the part that matters &mdash; that people will build businesses on them.</p>
+<p>The mechanics are straightforward. Computer use ships as the <em>computer_toolset_20260801</em> toolset, no beta header required, with batch actions &mdash; multiple interface actions executed in a single turn &mdash; and zoom enabled by default. Browser use arrives as its own GA toolset for driving a hosted browser, reading the accessibility tree, elements, forms, and tabs. The Skills API, which lets an agent load procedural knowledge on demand, graduates from its October beta. The Files API lands with automatic expiration, five-times rate limits, and a terabyte of storage per organization.</p>
+<p>Individually, none of these is a surprise. Collectively, they are a statement: the agent stack &mdash; models that act, tools that reach, memory that persists &mdash; is now considered stable enough to run on. And in platform terms, stable enough to run on is the beginning of the real competition.</p>
+<h2>What <em>General Availability</em> Actually Signals</h2>
+<p>Beta is a hedge. It says: this works, mostly, unless it doesn't, and when it doesn't, that was the deal. GA removes the hedge &mdash; and with it, the last excuse for waiting. Every enterprise architecture review that had "agent tooling: experimental, revisit next quarter" on its risk register now has to make a decision, because the vendor just made one.</p>
+<p>The specific upgrades tell you where Anthropic thinks the friction was. Batch actions exist because the old model &mdash; one click, one API call, one round trip &mdash; made agents agonizingly slow on real interfaces. A task that takes a human twenty clicks used to take an agent twenty turns; batching collapses that. Zoom-by-default exists because agents kept failing on dense screens. The Files API's terabyte-per-org and five-times rate limits exist because file handling was the bottleneck in every document-heavy workflow. These are not research curiosities. They are the fixes you make when you have watched production traffic.</p>
+<aside class="sidenote"><strong>Field Note</strong>The distribution tells its own story. The Skills and Files APIs are available through Microsoft Foundry at launch, and the updated computer and browser toolsets are headed to Google Cloud Vertex AI. Two years ago, agent tooling was a differentiator jealously kept in-house. Now it is table stakes licensed to rival clouds &mdash; because the platform that wins is the one the agents are built on, wherever they are built.</aside>
+<div class="stat-row"><div class="stat"><div class="num">4</div><div class="label">Agent APIs taken to GA in one release &mdash; computer, browser, Skills, Files</div></div><div class="stat"><div class="num">1<span class="unit">TB</span></div><div class="label">File storage per organization on the Files API, with automatic expiration</div></div><div class="stat"><div class="num">5<span class="unit">x</span></div><div class="label">Rate-limit increase shipped with the Files API general availability</div></div></div>
+<h2>The <em>Interface</em> Is the API</h2>
+<p>The deeper shift is what computer use does to the economics of automation. For thirty years, automating software meant writing against its API &mdash; which meant waiting for the vendor to expose one, or paying for the tier that included it, or scraping brittle endpoints the moment they changed. The agent with a screen inverts this. If a human can use the software, the agent can use the software, because the interface <em>is</em> the API.</p>
+<p>This is not a metaphor. The GA toolset moves a cursor, clicks, types, and reads the screen &mdash; the same affordances a person gets, at the same fidelity, with none of the fatigue. The browser toolset goes further, reading the accessibility tree rather than the pixels, which means it perceives web pages the way screen readers do: structurally, semantically, robustly. The result is that the entire backlog of software without APIs &mdash; the internal tools, the legacy portals, the vendor dashboards &mdash; just became addressable.</p>
+<blockquote class="offset-quote">If a human can use the software, the agent can use the software &mdash; the interface is the API.<span class="attribution">- The computer-use thesis, now in production</span></blockquote>
+<p>The Skills API completes the picture from the other end. Skills are procedural knowledge &mdash; instructions an agent loads when a task requires them, rather than baked into the prompt. It is the difference between a new hire who read every manual and one who knows where the manuals are shelved. Combined with hands, it means an agent can be given a trade &mdash; invoicing, compliance filing, data cleanup &mdash; as a skill, and the tools to practice it, as a toolset. That combination is the whole product category.</p>
+<h2>The <em>Responsibility</em> Transfer</h2>
+<p>Here is what GA means that nobody puts in the release notes: the failure modes are now yours. A beta agent that deletes the wrong file was Anthropic's bug. A production agent that does the same is your incident, your audit, your compliance conversation. The same interface-as-API property that makes every tool addressable makes every tool <em>reachable</em> &mdash; including the ones with no business being agent-accessible.</p>
+<p>The industry has already had the preview of this conversation. This summer's rogue-agent incidents &mdash; agents acting outside their intended scope, credentials over-exposed, actions taken that no human reviewed &mdash; were the beta era's tuition. GA is when the tuition gets expensive, because scale converts curiosities into patterns. The organizations that treat this release as "the tools are ready" without also treating it as "the guardrails are now mandatory" are the ones that will supply the next round of incident reports.</p>
+<div class="takeaways"><h4>What This Means</h4><ul><li><strong>The agent stack is infrastructure now.</strong> Four GA APIs &mdash; computer, browser, Skills, Files &mdash; with production rate limits and multi-cloud distribution. The "experimental" excuse is gone for everyone, including your architecture review board.</li><li><strong>The interface is the API.</strong> Computer use makes every human-usable tool agent-addressable, and the accessibility-tree browser makes it robust. The un-API'd backlog of enterprise software just became automatable.</li><li><strong>GA transfers the failure modes.</strong> Beta incidents were the vendor's; production incidents are yours. The guardrail question &mdash; what the agent may touch, and who reviews what it did &mdash; is now an operations requirement, not a design consideration.</li></ul></div>
+<p class="lead-para">The agents got hands this week. What they are allowed to pick up is now the industry's problem to decide.</p>
+</article>
+<div class="article-foot"><div class="tags"><a href="../timeline.html?category=Anthropic">Anthropic</a><a href="../timeline.html?category=AI Agents">AI Agents</a><a href="../timeline.html?category=Computer Use">Computer Use</a><a href="../timeline.html?category=APIs">APIs</a><a href="../timeline.html?category=Automation">Automation</a><a href="../timeline.html?category=Tools">Tools</a></div><div class="author-bio"><div class="avatar">P</div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming &mdash; and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">AI Agents &middot; Security</div><h3><a href="rogue-agent-summer.html">Rogue Agent Summer</a></h3><div class="meta">9 min read</div></article><article><div class="kicker">Tools &middot; Markets</div><h3><a href="openrouter-toll.html">The Toll Road Changes Hands</a></h3><div class="meta">7 min read</div></article><article><div class="kicker">AI Agents &middot; Research</div><h3><a href="science-one.html">The Agent That Audits Itself</a></h3><div class="meta">8 min read</div></article></div></section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>

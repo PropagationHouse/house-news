@@ -8,7 +8,7 @@ from pathlib import Path
 
 API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 API_URL = "https://openrouter.ai/api/v1/images"
-OUTPUT_DIR = Path(r"C:\Users\Bl0ck\AppData\Roaming\Substrate\workspace\projects\Propagation House Website Rebuild\house-news\assets\images")
+OUTPUT_DIR = Path(r"C:\Users\Bl0ck\AppData\Roaming\Substrate\workspace\projects\Propagation House Website Rebuild\house-news\house-news\assets\images")
 DEFAULT_MODEL = "google/gemini-3.1-flash-image"  # cheap, fast, good
 
 # ============================================================
@@ -155,6 +155,21 @@ IMAGES = [
     {
         "filename": "the-robot-prices-itself-hero.jpg",
         "prompt": "Editorial photograph, archival darkroom print: a humanoid robot silhouette standing before a dark stock ticker board, numbers glowing faintly amber, the figure half in shadow half in light. Muted olive, near-black, and paper-cream palette. Heavy film grain, scanlines, editorial restraint, magazine-feature composition. No neon, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
+        "filename": "vcenter-syslog-breach-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a dim server room at night, a single rack-mounted appliance with its syslog service panel glowing faint amber, a thin fiber-optic cable snaking out through a gap in a locked rack door, long shadows across a concrete floor, one small red warning LED reflected in the polished floor. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
+        "filename": "agents-get-hands-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a close-up of a humanoid robotic hand resting on a vintage computer keyboard and mouse in a dim study, warm amber desk lamp light raking across brushed metal fingers and aged paper documents beneath, a CRT monitor's faint glow in the background. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
+        "filename": "robot-breaks-at-waist-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a humanoid robot collapsed mid-sprint on an indoor running track, folded forward at the waist near a finish line, motion blur still trailing from its limbs, an empty stadium rising dark and vast around it, a single shaft of cold morning light cutting across the track. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
         "aspect_ratio": "16:9",
     },
 ]
