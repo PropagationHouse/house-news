@@ -117,13 +117,39 @@
         .chan-row.mutating .chan-cell.on { background:#6b7d38; animation:chanPulse 1.6s ease-in-out infinite; }
         @keyframes chanPulse { 0%,100%{opacity:1} 50%{opacity:.45} }
 
-        /* ── EDITORIAL FIGURES — paper-framed plates ── */
+        /* ── LIVE UI PLATES — paper-framed recreations of real rooms ── */
         .plate { background:#fdfbf4; border:1px solid rgba(75,83,32,0.18); padding:14px 14px 16px; box-shadow:0 10px 40px rgba(26,29,18,0.08); transform:rotate(-0.4deg); transition:transform .3s ease, box-shadow .3s ease; }
         .plate.tilt-r { transform:rotate(0.5deg); }
         .plate:hover { transform:rotate(0deg) translateY(-4px); box-shadow:0 16px 50px rgba(26,29,18,0.12); }
-        .plate img { display:block; width:100%; height:auto; }
         .plate figcaption { font-size:13px; line-height:1.5; color:#6b6e5a; padding-top:12px; }
         .plate figcaption strong { color:#4b5320; font-weight:700; letter-spacing:.04em; }
+
+        /* Sketch canvas — DoodleSketch: ink strokes ARE melody lines */
+        .sketch-canvas { position:relative; height:250px; background:#f6f1e2; border:1px solid rgba(75,83,32,0.12); border-radius:14px; overflow:hidden; }
+        .sketch-canvas svg { position:absolute; inset:0; width:100%; height:100%; }
+        .sketch-playhead { position:absolute; top:8px; bottom:8px; width:2px; background:rgba(138,95,47,0.75); box-shadow:0 0 14px rgba(138,95,47,0.45); animation:sketchSweep 8s linear infinite; }
+        @keyframes sketchSweep { 0%{left:3%} 100%{left:97%} }
+        .sketch-meta { display:flex; align-items:center; gap:10px; margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; color:#8a8f7a; }
+        .sketch-meta .dot { width:7px; height:7px; border-radius:9999px; background:#b3402f; animation:scribePulse 1.8s ease-in-out infinite; }
+
+        /* Radio — Lyria Realtime: a station you steer while it plays */
+        .radio-dial { display:flex; align-items:center; gap:12px; }
+        .radio-band { flex:1; height:6px; border-radius:9999px; background:rgba(75,83,32,0.10); position:relative; overflow:hidden; }
+        .radio-band::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg, transparent, rgba(75,83,32,0.35), transparent); width:40%; animation:radioScan 5s ease-in-out infinite; }
+        @keyframes radioScan { 0%{transform:translateX(-100%)} 100%{transform:translateX(320%)} }
+        .radio-wave { display:flex; align-items:center; gap:3px; height:44px; }
+        .radio-wave span { width:4px; border-radius:2px; background:#4b5320; opacity:.75; animation:radioBar 1.3s ease-in-out infinite; }
+        @keyframes radioBar { 0%,100%{transform:scaleY(.35)} 50%{transform:scaleY(1)} }
+
+        /* Notation — real sheet music: voice-to-MIDI, rendered */
+        .staff { position:relative; height:150px; margin:6px 0 2px; }
+        .staff-line { position:absolute; left:0; right:0; height:1px; background:rgba(26,29,18,0.35); }
+        .note-head { position:absolute; width:11px; height:8px; border-radius:50%; background:#1a1d12; transform:rotate(-18deg); }
+        .note-stem { position:absolute; width:1.5px; height:30px; background:#1a1d12; }
+        .note-beam { position:absolute; height:3px; background:#1a1d12; }
+        .ledger { position:absolute; height:1px; background:rgba(26,29,18,0.35); }
+        .playhead-line { position:absolute; top:-6px; bottom:-6px; width:2px; background:rgba(138,95,47,0.7); animation:staffSweep 6s linear infinite; }
+        @keyframes staffSweep { 0%{left:4%} 100%{left:96%} }
 
         /* ── PULL QUOTE ── */
         .pull-quote { font-family:'Playfair Display',Georgia,serif; font-style:italic; font-weight:400; }
@@ -500,8 +526,30 @@
 
             <div class="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
                 <figure class="plate">
-                    <img src="../assets/images/composure-fig0.jpg" alt="Parallel horizontal lanes with distinct geometric patterns - the Composure channel map">
-                    <figcaption><strong>Fig. 0</strong> &mdash; The channel map as a live state diagram. Role-labeled lanes, each independently addressable, each running for the full duration of the piece. Editorial plate &mdash; the live map runs inside the app.</figcaption>
+                    <div class="ui-frame rounded-2xl overflow-hidden">
+                        <div class="ui-titlebar">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+                                <span class="font-mono text-xs text-ink-100/60 tracking-wide">Sketch &mdash; drawing is composing</span>
+                            </div>
+                            <span class="font-mono text-xs text-brand-600">8s loop</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="sketch-canvas">
+                                <svg viewBox="0 0 400 250" preserveAspectRatio="none" aria-hidden="true">
+                                    <path d="M22 190 C 70 120, 110 210, 160 140 S 250 90, 300 150" fill="none" stroke="#4b5320" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+                                    <path d="M40 90 C 90 60, 150 130, 210 70 S 320 60, 372 110" fill="none" stroke="#8a5f2f" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+                                    <path d="M60 220 C 120 200, 200 235, 280 205 S 350 190, 385 210" fill="none" stroke="#6b4f8a" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+                                </svg>
+                                <div class="sketch-playhead"></div>
+                            </div>
+                            <div class="sketch-meta">
+                                <span class="dot"></span>
+                                <span>3 ink voices &middot; 96 bpm &middot; loop 8s</span>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption><strong>Sketch</strong> &mdash; Every ink stroke is a melody line. The playhead traces your drawing; the voices hold color, glow, and pitch. This is the live room, rendered in house paper.</figcaption>
                 </figure>
                 <div class="md:pt-10">
                     <p class="pull-quote text-3xl md:text-4xl leading-snug text-ink-400 mb-8">&ldquo;You don&rsquo;t tell Composure what to play. You tell it what each player should be doing, and it figures out how they fit together.&rdquo;</p>
@@ -512,12 +560,32 @@
 
             <div class="grid md:grid-cols-2 gap-10 md:gap-14 items-start mt-20">
                 <div class="md:pt-10 md:order-1 order-2">
-                    <p class="text-lg text-ink-100/70 leading-relaxed mb-6">A session mid-modification: the channel map shows the role-labeled voices; the <code class="font-mono text-base bg-[#4b5320]/10 border border-[#4b5320]/15 rounded px-1.5 py-0.5 text-brand-600">modify_playback</code> call transposes only the Bass channel &mdash; a transform, never a regeneration.</p>
-                    <p class="text-lg text-ink-100/70 leading-relaxed">No re-render. No drift. The song stays itself while one voice shifts &mdash; which is exactly how musicians have always worked, and exactly how no timeline editor lets you.</p>
+                    <p class="text-lg text-ink-100/70 leading-relaxed mb-6">A radio station that doesn&rsquo;t exist until you tune it. Radio runs Lyria Realtime &mdash; a live music model that plays in real time and takes direction <em class="font-semibold text-ink-400">while it&rsquo;s playing</em>. Type where you want to go and the station steers mid-broadcast: key, texture, weather, momentum.</p>
+                    <p class="text-lg text-ink-100/70 leading-relaxed">No playlist, no buffer, no two listens alike. It&rsquo;s the farthest room in the building &mdash; the one where the idea arrives already playing.</p>
                 </div>
                 <figure class="plate tilt-r md:order-2 order-1">
-                    <img src="../assets/images/composure-fig1.jpg" alt="Split view showing the channel map and a single highlighted lane being modified">
-                    <figcaption><strong>Fig. 1</strong> &mdash; One call, one channel. The bass drops a fifth; the other voices never flinch.</figcaption>
+                    <div class="ui-frame rounded-2xl overflow-hidden">
+                        <div class="ui-titlebar">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 010 8.49M7.76 16.24a6 6 0 010-8.49M19.07 4.93a10 10 0 010 14.14M4.93 19.07a10 10 0 010-14.14"/></svg>
+                                <span class="font-mono text-xs text-ink-100/60 tracking-wide">Radio &mdash; InterDimensionalRadio</span>
+                            </div>
+                            <span class="font-mono text-xs text-brand-600">Lyria Realtime &middot; live</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="radio-wave" aria-hidden="true">
+                                <span style="height:30%;animation-delay:0s"></span><span style="height:55%;animation-delay:.12s"></span><span style="height:80%;animation-delay:.24s"></span><span style="height:45%;animation-delay:.36s"></span><span style="height:95%;animation-delay:.48s"></span><span style="height:60%;animation-delay:.6s"></span><span style="height:35%;animation-delay:.72s"></span><span style="height:70%;animation-delay:.84s"></span><span style="height:100%;animation-delay:.96s"></span><span style="height:50%;animation-delay:1.08s"></span><span style="height:75%;animation-delay:0s"></span><span style="height:40%;animation-delay:.12s"></span><span style="height:85%;animation-delay:.24s"></span><span style="height:55%;animation-delay:.36s"></span><span style="height:30%;animation-delay:.48s"></span><span style="height:65%;animation-delay:.6s"></span><span style="height:90%;animation-delay:.72s"></span><span style="height:45%;animation-delay:.84s"></span><span style="height:70%;animation-delay:.96s"></span><span style="height:35%;animation-delay:1.08s"></span>
+                            </div>
+                            <div class="radio-dial mt-4">
+                                <span class="font-mono text-[10px] tracking-[0.15em] text-ink-100/40">DRIFT</span>
+                                <div class="radio-band"></div>
+                                <span class="font-mono text-[10px] tracking-[0.15em] text-ink-100/40">LOCK</span>
+                            </div>
+                            <p class="font-mono text-xs text-ink-100/60 mt-5"><span class="text-brand-600 font-semibold">you:</span> take it somewhere colder.</p>
+                            <p class="font-mono text-xs text-ink-100/50 mt-1.5"><span class="text-brand-600 font-semibold">radio:</span> steering&hellip; key &rarr; D dorian &middot; texture thins &middot; tape wow up.</p>
+                        </div>
+                    </div>
+                    <figcaption><strong>Radio</strong> &mdash; Text-prompted, real-time, and steerable mid-broadcast. The prompt is the dial.</figcaption>
                 </figure>
             </div>
         </div>
@@ -660,8 +728,53 @@
 
             <div class="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
                 <figure class="plate">
-                    <img src="../assets/images/composure-fig2.jpg" alt="Composure running as a portable sketchbook">
-                    <figcaption><strong>Fig. 2</strong> &mdash; The sketchbook side: sessions, vault, and voice-to-MIDI capture, built for the moment the idea arrives.</figcaption>
+                    <div class="ui-frame rounded-2xl overflow-hidden">
+                        <div class="ui-titlebar">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                                <span class="font-mono text-xs text-ink-100/60 tracking-wide">Composer &mdash; voice-to-MIDI, rendered</span>
+                            </div>
+                            <span class="font-mono text-xs text-brand-600">Basic Pitch &middot; on-device</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="staff" aria-hidden="true">
+                                <div class="staff-line" style="top:30%"></div>
+                                <div class="staff-line" style="top:40%"></div>
+                                <div class="staff-line" style="top:50%"></div>
+                                <div class="staff-line" style="top:60%"></div>
+                                <div class="staff-line" style="top:70%"></div>
+                                <!-- beamed eighth-note group -->
+                                <div class="note-beam" style="left:14%;top:26%;width:9%"></div>
+                                <div class="note-stem" style="left:14%;top:26%;height:34%"></div>
+                                <div class="note-head" style="left:calc(14% - 10px);top:56%"></div>
+                                <div class="note-stem" style="left:23%;top:26%;height:30%"></div>
+                                <div class="note-head" style="left:calc(23% - 10px);top:52%"></div>
+                                <!-- quarter notes -->
+                                <div class="note-stem" style="left:34%;top:22%;height:34%"></div>
+                                <div class="note-head" style="left:calc(34% - 10px);top:52%"></div>
+                                <div class="note-stem" style="left:44%;top:26%;height:32%"></div>
+                                <div class="note-head" style="left:calc(44% - 10px);top:54%"></div>
+                                <!-- ledger-line low note -->
+                                <div class="ledger" style="left:52%;width:26px;top:80%"></div>
+                                <div class="note-stem" style="left:54%;top:46%;height:34%"></div>
+                                <div class="note-head" style="left:calc(54% - 10px);top:76%"></div>
+                                <!-- rising figure -->
+                                <div class="note-beam" style="left:64%;top:20%;width:9%"></div>
+                                <div class="note-stem" style="left:64%;top:20%;height:36%"></div>
+                                <div class="note-head" style="left:calc(64% - 10px);top:52%"></div>
+                                <div class="note-stem" style="left:73%;top:20%;height:32%"></div>
+                                <div class="note-head" style="left:calc(73% - 10px);top:48%"></div>
+                                <div class="note-stem" style="left:84%;top:18%;height:34%"></div>
+                                <div class="note-head" style="left:calc(84% - 10px);top:48%"></div>
+                                <div class="playhead-line"></div>
+                            </div>
+                            <div class="sketch-meta">
+                                <span class="dot"></span>
+                                <span>source: hallway hum &middot; 22.05 kHz &rarr; MIDI &middot; key: D minor &middot; conf 0.94</span>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption><strong>Composer</strong> &mdash; Spotify&rsquo;s Basic Pitch turns a hum into editable MIDI, fully offline &mdash; then renders it as real sheet music with correct key signatures and enharmonic spelling.</figcaption>
                 </figure>
                 <div class="space-y-8 md:pt-6">
                     <div class="flex gap-5 items-start">
