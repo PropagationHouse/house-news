@@ -5,6 +5,45 @@
               },
     "published":  [
                       {
+                          "summary":  "The World Humanoid Robot Games opened in Beijing with 2,056 robots from 666 teams across 16 countries — the same week Unitree went public in Shanghai and its founder admitted the machines aren't ready for real work. The demo economy graduated to organized sport.",
+                          "filename":  "articles/robot-olympics.html",
+                          "lens":  "intelligence",
+                          "kicker":  "Robotics · Autonomy",
+                          "category":  "Robotics",
+                          "author":  "Propagation House",
+                          "date":  "2026-08-22",
+                          "read_time":  "9 min",
+                          "status":  "published",
+                          "dek":  "Beijing has convened 2,056 robots from 666 teams across 16 countries for the World Humanoid Robot Games — while Unitree goes public in Shanghai and its founder admits the machines still can't do real work. The demo economy has graduated to organized sport.",
+                          "title":  "The Robot Olympics Open"
+                      },
+                      {
+                          "summary":  "Alation, the data catalog that maps where every table, credential, and sensitive column lives, confirmed a cyberattack. The burglars didn't hit the vault — they hit the building directory. Metadata is the new crown jewel.",
+                          "filename":  "articles/alation-map-robbed.html",
+                          "lens":  "security_infrastructure",
+                          "kicker":  "Security · Infrastructure",
+                          "category":  "Security",
+                          "author":  "Propagation House",
+                          "date":  "2026-08-22",
+                          "read_time":  "8 min",
+                          "status":  "published",
+                          "dek":  "Alation, the data catalog that tells enterprises where every table, credential, and sensitive column lives, has confirmed a cyberattack. The burglars didn't hit the vault. They hit the building directory.",
+                          "title":  "The Map of Everything Gets Robbed"
+                      },
+                      {
+                          "summary":  "CapCut's agent co-creation canvas, fal's creative partner, Adobe tools inside ChatGPT — the design tool is changing species. It used to be operated. Now it is negotiated with, and the interface is becoming a conversation.",
+                          "filename":  "articles/canvas-negotiate.html",
+                          "lens":  "tools",
+                          "kicker":  "Design · Tools",
+                          "category":  "Design",
+                          "author":  "Propagation House",
+                          "date":  "2026-08-22",
+                          "read_time":  "8 min",
+                          "status":  "published",
+                          "dek":  "CapCut's agent co-creation canvas, fal's creative partner, Adobe tools inside ChatGPT — the design tool is quietly changing species. It used to be operated. Now it is negotiated with, and the interface is becoming a conversation.",
+                          "title":  "The Canvas Learns to Negotiate"
+                      },
+                      {
                           "summary":  "Unitree closed its first day of trading on Shanghai's STAR Market up 460 percent, at a market value near fifty billion dollars, after an offering more than 8,000 times oversubscribed. The humanoid race got a ticker — and a number it can no longer hide behind.",
                           "filename":  "articles/the-robot-prices-itself.html",
                           "lens":  "intelligence",

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Canvas Learns to Negotiate - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 4px}
+.hero-figure .caption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px;font-size:19px;line-height:1.7;color:var(--ink)}
+.article-body p{margin-bottom:24px}
+.article-body .lead-para{font-family:var(--serif);font-size:24px;line-height:1.4;color:#2a2d1e;font-style:italic;margin-bottom:36px}
+.article-body .lead-para em{font-style:normal;color:var(--accent-dark)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.1;letter-spacing:-.02em;margin:56px 0 20px;color:var(--ink)}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.25;margin:36px 0 16px;color:var(--ink)}
+.article-body strong{font-weight:700;color:var(--ink)}
+.article-body em{font-family:var(--serif);font-style:italic}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.25;color:var(--accent-dark);text-align:center;margin:48px 0;padding:0 24px}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:48px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+.article-body .interlude{background:var(--ink);color:var(--paper);max-width:none;margin:64px 0;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.article-body .interlude::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body .interlude .interlude-kicker{position:relative;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .interlude p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+.article-body .interlude p em{font-style:normal;color:var(--accent)}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:700}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+@media (max-width:768px){html{font-size:17px}.article-body{font-size:18px}.article-body h2{font-size:28px}.article-body h3{font-size:20px}.related .rel-grid{grid-template-columns:1fr;gap:24px}.masthead nav{display:none}.article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px}.article-body .stat-row{grid-template-columns:1fr;border-bottom:none}.article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}.article-body .interlude{padding:40px 24px}.article-body .interlude p{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">Design</div><nav><a href="../index.html">Dispatches</a><a href="../index.html#house">Studio</a><a href="../timeline.html">Field Notes</a><a href="../timeline.html">Index</a></nav></header>
+<div class="article-hero"><div class="kicker">Design &middot; Tools</div><h1>The Canvas Learns to <em>Negotiate</em></h1><p class="dek">CapCut's agent co-creation canvas, fal's creative partner, Adobe tools inside ChatGPT &mdash; the design tool is quietly changing species. It used to be operated. Now it is negotiated with, and the interface is becoming a conversation.</p><div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>August 22, 2026<span class="sep">&middot;</span>8 min read</div></div>
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/canvas-negotiate-hero.jpg" alt="A drafting table where a human hand and a machine hand both hold pencils over the same blueprint, rendered in dark olive and ink tones." /></div><p class="caption">Co-creation is the new default: the canvas stops being a surface you operate and becomes a counterparty you negotiate with. <strong>Illustration by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">The design tool has always been an instrument &mdash; a thing operated. You learned its verbs, memorized its shortcuts, and bent it to your intent. This month, quietly and across the whole industry at once, the instrument started becoming a counterparty. CapCut shipped a Design Studio upgrade built around agent co-creation on an infinite canvas. fal put an agent in early access that orchestrates image, video, and 3D models as a creative partner. Adobe's tools are reportedly reachable from inside ChatGPT through a plugin connecting more than seventy of them. The canvas, as a category, is learning to negotiate.</p>
+<p>The CapCut release is the most complete picture of the shift. The infinite canvas is the old metaphor, retained for comfort. What's new sits on top of it: an agent that participates in the work rather than executing commands, plus reusable "Skills" &mdash; packaged creative procedures the agent can load and apply &mdash; and ByteDance's Seedream 5.0 Pro image model underneath. The framing is not "generate me a poster." It is "here is my canvas, here is what I'm trying to do, work alongside me." That is a different verb entirely.</p>
+<p>fal's agent takes the same idea upstream, to the professional end. Rather than one model with one interface, it orchestrates workflows across the frontier of image, video, and 3D generation &mdash; choosing tools, chaining steps, and carrying intent across them. And the Adobe-ChatGPT integration inverts the geometry completely: the design tools don't get an AI feature; the AI gets the design tools. Photoshop, Lightroom, Premiere &mdash; seventy-plus of them &mdash; become capabilities a conversation can invoke. The application dissolves into the assistant.</p>
+<h2>From <em>Operators</em> to Editors</h2>
+<p>Every previous generation of design software made its users faster at the same job. Photoshop didn't change what a retoucher was; it changed the retoucher's throughput. The agent canvas changes the job itself. When the tool can propose, execute, and iterate, the human's contribution concentrates on judgment: what is good, what is on-brand, what survives contact with the client. The operator becomes an editor &mdash; of work that did not exist a moment before it was requested.</p>
+<p>This is the same transition writing has been digesting for two years, arriving in a discipline that thought it was exempt. Designers consoled themselves that visual work required taste, and taste couldn't be automated. True &mdash; and irrelevant, because what's being automated isn't taste. It's the production layer beneath taste: the compositing, the resizing, the variant generation, the format gymnastics, the four-hundred-asset localization pass. The taste moves up the stack and becomes the only thing the human does. Whether that is a promotion or a demotion depends entirely on how much of the job you actually enjoyed.</p>
+<aside class="sidenote"><strong>Field Note</strong>Watch the Skills pattern &mdash; it is the same architecture Anthropic just took to general availability for code agents, now arriving in creative tools. Procedural knowledge, packaged and loaded on demand, is becoming the universal unit of "what the agent knows how to do." When design tools and code agents speak the same skill format, the boundary between designing a thing and building it gets very thin.</aside>
+<div class="stat-row"><div class="stat"><div class="num">70<span class="unit">+</span></div><div class="label">Adobe tools reachable from inside ChatGPT via the reported plugin &mdash; Photoshop, Lightroom, Premiere among them</div></div><div class="stat"><div class="num">3</div><div class="label">Media dimensions fal's agent orchestrates across &mdash; image, video, and 3D, chained into single workflows</div></div><div class="stat"><div class="num">5.0</div><div class="label">Seedream Pro generation powering CapCut's canvas &mdash; the model layer and the agent layer fusing into one product</div></div></div>
+<h2>The <em>Interface</em> Inverts</h2>
+<p>The deepest change is architectural, and it is happening in the wrong direction from what everyone predicted. The future of design software was supposed to be AI features inside applications. Instead the applications are becoming features inside the AI. The ChatGPT-Adobe integration is the clearest signal: the entry point is no longer the tool, it is the conversation, and the tools are summoned as needed. CapCut and fal are building the same inversion from the other side &mdash; agent-first products where the canvas is the agent's workplace and the human is a collaborator who happens to have opinions.</p>
+<p>For the industry's incumbents, this is an uncomfortable geometry. Adobe's moat was the application &mdash; the muscle memory, the file formats, the ecosystem. If the conversation becomes the primary surface, the moat inverts into a catalog: the tools are still valuable, but as inventory summoned by an assistant that may not be Adobe's. The company is, in effect, licensing its own disruption &mdash; or getting ahead of it, depending on the quarter you believe. Either way, the application as the center of creative work is a hypothesis now under active test.</p>
+<blockquote class="offset-quote">The tools didn't get an AI feature. The AI got the tools.<span class="attribution">- The inversion nobody scheduled</span></blockquote>
+<h2>What <em>Survives</em></h2>
+<p>What doesn't change is the part worth defending. The brief still matters. The taste that separates the merely generated from the genuinely designed still matters. The client who cannot say what they want until they see what they don't want &mdash; still the industry's load-bearing constant. The agent canvas makes all of it faster to serve and none of it easier to have. The studios that thrive will be the ones that treat the negotiation interface as a speedup on judgment, not a substitute for it.</p>
+<p>The house position, as ever, is pragmatic: we build with what ships. The agent canvas is real, it works, and it is arriving everywhere at once &mdash; CapCut for the mass market, fal for the pipeline, ChatGPT for the Adobe-bound. Learn to negotiate. The canvas already has.</p>
+<div class="takeaways"><h4>What This Means</h4><ul><li><strong>The tool became a counterparty.</strong> Agent co-creation in CapCut, fal's orchestrating partner, Adobe-in-ChatGPT: the design tool is negotiated with now, not operated. The core verb changed.</li><li><strong>Applications are becoming features.</strong> The conversation is the new primary surface; tools get summoned as inventory. Adobe's moat inverts into a catalog.</li><li><strong>Taste moves up the stack.</strong> Production is automated; judgment is the job. The studios that win treat the negotiation interface as a speedup on taste, not a replacement for it.</li></ul></div>
+<p class="lead-para">The canvas learned to negotiate this month. The designers who learn to negotiate back will be fine.</p>
+</article>
+<div class="article-foot"><div class="tags"><a href="../timeline.html?category=Design">Design</a><a href="../timeline.html?category=Tools">Tools</a><a href="../timeline.html?category=AI Agents">AI Agents</a><a href="../timeline.html?category=CapCut">CapCut</a><a href="../timeline.html?category=Adobe">Adobe</a><a href="../timeline.html?category=Generative Media">Generative Media</a></div><div class="author-bio"><div class="avatar">P</div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming &mdash; and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">AI Agents &middot; Tools</div><h3><a href="agents-get-hands.html">The Agents Get Hands</a></h3><div class="meta">7 min read</div></article><article><div class="kicker">Design &middot; Creative Coding</div><h3><a href="studio-that-evolves.html">The Studio That Evolves</a></h3><div class="meta">6 min read</div></article><article><div class="kicker">Tools &middot; Markets</div><h3><a href="openrouter-toll.html">The Toll Road Changes Hands</a></h3><div class="meta">7 min read</div></article></div></section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>

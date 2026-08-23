@@ -172,6 +172,21 @@ IMAGES = [
         "prompt": "Editorial photograph, archival darkroom print: a humanoid robot collapsed mid-sprint on an indoor running track, folded forward at the waist near a finish line, motion blur still trailing from its limbs, an empty stadium rising dark and vast around it, a single shaft of cold morning light cutting across the track. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
         "aspect_ratio": "16:9",
     },
+    {
+        "filename": "robot-olympics-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a humanoid robot sprinting alone on a stadium running track under towering floodlights at dusk, lanes marked in worn white paint, motion blur at the joints, a vast dark stadium bowl rising around it with faint amber house lights, haze catching the beams. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
+        "filename": "alation-map-robbed-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a grand wooden library card catalog in a dim archive room, several drawers pulled fully open, index cards scattered across the floor in a deliberate trail leading away from it, a single green-shaded desk lamp casting warm amber light, dust in the air. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
+        "filename": "canvas-negotiate-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a large drafting table in a dim studio, a human hand and a precise robotic hand each holding a pencil over the same large blueprint, drawn lines converging from both sides, warm amber task lamp light raking across vellum paper and brushed metal fingers. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
 ]
 
 def generate_image(model, prompt, aspect_ratio, output_path, dry_run=False):
