@@ -178,6 +178,21 @@ IMAGES = [
         "aspect_ratio": "16:9",
     },
     {
+        "filename": "bolt-record-falls-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a finish-line camera view of a humanoid robot crossing the line on a stadium track at night, body caught in sharp mid-stride while the background crowds dissolve into motion blur, the lane's worn white paint and a single overhead floodlight beam cutting through haze. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
+        "filename": "frontier-on-sale-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: a chalkboard price board in a dim market hall, prices half-erased and rewritten lower in chalk, a brass handrail catching warm lamplight, no readable text or numbers, just the gesture of falling prices. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
+        "filename": "autonomy-majority-hero.jpg",
+        "prompt": "Editorial photograph, archival darkroom print: an unstaffed industrial control room at night, rows of dark consoles with small amber and cream indicator lights, one operator's chair empty and turned slightly, monitors glowing faintly with abstract dial gauges, deep shadows. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
+        "aspect_ratio": "16:9",
+    },
+    {
         "filename": "alation-map-robbed-hero.jpg",
         "prompt": "Editorial photograph, archival darkroom print: a grand wooden library card catalog in a dim archive room, several drawers pulled fully open, index cards scattered across the floor in a deliberate trail leading away from it, a single green-shaded desk lamp casting warm amber light, dust in the air. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
         "aspect_ratio": "16:9",

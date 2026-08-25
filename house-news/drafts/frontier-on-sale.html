@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Frontier Goes on Sale - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 4px}
+.hero-figure .caption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px;font-size:19px;line-height:1.7;color:var(--ink)}
+.article-body p{margin-bottom:24px}
+.article-body .lead-para{font-family:var(--serif);font-size:24px;line-height:1.4;color:#2a2d1e;font-style:italic;margin-bottom:36px}
+.article-body .lead-para em{font-style:normal;color:var(--accent-dark)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.1;letter-spacing:-.02em;margin:56px 0 20px;color:var(--ink)}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.25;margin:36px 0 16px;color:var(--ink)}
+.article-body strong{font-weight:700;color:var(--ink)}
+.article-body em{font-family:var(--serif);font-style:italic}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.25;color:var(--accent-dark);text-align:center;margin:48px 0;padding:0 24px}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:48px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+.article-body .interlude{background:var(--ink);color:var(--paper);max-width:none;margin:64px 0;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.article-body .interlude::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body .interlude .interlude-kicker{position:relative;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .interlude p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+.article-body .interlude p em{font-style:normal;color:var(--accent)}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:700}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+@media (max-width:768px){html{font-size:17px}.article-body{font-size:18px}.article-body h2{font-size:28px}.article-body h3{font-size:20px}.related .rel-grid{grid-template-columns:1fr;gap:24px}.masthead nav{display:none}.article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px}.article-body .stat-row{grid-template-columns:1fr;border-bottom:none}.article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}.article-body .interlude{padding:40px 24px}.article-body .interlude p{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">Technology</div><nav><a href="../index.html">Dispatches</a><a href="../index.html#house">Studio</a><a href="../timeline.html">Field Notes</a><a href="../timeline.html">Index</a></nav></header>
+<div class="article-hero"><div class="kicker">Frontier Models &middot; Markets</div><h1>The Frontier Goes on <em>Sale</em></h1><p class="dek">OpenAI has cut GPT-5.6 Sol API pricing by up to a third &mdash; "promotional," through late November. Frontier intelligence is now priced like a seasonal product, which tells you exactly what the labs think it has become.</p><div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>August 24, 2026<span class="sep">&middot;</span>7 min read</div></div>
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/frontier-on-sale-hero.jpg" alt="A chalkboard price board in a dim market hall with prices half-erased and rewritten lower, rendered in dark olive and ink tones." /></div><p class="caption">Input down 20%, output down 33%, "at least through November 21." The word "promotional" is carrying more weight than any model card. <strong>Illustration by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">The tell is the word "promotional." OpenAI cut GPT-5.6 Sol's API price this week &mdash; input from $5 to $4 per million tokens, output from $30 to $20 &mdash; and framed it as a limited-time offer, at least through November 21. Frontier intelligence, the scarcest artifact of the decade, is now being moved with the pricing mechanics of a mattress sale.</p>
+<p>The arithmetic is straightforward: a fifth off input, a third off output, on the flagship. The cut extends to Codex credits and eligible ChatGPT Work plans, while consumer subscriptions hold steady. Reuters read it as a price war signal, and it is &mdash; but price wars are what mature markets do. The interesting question is what it means when the frontier starts discounting before the frontier has even finished arriving.</p>
+<p>Context matters here, and the context is strange. The same company that is cutting prices on Sol is, by multiple reports, still holding its largest planned reinforcement-learning training run in abeyance &mdash; paused after the Hugging Face breach, resumed only at smaller scale while safeguards get validated. The discount and the pause are the same story told twice: the frontier is now as much a commercial posture as a technical achievement, and the posture is currently "volume."</p>
+<h2>The <em>Commodity</em> Threshold</h2>
+<p>Every technology crosses a line where the question stops being "can it be done" and becomes "what does it cost." The crossing is usually gradual and invisible until a price sheet makes it official. This is that price sheet. When the flagship model &mdash; the one with the benchmarks, the safety paper trail, the naming convention &mdash; gets a promotional rate, the lab is telling you its margin model now assumes volume, not scarcity.</p>
+<p>There is a second reading, less flattering: the frontier is crowded. Z.ai, Meta, Alibaba, DeepSeek, and Google all shipped model activity in the same window, several of them optimized for agentic workflows and tool use. When five providers can all serve "good enough frontier," the premium tier competes on price like everything else. Sol's discount is what it looks like when the moat is measured in basis points.</p>
+<aside class="sidenote"><strong>Field Note</strong>Watch the November 21 date. "At least through" is doing careful work in OpenAI's phrasing &mdash; it preserves the option to extend indefinitely, which is how promotions become prices. The last time a frontier discount was walked back was never. Temporary pricing at the frontier is a one-way ratchet.</aside>
+<div class="stat-row"><div class="stat"><div class="num">20<span class="unit">%</span></div><div class="label">Cut on GPT-5.6 Sol input pricing &mdash; $5 to $4 per million tokens</div></div><div class="stat"><div class="num">33<span class="unit">%</span></div><div class="label">Cut on output pricing &mdash; $30 to $20 per million tokens, the deeper discount</div></div><div class="stat"><div class="num">5</div><div class="label">Frontier providers shipping model activity in the same window &mdash; Z.ai, Meta, Alibaba, DeepSeek, Google</div></div></div>
+<h2>What Cheap <em>Intelligence</em> Does</h2>
+<p>The downstream effect of a frontier price cut is not "cheaper chatbots." It is a re-pricing of every architecture decision that assumed expensive intelligence. Agentic systems that loop a model dozens of times per task become viable at a third off output tokens. Long-context pipelines, continuous code review, the always-on analyst &mdash; each was gated by token economics, and the gate just moved. The teams that win the next cycle will be the ones who built as though this cut was coming, because it always was.</p>
+<p>But cheap intelligence also cheapens the argument for caution. Every safety review that was justified by "we can afford to be slow because inference is the expensive part" loses a little ground. The industry is simultaneously discounting its most capable product and deferring its most ambitious training run &mdash; pushing capability out to more users faster while pulling the next capability back. That is not incoherence. That is a company managing two different clocks: a commercial clock that wants volume now, and a safety clock that just got burned in public.</p>
+<blockquote class="offset-quote">Scarcity was the last argument for restraint. The frontier just went on sale, and the restraint went with it.<span class="attribution">- On pricing the most capable artifact of the decade</span></blockquote>
+<h2>The <em>Bill</em> Arrives Later</h2>
+<p>None of this is free, whatever the price sheet says. The discount is a customer-acquisition spend against a future where OpenAI's stack &mdash; API, Codex, ChatGPT Work &mdash; is the default substrate for agentic work. Lock-in compounds quietly: every architecture built against Sol's token economics this quarter is a switching cost next year. The promotion ends in November. The dependencies won't.</p>
+<p>So read the price cut as a statement of identity. The labs spent three years insisting they were research institutions that happened to sell access. A promotional rate on the flagship, in the same month as a paused training run and a crowded frontier, is the sound of that story ending. What's left is a vendor &mdash; a very good one, with the best product &mdash; competing on price like vendors do. The frontier went on sale. That sentence used to be a contradiction. Now it's a business model.</p>
+<div class="takeaways"><h4>What This Means</h4><ul><li><strong>Frontier pricing has crossed the commodity threshold.</strong> A promotional rate on the flagship model is volume strategy, not scarcity strategy &mdash; the moat is now measured in basis points, not benchmarks.</li><li><strong>November 21 is a ratchet, not a deadline.</strong> "At least through" preserves the option to make the discount permanent. No frontier discount has ever been walked back.</li><li><strong>Cheap tokens re-price every architecture.</strong> Multi-loop agents and always-on pipelines just became viable. The winners built for this cut before it landed.</li></ul></div>
+<p class="lead-para">The scarcest intelligence ever built, marked down for a limited time. The limited time is the part nobody believes.</p>
+</article>
+<div class="article-foot"><div class="tags"><a href="../timeline.html?category=Technology">Technology</a><a href="../timeline.html?category=Frontier Models">Frontier Models</a><a href="../timeline.html?category=OpenAI">OpenAI</a><a href="../timeline.html?category=Markets">Markets</a><a href="../timeline.html?category=Agents">Agents</a></div><div class="author-bio"><div class="avatar">P</div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming &mdash; and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">Technology &middot; Tools</div><h3><a href="openrouter-toll.html">The Toll Road Changes Hands</a></h3><div class="meta">7 min read</div></article><article><div class="kicker">Security &middot; Infrastructure</div><h3><a href="litellm-poison-pill.html">The Poison Pill in the AI Gateway</a></h3><div class="meta">8 min read</div></article><article><div class="kicker">Design &middot; Tools</div><h3><a href="canvas-negotiate.html">The Canvas Learns to Negotiate</a></h3><div class="meta">8 min read</div></article></div></section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>

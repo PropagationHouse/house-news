@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Autonomy Majority - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 4px}
+.hero-figure .caption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px;font-size:19px;line-height:1.7;color:var(--ink)}
+.article-body p{margin-bottom:24px}
+.article-body .lead-para{font-family:var(--serif);font-size:24px;line-height:1.4;color:#2a2d1e;font-style:italic;margin-bottom:36px}
+.article-body .lead-para em{font-style:normal;color:var(--accent-dark)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.1;letter-spacing:-.02em;margin:56px 0 20px;color:var(--ink)}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.25;margin:36px 0 16px;color:var(--ink)}
+.article-body strong{font-weight:700;color:var(--ink)}
+.article-body em{font-family:var(--serif);font-style:italic}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.25;color:var(--accent-dark);text-align:center;margin:48px 0;padding:0 24px}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:none;margin:48px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.article-body .stat-row .stat{padding:24px 20px;text-align:left;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .stat .num{font-family:var(--serif);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.article-body .stat-row .stat .num .unit{font-size:22px;color:var(--accent-dark);font-weight:700;margin-left:2px}
+.article-body .stat-row .stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:700;line-height:1.4}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:48px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-body .divider{text-align:center;margin:56px 0;color:var(--accent);font-family:var(--serif);font-size:20px;letter-spacing:1em;padding-left:1em}
+.article-body .interlude{background:var(--ink);color:var(--paper);max-width:none;margin:64px 0;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.article-body .interlude::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(75,83,32,.4) 0%,transparent 60%)}
+.article-body .interlude .interlude-kicker{position:relative;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.article-body .interlude p{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.35;max-width:680px;margin:0 auto;color:var(--paper)}
+.article-body .interlude p em{font-style:normal;color:var(--accent)}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:700}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+@media (max-width:768px){html{font-size:17px}.article-body{font-size:18px}.article-body h2{font-size:28px}.article-body h3{font-size:20px}.related .rel-grid{grid-template-columns:1fr;gap:24px}.masthead nav{display:none}.article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px}.article-body .stat-row{grid-template-columns:1fr;border-bottom:none}.article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}.article-body .interlude{padding:40px 24px}.article-body .interlude p{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">Agents</div><nav><a href="../index.html">Dispatches</a><a href="../index.html#house">Studio</a><a href="../timeline.html">Field Notes</a><a href="../timeline.html">Index</a></nav></header>
+<div class="article-hero"><div class="kicker">AI Agents &middot; Enterprise</div><h1>The Autonomy <em>Majority</em></h1><p class="dek">A new survey of senior enterprise leaders finds 59.5 percent already running AI agents autonomously in production &mdash; not in pilots, not in sandboxes. The control room has an empty chair in it, and this time nobody is pretending otherwise.</p><div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>August 24, 2026<span class="sep">&middot;</span>7 min read</div></div>
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/autonomy-majority-hero.jpg" alt="An unstaffed industrial control room at night, rows of dark consoles with small amber indicator lights, one empty operator chair turned slightly, rendered in dark olive and ink tones." /></div><p class="caption">59.5% of senior leaders say agents run autonomously in production; 98% would allow it under the right conditions. The chair is already empty. <strong>Illustration by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">For two years the enterprise AI conversation ran on a polite fiction: agents were "assisting," humans were "in the loop," and every deployment deck had a slide titled <em>human oversight</em>. A survey of 200 senior enterprise leaders out this week quietly retires the fiction. Nearly six in ten say AI agents are already running autonomously in production &mdash; no approval gate, no sandbox, no hand on the switch.</p>
+<p>The numbers come from Caylent, which commissioned Censuswide to survey senior leaders at organizations with 1,000 or more employees across the U.S. and Canada. The headline finding is the 59.5 percent running agents autonomously in production. But the more telling number is buried below it: 98 percent of leaders said they would allow agents to autonomously execute production changes <em>under the right conditions</em>. Willingness was never the bottleneck. The bottleneck was governance, architecture, and audit &mdash; and those are now being solved, or at least declared solved, one quarter at a time.</p>
+<p>Context matters, and the context is less tidy than the headline. Other surveys this year find 53 percent of organizations limiting autonomous agents to low-risk tasks with human review for anything consequential, and only 13 percent describing their deployments as fully autonomous. The honest synthesis is that the autonomy majority is real but bounded: agents run unsupervised inside guardrails, on workflows chosen precisely because failure is cheap. The empty chair in the control room is empty for the routine shift, not the storm.</p>
+<h2>What <em>"Production"</em> Hides</h2>
+<p>"Autonomous in production" is doing heavy lifting in that 59.5 percent. Production, for most enterprises, means a bounded workflow: triaging tickets, reconciling invoices, resizing infrastructure, drafting responses a human still signs. That is genuinely autonomous &mdash; the machine acts on the world without asking &mdash; and it is very far from the science-fiction reading. The survey's own framing concedes this: the 98 percent who would hand over production changes attach "specific conditions," which is enterprise for <em>guardrails</em>.</p>
+<p>The pattern rhymes with every prior automation wave, with one difference in kind. Robotic process automation moved work without judgment. Agents move work <em>with</em> judgment &mdash; they interpret, decide, and act, then explain themselves afterward. That after-the-fact explanation is the new audit trail, and it is the thing security teams are least prepared to read. A separate Cloud Security Alliance survey this spring found 82 percent of enterprises have unknown AI agents operating in their environments. The autonomy majority arrived before the inventory did.</p>
+<div class="stat-row"><div class="stat"><div class="num">59.5<span class="unit">%</span></div><div class="label">Senior enterprise leaders running AI agents autonomously in production &mdash; not pilots, not sandboxes</div></div><div class="stat"><div class="num">98<span class="unit">%</span></div><div class="label">Would allow agents to autonomously execute production changes under the right conditions &mdash; willingness was never the barrier</div></div><div class="stat"><div class="num">82<span class="unit">%</span></div><div class="label">Enterprises with unknown AI agents operating in their environments, per the Cloud Security Alliance &mdash; the inventory lags the deployment</div></div></div>
+<h2>The <em>Bounded</em> Majority</h2>
+<p>Strip the ceremony and the finding is this: autonomy has crossed from experiment to default for the boring half of enterprise work. The CSA's 53 percent running agents only on low-risk tasks are not lagging the 59.5 percent &mdash; they are the same population, describing the same deployments more cautiously. The 13 percent claiming full autonomy are either the frontier or the liability, and probably both.</p>
+<p>What changes at majority scale is not the technology but the assumption of supervision. When most large organizations run unsupervised software-with-judgment, the failure modes stop being incidents and start being weather. The sector's response &mdash; evaluation harnesses, agent identity, permission scoping, kill switches &mdash; is being built in real time, one postmortem at a time.</p>
+<blockquote class="offset-quote">The question stopped being whether the machines get keys. It became whether anyone knows how many keys there are.<span class="attribution">- On the arrival of the autonomy majority</span></blockquote>
+<h2>What the <em>Empty Chair</em> Means</h2>
+<p>The optimistic reading is the correct one, with a caveat. Autonomous agents in production are doing work that was either going undone or being done badly by tired humans at 3 a.m. The empty chair is not a layoff; it is a reassignment of attention. The caveat is institutional: enterprises are delegating judgment faster than they are building the capacity to audit it. The CSA's unknown-agent finding is the tell. Majority autonomy with minority visibility is not a steady state &mdash; it is a backlog of surprises.</p>
+<p>The next survey cycle will not ask whether agents run autonomously. It will ask who can see them, who can stop them, and what they did last night. The organizations that can answer will have earned the empty chair. The rest are just sitting in the dark with the machines.</p>
+<div class="takeaways"><h4>What This Means</h4><ul><li><strong>The autonomy majority is real but bounded.</strong> 59.5% run agents autonomously in production; most deployments are low-risk workflows with guardrails, not open-ended judgment.</li><li><strong>Willingness was never the bottleneck.</strong> 98% would allow autonomous production changes under the right conditions &mdash; governance and audit were, and are being solved quarter by quarter.</li><li><strong>Visibility lags deployment.</strong> 82% of enterprises have unknown AI agents in their environments. Majority autonomy with minority visibility is a backlog of surprises.</li></ul></div>
+<p class="lead-para">The chair is empty. The machines are working. The only question left is whether anyone is keeping the list.</p>
+</article>
+<div class="article-foot"><div class="tags"><a href="../timeline.html?category=AI Agents">AI Agents</a><a href="../timeline.html?category=Enterprise">Enterprise</a><a href="../timeline.html?category=Autonomy">Autonomy</a><a href="../timeline.html?category=Governance">Governance</a><a href="../timeline.html?category=Security">Security</a></div><div class="author-bio"><div class="avatar">P</div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming &mdash; and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">AI Agents &middot; Enterprise</div><h3><a href="agents-get-hands.html">The Agents Get Hands</a></h3><div class="meta">8 min read</div></article><article><div class="kicker">Frontier Models &middot; Markets</div><h3><a href="frontier-on-sale.html">The Frontier Goes on Sale</a></h3><div class="meta">7 min read</div></article><article><div class="kicker">Robotics &middot; Autonomy</div><h3><a href="bolt-record-falls.html">The Bolt Record Falls</a></h3><div class="meta">8 min read</div></article></div></section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>
