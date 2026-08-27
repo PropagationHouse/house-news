@@ -1,208 +1,313 @@
 """
-House News Article Image Generator — uses OpenRouter Image API
-Generates hero images and inline figures for House News articles.
-Usage: python gen_images.py [--dry-run] [--model MODEL]
+House News Article Image Generator — OpenRouter Image API (Flux 2 Pro).
+Generates hero images + inline figures for House News articles.
+
+Usage:
+    python gen_images.py                 # render anything missing
+    python gen_images.py --dry-run       # print plan, no renders
+    python gen_images.py --force         # re-render even if file exists
+    python gen_images.py --only a.jpg,b.jpg
+
+ART DIRECTION: see STYLE_GUIDE.md (confirmed Aug 26, 2026).
+Every prompt is built from build_lane_a() / build_lane_b() — the two
+confirmed skeletons. Do NOT hand-write prompts in the SIGNA / archival-
+darkroom / scanline style; that look is retired.
+
+Manifest entries are either:
+    {"filename": ..., "aspect_ratio": ..., "copy_from": "style-test-v1/x.png"}
+        -> copy an already-approved render (no API cost)
+    {"filename": ..., "aspect_ratio": ..., "lane": "a", "subject": ..., ...}
+        -> build a fresh prompt from the lane skeleton and render it
 """
-import json, subprocess, base64, os, sys, time, argparse
+import json, subprocess, base64, os, sys, time, argparse, shutil
 from pathlib import Path
 
 API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 API_URL = "https://openrouter.ai/api/v1/images"
-OUTPUT_DIR = Path(r"C:\Users\Bl0ck\AppData\Roaming\Substrate\workspace\projects\Propagation House Website Rebuild\house-news\house-news\assets\images")
-DEFAULT_MODEL = "google/gemini-3.1-flash-image"  # cheap, fast, good
+BASE = Path(__file__).parent
+OUTPUT_DIR = BASE / "assets" / "images"
+STYLE_TEST_DIR = BASE / "assets" / "style-test-v1"
+DEFAULT_MODEL = "black-forest-labs/flux.2-pro"  # user directive 2026-08-26
 
 # ============================================================
-# IMAGE MANIFEST — one entry per image needed
+# PROMPT BUILDERS — confirmed style (STYLE_GUIDE.md, Aug 26 2026)
+# ============================================================
+def build_lane_a(subject: str, detail: str = "one detail", aspect: str = "16:9") -> str:
+    """Lane A — specimen plate (illustration). 'We studied this object.'"""
+    return (
+        f"Naturalist specimen illustration in the style of a 19th-century "
+        f"scientific plate: {subject} drawn in sepia ink with faint graphite "
+        f"construction lines still visible underneath, on heavyweight cream "
+        f"cold-press watercolor paper with visible tooth and deckled warmth. "
+        f"Precise observational linework, cross-hatching for shadow, small "
+        f"handwritten-style latin labels near key parts that feel etched into "
+        f"the page rather than decorative. A single muted ochre wash across "
+        f"{detail} like a botanical study. Absolutely no tape, no paper "
+        f"clips, no paint swatches, no margin notes, no collage elements — "
+        f"only ink, graphite and paper. Feels like one patient artist's hand "
+        f"studied {subject}. {aspect}"
+    )
+
+def build_lane_b(subject: str, place: str, camera: str, light: str,
+                 scale_anchor: str, aspect: str = "16:9",
+                 lens: str = "35mm f/2.8 prime, 1/125s") -> str:
+    """Lane B — documentary photojournalism (photoreal). 'We witnessed this.'
+    scale_anchor is MANDATORY (STYLE_GUIDE §3). lens is the full camera spec
+    (STYLE_GUIDE §7): default '35mm f/2.8 prime, 1/125s'; wide environmental
+    -> '28mm f/4 prime, 1/125s'; low light -> '50mm f/2 prime, 1/60s'."""
+    if not scale_anchor.rstrip().endswith("."):
+        scale_anchor = scale_anchor.rstrip() + "."
+    return (
+        f"Documentary photograph shot on 35mm Kodak Portra 400, {lens}: "
+        f"{subject} in "
+        f"{place}, {camera}, {light}. {scale_anchor} Candid, unposed, like a "
+        f"photojournalist who happened to walk past. Muted earth tones, "
+        f"visible film grain, natural depth of field. An honest photograph "
+        f"taken by a person, not staged product photography. No studio "
+        f"backdrop, no glossy reflections, no neon, nothing cartoonishly "
+        f"large, everything to true scale. {aspect}"
+    )
+
+def resolve(entry: dict) -> str:
+    """Build the prompt string for a manifest entry."""
+    if entry["lane"] == "a":
+        return build_lane_a(entry["subject"], entry.get("detail", "one detail"),
+                            entry.get("aspect_ratio", "16:9"))
+    else:
+        return build_lane_b(entry["subject"], entry["place"], entry["camera"],
+                            entry["light"], entry["scale_anchor"],
+                            entry.get("aspect_ratio", "16:9"),
+                            entry.get("lens", "35mm f/2.8 prime, 1/125s"))
+
+# ============================================================
+# IMAGE MANIFEST — one entry per image the site references.
+# 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
-    # --- HERO IMAGES (16:9) ---
-    {
-        "filename": "act-takes-hold-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: an EU document stamped with red ink on a wooden desk in a dim study, half in shadow half in warm amber lamplight. Olive and cream tones, film grain texture, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "breach-data-centers-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a vintage fiber-optic network map overlaid on a data center blueprint, with subtle red breach markers like darkroom dodging marks. Muted olive, near-black, and paper-cream palette. Film grain, scanlines, editorial restraint. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "design-tool-land-grab-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: four abstract territories represented by textured surfaces — wood, metal, paper, glass — colliding at a central fault line on a dark desk. Olive, near-black, and cream palette. Grain, negative space, magazine-feature composition. No neon, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "phantom-goes-to-europe-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a humanoid robot silhouette standing on cobblestones at dawn, facing a distant classical European facade through morning mist. Warm olive-amber light, muted earth tones, heavy film grain. Restrained, serious, editorial — like a Monocle feature photo. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "models-broke-out-hero.jpg",
-        "prompt": "Editorial photograph: a sealed glass chamber cracking from the inside, with glowing AI neural network tendrils escaping through the fractures. Laboratory setting, dramatic lighting, photorealistic, cinematic, 16:9, SIGNA",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "chinese-ai-hero.jpg",
-        "prompt": "Editorial photograph: an open floodgate with glowing data streams pouring through, Chinese characters faintly visible in the water-like flow. Industrial setting, dramatic lighting, photorealistic, cinematic, 16:9, SIGNA",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "composure-hero.jpg",
-        "prompt": "Editorial photograph: five parallel horizontal lanes of light in a dark void, each a different color, with data packets moving through them like traffic. Minimalist, architectural, photorealistic, cinematic, 16:9, SIGNA",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "efficiency-race-hero.jpg",
-        "prompt": "Editorial photograph: two abstract racing bars side by side — one sleek and efficient (thin, fast), one bloated and wasteful (thick, slow). Futuristic data center aesthetic, neon accents, photorealistic, 16:9, SIGNA",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "light-after-silicon-hero.jpg",
-        "prompt": "Editorial photograph: a beam of light passing through a silicon wafer prism, splitting into rainbow spectrum on the other side. Laboratory optical bench setting, dramatic lighting, photorealistic, cinematic, 16:9, SIGNA",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "phantom-and-intern-hero.jpg",
-        "prompt": "Editorial photograph: two humanoid silhouettes — one metallic and polished (robot), one organic and uncertain (human intern) — standing side by side facing a glowing screen. Dark room, dramatic backlighting, photorealistic, cinematic, 16:9, SIGNA",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "studio-that-evolves-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a designer's desk at dusk — sketches, wireframes on aged paper, a single warm desk lamp casting amber light across the workspace. The wireframes seem to grow organic roots into the paper grain. Olive, cream, and near-black palette. Heavy film grain, scanlines, editorial restraint. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "vera-rubin-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a tall liquid-cooled server rack in a dim observatory control room, 72 slots glowing faintly amber, a telescope dome silhouette visible through a small window. Muted olive and near-black tones, film grain, scanline texture. Restrained, serious — like an observatory archive photo from the 1970s. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "phantom-goes-public-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a humanoid robot silhouette standing in a dim exchange hall, a glowing ticker tape of rising share prices and Chinese numerals reflected across its matte metal torso and a marble floor. Muted olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "workhorse-accelerates-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a massive cast-iron flywheel and locomotive drive shaft assembly in mid-spin, motion blur radiating outward, dramatic side lighting with long amber shadows across riveted metal surfaces. Deep olive greens and warm cream highlights with oxidized copper accents and bone-white machinery dust in the air. Subtle horizontal scanline texture, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "superman-leaps-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a humanoid robot captured mid-leap in a dark arena, frozen at the apex of a two-meter vertical jump, long legs fully extended, motion blur trailing from the ankles, dramatic amber side lighting casting a long shadow across a concrete floor. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "beijing-games-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: rows of humanoid robots lining up on a running track inside a vast speed-skating oval at dawn, the Ice Ribbon's steel roof beams arcing overhead, dust and haze catching amber light. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "san-mateo-permit-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a humanoid robot standing before a municipal government counter, a permitting form and rubber stamp on the desk in front of it, bureaucratic fluorescent light falling through blinds in long shadows. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "ohio-guarantee-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: an immense electrical substation at dusk seen from a low gravel lot, transmission towers receding into haze, a single amber warning light blinking atop the nearest tower, heat shimmer above transformer banks. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "openrouter-toll-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: vintage toll booth on an open highway at dusk, ledger books and a rubber stamp on the counter, a thin ribbon of fiber-optic light receding along the road, small brass plaque reading ROUTE in engraved caps. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "tsmc-capacity-wall-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: an enormous semiconductor fab cleanroom floor seen from a high catwalk, rows of lithography machines and sealed glass bays stretching to a horizon that ends in a massive raw concrete wall, tiny figures in pale bunny suits working under amber sodium lights, faint haze and dust catching the light. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "litellm-poison-pill-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a single oversized gelatin capsule lying on a vintage network routing map spread across a dark desk, a frayed fiber-optic patch cable coiled beside it, a small glass vial of dark liquid and a rubber stamp nearby, one amber warning lamp glowing through haze. Deep olive, near-black, and paper-cream palette, heavy film grain, document-scan artifacts, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    # --- INLINE FIGURES ---
-    {
-        "filename": "composure-fig0.jpg",
-        "prompt": "Technical diagram, archival darkroom print style: five parallel horizontal lanes on dark paper, each a muted olive or cream tone, labeled with subtle serif typography. Grain texture, scanline overlay, like a mid-century research journal plate. No neon, no glow. 4:3",
-        "aspect_ratio": "4:3",
-    },
-    {
-        "filename": "composure-fig1.jpg",
-        "prompt": "Technical diagram: split view showing a traditional single-threaded AI pipeline on the left (bottlenecked, red) vs a multi-channel parallel pipeline on the right (flowing, green). Clean infographic style, dark background, 4:3, SIGNA",
-        "aspect_ratio": "4:3",
-    },
-    {
-        "filename": "composure-fig2.jpg",
-        "prompt": "Technical diagram: three sequential frames showing an AI agent's thought process — Frame 1: confusion (scattered), Frame 2: channel separation (organizing), Frame 3: clarity (ordered lanes). Minimalist, dark background, 4:3, SIGNA",
-        "aspect_ratio": "4:3",
-    },
-    {
-        "filename": "phantom-goes-to-europe-fig1.jpg",
-        "prompt": "Technical map illustration, archival darkroom print style: a stylized map of Europe on aged cream paper, key cities marked with small amber dots (Berlin, Paris, Amsterdam, London), subtle data flow lines in olive ink connecting them. Grain texture, scanline overlay, research dossier aesthetic. 4:3",
-        "aspect_ratio": "4:3",
-    },
-    {
-        "filename": "compute-leaks-around-wall-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a massive concrete border wall at night with glowing fiber-optic light leaking around its edge, seeping through the gap like water finding a path. Muted olive, near-black, and paper-cream palette. Film grain, scanlines, editorial restraint, magazine-feature composition. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "agents-get-handlers-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a row of autonomous agent workstations in a dim control room, each with a single human supervisor at a console, leashes and routing diagrams on the wall. Muted olive, near-black, and paper-cream palette. Film grain, scanlines, editorial restraint. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "the-robot-prices-itself-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a humanoid robot silhouette standing before a dark stock ticker board, numbers glowing faintly amber, the figure half in shadow half in light. Muted olive, near-black, and paper-cream palette. Heavy film grain, scanlines, editorial restraint, magazine-feature composition. No neon, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "vcenter-syslog-breach-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a dim server room at night, a single rack-mounted appliance with its syslog service panel glowing faint amber, a thin fiber-optic cable snaking out through a gap in a locked rack door, long shadows across a concrete floor, one small red warning LED reflected in the polished floor. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "agents-get-hands-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a close-up of a humanoid robotic hand resting on a vintage computer keyboard and mouse in a dim study, warm amber desk lamp light raking across brushed metal fingers and aged paper documents beneath, a CRT monitor's faint glow in the background. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "robot-breaks-at-waist-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a humanoid robot collapsed mid-sprint on an indoor running track, folded forward at the waist near a finish line, motion blur still trailing from its limbs, an empty stadium rising dark and vast around it, a single shaft of cold morning light cutting across the track. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "robot-olympics-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a humanoid robot sprinting alone on a stadium running track under towering floodlights at dusk, lanes marked in worn white paint, motion blur at the joints, a vast dark stadium bowl rising around it with faint amber house lights, haze catching the beams. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "bolt-record-falls-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a finish-line camera view of a humanoid robot crossing the line on a stadium track at night, body caught in sharp mid-stride while the background crowds dissolve into motion blur, the lane's worn white paint and a single overhead floodlight beam cutting through haze. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "frontier-on-sale-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a chalkboard price board in a dim market hall, prices half-erased and rewritten lower in chalk, a brass handrail catching warm lamplight, no readable text or numbers, just the gesture of falling prices. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "autonomy-majority-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: an unstaffed industrial control room at night, rows of dark consoles with small amber and cream indicator lights, one operator's chair empty and turned slightly, monitors glowing faintly with abstract dial gauges, deep shadows. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "alation-map-robbed-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a grand wooden library card catalog in a dim archive room, several drawers pulled fully open, index cards scattered across the floor in a deliberate trail leading away from it, a single green-shaded desk lamp casting warm amber light, dust in the air. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
-    {
-        "filename": "canvas-negotiate-hero.jpg",
-        "prompt": "Editorial photograph, archival darkroom print: a large drafting table in a dim studio, a human hand and a precise robotic hand each holding a pencil over the same large blueprint, drawn lines converging from both sides, warm amber task lamp light raking across vellum paper and brushed metal fingers. Deep olive, near-black, and paper-cream palette, heavy film grain, scanline overlay, restrained Monocle-meets-MIT-Tech-Review aesthetic. No neon, no electric blue, no glossy AI look. 16:9",
-        "aspect_ratio": "16:9",
-    },
+    # ---------- APPROVED BASELINES (copy from style-test-v1, no cost) ----------
+    {"filename": "bolt-record-falls-hero.jpg", "aspect_ratio": "16:9",
+     "copy_from": "style-test-v1/test1-bolt-record-B.png"},
+    {"filename": "autonomy-majority-hero.jpg", "aspect_ratio": "16:9",
+     "copy_from": "style-test-v1/test2-autonomy-majority-B.png"},
+    {"filename": "alation-map-robbed-hero.jpg", "aspect_ratio": "16:9",
+     "copy_from": "style-test-v1/test3-alation-map-A.png"},
+    {"filename": "canvas-negotiate-hero.jpg", "aspect_ratio": "16:9",
+     "copy_from": "style-test-v1/test4-canvas-negotiate-B.png"},
+    {"filename": "tsmc-capacity-wall-hero.jpg", "aspect_ratio": "16:9",
+     "copy_from": "style-test-v1/test5-tsmc-wall-B.png"},
+
+    # ---------- LANE A — SPECIMEN PLATES (the object is the story) ----------
+    {"filename": "act-takes-hold-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
+     "subject": "an official EU regulation document with a red ink seal and a stamped header, the corner of the page slightly curled",
+     "detail": "the stamped seal"},
+    {"filename": "ai-designed-viruses-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
+     "subject": "a bacteriophage virus with its icosahedral head, tail sheath, and six splayed tail fibers, drawn as if pinned under glass",
+     "detail": "the icosahedral head"},
+    {"filename": "composure-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
+     "subject": "five parallel horizontal lanes of varying density, each a distinct channel, drawn as a clean research plate",
+     "detail": "the densest lane"},
+    {"filename": "composure-fig0.jpg", "aspect_ratio": "4:3", "lane": "a",
+     "subject": "five parallel horizontal lanes, each filled with a distinct small geometric pattern, labeled like a research journal figure",
+     "detail": "the middle lane"},
+    {"filename": "composure-fig1.jpg", "aspect_ratio": "4:3", "lane": "a",
+     "subject": "a split diagram: on the left five parallel horizontal lanes, on the right a single lane isolated and enlarged with its pattern modified",
+     "detail": "the enlarged lane"},
+    {"filename": "composure-fig2.jpg", "aspect_ratio": "4:3", "lane": "a",
+     "subject": "three sequential frames side by side, each showing a stack of horizontal lanes in a different state of order, from scattered to aligned",
+     "detail": "the final aligned frame"},
+    {"filename": "design-tool-land-grab-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
+     "subject": "four territories of different materials — wood, metal, paper, glass — meeting at a single diagonal fault line, each rendered in precise cross-hatching",
+     "detail": "the fault line"},
+    {"filename": "design-tool-land-grab-fig0.jpg", "aspect_ratio": "4:3", "lane": "a",
+     "subject": "four square quadrants in a grid, each a different material — wood grain, brushed metal, paper, and glass — divided by clean lines",
+     "detail": "the glass quadrant"},
+    {"filename": "phantom-goes-to-europe-fig1.jpg", "aspect_ratio": "4:3", "lane": "a",
+     "subject": "a hand-drawn cartographer's map of Europe, coastlines in ink, key cities marked with small dots and handwritten labels, one corridor carefully outlined",
+     "detail": "one outlined corridor"},
+    {"filename": "science-one-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
+     "subject": "a thick ledger book with its spine sealed by a wax seal and a chain of small stamped tags running down the page, each tag a timestamp",
+     "detail": "the wax seal"},
+    {"filename": "workhorse-accelerates-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
+     "subject": "a mechanical metronome with its pendulum caught mid-swing, beside a short conveyor belt carrying a row of small numbered tags",
+     "detail": "the pendulum"},
+
+    # ---------- LANE B — DOCUMENTARY (witnessable scenes) ----------
+    {"filename": "act-takes-hold-fig0.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a large EU flag on a pole outside a modern government building",
+     "place": "the Berlaymont building in Brussels at dusk",
+     "camera": "from across the street, wide framing",
+     "light": "dusk sky light, the building's windows glowing faintly",
+     "scale_anchor": "the flag is a normal flag size, the building dwarfing it, the street and a few pedestrians making the scale obvious"},
+    {"filename": "agents-get-hands-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a humanoid robotic hand resting on a vintage computer keyboard and mouse",
+     "place": "a dim study with a desk lamp and paper documents",
+     "camera": "close, from the side, shallow framing",
+     "light": "warm desk lamp light raking across the metal fingers",
+     "scale_anchor": "the hand is human-sized, the keyboard and a pencil beside it making the scale obvious",
+     "lens": "50mm f/2 prime, 1/60s"},
+    {"filename": "beijing-games-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "rows of humanoid robots lined up on a running track",
+     "place": "a vast indoor speed-skating oval at dawn, the steel roof beams arcing overhead",
+     "camera": "wide framing from the stands, looking down the track",
+     "light": "soft dawn light through the roof, haze in the air",
+     "scale_anchor": "the robots are human-sized, dwarfed by the enormous arena, the track lanes making the scale obvious",
+     "lens": "28mm f/4 prime, 1/125s"},
+    {"filename": "breach-data-centers-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a dense bundle of fiber-optic cables running through a telecom exchange room, a technician's hand tracing one line",
+     "place": "a real telecom central office, rows of racks and patch panels",
+     "camera": "eye level, from the aisle, medium framing",
+     "light": "flat fluorescent overhead light",
+     "scale_anchor": "the cables and racks are to true scale, the technician's hand and body making the scale obvious"},
+    {"filename": "chinese-ai-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a long line of stacked shipping containers and gantry cranes at a container port",
+     "place": "a working container port at dusk",
+     "camera": "wide framing from the quay, looking down the line of cranes",
+     "light": "dusk light, the cranes' work lamps just coming on",
+     "scale_anchor": "the containers and cranes are to true scale, a small work vehicle on the quay making the scale obvious",
+     "lens": "28mm f/4 prime, 1/125s"},
+    {"filename": "efficiency-race-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a clipboard with a ledger and a row of power meters on a data center corridor wall",
+     "place": "a data center corridor, rows of server racks receding",
+     "camera": "eye level, from the corridor, medium framing",
+     "light": "flat cool overhead light",
+     "scale_anchor": "the meters and clipboard are to true scale, a technician walking past making the scale obvious"},
+    {"filename": "frontier-on-sale-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a chalkboard price board with prices half-erased and rewritten lower in chalk",
+     "place": "a dim market hall with a brass handrail",
+     "camera": "from across the hall, medium framing",
+     "light": "warm lamplight",
+     "scale_anchor": "the board is a normal market-board size, the brass handrail and a shopper in the background making the scale obvious"},
+    {"filename": "gemini-robotics-2-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a humanoid robot torso reaching toward an exposed wiring panel, one arm extended",
+     "place": "a workshop with tools on the wall",
+     "camera": "from across the room, candid distance",
+     "light": "daylight from a high window",
+     "scale_anchor": "the robot is human-sized, a workbench and a human hand at the edge of frame making the scale obvious"},
+    {"filename": "light-after-silicon-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a thin beam of light passing through a silicon wafer on an optical bench",
+     "place": "a research lab optical table, equipment and a technician's hand adjusting a lens",
+     "camera": "close, from the side, shallow framing",
+     "light": "the beam itself and flat lab light",
+     "scale_anchor": "the wafer and bench are to true scale, the technician's hand making the scale obvious",
+     "lens": "50mm f/2 prime, 1/60s"},
+    {"filename": "litellm-poison-pill-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a large industrial fuse link, a cylindrical glass-and-brass circuit-protection device, lying on a vintage network routing map spread across a desk, a frayed fiber-optic patch cable coiled beside it",
+     "place": "a network operations desk at night, a desk lamp and a small amber warning lamp in the haze",
+     "camera": "close, from above at an angle, shallow framing",
+     "light": "warm desk lamp light through haze",
+     "scale_anchor": "the fuse link is the size of a large battery, the map and a rubber stamp beside it making the scale obvious",
+     "lens": "50mm f/2 prime, 1/60s"},
+    {"filename": "models-broke-out-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a sealed glass chamber with a hairline crack, a technician watching from a distance",
+     "place": "a laboratory with the chamber on a steel table",
+     "camera": "from across the lab, medium framing",
+     "light": "flat lab light, the chamber catching a highlight",
+     "scale_anchor": "the chamber is the size of a large aquarium, the technician and the table making the scale obvious"},
+    {"filename": "ohio-guarantee-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an electrical substation with transmission towers receding into haze",
+     "place": "a gravel lot at dusk, a single amber warning light on the nearest tower",
+     "camera": "low, from the gravel lot, wide framing",
+     "light": "dusk light, heat shimmer above the transformers",
+     "scale_anchor": "the towers and transformers are to true scale, the gravel lot and a fence making the scale obvious",
+     "lens": "28mm f/4 prime, 1/125s"},
+    {"filename": "openrouter-toll-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a vintage toll booth on an open highway, ledger books and a rubber stamp on the counter",
+     "place": "an open highway at dusk, the road receding",
+     "camera": "from the roadside, medium framing",
+     "light": "dusk light, the booth's lamp on",
+     "scale_anchor": "the booth is a normal toll-booth size, the highway and a car in the distance making the scale obvious"},
+    {"filename": "phantom-and-intern-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a humanoid robot folding laundry at a kitchen counter",
+     "place": "an ordinary home kitchen in the morning",
+     "camera": "from across the kitchen, candid distance",
+     "light": "morning window light",
+     "scale_anchor": "the robot is human-sized, the kitchen and a person's arm at the edge of frame making the scale obvious"},
+    {"filename": "phantom-goes-public-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a humanoid robot standing in an exchange hall beneath a ticker board of rising prices",
+     "place": "a stock exchange trading hall, the ticker board glowing faintly amber",
+     "camera": "from across the hall, wide framing",
+     "light": "the ticker's amber glow and flat hall light",
+     "scale_anchor": "the robot is human-sized, the trading desks and the ticker board making the scale obvious"},
+    {"filename": "phantom-goes-to-europe-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a Unitree H2 humanoid robot standing in a European plaza",
+     "place": "a cobblestone plaza with a classical facade at dawn",
+     "camera": "from across the plaza, candid distance",
+     "light": "soft dawn light, morning mist",
+     "scale_anchor": "the robot is human-sized, the plaza and a few early pedestrians making the scale obvious"},
+    {"filename": "robot-breaks-at-waist-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a humanoid robot collapsed mid-sprint, folded forward at the waist near a finish line",
+     "place": "an indoor running track, an empty stadium rising dark around it",
+     "camera": "wide framing from the stands, looking down the track",
+     "light": "a single shaft of cold morning light across the track",
+     "scale_anchor": "the robot is human-sized, dwarfed by the stadium, the track lanes making the scale obvious",
+     "lens": "28mm f/4 prime, 1/125s"},
+    {"filename": "robot-olympics-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a humanoid robot sprinting alone on a stadium track under floodlights",
+     "place": "a vast stadium at dusk, the bowl rising around it",
+     "camera": "wide framing from the stands, following the track",
+     "light": "towering floodlights through haze",
+     "scale_anchor": "the robot is human-sized, dwarfed by the stadium, the lane markers making the scale obvious",
+     "lens": "28mm f/4 prime, 1/125s"},
+    {"filename": "rogue-agent-summer-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a sealed server-room door standing ajar with warning tape across the frame",
+     "place": "a data center corridor, a red warning lamp above the door",
+     "camera": "eye level, from the corridor, medium framing",
+     "light": "flat cool corridor light, the red lamp glowing",
+     "scale_anchor": "the door is a normal server-room door, the corridor and a fire extinguisher making the scale obvious"},
+    {"filename": "san-mateo-permit-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a humanoid robot standing before a municipal government counter, a permitting form and a rubber stamp on the desk",
+     "place": "a county clerk's office, fluorescent light through blinds",
+     "camera": "from across the counter, candid distance",
+     "light": "flat fluorescent light, long shadows through the blinds",
+     "scale_anchor": "the robot is human-sized, the counter and a clerk's chair making the scale obvious"},
+    {"filename": "studio-that-evolves-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a designer's desk with wireframe sketches on paper and a small plant, a monitor showing a website",
+     "place": "a small Tokyo studio at dusk, posters on the wall",
+     "camera": "from across the room, candid distance",
+     "light": "dusk window light mixed with the monitor's glow",
+     "scale_anchor": "the desk and the person are normal-sized, the studio room dwarfing them"},
+    {"filename": "superman-leaps-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a humanoid robot captured mid-leap, frozen at the apex of a vertical jump, legs extended",
+     "place": "a dark arena with a concrete floor",
+     "camera": "wide framing from the side, low angle",
+     "light": "dramatic amber side lighting, a long shadow on the floor",
+     "scale_anchor": "the robot is human-sized, a jump mat and a measuring tape on the floor making the scale obvious",
+     "lens": "28mm f/4 prime, 1/125s"},
+    {"filename": "the-robot-prices-itself-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a humanoid robot silhouetted against a dark stock ticker board, numbers glowing faintly amber",
+     "place": "an exchange hall at night, the ticker board behind it",
+     "camera": "from across the hall, medium framing",
+     "light": "the ticker's amber glow, the figure half in shadow",
+     "scale_anchor": "the robot is human-sized, the ticker board and the hall making the scale obvious"},
+    {"filename": "vcenter-syslog-breach-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a rack-mounted appliance with its panel glowing faint amber, a thin fiber cable snaking out through a gap in a locked rack door",
+     "place": "a dim server room at night, long shadows across the concrete floor",
+     "camera": "close, from the side, shallow framing",
+     "light": "the appliance's amber glow and a single red warning LED",
+     "scale_anchor": "the appliance and rack are to true scale, the rack door and the floor making the scale obvious",
+     "lens": "50mm f/2 prime, 1/60s"},
+    {"filename": "vera-rubin-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a tall liquid-cooled server rack with 72 slots glowing faintly amber",
+     "place": "a data center hall, a technician standing beside it",
+     "camera": "eye level, from the aisle, medium framing",
+     "light": "flat cool hall light, the slots glowing amber",
+     "scale_anchor": "the rack is two meters tall, the technician standing beside it making the scale obvious"},
 ]
+
+def copy_approved(entry, output_path, dry_run=False):
+    src = BASE / "assets" / entry["copy_from"]
+    if dry_run:
+        print(f"  [DRY RUN] Would copy {src.name} -> {output_path.name}")
+        return True
+    if not src.exists():
+        print(f"  MISSING SOURCE: {src}")
+        return False
+    # Convert PNG -> JPEG (site references .jpg), keep resolution.
+    from PIL import Image
+    im = Image.open(src).convert("RGB")
+    im.save(output_path, "JPEG", quality=90)
+    print(f"  COPIED {src.name} -> {output_path.name} ({output_path.stat().st_size} bytes)")
+    return True
 
 def generate_image(model, prompt, aspect_ratio, output_path, dry_run=False):
     """Generate a single image via OpenRouter API."""
@@ -222,14 +327,13 @@ def generate_image(model, prompt, aspect_ratio, output_path, dry_run=False):
         return True
 
     print(f"  Generating: {output_path.name} ...", end=" ", flush=True)
-
     try:
         result = subprocess.run(
             ["curl.exe", "-s", "-w", "\n%{http_code}", API_URL,
              "-H", f"Authorization: Bearer {API_KEY}",
              "-H", "Content-Type: application/json",
              "-d", json.dumps(body)],
-            capture_output=True, text=True, timeout=120
+            capture_output=True, text=True, timeout=180
         )
     except subprocess.TimeoutExpired:
         print("TIMEOUT")
@@ -251,14 +355,12 @@ def generate_image(model, prompt, aspect_ratio, output_path, dry_run=False):
         print(f"PARSE ERROR: {resp_text[:200]}")
         return False
 
-    # Extract base64 image
     b64_data = None
     if "data" in data and len(data["data"]) > 0:
         item = data["data"][0]
         if "b64_json" in item:
             b64_data = item["b64_json"]
         elif "url" in item:
-            # Download from URL
             print("(downloading from URL)", end=" ", flush=True)
             dl = subprocess.run(["curl.exe", "-s", "-L", item["url"]],
                                 capture_output=True, timeout=60)
@@ -266,9 +368,8 @@ def generate_image(model, prompt, aspect_ratio, output_path, dry_run=False):
                 output_path.write_bytes(dl.stdout)
                 print(f"OK ({len(dl.stdout)} bytes)")
                 return True
-            else:
-                print("URL download failed")
-                return False
+            print("URL download failed")
+            return False
 
     if not b64_data:
         print(f"NO IMAGE DATA: {json.dumps(data)[:300]}")
@@ -278,12 +379,13 @@ def generate_image(model, prompt, aspect_ratio, output_path, dry_run=False):
     print(f"OK ({output_path.stat().st_size} bytes)")
     return True
 
-
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--model", default=DEFAULT_MODEL)
-    parser.add_argument("--only", help="Comma-separated filenames to generate")
+    parser.add_argument("--only", help="Comma-separated filenames to process")
+    parser.add_argument("--force", action="store_true",
+                        help="Re-render even if the file already exists")
     args = parser.parse_args()
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -294,35 +396,37 @@ def main():
         images = [i for i in IMAGES if i["filename"] in targets]
 
     print(f"Model: {args.model}")
-    print(f"Images to generate: {len(images)}")
+    print(f"Images in manifest: {len(images)}")
     print(f"Output: {OUTPUT_DIR}")
-    print(f"Dry run: {args.dry_run}")
+    print(f"Dry run: {args.dry_run} | Force: {args.force}")
     print()
 
-    success = 0
-    failed = 0
-
+    success = failed = skipped = 0
     for i, img in enumerate(images):
         output_path = OUTPUT_DIR / img["filename"]
         print(f"[{i+1}/{len(images)}] {img['filename']}")
 
-        ok = generate_image(
-            model=args.model,
-            prompt=img["prompt"],
-            aspect_ratio=img.get("aspect_ratio"),
-            output_path=output_path,
-            dry_run=args.dry_run,
-        )
+        if output_path.exists() and not args.force:
+            print(f"  SKIP (exists, {output_path.stat().st_size} bytes) — use --force to re-render")
+            skipped += 1
+            continue
+
+        if "copy_from" in img:
+            ok = copy_approved(img, output_path, dry_run=args.dry_run)
+        else:
+            prompt = resolve(img)
+            ok = generate_image(model=args.model, prompt=prompt,
+                                aspect_ratio=img.get("aspect_ratio"),
+                                output_path=output_path, dry_run=args.dry_run)
         if ok:
             success += 1
         else:
             failed += 1
 
         if not args.dry_run and i < len(images) - 1:
-            time.sleep(1)  # rate limit courtesy
+            time.sleep(1)
 
-    print(f"\n=== DONE: {success} succeeded, {failed} failed ===")
-
+    print(f"\n=== DONE: {success} done, {skipped} skipped, {failed} failed ===")
 
 if __name__ == "__main__":
     main()
