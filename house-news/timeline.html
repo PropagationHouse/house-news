@@ -168,8 +168,8 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">32</div><div class="label">Total Dispatches</div></div>
-  <div class="stat"><div class="num" id="filtered-count">32</div><div class="label">Showing</div></div>
+  <div class="stat"><div class="num" id="total-count">34</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="filtered-count">34</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
 </div>
@@ -457,6 +457,18 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'export-fence', title:'The Fence Moves West', href:'articles/export-fence.html', date:'2026-08-31', category:'Infrastructure', lens:'infrastructure', read:'9 min', dek:'The US broadened AI chip export restrictions beyond China to several Middle Eastern countries. Nvidia\u2019s A100 and H100 now need licenses there. Nothing was banned \u2014 which is exactly the point.',
+      tags:['nvidia','amd','export-controls','geopolitics','chips','middle-east']},
+    {id:'music-sues-back', title:'The Music Sues Back', href:'articles/music-sues-back.html', date:'2026-08-31', category:'Legal', lens:'intelligence', read:'8 min', dek:'Sony Music Publishing and Warner Chappell sued Anthropic \u2014 and named Dario Amodei personally. The third music action in six weeks is a campaign, not a coincidence.',
+      tags:['anthropic','copyright','sony','warner-chappell','training-data','courts']},
+    {id:'raise-that-cuts', title:'The Raise That Is a Cut', href:'articles/raise-that-cuts.html', date:'2026-08-31', category:'Tools', lens:'tools', read:'6 min', dek:'Claude Code weekly limits go permanently +25% over baseline on Sept 14 \u2014 but the expiring promo was +50%. The arithmetic of abundance.',
+      tags:['anthropic','claude-code','limits','developer','pricing']},
+    {id:'dalle-retires', title:'The First Name in Images Retires', href:'articles/dalle-retires.html', date:'2026-08-31', category:'Tools', lens:'tools', read:'7 min', dek:'The official DALL\u00b7E GPT quietly disappeared from ChatGPT on Saturday. The first category-defining AI brand digested by its own parent.',
+      tags:['openai','dall-e','chatgpt','image-generation','history']},
+    {id:'nvidia-pauses-financing', title:'The Money Pauses', href:'articles/nvidia-pauses-financing.html', date:'2026-08-31', category:'Infrastructure', lens:'infrastructure', read:'6 min', dek:'Nvidia paused the financing program that traded credit support for a cut of customer revenue after its own lawyers flagged antitrust exposure. $36B in commitments just met a regulator-shaped wall.',
+      tags:['nvidia','antitrust','neocloud','financing','data-centers','markets']},
+    {id:'model-hardware-standard', title:'The Standard Gets a Body', href:'articles/model-hardware-standard.html', date:'2026-08-31', category:'Robotics', lens:'tools', read:'7 min', dek:'Anthropic published a model-agnostic driver standard for lab robots and instruments \u2014 MCP logic for the physical world. Integration drops from weeks to hours, and whoever writes the layer sets the defaults.',
+      tags:['anthropic','robotics','mcp','embodied-ai','agents','standards']},
     {id:'cursor-cutoff', title:'The Model Supply Gets Cut', href:'articles/cursor-cutoff.html', date:'2026-08-30', category:'Markets', lens:'intelligence', read:'8 min', dek:'OpenAI is winding down its model supply contract with Cursor after SpaceX acquired the coding tool. Access ends November 12 — no future models either, including Astra. Distribution is now a weapon.',
       tags:['openai','cursor','spacex','model-access','distribution','markets']},
     {id:'anthropic-blacklist', title:'The Blacklist Dies in Court', href:'articles/anthropic-blacklist.html', date:'2026-08-30', category:'Regulatory', lens:'intelligence', read:'8 min', dek:'A federal judge struck down the Pentagon\u2019s \u201csupply chain risk\u201d designation against Anthropic on three grounds \u2014 retaliation, due process, false predicates. Enforcement permanently barred.',

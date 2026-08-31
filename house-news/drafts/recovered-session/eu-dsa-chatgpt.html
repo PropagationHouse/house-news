@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Model Supply Gets Cut - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 4px}
+.hero-figure .caption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px;font-size:19px;line-height:1.7;color:var(--ink)}
+.article-body p{margin-bottom:24px}
+.article-body .lead-para{font-family:var(--serif);font-size:24px;line-height:1.4;color:#2a2d1e;font-style:italic;margin-bottom:36px}
+.article-body .lead-para em{font-style:normal;color:var(--accent-dark)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.1;letter-spacing:-.02em;margin:56px 0 20px;color:var(--ink)}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.25;margin:36px 0 16px;color:var(--ink)}
+.article-body strong{font-weight:700;color:var(--ink)}
+.article-body em{font-family:var(--serif);font-style:italic}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.25;color:var(--accent-dark);text-align:center;margin:48px 0;padding:0 24px}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:48px 0}
+.article-body .stat-row .stat{padding:28px 24px;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .num{font-family:var(--serif);font-weight:900;font-size:52px;line-height:1;color:var(--accent-dark)}
+.article-body .stat-row .num .unit{font-size:24px;font-weight:700}
+.article-body .stat-row .label{font-size:13px;line-height:1.5;color:var(--muted);margin-top:10px}
+.article-body .takeaways{background:var(--bg-tint);border-top:3px double var(--ink);border-bottom:3px double var(--ink);padding:36px 32px;margin:56px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{list-style:none;margin:0;padding:0}
+.article-body .takeaways li{font-size:16px;line-height:1.6;margin-bottom:14px;padding-left:20px;position:relative}
+.article-body .takeaways li:before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;background:var(--accent)}
+.article-body .takeaways li:last-child{margin-bottom:0}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0 56px calc((var(--measure) - 100%) / 2 - 40px);padding-right:40px;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+@media (max-width:768px){html{font-size:17px}.article-body{font-size:18px}.article-body h2{font-size:28px}.article-body h3{font-size:20px}.related .rel-grid{grid-template-columns:1fr;gap:24px}.masthead nav{display:none}.article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px}.article-body .stat-row{grid-template-columns:1fr;border-bottom:none}.article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">Markets</div><nav><a href="../index.html">Dispatches</a><a href="../index.html#house">Studio</a><a href="../timeline.html">Field Notes</a><a href="../timeline.html">Index</a></nav></header>
+<div class="article-hero"><div class="kicker">Regulatory &middot; Platforms</div><h1>Brussels Puts ChatGPT on the <em>List</em></h1><p class="dek">The European Commission designated ChatGPT a Very Large Online Platform under the DSA &mdash; the first AI assistant to enter the regime. Four months to comply, and the compliance checklist reads like a constitution for conversational AI.</p><div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>August 31, 2026<span class="sep">&middot;</span>7 min read</div></div>
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/eu-dsa-chatgpt-hero.jpg" alt="A wide Brussels government plaza in soft rain, a lone official crossing with an umbrella, a row of black flag poles without flags" /></div><p class="caption">The designation carries a four-month compliance clock and obligations that scale with reach: risk assessments, transparency reporting, researcher data access. <strong>Illustration by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">The list was built for platforms. It just caught a conversation. On Monday the European Commission designated ChatGPT a Very Large Online Platform under the Digital Services Act &mdash; the first AI assistant to cross the regime&rsquo;s threshold &mdash; joining a roster otherwise occupied by social networks and marketplaces, and starting a four-month clock on a compliance program that has no precedent.</p>
+<p>The DSA&rsquo;s VLOP tier attaches obligations that scale with reach rather than with technology: systemic risk assessments, transparency reporting, ad repositories, data access for vetted researchers, and a duty to mitigate risks to civic discourse and public health. None of those duties were written with a model in mind. All of them now apply to one. The Commission paired the designation with notices to Reddit and Roblox, but the ChatGPT entry is the one that matters &mdash; it is the regime&rsquo;s first statement that a conversational AI at scale is a platform, with everything that word carries in Brussels.</p>
+<p>OpenAI&rsquo;s position is that it already does most of this: it publishes system cards, runs red-teaming, grants researcher access in controlled programs. The Commission&rsquo;s answer is that voluntary is the word that distinguishes a lab from a platform. Under the DSA the assessments are audited, the timelines are enforced, and the penalties reach six percent of global revenue. The compliance checklist is not the interesting part. The interesting part is the precedent: the designation converts &ldquo;AI safety&rdquo; from a research posture into a regulatory filing.</p>
+<h2>The <em>Checklist</em> Becomes a Constitution</h2>
+<p>What does a risk assessment look like when the product is a conversation? The DSA&rsquo;s categories &mdash; illegal content, fundamental rights, electoral processes, minors &mdash; map onto model behavior only through a chain of interpretation: a chatbot does not host content, it generates it; it does not recommend, it responds. The four-month compliance window will be spent building that mapping, and whatever OpenAI files will become the template every other lab photocopies. Brussels has effectively commissioned the first constitution for conversational AI, and it handed the drafting to the defendant.</p>
+<p>The timing is not incidental. The designation lands in the same season the Commission has been criticized for slow enforcement &mdash; the DSA&rsquo;s first big cases dragged &mdash; and the same month Washington&rsquo;s posture toward the labs has swung from scrutiny to courtship. The EU cannot out-subsidize the American frontier, so it is doing what it can do: writing the rules the frontier must file under. An AI assistant in the VLOP regime is the Commission&rsquo;s answer to the question of whether 2026&rsquo;s most important technology will have a regulatory home. It will. It is Brussels&rsquo;.</p>
+<aside class="sidenote"><strong>Field Note</strong>Four months is the number to watch, not six percent. The DSA&rsquo;s penalty ceiling gets the headlines, but the real leverage is the compliance clock: miss it and the Commission can open formal proceedings, which is where fines are born. Every other AI company in Europe just inherited the same deadline by implication &mdash; their designations are a threshold-crossing away.</aside>
+<h2>What the <em>Labs</em> Inherit</h2>
+<p>For the other labs, the designation is a preview with a delayed fuse. Gemini and Claude sit under the same 45-million-user threshold, and their European user bases are growing into it. The template OpenAI files in December becomes their compliance cost in January. The economics are not trivial &mdash; systemic risk assessment at model scale is a permanent staff, not a report &mdash; but the deeper shift is institutional: the labs now have a regulator with jurisdiction over the product itself, not just the data that trains it.</p>
+<p>The American labs spent two years arguing that AI regulation would freeze the frontier. What actually happened is quieter and more durable: the frontier got a paperwork requirement. The models did not slow down. The filings started.</p>
+<blockquote class="offset-quote">A chatbot does not host content. It generates it. Brussels just decided that the difference does not matter.<span class="attribution">- On the first AI assistant in the VLOP regime</span></blockquote>
+<p>ChatGPT keeps answering questions in Europe on Monday. Nothing about the product changes by Tuesday. What changes is that every answer now issues from a designated platform &mdash; audited, reported, and four months from its first regulatory filing. The conversation was always public. Now it is regulated.</p>
+<div class="takeaways"><h4>What This Means</h4><ul><li><strong>Conversational AI is now a platform in law.</strong> The DSA&rsquo;s obligations &mdash; written for feeds and marketplaces &mdash; now apply to a model that generates rather than hosts. The interpretation chain OpenAI builds becomes everyone&rsquo;s template.</li><li><strong>Four months to comply.</strong> The compliance clock, not the six-percent penalty ceiling, is the real leverage. Miss it and formal proceedings follow.</li><li><strong>The template effect.</strong> Gemini and Claude inherit the same obligations by implication. OpenAI&rsquo;s December filing is the rest of the industry&rsquo;s January homework.</li></ul></div>
+<p class="lead-para">The list was built for platforms. The platforms were built for people. The people are talking to the machines now &mdash; and the machines just made the list.</p>
+</article>
+<div class="article-foot"><div class="tags"><a href="../timeline.html?category=Regulatory">Regulatory</a><a href="../timeline.html?category=OpenAI">OpenAI</a><a href="../timeline.html?category=Europe">Europe</a><a href="../timeline.html?category=Policy">Policy</a><a href="../timeline.html?category=Platforms">Platforms</a></div><div class="author-bio"><div class="avatar">P</div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming &mdash; and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">Regulatory &middot; Governance</div><h3><a href="act-takes-hold.html">The Act Takes Hold</a></h3><div class="meta">8 min read</div></article><article><div class="kicker">Intelligence &middot; Law</div><h3><a href="music-sues-back.html">The Serial Numbers Sanded Off</a></h3><div class="meta">9 min read</div></article><article><div class="kicker">Frontier Models &middot; Distribution</div><h3><a href="cursor-cutoff.html">The Model Supply Gets Cut</a></h3><div class="meta">8 min read</div></article></div></section>
+<div class="article-foot"><div class="tags"><a href="../timeline.html?category=Markets">Markets</a><a href="../timeline.html?category=Intelligence">Intelligence</a><a href="../timeline.html?category=OpenAI">OpenAI</a><a href="../timeline.html?category=Distribution">Distribution</a><a href="../timeline.html?category=Cursor">Cursor</a></div><div class="author-bio"><div class="avatar">P</div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming &mdash; and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related">RELATED</section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>

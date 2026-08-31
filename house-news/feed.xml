@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Model Supply Gets Cut</title>
+<link>https://www.propagation.house/house-news/articles/eu-dsa-chatgpt.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/eu-dsa-chatgpt.html</guid>
+<pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
+<description>The European Commission designated ChatGPT a Very Large Online Platform under the DSA &amp;mdash; the first AI assistant to enter the regime. Four months to comply, and the compliance checklist reads like a constitution for conversational AI.</description>
+</item>
+<item>
+<title>The Standard Gets a Body</title>
+<link>https://www.propagation.house/house-news/articles/model-hardware-standard.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/model-hardware-standard.html</guid>
+<pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
+<description>Anthropic's Model Hardware Standard wants to do for lab robots and instruments what MCP did for software tools: one interface, any model, any arm. The physical world is about to get a driver layer &amp;mdash; and whoever writes it sets the defaults.</description>
+</item>
+<item>
+<title>The Money Pauses</title>
+<link>https://www.propagation.house/house-news/articles/nvidia-pauses-financing.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/nvidia-pauses-financing.html</guid>
+<pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
+<description>Nvidia has stepped back from parts of its AI cloud financing program &amp;mdash; the one that traded credit support for a cut of customers&amp;rsquo; revenue &amp;mdash; after its own lawyers reportedly flagged the antitrust exposure. Thirty-six billion dollars in commitments just met a regulator-shaped wall.</description>
+</item>
+<item>
 <title>The Blacklist Dies in Court</title>
 <link>https://www.propagation.house/house-news/articles/anthropic-blacklist.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/anthropic-blacklist.html</guid>
