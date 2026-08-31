@@ -5,30 +5,17 @@
   },
   "published": [
     {
-      "title": "The First Name in Images Retires",
-      "kicker": "Tools · Obituary",
-      "dek": "The official DALL·E GPT quietly disappeared from ChatGPT on Saturday. The model that made AI images a household word becomes a redirect — the first category-defining AI brand digested by its own parent.",
+      "title": "The Fence Moves West",
+      "kicker": "Infrastructure · Export Controls",
+      "dek": "The United States has broadened its AI chip export restrictions beyond China to several Middle Eastern countries. Nvidia’s A100 and H100 now need licenses there. Nothing was banned — which is exactly the point.",
       "author": "Propagation House",
       "date": "2026-08-31",
-      "category": "Tools",
-      "lens": "tools",
+      "category": "Infrastructure",
+      "lens": "infrastructure",
       "status": "published",
-      "filename": "articles/dalle-retires.html",
-      "read_time": "7 min",
-      "summary": "OpenAI retired the official DALL·E GPT from ChatGPT on Aug 30; image generation continues via ChatGPT Images. The category didn’t die — it was digested into a mode."
-    },
-    {
-      "title": "The Raise That Is a Cut",
-      "kicker": "Tools · Developer Economics",
-      "dek": "Anthropic is permanently raising Claude Code’s weekly limits by 25 percent. The temporary boost it replaces was 50. The arithmetic of abundance, explained.",
-      "author": "Propagation House",
-      "date": "2026-08-31",
-      "category": "Tools",
-      "lens": "tools",
-      "status": "published",
-      "filename": "articles/raise-that-cuts.html",
-      "read_time": "6 min",
-      "summary": "Claude Code weekly limits go permanently +25% over baseline on Sept 14 — but the expiring promo was +50%, so the raise is a net ~17% cut from today’s allowance. Rationing by expiration."
+      "filename": "articles/export-fence.html",
+      "read_time": "9 min",
+      "summary": "The US broadened AI chip export restrictions beyond China to several Middle Eastern countries; Nvidia’s A100 and H100 now require licenses. A licensing regime, not a ban — every shipment becomes a decision."
     },
     {
       "title": "The Music Sues Back",
@@ -44,17 +31,52 @@
       "summary": "Sony Music Publishing and Warner Chappell sued Anthropic, naming Amodei and Mann personally. The metadata-stripping count is the sharpest tool; the settlement era’s peace is being tested."
     },
     {
-      "title": "The Fence Moves West",
-      "kicker": "Infrastructure · Export Controls",
-      "dek": "The United States has broadened its AI chip export restrictions beyond China to several Middle Eastern countries. Nvidia’s A100 and H100 now need licenses there. Nothing was banned — which is exactly the point.",
+      "title": "The Money Pauses",
+      "date": "2026-08-31",
+      "kicker": "Infrastructure – Antitrust",
+      "lens": "infrastructure",
+      "category": "Infrastructure",
+      "filename": "articles/nvidia-pauses-financing.html",
+      "read_time": "6 min",
+      "summary": "Nvidia has stepped back from parts of its AI cloud financing program — the one that traded credit support for a cut of customers’ revenue — after its own lawyers reportedly flagged the antitrust exposure. Thirty-six billion dollars in commitments just met a regulator-shaped wall.",
+      "author": "Propagation House"
+    },
+    {
+      "title": "The Standard Gets a Body",
+      "date": "2026-08-31",
+      "kicker": "Robotics – Standards",
+      "lens": "robotics",
+      "category": "Robotics",
+      "filename": "articles/model-hardware-standard.html",
+      "read_time": "7 min",
+      "summary": "Anthropic’s Model Hardware Standard wants to do for lab robots and instruments what MCP did for software tools: one interface, any model, any arm. The physical world is about to get a driver layer — and whoever writes it sets the defaults.",
+      "author": "Propagation House"
+    },
+    {
+      "title": "The Raise That Is a Cut",
+      "kicker": "Tools · Developer Economics",
+      "dek": "Anthropic is permanently raising Claude Code’s weekly limits by 25 percent. The temporary boost it replaces was 50. The arithmetic of abundance, explained.",
       "author": "Propagation House",
       "date": "2026-08-31",
-      "category": "Infrastructure",
-      "lens": "infrastructure",
+      "category": "Tools",
+      "lens": "tools",
       "status": "published",
-      "filename": "articles/export-fence.html",
-      "read_time": "9 min",
-      "summary": "The US broadened AI chip export restrictions beyond China to several Middle Eastern countries; Nvidia’s A100 and H100 now require licenses. A licensing regime, not a ban — every shipment becomes a decision."
+      "filename": "articles/raise-that-cuts.html",
+      "read_time": "6 min",
+      "summary": "Claude Code weekly limits go permanently +25% over baseline on Sept 14 — but the expiring promo was +50%, so the raise is a net ~17% cut from today’s allowance. Rationing by expiration."
+    },
+    {
+      "title": "The First Name in Images Retires",
+      "kicker": "Tools · Obituary",
+      "dek": "The official DALL·E GPT quietly disappeared from ChatGPT on Saturday. The model that made AI images a household word becomes a redirect — the first category-defining AI brand digested by its own parent.",
+      "author": "Propagation House",
+      "date": "2026-08-31",
+      "category": "Tools",
+      "lens": "tools",
+      "status": "published",
+      "filename": "articles/dalle-retires.html",
+      "read_time": "7 min",
+      "summary": "OpenAI retired the official DALL·E GPT from ChatGPT on Aug 30; image generation continues via ChatGPT Images. The category didn’t die — it was digested into a mode."
     },
     {
       "title": "The Model Supply Gets Cut",
@@ -557,28 +579,6 @@
       "filename": "articles/openrouter-toll.html",
       "read_time": "7 min",
       "summary": "Stripe is buying OpenRouter for more than $7 billion — the gateway that lets developers call every model from one API. The most important toll booth in AI just became a payments company’s moat.",
-      "author": "Propagation House"
-    },
-    {
-      "title": "The Money Pauses",
-      "date": "2026-08-31",
-      "kicker": "Infrastructure – Antitrust",
-      "lens": "infrastructure",
-      "category": "Infrastructure",
-      "filename": "articles/nvidia-pauses-financing.html",
-      "read_time": "6 min",
-      "summary": "Nvidia has stepped back from parts of its AI cloud financing program — the one that traded credit support for a cut of customers’ revenue — after its own lawyers reportedly flagged the antitrust exposure. Thirty-six billion dollars in commitments just met a regulator-shaped wall.",
-      "author": "Propagation House"
-    },
-    {
-      "title": "The Standard Gets a Body",
-      "date": "2026-08-31",
-      "kicker": "Robotics – Standards",
-      "lens": "robotics",
-      "category": "Robotics",
-      "filename": "articles/model-hardware-standard.html",
-      "read_time": "7 min",
-      "summary": "Anthropic’s Model Hardware Standard wants to do for lab robots and instruments what MCP did for software tools: one interface, any model, any arm. The physical world is about to get a driver layer — and whoever writes it sets the defaults.",
       "author": "Propagation House"
     }
   ],

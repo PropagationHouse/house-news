@@ -7,11 +7,18 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
-<title>The Model Supply Gets Cut</title>
-<link>https://www.propagation.house/house-news/articles/eu-dsa-chatgpt.html</link>
-<guid isPermaLink="true">https://www.propagation.house/house-news/articles/eu-dsa-chatgpt.html</guid>
+<title>The First Name in Images Retires</title>
+<link>https://www.propagation.house/house-news/articles/dalle-retires.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/dalle-retires.html</guid>
 <pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
-<description>The European Commission designated ChatGPT a Very Large Online Platform under the DSA &amp;mdash; the first AI assistant to enter the regime. Four months to comply, and the compliance checklist reads like a constitution for conversational AI.</description>
+<description>The official DALL·E GPT quietly disappeared from ChatGPT on Saturday. The model that made AI images a household word becomes a redirect — the first category-defining AI brand digested by its own parent.</description>
+</item>
+<item>
+<title>The Fence Moves West</title>
+<link>https://www.propagation.house/house-news/articles/export-fence.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/export-fence.html</guid>
+<pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
+<description>The United States has broadened its AI chip export restrictions beyond China to several Middle Eastern countries. Nvidia’s A100 and H100 now need licenses there. Nothing was banned — which is exactly the point.</description>
 </item>
 <item>
 <title>The Standard Gets a Body</title>
@@ -21,11 +28,32 @@
 <description>Anthropic's Model Hardware Standard wants to do for lab robots and instruments what MCP did for software tools: one interface, any model, any arm. The physical world is about to get a driver layer &amp;mdash; and whoever writes it sets the defaults.</description>
 </item>
 <item>
+<title>The Music Sues Back</title>
+<link>https://www.propagation.house/house-news/articles/music-sues-back.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/music-sues-back.html</guid>
+<pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
+<description>Sony Music Publishing and Warner Chappell have sued Anthropic over training and output of copyrighted songs &amp;mdash; and named CEO Dario Amodei personally. It is the third music-side action in six weeks, and the first real test of whether the settlement era survives contact with the song.</description>
+</item>
+<item>
 <title>The Money Pauses</title>
 <link>https://www.propagation.house/house-news/articles/nvidia-pauses-financing.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/nvidia-pauses-financing.html</guid>
 <pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
 <description>Nvidia has stepped back from parts of its AI cloud financing program &amp;mdash; the one that traded credit support for a cut of customers&amp;rsquo; revenue &amp;mdash; after its own lawyers reportedly flagged the antitrust exposure. Thirty-six billion dollars in commitments just met a regulator-shaped wall.</description>
+</item>
+<item>
+<title>The Raise That Is a Cut</title>
+<link>https://www.propagation.house/house-news/articles/raise-that-cuts.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/raise-that-cuts.html</guid>
+<pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
+<description>Anthropic is permanently raising Claude Code’s weekly limits by 25 percent. The temporary boost it replaces was 50. The arithmetic of abundance, explained.</description>
+</item>
+<item>
+<title>The Serial Numbers Sanded Off</title>
+<link>https://www.propagation.house/house-news/articles/serial-numbers.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/serial-numbers.html</guid>
+<pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
+<description>Sony Music Publishing and Warner Chappell are suing Anthropic over training-data copying — and the founders are named personally. The metadata-stripping count is the sharpest tool in the filing.</description>
 </item>
 <item>
 <title>The Blacklist Dies in Court</title>

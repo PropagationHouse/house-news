@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The First Name in Images Retires - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:99}
+.brand{font-family:var(--serif);font-weight:900;font-size:26px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.brand em{font-style:italic;font-weight:400}
+.article-hero{max-width:820px;margin:0 auto;padding:64px 24px 40px;text-align:center}
+.article-hero .kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:18px}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);max-width:680px;margin:12px auto 0;line-height:1.5}
+.hero-figure .caption strong{color:var(--ink)}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px 24px;font-size:19px;line-height:1.7;color:#26291b}
+.article-body p{margin-bottom:28px}
+.article-body .lead-para::first-letter{font-family:var(--serif);font-size:64px;font-weight:900;float:left;line-height:.85;padding:6px 10px 0 0;color:var(--accent)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:32px;line-height:1.15;letter-spacing:-.015em;margin:44px 0 18px}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body a{color:var(--accent);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+.article-body a:hover{text-decoration-color:var(--accent)}
+.article-body blockquote{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.45;color:var(--accent-dark);border-left:3px solid var(--accent);padding:4px 0 4px 24px;margin:36px 0}
+.article-body blockquote cite{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.4;color:var(--accent-dark);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:28px 0;margin:40px 0;text-align:center}
+.article-body .offset-quote strong{font-style:normal;font-weight:700}
+.article-body .stat-row{display:flex;gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:36px 0}
+.article-body .stat{flex:1;padding:20px 12px;text-align:center}
+.article-row .stat + .stat, .article-body .stat + .stat{border-left:1px solid var(--rule)}
+.article-body .stat .num{font-family:var(--serif);font-weight:900;font-size:34px;color:var(--accent-dark)}
+.article-body .stat .lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:40px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-weight:700}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);text-decoration:none;border:1px solid var(--rule);padding:6px 12px;border-radius:2px}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:24px;flex-shrink:0}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.55;color:#3a3d2e}
+.related{max-width:1200px;margin:0 auto;padding:48px 24px 72px;border-top:1px solid var(--rule)}
+.related .section-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.25;margin-bottom:6px}
+.related article h3 a{color:var(--ink);text-decoration:none}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:12px;color:var(--muted)}
+@media(max-width:760px){.article-body .stat-row{flex-direction:column}.article-body .stat+.stat{border-left:none;border-top:1px solid var(--rule)}.related .rel-grid{grid-template-columns:1fr}}
+
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+
+.masthead .logo a{color:var(--ink)}
+
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.masthead nav a{transition:color .2s}
+
+.masthead nav a:hover{color:var(--accent)}
+
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.masthead nav{display:none}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">Technology</div><nav><a href="../index.html">Dispatches</a><a href="../index.html#house">Studio</a><a href="../timeline.html">Field Notes</a><a href="../timeline.html">Index</a></nav></header>
+<div class="article-hero">
+  <div class="kicker">Tools &middot; Obituary</div>
+  <h1>The First Name in Images <em>Retires</em></h1>
+  <p class="dek">The official DALL·E GPT quietly disappeared from ChatGPT on Saturday. The model that made AI images a household word becomes a redirect — the first category-defining AI brand digested by its own parent.</p>
+  <div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>August 31, 2026<span class="sep">&middot;</span>7 min read</div>
+</div>
+
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/dalle-retires-hero.jpg" alt="An old framed picture leaning against a gallery wall in an empty room, a blank shipping crate beside it, soft window light from the left" /></div><p class="caption">The first name in consumer AI images becomes a redirect. The frames stay on the wall; the painter moves to a different studio. <strong>Illustration by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">On Saturday, the official DALL&middot;E GPT quietly disappeared from ChatGPT. No farewell post, no retrospective &mdash; a help-desk note and a deadline. Users were told to download the images they wanted to keep before the cutoff; image generation itself lives on, folded into ChatGPT Images; custom GPTs with image tools are unaffected. The model that made AI images a household word &mdash; the one that broke the internet with Shrimp Jesus and taught a generation of executives what a diffusion model is &mdash; has been retired the way companies retire a logo: without a ceremony, because the replacement is already installed.</p>
+<p>It is worth saying plainly what DALL&middot;E was, because the obituaries will be short. In early 2023, when ChatGPT was still a text box that hallucinated citations, DALL&middot;E was the demo that made AI <em>visible</em>. It put a face on the boom &mdash; literally, millions of uncanny, dreamlike, occasionally hideous faces. Every boardroom slide about artificial intelligence for the next two years carried its fingerprints. It was never the best image model for long; Midjourney took the aesthetics, open models took the control. But it was the first one most people ever touched, and first touches are how technologies enter the culture.</p>
+<h2>The Quiet <em>Exit</em></h2>
+<p>The mechanics of the retirement say as much as the fact of it. This was not a model deprecation in the API sense &mdash; no breaking change, no migration guide for developers. It was a consumer interface consolidation: the standalone DALL&middot;E entry removed, its function absorbed into ChatGPT&rsquo;s native image generation, the archive made the user&rsquo;s responsibility. One product, one interface, one brand. The message to the market is that OpenAI no longer sees any value in a separate image identity. The image model is a feature now, not a product.</p>
+<p>That is the real headline. Three years ago, image generation was a franchise &mdash; a thing you built a company around, raised for, argued about. Today it is a mode in a chat window, sandwiched between web search and voice mode. The category did not die; it was digested. The same absorption happened to standalone translation, to transcription, to summarization. DALL&middot;E&rsquo;s retirement is just the first time a category-defining AI brand got digested by its own parent.</p>
+<h2>What the Archive <em>Remembers</em></h2>
+<p>There is a small melancholy in the download-your-images deadline &mdash; the first mass expiration of AI-native memories. A generation of users&rsquo; first prompts, first weird results, first screenshots sent to group chats: part of that now lives only if someone saved it. The web is good at forgetting, and the early visual culture of generative AI is already becoming a thing researchers reconstruct from screenshots.</p>
+<blockquote>The category did not die. It was digested &mdash; absorbed from a product into a mode, from a brand into a feature.</blockquote>
+<p>For the industry, the lesson is about the shape of AI products going forward. The interface is consolidating around conversation, and everything else is becoming a capability that conversation summons. Standalone AI products are not impossible in that world &mdash; but they need to be more than a modality. They need a workflow, a community, a reason to open a different window. DALL&middot;E had none of those by the end, because its own parent gave its users something easier.</p>
+<p>First name in, first name out. The frames stay on the wall; the painter moved to a different studio a long time ago.</p>
+<div class="takeaways">
+<h4>The Takeaways</h4>
+<ul>
+<li>OpenAI retired the official DALL&middot;E GPT from ChatGPT on Aug 30; users were told to download saved images before the cutoff.</li>
+<li>Image generation continues via ChatGPT Images; custom GPTs with image tools are unaffected. No API breaking change.</li>
+<li>DALL&middot;E was the demo that made AI visible to the mainstream in 2023 &mdash; the first image model most people ever touched.</li>
+<li>The retirement marks the digestion of standalone image generation into a chat interface mode &mdash; the category absorbed by its own parent.</li>
+<li>Pattern to watch: which standalone AI products survive consolidation, and what they offer beyond a modality.</li>
+</ul>
+</div>
+</article>
+<div class="article-foot">
+<div class="tags"><a href="../timeline.html?category=Tools">Tools</a><a href="../timeline.html?category=OpenAI">OpenAI</a><a href="../timeline.html?category=Image Generation">Image Generation</a><a href="../timeline.html?category=History">History</a></div>
+<div class="author-bio"><div class="avatar">P</div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming &mdash; and what it means for the people who build, fund, and regulate them.</p></div></div>
+</div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">Tools &middot; Distribution</div><h3><a href="cursor-cutoff.html">The Model Supply Gets Cut</a></h3><div class="meta">8 min read</div></article><article><div class="kicker">Frontier Models &middot; Markets</div><h3><a href="frontier-on-sale.html">The Frontier Goes on Sale</a></h3><div class="meta">7 min read</div></article><article><div class="kicker">Tools &middot; Markets</div><h3><a href="openrouter-toll.html">The Toll Road Changes Hands</a></h3><div class="meta">7 min read</div></article></div></section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>
