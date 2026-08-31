@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Model Supply Gets Cut - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 4px}
+.hero-figure .caption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px;font-size:19px;line-height:1.7;color:var(--ink)}
+.article-body p{margin-bottom:24px}
+.article-body .lead-para{font-family:var(--serif);font-size:24px;line-height:1.4;color:#2a2d1e;font-style:italic;margin-bottom:36px}
+.article-body .lead-para em{font-style:normal;color:var(--accent-dark)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.1;letter-spacing:-.02em;margin:56px 0 20px;color:var(--ink)}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.25;margin:36px 0 16px;color:var(--ink)}
+.article-body strong{font-weight:700;color:var(--ink)}
+.article-body em{font-family:var(--serif);font-style:italic}
+.article-body .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:28px;line-height:1.25;color:var(--accent-dark);text-align:center;margin:48px 0;padding:0 24px}
+.article-body .pull-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body ul,.article-body ol{margin:32px 0;padding-le
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:48px 0}
+.article-body .stat-row .stat{padding:28px 24px;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .num{font-family:var(--serif);font-weight:900;font-size:52px;line-height:1;color:var(--accent-dark)}
+.article-body .stat-row .num .unit{font-size:24px;font-weight:700}
+.article-body .stat-row .label{font-size:13px;line-height:1.5;color:var(--muted);margin-top:10px}
+.article-body .takeaways{background:var(--bg-tint);border-top:3px double var(--ink);border-bottom:3px double var(--ink);padding:36px 32px;margin:56px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{list-style:none;margin:0;padding:0}
+.article-body .takeaways li{font-size:16px;line-height:1.6;margin-bottom:14px;padding-left:20px;position:relative}
+.article-body .takeaways li:before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;background:var(--accent)}
+.article-body .takeaways li:last-child{margin-bottom:0}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0 56px calc((var(--measure) - 100%) / 2 - 40px);padding-right:40px;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+@media (max-width:768px){html{font-size:17px}.article-body{font-size:18px}.article-body h2{font-size:28px}.article-body h3{font-size:20px}.related .rel-grid{grid-template-columns:1fr;gap:24px}.masthead nav{display:none}.article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px}.article-body .stat-row{grid-template-columns:1fr;border-bottom:none}.article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">Markets</div><nav><a href="../index.html">Dispatches</a><a href="../index.html#house">Studio</a><a href="../timeline.html">Field Notes</a><a href="../timeline.html">Index</a></nav></header>
+<div class="article-hero"><div class="kicker">Frontier Models &middot; Distribution</div><h1>The Model Supply Gets <em>Cut</em></h1><p class="dek">OpenAI is winding down its contract to supply models to Cursor after Elon Musk&rsquo;s SpaceX bought the coding tool. Access ends November 12 &mdash; and the company says no future models either, including the next one. Model distribution just stopped being a utility and became a weapon.</p><div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>August 30, 2026<span class="sep">&middot;</span>8 min read</div></div>
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/cursor-cutoff-hero.jpg" alt="A heavy electrical service panel on a brick workshop wall with its main breaker switch thrown to OFF, a paper notice taped beside the switch, a single caged work lamp above" /></div><p class="caption">Direct Cursor access to OpenAI models goes dark November 12, 2026. The notice was posted on OpenAI&rsquo;s own blog. <strong>Illustration by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">For three years the deal was boring, which is what made it important: Cursor, the most-loved coding tool of the AI era, bought intelligence at wholesale from OpenAI and sold it to a million developers. On Saturday that stopped being a supply chain and became a front. OpenAI announced it is winding down the contract &mdash; direct access shuts off November 12 &mdash; and the reason is not pricing, not capacity, not safety. It is who Cursor now belongs to. SpaceX bought the tool, and OpenAI does not sell to Elon Musk&rsquo;s companies.</p>
+<h2>The Clause Is the <em>Story</em></h2>
+<p>Read the announcement carefully and the mechanics matter as much as the feud. OpenAI framed the decision as terms-of-service enforcement: a change of control at Cursor means the company may no longer be able to comply with OpenAI&rsquo;s terms, citing what it called a pattern of disputes with Musk-affiliated businesses. The effect is blunter than the language. A frontier lab has told a named product &mdash; one of the flagship applications of the entire agent economy &mdash; that its model supply ends on a date certain, and that no future models will be furnished either, including <em>Astra</em>, the one everyone is waiting on. Musk answered within hours, blaming Sam Altman personally. OpenAI posted the decision on its own blog. This is not leak-driven reporting; it is a declaration.</p>
+<p>What makes the move historic is not the hostility &mdash; hostility between those two men predates the product category. It is that model access has now been openly weaponized against a <em>competitor&rsquo;s acquisition</em>. Distribution was supposed to be the neutral layer. Cloud providers do not cut off a customer for buying a rival&rsquo;s software. Payment rails do not decline a merchant for its new shareholders. But intelligence supply is not yet a utility, and this week proved it: the wholesale layer of AI has a preferred-customer list, and it is enforced at the corporate chart, not the API key.</p>
+<div class="stat-row"><div class="stat"><div class="num">Nov 12</div><div class="label">The date direct Cursor access to OpenAI models goes dark &mdash; announced with the date certain, not a negotiation window</div></div><div class="stat"><div class="num">3<span class="unit">yrs</span></div><div class="label">The age of the OpenAI-Cursor supply deal, ended not by performance but by a change of control</div></div><div class="stat"><div class="num">0</div><div class="label">Future models OpenAI says it will supply to Cursor &mdash; including Astra, the next frontier release</div></div></div>
+<h2>Follow the <em>Users</em></h2>
+<p>The immediate question is where a million developers go on November 12. Cursor already routes to multiple providers &mdash; Anthropic&rsquo;s models power much of its best autocomplete, and open-weight alternatives are a toggle away. The migration will not be a cliff; it will be a default change. But defaults are destiny in developer tools, and OpenAI is voluntarily surrendering the most productized, highest-retention surface its models had: the editor where working engineers feel model quality a hundred times a day. You do not get that feedback loop back by winning the argument on a blog.</p>
+<p>The structural question is worse for the labs. Every acquisition, every partnership, every enterprise contract signed after this week now has to price in model-supply continuity. If a lab can cut you off because of who bought you, then model access is a country risk &mdash; and companies respond to country risk the way they always have: diversification, hedging, and a slow bleed of trust from the layer that got political. The irony is sharp. OpenAI cut off Cursor to punish a rival&rsquo;s deal, and in doing so handed every CTO in the industry the strongest possible argument for multi-model architecture. The punishment teaches the market to need you less.</p>
+<blockquote class="offset-quote">Model distribution is now openly a strategic weapon, not a neutral utility.<span class="attribution">&mdash; The finding of record, August 2026</span></blockquote>
+<h2>What the Break <em>Teaches</em></h2>
+<p>Zoom out and the week rhymes with itself. A federal court ruled that the Pentagon&rsquo;s blacklist of Anthropic was unconstitutional retaliation for the lab&rsquo;s public speech. OpenAI punished a customer for its choice of owner. One story is the state reaching for the labs; the other is a lab reaching for the market. Both are the same fact wearing different uniforms: the intelligence supply chain is now a theater of power, contested by governments and by the labs themselves. The era in which the models were plumbing is over. The plumbing has opinions, and it votes.</p>
+<p>For Cursor&rsquo;s users, the practical advice is unglamorous: check which models your workflows actually pin, test the Anthropic and open-weight routes before November, and read your own contracts for change-of-control clauses &mdash; because your vendors will. For the industry, the lesson is already in the record. The next frontier lab announcement will be read the way traders read a central bank: not for what it says about capability, but for what it says about who gets supplied. The model supply got cut. Everyone watching just learned what the supply really is.</p>
+<div class="takeaways"><h4>What This Means</h4><ul><li><strong>Model access is now a strategic weapon.</strong> OpenAI is ending Cursor&rsquo;s direct supply over SpaceX&rsquo;s acquisition &mdash; framed as ToS enforcement, executed as a market punishment, with a hard date: November 12, 2026.</li><li><strong>No future models, including Astra.</strong> The cutoff is not a contract expiring; it is a supply embargo against a named rival&rsquo;s acquisition, the first of its kind between frontier labs and products.</li><li><strong>Every deal now prices in supply continuity.</strong> Change-of-control clauses become standard in model contracts, multi-model architecture becomes the default hedge, and the &ldquo;neutral utility&rdquo; era of intelligence distribution formally ends.</li></ul></div>
+<p class="lead-para">The breaker is thrown. The current still flows &mdash; just not to that building. And every other building on the grid is drawing up plans for its own generator tonight.</p>
+</article>
+<div class="article-foot"><div class="tags"><a href="../timeline.html?category=Markets">Markets</a><a href="../timeline.html?category=Intelligence">Intelligence</a><a href="../timeline.html?category=OpenAI">OpenAI</a><a href="../timeline.html?category=Distribution">Distribution</a><a href="../timeline.html?category=Cursor">Cursor</a></div><div class="author-bio"><div class="avatar">P</div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming &mdash; and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">Frontier Models &middot; Markets</div><h3><a href="frontier-on-sale.html">The Frontier Goes on Sale</a></h3><div class="meta">7 min read</div></article><article><div class="kicker">Business &middot; Labs</div><h3><a href="nscale-power-bill.html">The Forty-Five-Billion-Dollar Power Bill</a></h3><div class="meta">8 min read</div></article><article><div class="kicker">AI Agents &middot; Enterprise</div><h3><a href="autonomy-majority.html">The Autonomy Majority</a></h3><div class="meta">7 min read</div></article></div></section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>

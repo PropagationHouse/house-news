@@ -21,7 +21,8 @@ for fn in files:
         d = datetime.strptime(dtm.group(1), '%B %d, %Y')
         pub = format_datetime(d)
     url = 'https://www.propagation.house/house-news/articles/' + fn
-    items.append((pub, title, dek, url))
+    dt = datetime.strptime(dtm.group(1), '%B %d, %Y') if dtm else datetime(1970, 1, 1)
+    items.append((dt, pub, title, dek, url))
 
 items.sort(key=lambda x: x[0], reverse=True)
 
@@ -34,7 +35,7 @@ out.append('<link>https://www.propagation.house/house-news/</link>')
 out.append('<description>Dispatches from Propagation House. What the machines are becoming \u2014 and what it means for the people who build, fund, and regulate them.</description>')
 out.append('<language>en-us</language>')
 out.append('<atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>')
-for pub, title, dek, url in items:
+for dt, pub, title, dek, url in items:
     out.append('<item>')
     out.append('<title>%s</title>' % esc(title))
     out.append('<link>%s</link>' % url)
@@ -48,6 +49,6 @@ out.append('</rss>')
 
 io.open('feed.xml', 'w', encoding='utf-8').write('\n'.join(out) + '\n')
 print('feed.xml rebuilt with %d items' % len(items))
-for pub, title, dek, url in items[:3]:
+for dt, pub, title, dek, url in items[:3]:
     print('-', title)
 

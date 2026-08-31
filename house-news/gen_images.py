@@ -306,6 +306,21 @@ IMAGES = [
      "camera": "eye level, from the aisle, medium framing",
      "light": "flat cool hall light, the slots glowing amber",
      "scale_anchor": "the rack is two meters tall, the technician standing beside it making the scale obvious"},
+
+    # ---------- NO. 60 (Aug 30, 2026) ----------
+    {"filename": "cursor-cutoff-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a heavy electrical service panel on a brick wall with its main breaker switch thrown to OFF, a paper notice taped beside the switch",
+     "place": "a dim workshop corridor, a workbench with a soldering iron and a laptop in the background",
+     "camera": "eye level, from down the corridor, medium framing",
+     "light": "a single caged work lamp above the panel, the rest of the corridor falling into shadow",
+     "scale_anchor": "the panel is a normal wall-mounted breaker-box size, the workbench and a coffee mug below it making the scale obvious",
+     "lens": "50mm f/2 prime, 1/60s"},
+    {"filename": "anthropic-blacklist-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
+     "subject": "a federal court order document on a wooden bench, its lower margin bearing a large stamped seal, a heavy brass gavel resting on the upper corner of the page",
+     "detail": "the stamped seal"},
+    {"filename": "cursor-cutoff-fig0.jpg", "aspect_ratio": "4:3", "lane": "a",
+     "subject": "a contract page titled in small caps, its middle clause struck through with a single ruled line, a fountain pen lying uncapped across the strikethrough",
+     "detail": "the struck-through clause"},
 ]
 
 def copy_approved(entry, output_path, dry_run=False):

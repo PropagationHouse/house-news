@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Blacklist Dies in Court - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+.masthead .logo a{color:var(--ink)}
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.article-hero{padding:64px 24px 40px;text-align:center;max-width:860px;margin:0 auto}
+.article-hero .kicker{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--accent)}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;line-height:1.4;padding:0 4px}
+.hero-figure .caption strong{font-style:normal;color:var(--ink);font-weight:700}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px;font-size:19px;line-height:1.7;color:var(--ink)}
+.article-body p{margin-bottom:24px}
+.article-body .lead-para{font-family:var(--serif);font-size:24px;line-height:1.4;color:#2a2d1e;font-style:italic;margin-bottom:36px}
+.article-body .lead-para em{font-style:normal;color:var(--accent-dark)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.1;letter-spacing:-.02em;margin:56px 0 20px;color:var(--ink)}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body h3{font-family:var(--serif);font-weight:700;font-size:24px;line-height:1.25;margin:36px 0 16px;color:var(--ink)}
+.article-body strong{font-weight:700;color:var(--ink)}
+.article-body em{font-family:var(--serif);font-style:italic}
+.article-body blockquote{border-left:3px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#3a3d2e}
+.article-body .sidenote{font-size:14px;line-height:1.5;color:var(--muted);font-style:italic;padding:16px 0 16px 20px;border-left:2px solid var(--rule);margin:32px 0}
+.article-body .sidenote strong{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:700}
+.article-body .stat-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:48px 0}
+.article-body .stat-row .stat{padding:28px 24px;border-right:1px solid var(--rule)}
+.article-body .stat-row .stat:last-child{border-right:none}
+.article-body .stat-row .num{font-family:var(--serif);font-weight:900;font-size:52px;line-height:1;color:var(--accent-dark)}
+.article-body .stat-row .num .unit{font-size:24px;font-weight:700}
+.article-body .stat-row .label{font-size:13px;line-height:1.5;color:var(--muted);margin-top:10px}
+.article-body .takeaways{background:var(--bg-tint);border-top:3px double var(--ink);border-bottom:3px double var(--ink);padding:36px 32px;margin:56px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:16px}
+.article-body .takeaways ul{list-style:none;margin:0;padding:0}
+.article-body .takeaways li{font-size:16px;line-height:1.6;margin-bottom:14px;padding-left:20px;position:relative}
+.article-body .takeaways li:before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;background:var(--accent)}
+.article-body .takeaways li:last-child{margin-bottom:0}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.18;color:var(--ink);max-width:none;margin:56px 0 56px calc((var(--measure) - 100%) / 2 - 40px);padding-right:40px;border-left:4px solid var(--accent);padding-left:28px;position:relative}
+.article-body .offset-quote .attribution{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-weight:700}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;transition:all .2s}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:22px;color:var(--paper)}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.5;color:#3a3d2e}
+.related{max-width:1000px;margin:0 auto;padding:48px 24px;border-top:3px double var(--ink)}
+.related .section-label{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:11px;color:var(--muted);letter-spacing:.03em}
+@media (max-width:768px){html{font-size:17px}.article-body{font-size:18px}.article-body h2{font-size:28px}.article-body h3{font-size:20px}.related .rel-grid{grid-template-columns:1fr;gap:24px}.masthead nav{display:none}.article-body .offset-quote{font-size:24px;margin:32px 0;padding-left:20px}.article-body .stat-row{grid-template-columns:1fr;border-bottom:none}.article-body .stat-row .stat{border-right:none;border-bottom:1px solid var(--rule)}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">Regulatory</div><nav><a href="../index.html">Dispatches</a><a href="../index.html#house">Studio</a><a href="../timeline.html">Field Notes</a><a href="../timeline.html">Index</a></nav></header>
+<div class="article-hero"><div class="kicker">Regulatory &middot; Courts</div><h1>The Blacklist Dies in <em>Court</em></h1><p class="dek">A federal judge has struck down the Pentagon&rsquo;s &ldquo;supply chain risk&rdquo; designation against Anthropic &mdash; ruling it retaliation for the lab&rsquo;s public speech, a due-process failure, and an arbitrary act. The government is permanently barred from enforcing it. The first constitutional check on how a state punishes an AI lab has arrived.</p><div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>August 30, 2026<span class="sep">&middot;</span>8 min read</div></div>
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/anthropic-blacklist-hero.jpg" alt="A federal court order on a wooden bench bearing a large stamped seal, a heavy brass gavel resting on the upper corner of the page" /></div><p class="caption">Judge Rita F. Lin of the Northern District of California set aside the Defense Department&rsquo;s designation and barred its enforcement. <strong>Illustration by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">The government called it supply chain risk. The court called it punishment for talking. On Thursday, Judge Rita F. Lin of the Northern District of California struck down the Defense Department&rsquo;s blacklist of Anthropic on three independent grounds &mdash; First Amendment retaliation, Fifth Amendment due process, and arbitrary-and-capricious action &mdash; and permanently barred the government from giving it effect. The designation, premised on Claude capabilities the product did not actually have, is dead. The template for how a lab fights back is very much alive.</p>
+<h2>A Blank <em>Check</em>, Rejected</h2>
+<p>The ruling&rsquo;s spine is the retaliation finding. The Pentagon&rsquo;s rationale, the court found, rested largely on Anthropic&rsquo;s public criticism of the administration&rsquo;s AI positions &mdash; and a federal agency cannot dress up the punishment of speech as procurement hygiene. Judge Lin rejected the government&rsquo;s national-security framing as a &ldquo;blank check&rdquo; to penalize critics: if citing national security were enough, every agency could blacklist every company that disagreed with it, and the First Amendment would have a procurement exception. It does not.</p>
+<p>The other two grounds make the holding durable rather than lucky. Due process: the designation carried real consequences and issued without adequate pre-deprivation process &mdash; the company was condemned before it was heard. Arbitrary-and-capricious: the factual predicate was false, because the cited Claude capabilities did not exist in the product. Any one of the three might have carried the day. All three together read like a court building a wall with three load-bearing walls, so that no single appeal knocks it down.</p>
+<div class="stat-row"><div class="stat"><div class="num">3</div><div class="label">Independent grounds for the ruling: First Amendment retaliation, Fifth Amendment due process, arbitrary-and-capricious action</div></div><div class="stat"><div class="num">1<span class="unit">st</span></div><div class="label">First ruling that a federal agency&rsquo;s punishment of an AI lab for public safety criticism is unconstitutional retaliation</div></div><div class="stat"><div class="num">0</div><div class="label">Purchases of Anthropic products the order compels &mdash; the court set aside the punishment; it did not pick the vendor</div></div></div>
+<h2>What the Order Does <em>Not</em> Do</h2>
+<p>Read past the headlines and the order is narrower than the victory lap suggests. It does not require the Defense Department to buy anything from Anthropic. It does not resolve the underlying dispute over AI safeguards that escalated into the blacklist in the first place. What it does is establish that the <em>mechanism</em> &mdash; punishing a lab through procurement power for its public positions &mdash; is unconstitutional when built on retaliation, process failures, and false predicates. The government lost the weapon, not the argument. The argument remains open, and it will be had in publications and comment letters and, if necessary, the next courtroom.</p>
+<p>The industry watched with a different kind of attention. OpenAI and DeepMind employees had filed amicus briefs in the underlying dispute &mdash; a quiet, unprecedented show of inter-lab solidarity against state coercion. The détente between the labs and the government has been fraying all year; this ruling converts the fraying into case law. Every lab now has a template: document the false predicates, litigate the retaliation, and let the court say the quiet part &mdash; that &ldquo;national security&rdquo; is not a license to punish speech.</p>
+<blockquote class="offset-quote">The government lost the weapon, not the argument.<span class="attribution">&mdash; What the order actually holds</span></blockquote>
+<h2>The Week in <em>Uniforms</em></h2>
+<p>Set the ruling beside this week&rsquo;s other supply-chain story and the shape of the era comes into focus. OpenAI cut off Cursor because of who bought it &mdash; a lab punishing a customer&rsquo;s choice of owner. The Pentagon blacklisted Anthropic because of what it said &mdash; a state punishing a lab&rsquo;s choice of words. One is market power wearing terms of service; the other is state power wearing procurement policy. Both are the same fact in different uniforms: intelligence supply has become a theater of power, and everyone in it &mdash; labs, customers, governments &mdash; is now a combatant or a case.</p>
+<p>For the labs, the lesson is that courts will hold the line on <em>process</em> but not necessarily on <em>policy</em> &mdash; the First Amendment protects the criticism, not the contract. For the government, the lesson is that false predicates are discoverable and fatal. And for everyone building on frontier models, the lesson is the one this desk keeps returning to: the supply chain is the story now. The models are becoming infrastructure, and infrastructure has politics. This week, the politics got a docket number and a blog post. Next week, it gets more of both.</p>
+<div class="takeaways"><h4>What This Means</h4><ul><li><strong>The blacklist is dead on three independent grounds.</strong> Retaliation for protected speech, denial of due process, and a false factual predicate &mdash; the cited Claude capabilities did not exist. Enforcement is permanently barred.</li><li><strong>A legal template now exists for every lab.</strong> Document the false predicates, litigate the retaliation, and the &ldquo;blank check&rdquo; of national security stops at the courthouse door.</li><li><strong>The order compels nothing &mdash; and that is the point.</strong> The court set aside the punishment without picking the vendor. The underlying safeguard dispute remains open, now inside a constitutional frame.</li></ul></div>
+<p class="lead-para">The blacklist died in court on a Thursday. What was born there is older and harder to kill: the principle that the state&rsquo;s purchasing power is not a gag order. The labs noticed. So did the procurement officers. Nothing about the argument was settled &mdash; but the weapon is gone, and everyone can see who is holding what.</p>
+</article>
+<div class="article-foot"><div class="tags"><a href="../timeline.html?category=Regulatory">Regulatory</a><a href="../timeline.html?category=Courts">Courts</a><a href="../timeline.html?category=Anthropic">Anthropic</a><a href="../timeline.html?category=Defense">Defense</a><a href="../timeline.html?category=Policy">Policy</a></div><div class="author-bio"><div class="avatar">P</div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming &mdash; and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">Security &middot; Governance</div><h3><a href="rogue-agent-summer.html">Rogue Agent Summer</a></h3><div class="meta">12 min read</div></article><article><div class="kicker">AI Agents &middot; Enterprise</div><h3><a href="meta-project-ot.html">The Org Chart Implodes</a></h3><div class="meta">7 min read</div></article><article><div class="kicker">Business &middot; Compute</div><h3><a href="nscale-power-bill.html">The Forty-Five-Billion-Dollar Power Bill</a></h3><div class="meta">8 min read</div></article></div></section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>
