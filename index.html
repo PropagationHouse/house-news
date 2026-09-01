@@ -99,7 +99,19 @@ img{max-width:100%;display:block}
 
 /* HOUSE: EDITORIAL GRID — wired style: lead center, side stories flanking left+right at bottom */
 .editorial-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.3fr) minmax(0,1fr);gap:0;border-bottom:1px solid var(--rule);align-items:end}
-.editorial-grid .lead-story{grid-column:2;grid-row:1;padding:40px 0 36px;text-align:center}
+.editorial-grid .lead-story{grid-column:2;grid-row:1;padding:28px 0 30px;text-align:center}
+.lead-feature{display:block;margin:0 0 12px;padding:0 0 14px;border-bottom:1px solid var(--rule);text-align:left}
+.lead-feature .lf-row{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,.58fr);gap:18px;align-items:center}
+.lead-feature .lf-thumb{display:block;aspect-ratio:16/10;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a1d12,#4b5320)}
+.lead-feature .lf-thumb img{width:100%;height:100%;object-fit:cover;position:relative;z-index:0}
+.lead-feature .lf-thumb::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(245,242,230,.03) 4px,rgba(245,242,230,.03) 5px);pointer-events:none;z-index:1}
+.lead-feature .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.lead-feature h3{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4vw,48px);line-height:1.02;letter-spacing:-.02em;margin-bottom:12px}
+.lead-feature h3 em{font-style:italic;font-weight:400}
+.lead-feature h3 a{color:inherit;text-decoration:none}
+.lead-feature h3 a:hover{color:var(--accent-dark)}
+.lead-feature .dek{font-size:14px;color:#4a4d3e;line-height:1.5;margin:0}
+.lead-feature .byline{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:8px}
 .editorial-grid .lead-story .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
 .editorial-grid .lead-story h2{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4vw,48px);line-height:1.06;letter-spacing:-.02em;margin-bottom:12px;max-width:720px;margin-left:auto;margin-right:auto}
 .editorial-grid .lead-story h2 em{font-style:italic;font-weight:400}
@@ -244,7 +256,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 <!-- MASTHEAD -->
 <header class="masthead">
   <div class="top-strip">
-    <div class="left"><span>Est. 2020 &middot; Washington, USA</span><span id="dateline">Monday, August 31, 2026</span></div>
+    <div class="left"><span>Est. 2020 &middot; Washington, USA</span><span id="dateline">Tuesday, September 1, 2026</span></div>
     <div class="right"><span><span class="live-dot"></span>Live</span><span><a href="house-news/subscribe.html">Subscribe</a></span></div>
   </div>
   <div class="logo">propagation house</div>
@@ -311,48 +323,57 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 
 <section class="editorial-grid">
   <div class="lead-story">
-    <a href="house-news/articles/export-fence.html" class="thumb"><img src="house-news/assets/images/export-fence-hero.jpg" alt="A tall chain-link fence stretching across a desert lot at dusk, shipping containers stacked behind it, a single floodlight on a pole, tire tracks in the sand"></a>
-    <div class="kicker">Cover Story &middot; Infrastructure / Export Controls</div>
-    <h2><a href="house-news/articles/export-fence.html">The Fence Moves <em>West</em></a></h2>
-    <p class="dek">The United States has broadened its AI chip export restrictions beyond China to several Middle Eastern countries. Nvidia&rsquo;s A100 and H100 now need licenses there. Nothing was banned &mdash; which is exactly the point.</p>
-    <div class="byline">By <strong>Propagation House</strong> &middot; 9 min read &middot; August 31, 2026</div>
+    <div class="lead-feature">
+      <div class="kicker">Feature &middot; Infrastructure / Export Controls</div>
+      <h3><a href="house-news/articles/export-fence.html">The Fence Moves <em>West</em></a></h3>
+      <div class="lf-row">
+        <a href="house-news/articles/export-fence.html" class="lf-thumb"><img src="house-news/assets/images/export-fence-hero.jpg" alt="A tall chain-link fence stretching across a desert lot at dusk, shipping containers stacked behind it, a single floodlight on a pole, tire tracks in the sand"></a>
+        <div class="lf-side">
+          <p class="dek">The US broadened AI chip export restrictions beyond China to the Gulf. Nvidia&rsquo;s A100 and H100 now need licenses there. Nothing was banned &mdash; which is exactly the point.</p>
+          <div class="byline">By Propagation House &middot; 8 min &middot; August 31, 2026</div>
+        </div>
+      </div>
+    </div>
+    <a href="house-news/articles/nvidia-mediatek.html" class="thumb"><img src="house-news/assets/images/nvidia-mediatek-hero.jpg" alt="A half-assembled server rack on an integration floor, thick bundles of cable harnesses coiled on a workbench beside it, a coffee mug and cable spool making the scale"></a>
+    <div class="kicker">Cover Story · Infrastructure / Semiconductors</div>
+    <h2><a href="house-news/articles/nvidia-mediatek.html">The Bond That Buys a <em>Standard</em></a></h2>    <p class="dek">Nvidia took $3.5 billion of MediaTek&rsquo;s convertible bond issue &mdash; roughly ninety percent of it &mdash; days after the chipmaker deepened its adoption of NVLink Fusion. The supply chain now runs on the supplier&rsquo;s balance sheet.</p>
+    <div class="byline">By <strong>Propagation House</strong> · 9 min read · September 1, 2026</div>
   </div><div class="side-stories-left">
     <div class="ss-item">
-      <div class="thumb sside"><img src="house-news/assets/images/music-sues-back-hero.jpg" alt="A vintage vinyl record press in a dim workshop, a stack of blank labels and a pot of solvent on the workbench beside it, warm lamp light"></div>
-      <div class="kicker">Legal &middot; Copyright</div>
-      <h3><a href="house-news/articles/music-sues-back.html">The Music <em>Sues Back</em></a></h3>
-      <p class="dek">Sony Music Publishing and Warner Chappell are suing Anthropic over training and output of copyrighted songs &mdash; and named CEO Dario Amodei personally. The third music action in six weeks is a campaign, not a coincidence.</p>
+      <div class="thumb sside"><img src="house-news/assets/images/eu-dsa-chatgpt-hero.jpg" alt="A wide Brussels government plaza in soft rain, a lone official crossing with an umbrella, a row of black flag poles without flags"></div>
+      <div class="kicker">Regulation · Platform Governance</div>
+      <h3><a href="house-news/articles/chatgpt-vlose.html">The Search Engine That <em>Answers</em></a></h3>
+      <p class="dek">Brussels has designated ChatGPT a Very Large Online Search Engine under the DSA — alongside Reddit and Roblox. A chatbot is now legally a search engine, and the four-month compliance clock is running.</p>
       <div class="byline">By Propagation House &middot; 8 min</div>
     </div>
-    <div class="ss-item">
-      <div class="thumb sside"><img src="house-news/assets/images/nvidia-pauses-financing-hero.jpg" alt="A half-finished data center shell, open steel frame with a crane standing idle beside it, seen from across a fenced gravel lot under flat overcast light"></div>
-      <div class="kicker">Infrastructure &middot; Markets</div>
+<div class="ss-item">
+      <div class="thumb sside"><img src="house-news/assets/images/nvidia-pauses-financing-hero.jpg" alt="A stack of blank green checks and an open ledger on a bank counter, a rubber stamp resting beside them, cool morning light"></div>
+      <div class="kicker">Infrastructure · Markets</div>
       <h3><a href="house-news/articles/nvidia-pauses-financing.html">The Money <em>Pauses</em></a></h3>
-      <p class="dek">Nvidia has stepped back from parts of its AI cloud financing program &mdash; the one that traded credit support for a cut of customers&rsquo; revenue. The machine that lends on itself just met the antitrust lawyers.</p>
-      <div class="byline">By Propagation House &middot; 7 min</div>
+      <p class="dek">Nvidia has stepped back from parts of its AI cloud financing program — the one that traded credit support for a cut of customers’ revenue. The machine that lends on itself just met the antitrust lawyers.</p>
+      <div class="byline">By Propagation House · 7 min</div>
     </div>
     <div class="ss-item">
       <div class="thumb sside"><img src="house-news/assets/images/raise-that-cuts-hero.jpg" alt="A pay envelope on a wooden desk beside an adding machine and a pencil, a slip of paper half pulled out, late afternoon light through blinds"></div>
-      <div class="kicker">Tools &middot; Developer Economics</div>
+      <div class="kicker">Tools · Developer Economics</div>
       <h3><a href="house-news/articles/raise-that-cuts.html">The Raise That Is a <em>Cut</em></a></h3>
-      <p class="dek">Anthropic is permanently raising Claude Code&rsquo;s weekly limits by 25 percent. The temporary boost it replaces was 50. The arithmetic of abundance, explained.</p>
-      <div class="byline">By Propagation House &middot; 6 min</div>
+      <p class="dek">Anthropic is permanently raising Claude Code’s weekly limits by 25 percent. The temporary boost it replaces was 50. The arithmetic of abundance, explained.</p>
+      <div class="byline">By Propagation House · 6 min</div>
     </div>
-
   </div><div class="side-stories-right">
     <div class="ss-item">
-      <div class="thumb sside"><img src="house-news/assets/images/model-hardware-standard-hero.jpg" alt="A robotic arm on a laboratory bench beside a microscope and racks of glass sample vials, seen from across the lab aisle"></div>
-      <div class="kicker">Robotics &middot; Standards</div>
-      <h3><a href="house-news/articles/model-hardware-standard.html">The Standard Gets a <em>Body</em></a></h3>
-      <p class="dek">Anthropic&rsquo;s Model Hardware Standard wants to do for lab robots and instruments what MCP did for software tools: one interface, any model, any arm. The physical world is about to get a driver layer &mdash; and whoever writes it sets the defaults.</p>
-      <div class="byline">By Propagation House &middot; 7 min</div>
+      <div class="thumb sside"><img src="house-news/assets/images/openai-sb-warrants-hero.jpg" alt="A vast solar array stretching toward a half-built data center shell, a pickup truck on a gravel service road, early morning haze"></div>
+      <div class="kicker">Infrastructure · Energy Finance</div>
+      <h3><a href="house-news/articles/openai-sb-warrants.html">The Tenant Gets <em>Paid</em></a></h3>
+      <p class="dek">SB Energy handed OpenAI warrants now worth roughly $5.5 billion — not to buy anything, but to be leased to. The draft IPO documents did not just price a company; they exposed the incentive structure of the entire AI power buildout.</p>
+      <div class="byline">By Propagation House · 7 min</div>
     </div>
     <div class="ss-item">
       <div class="thumb sside"><img src="house-news/assets/images/dalle-retires-hero.jpg" alt="An old framed picture leaning against a bare gallery wall, a blank wooden shipping crate standing beside it on the floor, soft window light from the left"></div>
-      <div class="kicker">Tools &middot; Obituary</div>
+      <div class="kicker">Tools · Obituary</div>
       <h3><a href="house-news/articles/dalle-retires.html">The First Name in Images <em>Retires</em></a></h3>
-      <p class="dek">The official DALL&middot;E GPT quietly disappeared from ChatGPT on Saturday. The model that made AI images a household word becomes a redirect &mdash; the first category-defining AI brand digested by its own parent.</p>
-      <div class="byline">By Propagation House &middot; 7 min</div>
+      <p class="dek">The official DALL·E GPT quietly disappeared from ChatGPT on Saturday. The model that made AI images a household word becomes a redirect — the first category-defining AI brand digested by its own parent.</p>
+      <div class="byline">By Propagation House · 7 min</div>
     </div>
     <div class="ss-item">
       <div class="thumb sside"><img src="house-news/assets/images/autonomy-majority-hero.jpg" alt="An unstaffed industrial control room at night, rows of dark consoles with small amber indicator lights, one empty operator chair"></div>
@@ -364,17 +385,16 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   </div>
   <div class="side-stories-bottom">
     <div class="ss-item">
-      <div class="thumb sside"><img src="house-news/assets/images/robot-olympics-hero.jpg" alt="A humanoid robot sprinting alone on a stadium running track under towering floodlights at dusk"></div>
-      <div class="kicker">Robotics &middot; Autonomy</div>
-      <h3><a href="house-news/articles/robot-olympics.html">The Robot <em>Olympics</em> Open</a></h3>
-      <p class="dek">Beijing convened 2,056 robots from 666 teams across 16 countries for the World Humanoid Robot Games &mdash; the demo economy has graduated to organized sport.</p>
-      <div class="byline">By Propagation House &middot; 9 min</div>
+      <div class="thumb sside"><img src="house-news/assets/images/raise-that-cuts-hero.jpg" alt="A pay envelope on a wooden desk beside an adding machine and a pencil, a slip of paper half pulled out, late afternoon light through blinds"></div>
+      <div class="kicker">Tools &middot; Developer Economics</div>
+      <h3><a href="house-news/articles/raise-that-cuts.html">The Raise That Is a <em>Cut</em></a></h3>"      <p class="dek">Anthropic is permanently raising Claude Code&rsquo;s weekly limits by 25 percent. The temporary boost it replaces was 50. The arithmetic of abundance, explained.</p>
+      <div class="byline">By Propagation House &middot; 6 min</div>
     </div>
     <div class="ss-item">
-      <div class="thumb sside"><img src="house-news/assets/images/alation-map-robbed-hero.jpg" alt="A grand wooden library card catalog with drawers pulled open and index cards scattered across the floor"></div>
-      <div class="kicker">Security &middot; Infrastructure</div>
-      <h3><a href="house-news/articles/alation-map-robbed.html">The Map of Everything Gets <em>Robbed</em></a></h3>
-      <p class="dek">Alation, the data catalog that maps where every table, credential, and sensitive column lives, confirmed a cyberattack. The burglars hit the building directory, not the vault.</p>
+      <div class="thumb sside"><img src="house-news/assets/images/cursor-cutoff-hero.jpg" alt="A heavy electrical service panel on a brick workshop wall, main breaker thrown to OFF, a paper notice taped beside the switch, a single caged work lamp above"></div>
+      <div class="kicker">Frontier Models &middot; Distribution</div>
+      <h3><a href="house-news/articles/cursor-cutoff.html">The Model Supply Gets <em>Cut</em></a></h3>
+      <p class="dek">OpenAI is winding down its contract to supply models to Cursor after SpaceX bought the tool. Access ends November 12 &mdash; and no future models either.</p>
       <div class="byline">By Propagation House &middot; 8 min</div>
     </div>
     <div class="ss-item">
@@ -384,12 +404,12 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
       <p class="dek">Anthropic will pay Nscale $45 billion over six years for 460 megawatts of West Virginia compute &mdash; a campus Microsoft walked away from, running chips that do not exist yet, for a company that has never turned a profit.</p>
       <div class="byline">By Propagation House &middot; 8 min</div>
     </div>
-    <div class="ss-item">
-      <div class="thumb sside"><img src="house-news/assets/images/meta-project-ot-hero.jpg" alt="A vast empty corporate office floor at night, one white partition knocked over and lying on its side, a single desk lamp still on, muted earth tones on film"></div>
+<div class="ss-item">
+      <div class="thumb sside"><img src="house-news/assets/images/autonomy-majority-hero.jpg" alt="An unstaffed industrial control room at night, rows of dark consoles with small amber indicator lights, one empty operator chair"></div>
       <div class="kicker">AI Agents &middot; Enterprise</div>
-      <h3><a href="house-news/articles/meta-project-ot.html">The Org Chart <em>Implodes</em></a></h3>
-      <p class="dek">Meta planned to cut some teams by 60 percent and hand the daily work to AI agents. Then the agents started making &ldquo;large-scale, disruptive actions,&rdquo; and the second wave of layoffs quietly disappeared. The first post-mortem of the agent economy is here.</p>
-      <div class="byline">By Propagation House &middot; 7 min</div>
+      <h3><a href="house-news/articles/autonomy-majority.html">The Autonomy <em>Majority</em></a></h3>
+      <p class="dek">59.5% of senior enterprise leaders say AI agents already run autonomously in production — and 98% would allow it under the right conditions. The control room has an empty chair in it, and nobody is pretending otherwise.</p>
+      <div class="byline">By Propagation House &middot; 7 min</div></div>
     </div>
   </div>
 </section>

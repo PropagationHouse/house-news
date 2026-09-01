@@ -84,6 +84,21 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 62 (Sep 1, 2026) ----------
+    {"filename": "nvidia-mediatek-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a half-assembled server rack on an integration floor with thick bundles of cable harnesses coiled on a workbench beside it",
+     "place": "a systems integration workshop, cable trays overhead",
+     "camera": "from down the workbench, eye level, candid distance",
+     "light": "cool fluorescent work light with one warm task lamp",
+     "scale_anchor": "the rack is a normal 42U size, the coffee mug and cable spool beside it making the scale obvious",
+     "lens": "35mm f/2.8 prime, 1/125s"},
+    {"filename": "openai-sb-warrants-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a vast solar panel array stretching toward a half-built data center shell in the distance",
+     "place": "a Texas plain at the edge of a construction site, a gravel service road in the foreground",
+     "camera": "from the roadside, eye level, wide framing",
+     "light": "early morning haze, long flat shadows",
+     "scale_anchor": "the pickup truck on the service road gives human scale, the panels receding to the horizon making the array obvious",
+     "lens": "28mm f/4 prime, 1/125s"},
     # ---------- No. 61 (Aug 31, 2026) ----------
     {"filename": "export-fence-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a tall chain-link security fence stretching across a desert lot at dusk, shipping containers stacked behind it, a single floodlight on a pole",

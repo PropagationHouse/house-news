@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">42</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">45</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">42</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'nvidia-mediatek', title:'The Bond That Buys a Standard', href:'articles/nvidia-mediatek.html', date:'2026-09-01', category:'Markets', lens:'infrastructure', read:'9 min', dek:'Nvidia took $3.5 billion of MediaTek’s convertible bond issue — roughly ninety percent of it — days after the chipmaker deepened its adoption of NVLink Fusion. The supply chain now runs on the supplier’s balance sheet.',
+      tags:['nvidia','mediatek','nvlink-fusion','convertible-bonds','chips','circular-financing']},
+    {id:'chatgpt-vlose', title:'The Search Engine That Answers', href:'articles/chatgpt-vlose.html', date:'2026-09-01', category:'Regulation', lens:'intelligence', read:'8 min', dek:'Brussels has designated ChatGPT a Very Large Online Search Engine under the DSA — alongside Reddit and Roblox. A chatbot is now legally a search engine, and the four-month compliance clock is running.',
+      tags:['eu','dsa','chatgpt','openai','regulation','platform-governance']},
+    {id:'openai-sb-warrants', title:'The Tenant Gets Paid', href:'articles/openai-sb-warrants.html', date:'2026-09-01', category:'Markets', lens:'infrastructure', read:'7 min', dek:'SB Energy handed OpenAI warrants now worth roughly $5.5 billion — not to buy anything, but to be leased to. The draft IPO documents did not just price a company; they exposed the incentive structure of the entire AI power buildout.',
+      tags:['openai','sb-energy','softbank','warrants','data-centers','power']},
     {id:'export-fence', title:'The Fence Moves West', href:'articles/export-fence.html', date:'2026-08-31', category:'Infrastructure', lens:'infrastructure', read:'9 min', dek:'The US broadened AI chip export restrictions beyond China to several Middle Eastern countries. Nvidia\u2019s A100 and H100 now need licenses there. Nothing was banned \u2014 which is exactly the point.',
       tags:['nvidia','amd','export-controls','geopolitics','chips','middle-east']},
     {id:'music-sues-back', title:'The Music Sues Back', href:'articles/music-sues-back.html', date:'2026-08-31', category:'Legal', lens:'intelligence', read:'8 min', dek:'Sony Music Publishing and Warner Chappell sued Anthropic \u2014 and named Dario Amodei personally. The third music action in six weeks is a campaign, not a coincidence.',

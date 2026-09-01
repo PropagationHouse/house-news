@@ -580,6 +580,42 @@
       "read_time": "7 min",
       "summary": "Stripe is buying OpenRouter for more than $7 billion — the gateway that lets developers call every model from one API. The most important toll booth in AI just became a payments company’s moat.",
       "author": "Propagation House"
+    },
+    {
+      "title": "The Bond That Buys a Standard",
+      "kicker": "Infrastructure · Semiconductors",
+      "dek": "Nvidia took $3.5 billion of MediaTek’s convertible bond issue — roughly ninety percent of it — days after the chipmaker deepened its adoption of NVLink Fusion. The supply chain now runs on the supplier’s balance sheet.",
+      "author": "Propagation House",
+      "date": "2026-09-01",
+      "category": "Markets",
+      "lens": "infrastructure",
+      "status": "published",
+      "filename": "articles/nvidia-mediatek.html",
+      "read_time": "9 min"
+    },
+    {
+      "title": "The Search Engine That Answers",
+      "kicker": "Regulation · Platform Governance",
+      "dek": "Brussels has designated ChatGPT a Very Large Online Search Engine under the DSA — alongside Reddit and Roblox. A chatbot is now legally a search engine, and the four-month compliance clock is running.",
+      "author": "Propagation House",
+      "date": "2026-09-01",
+      "category": "Regulation",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/chatgpt-vlose.html",
+      "read_time": "8 min"
+    },
+    {
+      "title": "The Tenant Gets Paid",
+      "kicker": "Infrastructure · Energy Finance",
+      "dek": "SB Energy handed OpenAI warrants now worth roughly $5.5 billion — not to buy anything, but to be leased to. The draft IPO documents did not just price a company; they exposed the incentive structure of the entire AI power buildout.",
+      "author": "Propagation House",
+      "date": "2026-09-01",
+      "category": "Markets",
+      "lens": "infrastructure",
+      "status": "published",
+      "filename": "articles/openai-sb-warrants.html",
+      "read_time": "7 min"
     }
   ],
   "drafts": [],
