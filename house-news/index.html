@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="favicon.png">
 <title>House — Dispatches from the Edge of Culture</title>
 <style>
 @font-face{font-family:'Acumin Pro';src:url('assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
@@ -57,7 +57,7 @@ img{max-width:100%;display:block}
 
 /* HOUSE: EDITORIAL GRID — wired style: lead center, side stories flanking left+right at bottom */
 .editorial-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.3fr) minmax(0,1fr);gap:0;border-bottom:1px solid var(--rule);align-items:end}
-.editorial-grid .lead-story{grid-column:2;grid-row:1;padding:40px 0 36px;text-align:center}
+.editorial-grid .lead-story{grid-column:2;grid-row:1;padding:28px 0 30px;text-align:center}
 .editorial-grid .lead-story .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
 .editorial-grid .lead-story h2{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4vw,48px);line-height:1.06;letter-spacing:-.02em;margin-bottom:12px;max-width:720px;margin-left:auto;margin-right:auto}
 .editorial-grid .lead-story h2 em{font-style:italic;font-weight:400}
@@ -67,17 +67,18 @@ img{max-width:100%;display:block}
 .editorial-grid .lead-story .thumb{display:block;width:100%;aspect-ratio:16/9;margin:0 auto 20px;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a1d12,#4b5320)}
 .editorial-grid .lead-story .thumb img{width:100%;height:100%;object-fit:cover;position:relative;z-index:0}
 .editorial-grid .lead-story .thumb::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(245,242,230,.03) 4px,rgba(245,242,230,.03) 5px);pointer-events:none;z-index:1}
-.editorial-grid .lead-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:24px;align-items:center;margin:0 0 36px;padding:24px 0 26px;border-bottom:1px solid var(--rule);text-align:left}
-.editorial-grid .lead-feature .lf-thumb{display:block;aspect-ratio:16/10;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a1d12,#4b5320)}
-.editorial-grid .lead-feature .lf-thumb img{width:100%;height:100%;object-fit:cover;position:relative;z-index:0}
-.editorial-grid .lead-feature .lf-thumb::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(245,242,230,.03) 4px,rgba(245,242,230,.03) 5px);pointer-events:none;z-index:1}
-.editorial-grid .lead-feature .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
-.editorial-grid .lead-feature h3{font-family:var(--serif);font-weight:900;font-size:clamp(30px,3.4vw,40px);line-height:1.06;letter-spacing:-.02em;margin-bottom:10px}
-.editorial-grid .lead-feature h3 em{font-style:italic;font-weight:400}
-.editorial-grid .lead-feature h3 a{color:inherit;text-decoration:none}
-.editorial-grid .lead-feature h3 a:hover{color:var(--accent-dark)}
-.editorial-grid .lead-feature .dek{font-size:14px;color:#4a4d3e;line-height:1.5;margin:0 0 10px}
-.editorial-grid .lead-feature .byline{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.lead-feature{display:block;margin:0 0 12px;padding:0 0 14px;border-bottom:1px solid var(--rule);text-align:left}
+.lead-feature .lf-row{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,.58fr);gap:18px;align-items:center}
+.lead-feature .lf-thumb{display:block;aspect-ratio:16/10;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a1d12,#4b5320)}
+.lead-feature .lf-thumb img{width:100%;height:100%;object-fit:cover;position:relative;z-index:0}
+.lead-feature .lf-thumb::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(245,242,230,.03) 4px,rgba(245,242,230,.03) 5px);pointer-events:none;z-index:1}
+.lead-feature .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.lead-feature h3{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4vw,48px);line-height:1.02;letter-spacing:-.02em;margin-bottom:12px}
+.lead-feature h3 em{font-style:italic;font-weight:400}
+.lead-feature h3 a{color:inherit;text-decoration:none}
+.lead-feature h3 a:hover{color:var(--accent-dark)}
+.lead-feature .dek{font-size:14px;color:#4a4d3e;line-height:1.5;margin:0}
+.lead-feature .byline{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:8px}
 .editorial-grid .side-stories-left{grid-column:1;grid-row:1;align-self:end;display:flex;flex-direction:column;padding:0;border-right:1px solid var(--rule)}
 .editorial-grid .side-stories-left .ss-item{padding:0 24px 0 0;border-bottom:1px solid var(--rule)}
 .editorial-grid .side-stories-left .ss-item:not(:first-child){padding-top:20px}
@@ -194,7 +195,8 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 @media(max-width:900px){
   .editorial-grid{grid-template-columns:1fr}
   .editorial-grid .lead-story{grid-column:1;grid-row:1;padding:24px 0}
-  .editorial-grid .lead-feature{grid-template-columns:1fr;gap:14px;text-align:center;padding:22px 0}
+  .lead-feature{margin:0 0 10px;padding:0 0 12px}
+  .lead-feature .lf-row{grid-template-columns:1fr;gap:12px}
   .editorial-grid .side-stories-left{grid-column:1;grid-row:2;border-right:none;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
   .editorial-grid .side-stories-right{grid-column:1;grid-row:3;border-left:none;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
   .editorial-grid .side-stories-left .ss-item,.editorial-grid .side-stories-right .ss-item{flex:1 1 45%;padding:16px 0;border-bottom:1px solid var(--rule)}
@@ -289,12 +291,14 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 <section class="editorial-grid">
   <div class="lead-story">
     <div class="lead-feature">
-      <a href="articles/cursor-cutoff.html" class="lf-thumb"><img src="assets/images/cursor-cutoff-hero.jpg" alt="A heavy electrical service panel on a brick workshop wall with its main breaker switch thrown to OFF, a paper notice taped beside the switch, a single caged work lamp above"></a>
-      <div class="lf-body">
-        <div class="kicker">Feature &middot; Frontier Models &middot; Distribution</div>
-        <h3><a href="articles/cursor-cutoff.html">The Model Supply Gets <em>Cut</em></a></h3>
-        <p class="dek">OpenAI is winding down its contract to supply models to Cursor after SpaceX bought the coding tool. Access ends November 12 &mdash; and no future models either.</p>
-        <div class="byline">By Propagation House &middot; 8 min &middot; August 30, 2026</div>
+      <div class="kicker">Feature &middot; Frontier Models &middot; Distribution</div>
+      <h3><a href="articles/cursor-cutoff.html">The Model Supply Gets <em>Cut</em></a></h3>
+      <div class="lf-row">
+        <a href="articles/cursor-cutoff.html" class="lf-thumb"><img src="assets/images/cursor-cutoff-hero.jpg" alt="A heavy electrical service panel on a brick workshop wall with its main breaker switch thrown to OFF, a paper notice taped beside the switch, a single caged work lamp above"></a>
+        <div class="lf-side">
+          <p class="dek">OpenAI is winding down its contract to supply models to Cursor after SpaceX bought the tool. Access ends November 12 &mdash; and no future models either.</p>
+          <div class="byline">By Propagation House &middot; 8 min &middot; August 30, 2026</div>
+        </div>
       </div>
     </div>
     <a href="articles/export-fence.html" class="thumb"><img src="assets/images/export-fence-hero.jpg" alt="A tall chain-link fence stretching across a desert lot at dusk, shipping containers stacked behind it, a single floodlight on a pole, tire tracks in the sand"></a>
