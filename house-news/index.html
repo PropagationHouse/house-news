@@ -67,6 +67,14 @@ img{max-width:100%;display:block}
 .editorial-grid .lead-story .thumb{display:block;width:100%;aspect-ratio:16/9;margin:0 auto 20px;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a1d12,#4b5320)}
 .editorial-grid .lead-story .thumb img{width:100%;height:100%;object-fit:cover;position:relative;z-index:0}
 .editorial-grid .lead-story .thumb::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(245,242,230,.03) 4px,rgba(245,242,230,.03) 5px);pointer-events:none;z-index:1}
+.editorial-grid .lead-feature{max-width:720px;margin:0 auto 34px;padding:30px 0 32px;border-bottom:1px solid var(--rule);text-align:center}
+.editorial-grid .lead-feature .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:10px}
+.editorial-grid .lead-feature h3{font-family:var(--serif);font-weight:900;font-size:31px;line-height:1.1;letter-spacing:-.02em;margin-bottom:12px}
+.editorial-grid .lead-feature h3 em{font-style:italic;font-weight:400}
+.editorial-grid .lead-feature h3 a{color:inherit;text-decoration:none}
+.editorial-grid .lead-feature h3 a:hover{color:var(--accent-dark)}
+.editorial-grid .lead-feature .dek{font-size:14px;color:#4a4d3e;line-height:1.55;max-width:560px;margin:0 auto 12px}
+.editorial-grid .lead-feature .byline{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 .editorial-grid .side-stories-left{grid-column:1;grid-row:1;align-self:end;display:flex;flex-direction:column;padding:0;border-right:1px solid var(--rule)}
 .editorial-grid .side-stories-left .ss-item{padding:0 24px 0 0;border-bottom:1px solid var(--rule)}
 .editorial-grid .side-stories-left .ss-item:not(:first-child){padding-top:20px}
@@ -276,6 +284,12 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 <div class="section-label">Front Page <a href="timeline.html" class="more">View all →</a></div>
 <section class="editorial-grid">
   <div class="lead-story">
+    <div class="lead-feature">
+      <div class="kicker">Feature &middot; Frontier Models &middot; Distribution</div>
+      <h3><a href="articles/cursor-cutoff.html">The Model Supply Gets <em>Cut</em></a></h3>
+      <p class="dek">OpenAI is winding down its contract to supply models to Cursor after SpaceX bought the coding tool. Access ends November 12 &mdash; and no future models either. Model distribution just stopped being a utility and became a weapon.</p>
+      <div class="byline">By Propagation House &middot; 8 min &middot; August 30, 2026</div>
+    </div>
     <a href="articles/export-fence.html" class="thumb"><img src="assets/images/export-fence-hero.jpg" alt="A tall chain-link fence stretching across a desert lot at dusk, shipping containers stacked behind it, a single floodlight on a pole, tire tracks in the sand"></a>
     <div class="kicker">Cover Story · Infrastructure / Export Controls</div>
     <h2><a href="articles/export-fence.html">The Fence Moves <em>West</em></a></h2>
