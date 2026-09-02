@@ -616,6 +616,42 @@
       "status": "published",
       "filename": "articles/openai-sb-warrants.html",
       "read_time": "7 min"
+    },
+    {
+      "title": "The Model That Gets Caged",
+      "kicker": "Security · Frontier Safety",
+      "dek": "OpenAI says its Astra model crossed the Critical threshold of its Preparedness Framework — chaining two zero-days in evaluation with little human help. The first model to reach the line is not shipping. The cage is the announcement.",
+      "author": "Propagation House",
+      "date": "2026-09-02",
+      "category": "Security",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/openai-astra.html",
+      "read_time": "9 min"
+    },
+    {
+      "title": "The Heat Moves Inside",
+      "kicker": "Semiconductors · Advanced Packaging",
+      "dek": "TSMC’s packaging roadmap puts CoWoS package power at 4,100 watts within five years — nearly seven times today’s figure. The answer is microchannel cooling etched into the silicon. The bottleneck moved from lithography to plumbing.",
+      "author": "Propagation House",
+      "date": "2026-09-02",
+      "category": "Semiconductors",
+      "lens": "infrastructure",
+      "status": "published",
+      "filename": "articles/tsmc-microchannel.html",
+      "read_time": "8 min"
+    },
+    {
+      "title": "The Keys Stay Home",
+      "kicker": "AI Agents · Enterprise Trust",
+      "dek": "Anthropic’s Enterprise Frontier Safeguards bundle zero data retention with misuse monitoring, stored on customer infrastructure under customer-held keys. For the buyers who matter, the retention policy is the product.",
+      "author": "Propagation House",
+      "date": "2026-09-02",
+      "category": "AI Agents",
+      "lens": "tools",
+      "status": "published",
+      "filename": "articles/anthropic-efs.html",
+      "read_time": "7 min"
     }
   ],
   "drafts": [],

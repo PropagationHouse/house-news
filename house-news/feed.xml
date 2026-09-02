@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Model That Gets Caged</title>
+<link>https://www.propagation.house/house-news/articles/openai-astra.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-astra.html</guid>
+<pubDate>Wed, 02 Sep 2026 00:00:00 -0000</pubDate>
+<description>OpenAI says its Astra model crossed the Critical threshold of its Preparedness Framework — chaining two zero-days in evaluation with little human help. The first model to reach the line is not shipping. The cage is the announcement.</description>
+</item>
+<item>
+<title>The Heat Moves Inside</title>
+<link>https://www.propagation.house/house-news/articles/tsmc-microchannel.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/tsmc-microchannel.html</guid>
+<pubDate>Wed, 02 Sep 2026 00:00:00 -0000</pubDate>
+<description>TSMC’s packaging roadmap puts CoWoS package power at 4,100 watts within five years — nearly seven times today’s figure. The answer is microchannel cooling etched into the silicon. The bottleneck moved from lithography to plumbing.</description>
+</item>
+<item>
+<title>The Keys Stay Home</title>
+<link>https://www.propagation.house/house-news/articles/anthropic-efs.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/anthropic-efs.html</guid>
+<pubDate>Wed, 02 Sep 2026 00:00:00 -0000</pubDate>
+<description>Anthropic’s Enterprise Frontier Safeguards bundle zero data retention with misuse monitoring, stored on customer infrastructure under customer-held keys. For the buyers who matter, the retention policy is the product.</description>
+</item>
+<item>
 <title>The Bond That Buys a Standard</title>
 <link>https://www.propagation.house/house-news/articles/nvidia-mediatek.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/nvidia-mediatek.html</guid>

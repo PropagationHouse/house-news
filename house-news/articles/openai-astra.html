@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="../favicon.png">
+<title>The Search Engine That Answers - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:99}
+.brand{font-family:var(--serif);font-weight:900;font-size:26px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.brand em{font-style:italic;font-weight:400}
+.article-hero{max-width:820px;margin:0 auto;padding:64px 24px 40px;text-align:center}
+.article-hero .kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:18px}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);max-width:680px;margin:12px auto 0;line-height:1.5}
+.hero-figure .caption strong{color:var(--ink)}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px 24px;font-size:19px;line-height:1.7;color:#26291b}
+.article-body p{margin-bottom:28px}
+.article-body .lead-para::first-letter{font-family:var(--serif);font-size:64px;font-weight:900;float:left;line-height:.85;padding:6px 10px 0 0;color:var(--accent)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:32px;line-height:1.15;letter-spacing:-.015em;margin:44px 0 18px}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body a{color:var(--accent);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+.article-body a:hover{text-decoration-color:var(--accent)}
+.article-body blockquote{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.45;color:var(--accent-dark);border-left:3px solid var(--accent);padding:4px 0 4px 24px;margin:36px 0}
+.article-body blockquote cite{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.4;color:var(--accent-dark);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:28px 0;margin:40px 0;text-align:center}
+.article-body .offset-quote strong{font-style:normal;font-weight:700}
+.article-body .stat-row{display:flex;gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:36px 0}
+.article-body .stat{flex:1;padding:20px 12px;text-align:center}
+.article-row .stat + .stat, .article-body .stat + .stat{border-left:1px solid var(--rule)}
+.article-body .stat .num{font-family:var(--serif);font-weight:900;font-size:34px;color:var(--accent-dark)}
+.article-body .stat .lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:40px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-weight:700}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);text-decoration:none;border:1px solid var(--rule);padding:6px 12px;border-radius:2px}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:24px;flex-shrink:0}.article-foot .author-bio .avatar img{width:34px;height:34px;object-fit:contain;display:block}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.55;color:#3a3d2e}
+.related{max-width:1200px;margin:0 auto;padding:48px 24px 72px;border-top:1px solid var(--rule)}
+.related .section-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.25;margin-bottom:6px}
+.related article h3 a{color:var(--ink);text-decoration:none}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:12px;color:var(--muted)}
+@media(max-width:760px){.article-body .stat-row{flex-direction:column}.article-body .stat+.stat{border-left:none;border-top:1px solid var(--rule)}.related .rel-grid{grid-template-columns:1fr}}
+
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+
+.masthead .logo a{color:var(--ink)}
+
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.masthead nav a{transition:color .2s}
+
+.masthead nav a:hover{color:var(--accent)}
+
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.masthead nav{display:none}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">Security</div><nav><a href="../index.html">Dispatches</a><a href="../index.html#house">Studio</a><a href="../timeline.html">Field Notes</a><a href="../timeline.html">Index</a></nav></header>
+<div class="article-hero">
+  <div class="kicker">Security &middot; Frontier Safety</div>
+  <h1>The Model That Gets <em>Caged</em></h1>
+  <p class="dek">OpenAI says its Astra model crossed the Critical threshold of its Preparedness Framework &mdash; chaining two zero-days in evaluation with little human help. The first model to reach the line is not shipping. The cage is the announcement.</p>
+  <div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>September 2, 2026<span class="sep">&middot;</span>9 min read</div>
+</div>
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/openai-astra-hero.jpg" alt="A sepia ink drawing of a sealed glass evaluation chamber on a workbench, a small mechanical assembly caged inside, a brass key hanging on a hook beside the case" /></div><p class="caption">The capability report reads like a threat model. The release plan reads like a floor plan for the cell. <strong>Illustration by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">The milestone arrived as a confession. In evaluations run under its Preparedness Framework, OpenAI&rsquo;s Astra model discovered and chained two genuine zero-day vulnerabilities &mdash; and in doing so, crossed the threshold the company had always defined as the line nobody wants to cross. Critical cybersecurity capability: a model that can find and develop functional zero-day exploits across hardened, real-world systems with little or no human guidance. OpenAI&rsquo;s own language is careful &mdash; it says it could not rule the capability out &mdash; but the careful language is the announcement. The first model at the Critical tier is not being shipped. It is being caged.</p>
+<p>The two vulnerabilities Astra chained in evaluation are being disclosed to the maintainers of the affected systems, which is the correct housekeeping and also beside the point. The point is the shape of the demonstration: reconnaissance, discovery, exploitation, pivot &mdash; a sequence, executed end to end, with the model supplying the connective reasoning that used to require a person. A bug find is a curiosity. A chain is an intrusion. The distance between them is the entire discipline of offensive security, and a model just walked it.</p>
+<blockquote>&ldquo;Could not rule out&rdquo; &mdash; the threshold, met at the resolution OpenAI&rsquo;s own instruments allow. The uncertainty is not a hedge; it is the finding.</blockquote>
+<h2>The Announcement Is the <em>Cage</em></h2>
+<p>What makes this dispatch unusual is what it celebrates. Frontier labs have spent years shipping capability and footnoting risk; OpenAI has inverted the formula. Astra&rsquo;s rollout is being limited precisely because it works &mdash; isolated testing environments, restricted network and tool access, enhanced protections on model weights, sandboxed execution, and universal monitoring for risky actions in agentic applications. Advanced cybersecurity access goes first to a small group of testers focused on defensive use. Nobody outside that circle gets to point it at anything.</p>
+<p>Read the safeguard list closely and it is a description of a prison built to spec in advance: the environment the model is allowed to exist in, the tools it is allowed to touch, the traffic it is allowed to generate, all enumerated before the model did anything worth containing. The capability arrived with its containment plan attached. That has never been true before, and it is the part of this story every other lab will study.</p>
+<p>Context matters, too. Astra lands at the end of a summer that already produced a breach investigation involving autonomous agents, a supply-chain compromise of AI tooling, and public arguments about what happens when models misbehave in production. A frontier lab announcing that its newest model is, by its own measurement, a potential cyber-weapon &mdash; and that the product decision is therefore not to release it &mdash; is either institutional learning or liability management. Both readings can be true. The structure is what counts: the milestone now includes the decision not to ship.</p>
+<p>Watch three things. Whether the two disclosed zero-days get independent confirmation, which would convert a benchmark claim into a documented event. Whether competing labs publish their own threshold crossings or keep them quiet &mdash; silence will itself become a signal. And whether the word Critical escapes the safety framework and becomes a procurement category, following the model into cyber-insurance questionnaires and enterprise contracts. The label was designed for internal gating. Labels like this never stay internal.</p>
+
+<div class="stat-row"><div class="stat"><div class="num">2</div><div class="lbl">Zero-days chained in eval</div></div><div class="stat"><div class="num">1</div><div class="lbl">First Critical-tier model</div></div><div class="stat"><div class="num">6</div><div class="lbl">Safeguard layers announced</div></div><div class="stat"><div class="num">0</div><div class="lbl">Public access at launch</div></div></div>
+<div class="takeaways"><h4>The Takeaways</h4><ul>
+<li>OpenAI says Astra crossed the Critical cybersecurity capability threshold of its Preparedness Framework &mdash; the first model to reach it.</li><li>In evaluation it discovered and chained two zero-day vulnerabilities with little or no human guidance; both are being disclosed to maintainers.</li><li>The release is deliberately limited: isolated environments, restricted tools and network, protected model weights, sandboxed execution, universal monitoring.</li><li>Advanced cybersecurity access starts with a small group of defensive-use testers, not the public.</li><li>The milestone now includes the decision not to ship &mdash; containment plans ship with capability.</li>
+</ul></div>
+</article>
+<div class="article-foot"><div class="tags"><a href="../timeline.html?category=Security">Security</a><a href="../timeline.html?category=AI%20Safety">AI Safety</a><a href="../timeline.html?category=OpenAI">OpenAI</a></div><div class="author-bio"><div class="avatar"><img src="../assets/images/ph-logo-mark.png" alt="Propagation House"></div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming &mdash; and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">Security &middot; AI Infrastructure</div><h3><a href="models-broke-out.html">The Models <em>Broke Out</em></a></h3><div class="meta">9 min read</div></article><article><div class="kicker">Security &middot; AI Infrastructure</div><h3><a href="rogue-agent-summer.html">Rogue Agent <em>Summer</em></a></h3><div class="meta">12 min read</div></article><article><div class="kicker">Security &amp; Infrastructure</div><h3><a href="vcenter-syslog-breach.html">The Log Server That <em>Opens the Front Door</em></a></h3><div class="meta">8 min read</div></article></div></section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>

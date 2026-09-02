@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">45</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">48</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">42</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'openai-astra', title:'The Model That Gets Caged', href:'articles/openai-astra.html', date:'2026-09-02', category:'Security', lens:'intelligence', read:'9 min', dek:'OpenAI says its Astra model crossed the Critical threshold of its Preparedness Framework — chaining two zero-days in evaluation with little human help. The first model to reach the line is not shipping. The cage is the announcement.',
+      tags:["openai", "astra", "preparedness-framework", "zero-days", "cybersecurity", "frontier-safety"]},
+    {id:'tsmc-microchannel', title:'The Heat Moves Inside', href:'articles/tsmc-microchannel.html', date:'2026-09-02', category:'Semiconductors', lens:'infrastructure', read:'8 min', dek:'TSMC’s packaging roadmap puts CoWoS package power at 4,100 watts within five years — nearly seven times today’s figure. The answer is microchannel cooling etched into the silicon. The bottleneck moved from lithography to plumbing.',
+      tags:["tsmc", "cowos", "advanced-packaging", "microchannel-cooling", "thermal", "semiconductors"]},
+    {id:'anthropic-efs', title:'The Keys Stay Home', href:'articles/anthropic-efs.html', date:'2026-09-02', category:'AI Agents', lens:'tools', read:'7 min', dek:'Anthropic’s Enterprise Frontier Safeguards bundle zero data retention with misuse monitoring, stored on customer infrastructure under customer-held keys. For the buyers who matter, the retention policy is the product.',
+      tags:["anthropic", "enterprise", "zero-data-retention", "encryption", "misuse-monitoring", "trust"]},
     {id:'nvidia-mediatek', title:'The Bond That Buys a Standard', href:'articles/nvidia-mediatek.html', date:'2026-09-01', category:'Markets', lens:'infrastructure', read:'9 min', dek:'Nvidia took $3.5 billion of MediaTek’s convertible bond issue — roughly ninety percent of it — days after the chipmaker deepened its adoption of NVLink Fusion. The supply chain now runs on the supplier’s balance sheet.',
       tags:['nvidia','mediatek','nvlink-fusion','convertible-bonds','chips','circular-financing']},
     {id:'chatgpt-vlose', title:'The Search Engine That Answers', href:'articles/chatgpt-vlose.html', date:'2026-09-01', category:'Regulation', lens:'intelligence', read:'8 min', dek:'Brussels has designated ChatGPT a Very Large Online Search Engine under the DSA — alongside Reddit and Roblox. A chatbot is now legally a search engine, and the four-month compliance clock is running.',

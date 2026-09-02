@@ -84,6 +84,20 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 63 (Sep 2, 2026) ----------
+    {"filename": "openai-astra-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
+     "subject": "a sealed glass evaluation chamber on a wooden workbench, a small mechanical assembly caged inside, a single brass key hanging on a hook beside the case",
+     "detail": "the brass key on its hook"},
+    {"filename": "tsmc-microchannel-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a cleanroom technician in a white bunny suit inspecting a server rack with thick coolant lines running into it, a clipboard in one hand",
+     "place": "a data center fit-out aisle, rows of identical racks receding behind",
+     "camera": "from the aisle, eye level, candid distance",
+     "light": "cool even cleanroom light, one warm work lamp on the open rack",
+     "scale_anchor": "the rack is standard 42U height, the technician and clipboard making the scale obvious",
+     "lens": "35mm f/2.8 prime, 1/125s"},
+    {"filename": "anthropic-efs-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
+     "subject": "a formal document with a ribbon and wax seal lying on a dark desk beside a small ring of keys and a closed steel lockbox",
+     "detail": "the wax seal"},
     # ---------- NO. 62 (Sep 1, 2026) ----------
     {"filename": "nvidia-mediatek-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a half-assembled server rack on an integration floor with thick bundles of cable harnesses coiled on a workbench beside it",
