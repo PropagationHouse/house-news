@@ -194,8 +194,9 @@ img{max-width:100%;display:block}
 
 /* CLIENT STRIP */
 .client-strip{background:var(--ink);color:var(--paper);padding:56px 40px;text-align:center}
-.client-strip h2{font-family:var(--serif);font-weight:900;font-size:36px;margin-bottom:8px}
-.client-strip .client-list{font-size:15px;color:#a8ab96;margin-bottom:16px;letter-spacing:.04em}
+.client-strip .brand-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:22px 46px;max-width:900px;margin:0 auto 22px}
+.client-strip .brand-row img{height:30px;width:auto;filter:brightness(0) invert(1);opacity:.55;transition:opacity .25s ease}
+.client-strip .brand-row img:hover{opacity:1}
 .client-strip .client-note{font-size:13px;color:#6b6e5a;max-width:480px;margin:0 auto;line-height:1.5}
 
 /* NEWSLETTER */
@@ -531,8 +532,14 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 
 <!-- CLIENT STRIP -->
 <section class="client-strip" id="about">
-  <h2>Selected Collaborations</h2>
-  <p class="client-list">Walmart &middot; United Nations &middot; Jet Magazine &middot; Leia Inc</p>
+  <div class="brand-row">
+    <img src="assets/images/brand-spatial.png" alt="Spatial" title="Spatial">
+    <img src="assets/images/brand-un.png" alt="United Nations" title="United Nations">
+    <img src="assets/images/brand-unity.png" alt="Unity" title="Unity">
+    <img src="assets/images/brand-unreal.png" alt="Unreal Engine" title="Unreal Engine">
+    <img src="assets/images/brand-gravity-sketch.png" alt="Gravity Sketch" title="Gravity Sketch">
+    <img src="assets/images/brand-leia.png" alt="Leia Inc" title="Leia Inc">
+  </div>
   <p class="client-note">A quiet credibility layer &mdash; the work that got us here, and the trust we built along the way.</p>
 </section>
 
