@@ -84,6 +84,14 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- WORK JOURNAL (Sep 3, 2026) ----------
+    {"filename": "walmart-unlimited-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a smartphone propped against a coffee mug on a wooden kitchen table, its screen showing a bright stylized shopping game, an open notebook and pencil beside it",
+     "place": "a home kitchen table in the morning",
+     "camera": "close framing across the table surface",
+     "light": "soft morning window light from the left",
+     "scale_anchor": "the mug and pencil make the phone's size obvious",
+     "lens": "50mm f/2 prime, 1/60s"},
     # ---------- NO. 64 (Sep 3, 2026) ----------
     {"filename": "nvidia-hugging-face-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
      "subject": "a wooden card catalog with one drawer pulled open, brass label plates on every drawer face, a small paper sale tag tied with string to the open drawer's pull",

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Year in the Aisle — Propagation House</title>
+<meta name="description" content="How the house spent a year turning a shopping aisle into a game — Walmart Unlimited, a work journal entry.">
+<meta property="og:title" content="A Year in the Aisle — Propagation House">
+<meta property="og:description" content="Walmart Unlimited: a shoppable gamified miniseries, built with Spatial and Unity. A work journal entry.">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/png" href="../favicon.png">
+<style>
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-BPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f6f1e2;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#ece5cf;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+
+.jm{max-width:1080px;margin:0 auto;padding:28px 40px 0;display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--ink);padding-bottom:18px}
+.jm .jm-brand{font-family:var(--sans);font-weight:700;font-size:20px;letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+.jm .jm-brand:hover{color:var(--accent)}
+.jm .jm-sec{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.jm .jm-back{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.jm .jm-back:hover{color:var(--accent)}
+
+.jwrap{max-width:860px;margin:0 auto;padding:0 40px}
+.jhero-kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin:48px 0 14px}
+.jhero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,5.4vw,64px);line-height:1.05;letter-spacing:-.015em;margin-bottom:18px}
+.jdek{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.45;color:var(--accent-dark);max-width:640px;margin-bottom:22px}
+.jbyline{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.jhero-img{margin:34px 0 8px}
+.jhero-img img{width:100%;display:block;border:1px solid var(--rule)}
+.jcap{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
+
+.jbody{margin-top:40px}
+.jbody p{font-size:17px;line-height:1.75;margin-bottom:26px;max-width:680px}
+.jbody p.jlead{font-size:19px;line-height:1.7}
+.jbody p.jlead::first-letter{font-family:var(--serif);font-weight:900;font-size:64px;float:left;line-height:.82;padding:6px 12px 0 0;color:var(--accent)}
+.jbody h2{font-family:var(--serif);font-weight:900;font-size:28px;line-height:1.2;margin:44px 0 16px;letter-spacing:-.01em}
+.jbody .jpull{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.35;color:var(--accent-dark);border-left:3px solid var(--accent);padding-left:20px;margin:34px 0;max-width:520px}
+.jbody .jfig{margin:36px 0}
+.jbody .jfig img{width:100%;display:block;border:1px solid var(--rule)}
+.jbody .jfig figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:8px;text-transform:uppercase}
+
+.jpress{margin:56px 0 0;border-top:3px double var(--ink);padding-top:26px}
+.jpress .jp-head{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink);margin-bottom:18px}
+.jpress-row{display:flex;flex-wrap:wrap;gap:26px 34px;align-items:center}
+.jpress-row a{display:flex;align-items:center;text-decoration:none}
+.jpress-row img{height:22px;width:auto;max-width:120px;object-fit:contain;object-position:left;filter:brightness(0) invert(1);opacity:.5;transition:opacity .25s ease}
+.jpress-row a:hover img{opacity:1}
+.jpress-row .jw{font-family:var(--serif);font-weight:900;font-size:15px;color:var(--ink);opacity:.5;transition:opacity .25s ease}
+.jpress-row a:hover .jw{opacity:1}
+.jpress-note{font-size:12px;color:var(--muted);margin-top:16px;line-height:1.6;max-width:640px}
+.jpress-row .jli{background:var(--ink);border-radius:4px;padding:3px 8px;display:inline-flex;align-items:center}
+.jpress-row .jli img{filter:none;opacity:.9}
+
+.jfoot{max-width:1080px;margin:64px auto 0;padding:22px 40px 30px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.jfoot a{color:var(--ink);text-decoration:none}
+.jfoot a:hover{color:var(--accent)}
+@media (max-width:720px){.jm,.jfoot{padding-left:20px;padding-right:20px}.jwrap{padding:0 20px}.jbody p{font-size:16px}}
+</style>
+</head>
+<body>
+
+<header class="jm">
+  <a class="jm-brand" href="/">propagation house</a>
+  <span class="jm-sec">Work Journal</span>
+  <a class="jm-back" href="/#press">&larr; Back to the House</a>
+</header>
+
+<div class="jwrap">
+
+<article>
+  <div class="jhero">
+    <div class="jhero-kicker">Work Journal &middot; Walmart Unlimited &middot; 2024&ndash;2025</div>
+    <h1>A Year in the Aisle</h1>
+    <p class="jdek">We spent a year building a shopping trip that behaves like a game &mdash; and then Walmart put it in front of a million players. This is how that happened, written down the way we remember it.</p>
+    <div class="jbyline"><span>By Propagation House</span><span>Walmart &middot; Spatial &middot; Unity</span><span>Launched February 2025</span></div>
+  </div>
+
+  <div class="jhero-img">
+    <img src="../house-news/assets/images/walmart-unlimited-hero.jpg" alt="A phone running a shopping game on a kitchen table, morning light" width="1824" height="1024">
+    <p class="jcap">The whole pitch fit in a kitchen-table demo. It mostly still does.</p>
+  </div>
+
+  <div class="jbody">
+    <p class="jlead">There is a version of this story that starts in a boardroom. That is not the version we lived. The version we lived started with a question that sounds simple and is not: what if the aisle itself was the game?</p>
+    <p>Walmart asked it out loud, with Spatial and Unity at the table. In practice the question unrolled into a year of smaller questions &mdash; how a cart should feel when it is also a character, what a fitting room becomes when it is a scene, whether a million people will forgive a loading screen. A year is a long time to hold a question open. We got to keep it open because the answer kept changing shape: three episodes, each one a small world with its own weather.</p>
+
+    <h2>Three episodes, one store</h2>
+    <p>Walmart Unlimited shipped as a three-part miniseries. Each episode followed a character through a world built out of shopping &mdash; groceries that talk, shelves that rearrange themselves, a commerce hub that follows you like a helpful rumor. Milo opened the run, a story cooked up with A Dozen Cousins. Raya and Jabari carried the later chapters into beauty and self-care, which mostly meant the team learned how skin care serum works by building it in 3D.</p>
+    <p>Forty-plus artists touched the thing over roughly a year. For Walmart it was the first live test of their Unity commerce SDK &mdash; the plumbing that lets you actually buy what you are walking past. For us it was the first time our spatial-retail instincts got a stage this size. Purchases happened inside the game, through a Commerce Hub tied into Walmart&rsquo;s real storefront. That detail matters. The game was never a brochure for shopping; it was shopping.</p>
+    <div class="jpull">&ldquo;The game was never a brochure for shopping. It was shopping.&rdquo;</div>
+
+    <h2>What the numbers said</h2>
+    <p>Episode three pulled more than a million players. We are pointing at that number not because it is large but because of what it cost: zero installs. Nobody downloaded anything. The whole world arrived through a screen the way a page does &mdash; and stayed long enough for people to shop in it. Immersive commerce has been a slide in conference decks for a decade. This one had a receipt attached.</p>
+    <p>The trade press noticed in its own way &mdash; nine outlets wrote it up in the first weeks, from Inc. to Ad Age, each one reaching for the same word: <em>first</em>. First immersive gaming title, first Unity commerce SDK in the wild, first shoppable miniseries. When that many people reach for the same word, you stop arguing with it.</p>
+
+    <h2>What we'd do again on purpose</h2>
+    <p>The scrapbook version of this project has some pages we'd photocopy for the next one. Build the commerce loop early &mdash; not as a milestone, as a toy; the moment buying works inside a game, every design argument gets honest. Keep the episodes small. A world you can walk across before the coffee cools is a world people finish. And let the artists near the plumbing: half of what worked in Unlimited came from people who had never touched a commerce API deciding the checkout should feel like part of the scenery.</p>
+    <p>Adaptive retail is the industry's name for it. Our name is quieter: stores that meet you wherever you happen to be looking. The practice started in physical space and it still runs on that instinct &mdash; the room responds, the shelf answers back, the game is the aisle. Walmart Unlimited was the first time the whole idea shipped at scale. It won't be the last.</p>
+  </div>
+
+  <div class="jpress">
+    <div class="jp-head">As seen in</div>
+    <div class="jpress-row">
+      <a href="https://www.inc.com/annabel-burba/walmart-launched-a-video-game-are-shoppers-sold-on-it/91155019" target="_blank" rel="noopener" title="Inc."><img src="../assets/images/press-inc.png" alt="Inc."></a>
+      <a href="https://www.retailtouchpoints.com/features/walmarts-latest-adaptive-retail-adventure-immersive-gaming-commerce/150312/" target="_blank" rel="noopener" title="Retail TouchPoints"><img src="../assets/images/press-retail-touchpoints.png" alt="Retail TouchPoints"></a>
+      <a href="https://chainstoreage.com/walmart-releases-walmart-unlimited-shoppable-gamified-miniseries" target="_blank" rel="noopener" title="Chain Store Age"><span class="jw">Chain Store Age</span></a>
+      <a href="https://www.retailbrew.com/stories/2025/02/27/walmart-releases-first-immersive-gaming-title-with-walmart-unlimited" target="_blank" rel="noopener" title="Retail Brew"><img src="../assets/images/press-retail-brew.svg" alt="Retail Brew"></a>
+      <a href="https://www.pymnts.com/walmart/2025/walmart-and-spatial-launch-gamified-miniseries-featuring-immersive-commerce/" target="_blank" rel="noopener" title="PYMNTS"><img src="../assets/images/press-pymnts.png" alt="PYMNTS"></a>
+      <a href="https://www.supermarketnews.com/grocery-technology/walmart-releases-gamified-version-for-shopping" target="_blank" rel="noopener" title="Supermarket News"><img src="../assets/images/press-supermarket-news.png" alt="Supermarket News"></a>
+      <a href="https://retailwire.com/discussion/walmart-unlimited-retail-gamification/" target="_blank" rel="noopener" title="RetailWire"><img src="../assets/images/press-retailwire.png" alt="RetailWire"></a>
+      <a href="https://adage.com/article/digital-marketing-ad-tech-news/walmart-launches-e-commerce-video-game-miniseries-spatial/2603736/" target="_blank" rel="noopener" title="Ad Age"><img src="../assets/images/press-adage.png" alt="Ad Age"></a>
+      <a href="https://www.linkedin.com/posts/today-walmart-spatial-and-unity-have-ugcPost-7300590950156840961-nOvl/" target="_blank" rel="noopener" title="LinkedIn — Unity"><span class="jli"><img src="../assets/images/press-linkedin.png" alt="LinkedIn"></span></a>
+    </div>
+    <p class="jpress-note">Nine outlets covered the launch window. A million players came for episode three &mdash; the receipts live in their pages, not ours.</p>
+  </div>
+</article>
+
+</div>
+
+<footer class="jfoot">
+  <a href="/">&larr; propagation house</a>
+  <span>Work Journal &middot; 2026</span>
+  <a href="/#press">As seen in &rarr;</a>
+</footer>
+
+</body>
+</html>
