@@ -67,7 +67,7 @@ img{max-width:100%;display:block}
 .editorial-grid .lead-story .thumb{display:block;width:100%;aspect-ratio:16/9;margin:0 auto 20px;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a1d12,#4b5320)}
 .editorial-grid .lead-story .thumb img{width:100%;height:100%;object-fit:cover;position:relative;z-index:0}
 .editorial-grid .lead-story .thumb::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(245,242,230,.03) 4px,rgba(245,242,230,.03) 5px);pointer-events:none;z-index:1}
-.lead-feature{display:block;margin:0 0 12px;padding:0 0 14px;border-bottom:1px solid var(--rule);text-align:left}
+.lead-feature{display:block;margin:12px 0 0;padding:14px 0 0;border-top:1px solid var(--rule);text-align:left}
 .lead-feature .lf-row{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,.58fr);gap:18px;align-items:center}
 .lead-feature .lf-thumb{display:block;aspect-ratio:16/10;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a1d12,#4b5320)}
 .lead-feature .lf-thumb img{width:100%;height:100%;object-fit:cover;position:relative;z-index:0}
@@ -195,7 +195,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 @media(max-width:900px){
   .editorial-grid{grid-template-columns:1fr}
   .editorial-grid .lead-story{grid-column:1;grid-row:1;padding:24px 0}
-  .lead-feature{margin:0 0 10px;padding:0 0 12px}
+  .lead-feature{margin:10px 0 0;padding:12px 0 0}
   .lead-feature .lf-row{grid-template-columns:1fr;gap:12px}
   .editorial-grid .side-stories-left{grid-column:1;grid-row:2;border-right:none;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
   .editorial-grid .side-stories-right{grid-column:1;grid-row:3;border-left:none;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
@@ -247,7 +247,12 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 <div class="section-label">Front Page <a href="timeline.html" class="more">View all →</a></div>
 <section class="editorial-grid">
   <div class="lead-story">
-    <div class="lead-feature">
+<a href="articles/nvidia-hugging-face.html" class="thumb"><img src="assets/images/nvidia-hugging-face-hero.jpg" alt="A sepia ink drawing of a wooden card catalog with one drawer pulled open, brass label plates on every drawer, a small paper sale tag tied with string to the open drawer pull"></a>
+    <div class="kicker">Cover Story &middot; Chips / Open Source</div>
+    <h2><a href="articles/nvidia-hugging-face.html">The Commons Gets an <em>Owner</em></a></h2>
+    <p class="dek">Nvidia is reportedly in advanced talks to buy Hugging Face for about $14 billion &mdash; $12.9B plus a $1B retention pool. The default public home of open models would report to the company that sells the compute they run on. The library keeps its name. It just gets an owner.</p>
+    <div class="byline">By Propagation House &middot; 8 min &middot; September 3, 2026</div>
+<div class="lead-feature">
       <div class="kicker">Feature &middot; Security / AI Safety</div>
       <h3><a href="articles/openai-shutdown-letter.html">The Off Switch Gets <em>Built</em></a></h3>
       <div class="lf-row">
@@ -258,12 +263,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
         </div>
       </div>
     </div>
-    <a href="articles/nvidia-hugging-face.html" class="thumb"><img src="assets/images/nvidia-hugging-face-hero.jpg" alt="A sepia ink drawing of a wooden card catalog with one drawer pulled open, brass label plates on every drawer, a small paper sale tag tied with string to the open drawer pull"></a>
-    <div class="kicker">Cover Story &middot; Chips / Open Source</div>
-    <h2><a href="articles/nvidia-hugging-face.html">The Commons Gets an <em>Owner</em></a></h2>
-    <p class="dek">Nvidia is reportedly in advanced talks to buy Hugging Face for about $14 billion &mdash; $12.9B plus a $1B retention pool. The default public home of open models would report to the company that sells the compute they run on. The library keeps its name. It just gets an owner.</p>
-    <div class="byline">By Propagation House &middot; 8 min &middot; September 3, 2026</div>
-  </div>
+</div>
   <div class="side-stories-left">
     <div class="ss-item">
       <div class="thumb sside"><img src="assets/images/openai-astra-hero.jpg" alt="A sepia ink drawing of a sealed glass evaluation chamber on a workbench, a small mechanical assembly caged inside, a brass key hanging on a hook beside the case"></div>
