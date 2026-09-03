@@ -192,12 +192,16 @@ img{max-width:100%;display:block}
 .merch-strip .item .item-price{font-size:12px;color:var(--muted);letter-spacing:.03em}
 .merch-strip .item a:hover .item-name{color:var(--accent)}
 
-/* CLIENT STRIP */
-.client-strip{background:var(--ink);color:var(--paper);padding:56px 40px;text-align:center}
-.client-strip .brand-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:22px 46px;max-width:900px;margin:0 auto 22px}
-.client-strip .brand-row img{height:30px;width:auto;filter:brightness(0) invert(1);opacity:.55;transition:opacity .25s ease}
-.client-strip .brand-row img:hover{opacity:1}
-.client-strip .client-note{font-size:13px;color:#6b6e5a;max-width:480px;margin:0 auto;line-height:1.5}
+/* CLIENT STRIP — brand marquee */
+.client-strip{background:var(--ink);color:var(--paper);padding:64px 0;overflow:hidden}
+.brand-marquee{overflow:hidden;width:100%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.brand-track{display:flex;align-items:center;width:max-content;animation:brandScroll 75s linear infinite}
+.brand-track img{max-height:48px;max-width:280px;width:auto;height:auto;margin-right:72px;filter:brightness(0) invert(1);opacity:.55;transition:opacity .25s ease;flex:none}
+.brand-track img:hover{opacity:1}
+.brand-track img.luna{max-width:410px}
+.client-strip:hover .brand-track{animation-play-state:paused}
+@keyframes brandScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.brand-track{animation:none;flex-wrap:wrap;justify-content:center;width:100%}}
 
 /* NEWSLETTER */
 .newsletter{background:var(--bg-tint);padding:56px 40px;text-align:center;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
@@ -532,15 +536,34 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 
 <!-- CLIENT STRIP -->
 <section class="client-strip" id="about">
-  <div class="brand-row">
-    <img src="assets/images/brand-spatial.png" alt="Spatial" title="Spatial">
-    <img src="assets/images/brand-un.png" alt="United Nations" title="United Nations">
-    <img src="assets/images/brand-unity.png" alt="Unity" title="Unity">
-    <img src="assets/images/brand-unreal.png" alt="Unreal Engine" title="Unreal Engine">
-    <img src="assets/images/brand-gravity-sketch.png" alt="Gravity Sketch" title="Gravity Sketch">
-    <img src="assets/images/brand-leia.png" alt="Leia Inc" title="Leia Inc">
+  <div class="brand-marquee" aria-label="Selected collaborations">
+    <div class="brand-track">
+      <img src="assets/images/brand-walmart.svg" alt="Walmart" title="Walmart">
+      <img src="assets/images/brand-un.png" alt="United Nations" title="United Nations">
+      <img src="assets/images/brand-jet.png" alt="Jet Magazine" title="Jet Magazine">
+      <img src="assets/images/brand-leia.png" alt="Leia Inc" title="Leia Inc">
+      <img src="assets/images/brand-spatial.png" alt="Spatial" title="Spatial">
+      <img src="assets/images/brand-unity.png" alt="Unity" title="Unity">
+      <img src="assets/images/brand-unreal.png" alt="Unreal Engine" title="Unreal Engine">
+      <img src="assets/images/brand-gravity-sketch.png" alt="Gravity Sketch" title="Gravity Sketch">
+      <img src="assets/images/brand-martian-blueberry.png" alt="Martian Blueberry" title="Martian Blueberry">
+      <img src="assets/images/brand-a-dozen-cousins.png" alt="A Dozen Cousins" title="A Dozen Cousins">
+      <img class="luna" src="assets/images/brand-luna-magic.png" alt="Luna Magic" title="Luna Magic">
+      <img src="assets/images/brand-mielle.png" alt="Mielle" title="Mielle">
+      <img src="assets/images/brand-walmart.svg" alt="" aria-hidden="true">
+      <img src="assets/images/brand-un.png" alt="" aria-hidden="true">
+      <img src="assets/images/brand-jet.png" alt="" aria-hidden="true">
+      <img src="assets/images/brand-leia.png" alt="" aria-hidden="true">
+      <img src="assets/images/brand-spatial.png" alt="" aria-hidden="true">
+      <img src="assets/images/brand-unity.png" alt="" aria-hidden="true">
+      <img src="assets/images/brand-unreal.png" alt="" aria-hidden="true">
+      <img src="assets/images/brand-gravity-sketch.png" alt="" aria-hidden="true">
+      <img src="assets/images/brand-martian-blueberry.png" alt="" aria-hidden="true">
+      <img src="assets/images/brand-a-dozen-cousins.png" alt="" aria-hidden="true">
+      <img class="luna" src="assets/images/brand-luna-magic.png" alt="" aria-hidden="true">
+      <img src="assets/images/brand-mielle.png" alt="" aria-hidden="true">
+    </div>
   </div>
-  <p class="client-note">A quiet credibility layer &mdash; the work that got us here, and the trust we built along the way.</p>
 </section>
 
 <!-- NEWSLETTER -->
