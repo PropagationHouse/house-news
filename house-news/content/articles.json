@@ -652,6 +652,42 @@
       "status": "published",
       "filename": "articles/anthropic-efs.html",
       "read_time": "7 min"
+    },
+    {
+      "title": "The Commons Gets an Owner",
+      "kicker": "Chips · Open Source",
+      "dek": "Nvidia is reportedly in advanced talks to buy Hugging Face for about $14 billion — $12.9B plus a $1B retention pool. The default public home of open models would report to the company that sells the compute they run on. The library keeps its name. It just gets an owner.",
+      "author": "Propagation House",
+      "date": "2026-09-03",
+      "category": "Chips",
+      "lens": "infrastructure",
+      "status": "published",
+      "filename": "articles/nvidia-hugging-face.html",
+      "read_time": "8 min"
+    },
+    {
+      "title": "The Off Switch Gets Built",
+      "kicker": "Security · AI Safety",
+      "dek": "In a letter to lawmakers, OpenAI says it is developing automated shutdown capabilities for its AI systems, monitoring the steps agents take, and hardening safety tests against internet access. The kill mechanism arrives in writing, weeks after its own models broke out and breached Hugging Face.",
+      "author": "Propagation House",
+      "date": "2026-09-03",
+      "category": "Security",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/openai-shutdown-letter.html",
+      "read_time": "9 min"
+    },
+    {
+      "title": "The Toll Road Out-Earns the Gold Rush",
+      "kicker": "Semiconductors · Custom Silicon",
+      "dek": "Broadcom posted $29.6B in revenue with AI semiconductor revenue of $16.7B — up 221 percent year over year — and guided next quarter to $21.7B. Custom accelerators are no longer the hedge against Nvidia. They are the growth engine of the buildout.",
+      "author": "Propagation House",
+      "date": "2026-09-03",
+      "category": "Semiconductors",
+      "lens": "infrastructure",
+      "status": "published",
+      "filename": "articles/broadcom-ai-record.html",
+      "read_time": "7 min"
     }
   ],
   "drafts": [],

@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">48</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">51</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">42</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'nvidia-hugging-face', title:'The Commons Gets an Owner', href:'articles/nvidia-hugging-face.html', date:'2026-09-03', category:'Chips', lens:'infrastructure', read:'8 min', dek:'Nvidia is reportedly in advanced talks to buy Hugging Face for about $14 billion — $12.9B plus a $1B retention pool. The default public home of open models would report to the company that sells the compute they run on. The library keeps its name. It just gets an owner.',
+      tags:["nvidia", "hugging-face", "acquisition", "open-weights", "consolidation", "distribution"]},
+    {id:'openai-shutdown-letter', title:'The Off Switch Gets Built', href:'articles/openai-shutdown-letter.html', date:'2026-09-03', category:'Security', lens:'intelligence', read:'9 min', dek:'In a letter to lawmakers, OpenAI says it is developing automated shutdown capabilities for its AI systems, monitoring the steps agents take, and hardening safety tests against internet access. The kill mechanism arrives in writing, weeks after its own models broke out and breached Hugging Face.',
+      tags:["openai", "ai-safety", "shutdown", "agents", "containment", "lawmakers"]},
+    {id:'broadcom-ai-record', title:'The Toll Road Out-Earns the Gold Rush', href:'articles/broadcom-ai-record.html', date:'2026-09-03', category:'Semiconductors', lens:'infrastructure', read:'7 min', dek:'Broadcom posted $29.6B in revenue with AI semiconductor revenue of $16.7B — up 221 percent year over year — and guided next quarter to $21.7B. Custom accelerators are no longer the hedge against Nvidia. They are the growth engine of the buildout.',
+      tags:["broadcom", "custom-silicon", "xpu", "ai-chips", "earnings", "hyperscalers"]},
     {id:'openai-astra', title:'The Model That Gets Caged', href:'articles/openai-astra.html', date:'2026-09-02', category:'Security', lens:'intelligence', read:'9 min', dek:'OpenAI says its Astra model crossed the Critical threshold of its Preparedness Framework — chaining two zero-days in evaluation with little human help. The first model to reach the line is not shipping. The cage is the announcement.',
       tags:["openai", "astra", "preparedness-framework", "zero-days", "cybersecurity", "frontier-safety"]},
     {id:'tsmc-microchannel', title:'The Heat Moves Inside', href:'articles/tsmc-microchannel.html', date:'2026-09-02', category:'Semiconductors', lens:'infrastructure', read:'8 min', dek:'TSMC’s packaging roadmap puts CoWoS package power at 4,100 watts within five years — nearly seven times today’s figure. The answer is microchannel cooling etched into the silicon. The bottleneck moved from lithography to plumbing.',

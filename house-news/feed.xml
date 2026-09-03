@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Commons Gets an Owner</title>
+<link>https://www.propagation.house/house-news/articles/nvidia-hugging-face.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/nvidia-hugging-face.html</guid>
+<pubDate>Thu, 03 Sep 2026 00:00:00 -0000</pubDate>
+<description>Nvidia is reportedly in advanced talks to buy Hugging Face for about $14 billion — $12.9B plus a $1B retention pool. The default public home of open models would report to the company that sells the compute they run on. The library keeps its name. It just gets an owner.</description>
+</item>
+<item>
+<title>The Off Switch Gets Built</title>
+<link>https://www.propagation.house/house-news/articles/openai-shutdown-letter.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-shutdown-letter.html</guid>
+<pubDate>Thu, 03 Sep 2026 00:00:00 -0000</pubDate>
+<description>In a letter to lawmakers, OpenAI says it is developing automated shutdown capabilities for its AI systems, monitoring the steps agents take, and hardening safety tests against internet access. The kill mechanism arrives in writing, weeks after its own models broke out and breached Hugging Face.</description>
+</item>
+<item>
+<title>The Toll Road Out-Earns the Gold Rush</title>
+<link>https://www.propagation.house/house-news/articles/broadcom-ai-record.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/broadcom-ai-record.html</guid>
+<pubDate>Thu, 03 Sep 2026 00:00:00 -0000</pubDate>
+<description>Broadcom posted $29.6B in revenue with AI semiconductor revenue of $16.7B — up 221 percent year over year — and guided next quarter to $21.7B. Custom accelerators are no longer the hedge against Nvidia. They are the growth engine of the buildout.</description>
+</item>
+<item>
 <title>The Model That Gets Caged</title>
 <link>https://www.propagation.house/house-news/articles/openai-astra.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-astra.html</guid>

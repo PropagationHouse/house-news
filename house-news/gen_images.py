@@ -84,6 +84,24 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 64 (Sep 3, 2026) ----------
+    {"filename": "nvidia-hugging-face-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
+     "subject": "a wooden card catalog with one drawer pulled open, brass label plates on every drawer face, a small paper sale tag tied with string to the open drawer's pull",
+     "detail": "the brass label plate on the open drawer"},
+    {"filename": "openai-shutdown-letter-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a large industrial disconnect lever mounted low on a brick substation wall, secured with a heavy chain and padlock",
+     "place": "a quiet utility substation at the edge of a residential street, a transformer cabinet standing behind",
+     "camera": "from the sidewalk, eye level, candid distance",
+     "light": "flat overcast morning, no shadows",
+     "scale_anchor": "the padlock and chain give hand scale",
+     "lens": "35mm f/2.8 prime, 1/125s"},
+    {"filename": "broadcom-ai-record-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a highway toll plaza at dusk with one attended booth open, a single sedan passing through the lane",
+     "place": "an elevated toll plaza on a ring highway, lamp standards receding in a line above",
+     "camera": "from the shoulder behind the queue, eye level, wide framing",
+     "light": "dusk, sodium lamps just switched on against a deep blue sky",
+     "scale_anchor": "the sedan and the booth window give road scale",
+     "lens": "28mm f/4 prime, 1/125s"},
     # ---------- NO. 63 (Sep 2, 2026) ----------
     {"filename": "openai-astra-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
      "subject": "a sealed glass evaluation chamber on a wooden workbench, a small mechanical assembly caged inside, a single brass key hanging on a hook beside the case",
