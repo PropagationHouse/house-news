@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">51</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">54</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">42</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'gpt6-astra-ships', title:'The Operator Arrives', href:'articles/gpt6-astra-ships.html', date:'2026-09-04', category:'Frontier Models', lens:'intelligence', read:'8 min', dek:'GPT-6 Astra, the computer-use model that crossed OpenAI’s Critical capability threshold earlier this week, began its general rollout on September 3 — three days after the company told Congress it was building automated shutdowns for it. The caged evaluation of Monday is the subscription tier of Friday.',
+      tags:["openai", "gpt-6-astra", "computer-use", "agents", "benchmarks", "release"]},
+    {id:'congress-agent-bills', title:'The Agents Get a Paper Trail', href:'articles/congress-agent-bills.html', date:'2026-09-04', category:'Policy', lens:'governance', read:'9 min', dek:'On September 3, Sanders and Casar proposed banning superintelligence outright, while Gottheimer and Lawler proposed what the agents already running would actually need: NIST security standards, tamper-proof logs, and a machine-readable inventory of every AI agent an organization operates. One bill addresses the machine that does not exist. The other audits the ones already employed.',
+      tags:["congress", "ai-policy", "agents", "nist", "regulation", "superintelligence"]},
+    {id:'k2-horizon', title:'The Weights Come With Instructions', href:'articles/k2-horizon.html', date:'2026-09-04', category:'Open Source', lens:'intelligence', read:'8 min', dek:'MBZUAI’s Institute of Foundation Models released K2 Horizon: six Apache 2.0 models from 0.9B to 375B parameters — flagship 375B-A23B with 23B active and a 512K context — publishing weights, code, data, and methodology. It lands one day after Nvidia’s reported ~$14B approach to Hugging Face. The commons gets an owner; anyone can still photocopy the catalog.',
+      tags:["open-source", "mbzuai", "k2-horizon", "apache-2", "frontier-models", "moe"]},
     {id:'nvidia-hugging-face', title:'The Commons Gets an Owner', href:'articles/nvidia-hugging-face.html', date:'2026-09-03', category:'Chips', lens:'infrastructure', read:'8 min', dek:'Nvidia is reportedly in advanced talks to buy Hugging Face for about $14 billion — $12.9B plus a $1B retention pool. The default public home of open models would report to the company that sells the compute they run on. The library keeps its name. It just gets an owner.',
       tags:["nvidia", "hugging-face", "acquisition", "open-weights", "consolidation", "distribution"]},
     {id:'openai-shutdown-letter', title:'The Off Switch Gets Built', href:'articles/openai-shutdown-letter.html', date:'2026-09-03', category:'Security', lens:'intelligence', read:'9 min', dek:'In a letter to lawmakers, OpenAI says it is developing automated shutdown capabilities for its AI systems, monitoring the steps agents take, and hardening safety tests against internet access. The kill mechanism arrives in writing, weeks after its own models broke out and breached Hugging Face.',

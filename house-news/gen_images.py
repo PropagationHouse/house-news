@@ -84,7 +84,21 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
-    # ---------- WORK JOURNAL (Sep 3, 2026) ----------
+    # ---------- NO. 65 (Sep 4, 2026) ----------
+    {"filename": "gpt6-astra-ships-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a desktop computer monitor and keyboard on a tidy office desk, the monitor showing a plain work screen, a coffee mug and a desk phone beside the keyboard",
+     "place": "a small office at night, one desk lamp on, a window with distant city lights behind",
+     "camera": "from the doorway, eye level, candid distance",
+     "light": "single warm desk lamp against cool dark window light",
+     "scale_anchor": "the mug and desk phone make the monitor's size obvious",
+     "lens": "35mm f/2.8 prime, 1/125s"},
+    {"filename": "congress-agent-bills-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
+     "subject": "a stack of printed government forms bound with a paper binder clip on a worn oak desk, a brass inventory tag and a stamp lying beside the stack",
+     "detail": "the brass inventory tag"},
+    {"filename": "k2-horizon-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
+     "subject": "an open reference book with pages of dense tables lying flat on a wooden table, a stack of duplicated photocopy pages fanned beside it, a magnifying glass resting on the open page",
+     "detail": "the photocopied pages fanned beside the book"},
+    # ---------- NO. 64 (Sep 3, 2026) ----------
     {"filename": "walmart-unlimited-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a smartphone propped against a coffee mug on a wooden kitchen table, its screen showing a bright stylized shopping game, an open notebook and pencil beside it",
      "place": "a home kitchen table in the morning",

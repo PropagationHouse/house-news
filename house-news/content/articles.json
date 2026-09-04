@@ -688,6 +688,42 @@
       "status": "published",
       "filename": "articles/broadcom-ai-record.html",
       "read_time": "7 min"
+    },
+    {
+      "title": "The Operator Arrives",
+      "kicker": "Frontier Models · Computer Use",
+      "dek": "GPT-6 Astra, the computer-use model that crossed OpenAI’s Critical capability threshold earlier this week, began its general rollout on September 3 — three days after the company told Congress it was building automated shutdowns for it. The caged evaluation of Monday is the subscription tier of Friday.",
+      "author": "Propagation House",
+      "date": "2026-09-04",
+      "category": "Frontier Models",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/gpt6-astra-ships.html",
+      "read_time": "8 min"
+    },
+    {
+      "title": "The Agents Get a Paper Trail",
+      "kicker": "Policy · Congress",
+      "dek": "On September 3, Sanders and Casar proposed banning superintelligence outright, while Gottheimer and Lawler proposed what the agents already running would actually need: NIST security standards, tamper-proof logs, and a machine-readable inventory of every AI agent an organization operates. One bill addresses the machine that does not exist. The other audits the ones already employed.",
+      "author": "Propagation House",
+      "date": "2026-09-04",
+      "category": "Policy",
+      "lens": "governance",
+      "status": "published",
+      "filename": "articles/congress-agent-bills.html",
+      "read_time": "9 min"
+    },
+    {
+      "title": "The Weights Come With Instructions",
+      "kicker": "Open Source · Frontier Models",
+      "dek": "MBZUAI’s Institute of Foundation Models released K2 Horizon: six Apache 2.0 models from 0.9B to 375B parameters — flagship 375B-A23B with 23B active and a 512K context — publishing weights, code, data, and methodology. It lands one day after Nvidia’s reported ~$14B approach to Hugging Face. The commons gets an owner; anyone can still photocopy the catalog.",
+      "author": "Propagation House",
+      "date": "2026-09-04",
+      "category": "Open Source",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/k2-horizon.html",
+      "read_time": "8 min"
     }
   ],
   "drafts": [],

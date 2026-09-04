@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Operator Arrives</title>
+<link>https://www.propagation.house/house-news/articles/gpt6-astra-ships.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/gpt6-astra-ships.html</guid>
+<pubDate>Fri, 04 Sep 2026 00:00:00 -0000</pubDate>
+<description>GPT-6 Astra, the computer-use model that crossed OpenAI’s Critical capability threshold earlier this week, began its general rollout on September 3 — three days after the company told Congress it was building automated shutdowns for it. The caged evaluation of Monday is the subscription tier of Friday.</description>
+</item>
+<item>
+<title>The Agents Get a Paper Trail</title>
+<link>https://www.propagation.house/house-news/articles/congress-agent-bills.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/congress-agent-bills.html</guid>
+<pubDate>Fri, 04 Sep 2026 00:00:00 -0000</pubDate>
+<description>On September 3, Sanders and Casar proposed banning superintelligence outright, while Gottheimer and Lawler proposed what the agents already running would actually need: NIST security standards, tamper-proof logs, and a machine-readable inventory of every AI agent an organization operates. One bill addresses the machine that does not exist. The other audits the ones already employed.</description>
+</item>
+<item>
+<title>The Weights Come With Instructions</title>
+<link>https://www.propagation.house/house-news/articles/k2-horizon.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/k2-horizon.html</guid>
+<pubDate>Fri, 04 Sep 2026 00:00:00 -0000</pubDate>
+<description>MBZUAI’s Institute of Foundation Models released K2 Horizon: six Apache 2.0 models from 0.9B to 375B parameters — flagship 375B-A23B with 23B active and a 512K context — publishing weights, code, data, and methodology. It lands one day after Nvidia’s reported ~$14B approach to Hugging Face. The commons gets an owner; anyone can still photocopy the catalog.</description>
+</item>
+<item>
 <title>The Commons Gets an Owner</title>
 <link>https://www.propagation.house/house-news/articles/nvidia-hugging-face.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/nvidia-hugging-face.html</guid>
