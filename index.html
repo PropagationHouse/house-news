@@ -70,8 +70,7 @@ img{max-width:100%;display:block}
 .hero .hero-pills a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
 /* SECTION HEADERS — thick, declarative doors to each corridor */
-.section-head{padding:64px 0 40px;margin:0;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:end}
-.section-head .num{font-family:var(--serif);font-weight:900;font-size:64px;line-height:.8;color:var(--accent);letter-spacing:-.03em}
+.section-head{padding:64px 0 40px;margin:0;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:end}
 .section-head .info .kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
 .section-head .label{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4vw,52px);line-height:1.03;letter-spacing:-.02em}
 .section-head .desc{font-size:16px;line-height:1.55;color:#4a4d3e;max-width:560px;margin-top:10px}
@@ -244,7 +243,6 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 @media(max-width:900px){
   .hero{padding:48px 0 40px}
   .section-head{grid-template-columns:1fr;gap:16px;padding:64px 0 32px}
-  .section-head .num{font-size:48px}
   .section-head .more{align-self:start}
   .editorial-grid{grid-template-columns:1fr}
   .editorial-grid .lead-story{grid-column:1;grid-row:1;padding:24px 0}
@@ -330,7 +328,6 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 
 <!-- 01 HOUSE -->
 <div class="section-head" id="house">
-  <div class="num">01</div>
   <div class="info">
     <div class="kicker">House &middot; News &amp; Research</div>
     <div class="label">News, Research &amp; Publications</div>
@@ -441,7 +438,6 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 
 <!-- 02 PRODUCTS -->
 <div class="section-head tear-up" id="products">
-  <div class="num">02</div>
   <div class="info">
     <div class="kicker">Products &middot; Software &amp; Experiences</div>
     <div class="label">Built in-house. Built to last.</div>
@@ -494,7 +490,6 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 
 <!-- 03 MULTIMEDIA -->
 <div class="section-head" id="multimedia">
-  <div class="num">03</div>
   <div class="info">
     <div class="kicker">Multimedia &middot; Spatial, Film &amp; Sound</div>
     <div class="label">Work in three dimensions.</div>
@@ -531,7 +526,6 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 
 <!-- 04 MERCHANDISE -->
 <div class="section-head" id="merch">
-  <div class="num">04</div>
   <div class="info">
     <div class="kicker">Merchandise &middot; Brand as Object</div>
     <div class="label">Wear the house.</div>
@@ -549,12 +543,9 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 
 <!-- 05 PRESS -->
 <div class="section-head" id="press">
-  <div class="num">05</div>
   <div class="info">
-    <div class="kicker">Press &middot; As Seen In</div>
-    <p class="desc">Coverage of the house&rsquo;s work &mdash; Walmart Unlimited and beyond &mdash; from the outlets that follow the industry.</p>
+    <div class="label">As Seen In</div>
   </div>
-  <a href="#press" class="more">Press &rarr;</a>
 </div>
 
 <section class="press-grid">
