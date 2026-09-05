@@ -84,6 +84,24 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 66 (Sep 5, 2026) ----------
+    {"filename": "astra-stalls-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a modern glass office building entrance at night, the lobby lit but empty, a single closed umbrella resting against the glass door",
+     "place": "a quiet city street outside an office tower, a few distant lit windows above",
+     "camera": "from across the street, eye level, candid distance",
+     "light": "warm lobby glow against cool blue night street light",
+     "scale_anchor": "the umbrella and the door handle make the entrance scale obvious",
+     "lens": "35mm f/2 prime, 1/60s"},
+    {"filename": "papers-sue-openai-hero.jpg", "aspect_ratio": "16:9", "lane": "a",
+     "subject": "a thick printed legal complaint with a caption page lying flat on a worn wooden desk, a fountain pen resting across the top page, reading glasses beside it",
+     "detail": "the fountain pen lying diagonally across the caption page"},
+    {"filename": "xai-minnesota-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a neoclassical courthouse entrance with wide stone steps in early morning, fallen leaves gathered along the edges of the steps, nobody present",
+     "place": "a small state capital side street, bare trees and a lamp post",
+     "camera": "from the bottom of the steps, slightly low angle, candid distance",
+     "light": "low golden morning sun raking across the stone, long shadows",
+     "scale_anchor": "the door handles and a folded newspaper left on the steps make the building scale obvious",
+     "lens": "35mm f/2.8 prime, 1/125s"},
     # ---------- NO. 65 (Sep 4, 2026) ----------
     {"filename": "gpt6-astra-ships-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a desktop computer monitor and keyboard on a tidy office desk, the monitor showing a plain work screen, a coffee mug and a desk phone beside the keyboard",

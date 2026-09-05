@@ -724,6 +724,42 @@
       "status": "published",
       "filename": "articles/k2-horizon.html",
       "read_time": "8 min"
+    },
+    {
+      "title": "The Rollout That Stalls",
+      "kicker": "Frontier Models · Rollout",
+      "dek": "Sam Altman apologized Thursday for the “messy” GPT-6 Astra rollout: enterprises and Daybreak cybersecurity organizations got the computer-use agent first, while the Plus, Pro, and API customers who fund the company waited in a queue with no promised date — compensated with one banked usage reset per day of absence. The off switch works. The on switch is queued.",
+      "author": "Propagation House",
+      "date": "2026-09-05",
+      "category": "Frontier Models",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/astra-stalls.html",
+      "read_time": "8 min"
+    },
+    {
+      "title": "The Byline Goes to Court",
+      "kicker": "Litigation · Copyright",
+      "dek": "The Seattle Times and Newsday sued OpenAI and Microsoft in federal court on Friday — the first regional papers in the copyright wave — alleging paywalled scraping, AI answers that substitute for visits, and fabricated stories attributed to their own bylines. Their requested remedy reaches past damages: impoundment of the datasets, and potentially the models built on them.",
+      "author": "Propagation House",
+      "date": "2026-09-05",
+      "category": "Litigation",
+      "lens": "governance",
+      "status": "published",
+      "filename": "articles/papers-sue-openai.html",
+      "read_time": "9 min"
+    },
+    {
+      "title": "The Ban Holds",
+      "kicker": "Policy · Courts",
+      "dek": "A federal judge denied xAI’s preliminary injunction against Minnesota’s AI nudification ban on September 4 — the company’s second failed emergency bid in five weeks. The law stays in force while the First Amendment fight proceeds: the newest data point in a season where the states, not Washington, are writing AI law first.",
+      "author": "Propagation House",
+      "date": "2026-09-05",
+      "category": "Policy",
+      "lens": "governance",
+      "status": "published",
+      "filename": "articles/xai-minnesota.html",
+      "read_time": "8 min"
     }
   ],
   "drafts": [],

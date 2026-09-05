@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Rollout That Stalls</title>
+<link>https://www.propagation.house/house-news/articles/astra-stalls.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/astra-stalls.html</guid>
+<pubDate>Sat, 05 Sep 2026 00:00:00 -0000</pubDate>
+<description>Sam Altman apologized Thursday for the “messy” GPT-6 Astra rollout: enterprises and Daybreak cybersecurity organizations got the computer-use agent first, while the Plus, Pro, and API customers who fund the company waited in a queue with no promised date — compensated with one banked usage reset per day of absence. The off switch works. The on switch is queued.</description>
+</item>
+<item>
+<title>The Byline Goes to Court</title>
+<link>https://www.propagation.house/house-news/articles/papers-sue-openai.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/papers-sue-openai.html</guid>
+<pubDate>Sat, 05 Sep 2026 00:00:00 -0000</pubDate>
+<description>The Seattle Times and Newsday sued OpenAI and Microsoft in federal court on Friday — the first regional papers in the copyright wave — alleging paywalled scraping, AI answers that substitute for visits, and fabricated stories attributed to their own bylines. Their requested remedy reaches past damages: impoundment of the datasets, and potentially the models built on them.</description>
+</item>
+<item>
+<title>The Ban Holds</title>
+<link>https://www.propagation.house/house-news/articles/xai-minnesota.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/xai-minnesota.html</guid>
+<pubDate>Sat, 05 Sep 2026 00:00:00 -0000</pubDate>
+<description>A federal judge denied xAI’s preliminary injunction against Minnesota’s AI nudification ban on September 4 — the company’s second failed emergency bid in five weeks. The law stays in force while the First Amendment fight proceeds: the newest data point in a season where the states, not Washington, are writing AI law first.</description>
+</item>
+<item>
 <title>The Operator Arrives</title>
 <link>https://www.propagation.house/house-news/articles/gpt6-astra-ships.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/gpt6-astra-ships.html</guid>

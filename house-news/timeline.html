@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">54</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">57</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">42</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'astra-stalls', title:'The Rollout That Stalls', href:'articles/astra-stalls.html', date:'2026-09-05', category:'Frontier Models', lens:'intelligence', read:'8 min', dek:'Sam Altman apologized Thursday for the “messy” GPT-6 Astra rollout: enterprises and Daybreak cybersecurity organizations got the computer-use agent first, while the Plus, Pro, and API customers who fund the company waited in a queue with no promised date — compensated with one banked usage reset per day of absence. The off switch works. The on switch is queued.',
+      tags:["openai", "gpt-6-astra", "rollout", "chatgpt", "capacity", "apology"]},
+    {id:'papers-sue-openai', title:'The Byline Goes to Court', href:'articles/papers-sue-openai.html', date:'2026-09-05', category:'Litigation', lens:'governance', read:'9 min', dek:'The Seattle Times and Newsday sued OpenAI and Microsoft in federal court on Friday — the first regional papers in the copyright wave — alleging paywalled scraping, AI answers that substitute for visits, and fabricated stories attributed to their own bylines. Their requested remedy reaches past damages: impoundment of the datasets, and potentially the models built on them.',
+      tags:["copyright", "litigation", "seattle-times", "newsday", "publishers", "training-data"]},
+    {id:'xai-minnesota', title:'The Ban Holds', href:'articles/xai-minnesota.html', date:'2026-09-05', category:'Policy', lens:'governance', read:'8 min', dek:'A federal judge denied xAI’s preliminary injunction against Minnesota’s AI nudification ban on September 4 — the company’s second failed emergency bid in five weeks. The law stays in force while the First Amendment fight proceeds: the newest data point in a season where the states, not Washington, are writing AI law first.',
+      tags:["xai", "minnesota", "nudification", "first-amendment", "states", "injunction"]},
     {id:'gpt6-astra-ships', title:'The Operator Arrives', href:'articles/gpt6-astra-ships.html', date:'2026-09-04', category:'Frontier Models', lens:'intelligence', read:'8 min', dek:'GPT-6 Astra, the computer-use model that crossed OpenAI’s Critical capability threshold earlier this week, began its general rollout on September 3 — three days after the company told Congress it was building automated shutdowns for it. The caged evaluation of Monday is the subscription tier of Friday.',
       tags:["openai", "gpt-6-astra", "computer-use", "agents", "benchmarks", "release"]},
     {id:'congress-agent-bills', title:'The Agents Get a Paper Trail', href:'articles/congress-agent-bills.html', date:'2026-09-04', category:'Policy', lens:'governance', read:'9 min', dek:'On September 3, Sanders and Casar proposed banning superintelligence outright, while Gottheimer and Lawler proposed what the agents already running would actually need: NIST security standards, tamper-proof logs, and a machine-readable inventory of every AI agent an organization operates. One bill addresses the machine that does not exist. The other audits the ones already employed.',
