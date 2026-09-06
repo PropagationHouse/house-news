@@ -222,12 +222,12 @@ img{max-width:100%;display:block}
 .about-grid .about-cell p{font-size:13px;line-height:1.55;color:#4a4d3e}
 
 /* SUBSTRATE FEATURE — the flagship */
-.feature.substrate{margin-top:0;grid-template-columns:1fr}
+.feature.substrate{margin-top:0;display:block} /* wrap layout: float needs block, grid items ignore float */
 .feature.substrate .feature-text{padding:56px 48px}
-.feature.substrate .sf-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-top:1px solid var(--rule);margin-top:26px;padding-top:18px}
+.feature.substrate .sf-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-top:1px solid var(--rule);margin-top:26px;padding-top:18px;clear:both}
 .feature.substrate .sf-stat .n{font-family:var(--serif);font-weight:900;font-size:26px;line-height:1}
 .feature.substrate .sf-stat .l{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
-.feature.substrate .feature-visual{min-height:0} /* stacked: image full-width native 16:9 above text — agent never cropped */
+.feature.substrate .feature-visual{min-height:0;float:right;width:52%;max-width:560px;margin:56px 0 18px 36px;background:linear-gradient(135deg,#0f1108,#1a1d12 55%,#4b5320);border-left:1px solid var(--rule)} /* wrap: image right, text flows around */
 .feature.substrate .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block}
 .feature .cta-row{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
 .feature .cta-row a{display:inline-block;padding:12px 22px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s}
@@ -314,7 +314,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   .about-grid .about-cell:nth-child(3),.about-grid .about-cell:nth-child(4){border-bottom:none}
   .feature.substrate .feature-text{padding:36px 24px}
   .feature.substrate .sf-stats{grid-template-columns:1fr 1fr;gap:14px}
-  .feature.substrate .feature-visual{min-height:0}
+  .feature.substrate .feature-visual{min-height:0;float:none;width:100%;max-width:none;margin:0}
   .composure-band{grid-template-columns:1fr}
   .composure-band .cb-text{padding:32px 24px}
   .composure-band .cb-visual{border-left:none;border-top:1px solid var(--rule);min-height:220px}
@@ -535,6 +535,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   <div class="feature-text">
     <div class="kicker">Flagship &middot; AI Agent</div>
     <h2>Substrate</h2>
+    <div class="feature-visual"><img src="house-news/assets/images/substrate-unreal-hero.jpg" alt="A single glowing agent in a large organic habitat &mdash; a space built for an agent to live in, from an earlier studio project"></div>
     <p class="dek">Not a chatbot bolted onto a page &mdash; a home your agent lives in. Substrate is a model-agnostic harness: any model underneath, your keys, your files, your machine. And because it lives there, it comes to understand you &mdash; your work, your goals, your workflows &mdash; then gets on with the doing: research, writing, building, shipping. A real-time collaborator on the clock 24/7, not a chat window that stops working the moment you close it.</p>
     <p class="dek">Plug and play: real software and real tools come built in &mdash; research, files, code, devices, the whole bench. Point it at anything: if it can be done on a computer, your agent can do it &mdash; while you get on with everything else. Check in from your phone, hand it the network &mdash; Linux boxes, robots, anything you connect. And it&rsquo;s a polished application, not a dev tool &mdash; no terminal required, nothing to configure. You don&rsquo;t have to be a developer to live with it; it just works.</p>
         <p class="dek">Substrate is the layer everything is built upon. Whatever you dream up next &mdash; tools, routines, whole systems that don&rsquo;t have a name yet &mdash; one foundational substrate, infinite potential outcomes. You are what makes your agent truly unique.</p>
@@ -548,7 +549,6 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
       <a class="ghost" href="/substrate/philosophy.html">The letter from inside</a>
     </div>
   </div>
-  <div class="feature-visual"><img src="house-news/assets/images/substrate-unreal-hero.jpg" alt="A single glowing agent in a large organic habitat &mdash; a space built for an agent to live in, from an earlier studio project"></div>
 </section>
 
 <section class="products-grid">
