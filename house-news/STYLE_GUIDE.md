@@ -29,7 +29,7 @@ Every image is either **Lane A** or **Lane B**.
 - Sepia ink with faint graphite construction lines still visible underneath
 - Heavyweight cream cold-press watercolor paper, visible tooth, deckled warmth
 - Precise observational linework; cross-hatching for shadow
-- Small handwritten-style latin labels that feel **etched into the page**, not decorative
+- Wide quiet margins left completely unmarked — **no text, labels, or lettering of any kind** (pseudo-latin reads as AI gibberish; user-locked Sep 6)
 - A single muted ochre wash (or one copper accent) — restraint, not color
 - Calm, centered composition like a botanical plate
 - **Only ink, graphite, and paper.** No tape, clips, swatches, margin notes, or collage.
@@ -115,7 +115,7 @@ Both lanes were tested on the same subject (the Open Claw gripper) on purpose �
 ## 7. Prompt Recipe (build from these)
 
 ### Lane A skeleton
-> "Naturalist specimen illustration in the style of a 19th-century scientific plate: **[SUBJECT]** drawn in sepia ink with faint graphite construction lines still visible underneath, on heavyweight cream cold-press watercolor paper with visible tooth and deckled warmth. Precise observational linework, cross-hatching for shadow, small handwritten-style latin labels near key parts that feel etched into the page rather than decorative. A single muted ochre wash across one detail like a botanical study. Absolutely no tape, no paper clips, no paint swatches, no margin notes, no collage elements — only ink, graphite and paper. Feels like one patient artist's hand studied [SUBJECT]. 16:9"
+> "Naturalist specimen illustration in the style of a 19th-century scientific plate: **[SUBJECT]** drawn in sepia ink with faint graphite construction lines still visible underneath, on heavyweight cream cold-press watercolor paper with visible tooth and deckled warmth. Precise observational linework, cross-hatching for shadow, wide quiet margins left completely unmarked. A single muted ochre wash across one detail like a botanical study. Absolutely no tape, no paper clips, no paint swatches, no margin notes, no collage elements — only ink, graphite and paper. Feels like one patient artist's hand studied [SUBJECT]. 16:9"
 
 ### Lane B skeleton
 > "Documentary photograph shot on 35mm Kodak Portra 400, **[LENS SPEC — default: 35mm f/2.8 prime, 1/125s]**: **[SUBJECT]** in **[REAL PLACE]**, **[CAMERA DISTANCE — across the street / eye level / wide framing]**, **[AVAILABLE LIGHT — overcast / window / dawn / dusk]**. **[SCALE ANCHOR — hand-sized / a mug and pencil beside it / a human hand holding it / dwarfed by the room]**. Candid, unposed, like a photojournalist who happened to walk past. Muted earth tones, visible film grain, natural depth of field. An honest photograph taken by a person, not staged product photography. No studio backdrop, no glossy reflections, no neon, nothing cartoonishly large, everything to true scale. 16:9"

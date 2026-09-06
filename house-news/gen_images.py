@@ -39,9 +39,8 @@ def build_lane_a(subject: str, detail: str = "one detail", aspect: str = "16:9")
         f"scientific plate: {subject} drawn in sepia ink with faint graphite "
         f"construction lines still visible underneath, on heavyweight cream "
         f"cold-press watercolor paper with visible tooth and deckled warmth. "
-        f"Precise observational linework, cross-hatching for shadow, small "
-        f"handwritten-style latin labels near key parts that feel etched into "
-        f"the page rather than decorative. A single muted ochre wash across "
+        f"Precise observational linework, cross-hatching for shadow, wide "
+        f"quiet margins left completely unmarked. A single muted ochre wash across "
         f"{detail} like a botanical study. Absolutely no tape, no paper "
         f"clips, no paint swatches, no margin notes, no collage elements — "
         f"only ink, graphite and paper. Feels like one patient artist's hand "
@@ -70,6 +69,8 @@ def build_lane_b(subject: str, place: str, camera: str, light: str,
 
 def resolve(entry: dict) -> str:
     """Build the prompt string for a manifest entry."""
+    if "raw" in entry:
+        return entry["raw"]
     if entry["lane"] == "a":
         return build_lane_a(entry["subject"], entry.get("detail", "one detail"),
                             entry.get("aspect_ratio", "16:9"))
@@ -111,13 +112,8 @@ IMAGES = [
      "subject": "a five-pin MIDI connector and its short coiled cable, lying on the paper as if just unclipped from an instrument, pins and locking notch studied up close",
      "detail": "the five brass pins and the cable's coiled shadow"},
     # ---------- SITE (studio page) — Substrate feature candidates (user pick pending) ----------
-    {"filename": "substrate-feature-space.jpg", "aspect_ratio": "16:9", "lane": "b",
-     "subject": "a single glass petri dish holding a pale olive microbial culture, floating inside a space-station cabin, velcro tabs and a stray pen drifting weightless beside it, curved instrument panels beyond the window frame",
-     "place": "an orbital laboratory module with handrails, cable bundles, and Earth's limb visible through a small porthole",
-     "camera": "from a nearby rack, candid distance, slight float",
-     "light": "cool cabin light against warm instrument glow, Earth-albedo fill",
-     "scale_anchor": "the drifting pen and velcro tabs make the dish and cabin scale obvious",
-     "lens": "35mm f/2 prime, 1/60s"},
+    {"filename": "substrate-feature-space.jpg", "aspect_ratio": "16:9",
+     "raw": "Editorial photograph in a spotless near-future orbital research module: a single glass petri dish rests in a clean white holder, holding a soft olive-amber culture with one delicate bloom, a slim pen and a folded white cloth lying beside it for scale. Bright high-key light fills the room — curved white panels, immaculate matte surfaces, one small porthole showing the gentle blue curve of Earth far beyond. Generous negative space, soft even shadows, natural depth of field. Calm, precise, gallery-clean; a quiet morning in a working lab, not a movie set, not staged product photography. No glossy reflections, no rim lighting, no cables, no clutter, no grime, no warning labels. 16:9"},
     {"filename": "substrate-feature-watercolor.jpg", "aspect_ratio": "16:9", "lane": "a",
      "subject": "a small dark wooden box on a writing desk, its lid open, releasing a slow curl of ink-black smoke that thins into small drawn circuit traces as it rises",
      "detail": "the smoke-to-circuit transition"},
