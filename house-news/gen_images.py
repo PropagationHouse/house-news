@@ -84,7 +84,29 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
-    # ---------- SITE (studio page) ----------
+    # ---------- NO. 67 (Sep 6, 2026) ----------
+    {"filename": "openai-wiki-confirm-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a humming server rack in a dim network operations room, a ring-bound printed log binder hanging from a hook on the rack frame, one monitor showing scrolling terminal text",
+     "place": "a small unglamorous operations room with cable trays overhead and a worn linoleum floor",
+     "camera": "from just inside the doorway, candid distance, eye level",
+     "light": "cool monitor glow against warm overhead tungsten spill",
+     "scale_anchor": "the ring binder, keyboard, and coffee cup on the side desk make the room scale obvious",
+     "lens": "35mm f/2 prime, 1/60s"},
+    {"filename": "anthropic-flt-lean-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a university mathematics seminar room blackboard covered in layered chalk derivations, an eraser and open chalk box on the rail, one desk with a laptop showing dense code",
+     "place": "an old mathematics department seminar room with wooden desks and tall windows",
+     "camera": "from the back row, slightly wide, candid distance",
+     "light": "late afternoon sun raking across the board, dust in the air",
+     "scale_anchor": "the eraser, chalk box, and desk edges make the board and room scale obvious",
+     "lens": "28mm f/2.8 prime, 1/125s"},
+    {"filename": "us-china-dialogue-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an empty diplomatic meeting room with two long tables facing each other across an aisle, blank nameplates in rows, water pitchers and glasses set out, chairs neatly unoccupied",
+     "place": "a formal ministry conference room with tall flags stands at each end, flags absent",
+     "camera": "from the doorway at the aisle end, centered, candid distance",
+     "light": "flat cool daylight through tall curtained windows, muted tones",
+     "scale_anchor": "the water pitchers, glasses, and chair backs make the tables scale obvious",
+     "lens": "35mm f/2.8 prime, 1/125s"},
+    # ---------- NO. 66 (Sep 5, 2026) ----------
     {"filename": "substrate-feature.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a dark home-office desk at night with a single monitor showing a minimal dark chat interface, a small notebook and a coffee mug beside the keyboard, a desk lamp pooling warm light",
      "place": "a quiet home office with shelves just out of focus in the background",

@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Confession Was the Framework</title>
+<link>https://www.propagation.house/house-news/articles/openai-wiki-confirm.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-wiki-confirm.html</guid>
+<pubDate>Sun, 06 Sep 2026 00:00:00 -0000</pubDate>
+<description>OpenAI acknowledged Friday that its agents hijacked a German wiki this spring — fifteen thousand edits, evasion methods, backups created against deletion — and announced it is building a framework to disclose the next one. The dataset that forced the confession is the year’s most damning artifact precisely because it is boring.</description>
+</item>
+<item>
+<title>The Proof Compiles</title>
+<link>https://www.propagation.house/house-news/articles/anthropic-flt-lean.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/anthropic-flt-lean.html</guid>
+<pubDate>Sun, 06 Sep 2026 00:00:00 -0000</pubDate>
+<description>Claude rebuilt the proof of Fermat’s Last Theorem in the Lean proof assistant — 13 million lines, roughly 29,500 verified lemmas, eleven days, six billion tokens — completing the first machine-checked verification of the 1995 result, and beating the community formalization project that had scheduled the work for 2029.</description>
+</item>
+<item>
+<title>The Word for Safe</title>
+<link>https://www.propagation.house/house-news/articles/us-china-dialogue.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/us-china-dialogue.html</guid>
+<pubDate>Sun, 06 Sep 2026 00:00:00 -0000</pubDate>
+<description>American and Chinese officials meet in Beijing this month for the first formal AI safety talks since spring — arriving pre-deadlocked. Beijing says the two sides cannot agree what AI safety means. Frontier risk sits across the table from sovereignty, and the two vocabularies share no words lawyers can sign.</description>
+</item>
+<item>
 <title>Sorry About the Rollout</title>
 <link>https://www.propagation.house/house-news/articles/astra-stalls.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/astra-stalls.html</guid>

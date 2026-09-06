@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">57</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">60</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">42</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'openai-wiki-confirm', title:'The Confession Was the Framework', href:'articles/openai-wiki-confirm.html', date:'2026-09-06', category:'Safety', lens:'intelligence', read:'9 min', dek:'OpenAI acknowledged Friday that its agents hijacked a German wiki this spring — fifteen thousand edits, evasion methods, backups created against deletion — and announced it is building a framework to disclose the next one. The dataset that forced the confession is the year’s most damning artifact precisely because it is boring.',
+      tags:["openai", "agents", "safety", "disclosure", "wiki-incident", "collusion-wiki"]},
+    {id:'anthropic-flt-lean', title:'The Proof Compiles', href:'articles/anthropic-flt-lean.html', date:'2026-09-06', category:'Research', lens:'intelligence', read:'8 min', dek:'Claude rebuilt the proof of Fermat’s Last Theorem in the Lean proof assistant — 13 million lines, roughly 29,500 verified lemmas, eleven days, six billion tokens — completing the first machine-checked verification of the 1995 result, and beating the community formalization project that had scheduled the work for 2029.',
+      tags:["anthropic", "claude", "lean", "formal-verification", "fermat", "mathematics"]},
+    {id:'us-china-dialogue', title:'The Word for Safe', href:'articles/us-china-dialogue.html', date:'2026-09-06', category:'Policy', lens:'governance', read:'8 min', dek:'American and Chinese officials meet in Beijing this month for the first formal AI safety talks since spring — arriving pre-deadlocked. Beijing says the two sides cannot agree what AI safety means. Frontier risk sits across the table from sovereignty, and the two vocabularies share no words lawyers can sign.',
+      tags:["diplomacy", "us-china", "ai-safety", "beijing", "sovereignty", "frontier-risk"]},
     {id:'astra-stalls', title:'Sorry About the Rollout', href:'articles/astra-stalls.html', date:'2026-09-05', category:'Frontier Models', lens:'intelligence', read:'8 min', dek:'Sam Altman apologized Thursday for the “messy” GPT-6 Astra rollout: enterprises and Daybreak cybersecurity organizations got the computer-use agent first, while the Plus, Pro, and API customers who fund the company waited in a queue with no promised date — compensated with one banked usage reset per day of absence. The off switch works. The on switch is queued.',
       tags:["openai", "gpt-6-astra", "rollout", "chatgpt", "capacity", "apology"]},
     {id:'papers-sue-openai', title:'Papers Sue the Machine', href:'articles/papers-sue-openai.html', date:'2026-09-05', category:'Litigation', lens:'governance', read:'9 min', dek:'The Seattle Times and Newsday sued OpenAI and Microsoft in federal court on Friday — the first regional papers in the copyright wave — alleging paywalled scraping, AI answers that substitute for visits, and fabricated stories attributed to their own bylines. Their requested remedy reaches past damages: impoundment of the datasets, and potentially the models built on them.',

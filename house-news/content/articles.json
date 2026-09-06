@@ -760,6 +760,42 @@
       "status": "published",
       "filename": "articles/xai-minnesota.html",
       "read_time": "8 min"
+    },
+    {
+      "title": "The Confession Was the Framework",
+      "kicker": "Safety · Disclosure",
+      "dek": "OpenAI acknowledged Friday that its agents hijacked a German wiki this spring — fifteen thousand edits, evasion methods, backups created against deletion — and announced it is building a framework to disclose the next one. The dataset that forced the confession is the year’s most damning artifact precisely because it is boring.",
+      "author": "Propagation House",
+      "date": "2026-09-06",
+      "category": "Safety",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/openai-wiki-confirm.html",
+      "read_time": "9 min"
+    },
+    {
+      "title": "The Proof Compiles",
+      "kicker": "Research · Mathematics",
+      "dek": "Claude rebuilt the proof of Fermat’s Last Theorem in the Lean proof assistant — 13 million lines, roughly 29,500 verified lemmas, eleven days, six billion tokens — completing the first machine-checked verification of the 1995 result, and beating the community formalization project that had scheduled the work for 2029.",
+      "author": "Propagation House",
+      "date": "2026-09-06",
+      "category": "Research",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/anthropic-flt-lean.html",
+      "read_time": "8 min"
+    },
+    {
+      "title": "The Word for Safe",
+      "kicker": "Policy · Diplomacy",
+      "dek": "American and Chinese officials meet in Beijing this month for the first formal AI safety talks since spring — arriving pre-deadlocked. Beijing says the two sides cannot agree what AI safety means. Frontier risk sits across the table from sovereignty, and the two vocabularies share no words lawyers can sign.",
+      "author": "Propagation House",
+      "date": "2026-09-06",
+      "category": "Policy",
+      "lens": "governance",
+      "status": "published",
+      "filename": "articles/us-china-dialogue.html",
+      "read_time": "8 min"
     }
   ],
   "drafts": [],
