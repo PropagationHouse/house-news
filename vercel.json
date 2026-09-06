@@ -1,14 +1,44 @@
 {
   "rewrites": [
-    { "source": "/substrate", "destination": "/substrate-v2/index.html" },
-    { "source": "/substrate/", "destination": "/substrate-v2/index.html" },
-    { "source": "/swarmfront", "destination": "/swarmfront/index.html" },
-    { "source": "/swarmfront/", "destination": "/swarmfront/index.html" },
-    { "source": "/neural-harmony", "destination": "/neural-harmony/index.html" },
-    { "source": "/neural-harmony/", "destination": "/neural-harmony/index.html" },
-    { "source": "/composure", "destination": "/composure/index.html" },
-    { "source": "/composure/", "destination": "/composure/index.html" },
-    { "source": "/substrate/philosophy", "destination": "/substrate-v2/philosophy.html" },
-    { "source": "/substrate/philosophy/", "destination": "/substrate-v2/philosophy.html" }
+    {
+      "source": "/substrate",
+      "destination": "/substrate-v2/index.html"
+    },
+    {
+      "source": "/substrate/",
+      "destination": "/substrate-v2/index.html"
+    },
+    {
+      "source": "/swarmfront",
+      "destination": "/swarmfront/index.html"
+    },
+    {
+      "source": "/swarmfront/",
+      "destination": "/swarmfront/index.html"
+    },
+    {
+      "source": "/neural-harmony",
+      "destination": "/neural-harmony/index.html"
+    },
+    {
+      "source": "/neural-harmony/",
+      "destination": "/neural-harmony/index.html"
+    },
+    {
+      "source": "/composure",
+      "destination": "/composure/index.html"
+    },
+    {
+      "source": "/composure/",
+      "destination": "/composure/index.html"
+    },
+    {
+      "source": "/substrate/philosophy.html",
+      "destination": "/substrate-v2/philosophy.html"
+    },
+    {
+      "source": "/substrate/philosophy",
+      "destination": "/substrate-v2/philosophy.html"
+    }
   ]
 }
