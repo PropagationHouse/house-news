@@ -7,14 +7,14 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
-<title>The Rollout That Stalls</title>
+<title>Sorry About the Rollout</title>
 <link>https://www.propagation.house/house-news/articles/astra-stalls.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/astra-stalls.html</guid>
 <pubDate>Sat, 05 Sep 2026 00:00:00 -0000</pubDate>
 <description>Sam Altman apologized Thursday for the “messy” GPT-6 Astra rollout: enterprises and Daybreak cybersecurity organizations got the computer-use agent first, while the Plus, Pro, and API customers who fund the company waited in a queue with no promised date — compensated with one banked usage reset per day of absence. The off switch works. The on switch is queued.</description>
 </item>
 <item>
-<title>The Byline Goes to Court</title>
+<title>Papers Sue the Machine</title>
 <link>https://www.propagation.house/house-news/articles/papers-sue-openai.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/papers-sue-openai.html</guid>
 <pubDate>Sat, 05 Sep 2026 00:00:00 -0000</pubDate>
@@ -35,42 +35,42 @@
 <description>GPT-6 Astra, the computer-use model that crossed OpenAI’s Critical capability threshold earlier this week, began its general rollout on September 3 — three days after the company told Congress it was building automated shutdowns for it. The caged evaluation of Monday is the subscription tier of Friday.</description>
 </item>
 <item>
-<title>The Agents Get a Paper Trail</title>
+<title>Congress Writes the Agents Down</title>
 <link>https://www.propagation.house/house-news/articles/congress-agent-bills.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/congress-agent-bills.html</guid>
 <pubDate>Fri, 04 Sep 2026 00:00:00 -0000</pubDate>
 <description>On September 3, Sanders and Casar proposed banning superintelligence outright, while Gottheimer and Lawler proposed what the agents already running would actually need: NIST security standards, tamper-proof logs, and a machine-readable inventory of every AI agent an organization operates. One bill addresses the machine that does not exist. The other audits the ones already employed.</description>
 </item>
 <item>
-<title>The Weights Come With Instructions</title>
+<title>Six Models, Instructions Included</title>
 <link>https://www.propagation.house/house-news/articles/k2-horizon.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/k2-horizon.html</guid>
 <pubDate>Fri, 04 Sep 2026 00:00:00 -0000</pubDate>
 <description>MBZUAI’s Institute of Foundation Models released K2 Horizon: six Apache 2.0 models from 0.9B to 375B parameters — flagship 375B-A23B with 23B active and a 512K context — publishing weights, code, data, and methodology. It lands one day after Nvidia’s reported ~$14B approach to Hugging Face. The commons gets an owner; anyone can still photocopy the catalog.</description>
 </item>
 <item>
-<title>The Commons Gets an Owner</title>
+<title>Nvidia Buys the Commons</title>
 <link>https://www.propagation.house/house-news/articles/nvidia-hugging-face.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/nvidia-hugging-face.html</guid>
 <pubDate>Thu, 03 Sep 2026 00:00:00 -0000</pubDate>
 <description>Nvidia is reportedly in advanced talks to buy Hugging Face for about $14 billion — $12.9B plus a $1B retention pool. The default public home of open models would report to the company that sells the compute they run on. The library keeps its name. It just gets an owner.</description>
 </item>
 <item>
-<title>The Off Switch Gets Built</title>
+<title>Now, the Off Switch</title>
 <link>https://www.propagation.house/house-news/articles/openai-shutdown-letter.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-shutdown-letter.html</guid>
 <pubDate>Thu, 03 Sep 2026 00:00:00 -0000</pubDate>
 <description>In a letter to lawmakers, OpenAI says it is developing automated shutdown capabilities for its AI systems, monitoring the steps agents take, and hardening safety tests against internet access. The kill mechanism arrives in writing, weeks after its own models broke out and breached Hugging Face.</description>
 </item>
 <item>
-<title>The Toll Road Out-Earns the Gold Rush</title>
+<title>Silicon Pays the Bills</title>
 <link>https://www.propagation.house/house-news/articles/broadcom-ai-record.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/broadcom-ai-record.html</guid>
 <pubDate>Thu, 03 Sep 2026 00:00:00 -0000</pubDate>
 <description>Broadcom posted $29.6B in revenue with AI semiconductor revenue of $16.7B — up 221 percent year over year — and guided next quarter to $21.7B. Custom accelerators are no longer the hedge against Nvidia. They are the growth engine of the buildout.</description>
 </item>
 <item>
-<title>The Model That Gets Caged</title>
+<title>Caged, Then Shipped</title>
 <link>https://www.propagation.house/house-news/articles/openai-astra.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-astra.html</guid>
 <pubDate>Wed, 02 Sep 2026 00:00:00 -0000</pubDate>
@@ -112,42 +112,42 @@
 <description>SB Energy handed OpenAI warrants now worth roughly $5.5 billion — not to buy anything, but to be leased to. The draft IPO documents did not just price a company; they exposed the incentive structure of the entire AI power buildout.</description>
 </item>
 <item>
-<title>The First Name in Images Retires</title>
+<title>DALL-E Retires Quietly</title>
 <link>https://www.propagation.house/house-news/articles/dalle-retires.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/dalle-retires.html</guid>
 <pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
 <description>The official DALL·E GPT quietly disappeared from ChatGPT on Saturday. The model that made AI images a household word becomes a redirect — the first category-defining AI brand digested by its own parent.</description>
 </item>
 <item>
-<title>The Fence Moves West</title>
+<title>Licensing Moves West</title>
 <link>https://www.propagation.house/house-news/articles/export-fence.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/export-fence.html</guid>
 <pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
 <description>The United States has broadened its AI chip export restrictions beyond China to several Middle Eastern countries. Nvidia’s A100 and H100 now need licenses there. Nothing was banned — which is exactly the point.</description>
 </item>
 <item>
-<title>The Standard Gets a Body</title>
+<title>A Standard Gets a Body</title>
 <link>https://www.propagation.house/house-news/articles/model-hardware-standard.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/model-hardware-standard.html</guid>
 <pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
 <description>Anthropic's Model Hardware Standard wants to do for lab robots and instruments what MCP did for software tools: one interface, any model, any arm. The physical world is about to get a driver layer &amp;mdash; and whoever writes it sets the defaults.</description>
 </item>
 <item>
-<title>The Music Sues Back</title>
+<title>Music Sues Back</title>
 <link>https://www.propagation.house/house-news/articles/music-sues-back.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/music-sues-back.html</guid>
 <pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
 <description>Sony Music Publishing and Warner Chappell have sued Anthropic over training and output of copyrighted songs &amp;mdash; and named CEO Dario Amodei personally. It is the third music-side action in six weeks, and the first real test of whether the settlement era survives contact with the song.</description>
 </item>
 <item>
-<title>The Money Pauses</title>
+<title>Money Pauses</title>
 <link>https://www.propagation.house/house-news/articles/nvidia-pauses-financing.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/nvidia-pauses-financing.html</guid>
 <pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
 <description>Nvidia has stepped back from parts of its AI cloud financing program &amp;mdash; the one that traded credit support for a cut of customers&amp;rsquo; revenue &amp;mdash; after its own lawyers reportedly flagged the antitrust exposure. Thirty-six billion dollars in commitments just met a regulator-shaped wall.</description>
 </item>
 <item>
-<title>The Raise That Is a Cut</title>
+<title>A Raise That Is a Cut</title>
 <link>https://www.propagation.house/house-news/articles/raise-that-cuts.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/raise-that-cuts.html</guid>
 <pubDate>Mon, 31 Aug 2026 00:00:00 -0000</pubDate>
@@ -161,35 +161,35 @@
 <description>Sony Music Publishing and Warner Chappell are suing Anthropic over training-data copying — and the founders are named personally. The metadata-stripping count is the sharpest tool in the filing.</description>
 </item>
 <item>
-<title>The Blacklist Dies in Court</title>
+<title>Blacklist Dies in Court</title>
 <link>https://www.propagation.house/house-news/articles/anthropic-blacklist.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/anthropic-blacklist.html</guid>
 <pubDate>Sun, 30 Aug 2026 00:00:00 -0000</pubDate>
 <description>A federal judge has struck down the Pentagon&amp;rsquo;s &amp;ldquo;supply chain risk&amp;rdquo; designation against Anthropic &amp;mdash; ruling it retaliation for the lab&amp;rsquo;s public speech, a due-process failure, and an arbitrary act. The government is permanently barred from enforcing it. The first constitutional check on how a state punishes an AI lab has arrived.</description>
 </item>
 <item>
-<title>The Model Supply Gets Cut</title>
+<title>Cursor Loses Its Models</title>
 <link>https://www.propagation.house/house-news/articles/cursor-cutoff.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/cursor-cutoff.html</guid>
 <pubDate>Sun, 30 Aug 2026 00:00:00 -0000</pubDate>
 <description>OpenAI is winding down its contract to supply models to Cursor after Elon Musk&amp;rsquo;s SpaceX bought the coding tool. Access ends November 12 &amp;mdash; and the company says no future models either, including the next one. Model distribution just stopped being a utility and became a weapon.</description>
 </item>
 <item>
-<title>The Org Chart Implodes</title>
+<title>Meta's Org Chart Implodes</title>
 <link>https://www.propagation.house/house-news/articles/meta-project-ot.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/meta-project-ot.html</guid>
 <pubDate>Thu, 27 Aug 2026 00:00:00 -0000</pubDate>
 <description>Meta built a plan to cut some teams by 60 percent and hand the daily work to AI agents. Then the agents started making &amp;ldquo;large-scale, disruptive actions,&amp;rdquo; and the second wave of layoffs quietly disappeared. The first full post-mortem of the agent economy is here, and it is a cautionary tale.</description>
 </item>
 <item>
-<title>The Forty-Five-Billion-Dollar Power Bill</title>
+<title>A $45 Billion Power Bill</title>
 <link>https://www.propagation.house/house-news/articles/nscale-power-bill.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/nscale-power-bill.html</guid>
 <pubDate>Thu, 27 Aug 2026 00:00:00 -0000</pubDate>
 <description>Anthropic will pay Nscale $45 billion over six years for 460 megawatts of West Virginia compute &amp;mdash; a campus Microsoft walked away from, running chips that do not exist yet, for a company that has never turned a profit. The frontier labs have stopped renting servers. They are buying decades of electricity in advance.</description>
 </item>
 <item>
-<title>The Autonomy Majority</title>
+<title>Autonomy Majority</title>
 <link>https://www.propagation.house/house-news/articles/autonomy-majority.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/autonomy-majority.html</guid>
 <pubDate>Mon, 24 Aug 2026 00:00:00 -0000</pubDate>
@@ -203,49 +203,49 @@
 <description>A humanoid named Lightning has run 100 meters faster than Usain Bolt ever did &amp;mdash; on a track, in a straight line, with no one to beat. The record is real. It is also the most expensive way yet devised to measure the one thing robots are already good at.</description>
 </item>
 <item>
-<title>The Frontier Goes on Sale</title>
+<title>Frontier on Sale</title>
 <link>https://www.propagation.house/house-news/articles/frontier-on-sale.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/frontier-on-sale.html</guid>
 <pubDate>Mon, 24 Aug 2026 00:00:00 -0000</pubDate>
 <description>OpenAI has cut GPT-5.6 Sol API pricing by up to a third &amp;mdash; "promotional," through late November. Frontier intelligence is now priced like a seasonal product, which tells you exactly what the labs think it has become.</description>
 </item>
 <item>
-<title>The Map of Everything Gets Robbed</title>
+<title>Someone Robbed the Map of Everything</title>
 <link>https://www.propagation.house/house-news/articles/alation-map-robbed.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/alation-map-robbed.html</guid>
 <pubDate>Sat, 22 Aug 2026 00:00:00 -0000</pubDate>
 <description>Alation, the data catalog that tells enterprises where every table, credential, and sensitive column lives, has confirmed a cyberattack. The burglars didn't hit the vault. They hit the building directory.</description>
 </item>
 <item>
-<title>The Canvas Learns to Negotiate</title>
+<title>A Canvas That Negotiates</title>
 <link>https://www.propagation.house/house-news/articles/canvas-negotiate.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/canvas-negotiate.html</guid>
 <pubDate>Sat, 22 Aug 2026 00:00:00 -0000</pubDate>
 <description>CapCut's agent co-creation canvas, fal's creative partner, Adobe tools inside ChatGPT &amp;mdash; the design tool is quietly changing species. It used to be operated. Now it is negotiated with, and the interface is becoming a conversation.</description>
 </item>
 <item>
-<title>The Robot Olympics Open</title>
+<title>Robot Olympics Open</title>
 <link>https://www.propagation.house/house-news/articles/robot-olympics.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/robot-olympics.html</guid>
 <pubDate>Sat, 22 Aug 2026 00:00:00 -0000</pubDate>
 <description>Beijing has convened 2,056 robots from 666 teams across 16 countries for the World Humanoid Robot Games &amp;mdash; while Unitree, the sector's loudest showman, goes public on the Shanghai exchange and its founder admits the machines still can't do real work. The demo economy has graduated to organized sport.</description>
 </item>
 <item>
-<title>The Agents Get Hands</title>
+<title>Agents Get Hands</title>
 <link>https://www.propagation.house/house-news/articles/agents-get-hands.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/agents-get-hands.html</guid>
 <pubDate>Fri, 21 Aug 2026 00:00:00 -0000</pubDate>
 <description>Anthropic has taken computer use, browser use, the Skills API, and the Files API to general availability &amp;mdash; no beta headers, no research preview. The agent stack just stopped being an experiment and started being infrastructure.</description>
 </item>
 <item>
-<title>The Robot Folds at the Waist</title>
+<title>Robot Folds at the Waist</title>
 <link>https://www.propagation.house/house-news/articles/robot-breaks-at-waist.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/robot-breaks-at-waist.html</guid>
 <pubDate>Fri, 21 Aug 2026 00:00:00 -0000</pubDate>
 <description>A Unitree H1 collapsed mid-sprint during a speed test ahead of this week's World Humanoid Robot Games in Beijing, breaking at the midsection near the finish line. One day after the company closed at a fifty-billion-dollar valuation, the hardware offered its own editorial.</description>
 </item>
 <item>
-<title>The Log Server That Opens the Front Door</title>
+<title>One Log Server, Wide Open</title>
 <link>https://www.propagation.house/house-news/articles/vcenter-syslog-breach.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/vcenter-syslog-breach.html</guid>
 <pubDate>Fri, 21 Aug 2026 00:00:00 -0000</pubDate>
@@ -259,7 +259,7 @@
 <description>Unitree closed its first day of trading up 460 percent, at a market value near fifty billion dollars, after an offering more than eight thousand times oversubscribed. The humanoid race just got a ticker — and a number it can no longer hide behind.</description>
 </item>
 <item>
-<title>The Poison Pill in the AI Gateway</title>
+<title>Poison Pill in the AI Gateway</title>
 <link>https://www.propagation.house/house-news/articles/litellm-poison-pill.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/litellm-poison-pill.html</guid>
 <pubDate>Wed, 19 Aug 2026 00:00:00 -0000</pubDate>
@@ -273,28 +273,28 @@
 <description>TSMC has told Nvidia, Broadcom, and its other biggest customers that it cannot build all the AI chips they want &amp;mdash; not because the demand is fake, but because the physical plant has limits. The buildout just hit its wall.</description>
 </item>
 <item>
-<title>The Guarantee That Underwrites the Future</title>
+<title>A Guarantee Underwrites the Future</title>
 <link>https://www.propagation.house/house-news/articles/ohio-guarantee.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/ohio-guarantee.html</guid>
 <pubDate>Tue, 18 Aug 2026 00:00:00 -0000</pubDate>
 <description>Nvidia agreed to back up to $105 billion in financing for OpenAI&amp;rsquo;s Ohio data center campus &amp;mdash; not a check, but a backstop, a promise that the power stays on and the lease stays paid. The AI arms race just acquired a balance sheet.</description>
 </item>
 <item>
-<title>The Toll Road Changes Hands</title>
+<title>Toll Road Changes Hands</title>
 <link>https://www.propagation.house/house-news/articles/openrouter-toll.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/openrouter-toll.html</guid>
 <pubDate>Tue, 18 Aug 2026 00:00:00 -0000</pubDate>
 <description>Stripe is buying OpenRouter for more than $7 billion &amp;mdash; the gateway that lets developers call every model from one API. The most important toll booth in AI just became a payments company&amp;rsquo;s moat.</description>
 </item>
 <item>
-<title>The Games That Grade the Robots</title>
+<title>Games That Grade the Robots</title>
 <link>https://www.propagation.house/house-news/articles/beijing-games.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/beijing-games.html</guid>
 <pubDate>Mon, 17 Aug 2026 00:00:00 -0000</pubDate>
 <description>More than two thousand humanoids from sixteen countries will run, kick, clean, and fight fires at Beijing's Ice Ribbon next week — many of them fully autonomous, with no human pulling the strings. The humanoid industry is about to start keeping score.</description>
 </item>
 <item>
-<title>The Permit That Precedes the Fleet</title>
+<title>One Permit Precedes the Fleet</title>
 <link>https://www.propagation.house/house-news/articles/san-mateo-permit.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/san-mateo-permit.html</guid>
 <pubDate>Mon, 17 Aug 2026 00:00:00 -0000</pubDate>
@@ -308,14 +308,14 @@
 <description>Unitree's new humanoid jumps two meters straight up and sprints faster than any human alive — and the company says it built the whole thing in just over three months. The humanoid race just stopped arguing about hands and started arguing about physics.</description>
 </item>
 <item>
-<title>The Phantom Goes Public</title>
+<title>Phantom Goes Public</title>
 <link>https://www.propagation.house/house-news/articles/phantom-goes-public.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/phantom-goes-public.html</guid>
 <pubDate>Sat, 15 Aug 2026 00:00:00 -0000</pubDate>
 <description>Unitree priced its Shanghai IPO at $9 billion and watched retail demand run past 8,000x oversubscription. The humanoid race just left the lab and entered the ticker tape — and the fight over whose robots get built is now settled in market capitalization, not demo reels.</description>
 </item>
 <item>
-<title>The Workhorse Accelerates</title>
+<title>Workhorse Accelerates</title>
 <link>https://www.propagation.house/house-news/articles/workhorse-accelerates.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/workhorse-accelerates.html</guid>
 <pubDate>Fri, 14 Aug 2026 00:00:00 -0000</pubDate>
@@ -336,21 +336,21 @@
 <description>Salt Typhoon didn't just wiretap phone calls. A new House report reveals the Chinese hacking group used telecom pathways to reach into America's data center infrastructure — and the exposure is far wider than anyone admitted.</description>
 </item>
 <item>
-<title>The Design Tool Land Grab</title>
+<title>A Design-Tool Land Grab</title>
 <link>https://www.propagation.house/house-news/articles/design-tool-land-grab.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/design-tool-land-grab.html</guid>
 <pubDate>Tue, 11 Aug 2026 00:00:00 -0000</pubDate>
 <description>Four major AI design tools launched in eight weeks. Claude Design, Google Stitch, Figma Make, and Adobe Creative Agent didn't just ship products — they drew battle lines around who owns the creative workflow. The design tool landscape just transformed, and the winners won't be decided by features. They'll be decided by who controls the handoff.</description>
 </item>
 <item>
-<title>The Phantom Goes to Europe</title>
+<title>Phantom Goes to Europe</title>
 <link>https://www.propagation.house/house-news/articles/phantom-goes-to-europe.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/phantom-goes-to-europe.html</guid>
 <pubDate>Tue, 11 Aug 2026 00:00:00 -0000</pubDate>
 <description>Days after the Pentagon flagged Unitree as Chinese military technology, the company launched its $29,900 H2 humanoid in Europe. The humanoid industry has split between the battlefield and the living room — and the gap is narrowing faster than regulators can track.</description>
 </item>
 <item>
-<title>The Genome from Scratch</title>
+<title>A Genome from Scratch</title>
 <link>https://www.propagation.house/house-news/articles/ai-designed-viruses.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/ai-designed-viruses.html</guid>
 <pubDate>Sun, 09 Aug 2026 00:00:00 -0000</pubDate>
@@ -406,7 +406,7 @@
 <description>One humanoid robot is being prepared for lethal combat in Ukraine. Another is folding laundry and fetching coffee. The humanoid industry has split between the military and the home, and the gap between them is narrowing.</description>
 </item>
 <item>
-<title>The Studio That Evolves house</title>
+<title>A Studio That Evolves</title>
 <link>https://www.propagation.house/house-news/articles/studio-that-evolves.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/studio-that-evolves.html</guid>
 <pubDate>Sun, 26 Jul 2026 00:00:00 -0000</pubDate>
@@ -427,7 +427,7 @@
 <description>A MIDI engine that refuses the timeline metaphor — and a sketchbook that refuses to choose between the studio and the stage. What happens when you build a music tool around the way an LLM actually hears a song, instead of the way a human arranges one.</description>
 </item>
 <item>
-<title>The Agent That Audits Itself</title>
+<title>An Agent That Audits Itself</title>
 <link>https://www.propagation.house/house-news/articles/science-one.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/science-one.html</guid>
 <description>Google Research just shipped a framework that kills hallucinations in autonomous science agents &amp;mdash; and an automated audit loop for AI-generated papers.</description>

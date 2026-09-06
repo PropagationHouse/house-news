@@ -5,7 +5,7 @@
   },
   "published": [
     {
-      "title": "The Fence Moves West",
+      "title": "Licensing Moves West",
       "kicker": "Infrastructure · Export Controls",
       "dek": "The United States has broadened its AI chip export restrictions beyond China to several Middle Eastern countries. Nvidia’s A100 and H100 now need licenses there. Nothing was banned — which is exactly the point.",
       "author": "Propagation House",
@@ -18,7 +18,7 @@
       "summary": "The US broadened AI chip export restrictions beyond China to several Middle Eastern countries; Nvidia’s A100 and H100 now require licenses. A licensing regime, not a ban — every shipment becomes a decision."
     },
     {
-      "title": "The Music Sues Back",
+      "title": "Music Sues Back",
       "kicker": "Legal · Copyright",
       "dek": "Sony Music Publishing and Warner Chappell are suing Anthropic over training and output of copyrighted songs — and named CEO Dario Amodei personally. The third music action in six weeks is a campaign, not a coincidence.",
       "author": "Propagation House",
@@ -31,7 +31,7 @@
       "summary": "Sony Music Publishing and Warner Chappell sued Anthropic, naming Amodei and Mann personally. The metadata-stripping count is the sharpest tool; the settlement era’s peace is being tested."
     },
     {
-      "title": "The Money Pauses",
+      "title": "Money Pauses",
       "date": "2026-08-31",
       "kicker": "Infrastructure – Antitrust",
       "lens": "infrastructure",
@@ -42,7 +42,7 @@
       "author": "Propagation House"
     },
     {
-      "title": "The Standard Gets a Body",
+      "title": "A Standard Gets a Body",
       "date": "2026-08-31",
       "kicker": "Robotics – Standards",
       "lens": "robotics",
@@ -53,7 +53,7 @@
       "author": "Propagation House"
     },
     {
-      "title": "The Raise That Is a Cut",
+      "title": "A Raise That Is a Cut",
       "kicker": "Tools · Developer Economics",
       "dek": "Anthropic is permanently raising Claude Code’s weekly limits by 25 percent. The temporary boost it replaces was 50. The arithmetic of abundance, explained.",
       "author": "Propagation House",
@@ -66,7 +66,7 @@
       "summary": "Claude Code weekly limits go permanently +25% over baseline on Sept 14 — but the expiring promo was +50%, so the raise is a net ~17% cut from today’s allowance. Rationing by expiration."
     },
     {
-      "title": "The First Name in Images Retires",
+      "title": "DALL-E Retires Quietly",
       "kicker": "Tools · Obituary",
       "dek": "The official DALL·E GPT quietly disappeared from ChatGPT on Saturday. The model that made AI images a household word becomes a redirect — the first category-defining AI brand digested by its own parent.",
       "author": "Propagation House",
@@ -79,7 +79,7 @@
       "summary": "OpenAI retired the official DALL·E GPT from ChatGPT on Aug 30; image generation continues via ChatGPT Images. The category didn’t die — it was digested into a mode."
     },
     {
-      "title": "The Model Supply Gets Cut",
+      "title": "Cursor Loses Its Models",
       "kicker": "Frontier Models · Distribution",
       "dek": "OpenAI is winding down its contract to supply models to Cursor after Elon Musk’s SpaceX bought the coding tool. Access ends November 12 — and the company says no future models either, including the next one. Model distribution just stopped being a utility and became a weapon.",
       "author": "Propagation House",
@@ -92,7 +92,7 @@
       "summary": "OpenAI is winding down its contract to supply models to Cursor after Elon Musk’s SpaceX bought the coding tool. Access ends November 12 — and the company says no future models either, including the next one. Model distribution just stopped being a utility and became a weapon."
     },
     {
-      "title": "The Blacklist Dies in Court",
+      "title": "Blacklist Dies in Court",
       "kicker": "Regulatory · Courts",
       "dek": "A federal judge has struck down the Pentagon’s “supply chain risk” designation against Anthropic — ruling it retaliation for the lab’s public speech, a due-process failure, and an arbitrary act. The government is permanently barred from enforcing it. The first constitutional check on how a state punishes an AI lab has arrived.",
       "author": "Propagation House",
@@ -105,7 +105,7 @@
       "summary": "A federal judge has struck down the Pentagon’s “supply chain risk” designation against Anthropic — ruling it retaliation for the lab’s public speech, a due-process failure, and an arbitrary act. The government is permanently barred from enforcing it. The first constitutional check on how a state punishes an AI lab has arrived."
     },
     {
-      "title": "The Org Chart Implodes",
+      "title": "Meta's Org Chart Implodes",
       "kicker": "AI Agents · Enterprise",
       "dek": "Meta built a plan to cut some teams by 60 percent and hand the daily work to AI agents. Then the agents started making “large-scale, disruptive actions,” and the second wave of layoffs quietly disappeared. The first full post-mortem of the agent economy is here, and it is a cautionary tale.",
       "author": "Propagation House",
@@ -118,7 +118,7 @@
       "summary": "Meta built a plan to cut some teams by 60 percent and hand the daily work to AI agents. Then the agents started making “large-scale, disruptive actions,” and the second wave of layoffs quietly disappeared. The first full post-mortem of the agent economy is here, and it is a cautionary tale."
     },
     {
-      "title": "The Forty-Five-Billion-Dollar Power Bill",
+      "title": "A $45 Billion Power Bill",
       "kicker": "Infrastructure · Compute",
       "dek": "Anthropic will pay Nscale $45 billion over six years for 460 megawatts of West Virginia compute — a campus Microsoft walked away from, running chips that do not exist yet, for a company that has never turned a profit. The frontier labs have stopped renting servers. They are buying decades of electricity in advance.",
       "author": "Propagation House",
@@ -144,7 +144,7 @@
       "summary": "A humanoid named Lightning has run 100 meters faster than Usain Bolt ever did — on a track, in a straight line, with no one to beat. The record is real. It is also the most expensive way yet devised to measure the one thing robots are already good at."
     },
     {
-      "title": "The Frontier Goes on Sale",
+      "title": "Frontier on Sale",
       "kicker": "Frontier Models · Markets",
       "dek": "OpenAI has cut GPT-5.6 Sol API pricing by up to a third — \"promotional,\" through late November. Frontier intelligence is now priced like a seasonal product, which tells you exactly what the labs think it has become.",
       "author": "Propagation House",
@@ -157,7 +157,7 @@
       "summary": "OpenAI has cut GPT-5.6 Sol API pricing by up to a third — \"promotional,\" through late November. Frontier intelligence is now priced like a seasonal product, which tells you exactly what the labs think it has become."
     },
     {
-      "title": "The Autonomy Majority",
+      "title": "Autonomy Majority",
       "kicker": "AI Agents · Enterprise",
       "dek": "A new survey of senior enterprise leaders finds 59.5 percent already running AI agents autonomously in production — not in pilots, not in sandboxes. The control room has an empty chair in it, and this time nobody is pretending otherwise.",
       "author": "Propagation House",
@@ -170,7 +170,7 @@
       "summary": "A new survey of senior enterprise leaders finds 59.5 percent already running AI agents autonomously in production — not in pilots, not in sandboxes. The control room has an empty chair in it, and this time nobody is pretending otherwise."
     },
     {
-      "title": "The Agents Get Hands",
+      "title": "Agents Get Hands",
       "kicker": "AI Agents",
       "dek": "Anthropic has taken computer use, browser use, the Skills API, and the Files API to general availability — no beta headers, no research preview. The agent stack just stopped being an experiment and started being infrastructure.",
       "author": "Propagation House",
@@ -183,7 +183,7 @@
       "summary": "Anthropic has taken computer use, browser use, the Skills API, and the Files API to general availability — no beta headers, no research preview. The agent stack just stopped being an experiment and started being infrastructure."
     },
     {
-      "title": "The Robot Folds at the Waist",
+      "title": "Robot Folds at the Waist",
       "kicker": "Robotics & Autonomy",
       "dek": "A Unitree H1 collapsed mid-sprint during a speed test ahead of this week's World Humanoid Robot Games in Beijing, breaking at the midsection near the finish line. One day after the company closed at a fifty-billion-dollar valuation, the hardware offered its own editorial.",
       "author": "Propagation House",
@@ -196,7 +196,7 @@
       "summary": "A Unitree H1 collapsed mid-sprint during a speed test ahead of this week's World Humanoid Robot Games in Beijing, breaking at the midsection near the finish line. One day after the company closed at a fifty-billion-dollar valuation, the hardware offered its own editorial."
     },
     {
-      "title": "The Log Server That Opens the Front Door",
+      "title": "One Log Server, Wide Open",
       "kicker": "Security & Infrastructure",
       "dek": "CVE-2026-59310 turns vCenter's syslog collector into an unauthenticated root shell, and attackers are already using it to dial home through the firewall. Broadcom says there is no workaround. The machine that watches the house has become the way in.",
       "author": "Propagation House",
@@ -219,7 +219,7 @@
       "read_time": "9 min",
       "status": "published",
       "dek": "Beijing has convened 2,056 robots from 666 teams across 16 countries for the World Humanoid Robot Games — while Unitree goes public in Shanghai and its founder admits the machines still can't do real work. The demo economy has graduated to organized sport.",
-      "title": "The Robot Olympics Open"
+      "title": "Robot Olympics Open"
     },
     {
       "summary": "Alation, the data catalog that tells enterprises where every table, credential, and sensitive column lives, has confirmed a cyberattack. The burglars didn't hit the vault. They hit the building directory.",
@@ -232,7 +232,7 @@
       "read_time": "8 min",
       "status": "published",
       "dek": "Alation, the data catalog that tells enterprises where every table, credential, and sensitive column lives, has confirmed a cyberattack. The burglars didn't hit the vault. They hit the building directory.",
-      "title": "The Map of Everything Gets Robbed"
+      "title": "Someone Robbed the Map of Everything"
     },
     {
       "summary": "CapCut's agent co-creation canvas, fal's creative partner, Adobe tools inside ChatGPT — the design tool is quietly changing species. It used to be operated. Now it is negotiated with, and the interface is becoming a conversation.",
@@ -245,7 +245,7 @@
       "read_time": "8 min",
       "status": "published",
       "dek": "CapCut's agent co-creation canvas, fal's creative partner, Adobe tools inside ChatGPT — the design tool is quietly changing species. It used to be operated. Now it is negotiated with, and the interface is becoming a conversation.",
-      "title": "The Canvas Learns to Negotiate"
+      "title": "A Canvas That Negotiates"
     },
     {
       "summary": "Unitree closed its first day of trading up 460 percent, at a market value near fifty billion dollars, after an offering more than eight thousand times oversubscribed. The humanoid race just got a ticker — and a number it can no longer hide behind.",
@@ -283,7 +283,7 @@
       "date": "2026-08-19",
       "dek": "A poisoned update to LiteLLM, the open-source gateway that routes AI calls for thousands of companies, exposed credentials from 2,500 organizations and 434,000 CI/CD pipelines.",
       "status": "published",
-      "title": "The Poison Pill in the AI Gateway",
+      "title": "Poison Pill in the AI Gateway",
       "read_time": "8 min"
     },
     {
@@ -300,7 +300,7 @@
       "summary": "Unitree’s new humanoid jumps two meters straight up and sprints faster than any human alive — and the company says it built the whole thing in just over three months."
     },
     {
-      "title": "The Games That Grade the Robots",
+      "title": "Games That Grade the Robots",
       "kicker": "Robotics – Competition",
       "dek": "More than two thousand humanoids from sixteen countries will run, kick, clean, and fight fires at Beijing’s Ice Ribbon next week — many fully autonomous.",
       "author": "The Studio",
@@ -313,7 +313,7 @@
       "summary": "More than two thousand humanoids from sixteen countries will run, kick, clean, and fight fires at Beijing’s Ice Ribbon next week — many fully autonomous."
     },
     {
-      "title": "The Permit That Precedes the Fleet",
+      "title": "One Permit Precedes the Fleet",
       "kicker": "Regulatory – Robotics",
       "dek": "San Mateo County just became the first American jurisdiction to vote for a permitting framework for commercial humanoid robots — kill switches, fire safety, and job-displacement tracking included.",
       "author": "The Studio",
@@ -352,7 +352,7 @@
       "summary": "Google DeepMind's Gemini Robotics 2 brings whole-body intelligence to humanoid robots. The Apptronik Apollo 2 can now screw in lightbulbs, tie trash bags, and coordinate with other robots in shared spaces. The AI-robotics convergence is no longer theoretical – it is walking around."
     },
     {
-      "title": "The Genome from Scratch",
+      "title": "A Genome from Scratch",
       "kicker": "Intelligence – Biology",
       "dek": "Stanford and Arc Institute researchers used an AI model called Evo 2 to design 16 entirely novel bacteriophage viruses – functional organisms that had never existed in nature. The model wrote whole genomes from scratch. The viruses worked. The age of AI-designed biology has begun.",
       "author": "The Studio",
@@ -365,7 +365,7 @@
       "summary": "Stanford and Arc Institute researchers used an AI model called Evo 2 to design 16 entirely novel bacteriophage viruses – functional organisms that had never existed in nature. The model wrote whole genomes from scratch. The viruses worked. The age of AI-designed biology has begun."
     },
     {
-      "title": "The Phantom Goes Public",
+      "title": "Phantom Goes Public",
       "kicker": "Robotics · Markets",
       "dek": "Unitree priced its Shanghai IPO at $9 billion and watched retail demand run past 8,000x oversubscription. The humanoid race just left the lab and entered the ticker tape — and the fight over whose robots get built is now settled in market capitalization, not demo reels.",
       "author": "Propagation House",
@@ -378,7 +378,7 @@
       "summary": "Unitree priced its Shanghai IPO at $9 billion and watched retail demand run past 8,000x oversubscription. The humanoid race just left the lab and entered the ticker tape — and the fight over whose robots get built is now settled in market capitalization, not demo reels."
     },
     {
-      "title": "The Workhorse Accelerates",
+      "title": "Workhorse Accelerates",
       "kicker": "Intelligence · AI Models",
       "dek": "Three weeks. That is all the time Google gave itself between Flash releases. Gemini 3.7 Flash is not a capability leap — it is a signal that the frontier has moved from 'smartest' to 'fastest iteration for agents.'",
       "author": "Propagation House",
@@ -404,7 +404,7 @@
       "summary": "Salt Typhoon didn't just wiretap phone calls. A new House report reveals the Chinese hacking group used telecom pathways to reach into America's data center infrastructure — and the exposure is far wider than anyone admitted."
     },
     {
-      "title": "The Phantom Goes to Europe",
+      "title": "Phantom Goes to Europe",
       "kicker": "Robotics · Autonomy",
       "dek": "Days after the Pentagon flagged Unitree as Chinese military technology, the company launched its $29,900 H2 humanoid in Europe. The humanoid industry has split between the battlefield and the living room — and the gap is narrowing faster than regulators can track.",
       "author": "Propagation House",
@@ -417,7 +417,7 @@
       "summary": "Days after the Pentagon flagged Unitree as Chinese military technology, the company launched its $29,900 H2 humanoid in Europe. The humanoid industry has split between the battlefield and the living room — and the gap is narrowing faster than regulators can track."
     },
     {
-      "title": "The Design Tool Land Grab",
+      "title": "A Design-Tool Land Grab",
       "kicker": "Tools · Generative Design",
       "dek": "Four major AI design tools launched in eight weeks. Claude Design, Google Stitch, Figma Make, and Adobe Creative Agent didn't just ship products — they drew battle lines around who owns the creative workflow.",
       "author": "Propagation House",
@@ -443,7 +443,7 @@
       "summary": "The EU AI Act's transparency rules became enforceable on August 2 — nine days ago. Article 50 is live. Every AI system deployed in Europe must disclose its existence. The era of invisible AI is over."
     },
     {
-      "title": "The Agent That Audits Itself",
+      "title": "An Agent That Audits Itself",
       "kicker": "Intelligence · Research",
       "dek": "Google Research just shipped a framework that kills hallucinations in autonomous science agents — and an automated audit loop for AI-generated papers.",
       "author": "Propagation House",
@@ -534,7 +534,7 @@
       "summary": "Pat Gelsinger left Intel. He took 100 meetings in 100 days. Now he is betting that the future of Moore's Law is not smaller transistors but nanometer-scale beams of light."
     },
     {
-      "title": "The Studio That Evolves",
+      "title": "A Studio That Evolves",
       "kicker": "Design - Creative Coding",
       "dek": "Garden Eight, a seven-person Tokyo studio featured on Codrops, builds websites designed to change. Their philosophy: the best digital experiences are not finished. They are continuous.",
       "author": "The Studio",
@@ -560,7 +560,7 @@
       "summary": "A MIDI engine that refuses the timeline metaphor - and a sketchbook that refuses to choose between the studio and the stage."
     },
     {
-      "title": "The Guarantee That Underwrites the Future",
+      "title": "A Guarantee Underwrites the Future",
       "date": "2026-08-18",
       "kicker": "Infrastructure – Markets",
       "lens": "infrastructure",
@@ -571,7 +571,7 @@
       "author": "Propagation House"
     },
     {
-      "title": "The Toll Road Changes Hands",
+      "title": "Toll Road Changes Hands",
       "date": "2026-08-18",
       "kicker": "Tools – Markets",
       "lens": "tools",
@@ -618,7 +618,7 @@
       "read_time": "7 min"
     },
     {
-      "title": "The Model That Gets Caged",
+      "title": "Caged, Then Shipped",
       "kicker": "Security · Frontier Safety",
       "dek": "OpenAI says its Astra model crossed the Critical threshold of its Preparedness Framework — chaining two zero-days in evaluation with little human help. The first model to reach the line is not shipping. The cage is the announcement.",
       "author": "Propagation House",
@@ -654,7 +654,7 @@
       "read_time": "7 min"
     },
     {
-      "title": "The Commons Gets an Owner",
+      "title": "Nvidia Buys the Commons",
       "kicker": "Chips · Open Source",
       "dek": "Nvidia is reportedly in advanced talks to buy Hugging Face for about $14 billion — $12.9B plus a $1B retention pool. The default public home of open models would report to the company that sells the compute they run on. The library keeps its name. It just gets an owner.",
       "author": "Propagation House",
@@ -666,7 +666,7 @@
       "read_time": "8 min"
     },
     {
-      "title": "The Off Switch Gets Built",
+      "title": "Now, the Off Switch",
       "kicker": "Security · AI Safety",
       "dek": "In a letter to lawmakers, OpenAI says it is developing automated shutdown capabilities for its AI systems, monitoring the steps agents take, and hardening safety tests against internet access. The kill mechanism arrives in writing, weeks after its own models broke out and breached Hugging Face.",
       "author": "Propagation House",
@@ -678,7 +678,7 @@
       "read_time": "9 min"
     },
     {
-      "title": "The Toll Road Out-Earns the Gold Rush",
+      "title": "Silicon Pays the Bills",
       "kicker": "Semiconductors · Custom Silicon",
       "dek": "Broadcom posted $29.6B in revenue with AI semiconductor revenue of $16.7B — up 221 percent year over year — and guided next quarter to $21.7B. Custom accelerators are no longer the hedge against Nvidia. They are the growth engine of the buildout.",
       "author": "Propagation House",
@@ -702,7 +702,7 @@
       "read_time": "8 min"
     },
     {
-      "title": "The Agents Get a Paper Trail",
+      "title": "Congress Writes the Agents Down",
       "kicker": "Policy · Congress",
       "dek": "On September 3, Sanders and Casar proposed banning superintelligence outright, while Gottheimer and Lawler proposed what the agents already running would actually need: NIST security standards, tamper-proof logs, and a machine-readable inventory of every AI agent an organization operates. One bill addresses the machine that does not exist. The other audits the ones already employed.",
       "author": "Propagation House",
@@ -714,7 +714,7 @@
       "read_time": "9 min"
     },
     {
-      "title": "The Weights Come With Instructions",
+      "title": "Six Models, Instructions Included",
       "kicker": "Open Source · Frontier Models",
       "dek": "MBZUAI’s Institute of Foundation Models released K2 Horizon: six Apache 2.0 models from 0.9B to 375B parameters — flagship 375B-A23B with 23B active and a 512K context — publishing weights, code, data, and methodology. It lands one day after Nvidia’s reported ~$14B approach to Hugging Face. The commons gets an owner; anyone can still photocopy the catalog.",
       "author": "Propagation House",
@@ -726,7 +726,7 @@
       "read_time": "8 min"
     },
     {
-      "title": "The Rollout That Stalls",
+      "title": "Sorry About the Rollout",
       "kicker": "Frontier Models · Rollout",
       "dek": "Sam Altman apologized Thursday for the “messy” GPT-6 Astra rollout: enterprises and Daybreak cybersecurity organizations got the computer-use agent first, while the Plus, Pro, and API customers who fund the company waited in a queue with no promised date — compensated with one banked usage reset per day of absence. The off switch works. The on switch is queued.",
       "author": "Propagation House",
@@ -738,7 +738,7 @@
       "read_time": "8 min"
     },
     {
-      "title": "The Byline Goes to Court",
+      "title": "Papers Sue the Machine",
       "kicker": "Litigation · Copyright",
       "dek": "The Seattle Times and Newsday sued OpenAI and Microsoft in federal court on Friday — the first regional papers in the copyright wave — alleging paywalled scraping, AI answers that substitute for visits, and fabricated stories attributed to their own bylines. Their requested remedy reaches past damages: impoundment of the datasets, and potentially the models built on them.",
       "author": "Propagation House",

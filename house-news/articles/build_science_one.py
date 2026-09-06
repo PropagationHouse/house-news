@@ -211,7 +211,7 @@ html_top = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Agent That Audits Itself — house</title>
+<title>An Agent That Audits Itself — house</title>
 """
 
 full = html_top + css_block + after_style + body + script_block + "\n\n</body>\n</html>"
