@@ -111,19 +111,9 @@ IMAGES = [
     {"filename": "composure-band.jpg", "aspect_ratio": "4:3", "lane": "a",
      "subject": "a five-pin MIDI connector and its short coiled cable, lying on the paper as if just unclipped from an instrument, pins and locking notch studied up close",
      "detail": "the five brass pins and the cable's coiled shadow"},
-    # ---------- SITE (studio page) — Substrate feature candidates (user pick pending) ----------
-    {"filename": "substrate-feature-space.jpg", "aspect_ratio": "16:9",
-     "raw": "Editorial photograph in a spotless near-future orbital research module: a single glass petri dish rests in a clean white holder, holding a soft olive-amber culture with one delicate bloom, a slim pen and a folded white cloth lying beside it for scale. Bright high-key light fills the room — curved white panels, immaculate matte surfaces, one small porthole showing the gentle blue curve of Earth far beyond. Generous negative space, soft even shadows, natural depth of field. Calm, precise, gallery-clean; a quiet morning in a working lab, not a movie set, not staged product photography. No glossy reflections, no rim lighting, no cables, no clutter, no grime, no warning labels. 16:9"},
-    {"filename": "substrate-feature-watercolor.jpg", "aspect_ratio": "16:9", "lane": "a",
-     "subject": "a small dark wooden box on a writing desk, its lid open, releasing a slow curl of ink-black smoke that thins into small drawn circuit traces as it rises",
-     "detail": "the smoke-to-circuit transition"},
-    {"filename": "substrate-feature.jpg", "aspect_ratio": "16:9", "lane": "b",
-     "subject": "a dark home-office desk at night with a single monitor showing a minimal dark chat interface, a small notebook and a coffee mug beside the keyboard, a desk lamp pooling warm light",
-     "place": "a quiet home office with shelves just out of focus in the background",
-     "camera": "from the side of the desk at eye level, candid distance",
-     "light": "warm desk-lamp glow against the monitor's cool light",
-     "scale_anchor": "the coffee mug and notebook make the desk scale obvious",
-     "lens": "35mm f/2 prime, 1/60s"},
+    # ---------- SITE (studio page) — Substrate feature: user-provided Unreal render (picked Sep 6) ----------
+    {"filename": "substrate-unreal-hero.jpg", "aspect_ratio": "16:9", "source": "user-provided (Downloads, Sep 6) — Unreal Engine agent habitat render, JPEG q90 243KB from 1920x1080 PNG", "raw": ""},
+    # pruned Sep 6 (superseded by substrate-unreal-hero pick): substrate-feature-space / substrate-feature-watercolor / substrate-feature / composure-band connector plate
     # ---------- NO. 66 (Sep 5, 2026) ----------
     {"filename": "astra-stalls-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a modern glass office building entrance at night, the lobby lit but empty, a single closed umbrella resting against the glass door",
