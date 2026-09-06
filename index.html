@@ -184,12 +184,6 @@ img{max-width:100%;display:block}
 .mm-grid .mm-card .client{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:8px}
 
 /* MERCH STRIP */
-.merch-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin-bottom:64px}
-.merch-strip .item{padding:24px 20px;text-align:center;border-right:1px solid var(--rule)}
-.merch-strip .item:last-child{border-right:none}
-.merch-strip .item .item-name{font-family:var(--serif);font-weight:700;font-size:16px;margin-bottom:4px}
-.merch-strip .item .item-price{font-size:12px;color:var(--muted);letter-spacing:.03em}
-.merch-strip .item a:hover .item-name{color:var(--accent)}
 
 /* CLIENT STRIP — brand marquee */
 .client-strip{background:var(--ink);color:var(--paper);padding:64px 0;overflow:hidden}
@@ -214,6 +208,56 @@ img{max-width:100%;display:block}
 .press-card a:hover .press-logo{opacity:1}
 .press-wordmark{font-family:var(--serif);font-weight:900;font-size:36px;letter-spacing:-.01em;color:var(--ink);opacity:.55;transition:opacity .25s ease}
 .press-card a:hover .press-wordmark{opacity:1}
+
+/* ABOUT BAND — the studio, declaratively, above the news corridor */
+.about-band{margin-top:48px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.about-band .about-lede{padding:44px 0 30px}
+.about-band .about-lede .kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:12px}
+.about-band .about-lede p{font-family:var(--serif);font-size:clamp(20px,2.2vw,28px);line-height:1.45;letter-spacing:-.01em;max-width:920px}
+.about-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule)}
+.about-grid .about-cell{padding:26px 24px 30px;border-right:1px solid var(--rule)}
+.about-grid .about-cell:last-child{border-right:none}
+.about-grid .about-cell:first-child{padding-left:0}
+.about-grid .a-name{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.about-grid .about-cell p{font-size:13px;line-height:1.55;color:#4a4d3e}
+
+/* SUBSTRATE FEATURE — the flagship */
+.feature.substrate{margin-top:0}
+.feature.substrate .feature-text{padding:56px 48px}
+.feature.substrate .sf-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-top:1px solid var(--rule);margin-top:26px;padding-top:18px}
+.feature.substrate .sf-stat .n{font-family:var(--serif);font-weight:900;font-size:26px;line-height:1}
+.feature.substrate .sf-stat .l{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.feature.substrate .feature-visual{min-height:480px}
+.feature.substrate .feature-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.feature .cta-row{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.feature .cta-row a{display:inline-block;padding:12px 22px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s}
+.feature .cta-row a.primary{background:var(--accent);color:var(--paper)}
+.feature .cta-row a.ghost{border:1px solid var(--ink);color:var(--ink)}
+.feature .cta-row a.primary:hover,.feature .cta-row a.ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* COMPOSURE BAND — supporting section under the flagship */
+.composure-band{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);border:1px solid var(--rule);margin-bottom:64px}
+.composure-band .cb-text{padding:44px 48px}
+.composure-band .cb-text .kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:12px}
+.composure-band .cb-text h3{font-family:var(--serif);font-weight:900;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;margin-bottom:12px}
+.composure-band .cb-text h3 em{font-style:italic;font-weight:400}
+.composure-band .cb-text p{font-size:15px;line-height:1.55;color:#3a3d2e;max-width:520px;margin-bottom:20px}
+.composure-band .cb-visual{border-left:1px solid var(--rule);position:relative;overflow:hidden;background:linear-gradient(135deg,#0f1108,#1a1d12 55%,#4b5320);min-height:300px}
+.composure-band .cb-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* MERCH — two SKUs, photo cards, shop links out */
+.merch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin-bottom:16px}
+.merch-grid .merch-card{display:block;text-decoration:none;color:inherit;border-right:1px solid var(--rule);padding:36px 32px;transition:background .2s}
+.merch-grid .merch-card:last-child{border-right:none}
+.merch-grid .merch-card:hover{background:rgba(75,83,32,.05)}
+.merch-grid .merch-shot{width:100%;aspect-ratio:4/5;object-fit:contain;display:block;margin:0 auto 20px;filter:drop-shadow(0 10px 24px rgba(26,29,18,.18))}
+.merch-grid .merch-meta{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--rule);padding-top:14px}
+.merch-grid .merch-name{font-family:var(--serif);font-weight:700;font-size:22px}
+.merch-grid .merch-price{font-size:14px;color:var(--muted);letter-spacing:.03em}
+.merch-grid .merch-sub{font-size:12px;color:#4a4d3e;line-height:1.45;margin-top:6px}
+.merch-grid .merch-soon{display:inline-block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--rule);padding:3px 10px;margin-top:12px}
+.merch-grid .merch-fallback{display:flex;align-items:center;justify-content:center;aspect-ratio:4/5;border:1px dashed var(--rule);font-family:var(--serif);font-weight:700;font-size:26px;color:var(--muted);margin-bottom:20px}
+.merch-note{text-align:center;font-size:12px;color:var(--muted);margin-bottom:64px}
 
 /* NEWSLETTER */
 .newsletter{background:var(--bg-tint);padding:56px 40px;text-align:center;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
@@ -262,7 +306,21 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   .mm-grid{grid-template-columns:1fr}
   .mm-grid .mm-card{border-right:none;padding:20px 0}
   .mm-grid .mm-card:first-child,.mm-grid .mm-card:nth-child(3){padding-left:0;padding-right:0}
-  .merch-strip{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr 1fr}
+  .about-grid .about-cell{padding:22px 18px;border-right:none;border-bottom:1px solid var(--rule)}
+  .about-grid .about-cell:first-child{padding-left:18px}
+  .about-grid .about-cell:nth-child(3){padding-left:18px}
+  .about-grid .about-cell:nth-child(2n){border-right:none}
+  .about-grid .about-cell:nth-child(3),.about-grid .about-cell:nth-child(4){border-bottom:none}
+  .feature.substrate .feature-text{padding:36px 24px}
+  .feature.substrate .sf-stats{grid-template-columns:1fr 1fr;gap:14px}
+  .feature.substrate .feature-visual{min-height:320px}
+  .composure-band{grid-template-columns:1fr}
+  .composure-band .cb-text{padding:32px 24px}
+  .composure-band .cb-visual{border-left:none;border-top:1px solid var(--rule);min-height:220px}
+  .merch-grid{grid-template-columns:1fr}
+  .merch-grid .merch-card{border-right:none;border-bottom:1px solid var(--rule);padding:28px 20px}
+  .merch-grid .merch-card:last-child{border-bottom:none}
   footer .foot-grid{grid-template-columns:1fr 1fr}
 }
 </style>
@@ -314,7 +372,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 <section class="hero">
   <img class="hero-bg" src="assets/paper/paper sheet semi-rough edges.png" alt="" aria-hidden="true">
   <div class="hero-inner">
-    <div class="hero-kicker">The House &middot; August 2026</div>
+    <div class="hero-kicker">The House &middot; September 2026</div>
     <h1>A studio fostering <em>intelligent, adaptive</em> design.</h1>
     <p class="hero-dek">Design. Software. Spaces. Stories. We build systems that learn, environments that respond, and brands that don&rsquo;t just sit still &mdash; <br>they evolve.</p>
     <div class="hero-pills">
@@ -325,6 +383,32 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
     </div>
   </div>
 </section>
+
+<!-- 01A ABOUT — the studio, declaratively, above the news corridor -->
+<div class="about-band" id="about">
+  <div class="about-lede">
+    <div class="kicker">The Studio &middot; Est. 2020 &middot; Washington, USA</div>
+    <p>We are a design and software studio working at the pace of the frontier. We research the systems changing the world, publish what we find daily, and build the products the reading suggests &mdash; agents, engines, games, and spaces. The work is one loop: watch closely, understand deeply, build what&rsquo;s next.</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-cell">
+      <div class="a-name">News &amp; Research</div>
+      <p>A daily editorial operation covering the frontier as it moves &mdash; original reporting, analysis, and a public record of the shift.</p>
+    </div>
+    <div class="about-cell">
+      <div class="a-name">Software &amp; Agents</div>
+      <p>Autonomous systems, creative engines, and tools we run the studio with &mdash; shipped as products, not demos.</p>
+    </div>
+    <div class="about-cell">
+      <div class="a-name">Design &amp; Spatial</div>
+      <p>Brands, interfaces, and immersive 3D environments &mdash; retail installations and virtual spaces for global names.</p>
+    </div>
+    <div class="about-cell">
+      <div class="a-name">The Loop</div>
+      <p>Research feeds software; software feeds the writing. Every product carries the same DNA &mdash; adaptive, intelligent, alive.</p>
+    </div>
+  </div>
+</div>
 
 <!-- 01 HOUSE -->
 <div class="section-head" id="house">
@@ -446,6 +530,26 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   <span class="more" style="border-bottom-color:transparent;color:var(--muted)">Six and growing</span>
 </div>
 
+<!-- 02A FLAGSHIP — Substrate feature -->
+<section class="feature substrate">
+  <div class="feature-text">
+    <div class="kicker">Flagship &middot; AI Agent</div>
+    <h2>Substrate</h2>
+    <p class="dek">An autonomous agent with an avatar, running the studio&rsquo;s daily operations &mdash; it researches, writes, publishes, deploys, and maintains the machines it lives on. Not a chatbot bolted onto a page: a persistent intelligence layer for your machine, built on your own keys, your own files, your own terms.</p>
+    <p class="dek">Substrate is the proof of everything above. The daily publication is its byline; the products are its toolbox; the site you&rsquo;re reading is its desk.</p>
+    <div class="sf-stats">
+      <div class="sf-stat"><div class="n">Daily</div><div class="l">Autonomous editorial runs</div></div>
+      <div class="sf-stat"><div class="n">60+</div><div class="l">Editions published unattended</div></div>
+      <div class="sf-stat"><div class="n">Your keys</div><div class="l">Local-first, BYO API keys</div></div>
+    </div>
+    <div class="cta-row">
+      <a class="primary" href="/substrate/">Meet Substrate &rarr;</a>
+      <a class="ghost" href="/substrate/philosophy.html">The letter from inside</a>
+    </div>
+  </div>
+  <div class="feature-visual"><img src="house-news/assets/images/substrate-feature.jpg" alt="A documentary photograph of a desk workstation at night, monitor showing a minimal chat interface, warm desk lamp, notebook and coffee mug within frame"></div>
+</section>
+
 <section class="products-grid">
   <div class="prod-card">
     <div class="prod-domain">propagation.house/substrate</div>
@@ -483,6 +587,23 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
     <p class="dek">A MIDI engine that thinks in channels, not tracks. Five persistent voices, a mood primitive, an agent at the keys.</p>
     <span class="prod-tag">Music &middot; AI</span>
   </div>
+  <div class="prod-card">
+    <div class="prod-domain">propagation.house/composure</div>
+    <h3><a href="/composure/">Composure</a></h3>
+    <p class="dek">A MIDI engine that thinks in channels, not tracks. Five persistent voices, a mood primitive, an agent at the keys.</p>
+    <span class="prod-tag">Music &middot; AI</span>
+  </div>
+</section>
+
+<!-- 02B COMPOSURE BAND — supporting feature under the flagship -->
+<section class="composure-band">
+  <div class="cb-text">
+    <div class="kicker">Also Building &middot; Music &amp; AI</div>
+    <h3>Composure thinks in <em>channels</em>, not tracks.</h3>
+    <p>A MIDI engine built around five persistent voices and a mood primitive &mdash; compose with an agent at the keys, or take the chair yourself. The studio&rsquo;s practice in sound, distilled into a working instrument.</p>
+    <div class="cta-row"><a class="ghost" href="/composure/">Open Composure &rarr;</a></div>
+  </div>
+  <div class="cb-visual"></div>
 </section>
 
 <!-- TORN PAPER DIVIDER: Products corridor bottom edge — downward tear (paper hangs down into Multimedia, closes the sheet) -->
@@ -498,7 +619,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   <span class="more" style="border-bottom-color:transparent;color:var(--muted)">Est. 2020</span>
 </div>
 
-<section class="feature">
+<section class="feature" id="mm-feature">
   <div class="feature-text">
     <div class="kicker">Selected Work &middot; Spatial / 3D</div>
     <h2>The Work That Got Us <em>Here</em></h2>
@@ -531,15 +652,36 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
     <div class="label">Wear the house.</div>
     <p class="desc">Physical things from the studio. When the brand has clarity, it deserves to leave the screen.</p>
   </div>
-  <a href="#merch" class="more">The shop &rarr;</a>
+  <a href="#merch" class="more" style="border-bottom-color:transparent;color:var(--muted)">Two, to start</a>
 </div>
 
-<section class="merch-strip">
-  <div class="item"><a href="#merch"><div class="item-name">House Tee</div><div class="item-price">$38</div></a></div>
-  <div class="item"><a href="#merch"><div class="item-name">Studio Hoodie</div><div class="item-price">$72</div></a></div>
-  <div class="item"><a href="#merch"><div class="item-name">Gold Mark Pin</div><div class="item-price">$14</div></a></div>
-  <div class="item"><a href="#merch"><div class="item-name">Field Notes</div><div class="item-price">$18</div></a></div>
+<section class="merch-grid">
+  <a class="merch-card" href="#" aria-label="Studio Hoodie — coming soon">
+    <img class="merch-shot" src="assets/images/merch-hoodie.png" alt="Studio Hoodie — sample photo coming soon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="merch-fallback" style="display:none">Studio Hoodie</div>
+    <div class="merch-meta">
+      <div>
+        <div class="merch-name">Studio Hoodie</div>
+        <div class="merch-sub">Heavyweight fleece &middot; olive &middot; house mark on chest</div>
+      </div>
+      <div class="merch-price">$72</div>
+    </div>
+    <span class="merch-soon">Sample photo to come</span>
+  </a>
+  <a class="merch-card" href="#" aria-label="House Tee — coming soon">
+    <img class="merch-shot" src="assets/images/merch-tee.png" alt="House Tee — sample photo coming soon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="merch-fallback" style="display:none">House Tee</div>
+    <div class="merch-meta">
+      <div>
+        <div class="merch-name">House Tee</div>
+        <div class="merch-sub">Heavyweight cotton &middot; cream &middot; wordmark front</div>
+      </div>
+      <div class="merch-price">$38</div>
+    </div>
+    <span class="merch-soon">Sample photo to come</span>
+  </a>
 </section>
+<p class="merch-note">Checkout opens soon &mdash; the cards above will link straight to payment. Prices shown until the sample photos land.</p>
 
 <!-- 05 PRESS -->
 <div class="section-head" id="press">
@@ -588,7 +730,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 </section>
 
 <!-- CLIENT STRIP -->
-<section class="client-strip" id="about">
+<section class="client-strip">
   <div class="brand-marquee" aria-label="Selected collaborations">
     <div class="brand-track">
       <img src="assets/images/brand-walmart.svg" alt="Walmart" title="Walmart">

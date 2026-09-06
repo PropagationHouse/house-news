@@ -84,6 +84,14 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- SITE (studio page) ----------
+    {"filename": "substrate-feature.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a dark home-office desk at night with a single monitor showing a minimal dark chat interface, a small notebook and a coffee mug beside the keyboard, a desk lamp pooling warm light",
+     "place": "a quiet home office with shelves just out of focus in the background",
+     "camera": "from the side of the desk at eye level, candid distance",
+     "light": "warm desk-lamp glow against the monitor's cool light",
+     "scale_anchor": "the coffee mug and notebook make the desk scale obvious",
+     "lens": "35mm f/2 prime, 1/60s"},
     # ---------- NO. 66 (Sep 5, 2026) ----------
     {"filename": "astra-stalls-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a modern glass office building entrance at night, the lobby lit but empty, a single closed umbrella resting against the glass door",
