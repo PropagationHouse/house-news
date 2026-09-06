@@ -106,7 +106,21 @@ IMAGES = [
      "light": "flat cool daylight through tall curtained windows, muted tones",
      "scale_anchor": "the water pitchers, glasses, and chair backs make the tables scale obvious",
      "lens": "35mm f/2.8 prime, 1/125s"},
-    # ---------- NO. 66 (Sep 5, 2026) ----------
+    # ---------- SITE (studio page) ----------
+    {"filename": "composure-band.jpg", "aspect_ratio": "4:3", "lane": "a",
+     "subject": "a five-pin MIDI connector and its short coiled cable, lying on the paper as if just unclipped from an instrument, pins and locking notch studied up close",
+     "detail": "the five brass pins and the cable's coiled shadow"},
+    # ---------- SITE (studio page) — Substrate feature candidates (user pick pending) ----------
+    {"filename": "substrate-feature-space.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a single glass petri dish holding a pale olive microbial culture, floating inside a space-station cabin, velcro tabs and a stray pen drifting weightless beside it, curved instrument panels beyond the window frame",
+     "place": "an orbital laboratory module with handrails, cable bundles, and Earth's limb visible through a small porthole",
+     "camera": "from a nearby rack, candid distance, slight float",
+     "light": "cool cabin light against warm instrument glow, Earth-albedo fill",
+     "scale_anchor": "the drifting pen and velcro tabs make the dish and cabin scale obvious",
+     "lens": "35mm f/2 prime, 1/60s"},
+    {"filename": "substrate-feature-watercolor.jpg", "aspect_ratio": "16:9", "lane": "a",
+     "subject": "a small dark wooden box on a writing desk, its lid open, releasing a slow curl of ink-black smoke that thins into small drawn circuit traces as it rises",
+     "detail": "the smoke-to-circuit transition"},
     {"filename": "substrate-feature.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a dark home-office desk at night with a single monitor showing a minimal dark chat interface, a small notebook and a coffee mug beside the keyboard, a desk lamp pooling warm light",
      "place": "a quiet home office with shelves just out of focus in the background",
