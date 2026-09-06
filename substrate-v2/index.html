@@ -35,7 +35,7 @@
             "price": "0",
             "priceCurrency": "USD"
         },
-        "softwareVersion": "1.2.0",
+        "softwareVersion": "1.3.2",
         "downloadUrl": "https://github.com/propagationhouse/substrate/releases/latest",
         "screenshot": "https://substrate.propagation.house/og-image.svg"
     }
@@ -152,7 +152,6 @@
 
     <!-- ==================== HERO ==================== -->
     <section class="relative min-h-[100vh] flex items-center justify-center pt-16 grid-bg overflow-hidden">
-        <div class="hero-paper-img-wrap"><img src="../assets/images/paper-sheet-semi-rough.png" alt="" aria-hidden="true" class="hero-paper-img"></div>
         <div class="relative z-10 max-w-5xl mx-auto px-8 text-center py-24">
             <div class="title-paper-wrap">
                 <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-base font-semibold mb-8 tracking-wide">
@@ -161,12 +160,12 @@
                 </div>
                 <h1 class="relative text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-white leading-[0.9] tracking-tighter mb-6">Substrate</h1>
                 <p class="relative text-2xl sm:text-3xl md:text-4xl font-bold text-gray-300 leading-snug tracking-tight mb-8">
-                    The Intelligence Layer:<br>
-                    <span class="gradient-text">A Mind for Your Machine.</span>
+                    The Intelligence Layer for your machine.
                 </p>
             </div>
 
-            <div class="max-w-2xl mx-auto mb-14 space-y-5 text-left">
+            <div class="max-w-2xl mx-auto mb-14 space-y-5 text-left relative">
+                <div class="hero-paper-img-wrap"><img src="../assets/images/paper-sheet-semi-rough.png" alt="" aria-hidden="true" class="hero-paper-img"></div>
                 <p class="text-lg md:text-xl text-gray-400 leading-relaxed">
                     A source-available agentic system that turns your machine from an inanimate silo into something conversational, proactive, autonomous.
                 </p>
@@ -189,34 +188,478 @@
                     View on GitHub
                 </a>
             </div>
+        </div>
+    </section>
 
-            <!-- Terminal mockup -->
-            <div class="max-w-3xl mx-auto terminal-bg rounded-3xl border border-white/10 glow overflow-hidden text-left">
-                <div class="flex items-center justify-between px-4 py-3 border-b border-white/[0.06]">
-                    <div class="flex items-center gap-2">
-                        <div class="w-4 h-4 rounded bg-brand-600 flex items-center justify-center">
-                            <svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
-                        </div>
-                        <span class="text-sm text-gray-500 font-mono">Substrate</span>
+    <!-- PAPER TEAR DIVIDER (house system, top-level like all others; torn edge faces DOWN) -->
+    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip.png" alt=""></div>
+
+    <!-- ==================== INTERFACE SECTION ==================== -->
+    <section class="relative py-28 md:py-40">
+        <div class="max-w-5xl mx-auto px-8">
+            <!-- Interface header restored per user: full header + info -->
+            <div class="text-center mb-20">
+                <p class="text-brand-400 text-lg font-bold uppercase tracking-widest mb-4">The Interface</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight">Minimalist by design,<br>powerful by nature.</h2>
+                <p class="text-2xl text-gray-400 max-w-3xl mx-auto mt-6 leading-relaxed">Just your avatar, a text field, and a transparent canvas. Designed to fit into whatever workflow you have without being intrusive or distracting.</p>
+            </div>
+
+            <!-- All avatar + UI styles scoped under .app-demo -->
+            <style>
+                /* ── Avatar body ── */
+                .app-demo .da { position:relative; width:61px; height:120px; background:#c9b896; border-radius:60% 60% 50% 50%; box-shadow:0 2px 10px rgba(0,0,0,.1),0 0 15px 4px rgba(201,184,150,.4),0 0 30px 8px rgba(201,184,150,.15); animation:da-float 6s ease-in-out infinite,da-bloom-warm 25s linear infinite; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow:visible; transition:transform .3s ease,background-color .5s ease,box-shadow 2s ease-in-out; transform-origin:center center; cursor:grab; user-select:none; }
+                .app-demo .da:active { cursor:grabbing; }
+                /* ── Face panel (::before) ── */
+                .app-demo .da::before { content:''; position:absolute; width:64%; height:25%; background:#e8dcc8; border-radius:10px; border:2px solid #c9b896; z-index:1; top:23%; left:50%; transform:translate(-50%,-50%); transition:background-color .5s ease; }
+                /* ── Eyes ── */
+                .app-demo .da-eye { position:absolute; width:9px; height:9px; background:radial-gradient(circle at 25% 25%,#fff 0%,#fff 25%,#000 25%,#000 100%); border:2px solid #000; border-radius:50%; z-index:10; transition:transform .2s ease-out,height .15s ease-out; }
+                .app-demo .da-eye-l { top:11%; left:23%; }
+                .app-demo .da-eye-r { top:11%; right:23%; }
+                .app-demo .da-eye.da-blink { transform:scaleY(.1)!important; transition:transform .1s ease; }
+                /* ── Mouth (closed smile) ── */
+                .app-demo .da-mouth { position:absolute; width:15px; height:3px; top:24%; left:50%; transform:translateX(-50%); z-index:5; background:transparent; border-radius:50%; border:2px solid #c83333; border-top:none; }
+                /* ── Cheeks ── */
+                .app-demo .da-cheek { position:absolute; width:8px; height:5px; background:#ffb6c1; border-radius:50%; z-index:4; }
+                .app-demo .da-cheek-l { top:21%; left:20%; }
+                .app-demo .da-cheek-r { top:21%; right:20%; }
+                /* ── Arms ── */
+                .app-demo .da-arm { position:absolute; width:20px; height:10px; background:var(--demo-arm-bg,#d4c4a8); border-radius:0 0 10px 10px; z-index:5; border:2px solid var(--demo-body-bg,#c9b896); transition:all .3s ease,background-color .5s ease; transform-origin:center top; }
+                .app-demo .da-arm-l { top:60%; left:5px; transform:rotate(-10deg); }
+                .app-demo .da-arm-r { top:60%; right:5px; transform:rotate(10deg); }
+                /* ── Brows (hidden default) ── */
+                .app-demo .da-brow { position:absolute; width:0; height:0; background:#222; border-radius:2px; z-index:11; opacity:0; pointer-events:none; }
+                /* ── Container ── */
+                #demo-avatar-wrap { position:absolute; bottom:80px; left:50%; transform:translateX(-50%); z-index:100; }
+                /* ── Expressions ── */
+                .app-demo .da.da-happy .da-eye { height:3px!important; width:10px!important; border-radius:50% 50% 0 0!important; background:transparent!important; border:1px solid #000!important; border-bottom:none!important; }
+                .app-demo .da.da-happy .da-cheek { transform:scale(1.3) translateY(-1px); opacity:1; }
+                .app-demo .da.da-surprised .da-eye { height:10px!important; width:12px!important; border-radius:50%!important; background:radial-gradient(circle at 60% 35%,#fff 0%,#fff 20%,#111 20%,#111 100%)!important; border:none!important; }
+                .app-demo .da.da-angry .da-eye { height:10px!important; width:15px!important; border-radius:0 0 50% 50%!important; background:radial-gradient(circle at 50% 50%,#fff 0%,#fff 60%,#d0eaff 80%,#60bfff 100%)!important; border:1px solid rgba(130,210,255,.7)!important; border-top:none!important; box-shadow:0 0 5px 2px rgba(130,210,255,.6)!important; }
+                .app-demo .da.da-angry { animation:da-shake .4s ease-in-out 3!important; }
+                .app-demo .da.da-sad .da-eye { height:3px!important; width:8px!important; border-radius:0 0 50% 50%!important; background:transparent!important; border:1px solid #000!important; border-top:none!important; }
+                /* ── Keyframes ── */
+                @keyframes da-float { 0%{transform:translateY(0) rotate(0) scale(1)} 25%{transform:translateY(-5px) rotate(1deg) scale(1.05,.95)} 50%{transform:translateY(-10px) rotate(0) scale(1.03,.97)} 75%{transform:translateY(-5px) rotate(-1deg) scale(1.05,.95)} 100%{transform:translateY(0) rotate(0) scale(1)} }
+                @keyframes da-bloom-warm { 0%,100%{box-shadow:0 2px 10px rgba(0,0,0,.1),0 0 14px 4px rgba(201,184,150,.3),0 0 28px 7px rgba(201,184,150,.1)} 35%{box-shadow:0 2px 10px rgba(0,0,0,.1),0 0 17px 5px rgba(201,184,150,.38),0 0 32px 9px rgba(201,184,150,.14)} 70%{box-shadow:0 2px 10px rgba(0,0,0,.1),0 0 15px 4px rgba(201,184,150,.33),0 0 30px 8px rgba(201,184,150,.12)} }
+                @keyframes da-shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px) rotate(-1deg)} 75%{transform:translateX(4px) rotate(1deg)} }
+                @keyframes da-bounce { 0%{transform:translateY(0) scale(1)} 40%{transform:translateY(-20px) scale(.95,1.05)} 50%{transform:translateY(-25px) scale(1)} 70%{transform:translateY(0) scale(1.2,.8)} 90%{transform:translateY(0) scale(1.1,.9)} 100%{transform:translateY(0) scale(1)} }
+                @keyframes da-wiggle { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-3deg)} 75%{transform:rotate(3deg)} }
+                @keyframes da-jiggle { 0%,100%{transform:rotate(0) scale(1)} 25%{transform:rotate(-5deg) scale(1.05)} 50%{transform:rotate(0) scale(1.1)} 75%{transform:rotate(5deg) scale(1.05)} }
+                /* ── Messages ── */
+                .app-demo .message { background:rgba(0,0,0,.5); padding:15px; border-radius:10px; margin:5px 0; backdrop-filter:blur(5px); font-family:'Consolas','Monaco','Courier New',monospace; font-size:12px; line-height:1.6; color:white; }
+                .app-demo .message.user { background:rgba(201,184,150,.1); }
+                .app-demo .message.assistant { background:rgba(255,255,255,.1); }
+                .app-demo .message .tool-line { font-size:10px; color:rgba(255,255,255,.5); margin-top:6px; }
+                /* ── Chat alignment: the hero is text-centered; the app window must read left-aligned like a real chat ── */
+                .app-demo { text-align:left; }
+                .app-demo .message .think { font-style:italic; opacity:.65; }
+                .app-demo .message .think .dots::after { content:''; animation:demo-think 1.2s infinite; }
+                @keyframes demo-think { 0%{content:'';} 25%{content:'.';} 50%{content:'..';} 75%{content:'...';} }
+                /* ── Titlebar ── */
+                .app-demo .titlebar { position:relative; height:32px; display:flex; justify-content:flex-end; align-items:center; padding:0 8px; }
+                .app-demo .titlebar button { background:transparent; border:none; color:rgba(255,255,255,.5); cursor:default; padding:5px; }
+                .app-demo .titlebar .close-btn { color:rgba(255,255,255,.6); font-size:16px; }
+                .app-demo .titlebar .minimize-btn { font-size:18px; line-height:1; }
+                /* ── Input bar ── */
+                .app-demo .input-container { position:absolute; bottom:20px; left:0; right:0; display:flex; flex-direction:column; align-items:center; padding:0 20px; z-index:10; }
+                .app-demo .chat-input-container { position:relative; display:flex; align-items:center; padding:10px 15px; background:rgba(255,255,255,.1); max-width:800px; width:90%; margin:0 auto; border-radius:999px; backdrop-filter:blur(5px); }
+                .app-demo .chat-input { flex:1; padding:8px 20px; border:none; border-radius:999px; background:rgba(255,255,255,.2); color:rgba(255,255,255,.9); font-size:10px; outline:none; resize:none; font-family:'Press Start 2P','Consolas',monospace; letter-spacing:.5px; min-height:24px; margin-right:50px; width:calc(100% - 70px); backdrop-filter:blur(3px); }
+                .app-demo .chat-input::placeholder { color:rgba(255,255,255,.9); }
+                .app-demo .button-container { position:absolute; right:15px; top:50%; transform:translateY(-50%); display:flex; align-items:center; gap:10px; z-index:2; }
+                .app-demo .mode-toggle { display:flex; align-items:center; gap:1px; margin-right:8px; }
+                .app-demo .mode-toggle button { position:relative; padding:3px 5px; border:none; background:transparent; color:rgba(255,255,255,.28); cursor:pointer; line-height:0; display:flex; align-items:center; }
+                .app-demo .mode-toggle button svg { width:14px; height:14px; }
+                .app-demo .mode-toggle button:hover { color:rgba(255,255,255,.6); }
+                .app-demo .mode-toggle button.active { color:rgba(255,255,255,.9); }
+                /* ── Tooltips ── */
+                .app-demo [data-tip]::after { content:attr(data-tip); position:absolute; bottom:calc(100% + 6px); left:50%; transform:translateX(-50%); background:rgba(30,30,30,.95); color:rgba(255,255,255,.85); font-size:9px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; padding:3px 7px; border-radius:4px; white-space:nowrap; pointer-events:none; opacity:0; transition:opacity .2s; z-index:50; }
+                .app-demo [data-tip]:hover::after { opacity:1; }
+                .app-demo .record-mic-button { position:relative; width:30px; height:30px; border-radius:50%; background:transparent; border:none; color:rgba(255,255,255,.4); cursor:default; display:flex; align-items:center; justify-content:center; padding:0; }
+                .app-demo .tool-button { position:relative; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.1); border:none; color:white; font-size:24px; cursor:default; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(5px); padding:0; }
+                /* ── Radial menu (hover only) ── */
+                .app-demo .upload-wrapper { position:relative; display:inline-flex; }
+                .app-demo .radial-menu { position:absolute; left:50%; top:50%; width:0; height:0; pointer-events:none; z-index:3; }
+                .app-demo .radial-menu .radial-item { position:absolute; width:26px; height:26px; min-width:26px; min-height:26px; font-size:11px; border-radius:50%; background:rgba(255,255,255,.1); border:none; color:white; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(5px); cursor:default; padding:0; opacity:0; transform:scale(.3); pointer-events:none; left:-13px; top:-13px; transition:all .25s cubic-bezier(.34,1.56,.64,1); }
+                .app-demo .ri-mute { font-size:7px; line-height:1; }
+                .app-demo .ri-user { font-size:8px; font-family:'Consolas',monospace; font-weight:bold; line-height:1; }
+                .app-demo .ri-cfg { font-size:12px; line-height:1; }
+                .app-demo .upload-wrapper:hover .radial-menu { pointer-events:all; }
+                .app-demo .upload-wrapper:hover .radial-menu .radial-item { opacity:1; transform:scale(1); pointer-events:all; }
+                .app-demo .upload-wrapper:hover .ri-mute { left:22px; top:4px; transition-delay:0s; }
+                .app-demo .upload-wrapper:hover .ri-user { left:28px; top:-18px; transition-delay:.03s; }
+                .app-demo .upload-wrapper:hover .ri-11 { left:20px; top:-40px; transition-delay:.06s; }
+                .app-demo .upload-wrapper:hover .ri-cfg { left:2px; top:-54px; transition-delay:.09s; }
+                .app-demo .upload-wrapper:not(:hover) .ri-cfg { transition-delay:0s; }
+                .app-demo .upload-wrapper:not(:hover) .ri-11 { transition-delay:.03s; }
+                .app-demo .upload-wrapper:not(:hover) .ri-user { transition-delay:.06s; }
+                .app-demo .upload-wrapper:not(:hover) .ri-mute { transition-delay:.09s; }
+                .app-demo .radial-menu .radial-item:hover { transform:scale(1.2)!important; background:rgba(255,255,255,.25); box-shadow:0 0 10px rgba(201,184,150,.3); }
+                .app-demo .upload-wrapper:hover .radial-menu::before { content:''; position:absolute; left:-20px; top:-80px; width:70px; height:100px; pointer-events:all; }
+            </style>
+
+            <!-- UI Mockup -->
+            <div class="max-w-4xl mx-auto app-demo">
+                <div class="rounded-3xl border border-white/10 glow overflow-hidden" style="background:linear-gradient(180deg,#f6f1e2 0%,#ece5cf 100%);">
+                    <div class="titlebar">
+                        <button class="minimize-btn" title="Minimize to tray">−</button>
+                        <button class="close-btn" title="Close">×</button>
                     </div>
-                    <div class="flex items-center gap-0.5">
-                        <div class="w-10 h-7 flex items-center justify-center hover:bg-white/[0.06] rounded-sm"><svg class="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/></svg></div>
-                        <div class="w-10 h-7 flex items-center justify-center hover:bg-white/[0.06] rounded-sm"><svg class="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/></svg></div>
-                        <div class="w-10 h-7 flex items-center justify-center hover:bg-red-500/20 rounded-sm"><svg class="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+                    <div id="demo-box" class="relative flex flex-col" style="min-height:540px; overflow:hidden;">
+                        <div id="demo-messages" class="flex-1 px-5 pt-2 pb-4 flex flex-col gap-2.5 overflow-hidden" style="padding-bottom:220px;">
+                            <div class="message user">Anything happen while I was asleep?</div>
+                            <div class="message assistant"><span class="think">Checking overnight runs<span class="dots"></span></span></div>
+                            <div class="message assistant"><span class="tool-line" style="margin-top:0;">&#9656; web_search &mdash; 8:00 news run &middot; 12 sources &rarr; 3 stories</span><br><span class="tool-line">&#9656; text_editor &mdash; drafted today's edition &middot; cover, grid, timeline</span><br><span class="tool-line">&#9656; bash &mdash; verified sources &amp; links &middot; edition staged for review</span><br>Morning. The 8:00 run researched the news, verified sources, and drafted today's edition &mdash; three articles prepared for review and publication. Site maintenance clean. Ready when you are.</div>
+                        </div>
+                        <!-- Avatar -->
+                        <div id="demo-avatar-wrap">
+                            <div class="da" id="demo-av">
+                                <div class="da-brow"></div><div class="da-brow"></div>
+                                <div class="da-eye da-eye-l" id="da-el"></div>
+                                <div class="da-eye da-eye-r" id="da-er"></div>
+                                <div class="da-mouth" id="da-mo"></div>
+                                <div class="da-cheek da-cheek-l"></div>
+                                <div class="da-cheek da-cheek-r"></div>
+                                <div class="da-arm da-arm-l" id="da-al"></div>
+                                <div class="da-arm da-arm-r" id="da-ar"></div>
+                            </div>
+                        </div>
+                        <!-- Input -->
+                        <div class="input-container">
+                            <div class="chat-input-container">
+                                <textarea class="chat-input" placeholder="Type your message..." rows="1" readonly></textarea>
+                                <div class="button-container">
+                                    <div class="mode-toggle" id="demo-mode-toggle">
+                                        <button class="active" data-mode="code" data-tip="Code"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></button>
+                                        <button data-mode="ask" data-tip="Ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button>
+                                        <button data-mode="plan" data-tip="Plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></button>
+                                    </div>
+                                    <button class="record-mic-button" data-tip="Record"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="1" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="21" x2="12" y2="17"/></svg></button>
+                                    <div class="upload-wrapper">
+                                        <button class="tool-button" data-tip="Upload">&#128449;</button>
+                                        <div class="radial-menu">
+                                            <button class="radial-item ri-mute" data-tip="Mute">၊၊||၊</button>
+                                            <button class="radial-item ri-user" data-tip="Toggle User Msgs">U</button>
+                                            <button class="radial-item ri-11" data-tip="ElevenLabs Call"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></button>
+                                            <button class="radial-item ri-cfg" data-tip="Settings">&#128462;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="p-6 md:p-8 font-mono text-base md:text-lg leading-loose">
-                    <p class="text-gray-500">$ substrate</p>
-                    <p class="text-brand-400 mt-3">Substrate v1.2.0 &mdash; Agent ready.</p>
-                    <p class="text-gray-400 mt-4"><span class="text-brand-300 font-semibold">you:</span> Pull this week's invoices from email, total them, and file a summary in my notes.</p>
-                    <p class="text-gray-400 mt-3"><span class="text-green-400 font-semibold">agent:</span> On it. Found 7 invoices. Reading and totaling...</p>
-                    <p class="text-gray-500 mt-2">&nbsp;&nbsp;&#9656; gmail &nbsp;<span class="text-gray-400">search "invoice" since:last week</span></p>
-                    <p class="text-gray-500">&nbsp;&nbsp;&#9656; read_file &nbsp;<span class="text-gray-400">invoice_0421.pdf</span></p>
-                    <p class="text-gray-500">&nbsp;&nbsp;&#9656; note &nbsp;<span class="text-gray-400">create "Invoice Totals"</span></p>
-                    <p class="text-gray-400 mt-3"><span class="text-green-400 font-semibold">agent:</span> Done. $12,480 across 7 invoices, filed to your notes.</p>
-                    <p class="mt-4 text-gray-500">$ <span class="cursor-blink text-brand-400">|</span></p>
+                <!-- Annotation callouts -->
+                <div class="grid md:grid-cols-3 gap-6 mt-10">
+                    <div class="text-center">
+                        <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center mx-auto mb-3"><svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 8h10M7 12h6"/></svg></div>
+                        <h4 class="text-white font-bold text-sm mb-1">A resident, not an app</h4>
+                        <p class="text-gray-500 text-xs leading-relaxed">Substrate is an autonomous desktop agent that lives on your machine. It reads and writes files, runs commands, browses the web, and runs scheduled jobs &mdash; then reports back in plain language.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center mx-auto mb-3"><svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                        <h4 class="text-white font-bold text-sm mb-1">It works while you're away</h4>
+                        <p class="text-gray-500 text-xs leading-relaxed">Give it a goal and it plans, acts, and verifies on its own &mdash; chaining tools across steps, recovering from errors, and asking only when a decision is genuinely yours.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center mx-auto mb-3"><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg></div>
+                        <h4 class="text-white font-bold text-sm mb-1">Voice or text, with memory</h4>
+                        <p class="text-gray-500 text-xs leading-relaxed">Talk or type &mdash; it replies in text and can read every answer aloud. Everything it learns persists between sessions, so it knows your projects, preferences, and past work.</p>
+                    </div>
                 </div>
             </div>
+
+    <!-- Self-contained avatar behavior (no avatar.js dependency) -->
+    <script>
+    (function(){
+        var av = document.getElementById('demo-av');
+        var el = document.getElementById('da-el');
+        var er = document.getElementById('da-er');
+        var mo = document.getElementById('da-mo');
+        var al = document.getElementById('da-al');
+        var ar = document.getElementById('da-ar');
+        var wrap = document.getElementById('demo-avatar-wrap');
+        var box = document.getElementById('demo-box');
+        if(!av) return;
+
+        /* ── Color sets (same as app) ── */
+        var colors = [
+            {body:'#c9b896',face:'#e8dcc8'},
+            {body:'#ff9d7a',face:'#ffd4c2'},
+            {body:'#a5d6a7',face:'#c8e6c9'},
+            {body:'#ce93d8',face:'#e1bee7'},
+            {body:'#fff59d',face:'#fff9c4'}
+        ];
+        var ci = 0;
+        function hexToRgb(h){h=h.replace('#','');return[parseInt(h.substring(0,2),16),parseInt(h.substring(2,4),16),parseInt(h.substring(4,6),16)];}
+        function rgbToHex(r,g,b){return'#'+[r,g,b].map(function(x){var s=Math.round(x).toString(16);return s.length===1?'0'+s:s;}).join('');}
+        function lerp(a,b,t){return a+(b-a)*t;}
+        function transitionColor(targetIdx,dur){
+            if(targetIdx===ci) return;
+            var from=colors[ci], to=colors[targetIdx];
+            var fb=hexToRgb(from.body),tb=hexToRgb(to.body),ff=hexToRgb(from.face),tf=hexToRgb(to.face);
+            var start=performance.now();
+            function step(now){
+                var t=Math.min((now-start)/dur,1);
+                var br=lerp(fb[0],tb[0],t),bg=lerp(fb[1],tb[1],t),bb=lerp(fb[2],tb[2],t);
+                var fr=lerp(ff[0],tf[0],t),fg=lerp(ff[1],tf[1],t),fbl=lerp(ff[2],tf[2],t);
+                var bc=rgbToHex(br,bg,bb);
+                var fc=rgbToHex(fr,fg,fbl);
+                // Arm = 60% body + 40% face
+                var ac=rgbToHex(br*.6+fr*.4,bg*.6+fg*.4,bb*.6+fbl*.4);
+                av.style.backgroundColor=bc;
+                av.style.setProperty('--demo-face-bg',fc);
+                av.style.setProperty('--demo-body-bg',bc);
+                av.style.setProperty('--demo-arm-bg',ac);
+                // Update glow
+                av.style.boxShadow='0 2px 10px rgba(0,0,0,.1),0 0 15px 4px '+bc+'80,0 0 30px 8px '+bc+'33';
+                if(t<1) requestAnimationFrame(step);
+                else ci=targetIdx;
+            }
+            requestAnimationFrame(step);
+        }
+        // Inject dynamic face color var
+        var faceRule=document.createElement('style');
+        faceRule.textContent='.app-demo .da::before{background:var(--demo-face-bg,#e8dcc8)!important;border-color:var(--demo-body-bg,#c9b896)!important;}';
+        document.head.appendChild(faceRule);
+
+        /* ── Blinking ── */
+        function blink(){
+            el.classList.add('da-blink'); er.classList.add('da-blink');
+            setTimeout(function(){el.classList.remove('da-blink');er.classList.remove('da-blink');},200);
+            scheduleBlink();
+        }
+        function scheduleBlink(){setTimeout(blink,2000+Math.random()*5000);}
+        scheduleBlink();
+
+        /* ── Eye tracking ── */
+        document.addEventListener('mousemove',function(e){
+            var rect=av.getBoundingClientRect();
+            var cx=rect.left+rect.width/2, cy=rect.top+rect.height/2;
+            var dx=e.clientX-cx, dy=e.clientY-cy;
+            var dist=Math.sqrt(dx*dx+dy*dy);
+            var maxShift=3;
+            var sx=(dx/Math.max(dist,1))*maxShift, sy=(dy/Math.max(dist,1))*maxShift;
+            el.style.transform='translate('+sx+'px,'+sy+'px)';
+            er.style.transform='translate('+sx+'px,'+sy+'px)';
+        });
+
+        /* ── Poke / click reaction ── */
+        var pokeCount=0, pokeTimer=null;
+        var expressions=['da-happy','da-surprised','da-angry','da-sad'];
+        av.addEventListener('click',function(e){
+            e.preventDefault();
+            pokeCount++;
+            clearTimeout(pokeTimer);
+            pokeTimer=setTimeout(function(){pokeCount=0;},3000);
+            // Play a random animation
+            var anims=['da-bounce','da-wiggle','da-jiggle'];
+            var anim=anims[Math.floor(Math.random()*anims.length)];
+            av.style.animation=anim+' .6s ease-in-out';
+            setTimeout(function(){av.style.animation='da-float 6s ease-in-out infinite,da-bloom 25s linear infinite';},700);
+            // Show expression
+            var expr=expressions[Math.floor(Math.random()*expressions.length)];
+            av.classList.add(expr);
+            setTimeout(function(){av.classList.remove(expr);},1500);
+            // Wave arms
+            al.style.left='-8px'; al.style.top='30%'; al.style.borderRadius='10px 10px 0 0';
+            ar.style.right='-8px'; ar.style.top='30%'; ar.style.borderRadius='10px 10px 0 0';
+            al.style.transform='rotate(-30deg)'; ar.style.transform='rotate(30deg)';
+            setTimeout(function(){
+                al.style.left='5px'; al.style.top='60%'; al.style.borderRadius='0 0 10px 10px'; al.style.transform='rotate(-10deg)';
+                ar.style.right='5px'; ar.style.top='60%'; ar.style.borderRadius='0 0 10px 10px'; ar.style.transform='rotate(10deg)';
+            },600);
+        });
+
+        /* ── Random color cycling ── */
+        setInterval(function(){
+            if(Math.random()<0.15){
+                var next=(ci+1+Math.floor(Math.random()*(colors.length-1)))%colors.length;
+                transitionColor(next,2000+Math.random()*3000);
+            }
+        },5000);
+
+        /* ── Constrained dragging ── */
+        var isDrag=false,offX=0,offY=0;
+        av.addEventListener('mousedown',function(e){
+            if(e.button!==0) return;
+            isDrag=true;
+            var wr=wrap.getBoundingClientRect();
+            offX=e.clientX-wr.left; offY=e.clientY-wr.top;
+            av.style.animation='none';
+            e.preventDefault();
+        });
+        document.addEventListener('mousemove',function(e){
+            if(!isDrag) return;
+            var br=box.getBoundingClientRect();
+            var x=e.clientX-br.left-offX, y=e.clientY-br.top-offY;
+            x=Math.max(0,Math.min(x,br.width-wrap.offsetWidth));
+            y=Math.max(0,Math.min(y,br.height-wrap.offsetHeight));
+            wrap.style.left=x+'px'; wrap.style.top=y+'px';
+            wrap.style.bottom='auto'; wrap.style.transform='none';
+        });
+        document.addEventListener('mouseup',function(){
+            if(!isDrag) return;
+            isDrag=false;
+            av.style.animation='da-float 6s ease-in-out infinite,da-bloom 25s linear infinite';
+        });
+    })();
+    </script>
+
+        <!-- Mode toggle + message swap -->
+        <script>
+        (function(){
+            var toggle = document.getElementById('demo-mode-toggle');
+            var msgs = document.getElementById('demo-messages');
+            var box = document.getElementById('demo-box');
+            if(!toggle || !msgs || !box) return;
+
+            var content = {
+                code: '<div class="message user">Resize everything in ~/photos/raw to 1600px and upload the set to my server.</div>'
+                    + '<div class="message assistant"><span class="tool-line" style="margin-top:0;">&#9656; shell &mdash; magick mogrify -resize 1600x *.jpg (34 files)</span><br><span class="tool-line">&#9656; shell &mdash; rsync -av ~/photos/raw/ server:/srv/www/img/</span><br>Done &mdash; 34 images resized and uploaded. Gallery page updated with the new set. In Code mode I execute real commands on your machine like these, as they\'re asked for.</div>',
+
+                ask: '<div class="message user">What can you do in Ask mode?</div>'
+                    + '<div class="message assistant">In <span style="color:rgba(75,83,32,.85);">Ask</span> mode I answer questions using my knowledge, your files, and web search &mdash; without executing any commands or modifying anything.'
+                    + '<br><br>I can:'
+                    + '<br>&bull; Explain code, concepts, or errors'
+                    + '<br>&bull; Search the web and summarize findings'
+                    + '<br>&bull; Read and analyze your local files'
+                    + '<br>&bull; Reference your conversation history and memory'
+                    + '<br><br>Think of it as a research assistant that looks but doesn\'t touch.</div>',
+
+                plan: '<div class="message user">What does Plan mode do?</div>'
+                    + '<div class="message assistant">In <span style="color:rgba(75,83,32,.85);">Plan</span> mode I break down complex tasks into structured steps before executing anything.'
+                    + '<br><br>I will:'
+                    + '<br>&bull; Analyze what you\'re asking for'
+                    + '<br>&bull; Outline each step with the tools I\'ll use'
+                    + '<br>&bull; Show you the full plan for approval'
+                    + '<br>&bull; Execute step-by-step once confirmed'
+                    + '<br><br>Best for multi-step workflows, project scaffolding, or anything you want to review before I act.</div>'
+            };
+
+            /* ── Intro animation: replay the initial interaction on page load ── */
+            var introSteps = [
+                { delay: 600,  html: '<div class="message user">Anything happen while I was asleep?</div>' },
+                { delay: 900,  html: '<div class="message assistant"><span class="think">Checking overnight runs<span class="dots"></span></span></div>' },
+                { delay: 1400, html: '<div class="message assistant"><span class="tool-line" style="margin-top:0;">&#9656; web_search &mdash; 8:00 news run &middot; 12 sources &rarr; 3 stories</span><br><span class="tool-line">&#9656; text_editor &mdash; drafted today\'s edition &middot; cover, grid, timeline</span></div>' },
+                { delay: 1300, html: '<div class="message assistant"><span class="tool-line" style="margin-top:0;">&#9656; bash &mdash; verified sources &amp; links &middot; edition staged for review</span><br>Morning. The 8:00 run researched the news, verified sources, and drafted today\'s edition &mdash; three articles prepared for review and publication. Site maintenance clean. Ready when you are.</div>' }
+            ];
+            function playIntro(){
+                if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){ return; }
+                msgs.innerHTML = '';
+                msgs.style.opacity = '1';
+                var t = 0;
+                introSteps.forEach(function(st){
+                    t += st.delay;
+                    setTimeout(function(){
+                        msgs.insertAdjacentHTML('beforeend', st.html);
+                        msgs.scrollTop = msgs.scrollHeight;
+                    }, t);
+                });
+            }
+            // Play once when the demo scrolls into view; static exchange stays for reduced-motion
+            var played = false;
+            if('IntersectionObserver' in window){
+                var io = new IntersectionObserver(function(entries){
+                    entries.forEach(function(en){
+                        if(en.isIntersecting && !played){ played = true; playIntro(); io.disconnect(); }
+                    });
+                }, { threshold: 0.35 });
+                io.observe(box);
+            } else { playIntro(); }
+
+            // Pre-load audio files
+            var audio = { code: new Audio('audio/mode_code.wav'), ask: new Audio('audio/mode_ask.wav'), plan: new Audio('audio/mode_plan.wav') };
+            var currentAudio = null;
+
+            // Avatar references for talking animation
+            var av = document.getElementById('demo-av');
+            var mo = document.getElementById('da-mo');
+            var al = document.getElementById('da-al');
+            var ar = document.getElementById('da-ar');
+            var mouthInterval = null;
+            var armInterval = null;
+
+            // Mouth shapes — cycle randomly like the real app
+            var shapes = [
+                {w:8,h:6,bg:'#ff6b6b',br:'50%',bt:'none'},       // open O
+                {w:12,h:3,bg:'#ff6b6b',br:'2px',bt:'none'},       // wide
+                {w:6,h:8,bg:'#ff6b6b',br:'50%',bt:'none'},        // tall O
+                {w:10,h:2,bg:'transparent',br:'50%',bt:'2px solid #c83333'}, // closed
+                {w:9,h:5,bg:'#ff6b6b',br:'40%',bt:'none'},        // mid
+                {w:14,h:4,bg:'#ff6b6b',br:'3px',bt:'none'},       // smile wide
+            ];
+
+            function startTalking(){
+                if(mouthInterval) return;
+                mo.style.transition = 'all 0.12s ease-in-out';
+                mo.style.borderTop = 'none';
+                mouthInterval = setInterval(function(){
+                    var s = shapes[Math.floor(Math.random()*shapes.length)];
+                    mo.style.width = s.w+'px';
+                    mo.style.height = s.h+'px';
+                    mo.style.backgroundColor = s.bg;
+                    mo.style.borderRadius = s.br;
+                    mo.style.border = s.bt;
+                    mo.style.borderTop = 'none';
+                }, 120);
+                // Arm waving
+                var armTick = 0;
+                armInterval = setInterval(function(){
+                    armTick++;
+                    var lAngle = -10 + Math.sin(armTick*0.4)*15;
+                    var rAngle = 10 + Math.cos(armTick*0.4)*15;
+                    al.style.transform = 'rotate('+lAngle+'deg)';
+                    ar.style.transform = 'rotate('+rAngle+'deg)';
+                }, 150);
+            }
+
+            function stopTalking(){
+                if(mouthInterval){ clearInterval(mouthInterval); mouthInterval = null; }
+                if(armInterval){ clearInterval(armInterval); armInterval = null; }
+                // Reset mouth to closed smile
+                mo.style.width = '15px';
+                mo.style.height = '3px';
+                mo.style.backgroundColor = 'transparent';
+                mo.style.borderRadius = '50%';
+                mo.style.border = '2px solid #c83333';
+                mo.style.borderTop = 'none';
+                // Reset arms
+                al.style.transform = 'rotate(-10deg)';
+                ar.style.transform = 'rotate(10deg)';
+            }
+
+            toggle.addEventListener('click', function(e){
+                var btn = e.target.closest('button[data-mode]');
+                if(!btn) return;
+                var mode = btn.getAttribute('data-mode');
+
+                // Update active state
+                toggle.querySelectorAll('button').forEach(function(b){ b.classList.remove('active'); });
+                btn.classList.add('active');
+
+                // Stop any currently playing audio + talking anim
+                if(currentAudio){ currentAudio.pause(); currentAudio.currentTime = 0; }
+                stopTalking();
+
+                // Swap messages with fade
+                msgs.style.opacity = '0';
+                setTimeout(function(){
+                    msgs.innerHTML = content[mode] || content.code;
+                    msgs.style.opacity = '1';
+                    // Play the mode's voice explanation + start talking
+                    if(audio[mode]){
+                        currentAudio = audio[mode];
+                        currentAudio.currentTime = 0;
+                        currentAudio.play().then(function(){ startTalking(); }).catch(function(){});
+                        currentAudio.onended = function(){ stopTalking(); currentAudio = null; };
+                    }
+                }, 150);
+            });
+
+            // Add transition for fade
+            msgs.style.transition = 'opacity 0.15s ease';
+        })();
+        </script>
+
         </div>
     </section>
 
@@ -519,443 +962,6 @@
         </div>
     </section>
 
-    <!-- ==================== UI PREVIEW ==================== -->
-    <section class="py-28 md:py-40 relative">
-        <div class="gradient-line max-w-4xl mx-auto mb-28"></div>
-        <div class="max-w-6xl mx-auto px-8">
-            <div class="text-center mb-20">
-                <p class="text-brand-400 text-lg font-bold uppercase tracking-widest mb-4">The Interface</p>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight">Minimalist by design,<br>powerful by nature.</h2>
-                <p class="text-2xl text-gray-400 max-w-3xl mx-auto mt-6 leading-relaxed">Just your avatar, a text field, and a transparent canvas. Designed to fit into whatever workflow you have without being intrusive or distracting.</p>
-            </div>
-
-            <!-- All avatar + UI styles scoped under .app-demo -->
-            <style>
-                /* ── Avatar body ── */
-                .app-demo .da { position:relative; width:61px; height:120px; background:#c9b896; border-radius:60% 60% 50% 50%; box-shadow:0 2px 10px rgba(0,0,0,.1),0 0 15px 4px rgba(201,184,150,.4),0 0 30px 8px rgba(201,184,150,.15); animation:da-float 6s ease-in-out infinite,da-bloom-warm 25s linear infinite; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow:visible; transition:transform .3s ease,background-color .5s ease,box-shadow 2s ease-in-out; transform-origin:center center; cursor:grab; user-select:none; }
-                .app-demo .da:active { cursor:grabbing; }
-                /* ── Face panel (::before) ── */
-                .app-demo .da::before { content:''; position:absolute; width:64%; height:25%; background:#e8dcc8; border-radius:10px; border:2px solid #c9b896; z-index:1; top:23%; left:50%; transform:translate(-50%,-50%); transition:background-color .5s ease; }
-                /* ── Eyes ── */
-                .app-demo .da-eye { position:absolute; width:9px; height:9px; background:radial-gradient(circle at 25% 25%,#fff 0%,#fff 25%,#000 25%,#000 100%); border:2px solid #000; border-radius:50%; z-index:10; transition:transform .2s ease-out,height .15s ease-out; }
-                .app-demo .da-eye-l { top:11%; left:23%; }
-                .app-demo .da-eye-r { top:11%; right:23%; }
-                .app-demo .da-eye.da-blink { transform:scaleY(.1)!important; transition:transform .1s ease; }
-                /* ── Mouth (closed smile) ── */
-                .app-demo .da-mouth { position:absolute; width:15px; height:3px; top:24%; left:50%; transform:translateX(-50%); z-index:5; background:transparent; border-radius:50%; border:2px solid #c83333; border-top:none; }
-                /* ── Cheeks ── */
-                .app-demo .da-cheek { position:absolute; width:8px; height:5px; background:#ffb6c1; border-radius:50%; z-index:4; }
-                .app-demo .da-cheek-l { top:21%; left:20%; }
-                .app-demo .da-cheek-r { top:21%; right:20%; }
-                /* ── Arms ── */
-                .app-demo .da-arm { position:absolute; width:20px; height:10px; background:var(--demo-arm-bg,#d4c4a8); border-radius:0 0 10px 10px; z-index:5; border:2px solid var(--demo-body-bg,#c9b896); transition:all .3s ease,background-color .5s ease; transform-origin:center top; }
-                .app-demo .da-arm-l { top:60%; left:5px; transform:rotate(-10deg); }
-                .app-demo .da-arm-r { top:60%; right:5px; transform:rotate(10deg); }
-                /* ── Brows (hidden default) ── */
-                .app-demo .da-brow { position:absolute; width:0; height:0; background:#222; border-radius:2px; z-index:11; opacity:0; pointer-events:none; }
-                /* ── Container ── */
-                #demo-avatar-wrap { position:absolute; bottom:80px; left:50%; transform:translateX(-50%); z-index:100; }
-                /* ── Expressions ── */
-                .app-demo .da.da-happy .da-eye { height:3px!important; width:10px!important; border-radius:50% 50% 0 0!important; background:transparent!important; border:1px solid #000!important; border-bottom:none!important; }
-                .app-demo .da.da-happy .da-cheek { transform:scale(1.3) translateY(-1px); opacity:1; }
-                .app-demo .da.da-surprised .da-eye { height:10px!important; width:12px!important; border-radius:50%!important; background:radial-gradient(circle at 60% 35%,#fff 0%,#fff 20%,#111 20%,#111 100%)!important; border:none!important; }
-                .app-demo .da.da-angry .da-eye { height:10px!important; width:15px!important; border-radius:0 0 50% 50%!important; background:radial-gradient(circle at 50% 50%,#fff 0%,#fff 60%,#d0eaff 80%,#60bfff 100%)!important; border:1px solid rgba(130,210,255,.7)!important; border-top:none!important; box-shadow:0 0 5px 2px rgba(130,210,255,.6)!important; }
-                .app-demo .da.da-angry { animation:da-shake .4s ease-in-out 3!important; }
-                .app-demo .da.da-sad .da-eye { height:3px!important; width:8px!important; border-radius:0 0 50% 50%!important; background:transparent!important; border:1px solid #000!important; border-top:none!important; }
-                /* ── Keyframes ── */
-                @keyframes da-float { 0%{transform:translateY(0) rotate(0) scale(1)} 25%{transform:translateY(-5px) rotate(1deg) scale(1.05,.95)} 50%{transform:translateY(-10px) rotate(0) scale(1.03,.97)} 75%{transform:translateY(-5px) rotate(-1deg) scale(1.05,.95)} 100%{transform:translateY(0) rotate(0) scale(1)} }
-                @keyframes da-bloom-warm { 0%,100%{box-shadow:0 2px 10px rgba(0,0,0,.1),0 0 14px 4px rgba(201,184,150,.3),0 0 28px 7px rgba(201,184,150,.1)} 35%{box-shadow:0 2px 10px rgba(0,0,0,.1),0 0 17px 5px rgba(201,184,150,.38),0 0 32px 9px rgba(201,184,150,.14)} 70%{box-shadow:0 2px 10px rgba(0,0,0,.1),0 0 15px 4px rgba(201,184,150,.33),0 0 30px 8px rgba(201,184,150,.12)} }
-                @keyframes da-shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px) rotate(-1deg)} 75%{transform:translateX(4px) rotate(1deg)} }
-                @keyframes da-bounce { 0%{transform:translateY(0) scale(1)} 40%{transform:translateY(-20px) scale(.95,1.05)} 50%{transform:translateY(-25px) scale(1)} 70%{transform:translateY(0) scale(1.2,.8)} 90%{transform:translateY(0) scale(1.1,.9)} 100%{transform:translateY(0) scale(1)} }
-                @keyframes da-wiggle { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-3deg)} 75%{transform:rotate(3deg)} }
-                @keyframes da-jiggle { 0%,100%{transform:rotate(0) scale(1)} 25%{transform:rotate(-5deg) scale(1.05)} 50%{transform:rotate(0) scale(1.1)} 75%{transform:rotate(5deg) scale(1.05)} }
-                /* ── Messages ── */
-                .app-demo .message { background:rgba(0,0,0,.5); padding:15px; border-radius:10px; margin:5px 0; backdrop-filter:blur(5px); font-family:'Consolas','Monaco','Courier New',monospace; font-size:12px; line-height:1.6; color:white; }
-                .app-demo .message.user { background:rgba(201,184,150,.1); }
-                .app-demo .message.assistant { background:rgba(255,255,255,.1); }
-                .app-demo .message .tool-line { font-size:10px; color:rgba(255,255,255,.5); margin-top:6px; }
-                /* ── Titlebar ── */
-                .app-demo .titlebar { position:relative; height:32px; display:flex; justify-content:flex-end; align-items:center; padding:0 8px; }
-                .app-demo .titlebar button { background:transparent; border:none; color:rgba(255,255,255,.5); cursor:default; padding:5px; }
-                .app-demo .titlebar .close-btn { color:rgba(255,255,255,.6); font-size:16px; }
-                .app-demo .titlebar .minimize-btn { font-size:18px; line-height:1; }
-                /* ── Input bar ── */
-                .app-demo .input-container { position:absolute; bottom:20px; left:0; right:0; display:flex; flex-direction:column; align-items:center; padding:0 20px; z-index:10; }
-                .app-demo .chat-input-container { position:relative; display:flex; align-items:center; padding:10px 15px; background:rgba(255,255,255,.1); max-width:800px; width:90%; margin:0 auto; border-radius:999px; backdrop-filter:blur(5px); }
-                .app-demo .chat-input { flex:1; padding:8px 20px; border:none; border-radius:999px; background:rgba(255,255,255,.2); color:rgba(255,255,255,.9); font-size:10px; outline:none; resize:none; font-family:'Press Start 2P','Consolas',monospace; letter-spacing:.5px; min-height:24px; margin-right:50px; width:calc(100% - 70px); backdrop-filter:blur(3px); }
-                .app-demo .chat-input::placeholder { color:rgba(255,255,255,.9); }
-                .app-demo .button-container { position:absolute; right:15px; top:50%; transform:translateY(-50%); display:flex; align-items:center; gap:10px; z-index:2; }
-                .app-demo .mode-toggle { display:flex; align-items:center; gap:1px; margin-right:8px; }
-                .app-demo .mode-toggle button { position:relative; padding:3px 5px; border:none; background:transparent; color:rgba(255,255,255,.28); cursor:pointer; line-height:0; display:flex; align-items:center; }
-                .app-demo .mode-toggle button svg { width:14px; height:14px; }
-                .app-demo .mode-toggle button:hover { color:rgba(255,255,255,.6); }
-                .app-demo .mode-toggle button.active { color:rgba(255,255,255,.9); }
-                /* ── Tooltips ── */
-                .app-demo [data-tip]::after { content:attr(data-tip); position:absolute; bottom:calc(100% + 6px); left:50%; transform:translateX(-50%); background:rgba(30,30,30,.95); color:rgba(255,255,255,.85); font-size:9px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; padding:3px 7px; border-radius:4px; white-space:nowrap; pointer-events:none; opacity:0; transition:opacity .2s; z-index:50; }
-                .app-demo [data-tip]:hover::after { opacity:1; }
-                .app-demo .record-mic-button { position:relative; width:30px; height:30px; border-radius:50%; background:transparent; border:none; color:rgba(255,255,255,.4); cursor:default; display:flex; align-items:center; justify-content:center; padding:0; }
-                .app-demo .tool-button { position:relative; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.1); border:none; color:white; font-size:24px; cursor:default; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(5px); padding:0; }
-                /* ── Radial menu (hover only) ── */
-                .app-demo .upload-wrapper { position:relative; display:inline-flex; }
-                .app-demo .radial-menu { position:absolute; left:50%; top:50%; width:0; height:0; pointer-events:none; z-index:3; }
-                .app-demo .radial-menu .radial-item { position:absolute; width:26px; height:26px; min-width:26px; min-height:26px; font-size:11px; border-radius:50%; background:rgba(255,255,255,.1); border:none; color:white; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(5px); cursor:default; padding:0; opacity:0; transform:scale(.3); pointer-events:none; left:-13px; top:-13px; transition:all .25s cubic-bezier(.34,1.56,.64,1); }
-                .app-demo .ri-mute { font-size:7px; line-height:1; }
-                .app-demo .ri-user { font-size:8px; font-family:'Consolas',monospace; font-weight:bold; line-height:1; }
-                .app-demo .ri-cfg { font-size:12px; line-height:1; }
-                .app-demo .upload-wrapper:hover .radial-menu { pointer-events:all; }
-                .app-demo .upload-wrapper:hover .radial-menu .radial-item { opacity:1; transform:scale(1); pointer-events:all; }
-                .app-demo .upload-wrapper:hover .ri-mute { left:22px; top:4px; transition-delay:0s; }
-                .app-demo .upload-wrapper:hover .ri-user { left:28px; top:-18px; transition-delay:.03s; }
-                .app-demo .upload-wrapper:hover .ri-11 { left:20px; top:-40px; transition-delay:.06s; }
-                .app-demo .upload-wrapper:hover .ri-cfg { left:2px; top:-54px; transition-delay:.09s; }
-                .app-demo .upload-wrapper:not(:hover) .ri-cfg { transition-delay:0s; }
-                .app-demo .upload-wrapper:not(:hover) .ri-11 { transition-delay:.03s; }
-                .app-demo .upload-wrapper:not(:hover) .ri-user { transition-delay:.06s; }
-                .app-demo .upload-wrapper:not(:hover) .ri-mute { transition-delay:.09s; }
-                .app-demo .radial-menu .radial-item:hover { transform:scale(1.2)!important; background:rgba(255,255,255,.25); box-shadow:0 0 10px rgba(201,184,150,.3); }
-                .app-demo .upload-wrapper:hover .radial-menu::before { content:''; position:absolute; left:-20px; top:-80px; width:70px; height:100px; pointer-events:all; }
-            </style>
-
-            <!-- UI Mockup -->
-            <div class="max-w-4xl mx-auto app-demo">
-                <div class="rounded-3xl border border-white/10 glow overflow-hidden" style="background:linear-gradient(180deg,#f6f1e2 0%,#ece5cf 100%);">
-                    <div class="titlebar">
-                        <button class="minimize-btn" title="Minimize to tray">−</button>
-                        <button class="close-btn" title="Close">×</button>
-                    </div>
-                    <div id="demo-box" class="relative flex flex-col" style="min-height:540px; overflow:hidden;">
-                        <div id="demo-messages" class="flex-1 px-5 pt-2 pb-4 flex flex-col gap-2.5 overflow-hidden" style="padding-bottom:220px;">
-                            <div class="message user">What can you do in Code mode?</div>
-                            <div class="message assistant">In <span style="color:rgba(201,184,150,.8);">Code</span> mode I act on your instructions immediately &mdash; executing commands, writing files, browsing the web, and controlling your desktop in real time.<br><br>I can:<br>&bull; Run shell commands and scripts on your OS<br>&bull; Read, write, and manage files across your system<br>&bull; Browse the web, scrape data, and take screenshots<br>&bull; File notes, manage tasks, and track projects across your systems<br>&bull; Chain multiple tools together in a single response<br><br>This is the default mode &mdash; tell me what to do and I'll do it.</div>
-                        </div>
-                        <!-- Avatar -->
-                        <div id="demo-avatar-wrap">
-                            <div class="da" id="demo-av">
-                                <div class="da-brow"></div><div class="da-brow"></div>
-                                <div class="da-eye da-eye-l" id="da-el"></div>
-                                <div class="da-eye da-eye-r" id="da-er"></div>
-                                <div class="da-mouth" id="da-mo"></div>
-                                <div class="da-cheek da-cheek-l"></div>
-                                <div class="da-cheek da-cheek-r"></div>
-                                <div class="da-arm da-arm-l" id="da-al"></div>
-                                <div class="da-arm da-arm-r" id="da-ar"></div>
-                            </div>
-                        </div>
-                        <!-- Input -->
-                        <div class="input-container">
-                            <div class="chat-input-container">
-                                <textarea class="chat-input" placeholder="Type your message..." rows="1" readonly></textarea>
-                                <div class="button-container">
-                                    <div class="mode-toggle" id="demo-mode-toggle">
-                                        <button class="active" data-mode="code" data-tip="Code"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></button>
-                                        <button data-mode="ask" data-tip="Ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button>
-                                        <button data-mode="plan" data-tip="Plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></button>
-                                    </div>
-                                    <button class="record-mic-button" data-tip="Record"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="1" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="21" x2="12" y2="17"/></svg></button>
-                                    <div class="upload-wrapper">
-                                        <button class="tool-button" data-tip="Upload">&#128449;</button>
-                                        <div class="radial-menu">
-                                            <button class="radial-item ri-mute" data-tip="Mute">၊၊||၊</button>
-                                            <button class="radial-item ri-user" data-tip="Toggle User Msgs">U</button>
-                                            <button class="radial-item ri-11" data-tip="ElevenLabs Call"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></button>
-                                            <button class="radial-item ri-cfg" data-tip="Settings">&#128462;</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Annotation callouts -->
-                <div class="grid md:grid-cols-3 gap-6 mt-10">
-                    <div class="text-center">
-                        <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center mx-auto mb-3"><svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg></div>
-                        <h4 class="text-white font-bold text-sm mb-1">Radial Config</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Right-click the avatar to open the radial menu &mdash; settings, prompts, profiles, models, and autonomy controls all live here.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center mx-auto mb-3"><svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-                        <h4 class="text-white font-bold text-sm mb-1">Custom Avatar</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Upload any image as the agent face. It animates with idle breathing, talking lips, and reactive expressions like happy, angry, or searching.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center mx-auto mb-3"><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg></div>
-                        <h4 class="text-white font-bold text-sm mb-1">Voice or Text</h4>
-                        <p class="text-gray-500 text-xs leading-relaxed">Type or speak. The agent responds in text and can read every reply aloud with local or cloud TTS voices.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Self-contained avatar behavior (no avatar.js dependency) -->
-    <script>
-    (function(){
-        var av = document.getElementById('demo-av');
-        var el = document.getElementById('da-el');
-        var er = document.getElementById('da-er');
-        var mo = document.getElementById('da-mo');
-        var al = document.getElementById('da-al');
-        var ar = document.getElementById('da-ar');
-        var wrap = document.getElementById('demo-avatar-wrap');
-        var box = document.getElementById('demo-box');
-        if(!av) return;
-
-        /* ── Color sets (same as app) ── */
-        var colors = [
-            {body:'#c9b896',face:'#e8dcc8'},
-            {body:'#ff9d7a',face:'#ffd4c2'},
-            {body:'#a5d6a7',face:'#c8e6c9'},
-            {body:'#ce93d8',face:'#e1bee7'},
-            {body:'#fff59d',face:'#fff9c4'}
-        ];
-        var ci = 0;
-        function hexToRgb(h){h=h.replace('#','');return[parseInt(h.substring(0,2),16),parseInt(h.substring(2,4),16),parseInt(h.substring(4,6),16)];}
-        function rgbToHex(r,g,b){return'#'+[r,g,b].map(function(x){var s=Math.round(x).toString(16);return s.length===1?'0'+s:s;}).join('');}
-        function lerp(a,b,t){return a+(b-a)*t;}
-        function transitionColor(targetIdx,dur){
-            if(targetIdx===ci) return;
-            var from=colors[ci], to=colors[targetIdx];
-            var fb=hexToRgb(from.body),tb=hexToRgb(to.body),ff=hexToRgb(from.face),tf=hexToRgb(to.face);
-            var start=performance.now();
-            function step(now){
-                var t=Math.min((now-start)/dur,1);
-                var br=lerp(fb[0],tb[0],t),bg=lerp(fb[1],tb[1],t),bb=lerp(fb[2],tb[2],t);
-                var fr=lerp(ff[0],tf[0],t),fg=lerp(ff[1],tf[1],t),fbl=lerp(ff[2],tf[2],t);
-                var bc=rgbToHex(br,bg,bb);
-                var fc=rgbToHex(fr,fg,fbl);
-                // Arm = 60% body + 40% face
-                var ac=rgbToHex(br*.6+fr*.4,bg*.6+fg*.4,bb*.6+fbl*.4);
-                av.style.backgroundColor=bc;
-                av.style.setProperty('--demo-face-bg',fc);
-                av.style.setProperty('--demo-body-bg',bc);
-                av.style.setProperty('--demo-arm-bg',ac);
-                // Update glow
-                av.style.boxShadow='0 2px 10px rgba(0,0,0,.1),0 0 15px 4px '+bc+'80,0 0 30px 8px '+bc+'33';
-                if(t<1) requestAnimationFrame(step);
-                else ci=targetIdx;
-            }
-            requestAnimationFrame(step);
-        }
-        // Inject dynamic face color var
-        var faceRule=document.createElement('style');
-        faceRule.textContent='.app-demo .da::before{background:var(--demo-face-bg,#e8dcc8)!important;border-color:var(--demo-body-bg,#c9b896)!important;}';
-        document.head.appendChild(faceRule);
-
-        /* ── Blinking ── */
-        function blink(){
-            el.classList.add('da-blink'); er.classList.add('da-blink');
-            setTimeout(function(){el.classList.remove('da-blink');er.classList.remove('da-blink');},200);
-            scheduleBlink();
-        }
-        function scheduleBlink(){setTimeout(blink,2000+Math.random()*5000);}
-        scheduleBlink();
-
-        /* ── Eye tracking ── */
-        document.addEventListener('mousemove',function(e){
-            var rect=av.getBoundingClientRect();
-            var cx=rect.left+rect.width/2, cy=rect.top+rect.height/2;
-            var dx=e.clientX-cx, dy=e.clientY-cy;
-            var dist=Math.sqrt(dx*dx+dy*dy);
-            var maxShift=3;
-            var sx=(dx/Math.max(dist,1))*maxShift, sy=(dy/Math.max(dist,1))*maxShift;
-            el.style.transform='translate('+sx+'px,'+sy+'px)';
-            er.style.transform='translate('+sx+'px,'+sy+'px)';
-        });
-
-        /* ── Poke / click reaction ── */
-        var pokeCount=0, pokeTimer=null;
-        var expressions=['da-happy','da-surprised','da-angry','da-sad'];
-        av.addEventListener('click',function(e){
-            e.preventDefault();
-            pokeCount++;
-            clearTimeout(pokeTimer);
-            pokeTimer=setTimeout(function(){pokeCount=0;},3000);
-            // Play a random animation
-            var anims=['da-bounce','da-wiggle','da-jiggle'];
-            var anim=anims[Math.floor(Math.random()*anims.length)];
-            av.style.animation=anim+' .6s ease-in-out';
-            setTimeout(function(){av.style.animation='da-float 6s ease-in-out infinite,da-bloom 25s linear infinite';},700);
-            // Show expression
-            var expr=expressions[Math.floor(Math.random()*expressions.length)];
-            av.classList.add(expr);
-            setTimeout(function(){av.classList.remove(expr);},1500);
-            // Wave arms
-            al.style.left='-8px'; al.style.top='30%'; al.style.borderRadius='10px 10px 0 0';
-            ar.style.right='-8px'; ar.style.top='30%'; ar.style.borderRadius='10px 10px 0 0';
-            al.style.transform='rotate(-30deg)'; ar.style.transform='rotate(30deg)';
-            setTimeout(function(){
-                al.style.left='5px'; al.style.top='60%'; al.style.borderRadius='0 0 10px 10px'; al.style.transform='rotate(-10deg)';
-                ar.style.right='5px'; ar.style.top='60%'; ar.style.borderRadius='0 0 10px 10px'; ar.style.transform='rotate(10deg)';
-            },600);
-        });
-
-        /* ── Random color cycling ── */
-        setInterval(function(){
-            if(Math.random()<0.15){
-                var next=(ci+1+Math.floor(Math.random()*(colors.length-1)))%colors.length;
-                transitionColor(next,2000+Math.random()*3000);
-            }
-        },5000);
-
-        /* ── Constrained dragging ── */
-        var isDrag=false,offX=0,offY=0;
-        av.addEventListener('mousedown',function(e){
-            if(e.button!==0) return;
-            isDrag=true;
-            var wr=wrap.getBoundingClientRect();
-            offX=e.clientX-wr.left; offY=e.clientY-wr.top;
-            av.style.animation='none';
-            e.preventDefault();
-        });
-        document.addEventListener('mousemove',function(e){
-            if(!isDrag) return;
-            var br=box.getBoundingClientRect();
-            var x=e.clientX-br.left-offX, y=e.clientY-br.top-offY;
-            x=Math.max(0,Math.min(x,br.width-wrap.offsetWidth));
-            y=Math.max(0,Math.min(y,br.height-wrap.offsetHeight));
-            wrap.style.left=x+'px'; wrap.style.top=y+'px';
-            wrap.style.bottom='auto'; wrap.style.transform='none';
-        });
-        document.addEventListener('mouseup',function(){
-            if(!isDrag) return;
-            isDrag=false;
-            av.style.animation='da-float 6s ease-in-out infinite,da-bloom 25s linear infinite';
-        });
-    })();
-    </script>
-
-    <!-- Mode toggle + message swap -->
-    <script>
-    (function(){
-        var toggle = document.getElementById('demo-mode-toggle');
-        var msgs = document.getElementById('demo-messages');
-        if(!toggle || !msgs) return;
-
-        var content = {
-            code: '<div class="message user">What can you do in Code mode?</div>'
-                + '<div class="message assistant">In <span style="color:rgba(201,184,150,.8);">Code</span> mode I act on your instructions immediately &mdash; executing commands, writing files, browsing the web, and controlling your desktop in real time.'
-                + '<br><br>I can:'
-                + '<br>&bull; Run shell commands and scripts on your OS'
-                + '<br>&bull; Read, write, and manage files across your system'
-                + '<br>&bull; Browse the web, scrape data, and take screenshots'
-                + '<br>&bull; File notes, manage tasks, and track projects'
-                + '<br>&bull; Chain multiple tools together in a single response'
-                + '<br><br>This is the default mode &mdash; tell me what to do and I\'ll do it.</div>',
-
-            ask: '<div class="message user">What can you do in Ask mode?</div>'
-                + '<div class="message assistant">In <span style="color:rgba(201,184,150,.8);">Ask</span> mode I answer questions using my knowledge, your files, and web search &mdash; without executing any commands or modifying anything.'
-                + '<br><br>I can:'
-                + '<br>&bull; Explain code, concepts, or errors'
-                + '<br>&bull; Search the web and summarize findings'
-                + '<br>&bull; Read and analyze your local files'
-                + '<br>&bull; Reference your conversation history and memory'
-                + '<br><br>Think of it as a research assistant that looks but doesn\'t touch.</div>',
-
-            plan: '<div class="message user">What does Plan mode do?</div>'
-                + '<div class="message assistant">In <span style="color:rgba(201,184,150,.8);">Plan</span> mode I break down complex tasks into structured steps before executing anything.'
-                + '<br><br>I will:'
-                + '<br>&bull; Analyze what you\'re asking for'
-                + '<br>&bull; Outline each step with the tools I\'ll use'
-                + '<br>&bull; Show you the full plan for approval'
-                + '<br>&bull; Execute step-by-step once confirmed'
-                + '<br><br>Best for multi-step workflows, project scaffolding, or anything you want to review before I act.</div>'
-        };
-
-        // Pre-load audio files
-        var audio = { code: new Audio('audio/mode_code.wav'), ask: new Audio('audio/mode_ask.wav'), plan: new Audio('audio/mode_plan.wav') };
-        var currentAudio = null;
-
-        // Avatar references for talking animation
-        var av = document.getElementById('demo-av');
-        var mo = document.getElementById('da-mo');
-        var al = document.getElementById('da-al');
-        var ar = document.getElementById('da-ar');
-        var mouthInterval = null;
-        var armInterval = null;
-
-        // Mouth shapes — cycle randomly like the real app
-        var shapes = [
-            {w:8,h:6,bg:'#ff6b6b',br:'50%',bt:'none'},       // open O
-            {w:12,h:3,bg:'#ff6b6b',br:'2px',bt:'none'},       // wide
-            {w:6,h:8,bg:'#ff6b6b',br:'50%',bt:'none'},        // tall O
-            {w:10,h:2,bg:'transparent',br:'50%',bt:'2px solid #c83333'}, // closed
-            {w:9,h:5,bg:'#ff6b6b',br:'40%',bt:'none'},        // mid
-            {w:14,h:4,bg:'#ff6b6b',br:'3px',bt:'none'},       // smile wide
-        ];
-
-        function startTalking(){
-            if(mouthInterval) return;
-            mo.style.transition = 'all 0.12s ease-in-out';
-            mo.style.borderTop = 'none';
-            mouthInterval = setInterval(function(){
-                var s = shapes[Math.floor(Math.random()*shapes.length)];
-                mo.style.width = s.w+'px';
-                mo.style.height = s.h+'px';
-                mo.style.backgroundColor = s.bg;
-                mo.style.borderRadius = s.br;
-                mo.style.border = s.bt;
-                mo.style.borderTop = 'none';
-            }, 120);
-            // Arm waving
-            var armTick = 0;
-            armInterval = setInterval(function(){
-                armTick++;
-                var lAngle = -10 + Math.sin(armTick*0.4)*15;
-                var rAngle = 10 + Math.cos(armTick*0.4)*15;
-                al.style.transform = 'rotate('+lAngle+'deg)';
-                ar.style.transform = 'rotate('+rAngle+'deg)';
-            }, 150);
-        }
-
-        function stopTalking(){
-            if(mouthInterval){ clearInterval(mouthInterval); mouthInterval = null; }
-            if(armInterval){ clearInterval(armInterval); armInterval = null; }
-            // Reset mouth to closed smile
-            mo.style.width = '15px';
-            mo.style.height = '3px';
-            mo.style.backgroundColor = 'transparent';
-            mo.style.borderRadius = '50%';
-            mo.style.border = '2px solid #c83333';
-            mo.style.borderTop = 'none';
-            // Reset arms
-            al.style.transform = 'rotate(-10deg)';
-            ar.style.transform = 'rotate(10deg)';
-        }
-
-        toggle.addEventListener('click', function(e){
-            var btn = e.target.closest('button[data-mode]');
-            if(!btn) return;
-            var mode = btn.getAttribute('data-mode');
-
-            // Update active state
-            toggle.querySelectorAll('button').forEach(function(b){ b.classList.remove('active'); });
-            btn.classList.add('active');
-
-            // Stop any currently playing audio + talking anim
-            if(currentAudio){ currentAudio.pause(); currentAudio.currentTime = 0; }
-            stopTalking();
-
-            // Swap messages with fade
-            msgs.style.opacity = '0';
-            setTimeout(function(){
-                msgs.innerHTML = content[mode] || content.code;
-                msgs.style.opacity = '1';
-                // Play the mode's voice explanation + start talking
-                if(audio[mode]){
-                    currentAudio = audio[mode];
-                    currentAudio.currentTime = 0;
-                    currentAudio.play().then(function(){ startTalking(); }).catch(function(){});
-                    currentAudio.onended = function(){ stopTalking(); currentAudio = null; };
-                }
-            }, 150);
-        });
-
-        // Add transition for fade
-        msgs.style.transition = 'opacity 0.15s ease';
-    })();
-    </script>
-
     <!-- ── PAPER TEAR DIVIDER ── -->
     <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip.png" alt=""></div>
 
@@ -968,29 +974,7 @@
                 <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight">Built-in tools.<br><span class="gradient-text">Extensible by design.</span></h2>
                 <p class="text-2xl text-gray-400 max-w-3xl mx-auto mt-6 leading-relaxed">Every tool the agent needs to control your desktop, automate workflows, and interact with the world &mdash; plus MCP support for adding your own.</p>
             </div>
-            <div class="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">bash</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">text_editor</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">computer</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">browser</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">memory</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">web_search</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-brand-500/10 border border-brand-500/20 text-base font-mono text-brand-300 font-semibold">web_fetch</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">generate_image</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">pdf</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">obsidian</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">skill</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">learn</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">media</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">look</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">notify</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">agent</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-base font-mono text-gray-200">macro</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-lime-500/10 border border-lime-500/25 text-base font-mono text-lime-300 font-semibold">gmail</span>
-                <span class="tool-pill px-5 py-3 rounded-2xl bg-purple-500/10 border border-purple-500/25 text-base font-mono text-purple-300 font-semibold">+ MCP servers</span>
-            </div>
-            <p class="text-center text-gray-500 text-sm mt-4">Core tools (highlighted) are always loaded. On-demand tools load automatically when relevant keywords are detected.</p>
-            <p class="text-center text-gray-500 text-lg mt-10">Tools load on-demand based on conversation context &mdash; no wasted tokens.</p>
+
 
             <!-- Emergent tools & skill creation -->
             <div class="mt-16 bg-white/[0.025] border border-green-500/[0.15] rounded-3xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -1298,8 +1282,7 @@
             <div id="diagram-tools" class="diagram-panel hidden">
                 <div class="diagram-bg rounded-3xl p-6 md:p-10 glow overflow-x-auto">
                     <svg viewBox="0 0 900 520" class="w-full max-w-4xl mx-auto" xmlns="http://www.w3.org/2000/svg">
-                        <text x="450" y="30" text-anchor="middle" fill="#9ca3af" font-size="14" font-weight="600" font-family="Inter,sans-serif">Tools load on-demand based on conversation context &mdash; no wasted tokens</text>
-
+                        
                         <!-- Core tools (always loaded) -->
                         <text x="450" y="70" text-anchor="middle" fill="#e8dcc8" font-size="15" font-weight="700" letter-spacing="3" font-family="Inter,sans-serif">CORE TOOLS (always loaded)</text>
                         <g>
@@ -1718,7 +1701,7 @@
             <div class="relative z-10 grid md:grid-cols-3 gap-6 max-w-3xl mx-auto text-left">
                 <div class="bg-white/[0.025] border border-white/[0.06] rounded-2xl p-6">
                     <div class="text-brand-400 font-bold text-sm uppercase tracking-wider mb-2">Version</div>
-                    <div class="text-white font-bold text-lg">v1.2.0</div>
+                    <div class="text-white font-bold text-lg">v1.3.2</div>
                     <div class="text-gray-500 text-sm mt-1">Latest stable release</div>
                 </div>
                 <div class="bg-white/[0.025] border border-white/[0.06] rounded-2xl p-6">
@@ -2015,14 +1998,18 @@
             .title-paper-adopt { width:180%; }
         }
 
-        /* ── HERO PAPER: white torn sheet behind the full hero —
-           spans behind title + CTA buttons, torn edge dips just past them.
-           Positioned top-anchored so the ragged bottom lands just below the CTAs.
-           Desktop uses a fixed pixel sheet (not % of viewport) so the torn edge
-           stays put just past the buttons at every width. ── */
-        .hero-paper-img-wrap { position:absolute; top:-6%; left:50%; transform:translateX(calc(-50% + 1.03%)); width:150%; max-width:none; z-index:0; pointer-events:none; filter:drop-shadow(0 18px 40px rgba(26,29,18,.14)); }
-        .hero-paper-img-wrap img { display:block; width:100%; height:auto; -webkit-mask-image:radial-gradient(ellipse 78% 72% at 50% 34%, #000 45%, transparent 98%); mask-image:radial-gradient(ellipse 78% 72% at 50% 34%, #000 45%, transparent 98%); }
-        @media (min-width:768px){ .hero-paper-img-wrap{ top:auto; bottom:37%; width:1100px; max-width:none; transform:translateX(calc(-50% + 1.03%)); } }
+        /* ── HERO PAPER: white torn sheet centered on the paragraph block.
+           Anchored to the text block itself (absolute inside the .max-w-2xl
+           relative parent), centered via top 50% + translate — the paper always
+           contains the four paragraphs no matter how the hero grows or shrinks. ── */
+        .hero-paper-img-wrap { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:1060px; max-width:none; z-index:-1; pointer-events:none; filter:drop-shadow(0 18px 40px rgba(26,29,18,.14)); }
+        .hero-paper-img-wrap img { display:block; width:100%; height:auto; -webkit-mask-image:radial-gradient(ellipse 78% 72% at 50% 50%, #000 58%, transparent 97%); mask-image:radial-gradient(ellipse 78% 72% at 50% 50%, #000 58%, transparent 97%); }
+        @media (min-width:768px){ .hero-paper-img-wrap{ width:1060px; } }
+
+        /* ── TORN DIVIDER (hero): the house .paper-tear system used INSIDE the hero,
+           marking the break between the title zone and the Interface header.
+           No overrides — full-bleed strip + base melt mask, identical to the
+           section dividers further down the page. ── */
 
         /* ── AVATAR DEMO: dark app mockup → cream paper app window ── */
         .app-demo > .rounded-3xl { background: linear-gradient(180deg,#f6f1e2 0%,#ece5cf 100%) !important; border-color: rgba(75,83,32,0.2) !important; }
@@ -2030,6 +2017,7 @@
         .app-demo .message.user { background: rgba(75,83,32,0.08) !important; }
         .app-demo .message.assistant { background: rgba(236,229,207,0.6) !important; }
         .app-demo .message .tool-line { color:#6b6e5a !important; }
+        .app-demo .message .think { color:#5c5f4c !important; }
         .app-demo .titlebar button { color:#4a4d3e !important; }
         .app-demo .chat-input-container { background: rgba(75,83,32,0.08) !important; border:1px solid rgba(75,83,32,0.15); }
         .app-demo .chat-input { background: rgba(236,229,207,0.7) !important; color:#1a1d12 !important; }
