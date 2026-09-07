@@ -170,7 +170,7 @@
                     A source-available agentic system that turns your machine from an inanimate silo into something conversational, proactive, autonomous.
                 </p>
                 <p class="text-lg md:text-xl text-gray-400 leading-relaxed">
-                    Model-independent by design &mdash; it dynamically loads every model tied to your API keys, runs entirely offline via your preferred model library, or takes a hybrid approach with both.
+                    Model-independent by design &mdash; pair it with an OpenRouter API key and it dynamically loads any model online, runs entirely offline via your preferred model library, or takes a hybrid approach with both.
                 </p>
                 <p class="text-lg md:text-xl text-gray-400 leading-relaxed">
                     It learns your patterns and remembers your context, adapting into a uniquely tuned agent specific to each user.
@@ -738,7 +738,7 @@
                             </div>
                             <h3 class="text-white font-bold text-2xl">Multi-Model LLM</h3>
                         </div>
-                        <p class="text-gray-400 text-lg leading-relaxed">Dynamically loads all available models from your API keys, runs entirely offline via your preferred model library, or takes a hybrid approach with both. Any OpenAI-compatible endpoint works. Hot-swap mid-conversation.</p>
+                        <p class="text-gray-400 text-lg leading-relaxed">One OpenRouter API key loads every model online, automatically &mdash; or run entirely offline via your preferred model library, or take a hybrid approach with both. Any OpenAI-compatible endpoint works. Hot-swap mid-conversation.</p>
                     </div>
                     <div class="flex-1 grid grid-cols-2 gap-4">
                         <div class="bg-white/[0.02] border border-white/[0.04] rounded-2xl p-5">
@@ -1755,8 +1755,8 @@
                 </div>
                 <div class="bg-white/[0.025] border border-white/[0.06] rounded-2xl p-6">
                     <div class="text-brand-400 font-bold text-sm uppercase tracking-wider mb-2">Recommended</div>
-                    <div class="text-white font-bold text-lg">Ollama</div>
-                    <div class="text-gray-500 text-sm mt-1">For local LLM support</div>
+                    <div class="text-white font-bold text-lg">OpenRouter API key</div>
+                    <div class="text-gray-500 text-sm mt-1">Every model online, one key &middot; Ollama optional for local</div>
                 </div>
             </div>
 
@@ -1769,52 +1769,56 @@
         <div class="gradient-line max-w-4xl mx-auto mb-28"></div>
         <div class="max-w-4xl mx-auto px-8">
             <div class="text-center mb-20">
-                <p class="text-brand-400 text-lg font-bold uppercase tracking-widest mb-4">Developer Setup</p>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight">Build from source<br>in 4 steps</h2>
-                <p class="text-2xl text-gray-400 max-w-3xl mx-auto mt-6 leading-relaxed">For contributors and developers who want to modify, extend, or build Substrate from the repository.</p>
+                <p class="text-brand-400 text-lg font-bold uppercase tracking-widest mb-4">Setup</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight">Three steps.<br>No terminal.</h2>
+                <p class="text-2xl text-gray-400 max-w-3xl mx-auto mt-6 leading-relaxed">Substrate + an OpenRouter API key is the suggested setup &mdash; one key loads every model online. From installer to first conversation in two minutes or less.</p>
             </div>
             <div class="space-y-10">
                 <!-- Step 1 -->
                 <div class="flex gap-6 md:gap-8 items-start">
                     <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 font-black text-xl">1</div>
                     <div class="flex-1">
-                        <h3 class="text-white font-bold text-2xl mb-4">Clone</h3>
-                        <div class="terminal-bg rounded-2xl border border-white/10 p-6 font-mono text-base md:text-lg">
-                            <span class="text-gray-500">$</span> <span class="text-gray-200">git clone https://github.com/propagationhouse/substrate.git && cd substrate</span>
-                        </div>
+                        <h3 class="text-white font-bold text-2xl mb-3">Install Substrate</h3>
+                        <p class="text-gray-400 text-lg leading-relaxed">Download the Windows installer and run it. No dependencies to chase, nothing to configure &mdash; the app just opens.</p>
                     </div>
                 </div>
                 <!-- Step 2 -->
                 <div class="flex gap-6 md:gap-8 items-start">
                     <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 font-black text-xl">2</div>
                     <div class="flex-1">
-                        <h3 class="text-white font-bold text-2xl mb-4">Install</h3>
-                        <div class="terminal-bg rounded-2xl border border-white/10 p-6 font-mono text-base md:text-lg">
-                            <span class="text-gray-500">$</span> <span class="text-gray-200">setup.bat</span>
-                            <span class="text-gray-600 block mt-2"># Creates venv, installs Python + Node dependencies</span>
-                        </div>
+                        <h3 class="text-white font-bold text-2xl mb-3">Grab an OpenRouter API key</h3>
+                        <p class="text-gray-400 text-lg leading-relaxed">Create a key at <a href="https://openrouter.ai/keys" target="_blank" rel="noopener" class="text-brand-400 hover:text-brand-300 underline underline-offset-4">openrouter.ai/keys</a> and copy it. One key, hundreds of models &mdash; every frontier and open model online.</p>
                     </div>
                 </div>
                 <!-- Step 3 -->
                 <div class="flex gap-6 md:gap-8 items-start">
                     <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 font-black text-xl">3</div>
                     <div class="flex-1">
-                        <h3 class="text-white font-bold text-2xl mb-4">Configure</h3>
-                        <div class="terminal-bg rounded-2xl border border-white/10 p-6 font-mono text-base md:text-lg">
-                            <span class="text-gray-500">$</span> <span class="text-gray-200">copy config.example.json config.json</span>
-                            <span class="text-gray-600 block mt-2"># Add your API keys to config.json &mdash; all available models load automatically</span>
-                        </div>
+                        <h3 class="text-white font-bold text-2xl mb-3">Plug it in &mdash; pick a model</h3>
+                        <p class="text-gray-400 text-lg leading-relaxed">Open Substrate's API input menu, paste your key, select a model. Models load automatically. First conversation, two minutes in.</p>
                     </div>
                 </div>
-                <!-- Step 4 -->
-                <div class="flex gap-6 md:gap-8 items-start">
-                    <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 font-black text-xl">4</div>
-                    <div class="flex-1">
-                        <h3 class="text-white font-bold text-2xl mb-4">Launch</h3>
-                        <div class="terminal-bg rounded-2xl border border-white/10 p-6 font-mono text-base md:text-lg">
-                            <span class="text-gray-500">$</span> <span class="text-gray-200">start.bat</span>
-                            <span class="text-gray-600 block mt-2"># Or: python proxy_server.py &amp; open http://localhost:8765/ui</span>
-                        </div>
+            </div>
+
+            <!-- Build from source (developer path) -->
+            <div class="mt-16 pt-12 border-t border-white/[0.06]">
+                <h3 class="text-white font-bold text-2xl mb-3">Build from source</h3>
+                <p class="text-gray-500 text-lg leading-relaxed mb-8">For contributors and developers who want to modify, extend, or build Substrate from the repository &mdash; also the path for macOS &amp; Linux, for now.</p>
+                <div class="space-y-6">
+                    <div class="terminal-bg rounded-2xl border border-white/10 p-6 font-mono text-base md:text-lg">
+                        <span class="text-gray-500">$</span> <span class="text-gray-200">git clone https://github.com/propagationhouse/substrate.git && cd substrate</span>
+                    </div>
+                    <div class="terminal-bg rounded-2xl border border-white/10 p-6 font-mono text-base md:text-lg">
+                        <span class="text-gray-500">$</span> <span class="text-gray-200">setup.bat</span>
+                        <span class="text-gray-600 block mt-2"># Creates venv, installs Python + Node dependencies</span>
+                    </div>
+                    <div class="terminal-bg rounded-2xl border border-white/10 p-6 font-mono text-base md:text-lg">
+                        <span class="text-gray-500">$</span> <span class="text-gray-200">copy config.example.json config.json</span>
+                        <span class="text-gray-600 block mt-2"># Add your API keys to config.json &mdash; all available models load automatically</span>
+                    </div>
+                    <div class="terminal-bg rounded-2xl border border-white/10 p-6 font-mono text-base md:text-lg">
+                        <span class="text-gray-500">$</span> <span class="text-gray-200">start.bat</span>
+                        <span class="text-gray-600 block mt-2"># Or: python proxy_server.py &amp; open http://localhost:8765/ui</span>
                     </div>
                 </div>
             </div>
