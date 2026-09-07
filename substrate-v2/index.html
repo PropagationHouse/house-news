@@ -2116,6 +2116,17 @@
             background: url('../assets/images/paper-sheet-fill.jpg') center / cover no-repeat;
             opacity: 0.45;
         }
+        /* ── paper collage layer 2: inner chips get their own lighter texture wash,
+   same paper, lower opacity + no shadow so they read as a second sheet weight
+   sitting inside the main card sheet (collage layering, tone still differentiates). ── */
+        .bg-white\/\[0\.02\]:not(.adopt-card) {
+            position: relative; isolation: isolate; overflow: hidden;
+        }
+        .bg-white\/\[0\.02\]:not(.adopt-card)::after {
+            content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+            background: url('../assets/images/paper-sheet-fill.jpg') center / cover no-repeat;
+            opacity: 0.22;
+        }
     </style>
 
 </body>
