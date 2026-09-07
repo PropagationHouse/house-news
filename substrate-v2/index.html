@@ -1695,7 +1695,7 @@
 
                 <!-- Free: the stable build -->
                 <div class="adopt-card adopt-card-free bg-brand-500/[0.06] border border-brand-500/25 rounded-2xl p-7 flex flex-col">
-                    <div class="adopt-card-paper" aria-hidden="true"><img src="../assets/images/paper-sheet-fill.jpg" alt=""></div>
+                    <div class="adopt-card-paper" aria-hidden="true"><img src="../assets/images/paper-sheet-fill.jpg?v=2" alt=""></div>
                     <div class="text-brand-400 font-bold text-sm uppercase tracking-wider mb-2">Free Forever</div>
                     <div class="text-white font-black text-2xl mb-1">The Stable Build</div>
                     <div class="text-gray-500 text-sm mb-5">Current release: v1.3.2</div>
@@ -1710,7 +1710,7 @@
 
                 <!-- One-time: pay what you want -->
                 <div class="adopt-card adopt-card-paid bg-white/[0.025] border border-white/[0.06] rounded-2xl p-7 flex flex-col">
-                    <div class="adopt-card-paper" aria-hidden="true"><img src="../assets/images/paper-sheet-fill.jpg" alt=""></div>
+                    <div class="adopt-card-paper" aria-hidden="true"><img src="../assets/images/paper-sheet-fill.jpg?v=2" alt=""></div>
                     <div class="text-brand-400 font-bold text-sm uppercase tracking-wider mb-2">One-Time</div>
                     <div class="text-white font-black text-2xl mb-1">Name Your Price</div>
                     <div class="text-gray-500 text-sm mb-5">A straight-up thank-you</div>
@@ -1725,7 +1725,7 @@
 
                 <!-- Monthly: ride the beta -->
                 <div class="adopt-card adopt-card-paid bg-white/[0.025] border border-white/[0.06] rounded-2xl p-7 flex flex-col">
-                    <div class="adopt-card-paper" aria-hidden="true"><img src="../assets/images/paper-sheet-fill.jpg" alt=""></div>
+                    <div class="adopt-card-paper" aria-hidden="true"><img src="../assets/images/paper-sheet-fill.jpg?v=2" alt=""></div>
                     <div class="text-brand-400 font-bold text-sm uppercase tracking-wider mb-2">Monthly</div>
                     <div class="text-white font-black text-2xl mb-1">Ride the Beta</div>
                     <div class="text-gray-500 text-sm mb-5">$11.11 / month</div>
@@ -2095,7 +2095,7 @@
         .app-demo .da.da-angry .da-eye { border-color:rgba(75,83,32,.5) !important; }
         @keyframes da-bloom-warm { 0%,100%{box-shadow:0 2px 10px rgba(26,29,18,.12),0 0 14px 4px rgba(75,83,32,.2),0 0 28px 7px rgba(75,83,32,.08)} 35%{box-shadow:0 2px 10px rgba(26,29,18,.12),0 0 17px 5px rgba(75,83,32,.28),0 0 32px 9px rgba(75,83,32,.12)} 70%{box-shadow:0 2px 10px rgba(26,29,18,.12),0 0 15px 4px rgba(75,83,32,.24),0 0 30px 8px rgba(75,83,32,.1)} }
             /* ── HOUSE PAPER SYSTEM: every card surface is a sheet of the house paper.
-   Same flattened torn-sheet texture as the Adopt cards (assets/images/paper-sheet-fill.jpg),
+   Same flattened torn-sheet texture as the Adopt cards (assets/images/paper-sheet-fill.jpg?v=2),
    painted via ::after so no HTML changes are needed. Warm opaque base #eee8d6
    (the Adopt card tone) + texture at 50% keeps ink crisp; soft sheet shadow
    lifts cards off the paper field. Inner chips and buttons stay flat. ── */
@@ -2106,14 +2106,14 @@
         }
         .bg-white\/\[0\.025\]:not(.adopt-card)::after {
             content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-            background: url('../assets/images/paper-sheet-fill.jpg') center / cover no-repeat;
+            background: url('../assets/images/paper-sheet-fill.jpg?v=2') center / cover no-repeat;
             opacity: 0.5;
         }
         /* quickstart terminal step-boxes join the paper system */
         .terminal-bg { position: relative; isolation: isolate; overflow: hidden; }
         .terminal-bg::after {
             content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-            background: url('../assets/images/paper-sheet-fill.jpg') center / cover no-repeat;
+            background: url('../assets/images/paper-sheet-fill.jpg?v=2') center / cover no-repeat;
             opacity: 0.45;
         }
         /* ── paper collage layer 2: inner chips get their own lighter texture wash,
@@ -2124,7 +2124,7 @@
         }
         .bg-white\/\[0\.02\]:not(.adopt-card)::after {
             content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-            background: url('../assets/images/paper-sheet-fill.jpg') center / cover no-repeat;
+            background: url('../assets/images/paper-sheet-fill.jpg?v=2') center / cover no-repeat;
             opacity: 0.22;
         }
     </style>
