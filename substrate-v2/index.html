@@ -2094,6 +2094,28 @@
         .app-demo .da.da-surprised .da-eye { background:radial-gradient(circle at 60% 35%,#fff 0%,#fff 20%,#1a1d12 20%,#1a1d12 100%) !important; }
         .app-demo .da.da-angry .da-eye { border-color:rgba(75,83,32,.5) !important; }
         @keyframes da-bloom-warm { 0%,100%{box-shadow:0 2px 10px rgba(26,29,18,.12),0 0 14px 4px rgba(75,83,32,.2),0 0 28px 7px rgba(75,83,32,.08)} 35%{box-shadow:0 2px 10px rgba(26,29,18,.12),0 0 17px 5px rgba(75,83,32,.28),0 0 32px 9px rgba(75,83,32,.12)} 70%{box-shadow:0 2px 10px rgba(26,29,18,.12),0 0 15px 4px rgba(75,83,32,.24),0 0 30px 8px rgba(75,83,32,.1)} }
+            /* ── HOUSE PAPER SYSTEM: every card surface is a sheet of the house paper.
+   Same flattened torn-sheet texture as the Adopt cards (assets/images/paper-sheet-fill.jpg),
+   painted via ::after so no HTML changes are needed. Warm opaque base #eee8d6
+   (the Adopt card tone) + texture at 50% keeps ink crisp; soft sheet shadow
+   lifts cards off the paper field. Inner chips and buttons stay flat. ── */
+        .bg-white\/\[0\.025\]:not(.adopt-card) {
+            position: relative; isolation: isolate; overflow: hidden;
+            background: #eee8d6 !important;
+            box-shadow: 0 10px 26px rgba(26,29,18,.08), 0 2px 5px rgba(26,29,18,.05);
+        }
+        .bg-white\/\[0\.025\]:not(.adopt-card)::after {
+            content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+            background: url('../assets/images/paper-sheet-fill.jpg') center / cover no-repeat;
+            opacity: 0.5;
+        }
+        /* quickstart terminal step-boxes join the paper system */
+        .terminal-bg { position: relative; isolation: isolate; overflow: hidden; }
+        .terminal-bg::after {
+            content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+            background: url('../assets/images/paper-sheet-fill.jpg') center / cover no-repeat;
+            opacity: 0.45;
+        }
     </style>
 
 </body>

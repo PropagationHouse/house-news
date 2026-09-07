@@ -367,6 +367,18 @@
 
         /* Footer */
         .border-t.border-white\/5 { border-color: rgba(75,83,32,0.15) !important; }
+            /* ── House paper system: section cards are sheets of the house paper
+   (matches the /substrate card texture — paper-sheet-fill at 50% over #eee8d6) ── */
+        .section-card {
+            position: relative; isolation: isolate; overflow: hidden;
+            background: #eee8d6;
+            box-shadow: 0 10px 26px rgba(26,29,18,.08), 0 2px 5px rgba(26,29,18,.05);
+        }
+        .section-card::after {
+            content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+            background: url('../assets/images/paper-sheet-fill.jpg') center / cover no-repeat;
+            opacity: 0.5;
+        }
     </style>
 
 </body>
