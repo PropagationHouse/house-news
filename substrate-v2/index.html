@@ -1688,15 +1688,56 @@
             <div class="title-paper-wrap">
                 <div class="title-paper-adopt"><img src="../assets/images/paper-sheet-semi-rough.png" alt="" aria-hidden="true" class="title-paper-img"></div>
                 <h2 class="relative text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight mb-6">Adopt a Substrate</h2>
-                <p class="relative text-2xl text-gray-400 max-w-3xl mx-auto mb-14 leading-relaxed">One-click installer for Windows. Python dependencies are installed automatically on first launch.</p>
+                <p class="relative text-2xl text-gray-400 max-w-3xl mx-auto mb-14 leading-relaxed">One-click installer for Windows &mdash; free, forever. Two more ways in, if you want to fund what gets built next.</p>
             </div>
 
-            <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-5 mb-12">
-                <a href="https://github.com/propagationhouse/substrate/releases/latest" target="_blank" class="px-10 py-5 bg-brand-600 hover:bg-brand-500 text-white text-xl font-bold rounded-2xl transition shadow-xl shadow-brand-600/30 flex items-center gap-3">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                    Download for Windows
-                </a>
+            <div class="relative z-10 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left mb-8">
+
+                <!-- Free: the stable build -->
+                <div class="bg-brand-500/[0.06] border border-brand-500/25 rounded-2xl p-7 flex flex-col">
+                    <div class="text-brand-400 font-bold text-sm uppercase tracking-wider mb-2">Free Forever</div>
+                    <div class="text-white font-black text-2xl mb-1">The Stable Build</div>
+                    <div class="text-gray-500 text-sm mb-5">Current release: v1.3.2</div>
+                    <ul class="text-gray-400 text-sm space-y-2.5 mb-7">
+                        <li><span class="text-brand-400">&#10003;</span> Full one-click installer</li>
+                        <li><span class="text-brand-400">&#10003;</span> Yours forever, no account needed</li>
+                        <li><span class="text-brand-400">&#10003;</span> Updates arrive with each public release</li>
+                    </ul>
+                    <a href="https://github.com/propagationhouse/substrate/releases/latest" target="_blank" class="mt-auto px-6 py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-xl transition text-center">Download for Windows</a>
+                    <div class="text-gray-600 text-xs mt-3 text-center">Honest baseline &mdash; it stays free</div>
+                </div>
+
+                <!-- One-time: pay what you want -->
+                <div class="bg-white/[0.025] border border-white/[0.06] rounded-2xl p-7 flex flex-col">
+                    <div class="text-brand-400 font-bold text-sm uppercase tracking-wider mb-2">One-Time</div>
+                    <div class="text-white font-black text-2xl mb-1">Name Your Price</div>
+                    <div class="text-gray-500 text-sm mb-5">A straight-up thank-you</div>
+                    <ul class="text-gray-400 text-sm space-y-2.5 mb-7">
+                        <li><span class="text-brand-400">&#10003;</span> You pick the amount, honor system</li>
+                        <li><span class="text-brand-400">&#10003;</span> Grabs the latest build immediately</li>
+                        <li><span class="text-brand-400">&#10003;</span> One payment, no strings after</li>
+                    </ul>
+                    <div class="mt-auto px-6 py-3.5 bg-white/[0.04] border border-white/[0.08] text-gray-500 font-bold rounded-xl text-center cursor-not-allowed select-none">Coming soon</div>
+                    <div class="text-gray-500 text-xs mt-3 text-center">Checkout link being wired up</div>
+                </div>
+
+                <!-- Monthly: ride the beta -->
+                <div class="bg-white/[0.025] border border-white/[0.06] rounded-2xl p-7 flex flex-col">
+                    <div class="text-brand-400 font-bold text-sm uppercase tracking-wider mb-2">Monthly</div>
+                    <div class="text-white font-black text-2xl mb-1">Ride the Beta</div>
+                    <div class="text-gray-500 text-sm mb-5">$11.11 / month</div>
+                    <ul class="text-gray-400 text-sm space-y-2.5 mb-7">
+                        <li><span class="text-brand-400">&#10003;</span> Every new build the day it lands</li>
+                        <li><span class="text-brand-400">&#10003;</span> Cancel anytime &mdash; keep that month's version</li>
+                        <li><span class="text-brand-400">&#10003;</span> Directly funds what gets built next</li>
+                    </ul>
+                    <div class="mt-auto px-6 py-3.5 bg-white/[0.04] border border-white/[0.08] text-gray-500 font-bold rounded-xl text-center cursor-not-allowed select-none">Coming soon</div>
+                    <div class="text-gray-500 text-xs mt-3 text-center">Checkout link being wired up</div>
+                </div>
+
             </div>
+
+            <p class="relative z-10 text-gray-500 text-sm max-w-2xl mx-auto leading-relaxed mb-12">The stable build stays free &mdash; that's the honest baseline. Paid options exist purely to fund development: supporters get the newest builds as they happen, everyone gets a solid starting point.</p>
 
             <div class="relative z-10 grid md:grid-cols-3 gap-6 max-w-3xl mx-auto text-left">
                 <div class="bg-white/[0.025] border border-white/[0.06] rounded-2xl p-6">
