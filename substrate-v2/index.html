@@ -1694,7 +1694,8 @@
             <div class="relative z-10 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left mb-8">
 
                 <!-- Free: the stable build -->
-                <div class="bg-brand-500/[0.06] border border-brand-500/25 rounded-2xl p-7 flex flex-col">
+                <div class="adopt-card bg-brand-500/[0.06] border border-brand-500/25 rounded-2xl p-7 flex flex-col">
+                    <div class="adopt-card-paper" aria-hidden="true"><img src="../assets/images/paper-sheet-semi-rough.png" alt=""></div>
                     <div class="text-brand-400 font-bold text-sm uppercase tracking-wider mb-2">Free Forever</div>
                     <div class="text-white font-black text-2xl mb-1">The Stable Build</div>
                     <div class="text-gray-500 text-sm mb-5">Current release: v1.3.2</div>
@@ -1708,7 +1709,8 @@
                 </div>
 
                 <!-- One-time: pay what you want -->
-                <div class="bg-white/[0.025] border border-white/[0.06] rounded-2xl p-7 flex flex-col">
+                <div class="adopt-card bg-white/[0.025] border border-white/[0.06] rounded-2xl p-7 flex flex-col">
+                    <div class="adopt-card-paper" aria-hidden="true"><img src="../assets/images/paper-sheet-semi-rough.png" alt=""></div>
                     <div class="text-brand-400 font-bold text-sm uppercase tracking-wider mb-2">One-Time</div>
                     <div class="text-white font-black text-2xl mb-1">Name Your Price</div>
                     <div class="text-gray-500 text-sm mb-5">A straight-up thank-you</div>
@@ -1722,7 +1724,8 @@
                 </div>
 
                 <!-- Monthly: ride the beta -->
-                <div class="bg-white/[0.025] border border-white/[0.06] rounded-2xl p-7 flex flex-col">
+                <div class="adopt-card bg-white/[0.025] border border-white/[0.06] rounded-2xl p-7 flex flex-col">
+                    <div class="adopt-card-paper" aria-hidden="true"><img src="../assets/images/paper-sheet-semi-rough.png" alt=""></div>
                     <div class="text-brand-400 font-bold text-sm uppercase tracking-wider mb-2">Monthly</div>
                     <div class="text-white font-black text-2xl mb-1">Ride the Beta</div>
                     <div class="text-gray-500 text-sm mb-5">$11.11 / month</div>
@@ -2038,6 +2041,20 @@
         @media (max-width: 768px) {
             .title-paper-adopt { width:180%; }
         }
+
+        /* ── ADOPT CARD PAPER TEXTURE: the same torn sheet as the section title,
+           reused as a texture layer inside each offer card. Screen blend keeps
+           the beige fibers luminous against the dark card ground without ever
+           going full-paper; opacity tunes strength. Content sits above. ── */
+        .adopt-card { position:relative; overflow:hidden; isolation:isolate; }
+        .adopt-card > .adopt-card-paper { position:absolute; inset:0; z-index:0; pointer-events:none; }
+        .adopt-card > .adopt-card-paper img {
+            display:block; width:100%; height:100%; object-fit:cover;
+            -webkit-mask-image:radial-gradient(ellipse 100% 100% at 50% 50%, #000 60%, transparent 100%);
+            mask-image:radial-gradient(ellipse 100% 100% at 50% 50%, #000 60%, transparent 100%);
+            mix-blend-mode:screen; opacity:.5;
+        }
+        .adopt-card > *:not(.adopt-card-paper) { position:relative; z-index:1; }
 
         /* ── HERO PAPER: white torn sheet centered on the paragraph block.
            Anchored to the text block itself (absolute inside the .max-w-2xl
