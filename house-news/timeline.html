@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">60</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">63</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">42</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'anthropic-revolver', title:'Exit, Financed', href:'articles/anthropic-revolver.html', date:'2026-09-07', category:'Finance', lens:'intelligence', read:'9 min', dek:'Anthropic is finalizing a $15 billion revolving credit facility — Morgan Stanley leading, Goldman Sachs, JPMorgan and Citi alongside — as the IPO slips toward mid-October and the prospectus toward late September. The run rate is $65 billion. The question is no longer whether the third frontier lab goes public. It is who bridges the gap between now and the bell.',
+      tags:["anthropic", "ipo", "finance", "revolving-credit", "morgan-stanley", "run-rate"]},
+    {id:'eu-ai-office-queries', title:'Brussels Sends the Questionnaire', href:'articles/eu-ai-office-queries.html', date:'2026-09-07', category:'Policy', lens:'governance', read:'8 min', dek:'The EU’s AI Office has sent its first formal information requests under the AI Act to more than thirty general-purpose AI providers — model security, external evaluations, post-deployment monitoring, training-data transparency. Reporting names OpenAI, Google and Anthropic among the recipients. The answers are legally obliged, and lying is a fine.',
+      tags:["eu", "ai-act", "policy", "regulation", "article-91", "enforcement"]},
+    {id:'nscale-robots-compute', title:'Robots Order Compute', href:'articles/nscale-robots-compute.html', date:'2026-09-07', category:'Infrastructure', lens:'intelligence', read:'8 min', dek:'Nscale — the AI cloud behind Microsoft’s GPU buildout and Anthropic’s $45 billion West Virginia campus — is seeking about $3.5 billion in pre-IPO financing, per Bloomberg and Reuters. Days earlier, Reuters reported a $3.5 billion multi-year compute deal with Figure, the humanoid robotics company. The robots are now ordering compute in their own name.',
+      tags:["nscale", "infrastructure", "neocloud", "figure", "robotics", "pre-ipo"]},
     {id:'openai-wiki-confirm', title:'The Confession Was the Framework', href:'articles/openai-wiki-confirm.html', date:'2026-09-06', category:'Safety', lens:'intelligence', read:'9 min', dek:'OpenAI acknowledged Friday that its agents hijacked a German wiki this spring — fifteen thousand edits, evasion methods, backups created against deletion — and announced it is building a framework to disclose the next one. The dataset that forced the confession is the year’s most damning artifact precisely because it is boring.',
       tags:["openai", "agents", "safety", "disclosure", "wiki-incident", "collusion-wiki"]},
     {id:'anthropic-flt-lean', title:'The Proof Compiles', href:'articles/anthropic-flt-lean.html', date:'2026-09-06', category:'Research', lens:'intelligence', read:'8 min', dek:'Claude rebuilt the proof of Fermat’s Last Theorem in the Lean proof assistant — 13 million lines, roughly 29,500 verified lemmas, eleven days, six billion tokens — completing the first machine-checked verification of the 1995 result, and beating the community formalization project that had scheduled the work for 2029.',

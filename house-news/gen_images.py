@@ -85,6 +85,29 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 68 (Sep 7, 2026) ----------
+    {"filename": "anthropic-revolver-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a quiet bank lending office after hours, stacks of manila document folders and bound agreement binders arranged on a long wooden counter, one brass desk lamp lit at the end of the counter",
+     "place": "an institutional bank branch office floor with tall dark windows and marble teller counter, after closing",
+     "camera": "from across the counter, slightly low, candid distance",
+     "light": "single warm desk lamp pool against cool dark ambient office light",
+     "scale_anchor": "the folders, lamp base, and a wooden chair pushed in make the counter and room scale obvious",
+     "lens": "35mm f/2 prime, 1/60s"},
+    {"filename": "eu-ai-office-queries-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a ministry mailroom sorting area, grey wire trays filled with stamped manila envelopes in rows, a wheeled postal cart parked half-full beside the bench",
+     "place": "an institutional mailroom with concrete floor, metal shelving, and a wall of small brass mail slots",
+     "camera": "from the doorway, eye level, candid distance",
+     "light": "cool overhead fluorescent tubes with morning light from a high window",
+     "scale_anchor": "the envelopes, cart handles, and bench edge make the room scale obvious",
+     "lens": "28mm f/2.8 prime, 1/125s"},
+    {"filename": "nscale-robots-compute-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a data center construction site at dawn, a half-built concrete building shell with rebar columns and scaffolding, earthmoving equipment parked silent",
+     "place": "a flattened industrial campus site with mud, gravel roads, and string-line survey markers",
+     "camera": "wide from ground level beyond the site fence, candid distance",
+     "light": "cold blue first light with warm work-light glow inside the shell",
+     "scale_anchor": "the site fencing, portable site cabin, and rebar make the buildings scale obvious",
+     "lens": "24mm f/4 prime, 1/125s"},
+
     # ---------- NO. 67 (Sep 6, 2026) ----------
     {"filename": "openai-wiki-confirm-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a humming server rack in a dim network operations room, a ring-bound printed log binder hanging from a hook on the rack frame, one monitor showing scrolling terminal text",

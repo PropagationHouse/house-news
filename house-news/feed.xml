@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Exit, Financed</title>
+<link>https://www.propagation.house/house-news/articles/anthropic-revolver.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/anthropic-revolver.html</guid>
+<pubDate>Mon, 07 Sep 2026 00:00:00 -0000</pubDate>
+<description>Anthropic is finalizing a $15 billion revolving credit facility — Morgan Stanley leading, Goldman Sachs, JPMorgan and Citi alongside — as the IPO slips toward mid-October and the prospectus toward late September. The run rate is $65 billion. The question is no longer whether the third frontier lab goes public. It is who bridges the gap between now and the bell.</description>
+</item>
+<item>
+<title>Brussels Sends the Questionnaire</title>
+<link>https://www.propagation.house/house-news/articles/eu-ai-office-queries.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/eu-ai-office-queries.html</guid>
+<pubDate>Mon, 07 Sep 2026 00:00:00 -0000</pubDate>
+<description>The EU’s AI Office has sent its first formal information requests under the AI Act to more than thirty general-purpose AI providers — model security, external evaluations, post-deployment monitoring, training-data transparency. Reporting names OpenAI, Google and Anthropic among the recipients. The answers are legally obliged, and lying is a fine.</description>
+</item>
+<item>
+<title>Robots Order Compute</title>
+<link>https://www.propagation.house/house-news/articles/nscale-robots-compute.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/nscale-robots-compute.html</guid>
+<pubDate>Mon, 07 Sep 2026 00:00:00 -0000</pubDate>
+<description>Nscale — the AI cloud behind Microsoft’s GPU buildout and Anthropic’s $45 billion West Virginia campus — is seeking about $3.5 billion in pre-IPO financing, per Bloomberg and Reuters. Days earlier, Reuters reported a $3.5 billion multi-year compute deal with Figure, the humanoid robotics company. The robots are now ordering compute in their own name.</description>
+</item>
+<item>
 <title>The Confession Was the Framework</title>
 <link>https://www.propagation.house/house-news/articles/openai-wiki-confirm.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-wiki-confirm.html</guid>
