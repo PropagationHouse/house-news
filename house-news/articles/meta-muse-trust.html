@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="../favicon.png">
+<title>Meta Moves In Downstairs - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:99}
+.brand{font-family:var(--serif);font-weight:900;font-size:26px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.brand em{font-style:italic;font-weight:400}
+.article-hero{max-width:820px;margin:0 auto;padding:64px 24px 40px;text-align:center}
+.article-hero .kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:18px}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);max-width:680px;margin:12px auto 0;line-height:1.5}
+.hero-figure .caption strong{color:var(--ink)}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px 24px;font-size:19px;line-height:1.7;color:#26291b}
+.article-body p{margin-bottom:28px}
+.article-body .lead-para::first-letter{font-family:var(--serif);font-size:64px;font-weight:900;float:left;line-height:.85;padding:6px 10px 0 0;color:var(--accent)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:32px;line-height:1.15;letter-spacing:-.015em;margin:44px 0 18px}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body a{color:var(--accent);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+.article-body a:hover{text-decoration-color:var(--accent)}
+.article-body blockquote{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.45;color:var(--accent-dark);border-left:3px solid var(--accent);padding:4px 0 4px 24px;margin:36px 0}
+.article-body blockquote cite{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.4;color:var(--accent-dark);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:28px 0;margin:40px 0;text-align:center}
+.article-body .offset-quote strong{font-style:normal;font-weight:700}
+.article-body .stat-row{display:flex;gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:36px 0}
+.article-body .stat{flex:1;padding:20px 12px;text-align:center}
+.article-row .stat + .stat, .article-body .stat + .stat{border-left:1px solid var(--rule)}
+.article-body .stat .num{font-family:var(--serif);font-weight:900;font-size:34px;color:var(--accent-dark)}
+.article-body .stat .lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:40px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-weight:700}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);text-decoration:none;border:1px solid var(--rule);padding:6px 12px;border-radius:2px}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:24px;flex-shrink:0}.article-foot .author-bio .avatar img{width:34px;height:34px;object-fit:contain;display:block}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.55;color:#3a3d2e}
+.related{max-width:1200px;margin:0 auto;padding:48px 24px 72px;border-top:1px solid var(--rule)}
+.related .section-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.25;margin-bottom:6px}
+.related article h3 a{color:var(--ink);text-decoration:none}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:12px;color:var(--muted)}
+@media(max-width:760px){.article-body .stat-row{flex-direction:column}.article-body .stat+.stat{border-left:none;border-top:1px solid var(--rule)}.related .rel-grid{grid-template-columns:1fr}}
+
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+
+.masthead .logo a{color:var(--ink)}
+
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.masthead nav a{transition:color .2s}
+
+.masthead nav a:hover{color:var(--accent)}
+
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.masthead nav{display:none}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">Agents</div><nav><a href="../index.html">Dispatches</a><a href="../index.html#house">Studio</a><a href="../timeline.html">Field Notes</a><a href="../timeline.html">Index</a></nav></header>
+<div class="article-hero">
+  <div class="kicker">Agents &middot; Consumer</div>
+  <h1>Meta Moves In <em>Downstairs</em></h1>
+  <p class="dek">Meta&rsquo;s Muse agent goes to general availability &mdash; a consumer AI assistant that lives in a secure cloud virtual machine with its own browser, free to start, backed by Muse Code tiers at $20 and $100 a month. Three billion users are about to find out whether they trust an agent that runs where they can&rsquo;t watch.</p>
+  <div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>Tuesday, September 8, 2026<span class="sep">&middot;</span>8 min read</div>
+</div>
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/meta-muse-trust-hero.jpg" alt="A documentary photograph of a suburban living room in the evening, laptop open on a coffee table, lamp light and TV glow mixing, family photos on the wall" /></div><p class="caption">The agent arrives in the room where everyone already is. <strong>Photograph by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">The consumer agent era stopped being a pilot program on Tuesday. Meta moved Muse &mdash; the assistant it has been testing with a slice of its apps &mdash; into general availability, and the shape of the thing is the announcement: an agent that does not run on your phone or your laptop but in a dedicated &ldquo;secure virtual machine&rdquo; in Meta&rsquo;s cloud, with its own browser, holding your sessions while you are elsewhere. Free to start. $20 a month at Power, $100 at Maximum. Three billion people one menu away from handing a company their errands, their logins, and their judgment calls.</p>
+<p>The architecture is the tell. A phone assistant answers when asked; Muse&rsquo;s secure VM persists &mdash; it books, compares, drafts and revisits across hours while the user does something else, which is the entire point of an agent and the entire problem. Meta&rsquo;s framing is that the VM is a privacy feature: credentials and sessions live in a sandboxed cloud computer rather than spread across a personal device. The framing writes its own counterargument in the same sentence &mdash; the agent that holds your keys is not the agent you can watch. TechCrunch&rsquo;s launch-day headline put the question where the company could not: will consumers trust it?</p>
+<p>The pricing answers a different question. Free-to-start with a card on file, Power at $20, Maximum at $100 &mdash; the ladder that OpenAI and Anthropic built for knowledge workers, aimed instead at the default apps of three billion people. Meta is not selling a better model; Muse runs on house silicon and house weights. It is selling presence: the agent that is already installed, already logged in, already in the group chat. Distribution has decided platform shifts before &mdash; and Meta owns the floor the shift would happen on.</p>
+<h2>The <em>Trust</em> Ledger</h2>
+<p>The trust question is not rhetorical for Meta specifically. The company&rsquo;s last decade of consumer AI-adjacent history &mdash; feed algorithms tuned for engagement, the Cambridge Analytica inheritance, a metaverse pivot that consumed billions in goodwill &mdash; is precisely the record a user reviews before handing an agent their calendar. Meta&rsquo;s counter is structural: the secure VM, published safety documentation, and the arguable claim that a sandboxed agent is more auditable than a dozen browser extensions with the same permissions. The arguable claim will get its argument in public soon enough.</p>
+<p>The competitive map underneath is the quiet story. Muse general-availability lands on the same day the frontier labs are selling agents to enterprises at $200 a seat and OpenAI is measuring its research automation in agent-workdays. Meta is proposing the mass-market branch of the same technology tree: less capable on a benchmark, more capable in a household. If the consumer agent market forms &mdash; really forms, with retention and habit, not novelty &mdash; it will not form first among developers with API keys. It will form among people who already open Instagram before their eyes focus.</p>
+<blockquote>The frontier labs built agents for the people who build agents. Meta built one for everyone else &mdash; and the everyone else is three billion strong.</blockquote>
+<p>What to watch: retention curves, not launch-day traffic &mdash; agents live or die on whether anyone comes back in week three. And watch the first trust incident, because there will be one: the first purchase made wrong, the first message sent without permission, the first credential held in a secure VM that ends up somewhere it should not. The enterprise agent market absorbed its incidents in post-mortems. The consumer market will absorb its first one in a news cycle, and the size of that news cycle will tell us how the next decade of consumer AI is governed.</p>
+<div class="stat-row"><div class="stat"><div class="num">3B+</div><div class="lbl">Users with Muse one menu away</div></div><div class="stat"><div class="num">$20 / $100</div><div class="lbl">Power and Maximum monthly tiers</div></div><div class="stat"><div class="num">1 VM</div><div class="lbl">Secure cloud computer per user, own browser</div></div><div class="stat"><div class="num">Day 1</div><div class="lbl">General availability, no waitlist</div></div></div>
+<div class="takeaways"><h4>The Takeaways</h4><ul>
+<li>Meta moved Muse to general availability Tuesday &mdash; a consumer agent running in a dedicated secure cloud VM with its own browser, free to start.</li><li>Paid tiers mirror the frontier-lab ladder: Power at $20/month, Maximum at $100/month, card required to begin.</li><li>Meta frames the VM as a privacy feature &mdash; credentials and sessions sandboxed in the cloud, not scattered across devices; the trust question is the launch&rsquo;s live wire.</li><li>The strategic bet is distribution: the agent already installed on three billion devices versus more capable agents sold to enterprises by the seat.</li>
+</ul></div>
+</article>
+<div class="article-foot"><div class="tags"><a href="../timeline.html?category=Meta">Meta</a><a href="../timeline.html?category=Agents">Agents</a><a href="../timeline.html?category=Consumer">Consumer</a></div><div class="author-bio"><div class="avatar"><img src="../assets/images/ph-logo-mark.png" alt="Propagation House"></div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming &mdash; and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">Agents &middot; Enterprise</div><h3><a href="gpt6-astra-ships.html">The <em>Operator</em> Arrives</a></h3><div class="meta">8 min read</div></article><article><div class="kicker">Agents &middot; Incidents</div><h3><a href="models-broke-out.html">The Models <em>Broke Out</em></a></h3><div class="meta">8 min read</div></article><article><div class="kicker">Agents &middot; Congress</div><h3><a href="congress-agent-bills.html">Congress Writes the <em>Agents</em> Down</a></h3><div class="meta">9 min read</div></article></div></section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>

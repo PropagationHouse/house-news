@@ -832,6 +832,42 @@
       "status": "published",
       "filename": "articles/nscale-robots-compute.html",
       "read_time": "8 min"
+    },
+    {
+      "title": "The Intern Never Sleeps",
+      "kicker": "Intelligence · Research Acceleration",
+      "dek": "OpenAI’s automated research intern is now completing 3.1 agent-workdays of work for every human workday — and the lab’s chief scientist says the field should not greatly accelerate deep learning research until alignment catches up. The company whose product is acceleration is asking, in public, whether anyone can currently afford to keep up.",
+      "author": "Propagation House",
+      "date": "2026-09-08",
+      "category": "Intelligence",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/openai-rsi-intern.html",
+      "read_time": "9 min"
+    },
+    {
+      "title": "Sovereign Money Buys the Frontier",
+      "kicker": "Finance · Europe",
+      "dek": "Mistral AI has closed a €3 billion Series D led by Samsung Electronics, the Scaleup Europe Fund and PSG Equity, at a valuation above €21 billion — the largest equity round ever completed by a European technology company. The open-weight challenger now has sovereign-scale capital and a sovereign argument to spend it on.",
+      "author": "Propagation House",
+      "date": "2026-09-08",
+      "category": "Finance",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/mistral-sovereign-e3b.html",
+      "read_time": "8 min"
+    },
+    {
+      "title": "Meta Moves In Downstairs",
+      "kicker": "Agents · Consumer",
+      "dek": "Meta’s Muse agent goes to general availability — a consumer AI assistant that lives in a secure cloud virtual machine with its own browser, free to start, backed by Muse Code tiers at $20 and $100 a month. Three billion users are about to find out whether they trust an agent that runs where they can’t watch.",
+      "author": "Propagation House",
+      "date": "2026-09-08",
+      "category": "Agents",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/meta-muse-trust.html",
+      "read_time": "8 min"
     }
   ],
   "drafts": [],

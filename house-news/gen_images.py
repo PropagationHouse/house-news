@@ -85,6 +85,29 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 69 (Sep 8, 2026) ----------
+    {"filename": "openai-rsi-intern-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a university research lab at night, a long bench with two or three glowing monitors showing dense code and plots, scattered printed papers, cold coffee cups, a whiteboard faint in the background",
+     "place": "an academic research lab bay with linoleum floor, ceiling fluorescent fixtures mostly off, and window blinds open to a dark campus",
+     "camera": "from the lab doorway, eye level, candid distance, nobody in frame",
+     "light": "one desk lamp pool and monitor glow against dark ambient, cool window spill",
+     "scale_anchor": "coffee cups, papers, and bench stools make the desk and room scale obvious",
+     "lens": "35mm f/2 prime, 1/60s"},
+    {"filename": "mistral-sovereign-e3b-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a Paris startup office in early morning, a long wooden table with closed laptops and espresso cups, stacked documents tied with ribbon, chairs pushed in, nobody in frame",
+     "place": "a Haussmann-era office with tall French windows, parquet floor, and a courtyard visible below",
+     "camera": "from the window side, slightly high, candid distance",
+     "light": "soft gray Paris morning light through tall windows, warm interior bounce",
+     "scale_anchor": "espresso cups, document stacks, and chairs make the table and room scale obvious",
+     "lens": "35mm f/2 prime, 1/125s"},
+    {"filename": "meta-muse-trust-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a suburban living room in the evening, an open laptop on a coffee table showing a chat interface, a floor lamp lit, throw blanket on a sofa, family photos on a sideboard, nobody in frame",
+     "place": "an ordinary family living room with carpet, houseplants, and a window showing dusk outside",
+     "camera": "from the hallway, eye level, candid distance",
+     "light": "warm lamp pool and laptop glow against blue dusk window light",
+     "scale_anchor": "the sofa, sideboard, and houseplants make the room scale obvious",
+     "lens": "35mm f/2 prime, 1/60s"},
+
     # ---------- NO. 68 (Sep 7, 2026) ----------
     {"filename": "anthropic-revolver-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a quiet bank lending office after hours, stacks of manila document folders and bound agreement binders arranged on a long wooden counter, one brass desk lamp lit at the end of the counter",

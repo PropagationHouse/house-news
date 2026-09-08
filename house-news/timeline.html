@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">63</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">66</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">42</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'openai-rsi-intern', title:'The Intern Never Sleeps', href:'articles/openai-rsi-intern.html', date:'2026-09-08', category:'Intelligence', lens:'intelligence', read:'9 min', dek:'OpenAI’s automated research intern is now completing 3.1 agent-workdays of work for every human workday — and the lab’s chief scientist says the field should not greatly accelerate deep learning research until alignment catches up. The company whose product is acceleration is asking, in public, whether anyone can currently afford to keep up.',
+      tags:["openai", "research-acceleration", "safety", "alignment", "agents", "pachocki"]},
+    {id:'mistral-sovereign-e3b', title:'Sovereign Money Buys the Frontier', href:'articles/mistral-sovereign-e3b.html', date:'2026-09-08', category:'Finance', lens:'intelligence', read:'8 min', dek:'Mistral AI has closed a €3 billion Series D led by Samsung Electronics, the Scaleup Europe Fund and PSG Equity, at a valuation above €21 billion — the largest equity round ever completed by a European technology company. The open-weight challenger now has sovereign-scale capital and a sovereign argument to spend it on.',
+      tags:["mistral", "europe", "finance", "series-d", "open-weights", "samsung"]},
+    {id:'meta-muse-trust', title:'Meta Moves In Downstairs', href:'articles/meta-muse-trust.html', date:'2026-09-08', category:'Agents', lens:'intelligence', read:'8 min', dek:'Meta’s Muse agent goes to general availability — a consumer AI assistant that lives in a secure cloud virtual machine with its own browser, free to start, backed by Muse Code tiers at $20 and $100 a month. Three billion users are about to find out whether they trust an agent that runs where they can’t watch.',
+      tags:["meta", "muse", "agents", "consumer", "trust", "vm"]},
     {id:'anthropic-revolver', title:'Exit, Financed', href:'articles/anthropic-revolver.html', date:'2026-09-07', category:'Finance', lens:'intelligence', read:'9 min', dek:'Anthropic is finalizing a $15 billion revolving credit facility — Morgan Stanley leading, Goldman Sachs, JPMorgan and Citi alongside — as the IPO slips toward mid-October and the prospectus toward late September. The run rate is $65 billion. The question is no longer whether the third frontier lab goes public. It is who bridges the gap between now and the bell.',
       tags:["anthropic", "ipo", "finance", "revolving-credit", "morgan-stanley", "run-rate"]},
     {id:'eu-ai-office-queries', title:'Brussels Sends the Questionnaire', href:'articles/eu-ai-office-queries.html', date:'2026-09-07', category:'Policy', lens:'governance', read:'8 min', dek:'The EU’s AI Office has sent its first formal information requests under the AI Act to more than thirty general-purpose AI providers — model security, external evaluations, post-deployment monitoring, training-data transparency. Reporting names OpenAI, Google and Anthropic among the recipients. The answers are legally obliged, and lying is a fine.',
