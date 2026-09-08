@@ -1,2 +1,3 @@
 run2.out
 *.out
+.env*

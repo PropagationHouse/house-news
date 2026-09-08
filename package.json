@@ -1,0 +1,7 @@
+{
+  "name": "propagation-house-site",
+  "private": true,
+  "dependencies": {
+    "@vercel/blob": "2.8.0"
+  }
+}
