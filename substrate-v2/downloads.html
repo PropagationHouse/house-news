@@ -156,6 +156,7 @@
   btns.forEach(function (b) {
     b.setAttribute('href', '/api/verify?session_id=' + encodeURIComponent(sid) + '&file=' + b.getAttribute('data-paid-dl'));
   });
+  if (banner) banner.style.display = 'block';
   var note = document.getElementById('session-note');
   if (note) note.style.display = 'block';
 })();
