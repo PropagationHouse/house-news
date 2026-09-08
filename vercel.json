@@ -39,6 +39,14 @@
     {
       "source": "/substrate/philosophy",
       "destination": "/substrate-v2/philosophy.html"
+    },
+    {
+      "source": "/substrate/downloads",
+      "destination": "/substrate-v2/downloads.html"
+    },
+    {
+      "source": "/substrate/downloads/",
+      "destination": "/substrate-v2/downloads.html"
     }
   ]
 }
