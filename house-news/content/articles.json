@@ -868,6 +868,42 @@
       "status": "published",
       "filename": "articles/meta-muse-trust.html",
       "read_time": "8 min"
+    },
+    {
+      "title": "A Millennium Problem, in 88 Hours",
+      "kicker": "Intelligence · Mathematics",
+      "dek": "OpenAI says an unreleased internal model produced a Lean-verified blow-up proof for the 3D Navier–Stokes equations in about 88 hours of work — one of the seven Millennium Prize Problems, and the first claim of its kind. The mathematics is disputed before it is checked; the credit fight started the same day; and the machine that compiled another lab’s proof last week is now writing its own.",
+      "author": "Propagation House",
+      "date": "2026-09-09",
+      "category": "Intelligence",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/openai-navier-stokes.html",
+      "read_time": "9 min"
+    },
+    {
+      "title": "Consulting Adds a Zero",
+      "kicker": "Enterprise · Services",
+      "dek": "Accenture and Google Cloud are standing up a joint Gemini Enterprise Business Group with a thousand dedicated engineers and 50,000 trained practitioners — the largest single bet yet that enterprise agents are a services business. The consultancies have noticed what the labs keep saying: the model is not the product, the deployment is.",
+      "author": "Propagation House",
+      "date": "2026-09-09",
+      "category": "Enterprise",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/accenture-gemini-group.html",
+      "read_time": "8 min"
+    },
+    {
+      "title": "The Other Way to Sample",
+      "kicker": "Intelligence · Architecture",
+      "dek": "Inception Labs’ Mercury 2.5 puts a diffusion language model at the frontier of usable speed — 1,107 tokens per second on an H200, no draft model required, at reported quality parity with autoregressive peers. The bet is that sampling, not scale, is the next architecture fight.",
+      "author": "Propagation House",
+      "date": "2026-09-09",
+      "category": "Intelligence",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/mercury-diffusion-frontier.html",
+      "read_time": "8 min"
     }
   ],
   "drafts": [],

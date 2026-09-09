@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">66</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">69</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">42</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'openai-navier-stokes', title:'A Millennium Problem, in 88 Hours', href:'articles/openai-navier-stokes.html', date:'2026-09-09', category:'Intelligence', lens:'intelligence', read:'9 min', dek:'OpenAI says an unreleased internal model produced a Lean-verified blow-up proof for the 3D Navier–Stokes equations in about 88 hours of work — one of the seven Millennium Prize Problems, and the first claim of its kind. The mathematics is disputed before it is checked; the credit fight started the same day; and the machine that compiled another lab’s proof last week is now writing its own.',
+      tags:["openai", "navier-stokes", "mathematics", "lean", "millennium-prize", "bubeck"]},
+    {id:'accenture-gemini-group', title:'Consulting Adds a Zero', href:'articles/accenture-gemini-group.html', date:'2026-09-09', category:'Enterprise', lens:'intelligence', read:'8 min', dek:'Accenture and Google Cloud are standing up a joint Gemini Enterprise Business Group with a thousand dedicated engineers and 50,000 trained practitioners — the largest single bet yet that enterprise agents are a services business. The consultancies have noticed what the labs keep saying: the model is not the product, the deployment is.',
+      tags:["accenture", "google-cloud", "gemini-enterprise", "enterprise", "consulting", "agents"]},
+    {id:'mercury-diffusion-frontier', title:'The Other Way to Sample', href:'articles/mercury-diffusion-frontier.html', date:'2026-09-09', category:'Intelligence', lens:'intelligence', read:'8 min', dek:'Inception Labs’ Mercury 2.5 puts a diffusion language model at the frontier of usable speed — 1,107 tokens per second on an H200, no draft model required, at reported quality parity with autoregressive peers. The bet is that sampling, not scale, is the next architecture fight.',
+      tags:["inception-labs", "mercury", "diffusion", "inference", "tokens-per-second", "architecture"]},
     {id:'openai-rsi-intern', title:'The Intern Never Sleeps', href:'articles/openai-rsi-intern.html', date:'2026-09-08', category:'Intelligence', lens:'intelligence', read:'9 min', dek:'OpenAI’s automated research intern is now completing 3.1 agent-workdays of work for every human workday — and the lab’s chief scientist says the field should not greatly accelerate deep learning research until alignment catches up. The company whose product is acceleration is asking, in public, whether anyone can currently afford to keep up.',
       tags:["openai", "research-acceleration", "safety", "alignment", "agents", "pachocki"]},
     {id:'mistral-sovereign-e3b', title:'Sovereign Money Buys the Frontier', href:'articles/mistral-sovereign-e3b.html', date:'2026-09-08', category:'Finance', lens:'intelligence', read:'8 min', dek:'Mistral AI has closed a €3 billion Series D led by Samsung Electronics, the Scaleup Europe Fund and PSG Equity, at a valuation above €21 billion — the largest equity round ever completed by a European technology company. The open-weight challenger now has sovereign-scale capital and a sovereign argument to spend it on.',
