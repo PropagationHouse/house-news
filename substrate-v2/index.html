@@ -103,6 +103,30 @@
         .diagram-tab:hover { background: rgba(236,229,207,0.8); color: #3a3d2e; }
         .diagram-tab-active { background: rgba(75,83,32,0.1) !important; color: #1a1d12 !important; border-color: rgba(75,83,32,0.25) !important; }
 
+        /* ── DIAGRAM CAROUSEL — scroll-snap rail; centered slide highlighted, neighbors dimmed + shrunk ── */
+        .diagram-rail { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 28px; padding: 4px 4px 18px;
+            scrollbar-width: none; -ms-overflow-style: none; }
+        .diagram-rail::-webkit-scrollbar { display: none; }
+        .diagram-slide { flex: 0 0 92%; scroll-snap-align: center; transition: opacity 0.45s ease, transform 0.45s ease, filter 0.45s ease; }
+        .diagram-slide .diagram-bg { transition: border-color 0.45s ease; }
+        .diagram-slide.is-centered { opacity: 1; transform: scale(1); filter: none; }
+        .diagram-slide.is-centered .diagram-bg { border-color: rgba(75,83,32,0.4); }
+        .diagram-slide:not(.is-centered) { opacity: 0.45; transform: scale(0.97); filter: saturate(0.75); cursor: pointer; }
+        .diagram-slide:not(.is-centered) .diagram-bg { border-color: rgba(75,83,32,0.2); }
+        .diagram-arrow { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 9999px;
+            border: 1px solid rgba(75,83,32,0.18); color: #4b5320; opacity: 0.28; transition: opacity 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
+        .diagram-arrow:hover { opacity: 0.85; border-color: rgba(75,83,32,0.4); background: rgba(236,229,207,0.6); }
+        .diagram-arrow:disabled { opacity: 0.1; cursor: default; }
+        .diagram-arrow:disabled:hover { border-color: rgba(75,83,32,0.18); background: transparent; }
+        .diagram-arrow svg { width: 20px; height: 20px; }
+        .diagram-dot { width: 7px; height: 7px; border-radius: 9999px; background: rgba(75,83,32,0.22); transition: background 0.25s ease, transform 0.25s ease; }
+        .diagram-dot.is-on { background: rgba(75,83,32,0.65); transform: scale(1.25); }
+        @media (max-width: 767px) { .diagram-slide { flex-basis: 96%; } }
+        @media (prefers-reduced-motion: reduce) {
+            .diagram-rail { scroll-behavior: auto; }
+            .diagram-slide, .diagram-slide .diagram-bg { transition: none; }
+        }
+
         /* ── HOUSE PAPER GRAIN — full-viewport fractal noise, blended softly over the paper ── */
         body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:300px 300px;animation:grainDrift 14s steps(10) infinite}
         @keyframes grainDrift{0%{transform:translate(0,0)}10%{transform:translate(-18px,12px)}20%{transform:translate(14px,-20px)}30%{transform:translate(-22px,-8px)}40%{transform:translate(20px,16px)}50%{transform:translate(-12px,22px)}60%{transform:translate(16px,-14px)}70%{transform:translate(-20px,10px)}80%{transform:translate(10px,-22px)}90%{transform:translate(-14px,-16px)}100%{transform:translate(0,0)}}
@@ -1062,18 +1086,30 @@
                 <p class="text-2xl text-gray-400 max-w-3xl mx-auto mt-6 leading-relaxed">A hybrid Electron + Python architecture with bidirectional IPC, a Flask API layer, and pluggable LLM backends.</p>
             </div>
 
-            <!-- Diagram tab switcher -->
+            <!-- Diagram carousel: tabs + scroll-snap rail + subtle arrows -->
             <div class="flex flex-wrap justify-center gap-3 mb-12">
-                <button onclick="showDiagram('stack')" id="tab-stack" class="diagram-tab diagram-tab-active px-6 py-3 rounded-xl text-base font-semibold transition">System Stack</button>
-                <button onclick="showDiagram('ocs')" id="tab-ocs" class="diagram-tab px-6 py-3 rounded-xl text-base font-semibold transition">Agent Loop</button>
-                <button onclick="showDiagram('tools')" id="tab-tools" class="diagram-tab px-6 py-3 rounded-xl text-base font-semibold transition">Tool Pipeline</button>
-                <button onclick="showDiagram('parser')" id="tab-parser" class="diagram-tab px-6 py-3 rounded-xl text-base font-semibold transition">Command Parser</button>
-                <button onclick="showDiagram('tokens')" id="tab-tokens" class="diagram-tab px-6 py-3 rounded-xl text-base font-semibold transition">Token Efficiency</button>
-                <button onclick="showDiagram('learning')" id="tab-learning" class="diagram-tab px-6 py-3 rounded-xl text-base font-semibold transition">Learning &amp; Skills</button>
+                <button id="tab-stack" class="diagram-tab diagram-tab-active px-6 py-3 rounded-xl text-base font-semibold transition">System Stack</button>
+                <button id="tab-ocs" class="diagram-tab px-6 py-3 rounded-xl text-base font-semibold transition">Agent Loop</button>
+                <button id="tab-tools" class="diagram-tab px-6 py-3 rounded-xl text-base font-semibold transition">Tool Pipeline</button>
+                <button id="tab-parser" class="diagram-tab px-6 py-3 rounded-xl text-base font-semibold transition">Command Parser</button>
+                <button id="tab-tokens" class="diagram-tab px-6 py-3 rounded-xl text-base font-semibold transition">Token Efficiency</button>
+                <button id="tab-learning" class="diagram-tab px-6 py-3 rounded-xl text-base font-semibold transition">Learning &amp; Skills</button>
             </div>
 
+            <div class="relative">
+                <!-- Arrow: previous -->
+                <button id="diag-prev" class="diagram-arrow absolute left-0 top-1/2 -translate-y-1/2 z-20 hidden md:flex" aria-label="Previous diagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+                </button>
+                <!-- Arrow: next -->
+                <button id="diag-next" class="diagram-arrow absolute right-0 top-1/2 -translate-y-1/2 z-20 hidden md:flex" aria-label="Next diagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+                </button>
+
+                <div id="diagram-rail" class="diagram-rail">
+
             <!-- ── DIAGRAM 1: System Stack ── -->
-            <div id="diagram-stack" class="diagram-panel">
+            <div id="diagram-stack" class="diagram-panel diagram-slide">
                 <div class="diagram-bg rounded-3xl p-6 md:p-10 glow overflow-x-auto">
                     <svg viewBox="0 0 900 620" class="w-full max-w-4xl mx-auto" xmlns="http://www.w3.org/2000/svg">
                         <defs>
@@ -1177,7 +1213,7 @@
             </div>
 
             <!-- ── DIAGRAM 2: OCS Agent Loop ── -->
-            <div id="diagram-ocs" class="diagram-panel hidden">
+            <div id="diagram-ocs" class="diagram-panel diagram-slide">
                 <div class="diagram-bg rounded-3xl p-6 md:p-10 glow overflow-x-auto">
                     <svg viewBox="0 0 900 820" class="w-full max-w-4xl mx-auto" xmlns="http://www.w3.org/2000/svg">
                         <defs>
@@ -1279,7 +1315,7 @@
             </div>
 
             <!-- ── DIAGRAM 3: Tool Loading Pipeline ── -->
-            <div id="diagram-tools" class="diagram-panel hidden">
+            <div id="diagram-tools" class="diagram-panel diagram-slide">
                 <div class="diagram-bg rounded-3xl p-6 md:p-10 glow overflow-x-auto">
                     <svg viewBox="0 0 900 520" class="w-full max-w-4xl mx-auto" xmlns="http://www.w3.org/2000/svg">
                         
@@ -1385,7 +1421,7 @@
             </div>
 
             <!-- ── DIAGRAM 4: Command Parser Fast-Path ── -->
-            <div id="diagram-parser" class="diagram-panel hidden">
+            <div id="diagram-parser" class="diagram-panel diagram-slide">
                 <div class="diagram-bg rounded-3xl p-6 md:p-10 glow overflow-x-auto">
                     <svg viewBox="0 0 900 620" class="w-full max-w-4xl mx-auto" xmlns="http://www.w3.org/2000/svg">
                         <defs>
@@ -1464,7 +1500,7 @@
             </div>
 
             <!-- ── DIAGRAM 5: Token Efficiency ── -->
-            <div id="diagram-tokens" class="diagram-panel hidden">
+            <div id="diagram-tokens" class="diagram-panel diagram-slide">
                 <div class="diagram-bg rounded-3xl p-6 md:p-10 glow overflow-x-auto">
                     <svg viewBox="0 0 900 700" class="w-full max-w-4xl mx-auto" xmlns="http://www.w3.org/2000/svg">
                         <text x="450" y="30" text-anchor="middle" fill="#9ca3af" font-size="14" font-weight="600" font-family="Inter,sans-serif">Five layers of token cost optimization &mdash; from zero-cost fast-paths to intelligent context pruning</text>
@@ -1531,7 +1567,7 @@
             </div>
 
             <!-- ── DIAGRAM 6: Learning & Skills ── -->
-            <div id="diagram-learning" class="diagram-panel hidden">
+            <div id="diagram-learning" class="diagram-panel diagram-slide">
                 <div class="diagram-bg rounded-3xl p-6 md:p-10 glow overflow-x-auto">
                     <svg viewBox="0 0 900 820" class="w-full max-w-4xl mx-auto" xmlns="http://www.w3.org/2000/svg">
                         <defs>
@@ -1665,16 +1701,85 @@
                 </div>
             </div>
 
+                </div><!-- /diagram-rail -->
+
+                <!-- Progress dots -->
+                <div id="diagram-dots" class="flex justify-center gap-2.5 mt-2" role="tablist" aria-label="Diagram position"></div>
+            </div><!-- /relative -->
+
         </div>
     </section>
 
     <script>
-        function showDiagram(id) {
-            document.querySelectorAll('.diagram-panel').forEach(p => p.classList.add('hidden'));
-            document.querySelectorAll('.diagram-tab').forEach(t => t.classList.remove('diagram-tab-active'));
-            document.getElementById('diagram-' + id).classList.remove('hidden');
-            document.getElementById('tab-' + id).classList.add('diagram-tab-active');
-        }
+        // ── Diagram carousel: all panels live in one scroll-snap rail; centered one highlighted ──
+        (function () {
+            var ORDER = ['stack', 'ocs', 'tools', 'parser', 'tokens', 'learning'];
+            var rail = document.getElementById('diagram-rail');
+            var slides = ORDER.map(function (id) { return document.getElementById('diagram-' + id); });
+            var tabs = ORDER.map(function (id) { return document.getElementById('tab-' + id); });
+            var prevBtn = document.getElementById('diag-prev');
+            var nextBtn = document.getElementById('diag-next');
+            var dotsWrap = document.getElementById('diagram-dots');
+            var dots = ORDER.map(function (_, i) {
+                var b = document.createElement('button');
+                b.className = 'diagram-dot';
+                b.setAttribute('aria-label', 'Go to diagram ' + (i + 1));
+                b.addEventListener('click', function () { goTo(i); });
+                dotsWrap.appendChild(b);
+                return b;
+            });
+            var current = 0;
+            var settling = null;
+
+            function centerOf(el) { return el.offsetLeft + el.offsetWidth / 2; }
+
+            function goTo(i, instant) {
+                i = Math.max(0, Math.min(ORDER.length - 1, i));
+                var el = slides[i];
+                rail.scrollTo({ left: centerOf(el) - rail.clientWidth / 2, behavior: instant ? 'auto' : 'smooth' });
+            }
+            function centerIndex() {
+                var mid = rail.scrollLeft + rail.clientWidth / 2;
+                var best = 0, dist = Infinity;
+                slides.forEach(function (el, i) {
+                    var d = Math.abs(centerOf(el) - mid);
+                    if (d < dist) { dist = d; best = i; }
+                });
+                return best;
+            }
+            function paint() {
+                current = centerIndex();
+                slides.forEach(function (el, i) { el.classList.toggle('is-centered', i === current); });
+                tabs.forEach(function (t, i) { t.classList.toggle('diagram-tab-active', i === current); });
+                dots.forEach(function (d, i) { d.classList.toggle('is-on', i === current); });
+                prevBtn.disabled = current === 0;
+                nextBtn.disabled = current === ORDER.length - 1;
+            }
+            // Tab click: glide the rail instead of toggling hidden (paint happens on scroll settle)
+            tabs.forEach(function (t, i) {
+                t.addEventListener('click', function () { goTo(i); });
+            });
+            // Keep showDiagram working for any external callers: it now drives the rail
+            window.showDiagram = function (id) {
+                var i = ORDER.indexOf(id);
+                if (i >= 0) goTo(i);
+            };
+            prevBtn.addEventListener('click', function () { goTo(current - 1); });
+            nextBtn.addEventListener('click', function () { goTo(current + 1); });
+            // Non-centered slide click brings it to center
+            slides.forEach(function (el, i) {
+                el.addEventListener('click', function (e) {
+                    if (i !== centerIndex()) { e.preventDefault(); e.stopPropagation(); goTo(i); }
+                }, true);
+            });
+            // Paint on settle (no scroll event spam); rAF once for initial state
+            rail.addEventListener('scroll', function () {
+                if (settling) clearTimeout(settling);
+                settling = setTimeout(paint, 120);
+            }, { passive: true });
+            window.addEventListener('resize', paint);
+            requestAnimationFrame(paint);
+        })();
     </script>
 
     <!-- ── PAPER TEAR DIVIDER ── -->
