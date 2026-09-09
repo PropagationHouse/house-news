@@ -113,11 +113,19 @@
                         </div>
                     </div>
                     <p class="text-ink-100 text-base leading-relaxed mb-8">Everything in the desktop app, plus the Android companion &mdash; your agent reaches you on the go, even with the app closed.</p>
-                    <a href="/api/verify?session_id=MISSING" data-paid-dl="zip" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-[#f6f1e2] font-bold transition" download>
+                    <a href="/api/verify?session_id=MISSING" id="zip-dl-btn" data-paid-dl="zip" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-[#f6f1e2] font-bold transition" download>
                         Download &mdash; Full Bundle (.zip)
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
                     </a>
-                    <p class="text-ink-100/70 text-sm mt-4">Substrate-1.4.5-Bundle-Desktop-Android.zip &middot; ~102 MB &middot; installer + a p k inside</p>
+                    <p id="zip-meta" class="text-ink-100/70 text-sm mt-4">Substrate-1.4.5-Bundle-Desktop-Android.zip &middot; ~102 MB &middot; installer + a p k inside</p>
+                    <div id="beta-lock" style="display:none" class="mt-2 pt-5 border-t border-[#4b5320]/20">
+                        <p class="text-ink-100 text-sm leading-relaxed mb-4">Your one-time purchase covers the desktop build. The Android companion ships with the <span class="font-bold text-ink-400">Beta pass</span> &mdash; the subscription that carries both platforms.</p>
+                        <a href="https://buy.stripe.com/cNibIUgb1dtdh2xcrBasg02" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-[#f6f1e2] font-bold transition">
+                            Unlock Android &mdash; Join the Beta
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14m-6-6l6 6-6 6"/></svg>
+                        </a>
+                        <p class="text-ink-100/70 text-sm mt-3">$11.99/month &middot; cancel anytime, keep the version you have</p>
+                    </div>
                 </div>
 
             </div>
@@ -165,6 +173,21 @@
   var tier = qs.get('file') || '';
   var upsell = document.getElementById('beta-upsell');
   if (upsell && tier === 'exe') upsell.style.display = 'block';
+
+  // Tier gate: one-time buyers only get the desktop installer.
+  var bundleCard = document.getElementById('zip-dl-btn');
+  if (bundleCard) {
+    if (tier === 'exe') {
+      // One-time session: hide the bundle download, show the Beta lock CTA.
+      bundleCard.style.display = 'none';
+      var zmeta = document.getElementById('zip-meta');
+      if (zmeta) zmeta.style.display = 'none';
+      var up1 = document.getElementById('beta-upsell');
+      if (up1) up1.style.display = 'none'; // card 2's lock CTA is the single Beta pitch
+      var lock = document.getElementById('beta-lock');
+      if (lock) lock.style.display = 'block';
+    }
+  }
 })();
 </script>
 </body>

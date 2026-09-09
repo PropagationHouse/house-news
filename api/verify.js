@@ -58,7 +58,15 @@ module.exports = async (req, res) => {
     }
 
     const validUntil = Date.now() + SEVEN_DAYS - MARGIN;
-    const fkey = (q.file && FILES[q.file]) ? q.file : tier;
+    // Tier enforcement: a session may only fetch files its purchase includes.
+    // one-time (exe) -> exe only. Beta (zip) -> either (the desktop build ships inside the Beta).
+    let fkey = tier;
+    if (q.file && FILES[q.file] && q.file !== tier) {
+      if (tier !== 'zip') {
+        return send(403, 'That file is not part of this purchase. The desktop + Android bundle ships with the Beta pass.');
+      }
+      fkey = q.file;
+    }
     const file = FILES[fkey];
     const tok = await blob.issueSignedToken({
       pathname: file,
