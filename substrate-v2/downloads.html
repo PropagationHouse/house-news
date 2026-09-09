@@ -43,6 +43,26 @@
         .adopt-card > *:not(.adopt-card-paper) { position:relative; z-index:1; }
         .adopt-card-free { border-color:rgba(75,83,32,.45) !important; }
         .adopt-card-paid { border-color:#c7c0a9 !important; }
+        /* Pearlescent sheen for the Beta card - a slow light-sweep over the paper fill */
+        .adopt-card-beta::before {
+            content:''; position:absolute; inset:-40%; z-index:0; pointer-events:none;
+            background: linear-gradient(115deg,
+                transparent 20%,
+                rgba(255,190,200,0.28) 34%,
+                rgba(190,235,215,0.30) 42%,
+                rgba(185,210,255,0.30) 50%,
+                rgba(230,200,255,0.26) 58%,
+                transparent 74%);
+            animation: beta-sheen 9s ease-in-out infinite;
+        }
+        @keyframes beta-sheen {
+            0%   { transform: translateX(-45%); opacity:0; }
+            18%  { opacity:1; }
+            55%  { opacity:1; }
+            100% { transform: translateX(45%); opacity:0; }
+        }
+        @media (prefers-reduced-motion: reduce) { .adopt-card-beta::before { animation:none; opacity:.45; } }
+        .adopt-card-beta > .adopt-card-paper img { opacity:.9; }
     </style>
 </head>
 <body class="text-ink-400 font-sans antialiased overflow-x-hidden text-lg">
@@ -104,7 +124,7 @@
                 </div>
 
                 <!-- BUNDLE 2: beta / desktop + android -->
-                <div class="adopt-card adopt-card-paid rounded-2xl border p-8 md:p-10">
+                <div class="adopt-card adopt-card-paid adopt-card-beta rounded-2xl border p-8 md:p-10">
                     <div class="adopt-card-paper"><img src="../assets/images/paper-sheet-fill.jpg" alt=""></div>
                     <div class="flex items-baseline justify-between gap-4 mb-6">
                         <div>
@@ -112,7 +132,13 @@
                             <div class="text-ink-400 font-black text-2xl mb-1">Desktop + Android</div>
                         </div>
                     </div>
-                    <p class="text-ink-100 text-base leading-relaxed mb-8">Everything in the desktop app, plus the Android companion &mdash; your agent reaches you on the go, even with the app closed.</p>
+                    <p class="text-ink-100 text-base leading-relaxed mb-4">Everything in the desktop app, plus the Android companion &mdash; your agent reaches you on the go, even with the app closed.</p>
+                    <ul class="text-ink-100 text-sm leading-relaxed mb-8 space-y-1.5">
+                        <li class="flex gap-2"><span class="text-brand-600 font-bold">&bull;</span><span><span class="font-bold text-ink-400">Every new build, the day it lands</span> &mdash; PC and Android, always current.</span></li>
+                        <li class="flex gap-2"><span class="text-brand-600 font-bold">&bull;</span><span><span class="font-bold text-ink-400">Pre-release access</span> &mdash; new features and experimental tools show up here first.</span></li>
+                        <li class="flex gap-2"><span class="text-brand-600 font-bold">&bull;</span><span><span class="font-bold text-ink-400">The Android companion app</span> &mdash; your agent, reachable from anywhere.</span></li>
+                        <li class="flex gap-2"><span class="text-brand-600 font-bold">&bull;</span><span><span class="font-bold text-ink-400">Direct line to the studio</span> &mdash; your support funds development, and it shows.</span></li>
+                    </ul>
                     <a href="/api/verify?session_id=MISSING" id="zip-dl-btn" data-paid-dl="zip" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-[#f6f1e2] font-bold transition" download>
                         Download &mdash; Full Bundle (.zip)
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
