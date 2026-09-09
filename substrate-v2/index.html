@@ -1930,6 +1930,13 @@
         a.bg-brand-600 { color:#fdfbf4 !important; }
         a.bg-brand-600:hover { color:#fdfbf4 !important; }
         a.bg-brand-600 svg { color:#fdfbf4 !important; }
+        /* Paper texture on the green action buttons - same fill as the cards, blended over the olive */
+        a.bg-brand-600 { position:relative; isolation:isolate; }
+        a.bg-brand-600::after {
+            content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:-1;
+            background: url('../assets/images/paper-sheet-fill-2x.jpg?v=2') center / cover no-repeat;
+            mix-blend-mode:overlay; opacity:.5;
+        }
 
         /* ── Terminal blocks: dark → paper ── */
         .terminal-bg { background: linear-gradient(180deg,#f6f1e2 0%,#ece5cf 100%) !important; }

@@ -77,6 +77,13 @@
             .adopt-card-beta::after { animation:none; opacity:.45; }
         }
         .adopt-card-beta > .adopt-card-paper img { opacity:.9; }
+        /* Paper texture on the green action buttons - same fill as the cards, blended over the olive */
+        a.bg-brand-600 { position:relative; isolation:isolate; }
+        a.bg-brand-600::after {
+            content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:-1;
+            background: url('../assets/images/paper-sheet-fill-2x.jpg?v=2') center / cover no-repeat;
+            mix-blend-mode:overlay; opacity:.5;
+        }
     </style>
 </head>
 <body class="text-ink-400 font-sans antialiased overflow-x-hidden text-lg">
