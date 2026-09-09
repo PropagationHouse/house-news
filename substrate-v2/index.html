@@ -1724,7 +1724,7 @@
                 </div>
 
                 <!-- Monthly: ride the beta -->
-                <div class="adopt-card adopt-card-paid bg-white/[0.025] border border-white/[0.06] rounded-2xl p-7 flex flex-col">
+                <div class="adopt-card adopt-card-paid adopt-card-beta bg-white/[0.025] border border-white/[0.06] rounded-2xl p-7 flex flex-col">
                     <div class="adopt-card-paper" aria-hidden="true"><img src="../assets/images/paper-sheet-fill.jpg?v=2" alt=""></div>
                     <div class="text-brand-400 font-bold text-sm uppercase tracking-wider mb-2">Monthly</div>
                     <div class="text-white font-black text-2xl mb-1">Ride the Beta</div>
@@ -2057,6 +2057,41 @@
         /* edge identity: olive rule for the free card, warm paper rule for paid */
         .adopt-card-free { border-color:rgba(75,83,32,.45) !important; }
         .adopt-card-paid { border-color:#c7c0a9 !important; }
+        /* Pearlescent sheen v2 for the Beta card - iridescent tint layer + white glint sweep, ABOVE the paper fill.
+           Ported verbatim from downloads.html (user-approved effect). */
+        .adopt-card-beta::before {
+            content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+            background: linear-gradient(115deg,
+                rgba(255,170,195,0.50) 0%,
+                rgba(255,215,175,0.32) 24%,
+                rgba(175,235,200,0.46) 46%,
+                rgba(170,205,255,0.48) 68%,
+                rgba(220,185,255,0.44) 100%);
+            background-size: 250% 250%;
+            animation: beta-irid 13s ease-in-out infinite;
+        }
+        .adopt-card-beta::after {
+            content:''; position:absolute; inset:-40%; z-index:0; pointer-events:none;
+            background: linear-gradient(115deg, transparent 32%, rgba(255,255,255,0.55) 50%, transparent 68%);
+            mix-blend-mode: screen;
+            animation: beta-sheen 7s ease-in-out infinite;
+        }
+        @keyframes beta-irid {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes beta-sheen {
+            0%   { transform: translateX(-45%); opacity:0; }
+            18%  { opacity:1; }
+            55%  { opacity:1; }
+            100% { transform: translateX(45%); opacity:0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .adopt-card-beta::before { animation:none; }
+            .adopt-card-beta::after { animation:none; opacity:.45; }
+        }
+        .adopt-card-beta > .adopt-card-paper img { opacity:.9; }
 
         /* ── HERO PAPER: white torn sheet centered on the paragraph block.
            Anchored to the text block itself (absolute inside the .max-w-2xl
