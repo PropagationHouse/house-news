@@ -43,17 +43,28 @@
         .adopt-card > *:not(.adopt-card-paper) { position:relative; z-index:1; }
         .adopt-card-free { border-color:rgba(75,83,32,.45) !important; }
         .adopt-card-paid { border-color:#c7c0a9 !important; }
-        /* Pearlescent sheen for the Beta card - a slow light-sweep over the paper fill */
+        /* Pearlescent sheen v2 for the Beta card - iridescent tint layer + white glint sweep, ABOVE the paper fill */
         .adopt-card-beta::before {
-            content:''; position:absolute; inset:-40%; z-index:0; pointer-events:none;
+            content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
             background: linear-gradient(115deg,
-                transparent 20%,
-                rgba(255,190,200,0.28) 34%,
-                rgba(190,235,215,0.30) 42%,
-                rgba(185,210,255,0.30) 50%,
-                rgba(230,200,255,0.26) 58%,
-                transparent 74%);
-            animation: beta-sheen 9s ease-in-out infinite;
+                rgba(255,170,195,0.50) 0%,
+                rgba(255,215,175,0.32) 24%,
+                rgba(175,235,200,0.46) 46%,
+                rgba(170,205,255,0.48) 68%,
+                rgba(220,185,255,0.44) 100%);
+            background-size: 250% 250%;
+            animation: beta-irid 13s ease-in-out infinite;
+        }
+        .adopt-card-beta::after {
+            content:''; position:absolute; inset:-40%; z-index:0; pointer-events:none;
+            background: linear-gradient(115deg, transparent 32%, rgba(255,255,255,0.55) 50%, transparent 68%);
+            mix-blend-mode: screen;
+            animation: beta-sheen 7s ease-in-out infinite;
+        }
+        @keyframes beta-irid {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         @keyframes beta-sheen {
             0%   { transform: translateX(-45%); opacity:0; }
@@ -61,7 +72,10 @@
             55%  { opacity:1; }
             100% { transform: translateX(45%); opacity:0; }
         }
-        @media (prefers-reduced-motion: reduce) { .adopt-card-beta::before { animation:none; opacity:.45; } }
+        @media (prefers-reduced-motion: reduce) {
+            .adopt-card-beta::before { animation:none; }
+            .adopt-card-beta::after { animation:none; opacity:.45; }
+        }
         .adopt-card-beta > .adopt-card-paper img { opacity:.9; }
     </style>
 </head>
