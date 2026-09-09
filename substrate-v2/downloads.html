@@ -98,6 +98,9 @@
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
                     </a>
                     <p class="text-ink-100/70 text-sm mt-4">Substrate-Setup-1.4.5.exe &middot; ~90 MB &middot; Windows 10/11</p>
+                    <div id="beta-upsell" style="display:none" class="mt-6 pt-5 border-t border-[#4b5320]/20">
+                        <p class="text-ink-100 text-sm leading-relaxed"><span class="font-bold text-ink-400">Want your agent on your phone?</span> The <a href="https://buy.stripe.com/cNibIUgb1dtdh2xcrBasg02" target="_blank" rel="noopener" class="text-brand-600 hover:text-brand-500 underline underline-offset-4">Beta pass ($11.99/mo)</a> adds the Android companion app &mdash; plus every new build the day it lands. Cancel anytime.</p>
+                    </div>
                 </div>
 
                 <!-- BUNDLE 2: beta / desktop + android -->
@@ -159,6 +162,9 @@
   if (banner) banner.style.display = 'block';
   var note = document.getElementById('session-note');
   if (note) note.style.display = 'block';
+  var tier = qs.get('file') || '';
+  var upsell = document.getElementById('beta-upsell');
+  if (upsell && tier === 'exe') upsell.style.display = 'block';
 })();
 </script>
 </body>
