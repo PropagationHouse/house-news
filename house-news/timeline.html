@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">69</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">72</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">42</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'anthropic-coxon-resignation', title:'The Word for Exit', href:'articles/anthropic-coxon-resignation.html', date:'2026-09-10', category:'Intelligence', lens:'intelligence', read:'9 min', dek:'Jacob Coxon resigned from Anthropic on September 8 with a public statement accusing the frontier labs — his former employer and OpenAI alike — of “gambling with our lives” in a race toward self-improving superintelligence. The safety researcher’s exit is the most pointed resignation the industry has produced, and it lands the same day the government started counting what gets copied out.',
+      tags:["anthropic", "safety", "resignation", "coxon", "superintelligence", "openai"]},
+    {id:'openai-christiano-board', title:'The Referee Joins the Game', href:'articles/openai-christiano-board.html', date:'2026-09-10', category:'Intelligence', lens:'intelligence', read:'8 min', dek:'OpenAI has named Paul Christiano — founder of the Alignment Research Center and a senior adviser at NIST’s Center for AI Standards and Innovation — to its Foundation board as a non-voting observer, with a seat on the Safety and Security Committee and a recusal from all OpenAI-related matters at his government post. The most credible alignment voice in the field now has a chair inside the lab he most needs to be able to criticize.',
+      tags:["openai", "governance", "alignment", "christiano", "board", "nist"]},
+    {id:'us-distillation-advisory', title:'What Gets Copied, Counted', href:'articles/us-distillation-advisory.html', date:'2026-09-10', category:'Policy', lens:'policy', read:'8 min', dek:'CISA, the NSA, and the FBI say China-based AI companies — DeepSeek, Moonshot AI, Alibaba, MiniMax, StepFun, and Z.AI among them — have run industrial-scale distillation campaigns against U.S. frontier models since late 2024: billions of tokens across millions of exchanges, aimed at Claude, GPT, Gemini, and Grok variants. The advisory turns an open secret into a government record.',
+      tags:["cisa", "nsa", "fbi", "distillation", "china", "deepseek", "policy"]},
     {id:'openai-navier-stokes', title:'A Millennium Problem, in 88 Hours', href:'articles/openai-navier-stokes.html', date:'2026-09-09', category:'Intelligence', lens:'intelligence', read:'9 min', dek:'OpenAI says an unreleased internal model produced a Lean-verified blow-up proof for the 3D Navier–Stokes equations in about 88 hours of work — one of the seven Millennium Prize Problems, and the first claim of its kind. The mathematics is disputed before it is checked; the credit fight started the same day; and the machine that compiled another lab’s proof last week is now writing its own.',
       tags:["openai", "navier-stokes", "mathematics", "lean", "millennium-prize", "bubeck"]},
     {id:'accenture-gemini-group', title:'Consulting Adds a Zero', href:'articles/accenture-gemini-group.html', date:'2026-09-09', category:'Enterprise', lens:'intelligence', read:'8 min', dek:'Accenture and Google Cloud are standing up a joint Gemini Enterprise Business Group with a thousand dedicated engineers and 50,000 trained practitioners — the largest single bet yet that enterprise agents are a services business. The consultancies have noticed what the labs keep saying: the model is not the product, the deployment is.',

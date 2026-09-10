@@ -904,6 +904,42 @@
       "status": "published",
       "filename": "articles/mercury-diffusion-frontier.html",
       "read_time": "8 min"
+    },
+    {
+      "title": "The Word for Exit",
+      "kicker": "Intelligence · Safety",
+      "dek": "Jacob Coxon resigned from Anthropic on September 8 with a public statement accusing the frontier labs — his former employer and OpenAI alike — of “gambling with our lives” in a race toward self-improving superintelligence. The safety researcher’s exit is the most pointed resignation the industry has produced, and it lands the same day the government started counting what gets copied out.",
+      "author": "Propagation House",
+      "date": "2026-09-10",
+      "category": "Intelligence",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/anthropic-coxon-resignation.html",
+      "read_time": "9 min"
+    },
+    {
+      "title": "The Referee Joins the Game",
+      "kicker": "Intelligence · Governance",
+      "dek": "OpenAI has named Paul Christiano — founder of the Alignment Research Center and a senior adviser at NIST’s Center for AI Standards and Innovation — to its Foundation board as a non-voting observer, with a seat on the Safety and Security Committee and a recusal from all OpenAI-related matters at his government post. The most credible alignment voice in the field now has a chair inside the lab he most needs to be able to criticize.",
+      "author": "Propagation House",
+      "date": "2026-09-10",
+      "category": "Intelligence",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/openai-christiano-board.html",
+      "read_time": "8 min"
+    },
+    {
+      "title": "What Gets Copied, Counted",
+      "kicker": "Policy · Security",
+      "dek": "CISA, the NSA, and the FBI say China-based AI companies — DeepSeek, Moonshot AI, Alibaba, MiniMax, StepFun, and Z.AI among them — have run industrial-scale distillation campaigns against U.S. frontier models since late 2024: billions of tokens across millions of exchanges, aimed at Claude, GPT, Gemini, and Grok variants. The advisory turns an open secret into a government record.",
+      "author": "Propagation House",
+      "date": "2026-09-10",
+      "category": "Policy",
+      "lens": "policy",
+      "status": "published",
+      "filename": "articles/us-distillation-advisory.html",
+      "read_time": "8 min"
     }
   ],
   "drafts": [],

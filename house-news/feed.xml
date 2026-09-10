@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Word for Exit</title>
+<link>https://www.propagation.house/house-news/articles/anthropic-coxon-resignation.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/anthropic-coxon-resignation.html</guid>
+<pubDate>Thu, 10 Sep 2026 00:00:00 -0000</pubDate>
+<description>Jacob Coxon resigned from Anthropic on September 8 with a public statement accusing the frontier labs — his former employer and OpenAI alike — of “gambling with our lives” in a race toward self-improving superintelligence. The safety researcher’s exit is the most pointed resignation the industry has produced, and it lands the same day the government started counting what gets copied out.</description>
+</item>
+<item>
+<title>The Referee Joins the Game</title>
+<link>https://www.propagation.house/house-news/articles/openai-christiano-board.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-christiano-board.html</guid>
+<pubDate>Thu, 10 Sep 2026 00:00:00 -0000</pubDate>
+<description>OpenAI has named Paul Christiano — founder of the Alignment Research Center and a senior adviser at NIST’s Center for AI Standards and Innovation — to its Foundation board as a non-voting observer, with a seat on the Safety and Security Committee and a recusal from all OpenAI-related matters at his government post. The most credible alignment voice in the field now has a chair inside the lab he most needs to be able to criticize.</description>
+</item>
+<item>
+<title>What Gets Copied, Counted</title>
+<link>https://www.propagation.house/house-news/articles/us-distillation-advisory.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/us-distillation-advisory.html</guid>
+<pubDate>Thu, 10 Sep 2026 00:00:00 -0000</pubDate>
+<description>CISA, the NSA, and the FBI say China-based AI companies — DeepSeek, Moonshot AI, Alibaba, MiniMax, StepFun, and Z.AI among them — have run industrial-scale distillation campaigns against U.S. frontier models since late 2024: billions of tokens across millions of exchanges, aimed at Claude, GPT, Gemini, and Grok variants. The advisory turns an open secret into a government record.</description>
+</item>
+<item>
 <title>A Millennium Problem, in 88 Hours</title>
 <link>https://www.propagation.house/house-news/articles/openai-navier-stokes.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-navier-stokes.html</guid>
