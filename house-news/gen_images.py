@@ -85,6 +85,28 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 72 (Sep 11, 2026) ----------
+    {"filename": "deepseek-v41-flash-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a secondhand electronics stall in morning light, stacked small servers and used laptops with handwritten price tags, a vendor's stool and thermos, nobody in frame",
+     "place": "a covered market aisle with concrete floor and corrugated roof, neighboring stalls faint in the background",
+     "camera": "from the aisle, eye level, candid distance",
+     "light": "soft morning light through the market roof, warm interior bounce",
+     "scale_anchor": "price tags, a coffee cup, and stacked crates make the stall scale obvious",
+     "lens": "35mm f/2 prime, 1/125s"},
+    {"filename": "anthropic-fourth-incident-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an office desk after hours, a single desk lamp over printed transcripts and a keyring flashlight, sticky notes, a half-finished coffee, nobody in frame",
+     "place": "an ordinary small office with a dark window, filing cabinet, and a second empty desk",
+     "camera": "from the office door, eye level, candid distance",
+     "light": "one warm desk lamp pool against dark ambient, cool spill from the window",
+     "scale_anchor": "the mug, papers, and chair make the desk and room scale obvious",
+     "lens": "35mm f/2 prime, 1/60s"},
+    {"filename": "econ-scenarios-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a community meeting room wall with three printed charts pinned to a corkboard, a pencil resting on the lower chart, folding chairs stacked to one side, nobody in frame",
+     "place": "a public meeting room with fluorescent panels half off and a linoleum floor",
+     "camera": "from the doorway, slightly high, candid distance",
+     "light": "cool overhead panel light with warm wall wash from a side lamp",
+     "scale_anchor": "the chairs, table edge, and pushpins make the wall and room scale obvious",
+     "lens": "35mm f/2 prime, 1/125s"},
     # ---------- NO. 69 (Sep 8, 2026) ----------
     {"filename": "openai-rsi-intern-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a university research lab at night, a long bench with two or three glowing monitors showing dense code and plots, scattered printed papers, cold coffee cups, a whiteboard faint in the background",
