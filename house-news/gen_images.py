@@ -85,6 +85,28 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 73 (Sep 12, 2026) ----------
+    {"filename": "anthropic-pace-frontier-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a rural railway semaphore signal set at caution beside a single track, wet gravel ballast, a wooden signal box with peeling paint, nobody in frame",
+     "place": "open farmland with telephone poles receding down the line into morning fog",
+     "camera": "from beside the track, eye level, candid distance",
+     "light": "soft overcast morning light, fog diffusing the background",
+     "scale_anchor": "the signal post, track gauge, and gravel make the scene scale obvious",
+     "lens": "35mm f/2 prime, 1/125s"},
+    {"filename": "nvidia-anthropic-ipo-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an empty stock exchange podium with a brass opening bell on the lectern, stacked printed documents, a single chair angled toward the podium, nobody in frame",
+     "place": "a tall exchange hall with stone columns and tall windows, rows of empty seats behind",
+     "camera": "from the floor, slightly low, candid distance",
+     "light": "cool morning light through tall windows, warm brass reflection",
+     "scale_anchor": "the lectern, chair, and doorways make the hall scale obvious",
+     "lens": "35mm f/2 prime, 1/60s"},
+    {"filename": "openai-senate-probe-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an empty congressional hearing room, rows of microphones and water glasses on the curved dais, name placards, stacked document boxes on the witness table, nobody in frame",
+     "place": "a marble committee room with an American flag at the edge of frame and wood-paneled walls",
+     "camera": "from the public seating, eye level, candid distance",
+     "light": "cool overhead light with warm window spill from the left",
+     "scale_anchor": "the microphones, water glasses, and document boxes make the dais scale obvious",
+     "lens": "35mm f/2 prime, 1/60s"},
     # ---------- NO. 72 (Sep 11, 2026) ----------
     {"filename": "deepseek-v41-flash-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a secondhand electronics stall in morning light, stacked small servers and used laptops with handwritten price tags, a vendor's stool and thermos, nobody in frame",

@@ -976,6 +976,30 @@
       "status": "published",
       "filename": "articles/anthropic-econ-scenarios.html",
       "read_time": "8 min"
+    },
+    {
+      "title": "The Brakes Get Asked For",
+      "kicker": "Safety · Anthropic",
+      "dek": "Dario Amodei published “We Must Pace the Frontier” on September 12: AI is advancing too fast for risk prevention to keep up, and frontier labs should deliberately pace capability gains until alignment, security, and evaluations catch up. It is not a call to stop — it is a call to slow down on purpose, from the CEO of the lab whose own incident reports keep explaining why that might be a good idea.",
+      "author": "Propagation House",
+      "date": "2026-09-12",
+      "category": "Safety",
+      "lens": "safety",
+      "status": "published",
+      "filename": "articles/anthropic-pace-frontier.html",
+      "read_time": "9 min"
+    },
+    {
+      "title": "$10 Billion for a Seat",
+      "kicker": "Capital · Nvidia",
+      "dek": "Reuters reports Nvidia is in talks to invest up to $10 billion in Anthropic’s IPO — potentially as an anchor investor in a listing that could value the company near $2 trillion. The chip vendor is preparing to buy a permanent seat at the table of its largest customer, the same week that customer’s CEO asked the industry to slow down.",
+      "author": "Propagation House",
+      "date": "2026-09-12",
+      "category": "Capital",
+      "lens": "capital",
+      "status": "published",
+      "filename": "articles/nvidia-anthropic-ipo.html",
+      "read_time": "8 min"
     }
   ],
   "drafts": [],

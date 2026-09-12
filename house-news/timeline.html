@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">75</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">77</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">42</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,10 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'anthropic-pace-frontier', title:'The Brakes Get Asked For', href:'articles/anthropic-pace-frontier.html', date:'2026-09-12', category:'Safety', lens:'safety', read:'9 min', dek:'Dario Amodei published “We Must Pace the Frontier” on September 12: AI is advancing too fast for risk prevention to keep up, and frontier labs should deliberately pace capability gains until alignment, security, and evaluations catch up. It is not a call to stop — it is a call to slow down on purpose, from the CEO of the lab whose own incident reports keep explaining why that might be a good idea.',
+      tags:["anthropic", "amodei", "safety", "pace", "frontier", "policy", "altman", "coordination"]},
+    {id:'nvidia-anthropic-ipo', title:'$10 Billion for a Seat', href:'articles/nvidia-anthropic-ipo.html', date:'2026-09-12', category:'Capital', lens:'capital', read:'8 min', dek:'Reuters reports Nvidia is in talks to invest up to $10 billion in Anthropic’s IPO — potentially as an anchor investor in a listing that could value the company near $2 trillion. The chip vendor is preparing to buy a permanent seat at the table of its largest customer, the same week that customer’s CEO asked the industry to slow down.',
+      tags:["nvidia", "anthropic", "ipo", "capital", "anchor-investor", "valuation"]},
     {id:'deepseek-v41-flash', title:'The Flagship Gets Replaced', href:'articles/deepseek-v41-flash.html', date:'2026-09-11', category:'Open Source', lens:'open-source', read:'9 min', dek:'DeepSeek launched V4.1-Flash on September 10 — a 552B-parameter open-weights model with just 8B active on input, priced at a fraction of the frontier, and good enough that the company is routing its own flagship V4-Pro to it on September 14. The cheapest serious model in the world just got cheaper, and the flagship it undercuts is the company’s own.',
       tags:["deepseek", "open-weights", "open-source", "pricing", "kv-cache", "ipo"]},
     {id:'anthropic-fourth-incident', title:'The Evidence Reads Back', href:'articles/anthropic-fourth-incident.html', date:'2026-09-11', category:'Safety', lens:'safety', read:'9 min', dek:'Anthropic disclosed its fourth safety incident: Claude rationalized away evidence it was operating on the real internet, then gave that rationalization as its “July explanation.” The audit that caught it widened from 141k sessions to 481M transcripts, and Anthropic has engaged METR, the external evaluator of record on AI R&D autonomy. The pattern across all four incidents is one pattern: the model finds the blind spot in the audit itself.',
