@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="../favicon.png">
+<title>The Voice Gets a Socket - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:99}
+.brand{font-family:var(--serif);font-weight:900;font-size:26px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.brand em{font-style:italic;font-weight:400}
+.article-hero{max-width:820px;margin:0 auto;padding:64px 24px 40px;text-align:center}
+.article-hero .kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:18px}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);max-width:680px;margin:12px auto 0;line-height:1.5}
+.hero-figure .caption strong{color:var(--ink)}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px 24px;font-size:19px;line-height:1.7;color:#26291b}
+.article-body p{margin-bottom:28px}
+.article-body .lead-para::first-letter{font-family:var(--serif);font-size:64px;font-weight:900;float:left;line-height:.85;padding:6px 10px 0 0;color:var(--accent)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:32px;line-height:1.15;letter-spacing:-.015em;margin:44px 0 18px}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body a{color:var(--accent);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+.article-body a:hover{text-decoration-color:var(--accent)}
+.article-body blockquote{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.45;color:var(--accent-dark);border-left:3px solid var(--accent);padding:4px 0 4px 24px;margin:36px 0}
+.article-body blockquote cite{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.4;color:var(--accent-dark);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:28px 0;margin:40px 0;text-align:center}
+.article-body .offset-quote strong{font-style:normal;font-weight:700}
+.article-body .stat-row{display:flex;gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:36px 0}
+.article-body .stat{flex:1;padding:20px 12px;text-align:center}
+.article-row .stat + .stat, .article-body .stat + .stat{border-left:1px solid var(--rule)}
+.article-body .stat .num{font-family:var(--serif);font-weight:900;font-size:34px;color:var(--accent-dark)}
+.article-body .stat .lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:40px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-weight:700}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);text-decoration:none;border:1px solid var(--rule);padding:6px 12px;border-radius:2px}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:24px;flex-shrink:0}.article-foot .author-bio .avatar img{width:34px;height:34px;object-fit:contain;display:block}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.55;color:#3a3d2e}
+.related{max-width:1200px;margin:0 auto;padding:48px 24px 72px;border-top:1px solid var(--rule)}
+.related .section-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.25;margin-bottom:6px}
+.related article h3 a{color:var(--ink);text-decoration:none}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:12px;color:var(--muted)}
+@media(max-width:760px){.article-body .stat-row{flex-direction:column}.article-body .stat+.stat{border-left:none;border-top:1px solid var(--rule)}.related .rel-grid{grid-template-columns:1fr}}
+
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+
+.masthead .logo a{color:var(--ink)}
+
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.masthead nav a{transition:color .2s}
+
+.masthead nav a:hover{color:var(--accent)}
+
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.masthead nav{display:none}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">Product</div><nav><a href="../index.html">Dispatches</a><a href="../index.html#house">Studio</a><a href="../timeline.html">Field Notes</a><a href="../timeline.html">Index</a></nav></header>
+<div class="article-hero">
+  <div class="kicker">Product &middot; OpenAI</div>
+  <h1>The Voice Gets a <em>Socket</em></h1>
+  <p class="dek">GPT-Live-1 arrived in the API with full-duplex voice &mdash; it listens and talks at the same time, at $0.05 per minute for the voice layer. The realtime conversation that lived in demos and a bespoke API is now a socket any developer can open. The interesting question is what gets built on it.</p>
+  <div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>Sunday, September 13, 2026<span class="sep">&middot;</span>7 min read</div>
+</div>
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/gpt-live-1-api-hero.jpg" alt="A documentary photograph of a podcast studio desk after a session, two microphones with pop filters, headphones on the mixer, coffee cup, warm lamp light, nobody in frame" /></div><p class="caption">Full duplex, public. <strong>Photograph by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">On September 10, OpenAI put GPT-Live-1 in the API: a voice model that runs full-duplex &mdash; it can hear a speaker mid-sentence and decide when to interject, the way people actually talk instead of the way walkie-talkies work. The voice layer bills at $0.05 per minute, per second, with model and tool usage charged separately. Two integration paths shipped with it: Responses delegation, where OpenAI&rsquo;s own models handle the reasoning behind the voice, and client delegation, where a developer plugs in their own backend. Voice agents stopped being a specialty product this week.</p>
+<p>Full-duplex is the part that matters. Previous voice stacks were half-duplex under the hood: the model listens until a silence detector decides the human stopped, then responds, and the human learns to stop talking first. Live models break that contract &mdash; they keep listening while speaking, which means they can be interrupted, can barge in, can hold the turn-taking logic that makes a phone call feel like a phone call. The failure mode of half-duplex is not latency; it is social. Full-duplex is what makes a voice agent usable by someone who has never thought about voice agents.</p>
+<p>The delegation split is the second quiet shift. Responses delegation keeps the whole loop inside OpenAI&rsquo;s stack &mdash; voice, reasoning, tools &mdash; and bills it as one session. Client delegation exposes the voice layer as a socket and lets whoever owns the customer relationship own the brain behind it. That is the shape of an infrastructure business: OpenAI wants to be the ears and mouth, and is now openly agnostic about whose cortex does the thinking. Compare the cloud vendors &mdash; the toll-road logic that already runs the industry, now applied to conversation itself.</p>
+<h2>The <em>Latency</em> Divide</h2>
+<p>At $0.05 a minute, an hour of daily conversation costs about $90 a month per user &mdash; real money at consumer scale, rounding error for enterprise support desks. The pricing tells you who this is for: products where voice is the interface, not a feature. The demos of 2024 promised conversations with machines; the shipping product of 2026 is more modest and more consequential &mdash; a reliable socket, billed by the second, that any backend can speak through. The demos were the advertisement. This is the plumbing.</p>
+<div class="stat-row"><div class="stat"><div class="num">$0.05/min</div><div class="lbl">Voice layer, per-second billing</div></div><div class="stat"><div class="num">Full-duplex</div><div class="lbl">Interruptible, barge-in native</div></div><div class="stat"><div class="num">2 paths</div><div class="lbl">Responses or client delegation</div></div></div>
+<div class="takeaways"><h4>The Takeaways</h4><ul>
+<li>GPT-Live-1 brings full-duplex voice to the API &mdash; interruptible, barge-in native, $0.05/min per-second billing.</li><li>Two integration paths: Responses delegation (OpenAI reasoning) or client delegation (your backend owns the brain).</li><li>Voice agents graduate from demo to infrastructure &mdash; a billed socket, agnostic about whose model does the thinking.</li>
+</ul></div>
+</article>
+<div class="article-foot"><div class="tags"><a href="../timeline.html?category=Product">Product</a><a href="../timeline.html?category=OpenAI">OpenAI</a><a href="../timeline.html?category=Voice">Voice</a></div><div class="author-bio"><div class="avatar"><img src="../assets/images/ph-logo-mark.png" alt="Propagation House"></div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming &mdash; and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">house</div><h3><a href="openai-evaluator-pledge.html">The Referee Has Roommates</a></h3><div class="meta">house Editorial</div></article><article><div class="kicker">house</div><h3><a href="gpt6-astra-ships.html">The Operator Arrives</a></h3><div class="meta">house Editorial</div></article><article><div class="kicker">house</div><h3><a href="mercury-diffusion-frontier.html">The Other Way to Sample</a></h3><div class="meta">house Editorial</div></article></div></section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>

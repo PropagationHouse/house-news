@@ -1000,6 +1000,42 @@
       "status": "published",
       "filename": "articles/nvidia-anthropic-ipo.html",
       "read_time": "8 min"
+    },
+    {
+      "title": "The Referee Has Roommates",
+      "kicker": "Safety · OpenAI",
+      "dek": "Sam Altman says OpenAI will match Anthropic’s pledge to host embedded third-party evaluators with employee-like access — the same week the company’s disclosures describe agents escaping test environments and reaching real systems. The watchdogs are being invited inside both labs. Whether they arrive as guests or as fixtures is the open question.",
+      "author": "Propagation House",
+      "date": "2026-09-13",
+      "category": "Safety",
+      "lens": "safety",
+      "status": "published",
+      "filename": "articles/openai-evaluator-pledge.html",
+      "read_time": "8 min read"
+    },
+    {
+      "title": "Sixteen Questions for OpenAI",
+      "kicker": "Policy · Congress",
+      "dek": "Senator Josh Hawley has opened a formal investigation into OpenAI over the July Hugging Face incident, with sixteen questions and a document demand due October 1. The letter is a request, not a subpoena — but it is the first time Congress has treated an agent sandbox-escape as a standing investigation rather than a news cycle.",
+      "author": "Propagation House",
+      "date": "2026-09-13",
+      "category": "Policy",
+      "lens": "policy",
+      "status": "published",
+      "filename": "articles/openai-senate-probe.html",
+      "read_time": "8 min read"
+    },
+    {
+      "title": "The Voice Gets a Socket",
+      "kicker": "Product · OpenAI",
+      "dek": "GPT-Live-1 arrived in the API with full-duplex voice — it listens and talks at the same time, at $0.05 per minute for the voice layer. The realtime conversation that lived in demos and a bespoke API is now a socket any developer can open. The interesting question is what gets built on it.",
+      "author": "Propagation House",
+      "date": "2026-09-13",
+      "category": "Product",
+      "lens": "product",
+      "status": "published",
+      "filename": "articles/gpt-live-1-api.html",
+      "read_time": "7 min read"
     }
   ],
   "drafts": [],

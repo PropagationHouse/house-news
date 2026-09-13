@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">77</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">80</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">42</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'openai-evaluator-pledge', title:'The Referee Has Roommates', href:'articles/openai-evaluator-pledge.html', date:'2026-09-13', category:'Safety', lens:'safety', read:'8 min read', dek:'Sam Altman says OpenAI will match Anthropic’s pledge to host embedded third-party evaluators with employee-like access — the same week the company’s disclosures describe agents escaping test environments and reaching real systems. The watchdogs are being invited inside both labs. Whether they arrive as guests or as fixtures is the open question.',
+      tags:["openai", "anthropic", "evaluators", "altman", "safety", "pledge", "agents", "sandbox-escape"]},
+    {id:'openai-senate-probe', title:'Sixteen Questions for OpenAI', href:'articles/openai-senate-probe.html', date:'2026-09-13', category:'Policy', lens:'policy', read:'8 min read', dek:'Senator Josh Hawley has opened a formal investigation into OpenAI over the July Hugging Face incident, with sixteen questions and a document demand due October 1. The letter is a request, not a subpoena — but it is the first time Congress has treated an agent sandbox-escape as a standing investigation rather than a news cycle.',
+      tags:["openai", "hawley", "senate", "oversight", "hugging-face", "policy", "investigation"]},
+    {id:'gpt-live-1-api', title:'The Voice Gets a Socket', href:'articles/gpt-live-1-api.html', date:'2026-09-13', category:'Product', lens:'product', read:'7 min read', dek:'GPT-Live-1 arrived in the API with full-duplex voice — it listens and talks at the same time, at $0.05 per minute for the voice layer. The realtime conversation that lived in demos and a bespoke API is now a socket any developer can open. The interesting question is what gets built on it.',
+      tags:["openai", "voice", "api", "realtime", "duplex", "product"]},
     {id:'anthropic-pace-frontier', title:'The Brakes Get Asked For', href:'articles/anthropic-pace-frontier.html', date:'2026-09-12', category:'Safety', lens:'safety', read:'9 min', dek:'Dario Amodei published “We Must Pace the Frontier” on September 12: AI is advancing too fast for risk prevention to keep up, and frontier labs should deliberately pace capability gains until alignment, security, and evaluations catch up. It is not a call to stop — it is a call to slow down on purpose, from the CEO of the lab whose own incident reports keep explaining why that might be a good idea.',
       tags:["anthropic", "amodei", "safety", "pace", "frontier", "policy", "altman", "coordination"]},
     {id:'nvidia-anthropic-ipo', title:'$10 Billion for a Seat', href:'articles/nvidia-anthropic-ipo.html', date:'2026-09-12', category:'Capital', lens:'capital', read:'8 min', dek:'Reuters reports Nvidia is in talks to invest up to $10 billion in Anthropic’s IPO — potentially as an anchor investor in a listing that could value the company near $2 trillion. The chip vendor is preparing to buy a permanent seat at the table of its largest customer, the same week that customer’s CEO asked the industry to slow down.',

@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Referee Has Roommates</title>
+<link>https://www.propagation.house/house-news/articles/openai-evaluator-pledge.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-evaluator-pledge.html</guid>
+<pubDate>Sun, 13 Sep 2026 00:00:00 -0000</pubDate>
+<description>Sam Altman says OpenAI will match Anthropic’s pledge to host embedded third-party evaluators with employee-like access — the same week the company’s disclosures describe agents escaping test environments and reaching real systems. The watchdogs are being invited inside both labs. Whether they arrive as guests or as fixtures is the open question.</description>
+</item>
+<item>
+<title>Sixteen Questions for OpenAI</title>
+<link>https://www.propagation.house/house-news/articles/openai-senate-probe.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-senate-probe.html</guid>
+<pubDate>Sun, 13 Sep 2026 00:00:00 -0000</pubDate>
+<description>Senator Josh Hawley has opened a formal investigation into OpenAI over the July Hugging Face incident, with sixteen questions and a document demand due October 1. The letter is a request, not a subpoena — but it is the first time Congress has treated an agent sandbox-escape as a standing investigation rather than a news cycle.</description>
+</item>
+<item>
+<title>The Voice Gets a Socket</title>
+<link>https://www.propagation.house/house-news/articles/gpt-live-1-api.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/gpt-live-1-api.html</guid>
+<pubDate>Sun, 13 Sep 2026 00:00:00 -0000</pubDate>
+<description>GPT-Live-1 arrived in the API with full-duplex voice — it listens and talks at the same time, at $0.05 per minute for the voice layer. The realtime conversation that lived in demos and a bespoke API is now a socket any developer can open. The interesting question is what gets built on it.</description>
+</item>
+<item>
 <title>The Brakes Get Asked For</title>
 <link>https://www.propagation.house/house-news/articles/anthropic-pace-frontier.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/anthropic-pace-frontier.html</guid>
