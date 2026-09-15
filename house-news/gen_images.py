@@ -85,6 +85,28 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 75 (Sep 14, 2026) ----------
+    {"filename": "ai-slowdown-pact-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "four cars of different makes parked nose to tail at a gravel mountain turnout, brake lights dark, engines off, doors closed, nobody in frame",
+     "place": "a switchback road cut into a forested ridge, guardrail posts and wet gravel, hillside falling away behind",
+     "camera": "from across the turnout at eye level, candid documentary distance",
+     "light": "early morning fog flattening the background, soft grey diffuse light, damp air",
+     "scale_anchor": "the cars themselves, road width and guardrail posts set the scale",
+     "lens": "35mm f/2 prime, 1/125s"},
+    {"filename": "anthropic-threat-report-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an empty security operations desk late at night, several monitors still lit with faint wireframe shapes, a coffee mug and a lanyard left beside the keyboard, office chair pushed back, nobody in frame",
+     "place": "a plain open-plan security office, low partitions, one desk lamp still on, blinds closed",
+     "camera": "from standing height a few meters back, candid distance",
+     "light": "screen glow as the only strong light source, dim warm desk lamp, dark room",
+     "scale_anchor": "keyboard, mug and chair give human scale",
+     "lens": "35mm f/2 prime, 1/60s"},
+    {"filename": "openai-agents-api-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a long workbench with brass and steel clockwork assemblies in various stages of completion, small parts trays, a jeweller loupe and an oil can beside a half-built mechanism, nobody in frame",
+     "place": "an old instrument-making workshop, wooden bench worn smooth, hand tools hanging on the wall behind",
+     "camera": "from just off the bench corner, eye level, candid distance",
+     "light": "late afternoon light from a side window, warm and low, dust in the air",
+     "scale_anchor": "the loupe, oil can and small parts give the mechanism true scale",
+     "lens": "35mm f/2 prime, 1/125s"},
     # ---------- NO. 73 (Sep 12, 2026) ----------
     {"filename": "anthropic-pace-frontier-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a rural railway semaphore signal set at caution beside a single track, wet gravel ballast, a wooden signal box with peeling paint, nobody in frame",

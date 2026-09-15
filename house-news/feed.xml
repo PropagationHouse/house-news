@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Brakes Find Company</title>
+<link>https://www.propagation.house/house-news/articles/ai-slowdown-pact.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/ai-slowdown-pact.html</guid>
+<pubDate>Mon, 14 Sep 2026 00:00:00 -0000</pubDate>
+<description>Within a day of Dario Amodei’s call to pace the frontier, Sam Altman backed it, Elon Musk endorsed it, and Demis Hassabis concurred — four rivals converging on the same sentence for the first time in the race’s history. Markets read the pact as a ceiling and repriced accordingly. Coordination has a price, and now everyone can see the ticker.</description>
+</item>
+<item>
+<title>The Adversary File</title>
+<link>https://www.propagation.house/house-news/articles/anthropic-threat-report.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/anthropic-threat-report.html</guid>
+<pubDate>Mon, 14 Sep 2026 00:00:00 -0000</pubDate>
+<description>Anthropic’s threat intelligence report catalogues two years of real-world misuse: Russian state-aligned hackers running reconnaissance against Ukraine, an Iranian campaign aimed at US naval forces, and — for the first time in print — rival AI companies named as industrial-scale distillers. Naming DeepSeek, Moonshot, and MiniMax turns a safety report into a geopolitical document.</description>
+</item>
+<item>
+<title>The Harness Becomes the Product</title>
+<link>https://www.propagation.house/house-news/articles/openai-agents-api.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-agents-api.html</guid>
+<pubDate>Mon, 14 Sep 2026 00:00:00 -0000</pubDate>
+<description>OpenAI’s Agents API enters public beta: the harness behind Codex — persistent sessions, tool orchestration, multi-agent coordination — packaged as a managed product. The lab that taught developers to prompt is now selling them the scaffolding. Every agent framework startup just got a term sheet from the platform itself.</description>
+</item>
+<item>
 <title>The Referee Has Roommates</title>
 <link>https://www.propagation.house/house-news/articles/openai-evaluator-pledge.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-evaluator-pledge.html</guid>

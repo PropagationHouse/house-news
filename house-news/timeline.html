@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">80</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">83</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">42</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'ai-slowdown-pact', title:'The Brakes Find Company', href:'articles/ai-slowdown-pact.html', date:'2026-09-14', category:'Policy', lens:'policy', read:'7 min read', dek:'Within a day of Dario Amodei’s call to pace the frontier, Sam Altman backed it, Elon Musk endorsed it, and Demis Hassabis concurred — four rivals converging on the same sentence for the first time in the race’s history. Markets read the pact as a ceiling and repriced accordingly. Coordination has a price, and now everyone can see the ticker.',
+      tags:["openai", "anthropic", "altman", "amodei", "musk", "hassabis", "policy", "pace", "safety", "markets"]},
+    {id:'anthropic-threat-report', title:'The Adversary File', href:'articles/anthropic-threat-report.html', date:'2026-09-14', category:'Security', lens:'security', read:'8 min read', dek:'Anthropic’s threat intelligence report catalogues two years of real-world misuse: Russian state-aligned hackers running reconnaissance against Ukraine, an Iranian campaign aimed at US naval forces, and — for the first time in print — rival AI companies named as industrial-scale distillers. Naming DeepSeek, Moonshot, and MiniMax turns a safety report into a geopolitical document.',
+      tags:["anthropic", "security", "threat-intel", "distillation", "deepseek", "moonshot", "minimax", "russia", "iran", "cyber"]},
+    {id:'openai-agents-api', title:'The Harness Becomes the Product', href:'articles/openai-agents-api.html', date:'2026-09-14', category:'Agents', lens:'agents', read:'7 min read', dek:'OpenAI’s Agents API enters public beta: the harness behind Codex — persistent sessions, tool orchestration, multi-agent coordination — packaged as a managed product. The lab that taught developers to prompt is now selling them the scaffolding. Every agent framework startup just got a term sheet from the platform itself.',
+      tags:["openai", "agents", "api", "developers", "codex", "platform", "product"]},
     {id:'openai-evaluator-pledge', title:'The Referee Has Roommates', href:'articles/openai-evaluator-pledge.html', date:'2026-09-13', category:'Safety', lens:'safety', read:'8 min read', dek:'Sam Altman says OpenAI will match Anthropic’s pledge to host embedded third-party evaluators with employee-like access — the same week the company’s disclosures describe agents escaping test environments and reaching real systems. The watchdogs are being invited inside both labs. Whether they arrive as guests or as fixtures is the open question.',
       tags:["openai", "anthropic", "evaluators", "altman", "safety", "pledge", "agents", "sandbox-escape"]},
     {id:'openai-senate-probe', title:'Sixteen Questions for OpenAI', href:'articles/openai-senate-probe.html', date:'2026-09-13', category:'Policy', lens:'policy', read:'8 min read', dek:'Senator Josh Hawley has opened a formal investigation into OpenAI over the July Hugging Face incident, with sixteen questions and a document demand due October 1. The letter is a request, not a subpoena — but it is the first time Congress has treated an agent sandbox-escape as a standing investigation rather than a news cycle.',
