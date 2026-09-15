@@ -85,6 +85,28 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 76 (Sep 15, 2026) ----------
+    {"filename": "eu-under15-ban-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a row of locked phone pouches hanging on a wall-mounted shelf beside a school entrance door, a few coats on hooks below, morning light falling across the empty corridor, nobody in frame",
+     "place": "a Brussels school entrance corridor, pale plaster walls, worn tile floor, tall windows with overcast light",
+     "camera": "from down the corridor at eye level, candid documentary distance",
+     "light": "soft overcast morning light through tall windows, muted and diffuse",
+     "scale_anchor": "door height, coat hooks and pouch size set the scale",
+     "lens": "35mm f/2 prime, 1/125s"},
+    {"filename": "germany-ai-not-viable-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a stately nineteenth-century government ministry facade with tall windows and a flagpole, a row of bicycles chained at the curb, a single official walking toward a side entrance, seen from across the street",
+     "place": "a Berlin ministry street on an overcast weekday morning, wet asphalt, plane trees just starting to turn",
+     "camera": "from across the street at eye level, candid documentary distance",
+     "light": "flat grey overcast light, soft shadows, muted earth tones",
+     "scale_anchor": "door height, bicycles and street width set the scale",
+     "lens": "35mm f/2 prime, 1/250s"},
+    {"filename": "nvidia-tsmc-fab-ai-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a vast semiconductor fabrication floor seen through cleanroom glass, receding rows of enormous lithography machines, two gowned workers small in the frame walking between the tools, overhead amber safety lighting mixing with cool white",
+     "place": "a leading-edge chip fab interior, raised-floor grid, ceiling process lines, deep perspective",
+     "camera": "from the viewing gallery through the glass, standing height, candid distance",
+     "light": "cool white cleanroom light with amber accent strips, deep even illumination",
+     "scale_anchor": "the gowned workers and tool size set the scale",
+     "lens": "35mm f/2 prime, 1/60s"},
     # ---------- NO. 75 (Sep 14, 2026) ----------
     {"filename": "ai-slowdown-pact-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "four cars of different makes parked nose to tail at a gravel mountain turnout, brake lights dark, engines off, doors closed, nobody in frame",

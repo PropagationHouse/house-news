@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">83</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">86</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">42</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">5</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'eu-under15-ban', title:'Brussels Draws the Line at Fifteen', href:'articles/eu-under15-ban.html', date:'2026-09-14', category:'Policy', lens:'policy', read:'6 min read', dek:'The European Commission will propose banning social media, video platforms, AI chatbots, and online games for children under fifteen — a tiered-age draft that puts chatbots behind the same gate as feeds. For the first time a regulator is treating conversation with a model as something a child needs protecting from, and the industry’s fastest-growing interface inherits the strictest rules yet.',
+      tags:["eu", "commission", "policy", "under-15", "chatbots", "social-media", "age-verification", "kids-act", "regulation"]},
+    {id:'germany-ai-not-viable', title:'The Brakes Meet Sovereignty', href:'articles/germany-ai-not-viable.html', date:'2026-09-14', category:'Policy', lens:'policy', read:'5 min read', dek:'Days after four lab chiefs asked the industry to slow down, Germany’s digital ministry answered in writing: halting AI development is not viable for Europe, and any governance that matters will need Washington and Beijing at the table. The brakes have met their first sovereign objection — and it comes from inside the coalition asking for them.',
+      tags:["germany", "sovereignty", "g7", "policy", "safety", "slowdown", "us", "china", "governance"]},
+    {id:'nvidia-tsmc-fab-ai', title:'The Fab Learns to Think', href:'articles/nvidia-tsmc-fab-ai.html', date:'2026-09-14', category:'Compute', lens:'compute', read:'5 min read', dek:'Nvidia and TSMC announced that the fabs building AI chips will now run on them: lithography, process control, scheduling, and nanometer-scale inspection all move onto Nvidia’s accelerated stack, with claimed gains of 20 to 50 percent on the most expensive step. The supply chain for intelligence just became a customer of its own product — a loop with no visible exit.',
+      tags:["nvidia", "tsmc", "fabs", "lithography", "culitho", "manufacturing", "omniverse", "fabtwin", "compute"]},
     {id:'ai-slowdown-pact', title:'The Brakes Find Company', href:'articles/ai-slowdown-pact.html', date:'2026-09-14', category:'Policy', lens:'policy', read:'7 min read', dek:'Within a day of Dario Amodei’s call to pace the frontier, Sam Altman backed it, Elon Musk endorsed it, and Demis Hassabis concurred — four rivals converging on the same sentence for the first time in the race’s history. Markets read the pact as a ceiling and repriced accordingly. Coordination has a price, and now everyone can see the ticker.',
       tags:["openai", "anthropic", "altman", "amodei", "musk", "hassabis", "policy", "pace", "safety", "markets"]},
     {id:'anthropic-threat-report', title:'The Adversary File', href:'articles/anthropic-threat-report.html', date:'2026-09-14', category:'Security', lens:'security', read:'8 min read', dek:'Anthropic’s threat intelligence report catalogues two years of real-world misuse: Russian state-aligned hackers running reconnaissance against Ukraine, an Iranian campaign aimed at US naval forces, and — for the first time in print — rival AI companies named as industrial-scale distillers. Naming DeepSeek, Moonshot, and MiniMax turns a safety report into a geopolitical document.',
