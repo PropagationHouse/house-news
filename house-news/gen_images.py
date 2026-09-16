@@ -715,6 +715,28 @@ IMAGES = [
      "light": "cool morning light through high windows, bench lamps warm against it",
      "scale_anchor": "the microscope and sample vials give true bench scale, the aisle making the room obvious",
      "lens": "35mm f/2.8 prime, 1/125s"},
+    # --- No. 77 (Sep 16, 2026): lane B documentary heroes, no people close in frame ---
+    {"filename": "ai-safety-standards-body-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "two stacks of printed evaluation reports side by side on a plain wooden table, a steel ruler lying between them",
+     "place": "a plain meeting room in an older government-adjacent building, radiator under the window, coat hook on the door",
+     "camera": "from across the table at seated eye level, candid distance, no people",
+     "light": "soft overcast window light, papers evenly lit, no shadows",
+     "scale_anchor": "the ruler and a coffee mug give true table scale, the door frame making the room obvious",
+     "lens": "35mm f/2.8 prime, 1/125s"},
+    {"filename": "openai-firmus-malaysia-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a vast data center construction site in tropical haze, steel frame lattice rising from red earth, a tower crane parked beside it",
+     "place": "a graded red-earth site ringed by palm rows, a water pond in the near foreground, guard fence along the access road",
+     "camera": "from across the access road, eye level, wide framing, no close faces",
+     "light": "golden hour haze, warm side light on the steel, palm shadows long",
+     "scale_anchor": "the fence line and a single site hut give ground scale, the crane making the structure's size obvious",
+     "lens": "35mm f/2.8 prime, 1/125s"},
+    {"filename": "anthropic-lambda-compute-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an industrial electrical substation yard at dusk, transformer rows and cable trays receding in perspective, gauge panel on a fence post",
+     "place": "a gravel yard beside a chain-link fence, wet gravel after rain, sodium vapor lamp overhead",
+     "camera": "from outside the fence, eye level, candid distance, no people",
+     "light": "dusk blue hour with one sodium vapor lamp lit, faint amber reflection on wet gravel",
+     "scale_anchor": "the chain-link fence and gauge panel give true yard scale, transformer rows receding",
+     "lens": "35mm f/2.8 prime, 1/125s"},
 ]
 
 def copy_approved(entry, output_path, dry_run=False):

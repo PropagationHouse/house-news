@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Labs Write It Down</title>
+<link>https://www.propagation.house/house-news/articles/ai-safety-standards-body.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/ai-safety-standards-body.html</guid>
+<pubDate>Wed, 16 Sep 2026 00:00:00 -0000</pubDate>
+<description>OpenAI says it is working with Anthropic and Google DeepMind on cross-lab safety evaluation - a pilot where each lab tested the other's released models already happened this summer. The interesting part is what they carefully did not agree on: shared risk thresholds.</description>
+</item>
+<item>
+<title>A Factory for the Border</title>
+<link>https://www.propagation.house/house-news/articles/openai-firmus-malaysia.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-firmus-malaysia.html</guid>
+<pubDate>Wed, 16 Sep 2026 00:00:00 -0000</pubDate>
+<description>OpenAI's first Southeast Asian compute deal puts anchor-customer weight behind two Firmus AI factory sites in Malaysia, lifting Firmus past 900 megawatts contracted. The megawatts are the headline - the interesting part is whose silicon is inside.</description>
+</item>
+<item>
+<title>The Rent Comes Due</title>
+<link>https://www.propagation.house/house-news/articles/anthropic-lambda-compute.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/anthropic-lambda-compute.html</guid>
+<pubDate>Wed, 16 Sep 2026 00:00:00 -0000</pubDate>
+<description>Anthropic's reported $35 billion commitment to Lambda locks in years of Nvidia capacity through a third party - which means the frontier lab's cloud bill now has a landlord with a balance sheet.</description>
+</item>
+<item>
 <title>Brussels Draws the Line at Fifteen</title>
 <link>https://www.propagation.house/house-news/articles/eu-under15-ban.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/eu-under15-ban.html</guid>

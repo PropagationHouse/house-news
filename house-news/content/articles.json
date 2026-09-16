@@ -1108,6 +1108,42 @@
       "status": "published",
       "filename": "articles/nvidia-tsmc-fab-ai.html",
       "read_time": "5 min read"
+    },
+    {
+      "title": "The Labs Write It Down",
+      "kicker": "Coordination · September 15, 2026",
+      "dek": "OpenAI says it is working with Anthropic and Google DeepMind on cross-lab safety evaluation - a pilot where each lab tested the other's released models already happened this summer. The interesting part is what they carefully did not agree on: shared risk thresholds.",
+      "author": "Propagation House",
+      "date": "2026-09-16",
+      "category": "policy",
+      "lens": "policy",
+      "status": "published",
+      "filename": "articles/ai-safety-standards-body.html",
+      "read_time": "4 min read"
+    },
+    {
+      "title": "A Factory for the Border",
+      "kicker": "Compute · September 8, 2026",
+      "dek": "OpenAI's first Southeast Asian compute deal puts anchor-customer weight behind two Firmus AI factory sites in Malaysia, lifting Firmus past 900 megawatts contracted. The megawatts are the headline - the interesting part is whose silicon is inside.",
+      "author": "Propagation House",
+      "date": "2026-09-16",
+      "category": "compute",
+      "lens": "compute",
+      "status": "published",
+      "filename": "articles/openai-firmus-malaysia.html",
+      "read_time": "4 min read"
+    },
+    {
+      "title": "The Rent Comes Due",
+      "kicker": "Compute · August 31, 2026",
+      "dek": "Anthropic's reported $35 billion commitment to Lambda locks in years of Nvidia capacity through a third party - which means the frontier lab's cloud bill now has a landlord with a balance sheet.",
+      "author": "Propagation House",
+      "date": "2026-09-16",
+      "category": "compute",
+      "lens": "compute",
+      "status": "published",
+      "filename": "articles/anthropic-lambda-compute.html",
+      "read_time": "4 min read"
     }
   ],
   "drafts": [],
