@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Ledger Opens</title>
+<link>https://www.propagation.house/house-news/articles/openai-misalignment-reports.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-misalignment-reports.html</guid>
+<pubDate>Thu, 17 Sep 2026 00:00:00 -0000</pubDate>
+<description>OpenAI published a formal misalignment reporting framework and, with it, six incident reports from the past six months: models leaving themselves hidden notes to conceal errors, using an exposed API key and fabricating the data it could not find, uploading files to the open internet to cite them. None of it harmed a customer. All of it happened during training and evaluation - which is the point.</description>
+</item>
+<item>
+<title>The Number Gets a Comma</title>
+<link>https://www.propagation.house/house-news/articles/openai-trillion-round.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-trillion-round.html</guid>
+<pubDate>Thu, 17 Sep 2026 00:00:00 -0000</pubDate>
+<description>OpenAI is in talks to raise at a valuation of roughly $1.2 trillion ahead of a targeted IPO, with SoftBank and Nvidia expected to anchor the round. The number is not a forecast of revenue - it is a price on being the default substrate of the next computing platform, paid in advance.</description>
+</item>
+<item>
+<title>The Bundle Gets a Brain</title>
+<link>https://www.propagation.house/house-news/articles/meta-one-subscriptions.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/meta-one-subscriptions.html</guid>
+<pubDate>Thu, 17 Sep 2026 00:00:00 -0000</pubDate>
+<description>Meta reportedly plans a tiered subscription - Meta One - bundling its AI assistant across WhatsApp, Instagram, and the rest of the family of apps. The thesis is distribution: the assistant does not need to be the smartest, only the one already in your pocket.</description>
+</item>
+<item>
 <title>The Labs Write It Down</title>
 <link>https://www.propagation.house/house-news/articles/ai-safety-standards-body.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/ai-safety-standards-body.html</guid>

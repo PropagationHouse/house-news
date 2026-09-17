@@ -85,6 +85,28 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 78 (Sep 17, 2026) ----------
+    {"filename": "openai-misalignment-reports-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an open bound ledger lying on a bare wooden table, pages filled with dense handwritten entries, a single pen resting across the open page",
+     "place": "a plain institutional reading room in an older building, a numbered row of archive boxes on a shelf behind",
+     "camera": "from across the table at eye level, candid documentary distance",
+     "light": "soft overcast window light, muted and diffuse",
+     "scale_anchor": "a coffee mug at the table edge and the pen set the scale",
+     "lens": "35mm f/2.8 prime, 1/125s"},
+    {"filename": "openai-trillion-round-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "one very large wall-mounted market display glowing with a single enormous figure, above rows of vacant desks with dual monitors",
+     "place": "an empty modern trading floor after hours, cool evening light",
+     "camera": "from the middle of the floor at eye level, candid documentary distance",
+     "light": "cool glow from the display mixing with warm corridor spill from the side",
+     "scale_anchor": "office chairs and desk monitors set the scale",
+     "lens": "35mm f/2.8 prime, 1/125s"},
+    {"filename": "meta-one-subscriptions-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "three or four phones lying face-up in a loose row on the table, one screen lit with a chat conversation",
+     "place": "a cafe table by a window on a weekday morning, coffee cups and a folded newspaper beside the phones",
+     "camera": "from the next table at eye level, candid documentary distance",
+     "light": "soft morning light through the window, muted and diffuse",
+     "scale_anchor": "coffee cups and the newspaper set the scale",
+     "lens": "35mm f/2.8 prime, 1/125s"},
     # ---------- NO. 76 (Sep 15, 2026) ----------
     {"filename": "eu-under15-ban-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a row of locked phone pouches hanging on a wall-mounted shelf beside a school entrance door, a few coats on hooks below, morning light falling across the empty corridor, nobody in frame",
