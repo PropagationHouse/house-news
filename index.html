@@ -182,6 +182,12 @@ img{max-width:100%;display:block}
 .mm-grid .mm-card h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
 .mm-grid .mm-card .dek{font-size:13px;color:#4a4d3e;line-height:1.45}
 .mm-grid .mm-card .client{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+a.mm-card-link{display:block;color:inherit;text-decoration:none;transition:background .15s}
+a.mm-card-link:hover{background:rgba(75,83,32,.05)}
+a.mm-card-link h3{border-bottom:1px solid transparent;display:inline-block;transition:border-color .15s}
+a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
+.mm-jump{display:inline-block;margin-top:14px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px}
+.mm-jump:hover{color:var(--ink);border-bottom-color:var(--ink)}
 
 /* MERCH STRIP */
 
@@ -619,20 +625,21 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   <div class="feature-text">
     <div class="kicker">Selected Work &middot; Spatial / 3D</div>
     <h2>The Work That Got Us <em>Here</em></h2>
-    <p class="dek">Spatial retail environments, spatial audio studies, 3D environments. The practice started in physical space &mdash; and it still shapes how we build software today.</p>
+    <p class="dek">Walmart Unlimited: a three-part shoppable series with Martian Blueberry &amp; Spatial &mdash; a multi-level commerce hub inside the game, real products on its shelves. 750,000+ players, a 5.4% conversion rate, zero installs.</p>
     <div class="pull-quote">&ldquo;We didn&rsquo;t start in software. We started in physical space.&rdquo;</div>
     <div class="byline">By <strong>Propagation House</strong></div>
+    <a class="mm-jump" href="/journal/walmart-unlimited.html">Read the journal &rarr;</a>
   </div>
-  <div class="feature-visual"></div>
+  <div class="feature-visual"><img src="house-news/assets/images/walmart-hub-feature.jpg" alt="The Walmart Unlimited commerce hub on Spatial — product shelves in the three-dimensional shopping space"></div>
 </section>
 
 <section class="mm-grid">
-  <div class="mm-card">
-    <div class="kicker">Installation &middot; 2024</div>
-    <h3>Spatial Retail</h3>
-    <p class="dek">Immersive retail environments built for global brands. Space as experience, not just footprint.</p>
-    <div class="client">Walmart &middot; Leia Inc</div>
-  </div>
+  <a class="mm-card mm-card-link" href="/journal/walmart-unlimited.html">
+    <div class="kicker">Case Study &middot; 2024&ndash;25</div>
+    <h3>Walmart Unlimited</h3>
+    <p class="dek">The first shoppable commerce hub on Spatial, built with Martian Blueberry &amp; Pigiama Kasama. Episode three drew 1M+ players.</p>
+    <div class="client">Walmart &middot; Martian Blueberry &middot; Spatial</div>
+  </a>
   <div class="mm-card">
     <div class="kicker">Research &middot; Ongoing</div>
     <h3>Spatial Audio</h3>
