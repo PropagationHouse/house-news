@@ -393,13 +393,10 @@ IMAGES = [
      "subject": "an open reference book with pages of dense tables lying flat on a wooden table, a stack of duplicated photocopy pages fanned beside it, a magnifying glass resting on the open page",
      "detail": "the photocopied pages fanned beside the book"},
     # ---------- NO. 64 (Sep 3, 2026) ----------
-    {"filename": "walmart-unlimited-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
-     "subject": "a smartphone propped against a coffee mug on a wooden kitchen table, its screen showing a bright stylized shopping game, an open notebook and pencil beside it",
-     "place": "a home kitchen table in the morning",
-     "camera": "close framing across the table surface",
-     "light": "soft morning window light from the left",
-     "scale_anchor": "the mug and pencil make the phone's size obvious",
-     "lens": "50mm f/2 prime, 1/60s"},
+    # [RETIRED Sep 19, 2026] walmart-unlimited-hero.jpg (kitchen-table render) replaced by
+    # user-provided real assets: milo-animation-frame.jpg + michael-parkour-bellingham.jpg
+    # (journal/walmart-unlimited.html hero + parkour figure). Old render deleted from repo.
+
     # ---------- NO. 64 (Sep 3, 2026) ----------
         {"filename": "nvidia-hugging-face-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a community pinboard thick with layered flyers, index cards and handwritten notes, staples and old pinholes everywhere, one newer printed card pinned dead-center with a corporate logo on it",
