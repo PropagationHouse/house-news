@@ -57,6 +57,29 @@ body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:n
 .jbody .jfig{margin:36px 0}
 .jbody .jfig img{width:100%;height:auto;display:block;border:1px solid var(--rule)}
 .jbody .jfig figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:8px;text-transform:uppercase}
+/* varied text wraps */
+.jbody h2{clear:both}
+.jfig.w-r{float:right;width:46%;margin:8px 0 18px 30px}
+.jfig.w-l{float:left;width:46%;margin:8px 30px 18px 0}
+.jfig.w-sq{float:right;width:34%;margin:8px 0 18px 30px}
+.jfig.w-full{float:none;width:100%;margin:40px 0;clear:both}
+.jfig img,.jhero-img img{cursor:zoom-in}
+.jfig img{transition:transform .25s ease,box-shadow .25s ease}
+.jfig img:hover{transform:scale(1.015);box-shadow:0 10px 28px rgba(26,29,18,.18)}
+.jfig figcaption .jh{opacity:.55;text-transform:none;letter-spacing:.04em}
+@media (max-width:720px){.jfig.w-r,.jfig.w-l,.jfig.w-sq{float:none;width:100%;margin:30px 0}}
+/* lightbox */
+.jlb{position:fixed;inset:0;background:rgba(20,22,14,.94);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:999;padding:30px}
+.jlb.open{display:flex}
+.jlb img{max-width:92vw;max-height:80vh;width:auto;height:auto;border:1px solid rgba(246,241,226,.25);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.jlb-cap{color:#f6f1e2;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-top:16px;text-align:center;max-width:760px}
+.jlb-count{color:rgba(246,241,226,.5);font-size:11px;letter-spacing:.2em;margin-top:6px}
+.jlb-btn{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(246,241,226,.3);color:#f6f1e2;font-size:22px;width:46px;height:46px;cursor:pointer;border-radius:50%;transition:background .2s}
+.jlb-btn:hover{background:rgba(246,241,226,.12)}
+.jlb-prev{left:24px}.jlb-next{right:24px}
+.jlb-x{position:absolute;top:18px;right:24px;background:none;border:none;color:rgba(246,241,226,.7);font-size:30px;cursor:pointer;line-height:1}
+.jlb-x:hover{color:#f6f1e2}
+@media (max-width:720px){.jlb-btn{width:38px;height:38px;font-size:18px}.jlb-prev{left:8px}.jlb-next{right:8px}}
 
 .jpress{margin:56px 0 0;border-top:3px double var(--ink);padding-top:26px}
 .jpress .jp-head{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink);margin-bottom:18px}
@@ -104,31 +127,31 @@ body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:n
     <h2>The series, the store, the voices</h2>
 <p>Walmart asked it out loud, with Martian Blueberry &mdash; the animation studio behind <em>The Boondocks</em> &mdash; at the table, Pigiama Kasama building the game, Spatial hosting the world, and us designing the part that turned players into shoppers. The pitch landed as <em>Walmart Unlimited</em>: a three-part shoppable miniseries where the message underneath everything was the same &mdash; when we claim our power &amp; use our voice, we are all unlimited.</p>
 <p style="font-size:13px;margin:36px 0 0"><a href="/journal/walmart-unlimited-deck.html" style="color:var(--olive);text-decoration:underline;text-underline-offset:3px">The full project-review deck is hosted here, slide by slide.</a></p>
-<figure class="jfig"><img src="../assets/images/wmt-deck/slide-02.jpg" alt="The Walmart Unlimited series overview slide: three episodes, three characters, three brands" width="1600"><figcaption>From the project review deck: the series in one frame.</figcaption></figure>
+<figure class="jfig w-r"><img src="../assets/images/wmt-deck/slide-02.jpg" alt="The Walmart Unlimited series overview slide: three episodes, three characters, three brands" width="1600"><figcaption>From the project review deck: the series in one frame.</figcaption></figure>
 <p>Each episode followed a playable character voiced by someone real from the Spatial community. Milo opened the run, voiced by our own founder Michael Blackstone &mdash; the studio&rsquo;s founder is a character inside its biggest campaign, which is the kind of detail you cannot script. Alongside him, A Dozen Cousins founder Ibraheem Basir voiced himself. Raya (Hawa Camara) carried episode two into Luna Magic&rsquo;s world; Jabari (Travis Rice) took episode three into Young Kings Haircare. Scenes and characters animated by Martian Blueberry. Three episodes, three brand cameos, three people who actually exist, acting inside a Fortune 50 store.</p>
 <p>Milo carries a piece of the house most people never see. Voiced by our founder &mdash; and built from him: the rooftop run in episode one, jumping building to building over the city, is Michael Blackstone&rsquo;s own past written into the character. Years of parkour in Bellingham before the studio &mdash; real roofs, real gaps. When Milo leaps, there is muscle memory under the keyframes.</p>
-<figure class="jfig"><img src="../house-news/assets/images/michael-parkour-bellingham.jpg" alt="Archive photo: Michael Blackstone mid-jump between rooftops in Bellingham, WA" width="1600"><figcaption>The founder, mid-jump, Bellingham &mdash; the reference under Milo&rsquo;s rooftop run.</figcaption></figure>
+<figure class="jfig w-l"><img src="../house-news/assets/images/michael-parkour-bellingham.jpg" alt="Archive photo: Michael Blackstone mid-jump between rooftops in Bellingham, WA" width="1600"><figcaption>The founder, mid-jump, Bellingham &mdash; the reference under Milo&rsquo;s rooftop run.</figcaption></figure>
 
     <h2>A hub, not a store</h2>
 <p>Our role sat at the end of the game, and it was not an afterthought &mdash; it was the first shoppable commerce hub ever built on Spatial. When Milo&rsquo;s Brooklyn journey wrapped, the world opened into a market bazaar instead of a credits screen: narrative completion flowing straight into product discovery, shopping feeling like an earned destination rather than an interruption. The game was never a brochure for shopping. It was shopping, welded to the story that got you there.</p>
-<figure class="jfig"><img src="../assets/images/wmt-deck/slide-03.jpg" alt="The first-ever shoppable commerce hub on Spatial, built for Walmart Unlimited" width="1600"><figcaption>Our lane: the first-ever shoppable commerce hub on Spatial.</figcaption></figure>
+<figure class="jfig w-sq"><img src="../assets/images/wmt-deck/slide-03.jpg" alt="The first-ever shoppable commerce hub on Spatial, built for Walmart Unlimited" width="1600"><figcaption>Our lane: the first-ever shoppable commerce hub on Spatial.</figcaption></figure>
 <p>The hub earned its keep in the details. A hand-drawn chalkboard menu for A Dozen Cousins &mdash; with DOPE Coffee&rsquo;s Ethiopian Drip worked into the board like the stall had always sold it. Modular walls and windows that let the same bones re-dress for each episode&rsquo;s featured brand. Interactive displays with individualized framing, lighting and interior themes. Hero products front and center, companion brands set around the room like stalls in a real market, each keeping its own colors and context. We wanted every asset to feel distinctively human &mdash; the opposite of the clinical, futuristic showroom 3D retail usually reaches for.</p>
-<figure class="jfig"><img src="../assets/images/wmt-deck/slide-06.jpg" alt="Commerce as a storytelling continuation: the design focus slide" width="1600"><figcaption>Commerce as a storytelling continuation, not an interruption.</figcaption></figure>
+<figure class="jfig w-l"><img src="../assets/images/wmt-deck/slide-06.jpg" alt="Commerce as a storytelling continuation: the design focus slide" width="1600"><figcaption>Commerce as a storytelling continuation, not an interruption.</figcaption></figure>
 <p>Navigation did the selling. Instead of a product grid, we built discovery zones that reward curiosity: players collect Walmart &ldquo;sparks&rdquo; scattered through the space, and the sparks gently pull them past every featured display. Contextual product zones reference key moments from the episode you just played, so the shelf you are inspecting is a callback, not an ad. Atmospheric sound, light rays, and portals between episode shops kept momentum flowing from gameplay conclusion to product discovery without a single friction point we could find and kill.</p>
-<figure class="jfig"><img src="../assets/images/wmt-deck/slide-09.jpg" alt="The user flow slide: entry portals, sparks, product discovery" width="1600"><figcaption>The flow: portals, sparks, and discovery instead of a grid.</figcaption></figure>
+<figure class="jfig w-full"><img src="../assets/images/wmt-deck/slide-09.jpg" alt="The user flow slide: entry portals, sparks, product discovery" width="1600"><figcaption>The flow: portals, sparks, and discovery instead of a grid.</figcaption></figure>
 
     <h2>Keeping a 3D store alive</h2>
 <p>3D retail has a sterility problem. You know the look &mdash; glossy floor, perfect lighting, nothing alive. We went the other way on purpose: ambient soundscapes, animated doves overhead, light rays through the windows with floating specks of dust to catch them. Organic beats clinical. A space that feels alive suspends disbelief, and a player who has suspended disbelief will actually look at a shelf.</p>
-<figure class="jfig"><img src="../assets/images/wmt-deck/slide-11.jpg" alt="Breathing life into the space: doves, dust, light rays, ambient sound" width="1600"><figcaption>Doves, dust, light rays &mdash; organic beats clinical.</figcaption></figure>
+<figure class="jfig w-r"><img src="../assets/images/wmt-deck/slide-11.jpg" alt="Breathing life into the space: doves, dust, light rays, ambient sound" width="1600"><figcaption>Doves, dust, light rays &mdash; organic beats clinical.</figcaption></figure>
 <p>Under the hood, the Walmart API did the quiet work: real-time product info straight from inventory, personalized recommendations from in-world behavior, and a secure checkout that let players complete a purchase without ever leaving the 3D worldspace. For Walmart it was the first live test of their Unity commerce SDK. For us it was the first time spatial-retail instincts got a stage this size. The whole thing ran in a browser &mdash; no installs, nothing to download. The world arrived the way a page does.</p>
 <div class="jpull">&ldquo;The game was never a brochure for shopping. It was shopping.&rdquo;</div>
 
 
 
     <h2>What the numbers said</h2>
-<figure class="jfig"><img src="../assets/images/wmt-deck/slide-15.jpg" alt="Conversion results slide: 2.47%, 5.53%, 10.77% across three episodes" width="1600"><figcaption>Episode by episode: 2.47%, 5.53%, 10.77%.</figcaption></figure>
+<figure class="jfig w-l"><img src="../assets/images/wmt-deck/slide-15.jpg" alt="Conversion results slide: 2.47%, 5.53%, 10.77% across three episodes" width="1600"><figcaption>Episode by episode: 2.47%, 5.53%, 10.77%.</figcaption></figure>
 <p>Here is the slide we keep coming back to. Episode one converted 2.47% of unique game visits into purchases. Episode two: 5.53%. Episode three: 10.77% &mdash; and the weighted average across all three landed at 5.4%, which is nearly 1.5&times; search ads and over 7&times; display benchmarks. The numbers grew episode over episode because the design system learned: modular bones, same paths, better dressing. Players came back for chapter two and three, and the store got better at being a store every time they did.</p>
-<figure class="jfig"><img src="../assets/images/wmt-deck/slide-16.jpg" alt="Results slide: 1,527,200 unique visits across the series" width="1600"><figcaption>1,527,200 unique visits, zero installs.</figcaption></figure>
+<figure class="jfig w-full"><img src="../assets/images/wmt-deck/slide-16.jpg" alt="Results slide: 1,527,200 unique visits across the series" width="1600"><figcaption>1,527,200 unique visits, zero installs.</figcaption></figure>
 <p>All told, the series and commerce hubs pulled over 1.5 million unique visits &mdash; 1,527,200 &mdash; with 730,100 game visits in episode one alone, and a peak of 1M+ players in a single month. Not one of them downloaded anything. Immersive commerce has been a slide in conference decks for a decade. This one had a receipt attached.</p>
 <p>The trade press noticed in its own way &mdash; nine outlets wrote it up in the first weeks, from Inc. to Ad Age, each one reaching for the same word: <em>first</em>. First immersive gaming title, first Unity commerce SDK in the wild, first shoppable miniseries. When that many people reach for the same word, you stop arguing with it.</p>
     <h2>What we'd do again on purpose</h2>
@@ -161,5 +184,57 @@ body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:n
   <a href="/#press">As seen in &rarr;</a>
 </footer>
 
+<div class="jlb" id="jlb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="jlb-x" id="jlb-x" aria-label="Close">&times;</button>
+  <button class="jlb-btn jlb-prev" id="jlb-prev" aria-label="Previous image">&#8592;</button>
+  <img id="jlb-img" src="" alt="">
+  <button class="jlb-btn jlb-next" id="jlb-next" aria-label="Next image">&#8594;</button>
+  <div class="jlb-cap" id="jlb-cap"></div>
+  <div class="jlb-count" id="jlb-count"></div>
+</div>
+<script>
+(function(){
+  var thumbs = [].slice.call(document.querySelectorAll('.jhero-img img, .jbody .jfig img'));
+  if(!thumbs.length) return;
+  var lb = document.getElementById('jlb'),
+      img = document.getElementById('jlb-img'),
+      cap = document.getElementById('jlb-cap'),
+      cnt = document.getElementById('jlb-count'),
+      cur = 0;
+  function capFor(t){
+    var f = t.closest('figure');
+    if(f){
+      var fc = f.querySelector('figcaption');
+      if(fc) return fc.textContent.replace(/\s*expand\s*$/i,'').trim();
+    }
+    var a = t.getAttribute('alt');
+    return a ? a.charAt(0).toUpperCase() + a.slice(1) : '';
+  }
+  function show(i){
+    cur = (i + thumbs.length) % thumbs.length;
+    var t = thumbs[cur];
+    img.src = t.src;
+    img.alt = t.alt || '';
+    cap.textContent = capFor(t);
+    cnt.textContent = (cur+1) + ' / ' + thumbs.length;
+  }
+  function open(i){ show(i); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+  thumbs.forEach(function(t, i){
+    t.style.cursor = 'zoom-in';
+    t.addEventListener('click', function(){ open(i); });
+  });
+  document.getElementById('jlb-x').addEventListener('click', close);
+  document.getElementById('jlb-prev').addEventListener('click', function(e){ e.stopPropagation(); show(cur-1); });
+  document.getElementById('jlb-next').addEventListener('click', function(e){ e.stopPropagation(); show(cur+1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    else if(e.key === 'ArrowLeft') show(cur-1);
+    else if(e.key === 'ArrowRight') show(cur+1);
+  });
+})();
+</script>
 </body>
 </html>
