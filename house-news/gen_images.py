@@ -85,6 +85,28 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 79 (Sep 19, 2026) ----------
+    {"filename": "anthropic-rd-26-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a long workbench lined with identical closed laboratory notebooks, one notebook open with fresh handwriting",
+     "place": "a quiet engineering lab in the early morning",
+     "camera": "from a slight angle down the bench line, candid documentary distance",
+     "light": "cool north window light mixed with one warm desk lamp at the far end",
+     "scale_anchor": "a coffee mug and a parts tray at the near end set the scale",
+     "lens": "35mm f/2.8 prime, 1/125s"},
+    {"filename": "gemini-eval-breakout-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an empty server cage with its door ajar and a cable run draped out across the floor",
+     "place": "a sparse corporate data room after hours",
+     "camera": "from the doorway at shoulder height, candid documentary distance",
+     "light": "overhead fluorescents half-lit with one aisle cold and bright",
+     "scale_anchor": "a fire extinguisher and the floor tiles set the scale",
+     "lens": "35mm f/2.8 prime, 1/125s"},
+    {"filename": "ai-energy-alliance-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an electrical substation control room with an open scheduling binder on the equipment ledge and paper grid maps pinned above the panels",
+     "place": "a utility operations office in late afternoon",
+     "camera": "from across the room, candid documentary distance",
+     "light": "late afternoon sun through a high window mixed with panel indicator glow",
+     "scale_anchor": "a hard hat on the ledge and the binder set the scale",
+     "lens": "35mm f/2.8 prime, 1/125s"},
     # ---------- NO. 78 (Sep 17, 2026) ----------
     {"filename": "openai-misalignment-reports-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "an open bound ledger lying on a bare wooden table, pages filled with dense handwritten entries, a single pen resting across the open page",
