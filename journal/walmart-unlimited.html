@@ -45,6 +45,10 @@ body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:n
 .jdek{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.45;color:var(--accent-dark);max-width:640px;margin-bottom:22px}
 .jbyline{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .jhero-img{margin:34px 0 8px}
+.jhero-pair{display:grid;grid-template-columns:1.35fr 1fr;gap:22px;align-items:start}
+.jhero-pair figure{margin:0}
+.jhero-pair figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
+@media (max-width:720px){.jhero-pair{grid-template-columns:1fr}}
 .jhero-img img{width:100%;display:block;border:1px solid var(--rule)}
 .jcap{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
 
@@ -123,9 +127,9 @@ body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:n
     <div class="jbyline"><span>By Propagation House</span><span>Walmart &middot; Spatial &middot; Unity</span><span>Launched February 2025</span></div>
   </div>
 
-  <div class="jhero-img">
-    <img src="../house-news/assets/images/milo-animation-frame.jpg" alt="Early animation frame of Milo, the playable character who opens Walmart Unlimited">
-    <p class="jcap">Milo, early animation frame &mdash; the character who opens the series, voiced by the house.</p>
+  <div class="jhero-img jhero-pair">
+    <figure><img src="../house-news/assets/images/walmart-hub-feature.jpg" alt="The Walmart Unlimited commerce hub on Spatial - the first shoppable commerce space, product shelves in three dimensions"><figcaption>The hub: the first-ever shoppable commerce space on Spatial.</figcaption></figure>
+    <figure><img src="../house-news/assets/images/milo-animation-frame.jpg" alt="Early animation frame of Milo, the playable character who opens Walmart Unlimited"><figcaption>Milo, early animation frame &mdash; the character who opens the series, voiced by the house.</figcaption></figure>
   </div>
 
   <div class="jbody">

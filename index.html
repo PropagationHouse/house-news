@@ -249,6 +249,11 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 #mm-feature .feature-visual::before{content:"";position:absolute;inset:8px 12px 14px;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:rotate(-1.2deg);z-index:0;box-shadow:0 14px 34px rgba(26,29,18,.16)}
 #mm-feature .feature-visual::after{content:none}
 #mm-feature .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
+.fv-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.fv-pair figure{margin:0}
+.fv-pair img{width:100%;height:auto;display:block;box-shadow:0 4px 14px rgba(26,29,18,.12)}
+.fv-pair figcaption{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px;line-height:1.5}
+@media (max-width:920px){#mm-feature{grid-template-columns:1fr}}
 
 
 /* COMPOSURE BAND — supporting section under the flagship */
@@ -636,11 +641,17 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
     <div class="kicker">Selected Work &middot; Spatial / 3D</div>
     <h2>The Work That Got Us <em>Here</em></h2>
     <p class="dek">Walmart Unlimited: a three-part shoppable series with Martian Blueberry &amp; Spatial &mdash; a multi-level commerce hub inside the game, real products on its shelves. 750,000+ players, a 5.4% conversion rate, zero installs.</p>
-    <div class="pull-quote">&ldquo;We didn&rsquo;t start in software. We started in physical space.&rdquo;</div>
+    <div class="pull-quote">&ldquo;When we claim our power and use our voice, we are all unlimited.&rdquo;</div>
     <div class="byline">By <strong>Propagation House</strong></div>
     <a class="mm-jump" href="/journal/walmart-unlimited.html">Read the journal &rarr;</a>
   </div>
-  <div class="feature-visual"><img src="house-news/assets/images/walmart-hub-feature.jpg" alt="The Walmart Unlimited commerce hub on Spatial — product shelves in the three-dimensional shopping space"></div>
+  <div class="feature-visual feature-visual-pair">
+    <img src="house-news/assets/images/walmart-hub-feature.jpg" alt="The Walmart Unlimited commerce hub on Spatial - product shelves in the three-dimensional shopping space">
+    <div class="fv-pair">
+      <figure><img src="house-news/assets/images/milo-animation-frame.jpg" alt="Milo, the playable character who opens Walmart Unlimited - voiced by the house"><figcaption>Milo &mdash; voiced by the house</figcaption></figure>
+      <figure><img src="house-news/assets/images/michael-parkour-bellingham.jpg" alt="Michael Blackstone mid-jump between rooftops - the parkour past under Milos movement"><figcaption>The founder, mid-jump &mdash; the reference under Milo</figcaption></figure>
+    </div>
+  </div>
 </section>
 
 <section class="mm-grid">
