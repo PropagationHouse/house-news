@@ -251,6 +251,14 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 #mm-feature .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
 @media (max-width:920px){#mm-feature{grid-template-columns:1fr}}
 
+/* UN FEATURE (un-feature) — newest work, sits above the Walmart feature; same paper-sheet treatment */
+#un-feature{grid-template-columns:minmax(0,1fr) minmax(0,1.22fr)}
+#un-feature .feature-visual{background:transparent;overflow:visible;min-height:0;padding:2.7% 5.2%;align-self:start;isolation:isolate}
+#un-feature .feature-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:rotate(1.2deg);z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
+#un-feature .feature-visual::after{content:none}
+#un-feature .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
+@media (max-width:920px){#un-feature{grid-template-columns:1fr}}
+
 
 /* COMPOSURE BAND — supporting section under the flagship */
 .composure-band{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);border:1px solid var(--rule);margin-bottom:64px}
@@ -333,6 +341,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   .feature.substrate .sf-stats{grid-template-columns:1fr 1fr;gap:14px}
   .feature.substrate .feature-visual{min-height:0;float:none;width:100%;max-width:none;margin:0}
   #mm-feature .feature-visual{padding:2.7% 5.2%}
+  #un-feature .feature-visual{padding:2.7% 5.2%}
   .composure-band{grid-template-columns:1fr}
   .composure-band .cb-text{padding:32px 24px}
   .composure-band .cb-visual{border-left:none;border-top:1px solid var(--rule);min-height:220px}
@@ -631,6 +640,20 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   </div>
   <span class="more" style="border-bottom-color:transparent;color:var(--muted)">Est. 2020</span>
 </div>
+
+<section class="feature" id="un-feature">
+  <div class="feature-text">
+    <div class="kicker">Selected Work &middot; Spatial / 3D</div>
+    <h2>The Hall That Holds the <em>World</em></h2>
+    <p class="dek">The UN General Assembly Hall, rebuilt floor by floor for COP30 &mdash; commissioned through UNDP Brazil, built on Spatial. Four floors, eighteen meeting rooms, AI translation in seven languages. Up to 7,200 events over fifteen days, and a chamber that took everyone.</p>
+    <div class="pull-quote">&ldquo;A room you normally need a delegation badge to stand inside &mdash; took everyone.&rdquo;</div>
+    <div class="byline">By <strong>Propagation House</strong></div>
+    <a class="mm-jump" href="/journal/undp-assembly-hall.html">Read the journal &rarr;</a>
+  </div>
+  <div class="feature-visual">
+    <img src="house-news/assets/images/undp-hall/hall-view.jpg" alt="The virtual UN General Assembly Hall at launch - the finished chamber as it stood for COP30">
+  </div>
+</section>
 
 <section class="feature" id="mm-feature">
   <div class="feature-text">
