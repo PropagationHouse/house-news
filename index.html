@@ -245,8 +245,8 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 
 /* WALMART FEATURE (mm-feature) — wider column, image uncropped on house paper sheet */
 #mm-feature{grid-template-columns:minmax(0,1fr) minmax(0,1.22fr)}
-#mm-feature .feature-visual{background:transparent;overflow:visible;min-height:0;padding:26px 30px 30px;isolation:isolate}
-#mm-feature .feature-visual::before{content:"";position:absolute;inset:8px 12px 14px;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:rotate(-1.2deg);z-index:0;box-shadow:0 14px 34px rgba(26,29,18,.16)}
+#mm-feature .feature-visual{background:transparent;overflow:visible;min-height:0;padding:2.7% 5.2%;align-self:start;isolation:isolate}
+#mm-feature .feature-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:rotate(-1.2deg);z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
 #mm-feature .feature-visual::after{content:none}
 #mm-feature .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
 @media (max-width:920px){#mm-feature{grid-template-columns:1fr}}
@@ -332,7 +332,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   .feature.substrate .feature-text{padding:36px 24px}
   .feature.substrate .sf-stats{grid-template-columns:1fr 1fr;gap:14px}
   .feature.substrate .feature-visual{min-height:0;float:none;width:100%;max-width:none;margin:0}
-  #mm-feature .feature-visual{padding:18px 16px 22px}
+  #mm-feature .feature-visual{padding:2.7% 5.2%}
   .composure-band{grid-template-columns:1fr}
   .composure-band .cb-text{padding:32px 24px}
   .composure-band .cb-visual{border-left:none;border-top:1px solid var(--rule);min-height:220px}
