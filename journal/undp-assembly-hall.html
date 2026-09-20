@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Hall That Holds the World — Propagation House</title>
+<meta name="description" content="How the house rebuilt the UN General Assembly Hall in virtual space for COP30 - a work journal entry.">
+<meta property="og:title" content="The Hall That Holds the World — Propagation House">
+<meta property="og:description" content="The UNDP Brazil Virtual Assembly Hall: four floors, eighteen meeting rooms, built for the climate conference. A work journal entry.">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/png" href="../favicon.png">
+<style>
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-BPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f6f1e2;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#ece5cf;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+
+.jm{max-width:1080px;margin:0 auto;padding:28px 40px 0;display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--ink);padding-bottom:18px}
+.jm .jm-brand{font-family:var(--sans);font-weight:700;font-size:20px;letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+.jm .jm-brand:hover{color:var(--accent)}
+.jm .jm-sec{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.jm .jm-back{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.jm .jm-back:hover{color:var(--accent)}
+
+.jwrap{max-width:860px;margin:0 auto;padding:0 40px}
+.jhero-kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin:48px 0 14px}
+.jhero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,5.4vw,64px);line-height:1.05;letter-spacing:-.015em;margin-bottom:18px}
+.jdek{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.45;color:var(--accent-dark);max-width:640px;margin-bottom:22px}
+.jbyline{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.jhero-img{margin:34px 0 8px}
+.jhero-pair{display:grid;grid-template-columns:1.35fr 1fr;gap:22px;align-items:start}
+.jhero-pair figure{margin:0}
+.jhero-pair figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
+@media (max-width:720px){.jhero-pair{grid-template-columns:1fr}}
+.jhero-img img{width:100%;display:block;border:1px solid var(--rule)}
+.jcap{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
+
+.jbody{margin-top:40px}
+.jbody p{font-size:17px;line-height:1.75;margin-bottom:26px;max-width:680px}
+.jbody p.jlead{font-size:19px;line-height:1.7}
+.jbody p.jlead::first-letter{font-family:var(--serif);font-weight:900;font-size:64px;float:left;line-height:.82;padding:6px 12px 0 0;color:var(--accent)}
+.jbody h2{font-family:var(--serif);font-weight:900;font-size:28px;line-height:1.2;margin:44px 0 16px;letter-spacing:-.01em}
+.jbody .jpull{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.35;color:var(--accent-dark);border-left:3px solid var(--accent);padding-left:20px;margin:34px 0;max-width:520px}
+.jbody .jfig{margin:36px 0}
+.jbody .jfig img{width:100%;height:auto;display:block;border:1px solid var(--rule)}
+.jbody .jfig figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:8px;text-transform:uppercase}
+/* varied text wraps */
+.jbody h2{clear:both}
+.jfig.w-r{float:right;width:46%;margin:8px 0 18px 30px}
+.jfig.w-l{float:left;width:46%;margin:8px 30px 18px 0}
+.jfig.w-sq{float:right;width:34%;margin:8px 0 18px 30px}
+.jfig.w-full{float:none;width:100%;margin:40px 0;clear:both}
+.jfig img,.jhero-img img{cursor:zoom-in}
+.jfig img{transition:transform .25s ease,box-shadow .25s ease}
+.jfig img:hover{transform:scale(1.015);box-shadow:0 10px 28px rgba(26,29,18,.18)}
+.jfig figcaption .jh{opacity:.55;text-transform:none;letter-spacing:.04em}
+@media (max-width:720px){.jfig.w-r,.jfig.w-l,.jfig.w-sq{float:none;width:100%;margin:30px 0}}
+/* paper accents behind image placements */
+.jfig,.jhero-img{position:relative;isolation:isolate}
+.jfig::before,.jhero-img::before{content:"";position:absolute;inset:-12px -14px;background:url('../assets/images/paper-sheet-fill-2x.jpg?v=1') center/cover no-repeat;transform:rotate(-1.1deg);z-index:-1;box-shadow:0 10px 26px rgba(26,29,18,.12)}
+.w-l::before{transform:rotate(1.3deg)}
+.w-sq::before{transform:rotate(1.7deg)}
+.w-full::before{transform:rotate(-.5deg)}
+/* lightbox */
+.jlb{position:fixed;inset:0;background:rgba(20,22,14,.94);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:999;padding:30px}
+.jlb.open{display:flex}
+.jlb img{max-width:92vw;max-height:80vh;width:auto;height:auto;border:1px solid rgba(246,241,226,.25);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.jlb-cap{color:#f6f1e2;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-top:16px;text-align:center;max-width:760px}
+.jlb-count{color:rgba(246,241,226,.5);font-size:11px;letter-spacing:.2em;margin-top:6px}
+.jlb-btn{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(246,241,226,.3);color:#f6f1e2;font-size:22px;width:46px;height:46px;cursor:pointer;border-radius:50%;transition:background .2s}
+.jlb-btn:hover{background:rgba(246,241,226,.12)}
+.jlb-prev{left:24px}.jlb-next{right:24px}
+.jlb-x{position:absolute;top:18px;right:24px;background:none;border:none;color:rgba(246,241,226,.7);font-size:30px;cursor:pointer;line-height:1}
+.jlb-x:hover{color:#f6f1e2}
+@media (max-width:720px){.jlb-btn{width:38px;height:38px;font-size:18px}.jlb-prev{left:8px}.jlb-next{right:8px}}
+
+.jpress{margin:56px 0 0;border-top:3px double var(--ink);padding-top:26px}
+.jpress .jp-head{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink);margin-bottom:18px}
+.jpress-row{display:flex;flex-wrap:wrap;gap:26px 34px;align-items:center}
+.jpress-row a{display:flex;align-items:center;text-decoration:none}
+.jpress-row img{height:44px;width:auto;max-width:240px;object-fit:contain;object-position:left;opacity:.62;transition:opacity .25s ease}
+.jpress-row a:hover img{opacity:1}
+.jpress-row .jw{font-family:var(--serif);font-weight:900;font-size:28px;color:var(--ink);opacity:.5;transition:opacity .25s ease}
+.jpress-row a:hover .jw{opacity:1}
+.jpress-note{font-size:12px;color:var(--muted);margin-top:16px;line-height:1.6;max-width:640px}
+.jpress-row .jli{background:var(--ink);border-radius:4px;padding:3px 8px;display:inline-flex;align-items:center}
+.jpress-row .jli img{filter:none;opacity:.9}
+
+.jfoot{max-width:1080px;margin:64px auto 0;padding:22px 40px 30px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.jfoot a{color:var(--ink);text-decoration:none}
+.jfoot a:hover{color:var(--accent)}
+@media (max-width:720px){.jm,.jfoot{padding-left:20px;padding-right:20px}.jwrap{padding:0 20px}.jbody p{font-size:16px}}
+.jfig-ph .jph-sheet{aspect-ratio:16/10;border:1px dashed var(--rule);background:linear-gradient(135deg,#efe9d6 0%,#e6dfc8 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.jfig-ph .jph-sheet::after{content:'';position:absolute;inset:0;background:url('../house-news/assets/images/paper-sheet-fill.jpg') center/cover;opacity:.35}
+.jfig-ph .jph-sheet span{position:relative;z-index:1;font-family:var(--serif);font-style:italic;font-size:14px;color:var(--muted);padding:0 24px;text-align:center}
+</style>
+</head>
+<body>
+
+<header class="jm">
+  <a class="jm-brand" href="/">propagation house</a>
+  <span class="jm-sec">Work Journal</span>
+  <a class="jm-back" href="/#multimedia">&larr; Back to the Work</a>
+</header>
+
+<div class="jwrap">
+
+<article>
+  <div class="jhero">
+    <div class="jhero-kicker">Work Journal &middot; UNDP Brazil &middot; COP30 &middot; 2025</div>
+    <h1>The Hall That Holds the World</h1>
+    <p class="jdek">The UN General Assembly Hall is the most recognizable meeting room on Earth. For COP30 in Bel&eacute;m, we rebuilt it &mdash; four floors, eighteen meeting rooms, placeholder seats and all &mdash; for a climate conference most of the world could only attend through a screen.</p>
+    <div class="jbyline"><span>By Propagation House</span><span>UNDP Brazil &middot; COP30 Presidency</span><span>Bel&eacute;m &middot; November 2025</span></div>
+  </div>
+
+  <div class="jhero-img">
+    <figure><img src="../house-news/assets/images/undp-hall/undp-hall-assembly-a.jpg" alt="The virtual UN General Assembly Hall at Phase 1 - placeholder seating positioned, sightlines optimized for every desk"><figcaption>The Assembly Hall at Phase 1 &mdash; placeholder seating, sightlines optimized for every desk.</figcaption></figure>
+  </div>
+
+  <div class="jbody">
+    <p class="jlead">Start with the arithmetic that made the room necessary. A climate conference fits a city; the climate fits nobody's conference hall. COP30 was the first ever held in the Amazon &mdash; Bel&eacute;m, at the edge of the forest the whole exercise exists to protect &mdash; and the Presidency knew before the invitations went out that most of the world could not come. Seven million people, give or take, with an interest, a connection, and no boarding pass. The question traveled down the line until it reached us, and it arrived shaped like a building: could the most recognizable meeting room on Earth be rebuilt, floor by floor, for people who will never stand in the original?</p>
+    <p>The commission came through UNDP Brazil, in partnership with the COP30 Presidency &mdash; part of a platform the UN press office would later describe as opening a new era of global climate participation. Our piece of it was specific: the Virtual Assembly Hall. Not a stage. Not a broadcast. The room itself &mdash; the one with the marble and the golden curtain in New York &mdash; reimagined as a place a farmer in Par&aacute; could walk into from a phone.</p>
+    <h2>A building in four floors</h2>
+    <p>Phase 1 was the bones, and the bones were honest. The lobby came first &mdash; the entry point, sightlines to everything, pathways that made sense before you read a sign. From there the plan climbed: three full floors plus an open fourth, connected by stairs and elevators, because a virtual room that excludes someone who can't manage a staircase has failed before anyone says a word about climate.</p>
+    <figure class="jfig w-r"><img src="../house-news/assets/images/undp-hall/undp-hall-lobby.jpg" alt="The main lobby of the virtual Assembly Hall at Phase 1 - untextured structure, clear sightlines, pathways mapped"><figcaption>The lobby at Phase 1 &mdash; structure untextured, sightlines already honest.<span class="jh"> (Phase 1 build capture)</span></figcaption></figure>
+    <p>The first floor kept the flow of the traditional New York hall: reception, vertical transport, space allocated for information displays. The second and third floors carried the part that made the building work &mdash; rhythmically spaced portals to eighteen external meeting rooms, each one a door out of the hall and into a negotiation. The fourth floor stayed deliberately open: overflow seating, social zones, a room that could become breakout sessions or an exhibition depending on what the fortnight demanded. Grandeur and optimization, balanced. That phrase is from our own progress report, and we stand by it.</p>
+    <figure class="jfig w-l"><img src="../house-news/assets/images/undp-hall/undp-hall-floor3.jpg" alt="Third floor view of the virtual Assembly Hall - portals to the eighteen external meeting rooms"><figcaption>Third floor &mdash; the portals to the eighteen meeting rooms.<span class="jh"> (Phase 1 build capture)</span></figcaption></figure>
+    <p>The Assembly Hall itself was the heart of it. Main layout established, flexible configuration, seating positioned &mdash; using placeholder models, and we say that plainly because the placeholder seats are the truest thing in the whole report. Every desk placed for sightlines before a single texture went on. The room had to work as a room before it was allowed to be a symbol.</p>
+    <h2>The questions a progress report asks out loud</h2>
+    <p>What I love about the Phase 1 document, looking back at it now, is that it never pretended the building was finished. It was a report written in the middle of construction, and it asked its client real questions in real time. Should the scene read as day or as night? Do we need a specific &mdash; or UN approved &mdash; font for the signage? Which kinds of AI support should live in the space, and where exactly does an AI assistant belong in a diplomatic building? Can we have a folder of multimedia mockups before launch, please?</p>
+    <figure class="jfig w-r"><img src="../house-news/assets/images/undp-hall/undp-hall-navigation.jpg" alt="Navigation and user experience planning for the virtual hall - wayfinding, signage, landmarks"><figcaption>Wayfinding planning &mdash; the UN-font question lived here.<span class="jh"> (Phase 1 planning)</span></figcaption></figure>
+    <p>Those questions are the craft. Anyone can texture a marble wall. The work was deciding how a delegate's eye moves through a room built to receive millions without anyone feeling lost &mdash; path differentiation, navigational landmarks, ambient sound that suspends disbelief at a level below conscious thought. A building that reduces cognitive load is a building that lets people think about carbon instead of corridors.</p>
+    <p>Some of it stayed optional, flagged honestly in the report: non-player characters who could answer questions as UNDP staff, discovery-based interactions, gamified learning points. Prioritized by budget and timeline, and left to the client's judgment. The report ends by welcoming feedback on design decisions &mdash; which is the tone of a builder, not a vendor. We were constructing a diplomatic instrument and we treated the client as the co-author of it.</p>
+    <h2>What the room became</h2>
+    <p>By November the hall was live as the center of Maloca &mdash; the COP30 Presidency's virtual platform, built on Spatial &mdash; and the numbers the UN ended up publishing were the ones we had designed the pipes for: up to 7,200 events across 20 virtual environments over the fifteen days of the conference, an AI assistant named Macaozinho trained only on official UN documents, AI translation in seven languages so a delegate could argue in the language they dreamed in. Four thousand people came through before the doors officially opened. The General Assembly Hall &mdash; a room you normally need a delegation badge to stand inside &mdash; took everyone.</p>
+    <figure class="jfig w-full"><img src="../house-news/assets/images/undp-hall/undp-hall-floor1.jpg" alt="The first floor of the virtual Assembly Hall - reception and central hub retaining the flow of the traditional New York hall"><figcaption>First floor &mdash; the flow of the traditional hall, kept.<span class="jh"> (Phase 1 build capture)</span></figcaption></figure>
+    <figure class="jfig jfig-ph">
+      <div class="jph-sheet"><span>The hall at launch &mdash; live capture to come</span></div>
+      <figcaption>The room as it stood for the fortnight &mdash; live capture to come.<span class="jh"> (Placeholder &mdash; image on the way)</span></figcaption>
+    </figure><p>The CNN segment called it a way to bring the public into the plenary. The UN's own press release called it a new era of global climate participation. We have a smaller name for it, the one we use in the studio: it's the room responding. The same instinct that put a store inside a game put a parliament inside a website. Spaces that meet people where they are &mdash; that's the whole practice, and COP30 was the largest room it has ever been asked to hold.</p>
+    <h2>What we'd do again on purpose</h2>
+    <p>Build the civic loop early, the way we built the commerce loop for Walmart: the moment a public visitor can walk the same floor as a delegate, every design argument gets honest. Keep the hall legible before it's beautiful &mdash; placeholder seats and clear sightlines beat marble with dead ends. And write progress reports that ask real questions; half the design decisions that mattered came back from the client's answers, not our drafts.</p>
+    <p>The most recognizable meeting room on Earth now has a twin that anyone with a browser can enter. The original took decades and an ocean of diplomacy. The twin took a Phase 1 report with a placeholder seats line in it &mdash; and a studio that treats a building as a question you ask in public.</p>
+  </div>
+  <div class="jpress">
+    <div class="jp-head">As seen in</div>
+    <div class="jpress-row">
+      <a href="https://www.youtube.com/watch?v=LBEUAua5218" target="_blank" rel="noopener" title="CNN Brasil"><img src="../assets/images/press-cnn-brasil.png" alt="CNN Brasil"></a>
+      <a href="https://www.undp.org/press-releases/cop30-presidency-launches-maloca-opening-new-era-global-climate-participation" target="_blank" rel="noopener" title="UNDP"><img src="../assets/images/brand-un.png" alt="UNDP"></a>
+      <a href="https://climatepromise.undp.org/news-and-stories/cop30-presidency-launches-maloca-opening-new-era-global-climate-participation" target="_blank" rel="noopener" title="UNDP Climate Promise"><img src="../assets/images/brand-un.png" alt="UNDP Climate Promise"></a>
+      <a href="https://www.un.org/en/climatechange/news/a-new-digital-platform-aims-to-expand-access-to-cop30" target="_blank" rel="noopener" title="UN Climate Change"><img src="../assets/images/brand-un.png" alt="UN Climate Change"></a>
+    </div>
+    <p class="jpress-note">The platform the hall lives on got its own coverage &mdash; the UN's press office, UNDP Climate Promise, and CNN Brasil all wrote it up. None of them name us; that's fine. We built the room, and the room is the receipt.</p>
+  </div>
+</article>
+
+</div>
+
+<footer class="jfoot">
+  <a href="/">&larr; propagation house</a>
+  <span>Work Journal &middot; 2026</span>
+  <a href="journal/walmart-unlimited.html">More from the journal &rarr;</a>
+</footer>
+<div class="jlb" id="jlb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="jlb-x" id="jlb-x" aria-label="Close">&times;</button>
+  <button class="jlb-btn jlb-prev" id="jlb-prev" aria-label="Previous image">&#8592;</button>
+  <img id="jlb-img" src="" alt="">
+  <button class="jlb-btn jlb-next" id="jlb-next" aria-label="Next image">&#8594;</button>
+  <div class="jlb-cap" id="jlb-cap"></div>
+  <div class="jlb-count" id="jlb-count"></div>
+</div>
+<script>
+(function(){
+  var thumbs = [].slice.call(document.querySelectorAll('.jhero-img img, .jbody .jfig img'));
+  if(!thumbs.length) return;
+  var lb = document.getElementById('jlb'),
+      img = document.getElementById('jlb-img'),
+      cap = document.getElementById('jlb-cap'),
+      cnt = document.getElementById('jlb-count'),
+      cur = 0;
+  function capFor(t){
+    var f = t.closest('figure');
+    if(f){
+      var fc = f.querySelector('figcaption');
+      if(fc) return fc.textContent.replace(/\s*expand\s*$/i,'').trim();
+    }
+    var a = t.getAttribute('alt');
+    return a ? a.charAt(0).toUpperCase() + a.slice(1) : '';
+  }
+  function show(i){
+    cur = (i + thumbs.length) % thumbs.length;
+    var t = thumbs[cur];
+    img.src = t.src;
+    img.alt = t.alt || '';
+    cap.textContent = capFor(t);
+    cnt.textContent = (cur+1) + ' / ' + thumbs.length;
+  }
+  function open(i){ show(i); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+  thumbs.forEach(function(t, i){
+    t.style.cursor = 'zoom-in';
+    t.addEventListener('click', function(){ open(i); });
+  });
+  document.getElementById('jlb-x').addEventListener('click', close);
+  document.getElementById('jlb-prev').addEventListener('click', function(e){ e.stopPropagation(); show(cur-1); });
+  document.getElementById('jlb-next').addEventListener('click', function(e){ e.stopPropagation(); show(cur+1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    else if(e.key === 'ArrowLeft') show(cur-1);
+    else if(e.key === 'ArrowRight') show(cur+1);
+  });
+})();
+</script>
+</body>
+</html>
