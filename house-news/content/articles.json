@@ -1216,6 +1216,30 @@
       "status": "published",
       "filename": "articles/ai-energy-alliance.html",
       "read_time": "4 min read"
+    },
+    {
+      "title": "The Brakes Get <em>Sued</em>",
+      "kicker": "Law · September 19, 2026",
+      "dek": "A class-action antitrust complaint filed in the Northern District of California argues that when four lab chiefs agreed in public to slow down, they formed an unlawful agreement among competitors. The brakes were supposed to be a safety story. They are now a legal one.",
+      "author": "Propagation House",
+      "date": "2026-09-20",
+      "category": "policy",
+      "lens": "policy",
+      "status": "published",
+      "filename": "articles/ai-pacing-antitrust-suit.html",
+      "read_time": "4 min read"
+    },
+    {
+      "title": "The Counterweight Gets <em>Weighed</em>",
+      "kicker": "Labs · September 19, 2026",
+      "dek": "Reuters reports Anthropic is weighing the release of a new model ahead of its expected IPO - partly to counter the momentum of GPT-6 Astra. Seven days after its CEO asked the industry to slow down, the lab is calculating how fast to move.",
+      "author": "Propagation House",
+      "date": "2026-09-20",
+      "category": "labs",
+      "lens": "labs",
+      "status": "published",
+      "filename": "articles/anthropic-ipo-model.html",
+      "read_time": "4 min read"
     }
   ],
   "drafts": [],
