@@ -17,7 +17,7 @@
 @font-face{font-family:'Acumin Pro';src:url('house-news/assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
 @font-face{font-family:'Acumin Pro';src:url('house-news/assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
 @font-face{font-family:'Acumin Pro';src:url('house-news/assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
 
 :root{
   --ink:#1a1d12;
@@ -29,8 +29,27 @@
   --bg-tint:#ece5cf;
   --serif:'Playfair Display',Georgia,serif;
   --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+  --kicker-lg-size:11px;--kicker-lg-track:.2em; /* corridor doors */
+  --kicker-sm-size:10px;--kicker-sm-track:.15em; /* interior items */
 }
 
+/* HEADLINE EMPHASIS - the house signature: light-italic contrast. Every em
+   renders Playfair 400 italic inside heavy headlines (the gesture the site
+   already used on hero/lead/features, now unified + refined: slight lift,
+   tightened tracking, accent-dark, overhang pad, no synthetic italics).
+   Composure band keeps its own equivalent rule (same gesture, local). */
+.hero h1 em,
+.section-head .label em,
+.newsletter h2 em,
+.editorial-grid .lead-story h2 em,
+.lead-feature h3 em,
+.editorial-grid .ss-item h3 em,
+#un-feature h2 em,
+#mm-feature h2 em{
+  font-style:italic;font-weight:400;font-size:1.02em;
+  letter-spacing:-.015em;color:var(--accent-dark);
+  padding-right:.06em;font-synthesis:none;
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{font-size:16px;scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
@@ -61,9 +80,8 @@ img{max-width:100%;display:block}
 
 /* HERO */
 .hero{padding:0;text-align:center}
-.hero .hero-kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
+.hero .hero-kicker{font-size:var(--kicker-lg-size);letter-spacing:var(--kicker-lg-track);text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:20px}
 .hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(40px,5vw,72px);line-height:1.05;letter-spacing:-.02em;margin-bottom:20px;max-width:800px;margin-left:auto;margin-right:auto}
-.hero h1 em{font-style:italic;font-weight:400}
 .hero .hero-dek{font-size:18px;line-height:1.6;color:#3a3d2e;max-width:600px;margin:0 auto 32px}
 .hero .hero-pills{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 .hero .hero-pills a{display:inline-block;padding:10px 22px;border:1px solid var(--rule);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:all .2s}
@@ -71,7 +89,7 @@ img{max-width:100%;display:block}
 
 /* SECTION HEADERS — thick, declarative doors to each corridor */
 .section-head{padding:64px 0 40px;margin:0;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:end}
-.section-head .info .kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.section-head .info .kicker{font-size:var(--kicker-lg-size);letter-spacing:var(--kicker-lg-track);text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
 .section-head .label{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4vw,52px);line-height:1.03;letter-spacing:-.02em}
 .section-head .desc{font-size:16px;line-height:1.55;color:#4a4d3e;max-width:560px;margin-top:10px}
 .section-head .more{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ink);white-space:nowrap;padding-bottom:8px;border-bottom:2px solid var(--accent);align-self:end}
@@ -104,16 +122,14 @@ img{max-width:100%;display:block}
 .lead-feature .lf-thumb{display:block;aspect-ratio:16/10;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a1d12,#4b5320)}
 .lead-feature .lf-thumb img{width:100%;height:100%;object-fit:cover;position:relative;z-index:0}
 .lead-feature .lf-thumb::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(245,242,230,.03) 4px,rgba(245,242,230,.03) 5px);pointer-events:none;z-index:1}
-.lead-feature .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.lead-feature .kicker{font-size:var(--kicker-sm-size);letter-spacing:var(--kicker-sm-track);text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
 .lead-feature h3{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4vw,48px);line-height:1.02;letter-spacing:-.02em;margin-bottom:12px}
-.lead-feature h3 em{font-style:italic;font-weight:400}
 .lead-feature h3 a{color:inherit;text-decoration:none}
 .lead-feature h3 a:hover{color:var(--accent-dark)}
 .lead-feature .dek{font-size:14px;color:#4a4d3e;line-height:1.5;margin:0}
 .lead-feature .byline{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:8px}
-.editorial-grid .lead-story .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.editorial-grid .lead-story .kicker{font-size:var(--kicker-sm-size);letter-spacing:var(--kicker-sm-track);text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
 .editorial-grid .lead-story h2{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4vw,48px);line-height:1.06;letter-spacing:-.02em;margin-bottom:12px;max-width:720px;margin-left:auto;margin-right:auto}
-.editorial-grid .lead-story h2 em{font-style:italic;font-weight:400}
 .editorial-grid .lead-story .dek{font-size:16px;color:#4a4d3e;line-height:1.5;margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto}
 .editorial-grid .lead-story .byline{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 .editorial-grid .lead-story .byline strong{color:var(--ink)}
@@ -139,7 +155,7 @@ img{max-width:100%;display:block}
 .editorial-grid .ss-item .thumb.sside{width:100%;aspect-ratio:16/8;margin-bottom:10px;position:relative;overflow:hidden;border-radius:2px;background:linear-gradient(135deg,#1a1d12,#4b5320)}
 .editorial-grid .ss-item .thumb.sside img{width:100%;height:100%;object-fit:cover;position:relative;z-index:0}
 .editorial-grid .ss-item .thumb.sside::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(245,242,230,.03) 4px,rgba(245,242,230,.03) 5px);pointer-events:none;z-index:1}
-.editorial-grid .ss-item .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:4px}
+.editorial-grid .ss-item .kicker{font-size:var(--kicker-sm-size);letter-spacing:var(--kicker-sm-track);text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:4px}
 .editorial-grid .ss-item h3{font-family:var(--serif);font-weight:700;font-size:18px;line-height:1.2;margin-bottom:4px}
 .editorial-grid .ss-item h3 a:hover{color:var(--accent)}
 .editorial-grid .ss-item .dek{font-size:12px;color:#4a4d3e;line-height:1.4}
@@ -167,7 +183,6 @@ img{max-width:100%;display:block}
 .feature .feature-visual img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:0}
 .feature .kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:14px}
 .feature h2{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4vw,52px);line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
-.feature h2 em{font-style:italic;font-weight:400}
 .feature .dek{font-size:17px;line-height:1.55;color:#3a3d2e;margin-bottom:20px;max-width:520px}
 .feature .byline{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 .feature .byline strong{color:var(--ink)}
@@ -179,7 +194,7 @@ img{max-width:100%;display:block}
 .mm-grid .mm-card:last-child{border-right:none}
 .mm-grid .mm-card:first-child{padding-left:0}
 .mm-grid .mm-card:nth-child(3){padding-right:0;border-right:none}
-.mm-grid .mm-card .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.mm-grid .mm-card .kicker{font-size:var(--kicker-sm-size);letter-spacing:var(--kicker-sm-track);text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
 .mm-grid .mm-card h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
 .mm-grid .mm-card .dek{font-size:13px;color:#4a4d3e;line-height:1.45}
 .mm-grid .mm-card .client{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:8px}
@@ -219,13 +234,13 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 /* ABOUT BAND — the studio, declaratively, above the news corridor */
 .about-band{margin-top:48px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .about-band .about-lede{padding:44px 0 30px}
-.about-band .about-lede .kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:12px}
+.about-band .about-lede .kicker{font-size:var(--kicker-lg-size);letter-spacing:var(--kicker-lg-track);text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:12px}
 .about-band .about-lede p{font-family:var(--serif);font-size:clamp(20px,2.2vw,28px);line-height:1.45;letter-spacing:-.01em;max-width:920px}
 .about-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule)}
 .about-grid .about-cell{padding:26px 24px 30px;border-right:1px solid var(--rule)}
 .about-grid .about-cell:last-child{border-right:none}
 .about-grid .about-cell:first-child{padding-left:0}
-.about-grid .a-name{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
+.about-grid .a-name{font-size:11px;letter-spacing:var(--kicker-sm-track);text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
 .about-grid .about-cell p{font-size:13px;line-height:1.55;color:#4a4d3e}
 
 /* SUBSTRATE FEATURE — the flagship */
@@ -263,9 +278,9 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 #mm-feature{margin-top:0}
 /* NEWS-COMPACT DENSITY - features read as articles inside the section: tighter type, hairline between items */
 #un-feature .feature-text,#mm-feature .feature-text{padding:30px 36px 32px}
-#un-feature .kicker,#mm-feature .kicker{font-size:10px;letter-spacing:.12em;margin-bottom:8px}
+#un-feature .kicker,#mm-feature .kicker{font-size:var(--kicker-sm-size);letter-spacing:var(--kicker-sm-track);margin-bottom:8px}
 #un-feature h2,#mm-feature h2{font-size:clamp(28px,3.2vw,40px);margin-bottom:10px}
-#un-feature .dek,#mm-feature .dek{font-size:15px;line-height:1.5;margin-bottom:12px}
+#un-feature .dek,#mm-feature .dek{font-size:16px;line-height:1.5;margin-bottom:12px}
 #un-feature .pull-quote,#mm-feature .pull-quote{font-size:19px;padding-left:16px;margin:14px 0}
 #un-feature .byline,#mm-feature .byline{font-size:11px}
 #un-feature .mm-jump,#mm-feature .mm-jump{margin-top:10px}
@@ -310,7 +325,7 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 /* FOOTER */
 footer{border-top:3px double var(--ink);padding:32px 0 24px;font-size:12px;color:var(--muted)}
 footer .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:24px}
-footer .foot-grid h4{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ink);margin-bottom:10px}
+footer .foot-grid h4{font-size:11px;letter-spacing:var(--kicker-sm-track);text-transform:uppercase;font-weight:700;color:var(--ink);margin-bottom:10px}
 footer .foot-grid ul{list-style:none}
 footer .foot-grid li{margin-bottom:4px}
 footer .foot-grid li a:hover{color:var(--accent)}
@@ -464,12 +479,12 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   <div class="lead-story">
     <a href="house-news/articles/ai-pacing-antitrust-suit.html" class="thumb"><img src="house-news/assets/images/ai-pacing-antitrust-suit-hero.jpg" alt="A folding table outside a federal courthouse with paper stacks, a coffee thermos, and a stenographer's machine, morning light"></a>
     <div class="kicker">Cover Story &middot; Law / September 19, 2026</div>
-    <h2><a href="house-news/articles/ai-pacing-antitrust-suit.html">The Brakes Get <em><em>Sued</em></em></a></h2>
+    <h2><a href="house-news/articles/ai-pacing-antitrust-suit.html">The Brakes Get <em>Sued</em></a></h2>
     <p class="dek">A class-action antitrust complaint filed in the Northern District of California argues that when four lab chiefs agreed in public to slow down, they formed an unlawful agreement among competitors. The brakes were supposed to be a safety story. They are now a legal one.</p>
     <div class="byline">By Propagation House &middot; 4 min &middot; Sunday, September 20, 2026</div>
     <div class="lead-feature">
       <div class="kicker">Feature &middot; Labs / September 19, 2026</div>
-      <h3><a href="house-news/articles/anthropic-ipo-model.html">The Counterweight Gets <em><em>Weighed</em></em></a></h3>
+      <h3><a href="house-news/articles/anthropic-ipo-model.html">The Counterweight Gets <em>Weighed</em></a></h3>
       <div class="lf-row">
         <a href="house-news/articles/anthropic-ipo-model.html" class="lf-thumb"><img src="house-news/assets/images/anthropic-ipo-model-hero.jpg" alt="A balance scale on a shipping dock, one pan holding a sealed shipping crate, the other a stack of envelopes"></a>
         <div class="lf-side">
