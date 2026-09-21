@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">97</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">100</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">21</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">7</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'china-agent-safety-standard', title:'The <em>Rulebook</em> Gets a Standard', href:'articles/china-agent-safety-standard.html', date:'2026-09-21', category:'Governance', lens:'governance', read:'5 min', dek:'Reuters reports China has begun drafting a mandatory national safety standard for AI agents - possibly the world\'s first - driven by a view that an agent\'s operational loss of control is a genuine, near-term risk rather than a distant scenario.',
+      tags:["china", "agents", "safety", "standard", "regulation", "reuters"]},
+    {id:'hinton-slowdown-endorsement', title:'The <em>Godfather</em> Backs the Brakes', href:'articles/hinton-slowdown-endorsement.html', date:'2026-09-21', category:'Safety', lens:'safety', read:'4 min', dek:'Geoffrey Hinton, the \'godfather of AI,\' said Dario Amodei\'s call to slow development was \'very sensible\' - adding the voice of the field\'s most famous cautionary figure to the growing chorus urging the industry to let safety research catch up.',
+      tags:["hinton", "slowdown", "brakes", "pace-the-frontier", "safety"]},
+    {id:'anthropic-accenture-evaluator', title:'The <em>Referee</em> Gets a Desk', href:'articles/anthropic-accenture-evaluator.html', date:'2026-09-21', category:'Safety', lens:'safety', read:'5 min', dek:'Anthropic named Accenture as its first embedded evaluator - a partner tasked with red-teaming models from inside the lab with employee-like access - in a deal each company said could reach $1 billion over five years. The pace-the-frontier pledge has become a line item.',
+      tags:["anthropic", "accenture", "evaluator", "red-team", "safety", "embedded"]},
     {id:'ai-pacing-antitrust-suit', title:'The Brakes Get Sued', href:'articles/ai-pacing-antitrust-suit.html', date:'2026-09-20', category:'policy', lens:'policy', read:'4 min read', dek:'A class-action antitrust complaint filed in the Northern District of California argues that when four lab chiefs agreed in public to slow down, they formed an unlawful agreement among competitors. The brakes were supposed to be a safety story. They are now a legal one.',
       tags:["antitrust", "sherman-act", "amodei", "altman", "musk", "hassabis", "pace-the-frontier"]},
     {id:'anthropic-ipo-model', title:'The Counterweight Gets Weighed', href:'articles/anthropic-ipo-model.html', date:'2026-09-20', category:'labs', lens:'labs', read:'4 min read', dek:'Reuters reports Anthropic is weighing the release of a new model ahead of its expected IPO - partly to counter the momentum of GPT-6 Astra. Seven days after its CEO asked the industry to slow down, the lab is calculating how fast to move.',

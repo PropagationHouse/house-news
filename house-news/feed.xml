@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The <em>Rulebook</em> Gets a Standard</title>
+<link>https://www.propagation.house/house-news/articles/china-agent-safety-standard.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/china-agent-safety-standard.html</guid>
+<pubDate>Mon, 21 Sep 2026 00:00:00 -0000</pubDate>
+<description>Reuters reports China has begun drafting a mandatory national safety standard for AI agents - possibly the world's first - driven by a view that an agent's operational loss of control is a genuine, near-term risk rather than a distant scenario.</description>
+</item>
+<item>
+<title>The <em>Godfather</em> Backs the Brakes</title>
+<link>https://www.propagation.house/house-news/articles/hinton-slowdown-endorsement.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/hinton-slowdown-endorsement.html</guid>
+<pubDate>Mon, 21 Sep 2026 00:00:00 -0000</pubDate>
+<description>Geoffrey Hinton, the 'godfather of AI,' said Dario Amodei's call to slow development was 'very sensible' - adding the voice of the field's most famous cautionary figure to the growing chorus urging the industry to let safety research catch up.</description>
+</item>
+<item>
+<title>The <em>Referee</em> Gets a Desk</title>
+<link>https://www.propagation.house/house-news/articles/anthropic-accenture-evaluator.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/anthropic-accenture-evaluator.html</guid>
+<pubDate>Mon, 21 Sep 2026 00:00:00 -0000</pubDate>
+<description>Anthropic named Accenture as its first embedded evaluator - a partner tasked with red-teaming models from inside the lab with employee-like access - in a deal each company said could reach $1 billion over five years. The pace-the-frontier pledge has become a line item.</description>
+</item>
+<item>
 <title>The Brakes Get <em>Sued</em></title>
 <link>https://www.propagation.house/house-news/articles/ai-pacing-antitrust-suit.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/ai-pacing-antitrust-suit.html</guid>
