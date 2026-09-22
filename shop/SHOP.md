@@ -1,78 +1,105 @@
 # Merch shop — how to run it
 
 The shop is live at `/shop`. Three product pages render from one config file.
-**Nothing here needs a code change to open checkout.**
+**Checkout is automated** — payment and fulfillment both run through the API routes.
 
 ## Files
 
 | File | Role |
 |---|---|
-| `shop/shop-config.js` | **The only file you edit.** Products, prices, sizes, images, links. |
+| `shop/shop-config.js` | **The only file you normally edit.** Products, prices, sizes, images, `printfulId`, `soldOut`. |
 | `shop/index.html` | Shop index shell (`/shop`) |
 | `shop/item.html` | Product shell — one page serves all three (`/shop/<slug>`) |
+| `shop/thanks.html` | Post-payment page (`/shop/thanks`) |
+| `shop/shop.js` | Renderer — reads the config, builds the DOM, mints checkout sessions |
+| `shop/thanks.js` | Confirms the order after payment |
 | `shop/shop.css` | House skin + shop layout |
-| `shop/shop.js` | Renderer — reads the config, builds the DOM |
-| `vercel.json` | Rewrites `/shop/<slug>` → `item.html` |
+| `api/checkout.js` | Mints a Stripe Checkout Session (payment + shipping address) |
+| `api/finalize-order.js` | Verifies the paid session, creates the Printful order |
+| `api/printful-proxy.js` | Lower-level Printful order creator (draft by default) — kept as a fallback |
+| `vercel.json` | Rewrites `/shop/<slug>` → `item.html`, `/shop/thanks` → `thanks.html` |
 
 Images live in `assets/images/merch/` (repo root, not the news subfolder).
 
-## Opening checkout — the actual steps
+## How a purchase flows
 
-Today every item is `soldOut: true`, so buttons read *"Sold out — check back soon"*.
+1. Buyer picks a size, hits **Buy — $55**.
+2. `shop.js` POSTs `{ productId, size }` to `/api/checkout`.
+3. `api/checkout.js` mints a Stripe Checkout Session on the fly — line item keyed to
+   that product's price id, shipping address collection on, metadata carrying
+   `product_id` / `size` / `variant_id`. Returns a URL; the browser redirects.
+4. Stripe collects payment **and the shipping address**.
+5. Stripe redirects to `/shop/thanks?session_id=…`.
+6. `thanks.js` calls `/api/finalize-order?session_id=…`. That route verifies
+   `payment_status === 'paid'`, pulls the address Stripe collected, maps the
+   metadata to a Printful variant, and creates a **confirmed** Printful order.
 
-For each product you want to sell:
+No manual Payment Links, no hand-confirming orders.
 
-1. Create a payment link (Stripe Payment Link, or any provider that gives you a URL).
-   Make one link **per size** if sizes differ in price or stock. Same link for all sizes is fine otherwise.
-2. In `shop-config.js`, set `soldOut: false` and fill `links`:
+## Opening / closing checkout
+
+Everything is driven by `soldOut` in `shop-config.js`:
 
 ```js
-soldOut: false,
-links: {
-  "S":  "https://buy.stripe.com/xxxx",
-  "M":  "https://buy.stripe.com/xxxx",
-  "L":  "https://buy.stripe.com/xxxx",
-  "XL": "https://buy.stripe.com/xxxx",
-  "XXL":"https://buy.stripe.com/xxxx"
-}
+soldOut: false,   // buttons active
+soldOut: true,    // buttons read "Sold out — check back soon" (disabled)
 ```
 
-3. Sizes with no link render as *"Checkout opens soon"* and stay disabled — partial rollouts are safe.
-4. Sizes that are genuinely gone go in `outOfStock: ["M"]` — shown struck through.
+To pull a single size, add it to `outOfStock: ["M"]` — shown struck through.
+A size is never silently purchasable: the button stays disabled until a size is chosen.
 
-That's it. Commit, push, Vercel deploys.
+## Environment (Vercel, encrypted)
 
-## Status vocabulary (drives the UI)
-
-| Config | Button shows |
+| Var | What it is |
 |---|---|
-| `soldOut: true` | "Sold out — check back soon" (disabled) |
-| `soldOut: false`, no link for chosen size | "Checkout opens soon" (disabled) |
-| `soldOut: false`, link present | "Add to cart — $55" (active, links out) |
+| `STRIPE_SECRET_KEY` | Live Stripe secret key (already wired for Substrate checkout) |
+| `STRIPE_PRICE_HOODIE` | `price_1UIb3w2Qx6iNdTCBw0HAzz1O` |
+| `STRIPE_PRICE_TEE` | `price_1UIb3x2Qx6iNdTCBfl3Y18Mt` |
+| `STRIPE_PRICE_BEANIE` | `price_1UIb3x2Qx6iNdTCB50kw7CHB` |
+| `PRINTFUL_API_KEY` | Printful private token (store `13244328`) |
+| `SHOP_SUCCESS_URL` | optional override, default `https://propagation.house/shop/thanks` |
+| `SHOP_CANCEL_URL` | optional override, default `https://propagation.house/shop` |
 
-Single-size items (the beanie) auto-select on load — no dead first click.
+The Printful key lives **only** as an encrypted env var — never on disk, never in browser JS.
 
-## Cart note
+## Product → Printful mapping
 
-This is a **link-out** shop: each size's button goes straight to a payment link.
-That is the right shape for three SKUs and matches how Substrate's paid tiers work.
-If the range grows past ~8 SKUs or you want a real multi-item cart, that's a
-different build (Stripe Checkout with line items, or Snipcart) — say so and I'll scope it.
+| Shop slug | `printfulId` | Variants (S/M/L/XL/XXL) |
+|---|---|---|
+| `house-hoodie` | 146 | 5530 / 5531 / 5532 / 5533 / 5534 |
+| `daily-edition-tee` | 1592 | 50102 / 50126 / 50121 / 50097 / 50077 |
+| `fisherman-beanie` | 809 | One Size = 20487 |
+
+Changing a price means creating a new Stripe price (or updating the existing one)
+and, if the id changes, updating the env var. The config file's `price` field is
+display only — Stripe is the source of truth for what's charged.
 
 ## Adding a product
 
-Append an object to `products[]` in `shop-config.js` with the same keys, drop its
-images into `assets/images/merch/`, then add two rewrites to `vercel.json`:
+1. Create a Stripe product + price; set `STRIPE_PRICE_<NAME>` env var.
+2. Append an object to `products[]` in `shop-config.js` with the same keys
+   (including `printfulId`).
+3. Add its variant map to **both** `api/checkout.js` and `api/finalize-order.js`.
+4. Drop its images into `assets/images/merch/`, add two rewrites to `vercel.json`.
 
-```json
-{ "source": "/shop/<slug>",  "destination": "/shop/item.html" },
-{ "source": "/shop/<slug>/", "destination": "/shop/item.html" }
-```
+## Cart scope
 
-The index grid picks it up automatically.
+One item per checkout session — right shape for three SKUs. If the range grows
+past ~8 SKUs or you want a multi-item cart, that's a Stripe Checkout with
+multiple line items rebuild.
 
 ## Images
 
 Source renders are 2000×2000 PNGs with real alpha, in `Desktop\Drop Folder\merch`.
-Each product has front / left / right angles (the beanie also has a detail shot) —
-those are the galleries. Built to ≤1200px wide, alpha-fringed, in `assets/images/merch/`.
+Each product has front / left / right angles (the beanie also has a detail shot).
+Built to ≤1200px wide, alpha-fringed, in `assets/images/merch/`.
+
+## Gotchas
+
+- **Absolute asset paths only.** Relative refs (`shop.css`, `../assets/…`) break on
+  `/shop` without a trailing slash — the browser resolves them against `/`.
+- The `/shop/<slug>` rewrite **drops the query string** — the slug is read from
+  `window.location.pathname`, not `?p=`.
+- `URLSearchParams` does not recurse nested objects — Stripe metadata must be built
+  manually as `metadata[key]=value`.
+- `Acumin-BPro.otf` does not exist (real file: `Acumin-BdPro.otf`).
