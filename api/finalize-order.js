@@ -8,10 +8,20 @@
 const PRINTFUL_API = 'https://api.printful.com';
 
 const ALLOWED_PRODUCTS = new Set([146, 1592, 809]);
-const VARIANT_MAP = {
-  146: { S: 5530, M: 5531, L: 5532, XL: 5533, XXL: 5534 },
-  1592: { S: 50102, M: 50126, L: 50121, XL: 50097, XXL: 50077 },
-  809: { 'One Size': 20487, OS: 20487 },
+// Order by the store's SYNC variant id so the attached design ships.
+// These are the store's real products (wix store) that carry the designs —
+// ordering by catalog variant_id would print a blank garment.
+const SYNC_VARIANT_MAP = {
+  // Studio Hoodie -> store "PHSDS Daily Edition" (Gildan 18500, Black)
+  146: { M: 4280269967, L: 4280269969, XL: 4280269974, XXL: 4280269977 },
+  // Daily Edition Tee -> store "Sigil Bone Dust Tee (Embroidered)" (Faded Bone, live)
+  // NOTE: the old "Daily Edition Tee" product (383918316) is DISCONTINUED in the store.
+  // The live tee is the embroidered Sigil Bone Dust Tee — Faded Bone is the lightest.
+  1592: { S: 4280294054, M: 4280294055, L: 4280294056, XL: 4280294057, XXL: 4280294058 },
+  // Fisherman Beanie -> store "PHSDS Spinelli Waffle" (Heather Charcoal, one-size)
+  // NOTE: store carries a waffle-knit beanie, not a ribbed fisherman roll. If the
+  // shop copy must match the actual garment, update the beanie product name/desc.
+  809: { 'One Size': 4280465855, OS: 4280465855 },
 };
 
 module.exports = async (req, res) => {
@@ -50,8 +60,8 @@ module.exports = async (req, res) => {
     const productId = parseInt(s.metadata && s.metadata.product_id, 10);
     const size = s.metadata && s.metadata.size;
     if (!ALLOWED_PRODUCTS.has(productId)) return send(403, { ok: false, error: 'Unknown product in session.' });
-    const variantId = (VARIANT_MAP[productId] || {})[size];
-    if (!variantId) return send(400, { ok: false, error: 'Unknown size in session.' });
+    const syncVariantId = (SYNC_VARIANT_MAP[productId] || {})[size];
+    if (!syncVariantId) return send(400, { ok: false, error: 'That size is not available for this product yet.' });
 
     // 3. Create the Printful order (confirmed — payment already done).
     const orderBody = {
@@ -67,7 +77,7 @@ module.exports = async (req, res) => {
         phone: '',
       },
       items: [{
-        variant_id: variantId,
+        sync_variant_id: syncVariantId,
         quantity: 1,
         name: 'Propagation House merch',
       }],

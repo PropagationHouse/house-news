@@ -23,10 +23,12 @@ const PRICE_MAP = {
 };
 
 // Map shop size labels to Printful variant ids (mirrors printful-proxy.js).
+// NOTE: checkout only passes product_id + size in metadata. The actual Printful
+// sync_variant_id is resolved in finalize-order.js from the store's real products.
 const VARIANT_MAP = {
-  146: { S: 5530, M: 5531, L: 5532, XL: 5533, XXL: 5534 },
-  1592: { S: 50102, M: 50126, L: 50121, XL: 50097, XXL: 50077 },
-  809: { 'One Size': 20487, OS: 20487 },
+  146: { M: 4280269967, L: 4280269969, XL: 4280269974, XXL: 4280269977 },
+  1592: { S: 4280294054, M: 4280294055, L: 4280294056, XL: 4280294057, XXL: 4280294058 },
+  809: { 'One Size': 4280465855, OS: 4280465855 },
 };
 
 module.exports = async (req, res) => {
@@ -67,7 +69,6 @@ module.exports = async (req, res) => {
     'cancel_url': process.env.SHOP_CANCEL_URL || 'https://propagation.house/shop',
     'metadata[product_id]': String(productId),
     'metadata[size]': size,
-    'metadata[variant_id]': String(variantId),
     'shipping_address_collection[allowed_countries][0]': 'US',
     'shipping_address_collection[allowed_countries][1]': 'CA',
   });
