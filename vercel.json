@@ -47,6 +47,38 @@
     {
       "source": "/substrate/downloads/",
       "destination": "/substrate-v2/downloads.html"
+    },
+    {
+      "source": "/shop",
+      "destination": "/shop/index.html"
+    },
+    {
+      "source": "/shop/",
+      "destination": "/shop/index.html"
+    },
+    {
+      "source": "/shop/house-hoodie",
+      "destination": "/shop/item.html"
+    },
+    {
+      "source": "/shop/house-hoodie/",
+      "destination": "/shop/item.html"
+    },
+    {
+      "source": "/shop/daily-edition-tee",
+      "destination": "/shop/item.html"
+    },
+    {
+      "source": "/shop/daily-edition-tee/",
+      "destination": "/shop/item.html"
+    },
+    {
+      "source": "/shop/fisherman-beanie",
+      "destination": "/shop/item.html"
+    },
+    {
+      "source": "/shop/fisherman-beanie/",
+      "destination": "/shop/item.html"
     }
   ]
 }
