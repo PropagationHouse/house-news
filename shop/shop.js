@@ -49,10 +49,6 @@
     }
     document.title = p.name + " — Propagation House";
 
-    var back = el("a", "back-link", "\u2190 All merch");
-    back.href = "/shop";
-    mount.appendChild(back);
-
     var wrap = el("div", "shop-product");
 
     /* gallery */
@@ -90,15 +86,46 @@
     blurb.innerHTML = p.blurb;
     buy.appendChild(blurb);
 
-    /* size picker */
-    var label = el("div", "opt-label");
-    label.appendChild(el("span", null, p.sizes.length > 1 ? "Size" : "Fit"));
-    var chosen = el("span", "chosen", p.sizes.length > 1 ? "Select a size" : p.sizes[0]);
-    label.appendChild(chosen);
-    buy.appendChild(label);
+    /* size picker — a single-size item has nothing to choose, so it shows as a spec */
+    var row, current = null;
+    if (p.sizes.length > 1) {
+      var label = el("div", "opt-label");
+      label.appendChild(el("span", null, "Size"));
+      var chosen = el("span", "chosen", "Select a size");
+      label.appendChild(chosen);
+      buy.appendChild(label);
 
-    var row = el("div", "size-row");
-    var current = null;
+      row = el("div", "size-row");
+      p.sizes.forEach(function (s) {
+        var b = el("button", null, s);
+        b.type = "button";
+        if (p.outOfStock.indexOf(s) !== -1) {
+          b.disabled = true;
+          b.title = "Sold out in " + s;
+        }
+        b.addEventListener("click", function () { pick(s, b); });
+        row.appendChild(b);
+      });
+      buy.appendChild(row);
+    } else {
+      var only = el("div", "opt-label");
+      only.appendChild(el("span", null, "Fit"));
+      only.appendChild(el("span", "chosen", p.sizes[0]));
+      buy.appendChild(only);
+      row = el("div", "size-row");
+      row.style.display = "none";
+      buy.appendChild(row);
+    }
+
+    function pick(s, b) {
+      current = s;
+      if (chosen) chosen.textContent = s;
+      Array.prototype.forEach.call(row.children, function (c) { c.classList.remove("on"); });
+      if (b) b.classList.add("on");
+      refresh();
+    }
+
+    if (p.sizes.length === 1) current = p.sizes[0];
 
     var btn = el("button", "buy-btn");
     btn.type = "button";
@@ -118,29 +145,6 @@
         btn.setAttribute("aria-disabled", "true");
       }
     }
-
-    p.sizes.forEach(function (s) {
-      var b = el("button", null, s);
-      b.type = "button";
-      if (p.outOfStock.indexOf(s) !== -1) {
-        b.disabled = true;
-        b.title = "Sold out in " + s;
-      }
-      b.addEventListener("click", function () { pick(s, b); });
-      row.appendChild(b);
-    });
-    buy.appendChild(row);
-
-    function pick(s, b) {
-      current = s;
-      chosen.textContent = s;
-      Array.prototype.forEach.call(row.children, function (c) { c.classList.remove("on"); });
-      if (b) b.classList.add("on");
-      refresh();
-    }
-
-    /* single-size items (a beanie) have nothing to choose — select it up front */
-    if (p.sizes.length === 1) pick(p.sizes[0], row.firstElementChild);
 
     btn.addEventListener("click", function () {
       if (btn.getAttribute("aria-disabled") === "true") return;
