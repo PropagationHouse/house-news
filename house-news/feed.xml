@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Rivals Become Each Other's <em>Inspectors</em></title>
+<link>https://www.propagation.house/house-news/articles/openai-anthropic-testing-pact.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-anthropic-testing-pact.html</guid>
+<pubDate>Tue, 22 Sep 2026 00:00:00 -0000</pubDate>
+<description>OpenAI and Anthropic are negotiating a legally binding deal to stress-test each other's commercial models for safety failures, each given API access to the other's systems and no right to keep the data. The two labs that race hardest have decided to audit each other.</description>
+</item>
+<item>
+<title>The Province Files <em>First</em></title>
+<link>https://www.propagation.house/house-news/articles/bc-sues-openai.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/bc-sues-openai.html</guid>
+<pubDate>Tue, 22 Sep 2026 00:00:00 -0000</pubDate>
+<description>British Columbia sued OpenAI and Sam Altman in a California federal court over the Tumbler Ridge school shooting, arguing the province would not have been harmed if the company had told police what a user was saying to its model. A government is now the plaintiff.</description>
+</item>
+<item>
+<title>$22 Billion, <em>Secured by the Chips</em></title>
+<link>https://www.propagation.house/house-news/articles/crux-ai-chip-loan.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/crux-ai-chip-loan.html</guid>
+<pubDate>Tue, 22 Sep 2026 00:00:00 -0000</pubDate>
+<description>Ten banks lined up a $22 billion loan for Crux AI to buy Google TPUs. The collateral is the chips themselves and the customer contracts around them - not Alphabet's balance sheet. Hardware that depreciates is now the asset class it finances itself against.</description>
+</item>
+<item>
 <title>The <em>Rulebook</em> Gets a Standard</title>
 <link>https://www.propagation.house/house-news/articles/china-agent-safety-standard.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/china-agent-safety-standard.html</guid>

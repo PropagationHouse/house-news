@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">100</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">103</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">21</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">7</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'openai-anthropic-testing-pact', title:'The Rivals Become Each Other\'s <em>Inspectors</em>', href:'articles/openai-anthropic-testing-pact.html', date:'2026-09-22', category:'policy', lens:'policy', read:'4 min read', dek:'OpenAI and Anthropic are negotiating a legally binding deal to stress-test each other\'s commercial models for safety failures, each given API access to the other\'s systems and no right to keep the data. The two labs that race hardest have decided to audit each other.',
+      tags:["openai", "anthropic", "safety", "red-teaming", "the-information"]},
+    {id:'bc-sues-openai', title:'The Province Files <em>First</em>', href:'articles/bc-sues-openai.html', date:'2026-09-22', category:'policy', lens:'policy', read:'4 min read', dek:'British Columbia sued OpenAI and Sam Altman in a California federal court over the Tumbler Ridge school shooting, arguing the province would not have been harmed if the company had told police what a user was saying to its model. A government is now the plaintiff.',
+      tags:["openai", "litigation", "tumbler-ridge", "duty-to-warn", "british-columbia"]},
+    {id:'crux-ai-chip-loan', title:'$22 Billion, <em>Secured by the Chips</em>', href:'articles/crux-ai-chip-loan.html', date:'2026-09-22', category:'business', lens:'business', read:'4 min read', dek:'Ten banks lined up a $22 billion loan for Crux AI to buy Google TPUs. The collateral is the chips themselves and the customer contracts around them - not Alphabet\'s balance sheet. Hardware that depreciates is now the asset class it finances itself against.',
+      tags:["crux-ai", "blackstone", "alphabet", "tpus", "debt", "data-centers"]},
     {id:'china-agent-safety-standard', title:'The <em>Rulebook</em> Gets a Standard', href:'articles/china-agent-safety-standard.html', date:'2026-09-21', category:'Governance', lens:'governance', read:'5 min', dek:'Reuters reports China has begun drafting a mandatory national safety standard for AI agents - possibly the world\'s first - driven by a view that an agent\'s operational loss of control is a genuine, near-term risk rather than a distant scenario.',
       tags:["china", "agents", "safety", "standard", "regulation", "reuters"]},
     {id:'hinton-slowdown-endorsement', title:'The <em>Godfather</em> Backs the Brakes', href:'articles/hinton-slowdown-endorsement.html', date:'2026-09-21', category:'Safety', lens:'safety', read:'4 min', dek:'Geoffrey Hinton, the \'godfather of AI,\' said Dario Amodei\'s call to slow development was \'very sensible\' - adding the voice of the field\'s most famous cautionary figure to the growing chorus urging the industry to let safety research catch up.',
