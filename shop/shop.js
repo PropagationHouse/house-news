@@ -174,7 +174,14 @@
     var mode = mount.getAttribute("data-shop");
     if (mode === "index") renderIndex(mount);
     else {
-      var slug = new URLSearchParams(window.location.search).get("p") || mount.getAttribute("data-slug");
+      /* The /shop/<slug> rewrite serves item.html with the query string gone,
+         so the path is the source of truth. ?p= still works for local testing. */
+      var slug = new URLSearchParams(window.location.search).get("p")
+        || mount.getAttribute("data-slug")
+        || (function () {
+             var m = window.location.pathname.match(/\/shop\/([^\/]+)\/?$/);
+             return m ? decodeURIComponent(m[1]) : null;
+           })();
       renderProduct(mount, slug);
     }
   });
