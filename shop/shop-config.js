@@ -25,9 +25,9 @@ window.PH_SHOP = {
         "Machine wash cold, inside out"
       ],
       images: [
-        { src: "../assets/images/merch/hoodie-1.png", alt: "Studio Hoodie, front" },
-        { src: "../assets/images/merch/hoodie-2.png", alt: "Studio Hoodie, left side" },
-        { src: "../assets/images/merch/hoodie-3.png", alt: "Studio Hoodie, right side" }
+        { src: "/assets/images/merch/hoodie-1.png", alt: "Studio Hoodie, front" },
+        { src: "/assets/images/merch/hoodie-2.png", alt: "Studio Hoodie, left side" },
+        { src: "/assets/images/merch/hoodie-3.png", alt: "Studio Hoodie, right side" }
       ]
     },
     {
@@ -48,9 +48,9 @@ window.PH_SHOP = {
         "Machine wash cold, inside out"
       ],
       images: [
-        { src: "../assets/images/merch/tee-1.png", alt: "Daily Edition Tee, front" },
-        { src: "../assets/images/merch/tee-2.png", alt: "Daily Edition Tee, left side" },
-        { src: "../assets/images/merch/tee-3.png", alt: "Daily Edition Tee, right side" }
+        { src: "/assets/images/merch/tee-1.png", alt: "Daily Edition Tee, front" },
+        { src: "/assets/images/merch/tee-2.png", alt: "Daily Edition Tee, left side" },
+        { src: "/assets/images/merch/tee-3.png", alt: "Daily Edition Tee, right side" }
       ]
     },
     {
@@ -71,10 +71,10 @@ window.PH_SHOP = {
         "Hand wash cold, dry flat"
       ],
       images: [
-        { src: "../assets/images/merch/beanie-1.png", alt: "Fisherman Beanie, front" },
-        { src: "../assets/images/merch/beanie-2.png", alt: "Fisherman Beanie, left side" },
-        { src: "../assets/images/merch/beanie-3.png", alt: "Fisherman Beanie, right side" },
-        { src: "../assets/images/merch/beanie-4.png", alt: "Fisherman Beanie, detail" }
+        { src: "/assets/images/merch/beanie-1.png", alt: "Fisherman Beanie, front" },
+        { src: "/assets/images/merch/beanie-2.png", alt: "Fisherman Beanie, left side" },
+        { src: "/assets/images/merch/beanie-3.png", alt: "Fisherman Beanie, right side" },
+        { src: "/assets/images/merch/beanie-4.png", alt: "Fisherman Beanie, detail" }
       ]
     }
   ]
