@@ -37,9 +37,14 @@ module.exports = async (req, res) => {
 
   if (req.method !== 'POST') return send(405, 'Method not allowed.');
 
-  let body;
-  try { body = JSON.parse(req.body || '{}'); }
-  catch (e) { return send(400, 'Invalid JSON body.'); }
+  // Vercel's Node runtime auto-parses application/json bodies into an object,
+  // so req.body may already be an object. Only parse when it's a raw string.
+  let body = req.body;
+  if (typeof body === 'string') {
+    try { body = JSON.parse(body); }
+    catch (e) { return send(400, 'Invalid JSON body.'); }
+  }
+  if (!body || typeof body !== 'object') body = {};
 
   const productId = parseInt(body.productId, 10);
   const size = body.size;
