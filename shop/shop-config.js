@@ -5,14 +5,15 @@
 window.PH_SHOP = {
   currency: "USD",
   soldOutNote: "Sold out — check back soon",
-  fallbackNote: "Checkout opens soon",
+  fallbackNote: "Select a size",
   products: [
     {
       id: "house-hoodie",
       name: "Studio Hoodie",
+      printfulId: 146,
       tagline: "Heavyweight fleece, black",
       price: 55,
-      soldOut: true,
+      soldOut: false,
       sizes: ["S", "M", "L", "XL", "XXL"],
       outOfStock: [],
       links: {},
@@ -33,9 +34,10 @@ window.PH_SHOP = {
     {
       id: "daily-edition-tee",
       name: "Daily Edition Tee",
+      printfulId: 1592,
       tagline: "Oversized heavyweight cotton, white",
       price: 30,
-      soldOut: true,
+      soldOut: false,
       sizes: ["S", "M", "L", "XL", "XXL"],
       outOfStock: [],
       links: {},
@@ -56,9 +58,10 @@ window.PH_SHOP = {
     {
       id: "fisherman-beanie",
       name: "Fisherman Beanie",
+      printfulId: 809,
       tagline: "Ribbed knit, black",
       price: 28,
-      soldOut: true,
+      soldOut: false,
       sizes: ["One Size"],
       outOfStock: [],
       links: {},

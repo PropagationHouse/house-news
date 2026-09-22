@@ -136,20 +136,33 @@
         btn.setAttribute("aria-disabled", "true");
         return;
       }
-      var link = current ? p.links[current] : null;
-      if (link) {
-        btn.textContent = "Add to cart \u2014 " + money(p.price);
+      if (current) {
+        btn.textContent = "Buy \u2014 " + money(p.price);
         btn.removeAttribute("aria-disabled");
       } else {
-        btn.textContent = current ? S.fallbackNote : "Select a size";
+        btn.textContent = "Select a size";
         btn.setAttribute("aria-disabled", "true");
       }
     }
 
     btn.addEventListener("click", function () {
       if (btn.getAttribute("aria-disabled") === "true") return;
-      var link = p.links[current];
-      if (link) window.location.href = link;
+      if (!current) return;
+      // Mint a Stripe Checkout Session on the fly via /api/checkout.
+      fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productId: p.printfulId, size: current }),
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (d.url) window.location.href = d.url;
+          else { btn.textContent = d.error || "Checkout unavailable"; btn.setAttribute("aria-disabled", "true"); }
+        })
+        .catch(function () {
+          btn.textContent = "Checkout unavailable";
+          btn.setAttribute("aria-disabled", "true");
+        });
     });
     buy.appendChild(btn);
     refresh();
@@ -157,7 +170,7 @@
     var under = el("p", "under");
     under.textContent = p.soldOut
       ? "Nothing to buy yet \u2014 this item is between runs."
-      : "Checkout is handled by the payment link \u2014 no account needed.";
+      : "Checkout collects your shipping address \u2014 no account needed.";
     buy.appendChild(under);
 
     /* specs */

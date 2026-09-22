@@ -106,3 +106,10 @@ body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:n
 @media (max-width:560px){
   .shop-grid{grid-template-columns:1fr}
 }
+
+/* thanks page */
+.thanks{max-width:560px;margin:80px auto;text-align:center}
+.thanks h1{font-family:var(--serif);font-size:44px;font-weight:400;margin:0 0 18px}
+#order-status{font-family:var(--sans);font-size:15px;color:var(--ink);margin:0 0 10px}
+#order-status{font-family:var(--sans);font-size:15px;color:var(--ink);margin:0 0 10px}
+.thanks-sub{font-family:var(--sans);font-size:13px;color:var(--muted);margin:0 0 28px}

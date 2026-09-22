@@ -49,6 +49,14 @@
       "destination": "/substrate-v2/downloads.html"
     },
     {
+      "source": "/shop/thanks",
+      "destination": "/shop/thanks.html"
+    },
+    {
+      "source": "/shop/thanks/",
+      "destination": "/shop/thanks.html"
+    },
+    {
       "source": "/shop",
       "destination": "/shop/index.html"
     },
