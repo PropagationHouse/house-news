@@ -37,7 +37,7 @@ window.PH_SHOP = {
       printfulId: 1592,
       tagline: "Embroidered heavyweight cotton, faded bone",
       price: 30,
-      soldOut: false,
+      soldOut: true,
       sizes: ["S", "M", "L", "XL", "XXL"],
       outOfStock: [],
       links: {},
