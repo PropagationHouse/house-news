@@ -38,12 +38,14 @@ const VARIANT_MAP = {
 };
 
 // Shipping rate per product — the buyer pays shipping as a pass-through so we
-// never absorb it. Each rate covers the Printful landed shipping for that
-// garment class (hoodie $8.79, beanie $4.69). The tee is sold out, so it has
-// no rate. Rates created in Stripe (shr_...); keep in sync with Stripe.
+// never absorb cost at any destination. We use the HIGHEST Printful rate
+// (Canada: hoodie $10.59, beanie $7.29) for everyone. US buyers overpay a tiny
+// bit (~$1.80/$2.60) but no order ever loses money, and it keeps one flat rate
+// per garment. The tee is sold out, so it has no rate. Rates created in Stripe
+// (shr_...); keep in sync with Stripe.
 const SHIPPING_RATE_MAP = {
-  146: process.env.STRIPE_SHIP_HOODIE || 'shr_1UIvtk2Qx6iNdTCBEx2G4sth', // Standard Shipping (Hoodie) $8.79
-  809: process.env.STRIPE_SHIP_BEANIE || 'shr_1UIvtk2Qx6iNdTCB9QNeeNTe', // Standard Shipping (Beanie) $4.69
+  146: process.env.STRIPE_SHIP_HOODIE || 'shr_1UIwC02Qx6iNdTCBGpMNo7Am', // Standard Shipping (Hoodie) $10.59 (Canada max)
+  809: process.env.STRIPE_SHIP_BEANIE || 'shr_1UIwC02Qx6iNdTCB7C2145oo', // Standard Shipping (Beanie) $7.29 (Canada max)
 };
 
 module.exports = async (req, res) => {
