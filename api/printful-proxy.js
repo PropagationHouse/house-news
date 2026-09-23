@@ -19,13 +19,13 @@ const PRINTFUL_API = 'https://api.printful.com';
 // Only allow the three products we actually sell. A wrong id ships the wrong garment.
 const ALLOWED_PRODUCTS = new Set([146, 1592, 809]); // hoodie, tee, beanie
 
-// Map our shop size labels to Printful SYNC variant ids, keyed by product.
-// These are the store's real products (wix store) that carry the attached designs —
-// ordering by catalog variant_id would print a blank garment.
+// Map our shop size labels to Printful variant ids, keyed by product.
+// Hoodie + tee are store SYNC variants (attached design ships). The beanie is a
+// catalog-only garment (no design attached — correct for an unprinted hat).
 const VARIANT_MAP = {
   146: { M: 4280269967, L: 4280269969, XL: 4280269974, XXL: 4280269977 },       // PHSDS Daily Edition hoodie, black
   1592: { S: 4280294054, M: 4280294055, L: 4280294056, XL: 4280294057, XXL: 4280294058 }, // Sigil Bone Dust Tee, faded bone
-  809: { 'One Size': 4280465855, OS: 4280465855 },                               // PHSDS Spinelli Waffle beanie, heather charcoal
+  809: { 'One Size': 20487, OS: 20487 },                                        // Fisherman Beanie, AS Colour 1120, black (catalog)
 };
 
 module.exports = async (req, res) => {

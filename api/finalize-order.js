@@ -8,7 +8,7 @@
 const PRINTFUL_API = 'https://api.printful.com';
 
 const ALLOWED_PRODUCTS = new Set([146, 1592, 809]);
-// Order by the store's SYNC variant id so the attached design ships.
+// Products ordered by the store's SYNC variant id so the attached design ships.
 // These are the store's real products (wix store) that carry the designs —
 // ordering by catalog variant_id would print a blank garment.
 const SYNC_VARIANT_MAP = {
@@ -18,10 +18,14 @@ const SYNC_VARIANT_MAP = {
   // NOTE: the old "Daily Edition Tee" product (383918316) is DISCONTINUED in the store.
   // The live tee is the embroidered Sigil Bone Dust Tee — Faded Bone is the lightest.
   1592: { S: 4280294054, M: 4280294055, L: 4280294056, XL: 4280294057, XXL: 4280294058 },
-  // Fisherman Beanie -> store "PHSDS Spinelli Waffle" (Heather Charcoal, one-size)
-  // NOTE: store carries a waffle-knit beanie, not a ribbed fisherman roll. If the
-  // shop copy must match the actual garment, update the beanie product name/desc.
-  809: { 'One Size': 4280465855, OS: 4280465855 },
+};
+
+// Products ordered by CATALOG variant id (unprinted — no attached design in the store).
+// The fisherman beanie (AS Colour 1120, Black) is NOT a store sync product — the store
+// only carries waffle-knit beanies. It's a catalog-only garment, so we order by
+// variant_id (20487) and no design is attached (correct for an unprinted hat).
+const CATALOG_VARIANT_MAP = {
+  809: { 'One Size': 20487, OS: 20487 },
 };
 
 module.exports = async (req, res) => {
@@ -60,7 +64,10 @@ module.exports = async (req, res) => {
     const productId = parseInt(s.metadata && s.metadata.product_id, 10);
     const size = s.metadata && s.metadata.size;
     if (!ALLOWED_PRODUCTS.has(productId)) return send(403, { ok: false, error: 'Unknown product in session.' });
-    const syncVariantId = (SYNC_VARIANT_MAP[productId] || {})[size];
+    // Order by sync variant id (attached design) for store products, or by
+    // catalog variant id for unprinted catalog-only garments (the beanie).
+    const syncVariantId = (SYNC_VARIANT_MAP[productId] || {})[size] ||
+                          (CATALOG_VARIANT_MAP[productId] || {})[size];
     if (!syncVariantId) return send(400, { ok: false, error: 'That size is not available for this product yet.' });
 
     // 3. Create the Printful order (confirmed — payment already done).
