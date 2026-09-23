@@ -1,7 +1,13 @@
 /* Propagation House — shop config
    Single source of truth for the merch shop. Product pages render from this.
-   TO OPEN CHECKOUT: set soldOut:false and paste a payment link into links{size}.
-   No other code changes needed. */
+
+   CHECKOUT IS AUTOMATED (do NOT paste payment links):
+     buy button -> api/checkout.js mints a Stripe session -> /shop/thanks
+     -> api/finalize-order.js verifies paid + creates a confirmed Printful order.
+
+   TO OPEN A SOLD-OUT ITEM: set soldOut:false AND remove its printfulId from
+   SOLD_OUT_PRODUCTS in api/checkout.js (the server enforces it too — a
+   browser-only flag is not a guard). Per-size availability: outOfStock[]. */
 window.PH_SHOP = {
   currency: "USD",
   soldOutNote: "Sold out — check back soon",
