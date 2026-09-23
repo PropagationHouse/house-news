@@ -6,6 +6,9 @@
 // Returns { ok, message, orderId, trackingUrl }.
 
 const PRINTFUL_API = 'https://api.printful.com';
+// Printful store "Propagation House". POST /orders REQUIRES store_id — omitting it
+// returns 400 "This endpoint requires `store_id`!" and the order is never created.
+const PRINTFUL_STORE_ID = 13244328;
 
 const ALLOWED_PRODUCTS = new Set([146, 1592, 809]);
 // Products ordered by the store's SYNC variant id so the attached design ships.
@@ -110,7 +113,9 @@ module.exports = async (req, res) => {
       status: 'confirmed',
     };
 
-    const pr = await fetch(PRINTFUL_API + '/orders', {
+    // store_id is REQUIRED by POST /orders — without it Printful returns
+    // 400 "This endpoint requires `store_id`!" and the order is never created.
+    const pr = await fetch(PRINTFUL_API + '/orders?store_id=' + PRINTFUL_STORE_ID, {
       method: 'POST',
       headers: {
         'Authorization': 'Bearer ' + printfulKey,

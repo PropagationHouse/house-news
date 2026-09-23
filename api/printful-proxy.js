@@ -15,6 +15,8 @@
 // payment is confirmed. Pass confirm:true to create a confirmed order.
 
 const PRINTFUL_API = 'https://api.printful.com';
+// POST /orders REQUIRES store_id — without it Printful 400s and no order is made.
+const PRINTFUL_STORE_ID = 13244328;
 
 // Only allow the three products we actually sell. A wrong id ships the wrong garment.
 const ALLOWED_PRODUCTS = new Set([146, 1592, 809]); // hoodie, tee, beanie
@@ -103,7 +105,7 @@ module.exports = async (req, res) => {
   };
 
   try {
-    const r = await fetch(PRINTFUL_API + '/orders', {
+    const r = await fetch(PRINTFUL_API + '/orders?store_id=' + PRINTFUL_STORE_ID, {
       method: 'POST',
       headers: {
         'Authorization': 'Bearer ' + apiKey,
