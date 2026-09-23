@@ -85,6 +85,28 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 83 (Sep 23, 2026) ----------
+    {"filename": "gpt6-sol-luna-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a printed price list taped to the inside of an office window, rows of figures with several revised by hand in dark ink",
+     "place": "a small shared office at the front of a building",
+     "camera": "straight on at chest height from a candid documentary distance",
+     "light": "soft overcast daylight through the glass",
+     "scale_anchor": "the strips of tape and the sheet's paper edges set the scale",
+     "lens": "35mm f/2.8 prime, 1/125s"},
+    {"filename": "trump-superintelligence-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an empty lectern bearing a round international emblem in a large assembly hall, rows of empty delegate seats with small microphones receding behind it",
+     "place": "a vast international assembly hall after the chamber has emptied",
+     "camera": "from an observer's seat at a candid documentary distance",
+     "light": "house lights low and warm against the darker upper hall",
+     "scale_anchor": "the lectern and the nearest row of seats set the scale",
+     "lens": "35mm f/2.8 prime, 1/125s"},
+    {"filename": "alibaba-zhenwu-v900-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a rack of server boards in a chilled data center aisle, dense cabling combed down one side, rows of small indicator lights lit",
+     "place": "a working data center aisle during a maintenance window",
+     "camera": "from the end of the row at a candid documentary distance",
+     "light": "cold overhead light with a faint warm cast from the status LEDs",
+     "scale_anchor": "the rack uprights and the cable bundles set the scale",
+     "lens": "35mm f/2.8 prime, 1/125s"},
     # ---------- NO. 79 (Sep 19, 2026) ----------
     {"filename": "anthropic-rd-26-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a long workbench lined with identical closed laboratory notebooks, one notebook open with fresh handwriting",

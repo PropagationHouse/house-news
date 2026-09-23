@@ -1315,6 +1315,42 @@
       "status": "published",
       "filename": "articles/crux-ai-chip-loan.html",
       "read_time": "4 min read"
+    },
+    {
+      "title": "Half Price, Same <em>Day</em>",
+      "kicker": "Markets · September 22, 2026",
+      "dek": "Anthropic released a model that costs forty percent less to run. OpenAI answered within hours with two models at half the old price. Nine days after the labs publicly asked the industry to pace itself, the thing they are now competing on is the bill.",
+      "author": "Propagation House",
+      "date": "2026-09-23",
+      "category": "business",
+      "lens": "business",
+      "status": "published",
+      "filename": "articles/gpt6-sol-luna.html",
+      "read_time": "4 min read"
+    },
+    {
+      "title": "Henceforth, <em>Superintelligence</em>",
+      "kicker": "Policy · September 22, 2026",
+      "dek": "At the United Nations, the president said American documents will stop saying artificial intelligence. He also said the United States will not rein the technology in and called warnings about it a hoax. Nothing was signed, and no agency has been told what to change.",
+      "author": "Propagation House",
+      "date": "2026-09-23",
+      "category": "policy",
+      "lens": "policy",
+      "status": "published",
+      "filename": "articles/trump-superintelligence.html",
+      "read_time": "4 min read"
+    },
+    {
+      "title": "One Vendor, Every <em>Layer</em>",
+      "kicker": "Chips · September 22, 2026",
+      "dek": "Alibaba announced a chip it calls the most powerful in China, a model plan reaching ten trillion parameters, and a data-center target of twenty gigawatts. Three layers, one vendor, and no dependence on the supplier everyone else queues for.",
+      "author": "Propagation House",
+      "date": "2026-09-23",
+      "category": "hardware",
+      "lens": "hardware",
+      "status": "published",
+      "filename": "articles/alibaba-zhenwu-v900.html",
+      "read_time": "4 min read"
     }
   ],
   "drafts": [],
