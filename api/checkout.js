@@ -14,6 +14,12 @@ const STRIPE = 'https://api.stripe.com/v1';
 // Allowlist: only these three products ever get a checkout.
 const ALLOWED_PRODUCTS = new Set([146, 1592, 809]); // hoodie, tee, beanie
 
+// Server-side sold-out guard. The client hides the button, but the server must
+// refuse too — otherwise a direct POST to /api/checkout mints a live session
+// for a product that loses money. The tee costs $41.96 to fulfill vs $30 price
+// = -$11.96/sale, so it is sold out. Keep this in sync with shop-config.js.
+const SOLD_OUT_PRODUCTS = new Set([1592]); // Daily Edition Tee (money-loser)
+
 // Price IDs keyed by product. Each product gets its own one-time price.
 // (Create these in Stripe > Products. One price per product, not per size.)
 const PRICE_MAP = {
@@ -55,6 +61,10 @@ module.exports = async (req, res) => {
 
   const priceId = PRICE_MAP[productId];
   if (!priceId) return send(500, 'No Stripe price configured for this product.');
+
+  if (SOLD_OUT_PRODUCTS.has(productId)) {
+    return send(409, 'That item is sold out — no checkout was created.');
+  }
 
   const map = VARIANT_MAP[productId];
   const variantId = map ? map[size] : null;
