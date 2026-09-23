@@ -23,6 +23,7 @@ module.exports = async (req, res) => {
     const customerId = (customer && customer.id) || s.customer || null;
     const rows = customerId ? await ent.ledgerFor(customerId, s.email) : [];
     const tier = ent.bestTier(rows);
+    const md = (customer && customer.metadata) || {};
 
     return send(200, {
       authenticated: true,
@@ -32,6 +33,10 @@ module.exports = async (req, res) => {
       has_billing_portal: !!(customer && customer.id),
       tier: tier,
       can_download: !!tier,
+      prefs: {
+        alerts: md.optin_alerts === 'true',
+        news: md.optin_news === 'true',
+      },
       entitlements: rows,
     });
   } catch (e) {

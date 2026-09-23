@@ -81,14 +81,14 @@
     <h2>What we send you</h2>
     <div class="card">
       <div class="opt">
-        <input type="checkbox" id="opt-alerts" disabled>
+        <input type="checkbox" id="opt-alerts">
         <label for="opt-alerts">Release alerts<span class="d">An email when a new build lands. Nothing else.</span></label>
       </div>
       <div class="opt">
-        <input type="checkbox" id="opt-news" disabled>
+        <input type="checkbox" id="opt-news">
         <label for="opt-news">The Dispatch<span class="d">Occasional notes from the studio — work, releases, House News highlights.</span></label>
       </div>
-      <div class="note" id="opt-note">Opt-in is coming online with email delivery — nothing is sent until you tick a box.</div>
+      <div class="note" id="opt-note">Both are off unless you tick them. You can change this any time.</div>
     </div>
   </div>
 </div>
@@ -177,6 +177,37 @@
         '<a class="btn ghost" href="/api/account/portal">Billing portal</a></div>';
 
       B.innerHTML = bhtml;
+
+      // ---- Opt-ins ------------------------------------------------------
+      // Preferences persist to Stripe customer metadata (no database).
+      var a = $('opt-alerts'), nw = $('opt-news'), note = $('opt-note');
+      var prefs = me.prefs || {alerts:false, news:false};
+      a.checked = !!prefs.alerts;
+      nw.checked = !!prefs.news;
+
+      function savePrefs(){
+        note.textContent = 'Saving…';
+        fetch('/api/account/prefs', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({alerts: a.checked, news: nw.checked})
+        })
+        .then(function(r){ return r.json().then(function(j){ return {ok:r.ok, j:j}; }); })
+        .then(function(out){
+          if (!out.ok) { note.textContent = out.j.error || 'Could not save.'; return; }
+          var p = out.j.prefs || {};
+          note.textContent = 'Saved. ' + (
+            (p.alerts || p.news)
+              ? 'You are on the list' +
+                (p.alerts ? ' for release alerts' : '') +
+                (p.alerts && p.news ? ' and' : '') +
+                (p.news ? ' for The Dispatch' : '') + '.'
+              : 'Both are off — nothing will be sent.');
+        })
+        .catch(function(){ note.textContent = 'Could not reach the server.'; });
+      }
+      a.addEventListener('change', savePrefs);
+      nw.addEventListener('change', savePrefs);
     })
     .catch(function(){
       $('loading').textContent = 'Could not load your account. Refresh to try again.';
