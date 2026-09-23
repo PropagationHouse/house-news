@@ -87,9 +87,13 @@ module.exports = async (req, res) => {
       const link = base + '/api/auth/login?token=' + encodeURIComponent(token) + '&next=' + encodeURIComponent('/account');
       const msg = mail.magicLinkEmail(link);
       const result = await mail.send(email, 'Your sign-in link — Propagation House', msg.text, msg.html);
-      // When mail is not configured yet, surface the link so the system is
-      // usable and testable before the provider is wired.
-      if (!result.sent) devLink = link;
+      // Surface the link in the response ONLY when no mail provider is
+      // configured at all AND dev links are explicitly enabled (local work).
+      // It must NEVER be returned when a provider exists and the send failed:
+      // that would hand a working sign-in link to anyone who knows the address.
+      // Triggers for a failed send are mundane — unverified domain, rate limit,
+      // provider outage — so this is not a theoretical path.
+      if (!result.configured && process.env.AUTH_DEV_LINKS === '1') devLink = link;
     }
 
     return send(res, 200, {
