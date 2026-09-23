@@ -37,6 +37,16 @@ module.exports = async (req, res) => {
 
   if (req.method !== 'POST') return send(405, 'Method not allowed.');
 
+  // Auth gate. This endpoint creates real Printful orders and is NOT used by the
+  // live checkout flow (finalize-order.js talks to Printful directly). Without
+  // this, anyone on the internet could POST a valid payload and place orders.
+  // Requires an internal token; if none is configured the endpoint stays closed.
+  const internal = process.env.SHOP_INTERNAL_KEY;
+  const provided = req.headers['x-internal-key'] || '';
+  if (!internal || provided !== internal) {
+    return send(403, 'This endpoint is not available.');
+  }
+
   // Vercel's Node runtime auto-parses application/json bodies into an object,
   // so req.body may already be an object. Only parse when it's a raw string.
   let body = req.body;

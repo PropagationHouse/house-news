@@ -28,6 +28,10 @@ const CATALOG_VARIANT_MAP = {
   809: { 'One Size': 20487, OS: 20487 },
 };
 
+// Expected amount in cents per product. The session must have been paid at the
+// product's real price — guards against a tampered session or a drifted price.
+const EXPECTED_CENTS = { 146: 5500, 809: 2800, 1592: 3000 };
+
 module.exports = async (req, res) => {
   const send = (code, obj) => {
     res.statusCode = code;
@@ -55,6 +59,20 @@ module.exports = async (req, res) => {
     if (!sr.ok) return send(404, { ok: false, error: 'Checkout session not found.' });
     const s = await sr.json();
     if (s.payment_status !== 'paid') return send(402, { ok: false, error: 'Payment not complete.' });
+
+    // 1b. Amount sanity check — the session must have been paid at the real price.
+    const paid = typeof s.amount_total === 'number' ? s.amount_total : null;
+    const expected = EXPECTED_CENTS[parseInt(s.metadata && s.metadata.product_id, 10)];
+    if (expected && paid !== null && paid < expected) {
+      return send(402, { ok: false, error: 'Payment amount does not match the product price.' });
+    }
+
+    // 1c. Idempotency — Stripe metadata is the record of an order already placed.
+    // thanks.js runs on every page load, so without this a refresh double-orders.
+    if (s.metadata && s.metadata.ph_order_id) {
+      return send(200, { ok: true, message: 'Order already placed — nothing was charged twice.',
+                         orderId: s.metadata.ph_order_id });
+    }
 
     const addr = s.shipping_details && s.shipping_details.address;
     const name = (s.shipping_details && s.shipping_details.name) || 'Propagation House Customer';
@@ -107,6 +125,19 @@ module.exports = async (req, res) => {
 
     const order = pd.result || pd;
     const tracking = order._links && order._links.self ? order._links.self : null;
+
+    // Record the order id on the Stripe session so a page refresh cannot
+    // create a second Printful order. Best-effort: the order is already placed.
+    try {
+      const meta = new URLSearchParams();
+      meta.append('metadata[ph_order_id]', String(order.id || ''));
+      await fetch('https://api.stripe.com/v1/checkout/sessions/' + encodeURIComponent(sid),
+                  { method: 'POST',
+                    headers: { Authorization: 'Bearer ' + stripeKey,
+                               'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: meta.toString() });
+    } catch (e) { /* non-fatal */ }
+
     return send(200, {
       ok: true,
       message: 'Your order is confirmed and heading to print.',
