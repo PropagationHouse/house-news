@@ -57,6 +57,22 @@
       "destination": "/shop/thanks.html"
     },
     {
+      "source": "/account",
+      "destination": "/account/index.html"
+    },
+    {
+      "source": "/account/",
+      "destination": "/account/index.html"
+    },
+    {
+      "source": "/account/login",
+      "destination": "/account/login.html"
+    },
+    {
+      "source": "/account/login/",
+      "destination": "/account/login.html"
+    },
+    {
       "source": "/shop",
       "destination": "/shop/index.html"
     },

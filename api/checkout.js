@@ -72,6 +72,8 @@ module.exports = async (req, res) => {
     'line_items[0][quantity]': '1',
     'success_url': (process.env.SHOP_SUCCESS_URL || 'https://propagation.house/shop/thanks') + '?session_id={CHECKOUT_SESSION_ID}',
     'cancel_url': process.env.SHOP_CANCEL_URL || 'https://propagation.house/shop',
+    // Always create a Stripe Customer so every buyer has an account to sign in to.
+    'customer_creation': 'always',
     'metadata[product_id]': String(productId),
     'metadata[size]': size,
     'shipping_address_collection[allowed_countries][0]': 'US',

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in — Propagation House</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.png">
+<style>
+  :root{
+    --ink:#1a1d12; --olive:#4b5320; --accent-dark:#6b6f3a;
+    --paper:#f6f1e2; --card:#eee8d6; --rule:#c7c0a9; --muted:#6b6f5a;
+  }
+  @font-face{font-family:'Acumin';src:url('/house-news/assets/fonts/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
+  @font-face{font-family:'Acumin';src:url('/house-news/assets/fonts/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Acumin',system-ui,-apple-system,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto; padding:64px 24px 96px}
+  .brand{display:flex; align-items:center; gap:12px; margin-bottom:44px; text-decoration:none; color:inherit}
+  .brand img{height:34px; width:auto; display:block}
+  .brand span{font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted)}
+  h1{
+    font-family:Georgia,'Times New Roman',serif; font-weight:400;
+    font-size:38px; line-height:1.15; margin:0 0 14px; letter-spacing:-.01em;
+  }
+  h1 em{font-style:italic; color:var(--accent-dark)}
+  .lede{color:var(--muted); font-size:16px; margin:0 0 32px}
+  .card{
+    background:var(--card); border:1px solid var(--rule); border-radius:2px;
+    padding:28px; box-shadow:0 12px 28px rgba(26,29,18,.10);
+  }
+  label{display:block; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:8px}
+  input[type=email]{
+    width:100%; padding:13px 14px; font-size:16px; font-family:inherit;
+    color:var(--ink); background:#fbf8ef; border:1px solid var(--rule); border-radius:2px;
+  }
+  input[type=email]:focus{outline:2px solid var(--olive); outline-offset:1px}
+  button{
+    margin-top:18px; width:100%; padding:14px 18px; font-size:15px; font-family:inherit;
+    font-weight:700; letter-spacing:.02em; color:var(--paper);
+    background:var(--olive); border:none; border-radius:2px; cursor:pointer;
+  }
+  button:hover{background:#3d4419}
+  button[disabled]{opacity:.55; cursor:default}
+  .msg{margin-top:18px; font-size:14px; padding:12px 14px; border-radius:2px; display:none}
+  .msg.ok{display:block; background:rgba(75,83,32,.10); border:1px solid rgba(75,83,32,.35)}
+  .msg.err{display:block; background:rgba(122,42,24,.08); border:1px solid rgba(122,42,24,.35); color:#7a2a18}
+  .devlink{
+    margin-top:14px; padding:12px 14px; font-size:13px; word-break:break-all;
+    background:#fbf8ef; border:1px dashed var(--rule); border-radius:2px; display:none;
+  }
+  .devlink a{color:var(--olive)}
+  .foot{margin-top:36px; font-size:14px; color:var(--muted)}
+  .foot a{color:var(--olive)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="brand" href="/">
+    <img src="/house-news/assets/images/ph-logo-mark.png" alt="">
+    <span>Propagation House</span>
+  </a>
+
+  <h1>Sign in to your <em>account</em></h1>
+  <p class="lede">Enter the email you used when you bought Substrate. We'll send a sign-in link — no password to remember.</p>
+
+  <div class="card">
+    <form id="f">
+      <label for="email">Email address</label>
+      <input id="email" type="email" name="email" autocomplete="email" required placeholder="you@example.com">
+      <button id="b" type="submit">Send sign-in link</button>
+    </form>
+    <div class="msg" id="m"></div>
+    <div class="devlink" id="d"></div>
+  </div>
+
+  <p class="foot">Bought Substrate and don't have an account yet? <a href="/substrate/downloads">Your download is still here</a>.</p>
+</div>
+
+<script>
+(function(){
+  var f = document.getElementById('f'),
+      b = document.getElementById('b'),
+      m = document.getElementById('m'),
+      d = document.getElementById('d');
+
+  var params = new URLSearchParams(location.search);
+  if (params.get('error') === 'expired') {
+    m.className = 'msg err';
+    m.textContent = 'That link has expired or was already used. Request a fresh one below.';
+  }
+
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    b.disabled = true;
+    m.className = 'msg'; m.textContent = '';
+    d.style.display = 'none';
+    fetch('/api/auth/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email: document.getElementById('email').value})
+    })
+    .then(function(r){ return r.json().then(function(j){ return {ok:r.ok, j:j}; }); })
+    .then(function(out){
+      b.disabled = false;
+      if (!out.ok) {
+        m.className = 'msg err';
+        m.textContent = out.j.error || 'Something went wrong.';
+        return;
+      }
+      m.className = 'msg ok';
+      m.textContent = out.j.message || 'Check your inbox.';
+      if (out.j.dev_link) {
+        d.style.display = 'block';
+        d.innerHTML = 'Mail is not configured yet, so here is your link directly:<br><a href="' +
+          out.j.dev_link + '">' + out.j.dev_link + '</a>';
+      }
+    })
+    .catch(function(){
+      b.disabled = false;
+      m.className = 'msg err';
+      m.textContent = 'Could not reach the server. Try again.';
+    });
+  });
+})();
+</script>
+</body>
+</html>

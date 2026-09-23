@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your account — Propagation House</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.png">
+<style>
+  :root{
+    --ink:#1a1d12; --olive:#4b5320; --accent-dark:#6b6f3a;
+    --paper:#f6f1e2; --card:#eee8d6; --chip:#e0d8bf; --rule:#c7c0a9; --muted:#6b6f5a;
+  }
+  @font-face{font-family:'Acumin';src:url('/house-news/assets/fonts/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
+  @font-face{font-family:'Acumin';src:url('/house-news/assets/fonts/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Acumin',system-ui,-apple-system,sans-serif; line-height:1.6;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:760px; margin:0 auto; padding:56px 24px 96px}
+  .top{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:44px}
+  .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit}
+  .brand img{height:34px; width:auto; display:block}
+  .brand span{font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted)}
+  .who{font-size:13px; color:var(--muted); text-align:right}
+  .who a{color:var(--olive)}
+  h1{font-family:Georgia,serif; font-weight:400; font-size:36px; line-height:1.15; margin:0 0 10px; letter-spacing:-.01em}
+  h1 em{font-style:italic; color:var(--accent-dark)}
+  .lede{color:var(--muted); margin:0 0 34px; font-size:16px}
+  h2{font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);
+     font-weight:700; margin:0 0 14px; font-family:inherit}
+  .card{background:var(--card); border:1px solid var(--rule); border-radius:2px;
+        padding:26px; box-shadow:0 12px 28px rgba(26,29,18,.10); margin-bottom:26px}
+  .row{display:flex; align-items:flex-start; justify-content:space-between; gap:20px;
+       padding:16px 0; border-bottom:1px solid var(--rule)}
+  .row:last-child{border-bottom:none; padding-bottom:0}
+  .row:first-of-type{padding-top:0}
+  .row .t{font-weight:700; font-size:16px}
+  .row .s{font-size:14px; color:var(--muted); margin-top:3px}
+  .badge{display:inline-block; font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+         padding:3px 8px; border-radius:2px; margin-left:8px; vertical-align:2px}
+  .badge.on{background:rgba(75,83,32,.14); border:1px solid rgba(75,83,32,.4); color:var(--olive)}
+  .badge.off{background:rgba(122,42,24,.08); border:1px solid rgba(122,42,24,.3); color:#7a2a18}
+  .btn{display:inline-block; padding:12px 20px; font-size:14px; font-weight:700; text-decoration:none;
+       color:var(--paper); background:var(--olive); border-radius:2px; white-space:nowrap}
+  .btn:hover{background:#3d4419}
+  .btn.ghost{background:transparent; color:var(--olive); border:1px solid var(--olive)}
+  .btn.ghost:hover{background:rgba(75,83,32,.08)}
+  .btn[aria-disabled=true]{opacity:.5; pointer-events:none}
+  .opt{display:flex; gap:12px; align-items:flex-start; padding:12px 0}
+  .opt input{margin-top:4px; width:17px; height:17px; accent-color:var(--olive)}
+  .opt label{font-size:15px}
+  .opt .d{font-size:13px; color:var(--muted); display:block}
+  .note{font-size:13px; color:var(--muted); margin-top:14px}
+  .hidden{display:none}
+  .spin{font-size:14px; color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="brand" href="/">
+      <img src="/house-news/assets/images/ph-logo-mark.png" alt="">
+      <span>Propagation House</span>
+    </a>
+    <div class="who" id="who"></div>
+  </div>
+
+  <h1>Your <em>account</em></h1>
+  <p class="lede">Your downloads, your subscription, and what we send you.</p>
+
+  <div id="loading" class="spin">Loading your account…</div>
+
+  <div id="out" class="hidden">
+    <h2>Downloads</h2>
+    <div class="card" id="locker"></div>
+
+    <h2>Subscription</h2>
+    <div class="card" id="billing"></div>
+
+    <h2>What we send you</h2>
+    <div class="card">
+      <div class="opt">
+        <input type="checkbox" id="opt-alerts" disabled>
+        <label for="opt-alerts">Release alerts<span class="d">An email when a new build lands. Nothing else.</span></label>
+      </div>
+      <div class="opt">
+        <input type="checkbox" id="opt-news" disabled>
+        <label for="opt-news">The Dispatch<span class="d">Occasional notes from the studio — work, releases, House News highlights.</span></label>
+      </div>
+      <div class="note" id="opt-note">Opt-in is coming online with email delivery — nothing is sent until you tick a box.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+    });
+  }
+  function money(cents, cur){
+    if (cents == null) return '';
+    var sym = (cur || 'usd').toLowerCase() === 'usd' ? '$' : '';
+    return sym + (cents / 100).toFixed(2);
+  }
+  function when(ts){
+    if (!ts) return '';
+    var d = new Date(ts * 1000);
+    return d.toLocaleDateString(undefined, {year:'numeric', month:'short', day:'numeric'});
+  }
+
+  fetch('/api/account/me', {headers:{'Accept':'application/json'}})
+    .then(function(r){ return r.json().then(function(j){ return {status:r.status, j:j}; }); })
+    .then(function(out){
+      if (out.status === 401 || !out.j.authenticated) {
+        location.href = '/account/login';
+        return;
+      }
+      var me = out.j;
+      $('who').innerHTML = esc(me.email) + '<br><a href="/api/account/logout">Sign out</a>';
+      $('loading').classList.add('hidden');
+      $('out').classList.remove('hidden');
+
+      // ---- Locker -------------------------------------------------------
+      var L = $('locker');
+      if (!me.can_download) {
+        L.innerHTML = '<div class="row"><div><div class="t">No Substrate purchase on this account</div>' +
+          '<div class="s">If you bought with a different email, sign in with that one.</div></div>' +
+          '<a class="btn ghost" href="/substrate">See the offer</a></div>';
+      } else {
+        var html = '';
+        var beta = me.tier === 'zip';
+        html += '<div class="row"><div><div class="t">' +
+          (beta ? 'Substrate Beta — desktop + Android bundle' : 'Substrate for Windows') +
+          '<span class="badge on">' + (beta ? 'Active' : 'Owned') + '</span></div>' +
+          '<div class="s">Always the newest build — this link never expires.</div></div>' +
+          '<a class="btn" href="/api/account/download?file=' + me.tier + '">Download</a></div>';
+        if (beta) {
+          html += '<div class="row"><div><div class="t">Windows installer only</div>' +
+            '<div class="s">Just the desktop build, without the Android app.</div></div>' +
+            '<a class="btn ghost" href="/api/account/download?file=exe">Download</a></div>';
+        }
+        L.innerHTML = html;
+      }
+
+      // ---- Billing ------------------------------------------------------
+      var B = $('billing');
+      var subs = (me.entitlements || []).filter(function(e){ return e.kind === 'subscription'; });
+      var rows = (me.entitlements || []).filter(function(e){ return e.kind !== 'subscription'; });
+      var bhtml = '';
+
+      subs.forEach(function(s){
+        var renews = s.current_period_end ? when(s.current_period_end) : '';
+        var st = s.active ? 'Active' : (s.status || 'inactive');
+        bhtml += '<div class="row"><div><div class="t">Beta pass — $11.99/mo' +
+          '<span class="badge ' + (s.active ? 'on' : 'off') + '">' + esc(st) + '</span></div>' +
+          '<div class="s">' + (s.cancel_at_period_end
+              ? 'Cancels at the end of the period' + (renews ? ' — access through ' + renews : '')
+              : (renews ? 'Renews ' + renews : 'Recurring')) + '</div></div>' +
+          '<a class="btn ghost" href="/api/account/portal">Manage</a></div>';
+      });
+
+      rows.forEach(function(r){
+        bhtml += '<div class="row"><div><div class="t">' + esc(r.label) + '</div>' +
+          '<div class="s">' + esc(r.detail) + ' · ' + when(r.created) +
+          (r.amount ? ' · ' + money(r.amount, r.currency) : '') + '</div></div>' +
+          '<span class="badge on">Receipt</span></div>';
+      });
+
+      if (!bhtml) bhtml = '<div class="row"><div><div class="t">Nothing on file</div>' +
+        '<div class="s">Purchases appear here once you make one.</div></div></div>';
+      else bhtml += '<div class="row"><div><div class="s">Cancel or change your card any time — ' +
+        'handled securely by Stripe.</div></div>' +
+        '<a class="btn ghost" href="/api/account/portal">Billing portal</a></div>';
+
+      B.innerHTML = bhtml;
+    })
+    .catch(function(){
+      $('loading').textContent = 'Could not load your account. Refresh to try again.';
+    });
+})();
+</script>
+</body>
+</html>
