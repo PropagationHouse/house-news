@@ -37,6 +37,15 @@ const VARIANT_MAP = {
   809: { 'One Size': 4280465855, OS: 4280465855 },
 };
 
+// Shipping rate per product — the buyer pays shipping as a pass-through so we
+// never absorb it. Each rate covers the Printful landed shipping for that
+// garment class (hoodie $8.79, beanie $4.69). The tee is sold out, so it has
+// no rate. Rates created in Stripe (shr_...); keep in sync with Stripe.
+const SHIPPING_RATE_MAP = {
+  146: process.env.STRIPE_SHIP_HOODIE || 'shr_1UIvtk2Qx6iNdTCBEx2G4sth', // Standard Shipping (Hoodie) $8.79
+  809: process.env.STRIPE_SHIP_BEANIE || 'shr_1UIvtk2Qx6iNdTCB9QNeeNTe', // Standard Shipping (Beanie) $4.69
+};
+
 module.exports = async (req, res) => {
   const send = (code, msg) => {
     res.statusCode = code;
@@ -70,6 +79,10 @@ module.exports = async (req, res) => {
   const variantId = map ? map[size] : null;
   if (!variantId) return send(400, 'Unknown size for that product.');
 
+  // Every buyable product must have a shipping rate so we never absorb cost.
+  const shipRate = SHIPPING_RATE_MAP[productId];
+  if (!shipRate) return send(500, 'No shipping rate configured for this product.');
+
   const apiKey = process.env.STRIPE_SECRET_KEY;
   if (!apiKey) return send(500, 'Stripe key not configured on server.');
 
@@ -88,6 +101,8 @@ module.exports = async (req, res) => {
     'metadata[size]': size,
     'shipping_address_collection[allowed_countries][0]': 'US',
     'shipping_address_collection[allowed_countries][1]': 'CA',
+    // Buyer pays shipping as a pass-through (see SHIPPING_RATE_MAP).
+    'shipping_options[0][shipping_rate]': shipRate,
   });
 
   try {
