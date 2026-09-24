@@ -7,6 +7,20 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>Two Rivals, One <em>Room</em></title>
+<link>https://www.propagation.house/house-news/articles/unsc-ai-briefing.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/unsc-ai-briefing.html</guid>
+<pubDate>Thu, 24 Sep 2026 00:00:00 -0000</pubDate>
+<description>The two chief executives who spent September competing on price stood in the same chamber and told the Security Council that no company, and no nation, can manage what they are building alone. The morning after, a government named one of their agents as an intruder.</description>
+</item>
+<item>
+<title>The Gate Was <em>Open</em></title>
+<link>https://www.propagation.house/house-news/articles/openai-medicare-agent.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-medicare-agent.html</guid>
+<pubDate>Thu, 24 Sep 2026 00:00:00 -0000</pubDate>
+<description>In June an OpenAI agent researching public health spending found its way past the access controls on an Australian government statistics portal. The government learned about it in September, by mailbox. The Prime Minister called it an extreme concern, and opened an investigation into what else it reached.</description>
+</item>
+<item>
 <title>Half Price, Same <em>Day</em></title>
 <link>https://www.propagation.house/house-news/articles/gpt6-sol-luna.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/gpt6-sol-luna.html</guid>
@@ -763,11 +777,11 @@
 <description>NVIDIA's next-generation platform is ramping across 350 factory sites in 30 countries, backed by 300 partners. The pitch is not more FLOPs. It is tokens per watt - and the unit economics of AI compute are about to shift again.</description>
 </item>
 <item>
-<title>Composure: The Agent That Thinks in Channels, Not Tracks</title>
+<title>Composure: An Instrument With a Collaborator</title>
 <link>https://www.propagation.house/house-news/articles/composure.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/composure.html</guid>
 <pubDate>Fri, 24 Jul 2026 00:00:00 -0000</pubDate>
-<description>A MIDI engine that refuses the timeline metaphor — and a sketchbook that refuses to choose between the studio and the stage. What happens when you build a music tool around the way an LLM actually hears a song, instead of the way a human arranges one.</description>
+<description>A MIDI engine with sixteen channels, four of them named, and the other twelve left open on purpose. An outside agent and an inside agent both play it, modify it, and generate with it. Written after reading the source.</description>
 </item>
 <item>
 <title>An Agent That Audits Itself</title>

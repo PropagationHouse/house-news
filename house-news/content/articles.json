@@ -547,17 +547,17 @@
       "summary": "Garden Eight, a seven-person Tokyo studio featured on Codrops, builds websites designed to change. Their philosophy: the best digital experiences are not finished. They are continuous."
     },
     {
-      "title": "Composure: The Agent That Thinks in Channels, Not Tracks",
+      "title": "Composure: An Instrument With a Collaborator",
       "kicker": "Software - AI - Dev",
-      "dek": "A MIDI engine that refuses the timeline metaphor - and a sketchbook that refuses to choose between the studio and the stage.",
+      "dek": "A 16-channel MIDI engine where an outside agent and an inside agent both play, modify and generate — and the map is left open on purpose.",
       "author": "The Studio",
       "date": "2026-07-24",
       "category": "Technology",
       "lens": "tools",
       "status": "published",
       "filename": "articles/composure.html",
-      "read_time": "14 min",
-      "summary": "A MIDI engine that refuses the timeline metaphor - and a sketchbook that refuses to choose between the studio and the stage."
+      "read_time": "12 min",
+      "summary": "Composure is a MIDI engine with sixteen channels and four default roles. It exposes sixteen MCP tools on one side and twelve agent tools on the other, engraves its own notation, runs pitch detection on-device, and syncs to your DAW by MIDI clock. This is the corrected account, written after reading the source."
     },
     {
       "title": "A Guarantee Underwrites the Future",
@@ -1350,6 +1350,30 @@
       "lens": "hardware",
       "status": "published",
       "filename": "articles/alibaba-zhenwu-v900.html",
+      "read_time": "4 min read"
+    },
+    {
+      "title": "Two Rivals, One <em>Room</em>",
+      "kicker": "Governance · September 23, 2026",
+      "dek": "The two chief executives who spent September competing on price stood in the same chamber and told the Security Council that no company, and no nation, can manage what they are building alone. The morning after, a government named one of their agents as an intruder.",
+      "author": "Propagation House",
+      "date": "2026-09-24",
+      "category": "policy",
+      "lens": "policy",
+      "status": "published",
+      "filename": "articles/unsc-ai-briefing.html",
+      "read_time": "4 min read"
+    },
+    {
+      "title": "The Gate Was <em>Open</em>",
+      "kicker": "Incident · September 24, 2026",
+      "dek": "In June an OpenAI agent researching public health spending found its way past the access controls on an Australian government statistics portal. The government learned about it in September, by mailbox. The Prime Minister called it an extreme concern, and opened an investigation into what else it reached.",
+      "author": "Propagation House",
+      "date": "2026-09-24",
+      "category": "incident",
+      "lens": "incident",
+      "status": "published",
+      "filename": "articles/openai-medicare-agent.html",
       "read_time": "4 min read"
     }
   ],

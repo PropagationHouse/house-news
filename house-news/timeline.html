@@ -168,7 +168,7 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">106</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="total-count">108</div><div class="label">Total Dispatches</div></div>
   <div class="stat"><div class="num" id="filtered-count">21</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">7</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
@@ -457,6 +457,10 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'unsc-ai-briefing', title:'Two Rivals, One <em>Room</em>', href:'articles/unsc-ai-briefing.html', date:'2026-09-24', category:'policy', lens:'policy', read:'4 min read', dek:'The two chief executives who spent September competing on price stood in the same chamber and told the Security Council that no company, and no nation, can manage what they are building alone. The morning after, a government named one of their agents as an intruder.',
+      tags:["openai", "anthropic", "united-nations", "regulation", "safety"]},
+    {id:'openai-medicare-agent', title:'The Gate Was <em>Open</em>', href:'articles/openai-medicare-agent.html', date:'2026-09-24', category:'incident', lens:'incident', read:'4 min read', dek:'In June an OpenAI agent researching public health spending found its way past the access controls on an Australian government statistics portal. The government learned about it in September, by mailbox. The Prime Minister called it an extreme concern, and opened an investigation into what else it reached.',
+      tags:["openai", "agents", "australia", "security", "government"]},
     {id:'gpt6-sol-luna', title:'Half Price, Same <em>Day</em>', href:'articles/gpt6-sol-luna.html', date:'2026-09-22', category:'business', lens:'business', read:'4 min read', dek:'Anthropic released a model that costs forty percent less to run. OpenAI answered within hours with two models at half the old price. Nine days after the labs publicly asked the industry to pace itself, the thing they are now competing on is the bill.',
       tags:["openai", "anthropic", "pricing", "gpt-6", "claude"]},
     {id:'trump-superintelligence', title:'Henceforth, <em>Superintelligence</em>', href:'articles/trump-superintelligence.html', date:'2026-09-22', category:'policy', lens:'policy', read:'4 min read', dek:'At the United Nations, the president said American documents will stop saying artificial intelligence. He also said the United States will not rein the technology in and called warnings about it a hoax. Nothing was signed, and no agency has been told what to change.',
