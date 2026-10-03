@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Only Ones Who Asked &mdash; Propagation House</title>
+<meta name="description" content="Cordata Park's parkour course &mdash; the first outdoor parkour course in Washington state &mdash; exists because two locals kept asking. A work journal entry.">
+<meta property="og:title" content="The Only Ones Who Asked &mdash; Propagation House">
+<meta property="og:description" content="Bellingham's Cordata parkour course opened September 2020 as Washington state's first. It exists because two people kept asking. A work journal entry.">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/png" href="../favicon.png">
+<style>
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f6f1e2;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#ece5cf;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+
+.jm{max-width:1080px;margin:0 auto;padding:28px 40px 0;display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--ink);padding-bottom:18px}
+.jm .jm-brand{font-family:var(--sans);font-weight:700;font-size:20px;letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+.jm .jm-brand:hover{color:var(--accent)}
+.jm .jm-sec{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.jm .jm-back{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.jm .jm-back:hover{color:var(--accent)}
+
+.jwrap{max-width:860px;margin:0 auto;padding:0 40px}
+.jhero-kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin:48px 0 14px}
+.jhero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,5.4vw,64px);line-height:1.05;letter-spacing:-.015em;margin-bottom:18px}
+.jdek{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.45;color:var(--accent-dark);max-width:640px;margin-bottom:22px}
+.jbyline{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.jhero-img{margin:34px 0 8px}
+.jhero-pair{display:grid;grid-template-columns:1.35fr 1fr;gap:22px;align-items:start}
+.jhero-pair figure{margin:0}
+.jhero-pair figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
+@media (max-width:720px){.jhero-pair{grid-template-columns:1fr}}
+.jhero-img img{width:100%;display:block;border:1px solid var(--rule)}
+.jcap{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
+
+.jbody{margin-top:40px}
+.jbody p{font-size:17px;line-height:1.75;margin-bottom:26px;max-width:680px}
+.jbody p.jlead{font-size:19px;line-height:1.7}
+.jbody p.jlead::first-letter{font-family:var(--serif);font-weight:900;font-size:64px;float:left;line-height:.82;padding:6px 12px 0 0;color:var(--accent)}
+.jbody h2{font-family:var(--serif);font-weight:900;font-size:28px;line-height:1.2;margin:44px 0 16px;letter-spacing:-.01em}
+.jbody .jpull{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.35;color:var(--accent-dark);border-left:3px solid var(--accent);padding-left:20px;margin:34px 0;max-width:520px}
+.jbody .jfig{margin:36px 0}
+.jbody .jfig img{width:100%;height:auto;display:block;border:1px solid var(--rule)}
+.jbody .jfig figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:8px;text-transform:uppercase}
+/* varied text wraps */
+.jbody h2{clear:both}
+.jfig.w-r{float:right;width:46%;margin:8px 0 18px 30px}
+.jfig.w-l{float:left;width:46%;margin:8px 30px 18px 0}
+.jfig.w-sq{float:right;width:34%;margin:8px 0 18px 30px}
+.jfig.w-full{float:none;width:100%;margin:40px 0;clear:both}
+.jfig img,.jhero-img img{cursor:zoom-in}
+.jfig img{transition:transform .25s ease,box-shadow .25s ease}
+.jfig img:hover{transform:scale(1.015);box-shadow:0 10px 28px rgba(26,29,18,.18)}
+.jfig figcaption .jh{opacity:.55;text-transform:none;letter-spacing:.04em}
+@media (max-width:720px){.jfig.w-r,.jfig.w-l,.jfig.w-sq{float:none;width:100%;margin:30px 0}}
+/* paper accents behind image placements */
+.jfig,.jhero-img{position:relative;isolation:isolate}
+.jfig::before,.jhero-img::before{content:"";position:absolute;inset:-12px -14px;background:url('../assets/images/paper-sheet-fill-2x.jpg?v=1') center/cover no-repeat;transform:rotate(-1.1deg);z-index:-1;box-shadow:0 10px 26px rgba(26,29,18,.12)}
+.w-l::before{transform:rotate(1.3deg)}
+.w-sq::before{transform:rotate(1.7deg)}
+.w-full::before{transform:rotate(-.5deg)}
+/* video embed */
+.jvid{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border:1px solid var(--rule);background:var(--ink)}
+.jvid iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+/* lightbox */
+.jlb{position:fixed;inset:0;background:rgba(20,22,14,.94);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:999;padding:30px}
+.jlb.open{display:flex}
+.jlb img{max-width:92vw;max-height:80vh;width:auto;height:auto;border:1px solid rgba(246,241,226,.25);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.jlb-cap{color:#f6f1e2;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-top:16px;text-align:center;max-width:760px}
+.jlb-count{color:rgba(246,241,226,.5);font-size:11px;letter-spacing:.2em;margin-top:6px}
+.jlb-btn{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(246,241,226,.3);color:#f6f1e2;font-size:22px;width:46px;height:46px;cursor:pointer;border-radius:50%;transition:background .2s}
+.jlb-btn:hover{background:rgba(246,241,226,.12)}
+.jlb-prev{left:24px}.jlb-next{right:24px}
+.jlb-x{position:absolute;top:18px;right:24px;background:none;border:none;color:rgba(246,241,226,.7);font-size:30px;cursor:pointer;line-height:1}
+.jlb-x:hover{color:#f6f1e2}
+@media (max-width:720px){.jlb-btn{width:38px;height:38px;font-size:18px}.jlb-prev{left:8px}.jlb-next{right:8px}}
+
+.jfoot{max-width:1080px;margin:64px auto 0;padding:22px 40px 30px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.jfoot a{color:var(--ink);text-decoration:none}
+.jfoot a:hover{color:var(--accent)}
+@media (max-width:720px){.jm,.jfoot{padding-left:20px;padding-right:20px}.jwrap{padding:0 20px}.jbody p{font-size:16px}}
+</style>
+</head>
+<body>
+
+<header class="jm">
+  <a class="jm-brand" href="/">propagation house</a>
+  <span class="jm-sec">Work Journal</span>
+  <a class="jm-back" href="/#multimedia">&larr; Back to the Work</a>
+</header>
+
+<div class="jwrap">
+
+<article>
+  <div class="jhero">
+    <div class="jhero-kicker">Work Journal &middot; Cordata Park &middot; 2020</div>
+    <h1>The Only Ones Who Asked</h1>
+    <p class="jdek">Bellingham opened a parkour course in September 2020 &mdash; the first outdoor one in Washington state. It didn&rsquo;t happen because a budget line appeared. It happened because two people who trained on handrails and private property kept asking the city for a place that didn&rsquo;t exist yet.</p>
+    <div class="jbyline"><span>By Propagation House</span><span>Parkour Visions &middot; City of Bellingham</span><span>Opened September 4, 2020</span></div>
+  </div>
+
+  <div class="jhero-img">
+    <figure><img src="../assets/images/cordata-park/pv-cordata.jpg" alt="The parkour course at Cordata Park, Bellingham - concrete and steel structures in the park's active recreation area" width="2500"><figcaption>The course at Cordata Park, opening season. Photo: Parkour Visions.</figcaption></figure>
+  </div>
+
+  <div class="jbody">
+    <p class="jlead">Before this studio built worlds for Walmart or the United Nations, its founder&rsquo;s first public work was an argument with a city &mdash; the polite, persistent kind, made in meeting comments and follow-up emails, about whether a park should contain something new. Cordata Park&rsquo;s parkour course is the receipt.</p>
+
+    <h2>Two people kept asking</h2>
+    <p>Michael Blackstone and his friend Sidney Mohorovich were parkour people in a city with nowhere to practice. That meant rooftops, handrails, private property, and the constant low-grade negotiation with security guards that every practitioner of a street sport knows by heart. Cities build skateparks and basketball courts because those sports asked for decades. Parkour, in Bellingham in the 2010s, had asked never.</p>
+    <p>So they asked. Not a petition with ten thousand signatures &mdash; just the two of them, showing up in the city&rsquo;s processes, making the case that this sport deserved a public place the way skating did, and then asking again. &ldquo;We were the only ones who asked,&rdquo; is how Michael puts it, without drama, as if that were the smallest possible description of the work. It is actually the whole description. The course exists because the asking didn&rsquo;t stop.</p>
+    <div class="jpull">&ldquo;We were the only ones who asked.&rdquo;</div>
+
+    <h2>What the city built</h2>
+    <figure class="jfig w-r"><img src="../assets/images/cordata-park/maxresdefault.jpg" alt="Frame from the founder's own video of the Cordata parkour course, opening season 2020" width="1280"><figcaption>Frame from Michael&rsquo;s own footage &mdash; &ldquo;Washington state&rsquo;s first parkour park!&rdquo;</figcaption></figure>
+    <p>The course lives inside Cordata Community Park, a larger city project in north Bellingham designed by landscape architects Robert W. Droll III &amp; Associates. The city bought the land in 2015 for $3.6 million, opened Phase 1 in June 2019, and by opening weekend the project had taken roughly $10.5 million overall. The park runs south to north from a rolling wetland &mdash; trails and bridges, ponds, birdsong &mdash; into an active recreation zone where the parkour course sits alongside a playground, a pump track, and outdoor fitness equipment. On September 4, 2020, Labor Day weekend, the gates opened, and the city&rsquo;s own parks guide described what nobody else in the state had: an outdoor parkour course.</p>
+    <p>Michael filmed it that first season and posted the video with a title that needed no editing: <em>&ldquo;Washington state&rsquo;s first parkour park!&rdquo;</em></p>
+    <figure class="jfig w-full"><div class="jvid"><iframe src="https://www.youtube.com/embed/XKKBe0_OCoY" title="Washington state's first parkour park - opening season footage, Cordata Park" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><figcaption>Opening season, filmed by the house&rsquo;s founder. <span class="jh">via YouTube</span></figcaption></figure>
+
+    <h2>Designed for your own path</h2>
+    <p>The course itself came out of Parkour Visions, the Seattle nonprofit, with design director Colin MacDonald shaping it around a philosophy worth quoting at length. Progression first: &ldquo;If you see a big jump up high, look around and there&rsquo;s probably a similar jump a bit shorter and closer to the ground.&rdquo; And density over obstacle-course linearity: &ldquo;The whole point of parkour is coming up with your own paths and challenges, and that makes parkour tricky to design for. Dense structures give people lots of opportunities to be creative, but too much density gets in the way.&rdquo; The goal is a place where &ldquo;people of different ages and abilities can meet up and train together&rdquo; &mdash; parkour is intimidating to start, and the design lowers that door.</p>
+    <p>Read that again with studio eyes. Progression ladders so a newcomer and a veteran share the same structures. Density tuned so the space invites authored paths instead of a single A-to-B. A room &mdash; an outdoor room &mdash; that meets people at their own level and lets them write their own route through it. This is, almost word for word, how we think about spatial design now. The difference is only material: concrete and steel instead of meshes and light. The instinct started in physical space, and it still runs on the same principle &mdash; the space responds, the person moves, the path is theirs.</p>
+    <div class="jpull">&ldquo;The whole point of parkour is coming up with your own paths and challenges.&rdquo; &mdash; Colin MacDonald, Parkour Visions</div>
+
+    <h2>Why it&rsquo;s in this journal</h2>
+    <p>Because the origin argument of this studio is in it. Everything we build now &mdash; a shoppable game aisle, a General Assembly Hall rebuilt for a planet-sized conference &mdash; runs on the same bet: that spaces behave, that people move through them writing their own paths, that a place designed for progression keeps its door open to whoever shows up. The first version of that bet was made by two guys who were tired of getting kicked out of parking garages, and it was made to a city, in writing, until the city answered.</p>
+    <p>Parks don&rsquo;t appear because someone wrote a check. They appear because somebody asked, and kept asking, and then one day there was a ribbon and a video titled with an exclamation point. Ask. Keep asking. Then build. That&rsquo;s the whole method, and it predates the studio by years.</p>
+  </div>
+</article>
+
+</div>
+
+<footer class="jfoot">
+  <a href="/">&larr; propagation house</a>
+  <span>Work Journal &middot; 2026</span>
+  <a href="/#multimedia">More of the work &rarr;</a>
+</footer>
+
+<div class="jlb" id="jlb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="jlb-x" id="jlb-x" aria-label="Close">&times;</button>
+  <button class="jlb-btn jlb-prev" id="jlb-prev" aria-label="Previous image">&#8592;</button>
+  <img id="jlb-img" src="" alt="">
+  <button class="jlb-btn jlb-next" id="jlb-next" aria-label="Next image">&#8594;</button>
+  <div class="jlb-cap" id="jlb-cap"></div>
+  <div class="jlb-count" id="jlb-count"></div>
+</div>
+<script>
+(function(){
+  var thumbs = [].slice.call(document.querySelectorAll('.jhero-img img, .jbody .jfig img'));
+  if(!thumbs.length) return;
+  var lb = document.getElementById('jlb'),
+      img = document.getElementById('jlb-img'),
+      cap = document.getElementById('jlb-cap'),
+      cnt = document.getElementById('jlb-count'),
+      cur = 0;
+  function capFor(t){
+    var f = t.closest('figure');
+    if(f){
+      var fc = f.querySelector('figcaption');
+      if(fc) return fc.textContent.replace(/\s*expand\s*$/i,'').trim();
+    }
+    var a = t.getAttribute('alt');
+    return a ? a.charAt(0).toUpperCase() + a.slice(1) : '';
+  }
+  function show(i){
+    cur = (i + thumbs.length) % thumbs.length;
+    var t = thumbs[cur];
+    img.src = t.src;
+    img.alt = t.alt || '';
+    cap.textContent = capFor(t);
+    cnt.textContent = (cur+1) + ' / ' + thumbs.length;
+  }
+  function open(i){ show(i); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+  thumbs.forEach(function(t, i){
+    t.style.cursor = 'zoom-in';
+    t.addEventListener('click', function(){ open(i); });
+  });
+  document.getElementById('jlb-x').addEventListener('click', close);
+  document.getElementById('jlb-prev').addEventListener('click', function(e){ e.stopPropagation(); show(cur-1); });
+  document.getElementById('jlb-next').addEventListener('click', function(e){ e.stopPropagation(); show(cur+1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    else if(e.key === 'ArrowLeft') show(cur-1);
+    else if(e.key === 'ArrowRight') show(cur+1);
+  });
+})();
+</script>
+</body>
+</html>
