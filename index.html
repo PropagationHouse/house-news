@@ -273,6 +273,11 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 #un-feature .feature-visual::after{content:none}
 #un-feature .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
 @media (max-width:920px){#un-feature{grid-template-columns:1fr}}
+/* BRIDGE FEATURE (the-bridge) — book cover on house paper sheet, same treatment as UN/Walmart */
+#the-bridge .feature-visual{background:transparent;overflow:visible;min-height:0;padding:2.7% 5.2%;align-self:center;isolation:isolate}
+#the-bridge .feature-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:rotate(-1.2deg);z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
+#the-bridge .feature-visual::after{content:none}
+#the-bridge .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
 /* FEATURE STACK — UN + Walmart share one divider, no dead air between the two images */
 #un-feature{margin-bottom:0;border-bottom:none}
 #mm-feature{margin-top:0}
@@ -720,15 +725,15 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 
 <section class="feature" id="the-bridge">
   <div class="feature-text">
-    <div class="kicker">The Book &middot; Fundamentals of 3D Spatial Design</div>
+    <div class="kicker">From the House &middot; A Book by Michael Blackstone</div>
     <h2>The <em>Bridge</em></h2>
-    <p class="dek">The studio&rsquo;s founding text &mdash; 262 pages on thought-spaces, the H&sup3; framework, and why three-dimensional thinking is the ground everything else stands on. Written 2021&ndash;2024, published June 2024. Every hall, hub, and haven since was built from this map.</p>
+    <p class="dek">A book published by the house, written and designed by Michael Blackstone &mdash; 262 pages on spatial design: how three-dimensional spaces carry ideas, and how a studio grows from a single room. Written 2021&ndash;2024, published June 2024, free to read.</p>
     <div class="pull-quote">&ldquo;Like a fire in the rain, start small &amp; grow big.&rdquo;</div>
     <div class="byline">By <strong>Michael L. Blackstone</strong> &middot; Propagation House, 2024</div>
     <a class="mm-jump" href="/assets/the-bridge.pdf" download>Download the PDF &rarr;</a>
   </div>
   <div class="feature-visual">
-    <img src="assets/images/the-bridge-cover.jpg" alt="The Bridge &mdash; Fundamentals of 3D Spatial Design, cover" style="object-fit:contain;padding:28px">
+    <img src="assets/images/the-bridge-cover.jpg?v=2" alt="The Bridge &mdash; Fundamentals of 3D Spatial Design, front cover" loading="lazy">
   </div>
 </section>
 
