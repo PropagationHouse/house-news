@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three Days at the Pad &mdash; Propagation House</title>
+<meta name="description" content="Three days on a media tour at Vandenberg for the InSight launch &mdash; the first interplanetary mission to leave the West Coast. Photographs by Michael LaMartin Photography, and the release as it ran. A work journal entry.">
+<meta property="og:title" content="Three Days at the Pad &mdash; Propagation House">
+<meta property="og:description" content="Three days on the media tour at Vandenberg Air Force Base, shooting the launch of InSight &mdash; the first interplanetary mission to leave the West Coast. Photographs and the release as it ran.">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/png" href="../favicon.png">
+<style>
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f6f1e2;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#ece5cf;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+
+.jm{max-width:1080px;margin:0 auto;padding:28px 40px 0;display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--ink);padding-bottom:18px}
+.jm .jm-brand{font-family:var(--sans);font-weight:700;font-size:20px;letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+.jm .jm-brand:hover{color:var(--accent)}
+.jm .jm-sec{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.jm .jm-back{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.jm .jm-back:hover{color:var(--accent)}
+
+.jwrap{max-width:860px;margin:0 auto;padding:0 40px}
+.jhero-kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin:48px 0 14px}
+.jhero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,5.4vw,64px);line-height:1.05;letter-spacing:-.015em;margin-bottom:18px}
+.jdek{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.45;color:var(--accent-dark);max-width:640px;margin-bottom:22px}
+.jbyline{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.jhero-img{margin:34px 0 8px}
+.jhero-pair{display:grid;grid-template-columns:1.35fr 1fr;gap:22px;align-items:start}
+.jhero-pair figure{margin:0}
+.jhero-pair figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
+@media (max-width:720px){.jhero-pair{grid-template-columns:1fr}}
+.jhero-img img{width:100%;display:block;border:1px solid var(--rule)}
+.jcap{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
+
+.jbody{margin-top:40px}
+.jbody p{font-size:17px;line-height:1.75;margin-bottom:26px;max-width:680px}
+.jbody p.jlead{font-size:19px;line-height:1.7}
+.jbody p.jlead::first-letter{font-family:var(--serif);font-weight:900;font-size:64px;float:left;line-height:.82;padding:6px 12px 0 0;color:var(--accent)}
+.jbody h2{font-family:var(--serif);font-weight:900;font-size:28px;line-height:1.2;margin:44px 0 16px;letter-spacing:-.01em}
+.jbody .jpull{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.35;color:var(--accent-dark);border-left:3px solid var(--accent);padding-left:20px;margin:34px 0;max-width:520px}
+.jbody .jfig{margin:36px 0}
+.jbody .jfig img{width:100%;height:auto;display:block;border:1px solid var(--rule)}
+.jbody .jfig figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:8px;text-transform:uppercase}
+/* varied text wraps */
+.jbody h2{clear:both}
+.jfig.w-r{float:right;width:46%;margin:8px 0 18px 30px}
+.jfig.w-l{float:left;width:46%;margin:8px 30px 18px 0}
+.jfig.w-sq{float:right;width:34%;margin:8px 0 18px 30px}
+.jfig.w-full{float:none;width:100%;margin:40px 0;clear:both}
+.jfig img,.jhero-img img{cursor:zoom-in}
+.jfig img{transition:transform .25s ease,box-shadow .25s ease}
+.jfig img:hover{transform:scale(1.015);box-shadow:0 10px 28px rgba(26,29,18,.18)}
+.jfig figcaption .jh{opacity:.55;text-transform:none;letter-spacing:.04em}
+@media (max-width:720px){.jfig.w-r,.jfig.w-l,.jfig.w-sq{float:none;width:100%;margin:30px 0}}
+/* paper accents behind image placements */
+.jfig,.jhero-img{position:relative;isolation:isolate}
+.jfig::before,.jhero-img::before{content:"";position:absolute;inset:-12px -14px;background:url('../assets/images/paper-sheet-fill-2x.jpg?v=1') center/cover no-repeat;transform:rotate(-1.1deg);z-index:-1;box-shadow:0 10px 26px rgba(26,29,18,.12)}
+.w-l::before{transform:rotate(1.3deg)}
+.w-sq::before{transform:rotate(1.7deg)}
+.w-full::before{transform:rotate(-.5deg)}
+/* video embed */
+.jvid{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border:1px solid var(--rule);background:var(--ink)}
+.jvid iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+/* lightbox */
+.jlb{position:fixed;inset:0;background:rgba(20,22,14,.94);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:999;padding:30px}
+.jlb.open{display:flex}
+.jlb img{max-width:92vw;max-height:80vh;width:auto;height:auto;border:1px solid rgba(246,241,226,.25);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.jlb-cap{color:#f6f1e2;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-top:16px;text-align:center;max-width:760px}
+.jlb-count{color:rgba(246,241,226,.5);font-size:11px;letter-spacing:.2em;margin-top:6px}
+.jlb-btn{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(246,241,226,.3);color:#f6f1e2;font-size:22px;width:46px;height:46px;cursor:pointer;border-radius:50%;transition:background .2s}
+.jlb-btn:hover{background:rgba(246,241,226,.12)}
+.jlb-prev{left:24px}.jlb-next{right:24px}
+.jlb-x{position:absolute;top:18px;right:24px;background:none;border:none;color:rgba(246,241,226,.7);font-size:30px;cursor:pointer;line-height:1}
+.jlb-x:hover{color:#f6f1e2}
+@media (max-width:720px){.jlb-btn{width:38px;height:38px;font-size:18px}.jlb-prev{left:8px}.jlb-next{right:8px}}
+
+.jbody a{color:var(--accent-dark);text-decoration:underline;text-underline-offset:2px}
+.jbody a:hover{color:var(--accent)}
+
+.jfoot{max-width:1080px;margin:64px auto 0;padding:22px 40px 30px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.jfoot a{color:var(--ink);text-decoration:none}
+.jfoot a:hover{color:var(--accent)}
+@media (max-width:720px){.jm,.jfoot{padding-left:20px;padding-right:20px}.jwrap{padding:0 20px}.jbody p{font-size:16px}}
+</style>
+</head>
+<body>
+
+<header class="jm">
+  <a class="jm-brand" href="/">propagation house</a>
+  <span class="jm-sec">Work Journal</span>
+  <a class="jm-back" href="/#multimedia">&larr; Back to the Work</a>
+</header>
+
+<div class="jwrap">
+
+<article>
+  <div class="jhero">
+    <div class="jhero-kicker">Work Journal &middot; NASA InSight &middot; 2018</div>
+    <h1>Three Days at the Pad</h1>
+    <p class="jdek">Before the studio built shopping aisles or the General Assembly Hall, its founder spent three days on a media tour at Vandenberg Air Force Base, photographing the launch of InSight &mdash; the first interplanetary mission to leave the West Coast. What follows is the release as it ran, wrapped around the days that produced these frames.</p>
+    <div class="jbyline"><span>By Michael Blackstone</span><span>Photos: Michael LaMartin Photography</span><span>Vandenberg AFB &middot; May 2018</span></div>
+  </div>
+
+  <div class="jhero-img">
+    <figure><img src="../assets/images/nasa-insight/insight-01.jpg" alt="The Atlas V carrying NASA's InSight spacecraft lifting off before dawn from Space Launch Complex-3, Vandenberg Air Force Base" width="1280"><figcaption>Liftoff, 4:05 a.m. PDT, May 5, 2018. Photo: Michael LaMartin Photography.</figcaption></figure>
+  </div>
+
+  <div class="jbody">
+    <p class="jlead">Two years before this studio existed as anything but an instinct, I was standing at Vandenberg with a press badge and a camera, part of a media tour that ran the length of the InSight launch. Three days of briefings, pad tours, and the particular hush of a launch site the night before it stops being a launch site. The photographs in this entry are mine &mdash; shot on assignment for myself, the way the best ones always are &mdash; and the text below is NASA&rsquo;s release, kept as it ran, because the facts of that morning don&rsquo;t need my help. What I can add is the texture the release leaves out: the fog that swallowed the Atlas V whole the morning before launch, the press room&rsquo;s screens running the countdown, the plume at 4:05 a.m. turning night into a color I haven&rsquo;t seen since.</p>
+
+    <h2>The media tour</h2>
+    <p>A launch media tour is three days of being handed the machine one piece at a time. Day one was the press site &mdash; briefings in a room where every screen carried the mission&rsquo;s numbers, and the walkways between buildings felt like the set of the space program I grew up on. Day two went out to the pad itself: Atlas V 401, stacked and silent in morning fog so heavy the vehicle kept disappearing and reappearing like a developing print. That&rsquo;s the frame below &mdash; the rocket you can barely see is the one that made the front pages. Day three was the payoff, and it started at an hour that shouldn&rsquo;t exist: alarms at 2, in position well before 4, and then the whole sky doing the thing no photograph quite holds.</p>
+    <figure class="jfig w-l"><img src="../assets/images/nasa-insight/insight-03.jpg" alt="Inside the press site at Vandenberg during the InSight media days, screens and equipment filling the room" width="1272"><figcaption>The press site during the media days. Photo: Michael LaMartin Photography.</figcaption></figure>
+    <p>What stays with me isn&rsquo;t only the launch. It&rsquo;s how much of the tour was people explaining their life&rsquo;s work in plain sentences &mdash; engineers walking a group of strangers through hardware they&rsquo;d spent years on, the countdown team narrating the morning like a recipe they&rsquo;d cooked a hundred times. The release below calls it &ldquo;years of work by a whole host of people.&rdquo; Standing there, you could see the years on every face. I was shooting with the same instinct this studio runs on now: get close to the people making the thing, and photograph the moment the thing becomes real.</p>
+
+    <h2>The launch, as NASA released it</h2>
+    <p>NASA&rsquo;s Interior Exploration using Seismic Investigations, Geodesy and Heat Transport (InSight) spacecraft is on its way to Mars. InSight launched on a United Launch Alliance (ULA) Atlas V 401 rocket at 4:05 a.m. PDT (7:05 a.m. EDT) May 5, from Space Launch Complex-3 at Vandenberg Air Force Base in California.</p>
+    <p>NASA Administrator Jim Bridenstine spoke to the mission team at Vandenberg by phone. &ldquo;This has been years of work by a whole host of people, for a very long time, including JPL, and of course the launch crew at Vandenberg,&rdquo; Bridenstine said. &ldquo;I want to give a special thanks to ULA and congratulate them on 128 total successful launches in a row, 78 specifically for the Atlas V. I want to thank our international partners, CNES and DLR, for their hard work.&rdquo;</p>
+    <p>&ldquo;It&rsquo;s been an incredible day,&rdquo; said Tim Dunn, NASA Launch Director for InSight. &ldquo;It was a smooth countdown. The mighty Atlas rocket performed very well.&rdquo;</p>
+    <figure class="jfig w-r"><img src="../assets/images/nasa-insight/insight-07.jpg" alt="The Atlas V 401 rocket with NASA's InSight spacecraft on the pad at Space Launch Complex-3, nearly lost in morning fog" width="1280"><figcaption>The Atlas V on the pad the morning before launch, in fog. Photo: Michael LaMartin Photography.</figcaption></figure>
+    <p>Following two separate engine burns of the ULA Centaur upper stage, NASA&rsquo;s InSight spacecraft separated from the Centaur to fly freely for the first time about 1.5 hours after liftoff. The spacecraft now is on its six-month, 300-million-mile voyage to the Red Planet. InSight will land on Mars on Nov. 26, 2018.</p>
+    <p>InSight is the first interplanetary mission to launch from the West Coast, and will be the first mission to look deep beneath the Martian surface. It will study the planet&rsquo;s interior by measuring its heat output and listening for marsquakes. InSight will use the seismic waves generated by marsquakes to develop a map of the planet&rsquo;s deep interior. The resulting insight into Mars&rsquo; formation will provide a better understanding of how other rocky planets, including Earth, were created.</p>
+    <p>The InSight lander is equipped with two science instruments that will conduct the first &ldquo;check-up&rdquo; of Mars, measuring its &ldquo;pulse,&rdquo; or internal activity; its temperature and its &ldquo;reflexes,&rdquo; or the way the planet wobbles when it is pulled by the Sun and its moons.</p>
+    <div class="jpull">&ldquo;This is an extraordinary mission with a whole host of firsts.&rdquo; &mdash; NASA Administrator Jim Bridenstine</div>
+    <p>The science payload comprises two instruments: the Seismic Experiment for Interior Structure (SEIS), provided by the French Space Agency, with the participation of the Institut de Physique du Globe de Paris (IPGP), the Swiss Federal Institute of Technology, the Max Planck Institute for Solar System Research, Imperial College and the Jet Propulsion Laboratory. The second instrument, the Heat Flow and Physical Properties Package (HP3), is provided by the German Space Agency. Also, the Rotation and Interior Structure Experiment (RISE), led by JPL, will use the spacecraft communication system to provide precise measurements of planetary rotation.</p>
+    <p>Hitching a ride with InSight was NASA&rsquo;s technology experiment, Mars Cube One (MarCO), a separate mission of its own, also headed to Mars. The two mini-spacecraft, called CubeSats, launched one at a time from dispensers mounted on the aft bulkhead carrier of the Centaur second stage. They were designed and built by NASA&rsquo;s Jet Propulsion Laboratory in Pasadena, California, and are the first test of CubeSat technology in deep space. Their purpose is to test new communications and navigation capabilities for future missions, and may provide real-time communication relay to cover the entry, descent and landing of InSight on Mars.</p>
+    <p>&ldquo;This is a big day. We&rsquo;re going back to Mars; we did it from the West Coast, which is a first ever,&rdquo; Bridenstine said. &ldquo;And of course, the launch of our CubeSats into deep space. This is an extraordinary mission with a whole host of firsts.&rdquo;</p>
+    <p>InSight&rsquo;s lander will spend two years investigating the deep interior of Mars. For more information visit the <a href="https://mars.nasa.gov/insight/" target="_blank" rel="noopener">InSight mission page</a>.</p>
+
+    <h2>Why it&rsquo;s in this journal</h2>
+    <figure class="jfig w-full"><img src="../assets/images/nasa-insight/insight-09.jpg" alt="The launch plume from the InSight Atlas V rising over the Vandenberg press site in daylight" width="1272"><figcaption>The plume over the press site, minutes after liftoff. Photo: Michael LaMartin Photography.</figcaption></figure>
+    <p>Because the through-line runs straight through it. A press badge at a launch pad and a shoppable aisle at Walmart are the same job done at different scales: put people where the thing happens, and make the moment legible. The media tour was the first time I worked a story the way this studio now builds worlds &mdash; three days inside someone else&rsquo;s milestone, close enough to feel the countdown in the floor. InSight went on to land on Mars that November and listen for marsquakes for four years, outlasting its planned mission twice over. And the West Coast finally had its interplanetary first. I kept the frames, kept the badge, and kept the instinct: the best place to understand a thing is standing near it when it lights up.</p>
+  </div>
+</article>
+
+</div>
+
+<footer class="jfoot">
+  <a href="/">&larr; propagation house</a>
+  <span>Work Journal &middot; 2018</span>
+  <a href="/#multimedia">More of the work &rarr;</a>
+</footer>
+
+<div class="jlb" id="jlb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="jlb-x" id="jlb-x" aria-label="Close">&times;</button>
+  <button class="jlb-btn jlb-prev" id="jlb-prev" aria-label="Previous image">&#8592;</button>
+  <img id="jlb-img" src="" alt="">
+  <button class="jlb-btn jlb-next" id="jlb-next" aria-label="Next image">&#8594;</button>
+  <div class="jlb-cap" id="jlb-cap"></div>
+  <div class="jlb-count" id="jlb-count"></div>
+</div>
+<script>
+(function(){
+  var thumbs = [].slice.call(document.querySelectorAll('.jhero-img img, .jbody .jfig img'));
+  if(!thumbs.length) return;
+  var lb = document.getElementById('jlb'),
+      img = document.getElementById('jlb-img'),
+      cap = document.getElementById('jlb-cap'),
+      cnt = document.getElementById('jlb-count'),
+      cur = 0;
+  function capFor(t){
+    var f = t.closest('figure');
+    if(f){
+      var fc = f.querySelector('figcaption');
+      if(fc) return fc.textContent.replace(/\s*expand\s*$/i,'').trim();
+    }
+    var a = t.getAttribute('alt');
+    return a ? a.charAt(0).toUpperCase() + a.slice(1) : '';
+  }
+  function show(i){
+    cur = (i + thumbs.length) % thumbs.length;
+    var t = thumbs[cur];
+    img.src = t.src;
+    img.alt = t.alt || '';
+    cap.textContent = capFor(t);
+    cnt.textContent = (cur+1) + ' / ' + thumbs.length;
+  }
+  function open(i){ show(i); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+  thumbs.forEach(function(t, i){
+    t.style.cursor = 'zoom-in';
+    t.addEventListener('click', function(){ open(i); });
+  });
+  document.getElementById('jlb-x').addEventListener('click', close);
+  document.getElementById('jlb-prev').addEventListener('click', function(e){ e.stopPropagation(); show(cur-1); });
+  document.getElementById('jlb-next').addEventListener('click', function(e){ e.stopPropagation(); show(cur+1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    else if(e.key === 'ArrowLeft') show(cur-1);
+    else if(e.key === 'ArrowRight') show(cur+1);
+  });
+})();
+</script>
+</body>
+</html>

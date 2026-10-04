@@ -189,11 +189,11 @@ img{max-width:100%;display:block}
 .feature .pull-quote{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.3;color:var(--accent-dark);border-left:3px solid var(--accent);padding-left:20px;margin:24px 0;max-width:480px}
 
 /* MULTIMEDIA CARDS */
-.mm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:1px solid var(--rule);margin-bottom:48px}
+.mm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-bottom:1px solid var(--rule);margin-bottom:48px}
 .mm-grid .mm-card{padding:28px 24px;border-right:1px solid var(--rule)}
-.mm-grid .mm-card:last-child{border-right:none}
-.mm-grid .mm-card:first-child{padding-left:0}
-.mm-grid .mm-card:nth-child(3){padding-right:0;border-right:none}
+.mm-grid .mm-card:nth-child(2n){border-right:none}
+.mm-grid .mm-card:nth-child(2n+1){padding-left:0}
+.mm-grid .mm-card:nth-child(2n){padding-right:0}
 .mm-grid .mm-card .kicker{font-size:var(--kicker-sm-size);letter-spacing:var(--kicker-sm-track);text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
 .mm-grid .mm-card h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.2;margin-bottom:6px}
 .mm-grid .mm-card .dek{font-size:13px;color:#4a4d3e;line-height:1.45}
@@ -362,8 +362,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   .feature{grid-template-columns:1fr}
   .feature .feature-text{padding:32px 24px}
   .mm-grid{grid-template-columns:1fr}
-  .mm-grid .mm-card{border-right:none;padding:20px 0}
-  .mm-grid .mm-card:first-child,.mm-grid .mm-card:nth-child(3){padding-left:0;padding-right:0}
+  .mm-grid .mm-card{border-right:none;padding:20px 0;padding-left:0;padding-right:0}
   .about-grid{grid-template-columns:1fr 1fr}
   .about-grid .about-cell{padding:22px 18px;border-right:none;border-bottom:1px solid var(--rule)}
   .about-grid .about-cell:first-child{padding-left:18px}
@@ -721,6 +720,12 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
     <p class="dek">Washington&rsquo;s first outdoor parkour course, at Cordata Park in Bellingham &mdash; built because the founder and Sidney Mohorovich took the case to city hall and kept advocating, across several years, until the course was real. The studio&rsquo;s first public work.</p>
     <div class="client">City of Bellingham &middot; Parkour Visions</div>
   </a>
+  <a class="mm-card mm-card-link" href="/journal/nasa-insight.html">
+    <div class="kicker">Journal &middot; NASA &middot; 2018</div>
+    <h3>Three Days at the Pad</h3>
+    <p class="dek">Three days on the media tour at Vandenberg for the launch of InSight &mdash; the first interplanetary mission to leave the West Coast. Photographs by Michael LaMartin Photography, and the release as it ran.</p>
+    <div class="client">NASA &middot; ULA &middot; Vandenberg AFB</div>
+  </a>
 </section>
 
 <section class="feature" id="the-bridge">
@@ -890,7 +895,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
       </div>
       <div>
         <h4>Corridors</h4>
-        <ul><li><a href="#house">House</a></li><li><a href="#products">Products</a></li><li><a href="#multimedia">Multimedia</a></li><li><a href="#merch">Merchandise</a></li><li><a href="journal/walmart-unlimited.html">Journal &mdash; A Year in the Aisle</a></li><li><a href="journal/undp-assembly-hall.html">Journal &mdash; The Hall That Holds the World</a></li><li><a href="journal/cordata-park.html">Journal &mdash; Where the Groundwork Led</a></li></ul>
+        <ul><li><a href="#house">House</a></li><li><a href="#products">Products</a></li><li><a href="#multimedia">Multimedia</a></li><li><a href="#merch">Merchandise</a></li><li><a href="journal/walmart-unlimited.html">Journal &mdash; A Year in the Aisle</a></li><li><a href="journal/undp-assembly-hall.html">Journal &mdash; The Hall That Holds the World</a></li><li><a href="journal/cordata-park.html">Journal &mdash; Where the Groundwork Led</a></li><li><a href="journal/nasa-insight.html">Journal &mdash; Three Days at the Pad</a></li></ul>
       </div>
       <div>
         <h4>Products</h4>
