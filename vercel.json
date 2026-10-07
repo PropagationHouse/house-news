@@ -103,6 +103,14 @@
     {
       "source": "/shop/fisherman-beanie/",
       "destination": "/shop/item.html"
+    },
+    {
+      "source": "/michaelblackstone",
+      "destination": "/michaelblackstone/index.html"
+    },
+    {
+      "source": "/michaelblackstone/",
+      "destination": "/michaelblackstone/index.html"
     }
   ]
 }

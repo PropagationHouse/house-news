@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -87,7 +87,7 @@ img{max-width:100%;display:block}
 .hero .hero-pills a{display:inline-block;padding:10px 22px;border:1px solid var(--rule);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:all .2s}
 .hero .hero-pills a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
-/* SECTION HEADERS â€” thick, declarative doors to each corridor */
+/* SECTION HEADERS — thick, declarative doors to each corridor */
 .section-head{padding:64px 0 40px;margin:0;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:end}
 .section-head .info .kicker{font-size:var(--kicker-lg-size);letter-spacing:var(--kicker-lg-track);text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
 .section-head .label{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4vw,52px);line-height:1.03;letter-spacing:-.02em}
@@ -95,26 +95,26 @@ img{max-width:100%;display:block}
 .section-head .more{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ink);white-space:nowrap;padding-bottom:8px;border-bottom:2px solid var(--accent);align-self:end}
 .section-head .more:hover{color:var(--accent)}
 
-/* HERO AS PAPER SHEET â€” the studio statement lives on a large sheet with naturally ragged semi-rough edges. The sheet's own ragged bottom edge IS the barrier line into House â€” no separate divider asset needed. */
+/* HERO AS PAPER SHEET — the studio statement lives on a large sheet with naturally ragged semi-rough edges. The sheet's own ragged bottom edge IS the barrier line into House — no separate divider asset needed. */
 .hero{position:relative;text-align:center;isolation:isolate;background:transparent}
 .hero .hero-bg{position:relative;width:100%;height:auto;display:block;z-index:0;filter:drop-shadow(0 6px 18px rgba(26,29,18,.14));-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 110px),transparent 100%);mask-image:linear-gradient(to bottom,#000 calc(100% - 110px),transparent 100%)}
 .hero .hero-inner{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px}
 .hero .hero-inner .hero-pills{margin-bottom:0}
 @media(min-width:1024px){.hero .hero-inner{padding:0 48px}}
 
-/* TORN PAPER DIVIDERS â€” containment rhythm: drop-tear opens the House corridor (ragged bottom hangs into the section), up-tear opens the Products sheet (ragged top), down-tear closes it (ragged bottom) */
+/* TORN PAPER DIVIDERS — containment rhythm: drop-tear opens the House corridor (ragged bottom hangs into the section), up-tear opens the Products sheet (ragged top), down-tear closes it (ragged bottom) */
 .paper-tear{position:relative;width:100%;line-height:0;pointer-events:none}
 .paper-tear img{width:100%;height:auto;display:block;filter:drop-shadow(0 2px 6px rgba(26,29,18,.08))}
 .paper-tear{margin:0 -12px;width:calc(100% + 24px);max-width:none}
 @media(min-width:1024px){.paper-tear{margin:0 -24px;width:calc(100% + 48px)}}
 @media(min-width:1440px){.paper-tear{width:100vw;margin-left:calc(50% - 50vw)}}
 
-/* section-head.tear-up â€” header drops down so the paper tears cleanly against the content, with a soft gradient instead of a hard competing line */
+/* section-head.tear-up — header drops down so the paper tears cleanly against the content, with a soft gradient instead of a hard competing line */
 .section-head.tear-up{padding-top:96px}
 .paper-tear.paper-tear-up img{-webkit-mask-image:linear-gradient(to bottom,#000 52%,transparent 100%);mask-image:linear-gradient(to bottom,#000 52%,transparent 100%)}
 @media(max-width:1023px){.section-head.tear-up{padding-top:64px}}
 
-/* HOUSE: EDITORIAL GRID â€” wired style: lead center, side stories flanking left+right at bottom */
+/* HOUSE: EDITORIAL GRID — wired style: lead center, side stories flanking left+right at bottom */
 .editorial-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.3fr) minmax(0,1fr);gap:0;border-bottom:1px solid var(--rule);align-items:end}
 .editorial-grid .lead-story{grid-column:2;grid-row:1;padding:28px 0 30px;text-align:center}
 .lead-feature{display:block;margin:12px 0 0;padding:14px 0 0;border-top:1px solid var(--rule);text-align:left}
@@ -146,7 +146,7 @@ img{max-width:100%;display:block}
 .editorial-grid .side-stories-right .ss-item{padding:0 0 0 24px;border-bottom:1px solid var(--rule)}
 .editorial-grid .side-stories-right .ss-item:not(:first-child){padding-top:20px}
 .editorial-grid .side-stories-right .ss-item:last-child{border-bottom:none;padding-bottom:36px}
-/* bottom row â€” additional stories spanning full width */
+/* bottom row — additional stories spanning full width */
 .editorial-grid .side-stories-bottom{grid-column:1 / -1;grid-row:2;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--rule);padding:28px 0 0}
 .editorial-grid .side-stories-bottom .ss-item{padding:0 20px;border-right:1px solid var(--rule)}
 .editorial-grid .side-stories-bottom .ss-item:first-child{padding-left:0}
@@ -207,7 +207,7 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 
 /* MERCH STRIP */
 
-/* CLIENT STRIP â€” brand marquee */
+/* CLIENT STRIP — brand marquee */
 .client-strip{background:var(--ink);color:var(--paper);padding:64px 0;overflow:hidden}
 .brand-marquee{overflow:hidden;width:100%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
 .brand-track{display:flex;align-items:center;width:max-content;animation:brandScroll 75s linear infinite}
@@ -221,7 +221,7 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 @media (prefers-reduced-motion: reduce){.brand-track{animation:none;flex-wrap:wrap;justify-content:center;width:100%}}
 
 
-/* PRESS â€” as seen in */
+/* PRESS — as seen in */
 .press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:1px solid var(--rule)}
 .press-card{padding:36px 28px;border-right:1px solid var(--rule);display:flex;align-items:center}
 .press-card:nth-child(3n){border-right:none}.press-card:last-child{border-right:none}
@@ -231,7 +231,7 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 .press-wordmark{font-family:var(--serif);font-weight:900;font-size:36px;letter-spacing:-.01em;color:var(--ink);opacity:.55;transition:opacity .25s ease}
 .press-card a:hover .press-wordmark{opacity:1}
 
-/* ABOUT BAND â€” the studio, declaratively, above the news corridor */
+/* ABOUT BAND — the studio, declaratively, above the news corridor */
 .about-band{margin-top:48px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .about-band .about-lede{padding:44px 0 30px}
 .about-band .about-lede .kicker{font-size:var(--kicker-lg-size);letter-spacing:var(--kicker-lg-track);text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:12px}
@@ -243,14 +243,14 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 .about-grid .a-name{font-size:11px;letter-spacing:var(--kicker-sm-track);text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:8px}
 .about-grid .about-cell p{font-size:13px;line-height:1.55;color:#4a4d3e}
 
-/* SUBSTRATE FEATURE â€” the flagship */
+/* SUBSTRATE FEATURE — the flagship */
 .feature.substrate{margin-top:0;display:block} /* wrap layout: float needs block, grid items ignore float */
 .feature.substrate .feature-text{padding:56px 48px}
 .feature.substrate .sf-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-top:1px solid var(--rule);margin-top:26px;padding-top:18px;clear:both}
 .feature.substrate .sf-stat .n{font-family:var(--serif);font-weight:900;font-size:26px;line-height:1}
 .feature.substrate .sf-stat .l{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
 .feature.substrate .feature-visual{min-height:0;float:right;width:47%;max-width:520px;margin:8px 0 16px 40px;background:linear-gradient(135deg,#0f1108,#1a1d12 55%,#4b5320);border-left:1px solid var(--rule)} /* wrap: image right, text flows around */
-.feature.substrate .dek{max-width:none} /* kill legacy 520px cap â€” caps defeat the float; text must be free to wrap */
+.feature.substrate .dek{max-width:none} /* kill legacy 520px cap — caps defeat the float; text must be free to wrap */
 .feature.substrate .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block}
 .feature .cta-row{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
 .feature .cta-row a{display:inline-block;padding:12px 22px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s}
@@ -258,7 +258,7 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 .feature .cta-row a.ghost{border:1px solid var(--ink);color:var(--ink)}
 .feature .cta-row a.primary:hover,.feature .cta-row a.ghost:hover{background:var(--ink);color:var(--paper)}
 
-/* WALMART FEATURE (mm-feature) â€” wider column, image uncropped on house paper sheet */
+/* WALMART FEATURE (mm-feature) — wider column, image uncropped on house paper sheet */
 #mm-feature{grid-template-columns:minmax(0,1fr) minmax(0,1.22fr)}
 #mm-feature .feature-visual{background:transparent;overflow:visible;min-height:0;padding:2.7% 5.2%;align-self:center;isolation:isolate}
 #mm-feature .feature-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:rotate(-1.2deg);z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
@@ -266,19 +266,19 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 #mm-feature .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
 @media (max-width:920px){#mm-feature{grid-template-columns:1fr}}
 
-/* UN FEATURE (un-feature) â€” newest work, sits above the Walmart feature; same paper-sheet treatment */
+/* UN FEATURE (un-feature) — newest work, sits above the Walmart feature; same paper-sheet treatment */
 #un-feature{grid-template-columns:minmax(0,1fr) minmax(0,1.22fr)}
 #un-feature .feature-visual{background:transparent;overflow:visible;min-height:0;padding:2.7% 5.2%;align-self:center;isolation:isolate}
 #un-feature .feature-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:rotate(1.2deg);z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
 #un-feature .feature-visual::after{content:none}
 #un-feature .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
 @media (max-width:920px){#un-feature{grid-template-columns:1fr}}
-/* BRIDGE FEATURE (the-bridge) â€” book cover on house paper sheet, same treatment as UN/Walmart */
+/* BRIDGE FEATURE (the-bridge) — book cover on house paper sheet, same treatment as UN/Walmart */
 #the-bridge .feature-visual{background:transparent;overflow:visible;min-height:0;padding:2.7% 5.2%;align-self:center;isolation:isolate}
 #the-bridge .feature-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:rotate(-1.2deg);z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
 #the-bridge .feature-visual::after{content:none}
 #the-bridge .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
-/* FEATURE STACK â€” UN + Walmart share one divider, no dead air between the two images */
+/* FEATURE STACK — UN + Walmart share one divider, no dead air between the two images */
 #un-feature{margin-bottom:0;border-bottom:none}
 #mm-feature{margin-top:0}
 /* NEWS-COMPACT DENSITY - features read as articles inside the section: tighter type, hairline between items */
@@ -293,7 +293,7 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 #mm-feature{border-top:1px solid var(--rule)}
 
 
-/* COMPOSURE BAND â€” supporting section under the flagship */
+/* COMPOSURE BAND — supporting section under the flagship */
 .composure-band{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);border:1px solid var(--rule);margin-bottom:64px}
 .composure-band .cb-text{padding:44px 48px}
 .composure-band .cb-text .kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:12px}
@@ -303,7 +303,7 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 .composure-band .cb-visual{border-left:1px solid var(--rule);position:relative;overflow:hidden;background:linear-gradient(135deg,#0f1108,#1a1d12 55%,#4b5320);min-height:300px}
 .composure-band .cb-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
-/* MERCH â€” two SKUs, photo cards, shop links out */
+/* MERCH — two SKUs, photo cards, shop links out */
 .merch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin-bottom:16px}
 .merch-grid .merch-card{display:block;text-decoration:none;color:inherit;border-right:1px solid var(--rule);padding:36px 32px;transition:background .2s}
 .merch-grid .merch-card:nth-child(3n){border-right:none}
@@ -406,16 +406,16 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-<span>OpenAI cuts off Cursor after SpaceX acquisition â€” model supply ends Nov 12, no Astra either</span>
-<span>Federal judge strikes Pentagon Anthropic blacklist â€” retaliation, due process, false predicates</span>
+<span>OpenAI cuts off Cursor after SpaceX acquisition — model supply ends Nov 12, no Astra either</span>
+<span>Federal judge strikes Pentagon Anthropic blacklist — retaliation, due process, false predicates</span>
     <span>Substrate: a plug-and-play agent with real tools &mdash; real-time collaborator on your machine, on your network, on the clock 24/7</span>
     <span>SWARMFRONT: 25,000 boids at 60 ticks, behavioral-learning AI</span>
     <span>Cocktails Today: AI-powered news and research for the bar</span>
     <span>GlassLabyrinth: a glassmorphic 3D puzzle world</span>
     <span>Composure: a MIDI engine that thinks in channels, not tracks</span>
     <span>Client work: Walmart, United Nations, Jet Magazine, Leia Inc</span>
-    <span>OpenAI cuts off Cursor after SpaceX acquisition â€” model supply ends Nov 12, no Astra either</span>
-<span>Federal judge strikes Pentagon Anthropic blacklist â€” retaliation, due process, false predicates</span>
+    <span>OpenAI cuts off Cursor after SpaceX acquisition — model supply ends Nov 12, no Astra either</span>
+<span>Federal judge strikes Pentagon Anthropic blacklist — retaliation, due process, false predicates</span>
     <span>Substrate: a home and harness for your agent &mdash; model-agnostic, local-first, learns your work</span>
     <span>SWARMFRONT: 25,000 boids at 60 ticks, behavioral-learning AI</span>
     <span>Cocktails Today: AI-powered news and research for the bar</span>
@@ -443,7 +443,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   </div>
 </section>
 
-<!-- 01A ABOUT â€” the studio, declaratively, above the news corridor -->
+<!-- 01A ABOUT — the studio, declaratively, above the news corridor -->
 <div class="about-band" id="about">
   <div class="about-lede">
     <div class="kicker">The Studio &middot; Est. 2020 &middot; Washington, USA</div>
@@ -576,7 +576,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   </div>
 </section>
 
-<!-- TORN PAPER DIVIDER: Products corridor top edge â€” upward tear (paper hangs up into House, contains the Products zone) -->
+<!-- TORN PAPER DIVIDER: Products corridor top edge — upward tear (paper hangs up into House, contains the Products zone) -->
 <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="assets/images/torn-up-strip.png" alt=""></div>
 
 <!-- 02 PRODUCTS -->
@@ -589,7 +589,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   <span class="more" style="border-bottom-color:transparent;color:var(--muted)">Six and growing</span>
 </div>
 
-<!-- 02A FLAGSHIP â€” Substrate feature -->
+<!-- 02A FLAGSHIP — Substrate feature -->
 <section class="feature substrate">
   <div class="feature-text">
     <div class="kicker">Flagship &middot; AI Agent</div>
@@ -649,7 +649,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   </div>
 </section>
 
-<!-- 02B COMPOSURE BAND â€” supporting feature under the flagship -->
+<!-- 02B COMPOSURE BAND — supporting feature under the flagship -->
 <section class="composure-band">
   <div class="cb-text">
     <div class="kicker">Also Building &middot; Music &amp; AI</div>
@@ -660,7 +660,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   <div class="cb-visual"><img src="house-news/assets/images/composure-hero.jpg" alt="Composure channel map rendered as a live state diagram." onerror="this.remove()"></div>
 </section>
 
-<!-- TORN PAPER DIVIDER: Products corridor bottom edge â€” downward tear (paper hangs down into Multimedia, closes the sheet) -->
+<!-- TORN PAPER DIVIDER: Products corridor bottom edge — downward tear (paper hangs down into Multimedia, closes the sheet) -->
 <div class="paper-tear" aria-hidden="true"><img src="assets/images/torn-down-strip.png" alt=""></div>
 
 <!-- 03 MULTIMEDIA -->
@@ -804,31 +804,31 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   <div class="press-card"><a href="https://youtu.be/LBEUAua5218" target="_blank" rel="noopener" title="Plataforma virtual leva p&uacute;blico para a COP30 &mdash; CNN Brasil (clip)">
     <img class="press-logo" src="assets/images/press-cnn-brasil.png" alt="CNN Brasil">
   </a></div>
-  <div class="press-card"><a href="https://www.inc.com/annabel-burba/walmart-launched-a-video-game-are-shoppers-sold-on-it/91155019" target="_blank" rel="noopener" title="Walmart Launched a Video Game. Are Shoppers Sold on It? â€” Inc.">
+  <div class="press-card"><a href="https://www.inc.com/annabel-burba/walmart-launched-a-video-game-are-shoppers-sold-on-it/91155019" target="_blank" rel="noopener" title="Walmart Launched a Video Game. Are Shoppers Sold on It? — Inc.">
     <img class="press-logo" src="assets/images/press-inc-wm.svg" alt="Inc.">
   </a></div>
-  <div class="press-card"><a href="https://adage.com/article/digital-marketing-ad-tech-news/walmart-launches-e-commerce-video-game-miniseries-spatial/2603736/" target="_blank" rel="noopener" title="Walmart Launches E-Commerce Video Game Miniseries With Spatial â€” Ad Age">
+  <div class="press-card"><a href="https://adage.com/article/digital-marketing-ad-tech-news/walmart-launches-e-commerce-video-game-miniseries-spatial/2603736/" target="_blank" rel="noopener" title="Walmart Launches E-Commerce Video Game Miniseries With Spatial — Ad Age">
     <img class="press-logo" src="assets/images/press-adage-wm.svg" alt="Ad Age">
   </a></div>
-  <div class="press-card"><a href="https://www.retailtouchpoints.com/features/walmarts-latest-adaptive-retail-adventure-immersive-gaming-commerce/150312/" target="_blank" rel="noopener" title="Walmart's Latest Adaptive Retail Adventure: Immersive Gaming Commerce â€” Retail TouchPoints">
+  <div class="press-card"><a href="https://www.retailtouchpoints.com/features/walmarts-latest-adaptive-retail-adventure-immersive-gaming-commerce/150312/" target="_blank" rel="noopener" title="Walmart's Latest Adaptive Retail Adventure: Immersive Gaming Commerce — Retail TouchPoints">
     <img class="press-logo" src="assets/images/press-retail-touchpoints.png" alt="Retail TouchPoints">
   </a></div>
-  <div class="press-card"><a href="https://chainstoreage.com/walmart-releases-walmart-unlimited-shoppable-gamified-miniseries" target="_blank" rel="noopener" title="Walmart Releases 'Walmart Unlimited' Shoppable Gamified Miniseries â€” Chain Store Age">
+  <div class="press-card"><a href="https://chainstoreage.com/walmart-releases-walmart-unlimited-shoppable-gamified-miniseries" target="_blank" rel="noopener" title="Walmart Releases 'Walmart Unlimited' Shoppable Gamified Miniseries — Chain Store Age">
     <span class="press-wordmark">Chain Store Age</span>
   </a></div>
-  <div class="press-card"><a href="https://www.retailbrew.com/stories/2025/02/27/walmart-releases-first-immersive-gaming-title-with-walmart-unlimited" target="_blank" rel="noopener" title="Walmart releases first immersive gaming title with Walmart Unlimited â€” Retail Brew">
+  <div class="press-card"><a href="https://www.retailbrew.com/stories/2025/02/27/walmart-releases-first-immersive-gaming-title-with-walmart-unlimited" target="_blank" rel="noopener" title="Walmart releases first immersive gaming title with Walmart Unlimited — Retail Brew">
     <img class="press-logo" src="assets/images/press-retail-brew.svg" alt="Retail Brew">
   </a></div>
-  <div class="press-card"><a href="https://www.pymnts.com/walmart/2025/walmart-and-spatial-launch-gamified-miniseries-featuring-immersive-commerce/" target="_blank" rel="noopener" title="Walmart and Spatial Launch Gamified Miniseries Featuring Immersive Commerce â€” PYMNTS">
+  <div class="press-card"><a href="https://www.pymnts.com/walmart/2025/walmart-and-spatial-launch-gamified-miniseries-featuring-immersive-commerce/" target="_blank" rel="noopener" title="Walmart and Spatial Launch Gamified Miniseries Featuring Immersive Commerce — PYMNTS">
     <img class="press-logo" src="assets/images/press-pymnts.png" alt="PYMNTS">
   </a></div>
-  <div class="press-card"><a href="https://www.supermarketnews.com/grocery-technology/walmart-releases-gamified-version-for-shopping" target="_blank" rel="noopener" title="Walmart gets further into gamification with Walmart Unlimited â€” Supermarket News">
+  <div class="press-card"><a href="https://www.supermarketnews.com/grocery-technology/walmart-releases-gamified-version-for-shopping" target="_blank" rel="noopener" title="Walmart gets further into gamification with Walmart Unlimited — Supermarket News">
     <img class="press-logo" src="assets/images/press-supermarket-news.png" alt="Supermarket News">
   </a></div>
-  <div class="press-card"><a href="https://retailwire.com/discussion/walmart-unlimited-retail-gamification/" target="_blank" rel="noopener" title="'Walmart Unlimited' Launches as Retailer Deepens 'Adaptive Retail' Gamification Strategy â€” RetailWire">
+  <div class="press-card"><a href="https://retailwire.com/discussion/walmart-unlimited-retail-gamification/" target="_blank" rel="noopener" title="'Walmart Unlimited' Launches as Retailer Deepens 'Adaptive Retail' Gamification Strategy — RetailWire">
     <img class="press-logo" src="assets/images/press-retailwire.png" alt="RetailWire">
   </a></div>
-  <div class="press-card"><a href="https://www.linkedin.com/posts/today-walmart-spatial-and-unity-have-ugcPost-7300590950156840961-nOvl/" target="_blank" rel="noopener" title="Walmart, Spatial &amp; Unity launch Walmart UNLIMITED â€” LinkedIn">
+  <div class="press-card"><a href="https://www.linkedin.com/posts/today-walmart-spatial-and-unity-have-ugcPost-7300590950156840961-nOvl/" target="_blank" rel="noopener" title="Walmart, Spatial &amp; Unity launch Walmart UNLIMITED — LinkedIn">
     <img class="press-logo" src="assets/images/press-linkedin.png" alt="LinkedIn">
   </a></div>
   <div class="press-card"><a href="https://www.bellinghamherald.com/news/local/article228303144.html" target="_blank" rel="noopener" title="New Bellingham park will have a spray park, playground, exercise stations and parkour &mdash; The Bellingham Herald">
@@ -844,7 +844,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   <div class="brand-marquee" aria-label="Selected collaborations">
     <div class="brand-track">
       <img src="assets/images/brand-walmart.svg" alt="Walmart" title="Walmart">
-      <a href="https://youtu.be/LBEUAua5218" target="_blank" rel="noopener" title="CNN Brasil â€” Maloca, COP30 virtual platform (clip)"><img src="assets/images/brand-cnn-brasil.png" alt="CNN Brasil" title="CNN Brasil" class="brand-keep"></a>
+      <a href="https://youtu.be/LBEUAua5218" target="_blank" rel="noopener" title="CNN Brasil — Maloca, COP30 virtual platform (clip)"><img src="assets/images/brand-cnn-brasil.png" alt="CNN Brasil" title="CNN Brasil" class="brand-keep"></a>
       <img src="assets/images/brand-un.png" alt="United Nations" title="United Nations">
       <img src="assets/images/brand-jet.png" alt="Jet Magazine" title="Jet Magazine">
       <img src="assets/images/brand-leia.png" alt="Leia Inc" title="Leia Inc">
@@ -903,7 +903,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
       </div>
       <div>
         <h4>Connect</h4>
-        <ul><li><a href="#about">About</a></li><li><a href="/michaelblackstone.html">Michael Blackstone</a></li><li><a href="house-news/subscribe.html">Subscribe</a></li><li><a href="mailto:desk@propagation.house">Contact</a></li><li><a href="house-news/">House</a></li></ul>
+        <ul><li><a href="#about">About</a></li><li><a href="/michaelblackstone/">Michael Blackstone</a></li><li><a href="house-news/subscribe.html">Subscribe</a></li><li><a href="mailto:desk@propagation.house">Contact</a></li><li><a href="house-news/">House</a></li></ul>
       </div>
     </div>
     <div class="foot-bottom">
