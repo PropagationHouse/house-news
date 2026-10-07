@@ -1,0 +1,8 @@
+﻿git : To https://github.com/PropagationHouse/house-news.git
+At line:1 char:112
++ ...  House Website Rebuild\house-news"; git push origin main 2>&1 | Out-F ...
++                                         ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (To https://gith.../house-news.git:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   05af349..3813e55  main -> main

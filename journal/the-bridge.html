@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Bridge &mdash; Fundamentals of 3D Spatial Design &middot; Propagation House</title>
+<meta name="description" content="The studio's book on spatial design &mdash; hubs, halls, havens, and the practice of building shared space. Read it online or download the PDF.">
+<meta property="og:title" content="The Bridge &mdash; Fundamentals of 3D Spatial Design &middot; Propagation House">
+<meta property="og:description" content="The studio's book on spatial design &mdash; hubs, halls, havens, and the practice of building shared space.">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/png" href="../favicon.png">
+<style>
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f6f1e2;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#ece5cf;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+
+.jm{max-width:1080px;margin:0 auto;padding:28px 40px 0;display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--ink);padding-bottom:18px}
+.jm .jm-brand{font-family:var(--sans);font-weight:700;font-size:20px;letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+.jm .jm-brand:hover{color:var(--accent)}
+.jm .jm-sec{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.jm .jm-back{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.jm .jm-back:hover{color:var(--accent)}
+
+.jwrap{max-width:860px;margin:0 auto;padding:0 40px}
+.jhero-kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin:48px 0 14px}
+.jhero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,5.4vw,64px);line-height:1.05;letter-spacing:-.015em;margin-bottom:18px}
+.jdek{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.45;color:var(--accent-dark);max-width:640px;margin-bottom:22px}
+.jbyline{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.jhero-img{margin:34px 0 8px}
+.jhero-img img{width:100%;display:block;border:1px solid var(--rule)}
+.jcap{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
+
+.jbody{margin-top:40px}
+.jbody p{font-size:17px;line-height:1.75;margin-bottom:26px;max-width:680px}
+.jbody p.jlead{font-size:19px;line-height:1.7}
+.jbody p.jlead::first-letter{font-family:var(--serif);font-weight:900;font-size:64px;float:left;line-height:.82;padding:6px 12px 0 0;color:var(--accent)}
+.jbody h2{font-family:var(--serif);font-weight:900;font-size:28px;line-height:1.2;margin:44px 0 16px;letter-spacing:-.01em;clear:both}
+.jbody .jpull{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.35;color:var(--accent-dark);border-left:3px solid var(--accent);padding-left:20px;margin:34px 0;max-width:520px}
+.jbody ul{max-width:680px;margin:0 0 26px 22px}
+.jbody li{font-size:16px;line-height:1.7;margin-bottom:8px}
+
+.jfig{margin:36px 0;position:relative;isolation:isolate}
+.jfig img{width:100%;height:auto;display:block;border:1px solid var(--rule)}
+.jfig figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:8px;text-transform:uppercase}
+.jfig.w-r{float:right;width:46%;margin:8px 0 18px 30px}
+.jfig.w-l{float:left;width:46%;margin:8px 30px 18px 0}
+.jfig.w-full{float:none;width:100%;margin:40px 0;clear:both}
+.jfig::before{content:"";position:absolute;inset:-12px -14px;background:url('../assets/images/paper-sheet-fill-2x.jpg?v=1') center/cover no-repeat;transform:rotate(-1.1deg);z-index:-1;box-shadow:0 10px 26px rgba(26,29,18,.12)}
+.w-l::before{transform:rotate(1.3deg)}
+.w-full::before{transform:rotate(-.5deg)}
+
+/* download panel */
+.jdl{margin:48px 0 8px;border:1px solid var(--ink);background:var(--bg-tint);padding:30px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.jdl .jdl-txt h3{font-family:var(--serif);font-weight:900;font-size:24px;margin-bottom:6px}
+.jdl .jdl-txt p{font-size:13px;color:#4a4d3e;max-width:420px;margin:0}
+.jdl .jdl-btn{display:inline-block;background:var(--ink);color:var(--paper);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:14px 26px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.jdl .jdl-btn:hover{background:var(--accent)}
+.jdl .jdl-meta{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+.jfoot{max-width:1080px;margin:64px auto 0;padding:22px 40px 30px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.jfoot a{color:var(--ink);text-decoration:none}
+.jfoot a:hover{color:var(--accent)}
+@media (max-width:720px){.jm,.jfoot{padding-left:20px;padding-right:20px}.jwrap{padding:0 20px}.jbody p{font-size:16px}.jdl{padding:22px}.jfig.w-r,.jfig.w-l{float:none;width:100%;margin:30px 0}}
+</style>
+</head>
+<body>
+
+<header class="jm">
+  <a class="jm-brand" href="/">propagation house</a>
+  <span class="jm-sec">The Book</span>
+  <a class="jm-back" href="/#multimedia">&larr; Back to the Work</a>
+</header>
+
+<div class="jwrap">
+
+<article>
+  <div class="jhero">
+    <div class="jhero-kicker">The Book &middot; Fundamentals of 3D Spatial Design &middot; 2024</div>
+    <h1>The Bridge</h1>
+    <p class="jdek">Fundamentals of 3D Spatial Design. A working theory of shared virtual space &mdash; hubs, halls, and havens &mdash; written from the practice of building them, from a parkour park in Bellingham to the UN General Assembly Hall.</p>
+    <div class="jbyline"><span>By Michael L. Blackstone</span><span>Propagation House</span><span>First edition &middot; 2024</span></div>
+  </div>
+
+  <div class="jhero-img">
+    <figure><img src="../assets/images/the-bridge-cover.png" alt="The Bridge - Fundamentals of 3D Spatial Design, book cover"><figcaption>The Bridge &mdash; first edition, 2024.</figcaption></figure>
+  </div>
+
+  <div class="jbody">
+    <p class="jlead">Space is not a backdrop. It is the medium through which people meet, and the shape of a room decides what can happen inside it. <em>The Bridge</em> is the studio's working theory of that medium &mdash; written over three years of building spatial environments for retail, diplomacy, and play, and published in 2024.</p>
+
+    <p>The book opens with the practice: rooftops in Ohio, bar shifts that funded a Vive Pro, a $200,000 parkour park built with the city of Bellingham &mdash; shared space as common ground, manifested twice, once in concrete and once in virtuality. From there it builds the fundamentals: purpose, tone, shapes, scale, cohesion, light, sound.</p>
+
+    <div class="jpull">&ldquo;The higher I could climb, the safer I felt.&rdquo;</div>
+
+    <h2>Hubs, Halls &amp; Havens</h2>
+    <p>At the center of the book is the H&sup3; framework &mdash; the studio's taxonomy for shared space:</p>
+    <ul>
+      <li><strong>Hubs</strong> &mdash; social gravity. Rooms designed for density, where the crowd is the content.</li>
+      <li><strong>Halls</strong> &mdash; intermediary and temporary. Event space: built for a moment, dismantled after.</li>
+      <li><strong>Havens</strong> &mdash; specialized landmarks. Small, persistent, personal &mdash; the room someone returns to.</li>
+    </ul>
+    <p>The framework generalizes without strain, from VRChat lobbies to city planning &mdash; because the physics of gathering don't change when the room does.</p>
+
+    <h2>Everything is Language</h2>
+    <p>The closing chapters look forward: thought-spaces as a new asset class, value accruing through time spent and attention given, and the arrival of AI thought partners &mdash; digital ghosts that pick up exactly where you left off. Written in 2023&ndash;2024, the final chapters read today as a spec that has since been built.</p>
+
+    <div class="jfig w-full">
+      <figure><img src="../assets/images/the-bridge-feature.png" alt="The Bridge - interior spread showing spatial design fundamentals"><figcaption>From the interior &mdash; the fundamentals plates, 2021&ndash;2024.</figcaption></figure>
+    </div>
+
+    <div class="jdl">
+      <div class="jdl-txt">
+        <h3>Read the book</h3>
+        <p>The complete first edition, 262 pages, as published. Free download &mdash; no account, no checkout.</p>
+      </div>
+      <div>
+        <a class="jdl-btn" href="/api/bridge-download" download>Download PDF &darr;</a>
+        <div class="jdl-meta">PDF &middot; 262 pages &middot; ~92 MB</div>
+      </div>
+    </div>
+  </div>
+</article>
+
+</div>
+
+<footer class="jfoot">
+  <a href="/">&larr; propagation house</a>
+  <a href="/#multimedia">The Work That Got Us Here</a>
+  <a href="mailto:desk@propagation.house">desk@propagation.house</a>
+</footer>
+
+</body>
+</html>

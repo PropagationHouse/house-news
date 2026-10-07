@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Shop That Ships Itself &mdash; Propagation House</title>
+<meta name="description" content="How a three-item storefront went from placeholder cards to a fully automated pipeline &mdash; Stripe collects the money and the address, Printful prints and ships, and nobody confirms anything by hand.">
+<meta property="og:title" content="The Shop That Ships Itself &mdash; Propagation House">
+<meta property="og:description" content="The merch shop, end to end: a work journal entry on automated checkout and fulfillment.">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/png" href="../favicon.png">
+<style>
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f6f1e2;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#ece5cf;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+
+.jm{max-width:1080px;margin:0 auto;padding:28px 40px 0;display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--ink);padding-bottom:18px}
+.jm .jm-brand{font-family:var(--sans);font-weight:700;font-size:20px;letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+.jm .jm-brand:hover{color:var(--accent)}
+.jm .jm-sec{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.jm .jm-back{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.jm .jm-back:hover{color:var(--accent)}
+
+.jwrap{max-width:860px;margin:0 auto;padding:0 40px}
+.jhero-kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin:48px 0 14px}
+.jhero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,5.4vw,64px);line-height:1.05;letter-spacing:-.015em;margin-bottom:18px}
+.jdek{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.45;color:var(--accent-dark);max-width:640px;margin-bottom:22px}
+.jbyline{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.jhero-img{margin:34px 0 8px}
+.jhero-pair{display:grid;grid-template-columns:1.35fr 1fr;gap:22px;align-items:start}
+.jhero-pair figure{margin:0}
+.jhero-pair figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
+@media (max-width:720px){.jhero-pair{grid-template-columns:1fr}}
+.jhero-img img{width:100%;display:block;border:1px solid var(--rule)}
+.jcap{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
+
+.jbody{margin-top:40px}
+.jbody p{font-size:17px;line-height:1.75;margin-bottom:26px;max-width:680px}
+.jbody p.jlead{font-size:19px;line-height:1.7}
+.jbody p.jlead::first-letter{font-family:var(--serif);font-weight:900;font-size:64px;float:left;line-height:.82;padding:6px 12px 0 0;color:var(--accent)}
+.jbody h2{font-family:var(--serif);font-weight:900;font-size:28px;line-height:1.2;margin:44px 0 16px;letter-spacing:-.01em}
+.jbody .jpull{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.35;color:var(--accent-dark);border-left:3px solid var(--accent);padding-left:20px;margin:34px 0;max-width:520px}
+.jbody .jfig{margin:36px 0}
+.jbody .jfig img{width:100%;height:auto;display:block;border:1px solid var(--rule)}
+.jbody .jfig figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:8px;text-transform:uppercase}
+/* varied text wraps */
+.jbody h2{clear:both}
+.jfig.w-r{float:right;width:46%;margin:8px 0 18px 30px}
+.jfig.w-l{float:left;width:46%;margin:8px 30px 18px 0}
+.jfig.w-sq{float:right;width:34%;margin:8px 0 18px 30px}
+.jfig.w-full{float:none;width:100%;margin:40px 0;clear:both}
+.jfig img,.jhero-img img{cursor:zoom-in}
+.jfig img{transition:transform .25s ease,box-shadow .25s ease}
+.jfig img:hover{transform:scale(1.015);box-shadow:0 10px 28px rgba(26,29,18,.18)}
+.jfig figcaption .jh{opacity:.55;text-transform:none;letter-spacing:.04em}
+@media (max-width:720px){.jfig.w-r,.jfig.w-l,.jfig.w-sq{float:none;width:100%;margin:30px 0}}
+/* paper accents behind image placements */
+.jfig,.jhero-img{position:relative;isolation:isolate}
+.jfig::before,.jhero-img::before{content:"";position:absolute;inset:-12px -14px;background:url('../assets/images/paper-sheet-fill-2x.jpg?v=1') center/cover no-repeat;transform:rotate(-1.1deg);z-index:-1;box-shadow:0 10px 26px rgba(26,29,18,.12)}
+.w-l::before{transform:rotate(1.3deg)}
+.w-sq::before{transform:rotate(1.7deg)}
+.w-full::before{transform:rotate(-.5deg)}
+
+.jpress{margin:56px 0 0;border-top:3px double var(--ink);padding-top:26px}
+.jp-head{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:18px}
+.jpress-row{display:flex;flex-wrap:wrap;gap:26px;align-items:center;margin-bottom:14px}
+.jpress-row img{height:30px;max-width:170px;opacity:.62;transition:opacity .2s}
+.jpress-row img:hover{opacity:1}
+.jpress-row .jw{font-family:var(--serif);font-size:20px;color:var(--ink);opacity:.62}
+.jpress-row .jw:hover{opacity:1}
+.jpress-note{font-size:13px;color:var(--muted);max-width:560px}
+
+.jfoot{max-width:860px;margin:0 auto;padding:44px 40px 60px;display:flex;justify-content:space-between;gap:12px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.jfoot a{color:var(--muted);text-decoration:none}
+.jfoot a:hover{color:var(--accent)}
+
+/* lightbox */
+.jlb{display:none;position:fixed;inset:0;z-index:10000;background:rgba(20,22,14,.92);align-items:center;justify-content:center;flex-direction:column;padding:24px}
+.jlb.open{display:flex}
+.jlb img{max-width:92vw;max-height:82vh;border:1px solid var(--rule);background:var(--paper)}
+.jlb-x{position:absolute;top:18px;right:22px;background:none;border:none;color:var(--paper);font-size:34px;cursor:pointer;line-height:1}
+.jlb-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.08);border:none;color:var(--paper);font-size:30px;padding:14px 18px;cursor:pointer;border-radius:6px}
+.jlb-btn:hover{background:rgba(255,255,255,.18)}
+.jlb-prev{left:16px}
+.jlb-next{right:16px}
+.jlb-cap{color:var(--paper);margin-top:14px;font-size:13px;letter-spacing:.04em;text-align:center;max-width:80vw}
+.jlb-count{color:rgba(255,255,255,.55);margin-top:6px;font-size:12px}
+</style>
+</head>
+<body>
+<header class="jm">
+  <a class="jm-brand" href="/">propagation house</a>
+  <span class="jm-sec">Work Journal</span>
+  <a class="jm-back" href="/">back to the house</a>
+</header>
+
+<div class="jwrap">
+<article>
+  <div class="jhero">
+    <div class="jhero-kicker">Work Journal &middot; The Merch Shop</div>
+    <h1>The Shop That Ships Itself</h1>
+    <p class="jdek">Three items, one storefront, zero manual work. Stripe collects the money and the address, Printful prints and ships, and nobody confirms anything by hand &mdash; plus the one rule that keeps it from ever losing money.</p>
+    <div class="jbyline">
+      <span>By Propagation House</span>
+      <span>September 23, 2026</span>
+    </div>
+  </div>
+
+  <div class="jbody">
+    <p class="jlead">The question that started this was a simple one and it turned out to be the whole project: <em>why are we still absorbing shipping costs?</em> We had a shop with three products, a storefront that looked finished, and a checkout that was, on paper, automated. But paper is where the automation stopped. Somewhere between the buy button and the shipping label, the money was quietly coming out of our pocket.</p>
+
+    <h2>Three items, zero manual work</h2>
+<p>The shop is small on purpose &mdash; a hoodie, a tee, and a beanie. Three SKUs, three product pages, one config file. The whole thing is designed to be boring and reliable, because a storefront you have to babysit is a storefront you stop wanting to run.</p>
+<p>The pipeline that runs it is the interesting part. When a buyer picks a size and hits <em>Buy &mdash; $55</em>, the shop posts to a serverless function that mints a Stripe Checkout Session on the fly. Stripe collects the payment <em>and</em> the shipping address. Then it redirects back to a thank-you page, which calls a second function that verifies the payment is actually paid, pulls the address Stripe collected, maps the product and size to the right Printful variant, and creates a confirmed order. Printful prints it and ships it.</p>
+<p>Nobody touches any of it. No manual payment links, no hand-confirming orders, no copy-pasting a shipping address from an email. The chain is: <em>Stripe &rarr; Printful &rarr; production &rarr; shipping.</em> Hands-off.</p>
+<div class="jpull">&ldquo;The chain is Stripe to Printful to production to shipping. Hands-off.&rdquo;</div>
+
+    <h2>The one rule that keeps it honest</h2>
+<p>Shipping was the first thing we found. The checkout was sending no shipping options at all, and the Stripe account had zero shipping rates &mdash; so buyers paid nothing for shipping and we absorbed it inside the margin. That is survivable for a while and then it is not.</p>
+<p>The fix was a decision, not a calculation: charge every buyer the <em>highest</em> rate Printful would apply, which is the Canada rate (hoodie $10.59, beanie $7.29). American buyers overpay by a couple of dollars &mdash; a tiny subsidy we accepted for simplicity &mdash; and Canadian buyers are covered exactly. The result is a guarantee: <strong>no order ever loses money, no matter where it ships.</strong> We ran every destination through a cost model and the worst case was still comfortably positive.</p>
+<p>That is the rule the whole shop rests on. And it is enforced in more than one place, because the first thing this project taught us is that a guard in the browser is not a guard.</p>
+
+    <h2>The bugs that would have cost us</h2>
+<p>Building this, we kept finding the same class of mistake: the client looked right, and the server was wide open. The tee is the cleanest example. It costs $41.96 to fulfill against a $30 price &mdash; a <em>negative</em> $11.96 on every single sale. The buy button was hidden, so it looked fine. But a direct POST to the checkout function would still mint a live Stripe session for it. The fix was a server-side sold-out guard that refuses the product before a session is ever created. <em>Sold out</em> is not a style choice; it is a server rule.</p>
+<p>Two more of the same species. The order-creation function was posting to Printful without a <code>store_id</code> &mdash; Printful silently returns a 400 and the order is never created, so a buyer could pay and get nothing. And the thank-you page runs on every page load, so without idempotency a single refresh could double-order. Both fixed by making the server the source of truth: the store id is required, and the order id is written back onto the Stripe session so a replay returns the original order instead of creating a second one.</p>
+<p>There is also a quiet one that only shows up in production: Vercel auto-parses JSON request bodies, so calling <code>JSON.parse</code> on an already-parsed object throws. That one had been silently breaking the buy button for a while, and it only surfaced when we tested the actual request path rather than just the Stripe key.</p>
+
+    <h2>What it taught us</h2>
+<p>The lesson underneath all of it is the same one, and it is worth writing down: <strong>the server is the guard.</strong> A button can be hidden, a price can be edited, a URL can be hit directly &mdash; none of that is enforcement. Every rule that matters &mdash; sold out, price, shipping, idempotency &mdash; has to live in the code that runs when the request arrives, not in the markup that renders the page.</p>
+<p>The second lesson is about verification. We found the shipping gap because we asked whether the checkout was actually good, and we found the store-id bug because we tested the outbound URL instead of trusting that the handler ran. A test that only counts calls proves the handler ran; it does not prove it called the right endpoint with the right parameters.</p>
+<p>And the third is the one we keep coming back to. A storefront you have to babysit is a storefront you stop wanting to run. The goal was never just to sell a hoodie &mdash; it was to make the selling disappear into the background, the way a good tool does. Three items, one config file, and a chain that runs itself. That is the whole point.</p>
+  </div>
+</article>
+</div>
+
+<footer class="jfoot">
+  <a href="/">&larr; propagation house</a>
+  <span>Work Journal &middot; 2026</span>
+  <a href="/#press">As seen in &rarr;</a>
+</footer>
+
+<div class="jlb" id="jlb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="jlb-x" id="jlb-x" aria-label="Close">&times;</button>
+  <button class="jlb-btn jlb-prev" id="jlb-prev" aria-label="Previous image">&#8592;</button>
+  <img id="jlb-img" src="" alt="">
+  <button class="jlb-btn jlb-next" id="jlb-next" aria-label="Next image">&#8594;</button>
+  <div class="jlb-cap" id="jlb-cap"></div>
+  <div class="jlb-count" id="jlb-count"></div>
+</div>
+<script>
+(function(){
+  var thumbs = [].slice.call(document.querySelectorAll('.jhero-img img, .jbody .jfig img'));
+  if(!thumbs.length) return;
+  var lb = document.getElementById('jlb'),
+      img = document.getElementById('jlb-img'),
+      cap = document.getElementById('jlb-cap'),
+      cnt = document.getElementById('jlb-count'),
+      cur = 0;
+  function capFor(t){
+    var f = t.closest('figure');
+    if(f){
+      var fc = f.querySelector('figcaption');
+      if(fc) return fc.textContent.replace(/\s*expand\s*$/i,'').trim();
+    }
+    var a = t.getAttribute('alt');
+    return a ? a.charAt(0).toUpperCase() + a.slice(1) : '';
+  }
+  function show(i){
+    cur = (i + thumbs.length) % thumbs.length;
+    var t = thumbs[cur];
+    img.src = t.src;
+    img.alt = t.alt || '';
+    cap.textContent = capFor(t);
+    cnt.textContent = (cur+1) + ' / ' + thumbs.length;
+  }
+  function open(i){ show(i); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+  thumbs.forEach(function(t, i){
+    t.style.cursor = 'zoom-in';
+    t.addEventListener('click', function(){ open(i); });
+  });
+  document.getElementById('jlb-x').addEventListener('click', close);
+  document.getElementById('jlb-prev').addEventListener('click', function(e){ e.stopPropagation(); show(cur-1); });
+  document.getElementById('jlb-next').addEventListener('click', function(e){ e.stopPropagation(); show(cur+1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    else if(e.key === 'ArrowLeft') show(cur-1);
+    else if(e.key === 'ArrowRight') show(cur+1);
+  });
+})();
+</script>
+</body>
+</html>

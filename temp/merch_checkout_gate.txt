@@ -1,0 +1,35 @@
+﻿PASS exists api/checkout.js
+PASS exists api/finalize-order.js
+PASS exists api/printful-proxy.js
+PASS exists api/verify.js
+PASS checkout: STRIPE_PRICE_HOODIE
+PASS checkout: STRIPE_PRICE_TEE
+PASS checkout: STRIPE_PRICE_BEANIE
+PASS checkout: success_url session
+PASS checkout: shipping_address_collection
+PASS checkout: no hardcoded price_
+PASS finalize: paid check
+PASS finalize: status confirmed
+PASS finalize: uses metadata
+PASS finalize: variant map
+PASS config: soldOut false x3 3
+PASS config: soldOut true gone
+PASS config: printfulId 146
+PASS config: printfulId 1592
+PASS config: printfulId 809
+PASS config: prices 55/30/28
+PASS shop.js: calls /api/checkout
+PASS shop.js: posts printfulId
+PASS shop.js: old payment-link note gone
+PASS shop.js: braces balanced (34, 34)
+PASS thanks.html exists + doctype
+PASS thanks.html closes html
+PASS thanks.html loads thanks.js
+PASS thanks.js calls finalize-order
+PASS vercel: /shop/thanks route
+PASS vercel: 3 product routes
+PASS css: .thanks block
+PASS css: #order-status
+PASS css: braces balanced (80, 80)
+
+FAILS=0

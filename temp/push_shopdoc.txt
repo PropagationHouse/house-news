@@ -1,0 +1,8 @@
+﻿git : To https://github.com/PropagationHouse/house-news.git
+At line:1 char:203
++ ... md to the automated checkout flow"; git push origin main 2>&1 | Out-F ...
++                                         ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (To https://gith.../house-news.git:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   3813e55..1de01f0  main -> main

@@ -1,0 +1,17 @@
+﻿PASS GET /shop 200 200
+PASS shop index loads shop.js
+PASS GET /shop/house-hoodie 200 200
+PASS hoodie page loads shop.js
+PASS GET /shop/thanks 200 200
+PASS thanks has order-status
+PASS thanks loads thanks.js
+PASS GET /shop/shop.js 200 200
+PASS shop.js calls /api/checkout
+PASS shop.js has printfulId
+PASS GET /shop/shop-config.js 200 200
+PASS config: soldOut false x3 3
+PASS GET /shop/thanks.js 200 200
+PASS thanks.js calls finalize-order
+PASS GET /api/checkout = 405 (endpoint deployed) 405
+
+FAILS=0

@@ -1,0 +1,17 @@
+﻿key found: False prefix: None
+python : Traceback (most recent call last):
+At line:1 char:112
++ ... use Website Rebuild\house-news"; python temp\pf_check.py 2>&1 | Out-F ...
++                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\Bl0ck\AppData\Roaming\Substrate\workspace\projects\Propagation House Website 
+Rebuild\house-news\temp\pf_check.py", line 22, in <module>
+    st = get('/store')
+         ^^^^^^^^^^^^^
+  File "C:\Users\Bl0ck\AppData\Roaming\Substrate\workspace\projects\Propagation House Website 
+Rebuild\house-news\temp\pf_check.py", line 14, in get
+    headers={'Authorization': 'Bearer ' + key})
+                              ~~~~~~~~~~^~~~~
+TypeError: can only concatenate str (not "NoneType") to str
