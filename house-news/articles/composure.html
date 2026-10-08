@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="../favicon.png">
-<title>Composure: An Instrument With a Collaborator â€” house</title>
+<title>Composure: An Instrument With a Collaborator — house</title>
 <style>
 @font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
 @font-face{font-family:'Acumin Pro';src:url('../assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
@@ -72,10 +72,10 @@ img{max-width:100%;display:block}
 .article-body p{margin-bottom:28px}
 .article-body p:last-child{margin-bottom:0}
 
-/* Drop cap â€” first paragraph */
+/* Drop cap — first paragraph */
 .article-body > p:first-of-type::first-letter{font-family:var(--serif);font-weight:900;font-size:76px;float:left;line-height:.82;margin:6px 12px 0 0;color:var(--accent);font-style:normal}
 
-/* Lead paragraph â€” slightly larger, no drop cap alternative */
+/* Lead paragraph — slightly larger, no drop cap alternative */
 .article-body .lead-para{font-size:21px;line-height:1.6;color:#1a1d12;font-weight:400}
 .article-body .lead-para::first-letter{font-size:inherit;float:none;margin:0;color:inherit;font-family:inherit;font-weight:inherit}
 
@@ -257,26 +257,26 @@ img{max-width:100%;display:block}
 
 <!-- -- ARTICLE HERO -------------------------- -->
 <div class="article-hero">
-  <div class="kicker">Software Â· AI Â· Dev</div>
+  <div class="kicker">Software · AI · Dev</div>
   <h1 class="article-title">Composure: An Instrument With a <em>Collaborator</em></h1>
-  <p class="dek">Sixteen channels, four of them named. An outside agent and an inside agent both play it, modify it, and generate with it â€” and the map is left open on purpose. This is the account written after reading the <em>source</em>, not the back cover.</p>
-  <div class="byline">By <strong>The Studio</strong><span class="sep">Â·</span>September 24, 2026<span class="sep">Â·</span>12 min read</div>
+  <p class="dek">Sixteen channels, four of them named. An outside agent and an inside agent both play it, modify it, and generate with it — and the map is left open on purpose. This is the account written after reading the <em>source</em>, not the back cover.</p>
+  <div class="byline">By <strong>The Studio</strong><span class="sep">·</span>September 24, 2026<span class="sep">·</span>12 min read</div>
 </div>
 
 <!-- -- HERO FIGURE ---------------------------- -->
 <div class="hero-figure">
   <div class="hero-img"><img src="../assets/images/composure-hero.jpg" alt="Composure's channel map rendered as a live state diagram" /></div>
-  <p class="caption">Composure's channel map as a live state diagram. Each lane is a persistent voice, independently mutable without touching the others â€” four named by default, twelve left open. Render illustration by house.</p>
+  <p class="caption">Composure's channel map as a live state diagram. Each lane is a persistent voice, independently mutable without touching the others — four named by default, twelve left open. Render illustration by house.</p>
 </div>
 
 <!-- -- ARTICLE BODY --------------------------- -->
 <article class="article-body">
 
-  <p class="lead-para">Composure is a MIDI engine with sixteen channels, four of them named. That sentence is worth sitting with, because almost everything written about this app so far â€” including, for a while, by us â€” describes five.</p>
+  <p class="lead-para">Composure is a MIDI engine with sixteen channels, four of them named. That sentence is worth sitting with, because almost everything written about this app so far — including, for a while, by us — describes five.</p>
 
-  <p>The correction matters more than a number. The earlier version of this piece said Composure had five channels: Drums, Lead, Melody, Ambience, Bass. That is not what the code says. It has never been what the code says. The real map lives in a single file called <em>channelMap.ts</em>, and it reads like this: sixteen channels total. Four carry default roles, sitting on channels one through four â€” <strong>Drums, Bass, Chords, Melody</strong>. Channels five through sixteen are open. Unnamed. Waiting.</p>
+  <p>The correction matters more than a number. The earlier version of this piece said Composure had five channels: Drums, Lead, Melody, Ambience, Bass. That is not what the code says. It has never been what the code says. The real map lives in a single file called <em>channelMap.ts</em>, and it reads like this: sixteen channels total. Four carry default roles, sitting on channels one through four — <strong>Drums, Bass, Chords, Melody</strong>. Channels five through sixteen are open. Unnamed. Waiting.</p>
 
-  <p>There is no Lead role. There is no Ambience role. Those were invented to make the product sound tidier than it is, and they made it sound smaller, too. A five-lane box is a thing you fill. A sixteen-channel map with four names and twelve blanks is a thing you grow into â€” and it tells you what the designer actually believed: that the interesting part of a music tool is the part you haven't assigned yet.</p>
+  <p>There is no Lead role. There is no Ambience role. Those were invented to make the product sound tidier than it is, and they made it sound smaller, too. A five-lane box is a thing you fill. A sixteen-channel map with four names and twelve blanks is a thing you grow into — and it tells you what the designer actually believed: that the interesting part of a music tool is the part you haven't assigned yet.</p>
 
   <aside class="sidenote">
     <strong>From the source</strong>
@@ -285,50 +285,50 @@ img{max-width:100%;display:block}
 
   <h2>Voices, not tracks</h2>
 
-  <p>The old piece leaned hard on the idea that a song is a stack rather than a sequence â€” true enough, but it's the kind of thing you say when you haven't opened the app. The more useful distinction is the one the interface actually enforces.</p>
+  <p>The old piece leaned hard on the idea that a song is a stack rather than a sequence — true enough, but it's the kind of thing you say when you haven't opened the app. The more useful distinction is the one the interface actually enforces.</p>
 
   <p>A track in a digital audio workstation is a container. It holds clips, and clips hold events, and the events sit at positions along a timeline. You edit by moving things around on that line. A channel in Composure is not a container. It is a voice, and it exists for the entire duration of the piece whether or not it is sounding. When the agent changes the bass, it is not editing a region of a timeline. It is speaking to one voice and leaving the others alone.</p>
 
   <p>That is the whole trick, and it is the reason the app can be handed to a model at all. <strong>Modify one, the rest hold.</strong> No re-roll. No regenerating the song and hoping the parts you liked survive. You name the voice, you say what should change, and the other fifteen channels do not move.</p>
 
-  <p>And the unit of work is not a file. It is a session. That distinction sounds academic until you use it: sessions can be listed, opened, edited and played back by something other than you â€” which is the next part, and the part that every previous write-up missed entirely.</p>
+  <p>And the unit of work is not a file. It is a session. That distinction sounds academic until you use it: sessions can be listed, opened, edited and played back by something other than you — which is the next part, and the part that every previous write-up missed entirely.</p>
 
   <h2>Two agents, one instrument</h2>
 
   <p>Composure is agent-native in both directions, and this is the single largest thing the earlier coverage failed to mention. There are two separate agent surfaces, and they reach the same engine.</p>
 
-  <p>The first is a <strong>Model Context Protocol server</strong>, bundled with the desktop app, speaking JSON-RPC over Streamable HTTP on localhost port 9473. It exposes <strong>sixteen tools</strong> â€” and the list is worth reading in full, because the list <em>is</em> the product:</p>
+  <p>The first is a <strong>Model Context Protocol server</strong>, bundled with the desktop app, speaking JSON-RPC over Streamable HTTP on localhost port 9473. It exposes <strong>sixteen tools</strong> — and the list is worth reading in full, because the list <em>is</em> the product:</p>
 
   <ul>
-    <li><strong>play_midi</strong>, <strong>stop</strong>, <strong>get_playback_state</strong> â€” transport</li>
-    <li><strong>modify_playback</strong> â€” change a performance that is already running</li>
-    <li><strong>play_session</strong>, <strong>list_sessions</strong>, <strong>get_session</strong>, <strong>update_session</strong>, <strong>save_current</strong> â€” the session archive</li>
-    <li><strong>get_channel_map</strong>, <strong>update_channel_map</strong> â€” the map itself is writable</li>
-    <li><strong>soundscape</strong>, <strong>drum_forge</strong>, <strong>synth_forge</strong>, <strong>create_mood</strong> â€” generation</li>
-    <li><strong>status</strong> â€” what the engine is doing right now</li>
+    <li><strong>play_midi</strong>, <strong>stop</strong>, <strong>get_playback_state</strong> — transport</li>
+    <li><strong>modify_playback</strong> — change a performance that is already running</li>
+    <li><strong>play_session</strong>, <strong>list_sessions</strong>, <strong>get_session</strong>, <strong>update_session</strong>, <strong>save_current</strong> — the session archive</li>
+    <li><strong>get_channel_map</strong>, <strong>update_channel_map</strong> — the map itself is writable</li>
+    <li><strong>soundscape</strong>, <strong>drum_forge</strong>, <strong>synth_forge</strong>, <strong>create_mood</strong> — generation</li>
+    <li><strong>status</strong> — what the engine is doing right now</li>
   </ul>
 
   <p>Read the middle of that list again. An outside agent can program drums, build a synth patch, generate a soundscape, author a mood, and <em>modify a performance while it plays</em>. It can rewrite the channel map. It is not being handed a prompt box with a music-shaped lid on it. It is being handed the instrument.</p>
 
-  <p>The second surface is internal. Inside the app lives <strong>Muse</strong>, a working agent with its own tool set â€” twelve of them: <strong>playMidi</strong>, <strong>stopPlayback</strong>, <strong>saveCurrent</strong>, <strong>getPlaybackState</strong>, <strong>modifyPlayback</strong>, <strong>playSession</strong>, <strong>updateSession</strong>, <strong>updateChannelMap</strong>, <strong>createMood</strong>, <strong>updateSoundscape</strong>, <strong>updateDrumForge</strong> and <strong>updateSynthForge</strong>. Which means the same engine answers to a model sitting on your desktop and a model living inside the window.</p>
+  <p>The second surface is internal. Inside the app lives <strong>Muse</strong>, a working agent with its own tool set — twelve of them: <strong>playMidi</strong>, <strong>stopPlayback</strong>, <strong>saveCurrent</strong>, <strong>getPlaybackState</strong>, <strong>modifyPlayback</strong>, <strong>playSession</strong>, <strong>updateSession</strong>, <strong>updateChannelMap</strong>, <strong>createMood</strong>, <strong>updateSoundscape</strong>, <strong>updateDrumForge</strong> and <strong>updateSynthForge</strong>. Which means the same engine answers to a model sitting on your desktop and a model living inside the window.</p>
 
   <blockquote class="offset-quote">
-    The agent does not get a prompt box with a music-shaped lid on it. It gets the instrument â€” play, stop, modify, generate, rewrite the map.
-    <span class="attribution">â€” Studio Notes, Composure Design Log</span>
+    The agent does not get a prompt box with a music-shaped lid on it. It gets the instrument — play, stop, modify, generate, rewrite the map.
+    <span class="attribution">— Studio Notes, Composure Design Log</span>
   </blockquote>
 
   <div class="stat-row">
     <div class="stat">
       <div class="num">16<span class="unit">ch</span></div>
-      <div class="label">Channels â€” Drums, Bass, Chords, Melody on 1â€“4; twelve open</div>
+      <div class="label">Channels — Drums, Bass, Chords, Melody on 1–4; twelve open</div>
     </div>
     <div class="stat">
       <div class="num">16<span class="unit">tools</span></div>
-      <div class="label">MCP server on localhost:9473 â€” playback, sessions, map, generation</div>
+      <div class="label">MCP server on localhost:9473 — playback, sessions, map, generation</div>
     </div>
     <div class="stat">
       <div class="num">12<span class="unit">tools</span></div>
-      <div class="label">Muse, the in-app agent â€” same verbs, inside the window</div>
+      <div class="label">Muse, the in-app agent — same verbs, inside the window</div>
     </div>
   </div>
 
@@ -336,28 +336,28 @@ img{max-width:100%;display:block}
 
   <p>Here is where the old description failed most completely. It described a sketchbook and a tablet and a nice idea about channels. It never opened any of the rooms.</p>
 
-  <p>Composure ships with eleven rooms in the sidebar and three more reachable from inside it â€” fourteen views in the app's own state model. The previous version of this page settled on "thirteen," which matches neither. What matters is not the tally. What matters is that each room is a real, finished instrument, and several of them are things I have not seen anywhere else.</p>
+  <p>Composure ships with eleven rooms in the sidebar and three more reachable from inside it — fourteen views in the app's own state model. The previous version of this page settled on "thirteen," which matches neither. What matters is not the tally. What matters is that each room is a real, finished instrument, and several of them are things I have not seen anywhere else.</p>
 
-  <h3>Soundscapes â€” a generative engine, not a preset list</h3>
+  <h3>Soundscapes — a generative engine, not a preset list</h3>
 
-  <p>Four thousand lines of ambient synthesis on Tone.js, driven by <strong>fourteen moods</strong>: Joy, Dark, Mystic, Deep, Calm, Sad, Tense, Sweet, Cinematic, Ethereal, Warm, Cosmic, Meditative, Dreamlike. Each mood isn't a filter setting. It's a parameterized frame that shapes pattern generation across seven modes â€” drone, arpeggio, strum, pulse, random, percussion and melody â€” under a voice ceiling. You author a mood, you don't select one.</p>
+  <p>Four thousand lines of ambient synthesis on Tone.js, driven by <strong>fourteen moods</strong>: Joy, Dark, Mystic, Deep, Calm, Sad, Tense, Sweet, Cinematic, Ethereal, Warm, Cosmic, Meditative, Dreamlike. Each mood isn't a filter setting. It's a parameterized frame that shapes pattern generation across seven modes — drone, arpeggio, strum, pulse, random, percussion and melody — under a voice ceiling. You author a mood, you don't select one.</p>
 
-  <h3>Synth Forge â€” and a Chladni visualizer</h3>
+  <h3>Synth Forge — and a Chladni visualizer</h3>
 
-  <p>Nearly four thousand lines and sixty-seven pieces of state: a full synthesis workbench. Around thirteen hundred of those lines are a visualizer that renders <strong>Chladni patterns</strong> â€” the standing-wave figures that appear when you bow a plate of sand. The picture is generated from the sound of your patch. Change the sound and the geometry moves.</p>
+  <p>Nearly four thousand lines and sixty-seven pieces of state: a full synthesis workbench. Around thirteen hundred of those lines are a visualizer that renders <strong>Chladni patterns</strong> — the standing-wave figures that appear when you bow a plate of sand. The picture is generated from the sound of your patch. Change the sound and the geometry moves.</p>
 
-  <h3>Radio â€” and yes, it really does generate music live</h3>
+  <h3>Radio — and yes, it really does generate music live</h3>
 
-  <p>The internet radio is the largest single file in the app, and it is not a stream player. Alongside the stations sits a station graph and a <strong>3D pearl visualization</strong> â€” a spherical particle orb with a perspective terrain mesh, bloom compositing, ripples, rising particles, oscilloscope waveforms and emissive haze columns. Five named render layers, in a radio.</p>
+  <p>The internet radio is the largest single file in the app, and it is not a stream player. Alongside the stations sits a station graph and a <strong>3D pearl visualization</strong> — a spherical particle orb with a perspective terrain mesh, bloom compositing, ripples, rising particles, oscilloscope waveforms and emissive haze columns. Five named render layers, in a radio.</p>
 
-  <p>More significantly: the radio instantiates <strong>Lyria</strong>, Google's realtime music-generation model, so it can produce audio on the fly rather than only play what already exists. An earlier draft of this piece described Lyria as "a secondary option â€” a tool inside a tool." Having now read the module, that undersells it. It is an active model binding inside the app's biggest component.</p>
+  <p>More significantly: the radio instantiates <strong>Lyria</strong>, Google's realtime music-generation model, so it can produce audio on the fly rather than only play what already exists. An earlier draft of this piece described Lyria as "a secondary option — a tool inside a tool." Having now read the module, that undersells it. It is an active model binding inside the app's biggest component.</p>
 
-  <h3>Sheet music â€” written from scratch</h3>
+  <h3>Sheet music — written from scratch</h3>
 
   <p>This is the one that genuinely surprised me. Two thousand two hundred lines of notation engraving, and it is <strong>not</strong> VexFlow, not OpenSheetMusicDisplay, not abcjs. It is hand-written, drawn onto a canvas, and it handles real engraving problems:</p>
 
   <ul>
-    <li>Key signatures and <strong>courtesy accidentals</strong> â€” the reminder sign a careful engraver puts in when a note's accidental carries over from the previous bar</li>
+    <li>Key signatures and <strong>courtesy accidentals</strong> — the reminder sign a careful engraver puts in when a note's accidental carries over from the previous bar</li>
     <li><strong>Tied notes across barlines</strong>, with the arcs drawn in the correct direction for each voice</li>
     <li>Beam grouping that respects the beat, hairpins for crescendo and diminuendo, <strong>fermatas</strong>, and <strong>8va</strong> spans</li>
     <li>Independent treble and bass staffs</li>
@@ -368,16 +368,16 @@ img{max-width:100%;display:block}
   <h3>The rest of the bench</h3>
 
   <ul>
-    <li><strong>Drum Forge</strong> â€” a step sequencer and sample engine, twenty-five hundred lines, playable by hand or by an agent.</li>
-    <li><strong>Basic Pitch, on-device</strong> â€” hum a line and it becomes MIDI at 22.05 kHz, offline. No upload, no cloud round trip. The fastest path from head to mutable object that exists in the app.</li>
-    <li><strong>Knowledge Graph</strong> â€” nineteen hundred lines mapping sessions, ideas and their relationships.</li>
-    <li><strong>Dungeon Master</strong> â€” a quest engine that hands the instrument a brief, so it can collaborate on something other than your last idea.</li>
-    <li><strong>Sketch</strong> â€” a drawing room. Because the idea arrives before the notes do.</li>
-    <li><strong>Vault</strong> â€” sessions, patches and audio in one searchable archive. The archive is the instrument.</li>
-    <li><strong>Composer</strong> â€” the notation view, which is really the room where the engraver lives.</li>
+    <li><strong>Drum Forge</strong> — a step sequencer and sample engine, twenty-five hundred lines, playable by hand or by an agent.</li>
+    <li><strong>Basic Pitch, on-device</strong> — hum a line and it becomes MIDI at 22.05 kHz, offline. No upload, no cloud round trip. The fastest path from head to mutable object that exists in the app.</li>
+    <li><strong>Knowledge Graph</strong> — nineteen hundred lines mapping sessions, ideas and their relationships.</li>
+    <li><strong>Dungeon Master</strong> — a quest engine that hands the instrument a brief, so it can collaborate on something other than your last idea.</li>
+    <li><strong>Sketch</strong> — a drawing room. Because the idea arrives before the notes do.</li>
+    <li><strong>Vault</strong> — sessions, patches and audio in one searchable archive. The archive is the instrument.</li>
+    <li><strong>Composer</strong> — the notation view, which is really the room where the engraver lives.</li>
   </ul>
 
-  <p>Two claims from the previous version of this page do not survive contact with the source. The first: that any session exports to <strong>Obsidian</strong> as a markdown note with the MIDI embedded. It does not. There is a vault-path field in Settings with a Browse button beside it, and neither one is wired to anything â€” the field has no change handler, the button has no handler, and there is no markdown writer anywhere in the codebase. The second: that there are thirteen rooms. There are eleven in the sidebar, fourteen in the appâ€™s own view state, and thirteen in the copy. One of those numbers was invented.</p>
+  <p>Two claims from the previous version of this page do not survive contact with the source. The first: that any session exports to <strong>Obsidian</strong> as a markdown note with the MIDI embedded. It does not. There is a vault-path field in Settings with a Browse button beside it, and neither one is wired to anything — the field has no change handler, the button has no handler, and there is no markdown writer anywhere in the codebase. The second: that there are thirteen rooms. There are eleven in the sidebar, fourteen in the app’s own view state, and thirteen in the copy. One of those numbers was invented.</p>
 
   <h2>What it does with your hands</h2>
 
@@ -385,7 +385,7 @@ img{max-width:100%;display:block}
 
   <h3>It talks to your DAW, on the clock</h3>
 
-  <p>Composure opens a <strong>virtual MIDI output</strong> and runs a <strong>MIDI clock at 24 pulses per quarter note</strong>, with proper start and stop messages. That is the real thing, not a novelty: a DAW slaved to that clock will follow Composure's tempo, and the tool descriptions in the source name <strong>Maschine, Ableton and FL Studio</strong> as the intended destinations. Separately, <code>MidiContext</code> handles hardware MIDI both ways â€” inputs, outputs, device selection, and it remembers your device by name across sessions.</p>
+  <p>Composure opens a <strong>virtual MIDI output</strong> and runs a <strong>MIDI clock at 24 pulses per quarter note</strong>, with proper start and stop messages. That is the real thing, not a novelty: a DAW slaved to that clock will follow Composure's tempo, and the tool descriptions in the source name <strong>Maschine, Ableton and FL Studio</strong> as the intended destinations. Separately, <code>MidiContext</code> handles hardware MIDI both ways — inputs, outputs, device selection, and it remembers your device by name across sessions.</p>
 
   <p>So the sketch doesn't end in the sketchbook. It arrives in the session you're already working in, on the grid, in time.</p>
 
@@ -397,11 +397,11 @@ img{max-width:100%;display:block}
 
   <p>The Android build is a <strong>remote MIDI controller over your own local network</strong>. The desktop runs a sync server on port 19319 and exposes routes for info, manifest, sessions, audio, patches, handshake, API keys and a controller relay. A WebSocket carries control events back; the desktop routes them straight into local playback.</p>
 
-  <p>Which means the tablet on your music stand is not showing you a read-only mirror. It is an input surface for the instrument on the desk â€” the thing you reach for while both hands are busy.</p>
+  <p>Which means the tablet on your music stand is not showing you a read-only mirror. It is an input surface for the instrument on the desk — the thing you reach for while both hands are busy.</p>
 
   <aside class="sidenote">
     <strong>One correction we owe you</strong>
-    Earlier copy said Composure speaks <em>Bluetooth</em> MIDI. It does not â€” the word appears nowhere in the codebase. What is true: it accepts any MIDI device your operating system has paired, because Web MIDI sees those, and it controls over Wi-Fi on your local network. If you want the Bluetooth claim on the page, it has to be the accurate version: a paired BLE-MIDI keyboard shows up as an input like any other.
+    Earlier copy said Composure speaks <em>Bluetooth</em> MIDI. It does not — the word appears nowhere in the codebase. What is true: it accepts any MIDI device your operating system has paired, because Web MIDI sees those, and it controls over Wi-Fi on your local network. If you want the Bluetooth claim on the page, it has to be the accurate version: a paired BLE-MIDI keyboard shows up as an input like any other.
   </aside>
 
   <h2>What it does not do yet</h2>
@@ -409,31 +409,31 @@ img{max-width:100%;display:block}
   <p>This section did not exist before, and it should have. A product page that only lists strengths teaches the reader to distrust it.</p>
 
   <ul>
-    <li><strong>Obsidian export is not wired.</strong> There is a settings field for a vault path and a Browse button beside it, and neither does anything â€” the field has no change handler and the button has no handler. Nothing writes a markdown file. The idea is clearly intended; it is not implemented. We are leaving the claim off the page until it is.</li>
+    <li><strong>Obsidian export is not wired.</strong> There is a settings field for a vault path and a Browse button beside it, and neither does anything — the field has no change handler and the button has no handler. Nothing writes a markdown file. The idea is clearly intended; it is not implemented. We are leaving the claim off the page until it is.</li>
     <li><strong>No Bluetooth stack.</strong> As above. Local network and OS-paired MIDI only.</li>
-    <li><strong>The "Scribe Active" indicator is cosmetic.</strong> It is hardcoded in the sidebar and does not reflect state. The real feature underneath it â€” silent MIDI capture on startup â€” is a genuine setting and does work. The lamp is just always on.</li>
+    <li><strong>The "Scribe Active" indicator is cosmetic.</strong> It is hardcoded in the sidebar and does not reflect state. The real feature underneath it — silent MIDI capture on startup — is a genuine setting and does work. The lamp is just always on.</li>
   </ul>
 
   <p>Three honest limitations cost less trust than one discovered overstatement. That is the whole reason this page was rewritten.</p>
 
   <blockquote class="offset-quote">
     Sixteen channels, four of them named. Sixteen tools on one side of the wall, twelve on the other. The rest is left open on purpose.
-    <span class="attribution">â€” Studio Notes, Composure Design Log</span>
+    <span class="attribution">— Studio Notes, Composure Design Log</span>
   </blockquote>
 
   <h2>Why this is worth your attention</h2>
 
   <p>The interesting thing about Composure is not that it makes music with a model. Plenty of things make music with a model.</p>
 
-  <p>It is that the instrument was designed from the beginning as something a non-human could play â€” and not as a novelty. The channel map is <em>writable by an agent</em>. The session archive is <em>readable and editable by an agent</em>. A performance in progress can be modified without stopping it, by something that is not you, without disturbing the other fifteen voices. Those are not features bolted onto a sketchpad. They are the reason the sketchpad was built the way it was.</p>
+  <p>It is that the instrument was designed from the beginning as something a non-human could play — and not as a novelty. The channel map is <em>writable by an agent</em>. The session archive is <em>readable and editable by an agent</em>. A performance in progress can be modified without stopping it, by something that is not you, without disturbing the other fifteen voices. Those are not features bolted onto a sketchpad. They are the reason the sketchpad was built the way it was.</p>
 
-  <p>Most tools in this category treat generation as a one-shot act: you prompt, it produces, the output is sealed, and if the bassline is wrong you regenerate everything and hope. That is the timeline metaphor applied to AI â€” the model is a track, and you keep the track or you don't.</p>
+  <p>Most tools in this category treat generation as a one-shot act: you prompt, it produces, the output is sealed, and if the bassline is wrong you regenerate everything and hope. That is the timeline metaphor applied to AI — the model is a track, and you keep the track or you don't.</p>
 
   <p>Composure took the other road. Voices persist. The agent edits one and the rest hold. And underneath all of it sits a hand-written music engraver, a Chladni visualizer driven by your patch, fourteen moods you author rather than select, a radio that can generate what it plays, and an archive that keeps every session you have ever made.</p>
 
   <p>That is not a sketchbook with an AI feature. That is an instrument with a collaborator, and the collaborator was in the design from the first file.</p>
 
-  <p class="endnote">Composure is built by Propagation House. This page was rewritten after a full read of the source â€” every claim above carries a file and a line number behind it, and the corrections are stated rather than quietly dropped.</p>
+  <p class="endnote">Composure is built by Propagation House. This page was rewritten after a full read of the source — every claim above carries a file and a line number behind it, and the corrections are stated rather than quietly dropped.</p>
 
 </article>
 
