@@ -85,6 +85,21 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 85 (Oct 8, 2026) ----------
+    {"filename": "artcraft-clean-room-suite-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a photo retoucher's desk seen from above at a slight angle, a large photographic print lying flat under a glass loupe, fine sable brushes, white cotton gloves and a strip of color reference charts arranged at the edges of the print",
+     "place": "a retoucher's studio desk at night under a single lamp",
+     "camera": "from above at a slight angle, candid documentary distance",
+     "light": "warm tungsten lamp light from one side falling off into shadow",
+     "scale_anchor": "the loupe and the print's edges make the desk scale obvious",
+     "lens": "35mm f/2 prime, 1/125s"},
+    {"filename": "claude-enzyme-discovery-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a working molecular biology lab bench seen from just behind an empty stool, an open notebook with rows of hand-drawn sequence letters, a rack of small capped tubes, a pipette resting on a folded paper towel",
+     "place": "shared laboratory bay, tiled backsplash, a shelf of reagent bottles softly out of focus behind the bench",
+     "camera": "from just behind the stool at bench height, shallow depth of field, candid documentary distance, nobody in frame",
+     "light": "cool window light from the left, soft falloff across the bench",
+     "scale_anchor": "the tube rack, notebook, and pipette make the bench scale obvious",
+     "lens": "50mm f/1.8, 1/125s"},
     # ---------- NO. 83 (Sep 23, 2026) ----------
     {"filename": "gpt6-sol-luna-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a printed price list taped to the inside of an office window, rows of figures with several revised by hand in dark ink",
@@ -373,14 +388,6 @@ IMAGES = [
      "light": "hard fluorescent overhead lighting, flat and slightly green, no daylight",
      "scale_anchor": "the sign-in sheet, pen, and cabinet handles make the room and cabinet scale obvious",
      "lens": "35mm f/2 prime, 1/125s"},
-    {"filename": "claude-enzyme-discovery-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
-     "subject": "a working molecular biology lab bench seen from just behind an empty stool, an open notebook with rows of hand-drawn sequence letters, a rack of small capped tubes, a pipette resting on a folded paper towel",
-     "place": "shared laboratory bay, tiled backsplash, a shelf of reagent bottles softly out of focus behind the bench",
-     "camera": "from just behind the stool at bench height, shallow depth of field, candid documentary distance, nobody in frame",
-     "light": "cool window light from the left, soft falloff across the bench",
-     "scale_anchor": "the tube rack, notebook, and pipette make the bench scale obvious",
-     "lens": "50mm f/1.8, 1/125s"},
-    # ---------- NO. 70 (Sep 9, 2026) ----------
     {"filename": "openai-navier-stokes-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a university mathematics office at night, two chalkboards dense with fluid-dynamics equations partially erased and rewritten, a stack of printed proof pages with marginal notes beside a coffee mug and a desk lamp",
      "place": "a cramped faculty office with book-lined walls, a worn desk, and window blinds open to a dark quad",

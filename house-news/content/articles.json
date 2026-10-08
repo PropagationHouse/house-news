@@ -1375,6 +1375,30 @@
       "status": "published",
       "filename": "articles/openai-medicare-agent.html",
       "read_time": "4 min read"
+    },
+    {
+      "title": "The Pattern in the <em>Database</em>",
+      "kicker": "Science · September 23, 2026",
+      "dek": "Anthropic says one of its models found a previously unknown enzyme system hiding in public DNA databases, built around a repeat array that resembles CRISPR. Human scientists confirmed and interpreted the find. The system's function is not yet known, which is the point.",
+      "author": "Propagation House",
+      "date": "2026-09-23",
+      "category": "research",
+      "lens": "research",
+      "status": "published",
+      "filename": "articles/claude-enzyme-discovery.html",
+      "read_time": "4 min read"
+    },
+    {
+      "title": "One-Shot <em>Photoshop</em>",
+      "kicker": "Open Source · October 4, 2026",
+      "dek": "A developer says Claude Opus 5.5 rebuilt Adobe's suite in Rust, clean-room, in days. The repositories are real, the parity document reads one hundred percent, and the project's own scorecard is the most honest thing about it. Eight days in, the menu bar of Photoshop is finished and the software underneath it is just beginning.",
+      "author": "Propagation House",
+      "date": "2026-10-08",
+      "category": "open-source",
+      "lens": "open-source",
+      "status": "published",
+      "filename": "articles/artcraft-clean-room-suite.html",
+      "read_time": "4 min read"
     }
   ],
   "drafts": [],
