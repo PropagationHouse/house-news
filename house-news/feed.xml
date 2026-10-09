@@ -7,6 +7,20 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>One-Shot <em>Photoshop</em></title>
+<link>https://www.propagation.house/house-news/articles/artcraft-clean-room-suite.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/artcraft-clean-room-suite.html</guid>
+<pubDate>Thu, 08 Oct 2026 00:00:00 -0000</pubDate>
+<description>A developer says Claude Opus 5.5 rebuilt Adobe's suite in Rust, clean-room, in days. The repositories are real, the parity document reads one hundred percent, and the project's own scorecard is the most honest thing about it. Eight days in, the menu bar of Photoshop is finished and the software underneath it is just beginning.</description>
+</item>
+<item>
+<title>The Pattern in the <em>Database</em></title>
+<link>https://www.propagation.house/house-news/articles/claude-enzyme-discovery.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/claude-enzyme-discovery.html</guid>
+<pubDate>Wed, 23 Sep 2026 00:00:00 -0000</pubDate>
+<description>Anthropic says one of its models found a previously unknown enzyme system hiding in public DNA databases, built around a repeat array that resembles CRISPR. Human scientists confirmed and interpreted the find. The system's function is not yet known, which is the point.</description>
+</item>
+<item>
 <title>Two Rivals, One <em>Room</em></title>
 <link>https://www.propagation.house/house-news/articles/unsc-ai-briefing.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/unsc-ai-briefing.html</guid>
