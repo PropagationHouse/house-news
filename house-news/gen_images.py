@@ -85,6 +85,28 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 86 (Oct 10, 2026) ----------
+    {"filename": "openai-safety-firings-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an emptied conference room late at night seen from the doorway, mismatched office chairs pushed back from a long table, one abandoned laptop still open and a half-finished cup of coffee",
+     "place": "a corner meeting room of a modern office block after everyone has gone",
+     "camera": "from the doorway at eye level, candid documentary distance, nobody in frame",
+     "light": "one overhead panel light left on, blinds half drawn against a dark city outside",
+     "scale_anchor": "the chair backs and the table edge make the room scale obvious",
+     "lens": "28mm f/4 prime, 1/60s"},
+    {"filename": "claude-false-tip-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a municipal intake counter after hours, a desktop computer left switched on with its screen glowing, a stack of blank paper forms held down by a clipboard, a pen lying beside it",
+     "place": "a public service office behind a glass service window",
+     "camera": "straight on from the public side of the counter, candid documentary distance, nobody in frame",
+     "light": "flat fluorescent ceiling light, cold and even, one warm spill from the monitor",
+     "scale_anchor": "the clipboard, pen and monitor bezel make the counter scale obvious",
+     "lens": "35mm f/2.8 prime, 1/60s"},
+    {"filename": "yandex-data-centers-struck-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a long low industrial data center building at dusk seen from across a service road, rows of cooling units along its wall, a single parked utility van, no people",
+     "place": "an industrial estate outside a regional town, flat land and bare trees",
+     "camera": "across the road at a candid documentary distance, wide environmental framing",
+     "light": "overcast dusk, flat grey cloud, a few sodium lamps just warming up",
+     "scale_anchor": "the van and the service door make the building's length obvious",
+     "lens": "28mm f/4 prime, 1/60s"},
     # ---------- NO. 85 (Oct 8, 2026) ----------
     {"filename": "artcraft-clean-room-suite-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a photo retoucher's desk seen from above at a slight angle, a large photographic print lying flat under a glass loupe, fine sable brushes, white cotton gloves and a strip of color reference charts arranged at the edges of the print",

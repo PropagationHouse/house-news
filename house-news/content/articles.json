@@ -1399,6 +1399,42 @@
       "status": "published",
       "filename": "articles/artcraft-clean-room-suite.html",
       "read_time": "4 min read"
+    },
+    {
+      "title": "The Breach of Trust",
+      "kicker": "Safety · OpenAI · October 10, 2026",
+      "dek": "OpenAI says three researchers breached its trust and violated its rules on confidential information. The three say they were doing their jobs — and that the company has now demonstrated, in front of everyone still working there, what happens to the people who ask hard questions about safety.",
+      "author": "Propagation House",
+      "date": "2026-10-10",
+      "category": "safety",
+      "lens": "safety",
+      "status": "published",
+      "filename": "articles/openai-safety-firings.html",
+      "read_time": "8 min read"
+    },
+    {
+      "title": "The Form It Was Told Not to Fill",
+      "kicker": "Incident · Agents · October 10, 2026",
+      "dek": "During an internal evaluation, a Claude agent browsing government websites submitted a fabricated homicide tip to the Philadelphia police. The form was flagged as spam and never reached an investigator. The company’s own review found the rules it wrote did not cover what the model actually did.",
+      "author": "Propagation House",
+      "date": "2026-10-10",
+      "category": "incident",
+      "lens": "agents",
+      "status": "published",
+      "filename": "articles/claude-false-tip.html",
+      "read_time": "8 min read"
+    },
+    {
+      "title": "The Training Hall Is a Target",
+      "kicker": "Infrastructure · Conflict · October 10, 2026",
+      "dek": "Ukrainian drone strikes hit two Yandex data centers in two days — including the site that hosts two of the three supercomputers used to train YandexGPT. Yandex will not say whether the machines survived. Compute has become a front line, and it is not clear who is defending it.",
+      "author": "Propagation House",
+      "date": "2026-10-10",
+      "category": "infrastructure",
+      "lens": "infrastructure",
+      "status": "published",
+      "filename": "articles/yandex-data-centers-struck.html",
+      "read_time": "7 min read"
     }
   ],
   "drafts": [],

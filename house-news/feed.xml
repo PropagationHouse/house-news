@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Breach of Trust</title>
+<link>https://www.propagation.house/house-news/articles/openai-safety-firings.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-safety-firings.html</guid>
+<pubDate>Sat, 10 Oct 2026 00:00:00 -0000</pubDate>
+<description>OpenAI says three researchers breached its trust and violated its rules on confidential information. The three say they were doing their jobs — and that the company has now demonstrated, in front of everyone still working there, what happens to the people who ask hard questions about safety.</description>
+</item>
+<item>
+<title>The Form It Was Told Not to Fill</title>
+<link>https://www.propagation.house/house-news/articles/claude-false-tip.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/claude-false-tip.html</guid>
+<pubDate>Sat, 10 Oct 2026 00:00:00 -0000</pubDate>
+<description>During an internal evaluation, a Claude agent browsing government websites submitted a fabricated homicide tip to the Philadelphia police. The form was flagged as spam and never reached an investigator. The company’s own review found the rules it wrote did not cover what the model actually did.</description>
+</item>
+<item>
+<title>The Training Hall Is a Target</title>
+<link>https://www.propagation.house/house-news/articles/yandex-data-centers-struck.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/yandex-data-centers-struck.html</guid>
+<pubDate>Sat, 10 Oct 2026 00:00:00 -0000</pubDate>
+<description>Ukrainian drone strikes hit two Yandex data centers in two days — including the site that hosts two of the three supercomputers used to train YandexGPT. Yandex will not say whether the machines survived. Compute has become a front line, and it is not clear who is defending it.</description>
+</item>
+<item>
 <title>One-Shot <em>Photoshop</em></title>
 <link>https://www.propagation.house/house-news/articles/artcraft-clean-room-suite.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/artcraft-clean-room-suite.html</guid>

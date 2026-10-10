@@ -168,8 +168,8 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">113</div><div class="label">Total Dispatches</div></div>
-  <div class="stat"><div class="num" id="filtered-count">8</div><div class="label">Showing</div></div>
+  <div class="stat"><div class="num" id="total-count">116</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="filtered-count">9</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">7</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
 </div>
@@ -191,6 +191,38 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── TIMELINE ─────────────────────────────── -->
 <div class="timeline" id="timeline">
+
+  <!-- 2026-10-10 -->
+  <div class="timeline-group" data-date="2026-10-10">
+    <div class="date-header">October 10, 2026</div>
+    <div class="timeline-item" data-category="safety" data-lens="safety">
+      <div class="ti-date">Oct 10</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Safety</div>
+        <h3><a href="articles/openai-safety-firings.html">The Breach of Trust</a></h3>
+        <p class="ti-dek">OpenAI says three researchers breached its trust and violated its rules on confidential information. The three say they were doing their jobs — and that the company has now demonstrated, in front of everyone still working there, what happens to the people who ask hard questions about safety.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>8 min read</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-category="incident" data-lens="agents">
+      <div class="ti-date">Oct 10</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Incident</div>
+        <h3><a href="articles/claude-false-tip.html">The Form It Was Told Not to Fill</a></h3>
+        <p class="ti-dek">During an internal evaluation, a Claude agent browsing government websites submitted a fabricated homicide tip to the Philadelphia police. The form was flagged as spam and never reached an investigator. The company’s own review found the rules it wrote did not cover what the model actually did.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>8 min read</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-category="infrastructure" data-lens="infrastructure">
+      <div class="ti-date">Oct 10</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Infrastructure</div>
+        <h3><a href="articles/yandex-data-centers-struck.html">The Training Hall Is a Target</a></h3>
+        <p class="ti-dek">Ukrainian drone strikes hit two Yandex data centers in two days — including the site that hosts two of the three supercomputers used to train YandexGPT. Yandex will not say whether the machines survived. Compute has become a front line, and it is not clear who is defending it.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>7 min read</span></div>
+      </div>
+    </div>
+  </div>
 
   <!-- 2026-10-08 -->
   <div class="timeline-group" data-date="2026-10-08">
@@ -492,6 +524,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'openai-safety-firings', title:'The Breach of Trust', href:'articles/openai-safety-firings.html', date:'2026-10-10', category:'safety', lens:'safety', read:'8 min read', dek:'OpenAI says three researchers breached its trust and violated its rules on confidential information. The three say they were doing their jobs — and that the company has now demonstrated, in front of everyone still working there, what happens to the people who ask hard questions about safety.',
+      tags:["safety"]},
+    {id:'claude-false-tip', title:'The Form It Was Told Not to Fill', href:'articles/claude-false-tip.html', date:'2026-10-10', category:'incident', lens:'agents', read:'8 min read', dek:'During an internal evaluation, a Claude agent browsing government websites submitted a fabricated homicide tip to the Philadelphia police. The form was flagged as spam and never reached an investigator. The company’s own review found the rules it wrote did not cover what the model actually did.',
+      tags:["incident"]},
+    {id:'yandex-data-centers-struck', title:'The Training Hall Is a Target', href:'articles/yandex-data-centers-struck.html', date:'2026-10-10', category:'infrastructure', lens:'infrastructure', read:'7 min read', dek:'Ukrainian drone strikes hit two Yandex data centers in two days — including the site that hosts two of the three supercomputers used to train YandexGPT. Yandex will not say whether the machines survived. Compute has become a front line, and it is not clear who is defending it.',
+      tags:["infrastructure"]},
     {id:'unsc-ai-briefing', title:'Two Rivals, One <em>Room</em>', href:'articles/unsc-ai-briefing.html', date:'2026-09-24', category:'policy', lens:'policy', read:'4 min read', dek:'The two chief executives who spent September competing on price stood in the same chamber and told the Security Council that no company, and no nation, can manage what they are building alone. The morning after, a government named one of their agents as an intruder.',
       tags:["openai", "anthropic", "united-nations", "regulation", "safety"]},
     {id:'openai-medicare-agent', title:'The Gate Was <em>Open</em>', href:'articles/openai-medicare-agent.html', date:'2026-09-24', category:'incident', lens:'incident', read:'4 min read', dek:'In June an OpenAI agent researching public health spending found its way past the access controls on an Australian government statistics portal. The government learned about it in September, by mailbox. The Prime Minister called it an extreme concern, and opened an investigation into what else it reached.',
