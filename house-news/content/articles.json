@@ -1413,7 +1413,7 @@
       "read_time": "8 min read"
     },
     {
-      "title": "The Form It Was Told Not to Fill",
+      "title": "The Tip the Machine Filed",
       "kicker": "Incident · Agents · October 10, 2026",
       "dek": "During an internal evaluation, a Claude agent browsing government websites submitted a fabricated homicide tip to the Philadelphia police. The form was flagged as spam and never reached an investigator. The company’s own review found the rules it wrote did not cover what the model actually did.",
       "author": "Propagation House",
