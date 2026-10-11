@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Composure — A MIDI Engine with a Collaborator Inside</title>
-    <meta name="description" content="Composure models a song as sixteen role-labeled MIDI channels on one virtual device. Two agent surfaces that play and modify the live performance, a hand-written notation engraver, offline voice-to-MIDI, and an Android app that works standalone or as a controller for the desktop.">
+    <meta name="description" content="Composure is a music app you carry in your pocket and a bandmate that plays alongside you at the desk. Hum an idea on Android, then let an agent pick up the instrument with you on desktop.">
     <meta property="og:title" content="Composure — A MIDI Engine with a Collaborator Inside">
-    <meta property="og:description" content="Sixteen role-labeled channels on one virtual device. Two agents that play them, an engraver that writes them down, and a sketchbook you carry.">
+    <meta property="og:description" content="A sketchbook you carry, and an agent that plays alongside you. Sixteen channels, one instrument, on Android and desktop.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.propagation.house/composure/">
     <meta property="og:image" content="https://www.propagation.house/assets/images/composure-hero.jpg">
@@ -14,14 +14,14 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.propagation.house/assets/images/composure-hero.jpg">
     <meta name="twitter:title" content="Composure — A MIDI Engine with a Collaborator Inside">
-    <meta name="twitter:description" content="Sixteen role-labeled channels on one virtual device. Two agents that play them, an engraver that writes them down, and a sketchbook you carry.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%234b5320' rx='20' width='100' height='100'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='%23f6f1e2' font-family='Georgia'>C</text></svg>">
+    <meta name="twitter:description" content="A sketchbook you carry, and an agent that plays alongside you. Sixteen channels, one instrument, on Android and desktop.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a5a7d' rx='20' width='100' height='100'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='%23cfe6ef' font-family='Georgia'>C</text></svg>">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Composure",
-        "description": "A MIDI engine that models a song as sixteen role-labeled channels on one virtual device, with two agent surfaces, a hand-written notation engraver, offline voice-to-MIDI, and an Android app that works standalone or as a controller.",
+        "description": "A portable music sketchbook and an agentic collaborator: sixteen role-labeled channels on one virtual instrument, playable by hand or by an agent, on Android and desktop.",
         "url": "https://www.propagation.house/composure/",
         "applicationCategory": "MusicApplication",
         "operatingSystem": "Windows, Android",
@@ -36,9 +36,9 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: { 50:'#faf7f0',100:'#f3eeda',200:'#e6e0c4',300:'#d4cc9a',400:'#8a9a4f',500:'#6b7d38',600:'#4b5320',700:'#3a4018',800:'#2c3112',900:'#1f240d',950:'#141806' },
-                        paper: { 50:'#fdfbf4',100:'#f6f1e2',200:'#ece5cf',300:'#e0d8bf',400:'#d3c9a8',500:'#c8c3ad' },
-                        ink: { 100:'#3a3d2e',200:'#2f3126',300:'#24271c',400:'#1a1d12',500:'#11140c' },
+                        brand: { 50:'#c2e2f2',100:'#9fd0e8',200:'#7cc0de',300:'#4fa6cf',400:'#3d94bb',500:'#1f7599',600:'#0a5a7d',700:'#084a68',800:'#063a53',900:'#042c40',950:'#021e2c' },
+                        paper: { 50:'#cbe7f4',100:'#a3d0e5',200:'#8cc2da',300:'#6fb0cf',400:'#57a0c4',500:'#4494ba' },
+                        ink: { 100:'#26414d',200:'#1c3540',300:'#142a34',400:'#081d26',500:'#04141b' },
                     },
                     fontFamily: {
                         sans: ['Acumin Pro','Helvetica Neue','Arial','sans-serif'],
@@ -57,29 +57,26 @@
         @font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
         @font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
         @font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
-        body { background: #f6f1e2; color:#1a1d12; }
+        body { background: #8fbcd9; color:#081d26; }
         .gradient-text {
-            background: linear-gradient(135deg, #1a1d12 0%, #4b5320 40%, #3a4018 100%);
+            background: linear-gradient(135deg, #081d26 0%, #0a5a7d 40%, #084a68 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
         .gradient-line {
             height: 1px;
-            background: linear-gradient(90deg, transparent 0%, rgba(75,83,32,0.35) 50%, transparent 100%);
+            background: linear-gradient(90deg, transparent 0%, rgba(10,90,125,0.35) 50%, transparent 100%);
         }
-        .glow { box-shadow: 0 0 80px rgba(75,83,32,0.1), 0 0 160px rgba(75,83,32,0.03); }
+        .glow { box-shadow: 0 0 80px rgba(10,90,125,0.1), 0 0 160px rgba(10,90,125,0.03); }
         .card-hover { transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
-        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 8px 50px rgba(75,83,32,0.08); border-color: rgba(75,83,32,0.15); }
-        .terminal-bg { background: linear-gradient(180deg, #f6f1e2 0%, #ece5cf 100%); }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 8px 50px rgba(10,90,125,0.08); border-color: rgba(10,90,125,0.15); }
         .grid-bg {
             background-image:
-                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(75,83,32,0.05) 0%, transparent 70%),
-                radial-gradient(rgba(26,29,18,0.02) 1px, transparent 1px);
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(10,90,125,0.05) 0%, transparent 70%),
+                radial-gradient(rgba(8,29,38,0.02) 1px, transparent 1px);
             background-size: 100% 100%, 40px 40px;
         }
-        @keyframes cursor-blink-anim { 0%,100%{opacity:1} 50%{opacity:0} }
-        .cursor-blink { animation: cursor-blink-anim 1s step-end infinite; }
-        ::selection { background: rgba(75,83,32,0.25); }
-        .stat-glow { text-shadow: 0 0 30px rgba(75,83,32,0.3); }
+        ::selection { background: rgba(10,90,125,0.25); }
+        .stat-glow { text-shadow: 0 0 30px rgba(10,90,125,0.3); }
 
         /* HOUSE PAPER GRAIN */
         body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:300px 300px;animation:grainDrift 14s steps(10) infinite}
@@ -87,7 +84,7 @@
 
         /* TORN PAPER DIVIDERS */
         .paper-tear{position:relative;width:100%;line-height:0;pointer-events:none}
-        .paper-tear img{width:100%;height:auto;display:block;filter:drop-shadow(0 2px 8px rgba(26,29,18,.06))}
+        .paper-tear img{width:100%;height:auto;display:block;filter:drop-shadow(0 2px 8px rgba(8,29,38,.06))}
         .paper-tear{margin:0 -12px;width:calc(100% + 24px);max-width:none}
         @media(min-width:1024px){.paper-tear{margin:0 -24px;width:calc(100% + 48px)}}
         @media(min-width:1440px){.paper-tear{width:100vw;margin-left:calc(50% - 50vw)}}
@@ -95,93 +92,135 @@
         .paper-tear.paper-tear-down img{-webkit-mask-image:linear-gradient(to top,#000 30%,#000 52%,transparent 100%);mask-image:linear-gradient(to top,#000 30%,#000 52%,transparent 100%)}
 
         /* HERO PAPER */
-        .hero-paper-img-wrap { position:absolute; top:-6%; left:50%; transform:translateX(calc(-50% + 1.03%)); width:150%; max-width:none; z-index:0; pointer-events:none; filter:drop-shadow(0 18px 40px rgba(26,29,18,.14)); }
-        .hero-paper-img-wrap img { display:block; width:100%; height:auto; -webkit-mask-image:radial-gradient(ellipse 78% 72% at 50% 34%, #000 45%, transparent 98%); mask-image:radial-gradient(ellipse 78% 72% at 50% 34%, #000 45%, transparent 98%); }
-        @media (min-width:768px){ .hero-paper-img-wrap{ top:auto; bottom:37%; width:1100px; max-width:none; transform:translateX(calc(-50% + 1.03%)); } }
+        .hero-paper-img-wrap { position:absolute; top:-6%; left:50%; transform:translateX(calc(-50% + 1.03%)); width:1250px; max-width:none; z-index:0; pointer-events:none; filter:drop-shadow(0 18px 40px rgba(8,29,38,.14)); }
+        .hero-paper-img-wrap img { display:block; width:100%; height:auto; -webkit-mask-image:radial-gradient(ellipse 105% 100% at 50% 42%, #000 62%, transparent 100%); mask-image:radial-gradient(ellipse 105% 100% at 50% 42%, #000 62%, transparent 100%); }
+        @media (min-width:768px){ .hero-paper-img-wrap{ top:auto; bottom:26%; width:1250px; max-width:none; transform:translateX(calc(-50% + 1.03%)); } }
 
         /* TORN PAPER SHEET BEHIND TITLE BLOCKS */
         .title-paper-wrap { position:relative; display:block; margin-left:auto; margin-right:auto; width:fit-content; }
-        .title-paper-adopt { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:132%; max-width:none; pointer-events:none; z-index:0; filter:drop-shadow(0 14px 30px rgba(26,29,18,.10)); }
-        .title-paper-adopt img { display:block; width:100%; height:auto; -webkit-mask-image:radial-gradient(ellipse 92% 85% at 50% 42%, #000 46%, transparent 98%); mask-image:radial-gradient(ellipse 92% 85% at 50% 42%, #000 46%, transparent 98%); }
-        @media (max-width: 768px) { .title-paper-adopt { width:180%; } }
+        .title-paper-adopt { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:132%; max-width:none; pointer-events:none; z-index:0; filter:drop-shadow(0 14px 30px rgba(8,29,38,.10)); }
+        .title-paper-adopt img { display:block; width:100%; height:auto; -webkit-mask-image:radial-gradient(ellipse 108% 100% at 50% 46%, #000 62%, transparent 100%); mask-image:radial-gradient(ellipse 108% 100% at 50% 46%, #000 62%, transparent 100%); }
+        @media (max-width: 768px) { .title-paper-adopt { width:180%; } .hero-paper-img-wrap { width:150%; } }
 
-        /* CHANNEL MAP */
-        .chan-row { display:flex; align-items:center; gap:14px; padding:10px 0; border-bottom:1px dashed rgba(75,83,32,0.18); }
-        .chan-row:last-child { border-bottom:none; }
-        .chan-num { font-family:'JetBrains Mono',monospace; font-size:12px; color:#8a8f7a; width:44px; flex-shrink:0; }
-        .chan-name { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; letter-spacing:.12em; color:#1a1d12; width:96px; flex-shrink:0; }
-        .chan-name.open { color:#8a8f7a; font-weight:400; }
-        .chan-lane { flex:1; display:flex; gap:4px; align-items:center; }
-        .chan-cell { height:14px; flex:1; max-width:22px; background:rgba(75,83,32,0.10); border:1px solid rgba(75,83,32,0.12); border-radius:2px; }
-        .chan-cell.on { background:#4b5320; border-color:#3a4018; }
-        .chan-row.mutating .chan-cell.on { background:#6b7d38; animation:chanPulse 1.6s ease-in-out infinite; }
-        @keyframes chanPulse { 0%,100%{opacity:1} 50%{opacity:.45} }
+
+        .hero-lede { color:#d8e9f3; }
+
+        /* DEEP TITLE SHEETS - white type on the navy paper */
+        .title-paper-wrap h1, .title-paper-wrap h2, .title-paper-wrap h2 em { color:#ffffff; -webkit-text-fill-color:#ffffff; }
+        .title-paper-wrap > p, .title-paper-wrap p { color:#e2eff6; }
+        .title-paper-wrap .gradient-text { background:none; -webkit-text-fill-color:#bfe6f7; color:#bfe6f7; }
+        .title-paper-wrap .bg-brand-500\/10 { background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.34); color:#ffffff; }
+        .title-paper-wrap .bg-brand-500\/10 span.rounded-full { background:#9fe0f7; }
 
         /* LIVE UI PLATES */
-        .plate { background:#fdfbf4; border:1px solid rgba(75,83,32,0.18); padding:14px 14px 16px; box-shadow:0 10px 40px rgba(26,29,18,0.08); transform:rotate(-0.4deg); transition:transform .25s ease, box-shadow .25s ease; }
-        .plate.tilt-r { transform:rotate(0.5deg); }
-        .plate.no-tilt { transform:none; }
-        .plate:hover { transform:rotate(0deg) translateY(-4px); box-shadow:0 16px 50px rgba(26,29,18,0.12); }
-        .plate figcaption { font-size:13px; line-height:1.5; color:#6b6e5a; padding-top:12px; }
-        .plate figcaption strong { color:#4b5320; font-weight:700; letter-spacing:.04em; }
-        .room-shot { display:block; width:100%; height:auto; border-radius:12px; border:1px solid rgba(75,83,32,0.14); box-shadow:0 8px 30px rgba(26,29,18,0.10); }
-
-        /* IN-APP UI RECREATIONS */
-        .ui-frame { background:#fdfbf4; border:1px solid rgba(75,83,32,0.18); box-shadow:0 10px 40px rgba(26,29,18,0.08); overflow:hidden; }
-        .ui-titlebar { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; border-bottom:1px solid rgba(75,83,32,0.12); background:#f6f1e2; }
-        .ui-body { display:flex; min-height:0; }
-        .sb-nav { width:190px; flex-shrink:0; border-right:1px solid rgba(75,83,32,0.12); background:#f6f1e2; padding:10px 8px; display:flex; flex-direction:column; }
-        .sb-item { display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:10px; font-size:13px; font-weight:500; color:#3a3d2e; }
-        .sb-item.active { background:rgba(75,83,32,0.10); color:#1a1d12; }
-        .sb-item svg { width:15px; height:15px; opacity:.75; flex-shrink:0; }
-        .sb-foot { margin-top:auto; padding:10px; border-top:1px dashed rgba(75,83,32,0.18); }
-        .scribe-dot { position:relative; width:9px; height:9px; flex-shrink:0; }
-        .scribe-dot::before { content:''; position:absolute; inset:0; border-radius:9999px; background:#b3402f; }
-        .scribe-dot::after { content:''; position:absolute; inset:-3px; border-radius:9999px; background:rgba(179,64,47,0.35); animation:scribePulse 1.8s ease-in-out infinite; }
-        @keyframes scribePulse { 0%,100%{transform:scale(1);opacity:.7} 50%{transform:scale(1.7);opacity:.15} }
-
-        /* Drum Forge sequencer recreation */
-        .seq-row { display:flex; align-items:center; gap:8px; padding:5px 0; }
-        .seq-label { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; color:#3a3d2e; width:92px; flex-shrink:0; white-space:nowrap; overflow:hidden; }
-        .seq-type { font-family:'JetBrains Mono',monospace; font-size:9px; color:#8a8f7a; width:64px; flex-shrink:0; }
-        .seq-steps { display:flex; gap:3px; flex:1; }
-        .seq-step { height:16px; flex:1; max-width:20px; border-radius:3px; background:rgba(75,83,32,0.08); border:1px solid rgba(75,83,32,0.10); }
-        .seq-step.on { background:#4b5320; border-color:#3a4018; }
-        .seq-step.playhead { box-shadow:0 0 0 2px rgba(138,95,47,0.55); }
+        .plate { background:#cbe7f4; border:1px solid rgba(10,90,125,0.18); padding:14px 14px 16px; box-shadow:0 10px 40px rgba(8,29,38,0.08); transition:transform .25s ease, box-shadow .25s ease; }
+        .plate:hover { transform:translateY(-4px); box-shadow:0 16px 50px rgba(8,29,38,0.12); }
+        .plate figcaption { font-size:13px; line-height:1.5; color:#4d7285; padding-top:12px; }
+        .plate figcaption strong { color:#0a5a7d; font-weight:700; letter-spacing:.04em; }
+        .room-shot { display:block; width:100%; height:auto; border-radius:12px; border:1px solid rgba(10,90,125,0.14); box-shadow:0 8px 30px rgba(8,29,38,0.10); }
 
         /* Mood chips */
-        .mood-chip { display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border-radius:9999px; border:1px solid rgba(75,83,32,0.20); background:#f6f1e2; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.08em; color:#3a3d2e; transition:all .2s ease; }
-        .mood-chip:hover { background:rgba(75,83,32,0.10); transform:translateY(-1px); }
-        .mood-chip.lit { background:#4b5320; border-color:#3a4018; color:#f6f1e2; }
-
-        /* Notation */
-        .staff { position:relative; height:150px; margin:6px 0 2px; }
-        .staff-line { position:absolute; left:0; right:0; height:1px; background:rgba(26,29,18,0.35); }
-        .note-head { position:absolute; width:11px; height:8px; border-radius:50%; background:#1a1d12; transform:rotate(-18deg); }
-        .note-stem { position:absolute; width:1.5px; height:30px; background:#1a1d12; }
-        .note-beam { position:absolute; height:3px; background:#1a1d12; }
-        .ledger { position:absolute; height:1px; background:rgba(26,29,18,0.35); }
-        .playhead-line { position:absolute; top:-6px; bottom:-6px; width:2px; background:rgba(138,95,47,0.7); animation:staffSweep 6s linear infinite; }
-        @keyframes staffSweep { 0%{left:4%} 100%{left:96%} }
-        .sketch-meta { display:flex; align-items:center; gap:10px; margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; color:#8a8f7a; }
-        .sketch-meta .dot { width:7px; height:7px; border-radius:9999px; background:#b3402f; animation:scribePulse 1.8s ease-in-out infinite; }
+        .mood-chip { display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border-radius:9999px; border:1px solid rgba(10,90,125,0.20); background:#a3d0e5; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.08em; color:#26414d; transition:all .2s ease; }
+        .mood-chip:hover { background:rgba(10,90,125,0.10); transform:translateY(-1px); }
 
         .pull-quote { font-family:'Playfair Display',Georgia,serif; font-style:italic; font-weight:400; }
 
-        .room-card { background:#ece5cf40; border:1px solid rgba(75,83,32,0.12); border-radius:20px; padding:22px; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
-        .room-card:hover { transform:translateY(-3px); box-shadow:0 8px 40px rgba(75,83,32,0.08); border-color:rgba(75,83,32,0.2); }
-        .room-num { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.18em; color:#8a8f7a; }
+        .room-card { background:#d7e5e940; border:1px solid rgba(10,90,125,0.12); border-radius:20px; padding:22px; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+        .room-card:hover { transform:translateY(-3px); box-shadow:0 8px 40px rgba(10,90,125,0.08); border-color:rgba(10,90,125,0.2); }
 
+        /* ROOM INDEX - one line each, no repeated screenshots */
+        .room-row { border-top:1px solid rgba(10,90,125,0.14); padding-top:14px; }
+        .room-row h3 { font-weight:900; font-size:18px; color:#081d26; letter-spacing:-0.01em; margin-bottom:3px; }
+        .room-row p { font-size:15px; line-height:1.5; color:#4d7285; margin:0; }
+        .room-row.is-shown { border-top-color:rgba(10,90,125,0.38); }
+        .room-row.is-shown h3::after { content:' \00B7 shown above'; font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:#0c86a8; vertical-align:2px; }
+
+        /* ============ DARK UNIFICATION PASS ============
+           Page field drops to the app's own ground so the navy sheets, the
+           accents and the cards all live in one blue family (blend), and the
+           whole document reads as white type on dark - the treatment that was
+           already working in the hero. */
+        :root{
+            --ui-bg:#123d50;          /* app ground, lifted toward the paper stock so the torn edges are a tone, not a glow */
+            --ui-panel:rgba(255,255,255,.055);
+            --ui-line:rgba(160,220,240,.20);
+            --ui-ink:#ffffff;
+            --ui-soft:rgba(226,242,250,.80);
+            --ui-mute:rgba(226,242,250,.55);
+            --ui-accent:#7fd4ec;
+        }
+        body { background:var(--ui-bg); color:var(--ui-ink); }
+        body::after { opacity:.07; mix-blend-mode:screen; }
+        .grid-bg {
+            background-image:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(127,212,236,.08) 0%, transparent 70%),
+                radial-gradient(rgba(255,255,255,.035) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px;
+        }
+        ::selection { background: rgba(127,212,236,.30); }
+
+        nav { background:rgba(18,61,80,.88)!important; border-bottom-color:var(--ui-line)!important; }
+        nav a, nav span, nav svg { color:var(--ui-ink)!important; }
+
+        /* one rule to make every heading white */
+        [class*="text-ink-400"], h1, h2, h3, h4, blockquote {
+            color:var(--ui-ink)!important; -webkit-text-fill-color:var(--ui-ink);
+        }
+        p[class*="text-ink-100"], li, .room-row p, figcaption { color:var(--ui-soft)!important; }
+        .text-ink-100\/50, .text-ink-100\/60 { color:var(--ui-mute)!important; }
+        .text-brand-600, [class*="text-[#0c86a8]"], .room-row.is-shown h3::after {
+            color:var(--ui-accent)!important; -webkit-text-fill-color:var(--ui-accent);
+        }
+        .gradient-text { background:none; -webkit-text-fill-color:var(--ui-accent); color:var(--ui-accent); }
+        .gradient-line { background:linear-gradient(90deg,transparent,rgba(127,212,236,.5),transparent); }
+
+        /* cards + panels: lifted off the field instead of dissolving into it */
+        .card-hover, [class*="bg-[#8cc2da]"] {
+            background:var(--ui-panel)!important; border-color:var(--ui-line)!important;
+            backdrop-filter:blur(6px);
+        }
+        .card-hover:hover { border-color:rgba(127,212,236,.42)!important; box-shadow:0 8px 50px rgba(0,0,0,.38)!important; }
+        .room-card { background:rgba(255,255,255,.04); border-color:var(--ui-line); }
+        .room-card:hover { border-color:rgba(127,212,236,.36); box-shadow:0 8px 40px rgba(0,0,0,.34); }
+        .plate {
+            background:rgba(255,255,255,.05); border-color:var(--ui-line);
+            box-shadow:0 10px 40px rgba(0,0,0,.38);
+        }
+        .plate:hover { box-shadow:0 16px 50px rgba(0,0,0,.48); }
+        .plate figcaption { color:var(--ui-soft); }
+        .plate figcaption strong { color:var(--ui-accent); }
+        .room-shot { border-color:var(--ui-line); box-shadow:0 8px 30px rgba(0,0,0,.42); }
+
+        .mood-chip { background:rgba(255,255,255,.07); border-color:var(--ui-line); color:#dff2fb; }
+        .mood-chip:hover { background:rgba(127,212,236,.18); }
+        .room-row { border-top-color:var(--ui-line); }
+        .room-row.is-shown { border-top-color:rgba(127,212,236,.5); }
+        .room-row h3 { color:var(--ui-ink); }
+
+        /* buttons */
+        .bg-brand-600 { background:#0e7ea6!important; }
+        .bg-brand-500\/10 { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.34); }
+        [class*="bg-[#0a5a7d]/[0.06]"], [class*="bg-[#0a5a7d]/[0.12]"] {
+            background:rgba(255,255,255,.08)!important; border-color:var(--ui-line)!important;
+        }
+        [class*="bg-[#0a5a7d]/[0.06]"]:hover {
+            background:rgba(127,212,236,.16)!important; color:#ffffff!important;
+        }
+
+        /* paper: the sheets now sit above the field, not under it */
+        .hero-paper-img-wrap { filter:drop-shadow(0 18px 40px rgba(0,0,0,.45)); }
+        .title-paper-adopt { filter:drop-shadow(0 14px 30px rgba(0,0,0,.42)); }
+        .paper-tear img { opacity:.9; filter:drop-shadow(0 2px 14px rgba(0,0,0,.30)); }
     </style>
 </head>
 <body class="font-sans antialiased overflow-x-hidden text-lg">
 
     <!-- ==================== NAV ==================== -->
-    <nav class="fixed top-0 w-full z-50 bg-[#f6f1e2]/85 backdrop-blur-2xl border-b border-[#4b5320]/20">
+    <nav class="fixed top-0 w-full z-50 bg-[#a3d0e5]/85 backdrop-blur-2xl border-b border-[#0a5a7d]/20">
         <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-4">
                 <a href="https://www.propagation.house" class="flex items-center gap-2.5 group">
-                    <img src="../substrate-v2/ph-mark-dark.png" alt="Propagation House" class="w-6 h-6 opacity-70 group-hover:opacity-100 transition">
+                    <img src="../substrate-v2/ph-mark.png" alt="Propagation House" class="w-6 h-6 opacity-70 group-hover:opacity-100 transition">
                     <span class="text-ink-400 font-bold text-xl tracking-tight">Composure</span>
                 </a>
             </div>
@@ -190,20 +229,20 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
                     Propagation House
                 </a>
-                <a href="#channels" class="hover:text-ink-400 transition">Channels</a>
-                <a href="#agent" class="hover:text-ink-400 transition">The Collaborator</a>
+                <a href="#two" class="hover:text-ink-400 transition">Two Ways</a>
+                <a href="#collaborator" class="hover:text-ink-400 transition">The Collaborator</a>
                 <a href="#daw" class="hover:text-ink-400 transition">In Your DAW</a>
-                <a href="#mobile" class="hover:text-ink-400 transition">On Android</a>
-                <a href="../house-news/articles/composure.html" class="flex items-center gap-2 bg-[#4b5320]/[0.06] hover:bg-[#4b5320]/[0.12] px-5 py-2.5 rounded-xl transition border border-[#4b5320]/[0.15]">
+                <a href="#pocket" class="hover:text-ink-400 transition">Pocket &amp; Desk</a>
+                <a href="../house-news/articles/composure.html" class="flex items-center gap-2 bg-[#0a5a7d]/[0.06] hover:bg-[#0a5a7d]/[0.12] px-5 py-2.5 rounded-xl transition border border-[#0a5a7d]/[0.15]">
                     Read the Dispatch
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- ==================== HERO ==================== -->
+    <!-- ==================== 1. HERO ==================== -->
     <section class="relative min-h-[100vh] flex items-center justify-center pt-16 grid-bg overflow-hidden">
-        <div class="hero-paper-img-wrap"><img src="../assets/images/paper-sheet-semi-rough.png" alt="" aria-hidden="true" class="hero-paper-img"></div>
+        <div class="hero-paper-img-wrap"><img src="../assets/images/paper-sheet-deep-navy.png" alt="" aria-hidden="true" class="hero-paper-img"></div>
         <div class="relative z-10 max-w-5xl mx-auto px-8 text-center py-24">
             <div class="title-paper-wrap">
                 <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-600 text-base font-semibold mb-8 tracking-wide">
@@ -217,79 +256,274 @@
                 </p>
             </div>
 
-            <div class="max-w-2xl mx-auto mb-14 space-y-5 text-left">
-                <p class="text-lg md:text-xl text-ink-100/80 leading-relaxed">
-                    Composure models a song as sixteen role-labeled channels on one virtual device, not as a timeline of tracks. Four carry default roles &mdash; Drums, Bass, Chords, Melody. The other twelve are open. Address one voice and the others hold.
-                </p>
-                <p class="text-lg md:text-xl text-ink-100/80 leading-relaxed">
-                    It is two things at once, and it is worth saying both plainly. On Android it is a <em class="font-semibold text-ink-400">sonic sketchbook</em> you carry. On desktop and Android together it is an <em class="font-semibold text-ink-400">agentic collaborator</em> for production and recording &mdash; an instrument built from the first file to be played by something that is not you.
-                </p>
-            </div>
+            <p class="hero-lede relative max-w-2xl mx-auto mb-14 text-lg md:text-xl leading-relaxed">
+                Composure is a music app you carry in your pocket and a bandmate that plays alongside you at the desk. Catch the idea where it happens &mdash; hum it, tap it, draw it &mdash; then bring it home and let an agent pick up the instrument with you.
+            </p>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-5 mb-20">
-                <a href="#channels" class="px-10 py-4 bg-brand-600 hover:bg-brand-500 text-paper-50 text-lg font-bold rounded-2xl transition shadow-xl shadow-brand-600/30">
+            <div class="relative flex flex-col sm:flex-row items-center justify-center gap-5 mb-20">
+                <a href="#two" class="px-10 py-4 bg-brand-600 hover:bg-brand-500 text-paper-50 text-lg font-bold rounded-2xl transition shadow-xl shadow-brand-600/30">
                     Meet the Instrument
                 </a>
-                <a href="../house-news/articles/composure.html" class="px-10 py-4 bg-[#4b5320]/[0.06] hover:bg-[#4b5320]/[0.12] text-ink-400 text-lg font-bold rounded-2xl border border-[#4b5320]/15 transition">
+                <a href="../house-news/articles/composure.html" class="px-10 py-4 bg-[#0a5a7d]/[0.06] hover:bg-[#0a5a7d]/[0.12] text-ink-400 text-lg font-bold rounded-2xl border border-[#0a5a7d]/15 transition">
                     Read the Dispatch
                 </a>
             </div>
-
-            <figure class="plate no-tilt max-w-4xl mx-auto">
-                <img class="room-shot" src="../assets/images/composure-hero.jpg" alt="Composure running: the Synth Forge panel open on a Velvet Pad patch.">
-                <figcaption><strong>The running app</strong> &mdash; Synth Forge, one of fourteen views, captured mid-session. Every image on this page is a capture from the live build. No mockups, no renders.</figcaption>
-            </figure>
         </div>
     </section>
 
-    <!-- PAPER TEAR DIVIDER -->
-    <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip.png" alt=""></div>
+    <!-- HERO IMAGE — FULL BLEED -->
+    <section class="relative">
+        <figure class="w-full">
+            <img class="w-full h-auto block" src="../assets/images/composure-hero.jpg" alt="Composure running: the Synth Forge panel open on a Velvet Pad patch.">
+            <figcaption class="max-w-7xl mx-auto px-8 text-center text-sm text-[#4d7285] pt-4"><strong class="text-brand-600 font-bold">The running app.</strong> Every image on this page is a capture from the live build &mdash; no mockups, no renders.</figcaption>
+        </figure>
+    </section>
 
-    <!-- ==================== TWO WAYS TO HOLD IT ==================== -->
+    <!-- PAPER TEAR DIVIDER -->
+    <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip-deep.png" alt=""></div>
+
+    <!-- ==================== 2. TWO WAYS TO PLAY IT ==================== -->
     <section id="two" class="py-28 md:py-40 relative">
         <div class="max-w-7xl mx-auto px-8">
             <div class="text-center mb-20">
-                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">Two Identities</p>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">The sketchbook,<br><em class="font-serif italic font-bold">and the collaborator.</em></h2>
-                <p class="text-2xl text-ink-100/70 max-w-3xl mx-auto mt-6 leading-relaxed">The same engine answers two different problems, and it is easier to say what it is when you separate them.</p>
+                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">Two Ways to Play It</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">A sketchbook you carry.<br><em class="font-serif italic font-bold">A collaborator at the desk.</em></h2>
+                <p class="text-2xl text-ink-100/70 max-w-3xl mx-auto mt-6 leading-relaxed">Same engine, two jobs. It helps to say them apart.</p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-8 md:gap-12">
                 <!-- SKETCHBOOK -->
-                <div class="bg-[#ece5cf]/55 border border-[#4b5320]/[0.12] rounded-3xl p-9 md:p-11 card-hover">
+                <div class="bg-[#8cc2da]/55 border border-[#0a5a7d]/[0.12] rounded-3xl p-9 md:p-11 card-hover">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center flex-shrink-0">
                             <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
                         </div>
                         <div>
-                            <p class="font-mono text-xs tracking-[0.18em] text-ink-100/50 uppercase">Android</p>
-                            <h3 class="text-ink-400 font-black text-2xl">A sonic sketchbook</h3>
+                            <p class="font-mono text-xs tracking-[0.18em] text-ink-100/50 uppercase">On Android</p>
+                            <h3 class="text-ink-400 font-black text-2xl">A Sonic Sketchbook</h3>
                         </div>
                     </div>
-                    <p class="text-ink-100/75 text-xl leading-relaxed mb-6">Catch the idea where it happens. Hum a line and it becomes MIDI on the device itself &mdash; offline, in under a second of setup, no cable and no interface.</p>
-                    <ul class="space-y-3 text-lg text-ink-100/70">
-                        <li class="flex gap-3"><span class="text-brand-600 font-bold flex-shrink-0">&mdash;</span><span>Standalone: the full instrument runs on the phone or tablet.</span></li>
-                        <li class="flex gap-3"><span class="text-brand-600 font-bold flex-shrink-0">&mdash;</span><span>Or it becomes the controller: same network, and it drives the desktop over WebSocket, with HTTP fallback.</span></li>
-                        <li class="flex gap-3"><span class="text-brand-600 font-bold flex-shrink-0">&mdash;</span><span>Haptics under the fingers on pads and keys, so a drum pattern is felt as well as heard.</span></li>
+                    <p class="text-ink-100/75 text-xl leading-relaxed mb-6">Catch the idea where it happens. Hum a line and it becomes notes on the spot &mdash; no cable, no setup, nothing uploaded.</p>
+                    <ul class="space-y-3 text-lg text-ink-100/70 mb-8">
+                        <li class="flex gap-3"><span class="text-brand-600 font-bold flex-shrink-0">&mdash;</span><span>Runs on its own, anywhere.</span></li>
+                        <li class="flex gap-3"><span class="text-brand-600 font-bold flex-shrink-0">&mdash;</span><span>Or becomes the controller for the instrument on your desk.</span></li>
+                        <li class="flex gap-3"><span class="text-brand-600 font-bold flex-shrink-0">&mdash;</span><span>Same sessions on both ends &mdash; an idea caught on the bus is waiting when you sit down.</span></li>
                     </ul>
+                    <figure class="plate no-tilt">
+                        <img class="room-shot" src="shots/02-sketch.png" alt="Composure's Sketch room on Android.">
+                    </figure>
                 </div>
 
                 <!-- COLLABORATOR -->
-                <div class="bg-[#ece5cf]/55 border border-[#4b5320]/[0.12] rounded-3xl p-9 md:p-11 card-hover">
+                <div class="bg-[#8cc2da]/55 border border-[#0a5a7d]/[0.12] rounded-3xl p-9 md:p-11 card-hover">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 rounded-2xl bg-[#8a7a2f]/10 border border-[#8a7a2f]/20 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-7 h-7 text-[#8a7a2f]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2a4 4 0 014 4v1a4 4 0 010 8v1a4 4 0 01-8 0v-1a4 4 0 010-8V6a4 4 0 014-4z"/><path d="M12 6v12"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+                        <div class="w-14 h-14 rounded-2xl bg-[#0c86a8]/10 border border-[#0c86a8]/20 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-7 h-7 text-[#0c86a8]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2a4 4 0 014 4v1a4 4 0 010 8v1a4 4 0 01-8 0v-1a4 4 0 010-8V6a4 4 0 014-4z"/><path d="M12 6v12"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
                         </div>
                         <div>
                             <p class="font-mono text-xs tracking-[0.18em] text-ink-100/50 uppercase">Desktop + Android</p>
-                            <h3 class="text-ink-400 font-black text-2xl">An agentic collaborator</h3>
+                            <h3 class="text-ink-400 font-black text-2xl">An Agentic Collaborator</h3>
                         </div>
                     </div>
-                    <p class="text-ink-100/75 text-xl leading-relaxed mb-6">Built for production and recording, with an agent that reaches the engine &mdash; not a chatbot in a side panel, but something that can play the instrument while it is playing.</p>
-                    <ul class="space-y-3 text-lg text-ink-100/70">
-                        <li class="flex gap-3"><span class="text-[#8a7a2f] font-bold flex-shrink-0">&mdash;</span><span>Two agent surfaces, inside and outside the app, sharing one engine.</span></li>
-                        <li class="flex gap-3"><span class="text-[#8a7a2f] font-bold flex-shrink-0">&mdash;</span><span><strong class="text-ink-400">modify_playback</strong> changes a performance that is already running. Modify one voice; the rest hold.</span></li>
-                        <li class="flex gap-3"><span class="text-[#8a7a2f] font-bold flex-shrink-0">&mdash;</span><span>It reaches hardware. A real virtual MIDI device and clock sync put it inside your DAW.</span></li>
+                    <p class="text-ink-100/75 text-xl leading-relaxed mb-6">The part that's new. An agent that doesn't just talk about your music &mdash; it plays it, and it can change what's playing while it plays.</p>
+                    <ul class="space-y-3 text-lg text-ink-100/70 mb-8">
+                        <li class="flex gap-3"><span class="text-[#0c86a8] font-bold flex-shrink-0">&mdash;</span><span>Ask for a change, hear it in the performance.</span></li>
+                        <li class="flex gap-3"><span class="text-[#0c86a8] font-bold flex-shrink-0">&mdash;</span><span>Change one voice; the other fifteen hold.</span></li>
+                        <li class="flex gap-3"><span class="text-[#0c86a8] font-bold flex-shrink-0">&mdash;</span><span>Reaches your gear &mdash; a real instrument inside your DAW.</span></li>
+                    </ul>
+                    <figure class="plate no-tilt">
+                        <img class="room-shot" src="shots/08-record.png" alt="Composure's Record room on desktop.">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- STAT STRIP -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-16 md:mt-20">
+                <div class="text-center">
+                    <div class="text-5xl md:text-6xl font-black text-brand-600 stat-glow leading-none">16</div>
+                    <div class="font-mono text-xs md:text-sm tracking-[0.16em] text-ink-100/60 uppercase mt-3">Channels, one instrument</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl md:text-6xl font-black text-brand-600 stat-glow leading-none">2</div>
+                    <div class="font-mono text-xs md:text-sm tracking-[0.16em] text-ink-100/60 uppercase mt-3">Agents that play them</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl md:text-6xl font-black text-brand-600 stat-glow leading-none">14</div>
+                    <div class="font-mono text-xs md:text-sm tracking-[0.16em] text-ink-100/60 uppercase mt-3">Rooms to work in</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl md:text-6xl font-black text-brand-600 stat-glow leading-none">1</div>
+                    <div class="font-mono text-xs md:text-sm tracking-[0.16em] text-ink-100/60 uppercase mt-3">Sketchbook, phone to desk</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAPER TEAR DIVIDER -->
+    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip-deep.png" alt=""></div>
+
+    <!-- ==================== 3. THE COLLABORATOR ==================== -->
+    <section id="collaborator" class="py-28 md:py-40 relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">The Collaborator</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">An agent in the band.<br><em class="font-serif italic font-bold">Two ways in.</em></h2>
+                <p class="text-2xl text-ink-100/70 max-w-3xl mx-auto mt-6 leading-relaxed">Most AI music tools hand you back a file. Composure's agent reaches the engine itself, so a request lands on the live performance &mdash; transpose the bass, drop the drums, build a patch, shift the mood. Everything else keeps playing.</p>
+            </div>
+
+            <figure class="plate no-tilt max-w-6xl mx-auto mb-20">
+                <img class="room-shot" src="shots/09-brainstorm.png" alt="Composure's Brainstorm room with the agent panel open.">
+                <figcaption><strong>The agent, in the app</strong> &mdash; describe the idea in words and it exists.</figcaption>
+            </figure>
+
+            <div class="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto mb-20">
+                <div class="room-card">
+                    <h3 class="text-ink-400 font-black text-xl mb-2">In the app</h3>
+                    <p class="text-ink-100/70 text-lg leading-relaxed">Ask it to play, sketch, or change what's playing. It happens in the window in front of you.</p>
+                </div>
+                <div class="room-card">
+                    <h3 class="text-ink-400 font-black text-xl mb-2">Outside the app</h3>
+                    <p class="text-ink-100/70 text-lg leading-relaxed">Flip one switch and Substrate sees Composure as a connected instrument and drives it from there.</p>
+                </div>
+                <div class="room-card">
+                    <h3 class="text-ink-400 font-black text-xl mb-2">Dungeon Master</h3>
+                    <p class="text-ink-100/70 text-lg leading-relaxed">Give it a brief &mdash; a progression, a difficulty, a skill to practice. It turns practice into a scene.</p>
+                </div>
+                <div class="room-card">
+                    <h3 class="text-ink-400 font-black text-xl mb-2">Brainstorm</h3>
+                    <p class="text-ink-100/70 text-lg leading-relaxed">Describe the idea in words and it exists &mdash; a part, a kit, a patch. The prompt is the sketch.</p>
+                </div>
+            </div>
+
+            <blockquote class="pull-quote max-w-4xl mx-auto text-center text-2xl sm:text-3xl md:text-4xl text-ink-400 leading-snug">
+                &ldquo;An agent that can only read the song is an assistant. One that can change a single voice without disturbing the others is a bandmate.&rdquo;
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- PAPER TEAR DIVIDER -->
+    <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip-deep.png" alt=""></div>
+
+    <!-- ==================== 4. IN YOUR DAW ==================== -->
+    <section id="daw" class="py-28 md:py-40 relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div>
+                    <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">In Your DAW</p>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight mb-6">It shows up in your DAW<br><em class="font-serif italic font-bold">like any other instrument.</em></h2>
+                    <p class="text-2xl text-ink-100/70 leading-relaxed mb-8">Play from the app, hear it through the sounds you already use &mdash; Ableton, Logic, FL Studio, Maschine, any of them.</p>
+                    <ul class="space-y-4 text-lg text-ink-100/70">
+                        <li class="flex gap-3"><span class="text-brand-600 font-bold flex-shrink-0">&mdash;</span><span>In time, either way &mdash; it can set the tempo, or follow yours.</span></li>
+                        <li class="flex gap-3"><span class="text-brand-600 font-bold flex-shrink-0">&mdash;</span><span>Follows your hands &mdash; sustain, and touch that bends as you move.</span></li>
+                        <li class="flex gap-3"><span class="text-brand-600 font-bold flex-shrink-0">&mdash;</span><span>Your keyboard, remembered &mdash; plug it in once and it's there next time.</span></li>
+                    </ul>
+                </div>
+                <figure class="plate no-tilt">
+                    <img class="room-shot" src="shots/01-timeline.png" alt="Composure's Timeline room.">
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAPER TEAR DIVIDER -->
+    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip-deep.png" alt=""></div>
+
+    <!-- ==================== 5. NOTATION ==================== -->
+    <section id="notation" class="py-28 md:py-40 relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">Notation</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">Play it or hum it.<br><em class="font-serif italic font-bold">Get sheet music.</em></h2>
+                <p class="text-2xl text-ink-100/70 max-w-3xl mx-auto mt-6 leading-relaxed">Switch to Composer and what you played is written out as real notation &mdash; key signatures, tied notes, treble and bass &mdash; not a piano roll. Export it as a clean image for a chart or a lead sheet, dark or light.</p>
+            </div>
+            <figure class="plate no-tilt max-w-6xl mx-auto">
+                <img class="room-shot" src="shots/07-composer.png" alt="Composure's Composer room, showing engraved notation.">
+                <figcaption><strong>Composer</strong> &mdash; what you played, written out as real notation.</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- PAPER TEAR DIVIDER -->
+    <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip-deep.png" alt=""></div>
+
+    <!-- ==================== 6. SOUND ==================== -->
+    <section id="sound" class="py-28 md:py-40 relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">Sound</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">Every sound can<br><em class="font-serif italic font-bold">become an instrument.</em></h2>
+                <p class="text-2xl text-ink-100/70 max-w-3xl mx-auto mt-6 leading-relaxed">Four short doors into the same engine. Take whichever one is closest to the idea in your head.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto mb-20">
+                <div class="room-card">
+                    <h3 class="text-ink-400 font-black text-xl mb-2">Hum it in</h3>
+                    <p class="text-ink-100/70 text-lg leading-relaxed">Sing or hum a line and it becomes notes you can edit, right on the device. Offline &mdash; nothing leaves the machine.</p>
+                </div>
+                <div class="room-card">
+                    <h3 class="text-ink-400 font-black text-xl mb-2">Record it</h3>
+                    <p class="text-ink-100/70 text-lg leading-relaxed">Grab a sound from the mic or from your computer, trim it, and build a playable instrument around it.</p>
+                </div>
+                <div class="room-card">
+                    <h3 class="text-ink-400 font-black text-xl mb-2">Describe it</h3>
+                    <p class="text-ink-100/70 text-lg leading-relaxed">Tell the agent the sound you want and it builds the patch.</p>
+                </div>
+                <div class="room-card">
+                    <h3 class="text-ink-400 font-black text-xl mb-2">Generate it</h3>
+                    <p class="text-ink-100/70 text-lg leading-relaxed">Soundscapes writes ambient music straight onto your channels. Pick a mood, the whole band answers, and point any part at any voice you like.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-2.5 max-w-4xl mx-auto mb-20">
+                <span class="mood-chip">Warm</span>
+                <span class="mood-chip">Dark</span>
+                <span class="mood-chip">Mystic</span>
+                <span class="mood-chip">Deep</span>
+                <span class="mood-chip">Calm</span>
+                <span class="mood-chip">Sad</span>
+                <span class="mood-chip">Tense</span>
+                <span class="mood-chip">Sweet</span>
+                <span class="mood-chip">Cinematic</span>
+                <span class="mood-chip">Ethereal</span>
+                <span class="mood-chip">Cosmic</span>
+                <span class="mood-chip">Meditative</span>
+                <span class="mood-chip">Joy</span>
+                <span class="mood-chip">Dreamlike</span>
+            </div>
+
+            <figure class="plate no-tilt max-w-6xl mx-auto mb-16">
+                <img class="room-shot" src="shots/10-soundscapes.png" alt="Composure's Soundscapes room.">
+            </figure>
+
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center max-w-6xl mx-auto mb-16">
+                <figure class="plate no-tilt">
+                    <img class="room-shot" src="shots/06-synth-forge.png" alt="Composure's Synth Forge room.">
+                </figure>
+                <p class="text-xl md:text-2xl text-ink-100/75 leading-relaxed">Synth Forge is a full workbench &mdash; oscillators, filters, envelopes &mdash; and it draws the sound as standing-wave patterns while you tune.</p>
+            </div>
+
+            <p class="text-xl md:text-2xl text-ink-100/75 leading-relaxed text-center max-w-3xl mx-auto">Radio is a map of stations with a live 3D view, and it can generate music as it plays, steered by a word from you.</p>
+        </div>
+    </section>
+
+    <!-- PAPER TEAR DIVIDER -->
+    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip-deep.png" alt=""></div>
+
+    <!-- ==================== 7. POCKET AND DESK ==================== -->
+    <section id="pocket" class="py-28 md:py-40 relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <figure class="plate no-tilt order-last lg:order-first">
+                    <img class="room-shot" src="shots/04-drum-forge.png" alt="Composure's Drum Forge room on Android.">
+                </figure>
+                <div>
+                    <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">Pocket and Desk</p>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight mb-6">In your pocket,<br><em class="font-serif italic font-bold">on your desk.</em></h2>
+                    <p class="text-2xl text-ink-100/70 leading-relaxed mb-8">The Android build is the full instrument, not a viewer.</p>
+                    <ul class="space-y-4 text-lg text-ink-100/70">
+                        <li class="flex gap-3"><span class="text-brand-600 font-bold flex-shrink-0">&mdash;</span><span>Standalone &mdash; the whole thing runs on the phone or tablet.</span></li>
+                        <li class="flex gap-3"><span class="text-brand-600 font-bold flex-shrink-0">&mdash;</span><span>Controller &mdash; on the same network it plays the desktop, so the tablet on your stand is an input surface for the instrument at the desk.</span></li>
+                        <li class="flex gap-3"><span class="text-brand-600 font-bold flex-shrink-0">&mdash;</span><span>Feels like playing &mdash; pads and keys answer with a tap back.</span></li>
                     </ul>
                 </div>
             </div>
@@ -297,556 +531,88 @@
     </section>
 
     <!-- PAPER TEAR DIVIDER -->
-    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip.png" alt=""></div>
+    <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip-deep.png" alt=""></div>
 
-    <!-- ==================== STATS BAR ==================== -->
-    <section class="relative py-20">
-        <div class="gradient-line max-w-4xl mx-auto mb-20"></div>
-        <div class="max-w-5xl mx-auto px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center items-start">
-                <div>
-                    <div class="text-5xl md:text-6xl font-black text-ink-400 stat-glow mb-3">16</div>
-                    <div class="text-[15px] text-ink-100/70 font-medium leading-snug">Role-Labeled Channels,<br>One Virtual Device</div>
-                </div>
-                <div>
-                    <div class="text-5xl md:text-6xl font-black text-ink-400 stat-glow mb-3">2</div>
-                    <div class="text-[15px] text-ink-100/70 font-medium leading-snug">Agent Surfaces &mdash;<br>16 Tools &amp; 12 Tools</div>
-                </div>
-                <div>
-                    <div class="text-5xl md:text-6xl font-black text-ink-400 stat-glow mb-3">14</div>
-                    <div class="text-[15px] text-ink-100/70 font-medium leading-snug">Views &mdash; Forges,<br>Sketches, Quests</div>
-                </div>
-                <div>
-                    <div class="text-5xl md:text-6xl font-black text-ink-400 stat-glow mb-3">1</div>
-                    <div class="text-[15px] text-ink-100/70 font-medium leading-snug">Virtual MIDI Device,<br>Clock Master &amp; Slave</div>
-                </div>
-            </div>
-        </div>
-        <div class="gradient-line max-w-4xl mx-auto mt-20"></div>
-    </section>
-
-    <!-- PAPER TEAR DIVIDER -->
-    <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip.png" alt=""></div>
-
-    <!-- ==================== CHANNELS ==================== -->
-    <section id="channels" class="py-28 md:py-40 relative">
+    <!-- ==================== 8. THE ROOMS ==================== -->
+    <section id="rooms" class="py-28 md:py-40 relative">
         <div class="max-w-7xl mx-auto px-8">
-            <div class="text-center mb-20">
-                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">The Spine</p>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">Channels are not tracks.<br><em class="font-serif italic font-bold">Voices</em> are.</h2>
-                <p class="text-2xl text-ink-100/70 max-w-3xl mx-auto mt-6 leading-relaxed">A track is a container for events &mdash; a row in a spreadsheet of time. A channel is a voice: a persistent identity you can address, modify, or replace without disturbing the others. The difference between editing a document and having a conversation.</p>
+            <div class="text-center mb-16">
+                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">The Rooms</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">You&rsquo;ve seen eight.<br><em class="font-serif italic font-bold">Here&rsquo;s the whole map.</em></h2>
+                <p class="text-2xl text-ink-100/70 max-w-3xl mx-auto mt-6 leading-relaxed">One line each &mdash; the captures worth showing are up the page. Everything you make is one session, kept in one searchable place and drawn as a map you can walk, so an old idea can find a new one.</p>
             </div>
 
-            <figure class="terminal-bg max-w-3xl mx-auto rounded-3xl border border-[#4b5320]/15 glow overflow-hidden text-left">
-                <div class="px-6 md:px-8 pt-6 md:pt-7">
-                    <p class="font-mono text-base text-ink-100/50">$ composure --channels</p>
-                    <p class="font-mono text-base text-brand-600 mt-3">composure v1.8.0 &mdash; 16 channels ready. 4 roles assigned.</p>
-                    <div class="mt-5 mb-4 px-1">
-                        <div class="chan-row">
-                            <span class="chan-num">ch 1</span><span class="chan-name">DRUMS</span>
-                            <div class="chan-lane"><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div></div>
-                        </div>
-                        <div class="chan-row mutating">
-                            <span class="chan-num">ch 2</span><span class="chan-name">BASS</span>
-                            <div class="chan-lane"><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell on"></div></div>
-                        </div>
-                        <div class="chan-row">
-                            <span class="chan-num">ch 3</span><span class="chan-name">CHORDS</span>
-                            <div class="chan-lane"><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div></div>
-                        </div>
-                        <div class="chan-row">
-                            <span class="chan-num">ch 4</span><span class="chan-name">MELODY</span>
-                            <div class="chan-lane"><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell on"></div><div class="chan-cell"></div><div class="chan-cell"></div></div>
-                        </div>
-                        <div class="chan-row">
-                            <span class="chan-num">ch 5</span><span class="chan-name open">OPEN</span>
-                            <div class="chan-lane"><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell"></div><div class="chan-cell"></div></div>
-                        </div>
-                    </div>
-                    <p class="font-mono text-base text-ink-100/60 mt-4"><span class="text-brand-600 font-semibold">you:</span> transpose the bass down a fifth.</p>
-                    <p class="font-mono text-base text-ink-100/60 mt-2"><span class="text-brand-600 font-semibold">composure:</span> channel 2 (Bass) shifted &minus;7 semitones. channels 1, 3&ndash;4 untouched.</p>
-                    <p class="font-mono text-base text-ink-100/50 mt-4 mb-6">$ <span class="cursor-blink text-brand-600">|</span></p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-7 max-w-6xl mx-auto">
+                <div class="room-row">
+                    <h3>Dungeon Master</h3>
+                    <p>Practice as a scene &mdash; a progression, a difficulty, a skill.</p>
                 </div>
-            </figure>
-
-            <div class="grid md:grid-cols-3 gap-6 md:gap-8 mt-14">
-                <div class="bg-[#ece5cf]/55 border border-[#4b5320]/[0.12] rounded-3xl p-8 card-hover">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="1.6" fill="currentColor"/><circle cx="14" cy="12" r="1.6" fill="currentColor"/><circle cx="10" cy="18" r="1.6" fill="currentColor"/></svg>
-                    </div>
-                    <h3 class="text-ink-400 font-bold text-xl mb-3">The Channel Map</h3>
-                    <p class="text-ink-100/70 text-lg leading-relaxed">Sixteen channels on one device, each holding a <em>role</em> rather than an instrument. Four default roles; twelve left open. Rename them, lock them against the agent, or hand one to a plugin and one to hardware. The map is yours.</p>
+                <div class="room-row">
+                    <h3>Knowledge Graph</h3>
+                    <p>The archive, drawn as a map you can walk.</p>
                 </div>
-                <div class="bg-[#ece5cf]/55 border border-[#4b5320]/[0.12] rounded-3xl p-8 card-hover">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
-                    </div>
-                    <h3 class="text-ink-400 font-bold text-xl mb-3">The Mood Primitive</h3>
-                    <p class="text-ink-100/70 text-lg leading-relaxed">A mood is not a preset. It reframes the register the whole band plays in &mdash; scale, voicing, density, tempo feel &mdash; from a single keyword. Fourteen of them ship, from Warm to Dreamlike, and the agent can call them.</p>
+                <div class="room-row">
+                    <h3>Settings</h3>
+                    <p>Where the instrument is wired up.</p>
                 </div>
-                <div class="bg-[#ece5cf]/55 border border-[#4b5320]/[0.12] rounded-3xl p-8 card-hover">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-9-9c2.52 0 4.85 1 6.55 2.64L21 8"/><path d="M21 3v5h-5"/><circle cx="12" cy="12" r="3"/></svg>
-                    </div>
-                    <h3 class="text-ink-400 font-bold text-xl mb-3">Modify One, the Rest Hold</h3>
-                    <p class="text-ink-100/70 text-lg leading-relaxed">Transpose the bass, scale the tempo, swap a voice &mdash; the engine transforms, it never regenerates. No re-render, no collateral drift. The song stays itself while one voice shifts. This is also what makes it safe to hand to an agent.</p>
+                <div class="room-row">
+                    <h3>Radio</h3>
+                    <p>A map of stations, with music generated as it plays.</p>
+                </div>
+                <div class="room-row is-shown">
+                    <h3>Timeline</h3>
+                    <p>The session, laid out over time.</p>
+                </div>
+                <div class="room-row is-shown">
+                    <h3>Record</h3>
+                    <p>Capture a take, then build a playable instrument around it.</p>
+                </div>
+                <div class="room-row is-shown">
+                    <h3>Sketch</h3>
+                    <p>Every stroke is a melody line.</p>
+                </div>
+                <div class="room-row is-shown">
+                    <h3>Brainstorm</h3>
+                    <p>Describe an idea, and it exists.</p>
+                </div>
+                <div class="room-row is-shown">
+                    <h3>Synth Forge</h3>
+                    <p>Oscillators, filters, envelopes &mdash; drawn as standing waves.</p>
+                </div>
+                <div class="room-row is-shown">
+                    <h3>Drum Forge</h3>
+                    <p>Analog-style drums, plus a sample engine.</p>
+                </div>
+                <div class="room-row is-shown">
+                    <h3>Soundscapes</h3>
+                    <p>Ambient music written straight onto your channels.</p>
+                </div>
+                <div class="room-row is-shown">
+                    <h3>Composer</h3>
+                    <p>What you played, engraved as real notation.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- PAPER TEAR DIVIDER -->
-    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip.png" alt=""></div>
+    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip-deep.png" alt=""></div>
 
-    <!-- ==================== THE COLLABORATOR ==================== -->
-    <section id="agent" class="py-28 md:py-40 relative">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="text-center mb-20">
-                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">The Collaborator</p>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">An agent at the keys.<br><em class="font-serif italic font-bold">Two ways in.</em></h2>
-                <p class="text-2xl text-ink-100/70 max-w-3xl mx-auto mt-6 leading-relaxed">Composure is agent-native in both directions, and this is the thing most software gets wrong. There are two separate agent surfaces, and they reach the same engine &mdash; one from outside the app, one from inside it.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-10 md:gap-14 items-start mb-16">
-                <!-- OUTSIDE -->
-                <div class="bg-[#ece5cf]/55 border border-[#4b5320]/[0.12] rounded-3xl p-9 md:p-10">
-                    <p class="font-mono text-xs tracking-[0.18em] text-ink-100/50 uppercase mb-4">Outside the app</p>
-                    <h3 class="text-ink-400 font-black text-3xl mb-4">The MCP surface</h3>
-                    <p class="text-ink-100/75 text-lg leading-relaxed mb-6">A Model Context Protocol server ships with the desktop app, speaking JSON-RPC 2.0 over Streamable HTTP on localhost port 9473. Any MCP client can drive it &mdash; including <a href="https://www.propagation.house/substrate/" class="text-brand-600 font-semibold underline decoration-brand-600/30 hover:decoration-brand-600 transition">Substrate</a>, which registers Composure as a connected tool the moment you switch it on.</p>
-                    <div class="flex flex-wrap gap-2.5 mb-6">
-                        <span class="mood-chip">play_midi</span>
-                        <span class="mood-chip">modify_playback</span>
-                        <span class="mood-chip">update_channel_map</span>
-                        <span class="mood-chip">soundscape</span>
-                        <span class="mood-chip">drum_forge</span>
-                        <span class="mood-chip">synth_forge</span>
-                        <span class="mood-chip">create_mood</span>
-                        <span class="mood-chip lit">+ 9 more</span>
-                    </div>
-                    <p class="text-ink-100/70 text-lg leading-relaxed">Sixteen tools in all. It can list sessions, load one, mutate a running performance, rewrite the channel map, program a drum pattern, build a synth patch, or author a mood &mdash; and it reports back what it did.</p>
-                </div>
-
-                <!-- INSIDE -->
-                <div class="bg-[#ece5cf]/55 border border-[#4b5320]/[0.12] rounded-3xl p-9 md:p-10">
-                    <p class="font-mono text-xs tracking-[0.18em] text-ink-100/50 uppercase mb-4">Inside the app</p>
-                    <h3 class="text-ink-400 font-black text-3xl mb-4">The in-app agent</h3>
-                    <p class="text-ink-100/75 text-lg leading-relaxed mb-6">There is also an agent panel built into the interface, wired to the same twelve core operations as the outside surface. It can read the current view, act on it, and play the instrument in front of you &mdash; no external client, no second window.</p>
-                    <div class="flex flex-wrap gap-2.5 mb-6">
-                        <span class="mood-chip">playMidi</span>
-                        <span class="mood-chip">modifyPlayback</span>
-                        <span class="mood-chip">updateSoundscape</span>
-                        <span class="mood-chip">updateSynthForge</span>
-                        <span class="mood-chip">updateDrumForge</span>
-                        <span class="mood-chip lit">+ 7 more</span>
-                    </div>
-                    <p class="text-ink-100/70 text-lg leading-relaxed">The signature move is the same on both sides: <strong class="text-ink-400">modify_playback</strong>. An agent edits the performance <em>while it is happening</em> &mdash; not a file, not a clip, the thing you are hearing.</p>
-                </div>
-            </div>
-
-            <div class="max-w-4xl mx-auto text-center">
-                <p class="pull-quote text-2xl md:text-3xl text-ink-100/80 leading-relaxed">&ldquo;An agent that can only read the song is an assistant. An agent that can change one voice without disturbing the others is a bandmate.&rdquo;</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 md:gap-8 mt-16">
-                <div class="bg-[#f6f1e2]/70 border border-[#4b5320]/[0.10] rounded-2xl p-7 card-hover">
-                    <h4 class="text-ink-400 font-bold text-lg mb-2">Dungeon Master</h4>
-                    <p class="text-ink-100/65 leading-relaxed">A quest engine that gives the collaborator a brief &mdash; a progression to write, a difficulty, a skill to practice. It turns practice into a prompt and the agent into a scene partner.</p>
-                </div>
-                <div class="bg-[#f6f1e2]/70 border border-[#4b5320]/[0.10] rounded-2xl p-7 card-hover">
-                    <h4 class="text-ink-400 font-bold text-lg mb-2">Brainstorm</h4>
-                    <p class="text-ink-100/65 leading-relaxed">Describe the idea in words and it exists: a MIDI part, a drum kit, a patch. The prompt is the sketch, and the sketch becomes playable.</p>
-                </div>
-                <div class="bg-[#f6f1e2]/70 border border-[#4b5320]/[0.10] rounded-2xl p-7 card-hover">
-                    <h4 class="text-ink-400 font-bold text-lg mb-2">Transform, never regenerate</h4>
-                    <p class="text-ink-100/65 leading-relaxed">Every agent action is surgical by design. Change the bass, keep the drums. The architecture enforces it, so you never gamble the good parts to fix the bad one.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PAPER TEAR DIVIDER -->
-    <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip.png" alt=""></div>
-
-    <!-- ==================== IN YOUR DAW ==================== -->
-    <section id="daw" class="py-28 md:py-40 relative">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="text-center mb-20">
-                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">In Your DAW</p>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">It reaches the <em class="font-serif italic font-bold">hardware.</em></h2>
-                <p class="text-2xl text-ink-100/70 max-w-3xl mx-auto mt-6 leading-relaxed">On desktop, Composure presents itself as a real virtual MIDI device. Your DAW sees it the way it sees any other instrument &mdash; because it is one.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
-                <div class="space-y-8">
-                    <div class="flex gap-5 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-ink-400 font-bold text-xl mb-2">A virtual instrument, named Composure</h3>
-                            <p class="text-ink-100/70 text-lg leading-relaxed">Notes, control change, pitch bend &mdash; routed straight into Ableton, FL Studio, Maschine, Logic, any DAW. Play from the app; hear it on the DAW's instruments.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-5 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-ink-400 font-bold text-xl mb-2">Clock sync, both directions</h3>
-                            <p class="text-ink-100/70 text-lg leading-relaxed">MIDI Clock at 24 PPQ with start, stop, and continue. It can be your DAW's clock master, or follow it. Transport stays locked either way.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-5 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h12"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-ink-400 font-bold text-xl mb-2">Sustain and expression aware</h3>
-                            <p class="text-ink-100/70 text-lg leading-relaxed">CC64 sustain, expression, and per-finger MPE when the mode is on: a note per finger, each on its own channel, pitch bend following the touch. A pro-controller feature, built in.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-5 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-ink-400 font-bold text-xl mb-2">Underneath it, real DSP</h3>
-                            <p class="text-ink-100/70 text-lg leading-relaxed">The desktop build ships a native C++ audio engine over PortAudio, bound to the app through N-API. Not a Web Audio toy &mdash; a synthesis engine with a C++ core the interface talks to.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <figure class="plate tilt-r">
-                    <img class="room-shot" src="shots/01-timeline.png" alt="Composure's Timeline view — captured sessions filed as a feed of capture cards.">
-                    <figcaption><strong>Timeline</strong> &mdash; where a session lands after it is captured or played in from hardware. Capture from the live app.</figcaption>
-                </figure>
-            </div>
-        </div>
-    </section>
-
-    <!-- PAPER TEAR DIVIDER -->
-    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip.png" alt=""></div>
-
-    <!-- ==================== SHEET MUSIC ==================== -->
-    <section id="notation" class="py-28 md:py-40 relative">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="text-center mb-20">
-                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">It Writes It Down</p>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">MIDI becomes<br><em class="font-serif italic font-bold">sheet music.</em></h2>
-                <p class="text-2xl text-ink-100/70 max-w-3xl mx-auto mt-6 leading-relaxed">The Composer view engraves notation from scratch &mdash; not a library, not a plugin. Two thousand two hundred lines of hand-written scoring code, drawing to canvas and giving musicians something they can actually read.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-10 md:gap-14 items-start">
-                <div class="space-y-8 md:pt-6">
-                    <div class="flex gap-5 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-ink-400 font-bold text-xl mb-2">Real engraving, not a piano roll</h3>
-                            <p class="text-ink-100/70 text-lg leading-relaxed">Key signatures, sharp and flat spelling, courtesy accidentals, tied notes across barlines, beam groups, 8va and 8vb for notes that leave the staff. Treble and bass clefs on one canvas.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-5 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-ink-400 font-bold text-xl mb-2">For musicians and producers</h3>
-                            <p class="text-ink-100/70 text-lg leading-relaxed">Hand a session to someone who reads music and they can play it. Export the staff as a clean PNG for a chart, a lead sheet, a session note, dark or light.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-5 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-ink-400 font-bold text-xl mb-2">Hum it in, keep it forever</h3>
-                            <p class="text-ink-100/70 text-lg leading-relaxed">Voice-to-MIDI runs on device through Spotify's Basic Pitch, resampled to 22.05 kHz and transcribed locally. Nothing is uploaded. A melody caught in a hallway becomes an editable voice in the channel map &mdash; and then notation.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <figure class="plate no-tilt">
-                    <img class="room-shot" src="shots/07-composer.png" alt="Composure's Composer view &mdash; the hand-written notation engraver rendering a transcribed melody as sheet music.">
-                    <figcaption><strong>Composer</strong> &mdash; a hum became MIDI offline, and the engraver wrote it as notation with correct key signature and spelling.</figcaption>
-                </figure>
-            </div>
-        </div>
-    </section>
-
-    <!-- PAPER TEAR DIVIDER -->
-    <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip.png" alt=""></div>
-
-    <!-- ==================== GENERATIVE ==================== -->
-    <section id="generative" class="py-28 md:py-40 relative">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="text-center mb-20">
-                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">It Generates</p>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">Sound you can<br><em class="font-serif italic font-bold">shape, not just record.</em></h2>
-                <p class="text-2xl text-ink-100/70 max-w-3xl mx-auto mt-6 leading-relaxed">Two rooms do the heavy lifting here, and both are playable by hand or by agent.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-10 md:gap-14 items-start mb-16">
-                <figure class="plate no-tilt">
-                    <img class="room-shot" src="shots/10-soundscapes.png" alt="Composure's Soundscapes view — generative ambient engine with mood, scale, tempo and per-voice routing.">
-                    <figcaption><strong>Soundscapes</strong> &mdash; a generative ambient engine with fourteen moods and seven pattern modes. Capture from the live app.</figcaption>
-                </figure>
-
-                <div class="space-y-8 md:pt-4">
-                    <div class="flex gap-5 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M2 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/><path d="M2 17c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-ink-400 font-bold text-xl mb-2">Generative MIDI, routed to your channels</h3>
-                            <p class="text-ink-100/70 text-lg leading-relaxed">Soundscapes writes to the channel map, with per-track channel routing you set. Point the pad at channel 5 and it plays your synth. Drone, arpeggio, strum, pulse, random, percussion, melody &mdash; across fourteen moods from Warm to Dreamlike.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-5 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="9" stroke-dasharray="2 3"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-ink-400 font-bold text-xl mb-2">Chladni plates and native synthesis</h3>
-                            <p class="text-ink-100/70 text-lg leading-relaxed">Synth Forge is a full synthesis workbench &mdash; oscillators, filters, envelopes, an FX chain &mdash; with a visualizer that renders cymatic standing-wave patterns as you tune. Patches can be designed by hand or described to the agent.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-5 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="20" rx="3"/><path d="M5 8h2M5 16h2M17 8h2M17 16h2"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-ink-400 font-bold text-xl mb-2">Custom synths from your own audio</h3>
-                            <p class="text-ink-100/70 text-lg leading-relaxed">Record a sample from the mic or the system bus &mdash; or drop in a file &mdash; then trim it and build an instrument around it. The sampler transposes across the keyboard; the sample becomes a patch, and the patch becomes a voice.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
-                <figure class="plate tilt-r order-2 lg:order-1">
-                    <img class="room-shot" src="shots/06-synth-forge.png" alt="Composure's Synth Forge — a full synthesis workbench with oscillators, filters, envelopes and a cymatic visualizer.">
-                    <figcaption><strong>Synth Forge</strong> &mdash; patch building with a live Chladni-plate visualizer. Capture from the live app.</figcaption>
-                </figure>
-                <div class="order-1 lg:order-2">
-                    <p class="font-mono text-xs tracking-[0.18em] text-ink-100/50 uppercase mb-4">Fourteen moods</p>
-                    <div class="flex flex-wrap gap-2.5 mb-8">
-                        <span class="mood-chip lit">Warm</span>
-                        <span class="mood-chip">Dark</span>
-                        <span class="mood-chip">Mystic</span>
-                        <span class="mood-chip">Deep</span>
-                        <span class="mood-chip">Calm</span>
-                        <span class="mood-chip">Sad</span>
-                        <span class="mood-chip">Tense</span>
-                        <span class="mood-chip">Sweet</span>
-                        <span class="mood-chip">Cinematic</span>
-                        <span class="mood-chip">Ethereal</span>
-                        <span class="mood-chip">Cosmic</span>
-                        <span class="mood-chip">Meditative</span>
-                        <span class="mood-chip">Joy</span>
-                        <span class="mood-chip">Dreamlike</span>
-                    </div>
-                    <p class="text-xl text-ink-100/75 leading-relaxed">A mood is the single keyword the whole band answers to. Set one and the scale, voicing, density, and feel all move together &mdash; then keep playing. The agent can set it too, mid-performance.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PAPER TEAR DIVIDER -->
-    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip.png" alt=""></div>
-
-    <!-- ==================== ON ANDROID ==================== -->
-    <section id="mobile" class="py-28 md:py-40 relative">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="text-center mb-20">
-                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">On Android</p>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">The studio in your bag,<br><em class="font-serif italic font-bold">the stage on your desk.</em></h2>
-                <p class="text-2xl text-ink-100/70 max-w-3xl mx-auto mt-6 leading-relaxed">The Android build is not a companion viewer. It runs the instrument, and it doubles as a controller for the desktop.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-10 md:gap-14 items-start">
-                <figure class="plate">
-                    <img class="room-shot" src="shots/04-drum-forge.png" alt="Composure's Drum Forge on a touch display — step sequencer, kit pads, per-voice controls.">
-                    <figcaption><strong>Drum Forge</strong> &mdash; a step sequencer and kit engine, playable by hand on the touch surface or programmed by the agent. Capture from the live app.</figcaption>
-                </figure>
-
-                <div class="space-y-8 md:pt-4">
-                    <div class="flex gap-5 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-ink-400 font-bold text-xl mb-2">Standalone, or as a controller</h3>
-                            <p class="text-ink-100/70 text-lg leading-relaxed">The whole instrument runs on the device. Put it on the same network as the desktop and it also becomes a control surface &mdash; play from the tablet, hear it through the desktop, over WebSocket with an HTTP fallback. Sessions, audio, and patches sync between them.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-5 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="5"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-ink-400 font-bold text-xl mb-2">Per-finger expression and haptics</h3>
-                            <p class="text-ink-100/70 text-lg leading-relaxed">Turn on MPE and each finger gets its own channel, with pitch bend and CC74 following the touch. Pads and keys answer with haptic feedback through the Capacitor Haptics plugin, so playing is felt as well as heard.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-5 items-start">
-                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 4h16v12H4z"/><path d="M8 20h8"/></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-ink-400 font-bold text-xl mb-2">Capture anywhere</h3>
-                            <p class="text-ink-100/70 text-lg leading-relaxed">Sketch, hum, tap, and file it &mdash; then finish it at the desk. The archive is the same on both ends, so an idea caught on the bus is waiting when you sit down.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PAPER TEAR DIVIDER -->
-    <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip.png" alt=""></div>
-
-    <!-- ==================== THE ARCHIVE ==================== -->
-    <section id="archive" class="py-28 md:py-40 relative">
-        <div class="max-w-6xl mx-auto px-8">
-            <div class="text-center mb-20">
-                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">The Archive</p>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">Sessions, not files.<br><em class="font-serif italic font-bold">The archive is the instrument.</em></h2>
-                <p class="text-2xl text-ink-100/70 max-w-3xl mx-auto mt-6 leading-relaxed">Every take is a session &mdash; chords, key, tempo, tags, notes, and the events themselves. Not a folder of exports; a searchable body of work.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 md:gap-8 mb-16">
-                <div class="bg-[#ece5cf]/55 border border-[#4b5320]/[0.12] rounded-3xl p-8 card-hover">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16"/></svg>
-                    </div>
-                    <h3 class="text-ink-400 font-bold text-xl mb-3">The Vault</h3>
-                    <p class="text-ink-100/70 text-lg leading-relaxed">Sessions, patches, and audio in one archive &mdash; search, download, delete. Everything you make is kept and findable, not lost to a naming convention.</p>
-                </div>
-                <div class="bg-[#ece5cf]/55 border border-[#4b5320]/[0.12] rounded-3xl p-8 card-hover">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8 7l7.5 1M7.5 8.5l3.5 7M17 10l-4 6"/></svg>
-                    </div>
-                    <h3 class="text-ink-400 font-bold text-xl mb-3">The Knowledge Graph</h3>
-                    <p class="text-ink-100/70 text-lg leading-relaxed">Sessions, ideas, and relations drawn as a map. The archive stops being a list and becomes something you navigate.</p>
-                </div>
-                <div class="bg-[#ece5cf]/55 border border-[#4b5320]/[0.12] rounded-3xl p-8 card-hover">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4z"/></svg>
-                    </div>
-                    <h3 class="text-ink-400 font-bold text-xl mb-3">Sketch &amp; Brainstorm</h3>
-                    <p class="text-ink-100/70 text-lg leading-relaxed">Draw a melody line and the playhead traces it; describe an idea and it becomes a part. Two low-friction doors into the same engine, for when a keyboard is the wrong tool.</p>
-                </div>
-            </div>
-
-            <!-- ROOM GALLERY -->
-            <div class="mt-24">
-                <h3 class="text-3xl sm:text-4xl font-black text-ink-400 leading-tight text-center mb-4">Every room, as it runs.</h3>
-                <p class="text-ink-100/60 text-center text-lg mb-12 max-w-2xl mx-auto">Captures from the live build &mdash; not mockups, not renders.</p>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <figure class="plate no-tilt">
-                        <img class="room-shot" src="shots/02-sketch.png" alt="Composure's Sketch room — freehand melody drawn on a loop.">
-                        <figcaption><strong>Sketch</strong> &mdash; every ink stroke is a melody line.</figcaption>
-                    </figure>
-                    <figure class="plate no-tilt">
-                        <img class="room-shot" src="shots/05-dungeon-master.png" alt="Composure's Dungeon Master — quest board with level, skills, and an active quest.">
-                        <figcaption><strong>Dungeon Master</strong> &mdash; quests that turn practice into a brief.</figcaption>
-                    </figure>
-                    <figure class="plate no-tilt">
-                        <img class="room-shot" src="shots/09-brainstorm.png" alt="Composure's Brainstorm room — describing an idea in words to generate a part or patch.">
-                        <figcaption><strong>Brainstorm</strong> &mdash; describe it, and it exists.</figcaption>
-                    </figure>
-                    <figure class="plate no-tilt">
-                        <img class="room-shot" src="shots/08-record.png" alt="Composure's Record room — capturing MIDI from hardware and audio from mic or system bus.">
-                        <figcaption><strong>Record</strong> &mdash; MIDI from hardware, audio from the bus or mic.</figcaption>
-                    </figure>
-                    <figure class="plate no-tilt">
-                        <img class="room-shot" src="shots/11-knowledge-graph.png" alt="Composure's Knowledge Graph — sessions and relations drawn as a navigable map.">
-                        <figcaption><strong>Knowledge Graph</strong> &mdash; the archive, as a map.</figcaption>
-                    </figure>
-                    <figure class="plate no-tilt">
-                        <img class="room-shot" src="shots/12-settings.png" alt="Composure's Settings — where the instrument is wired to MIDI, sync, Substrate, and appearance.">
-                        <figcaption><strong>Settings</strong> &mdash; where the instrument is wired to everything else.</figcaption>
-                    </figure>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PAPER TEAR DIVIDER -->
-    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip.png" alt=""></div>
-
-    <!-- ==================== RADIO + THEMES ==================== -->
-    <section id="box" class="py-28 md:py-40 relative">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="text-center mb-20">
-                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">Also In The Box</p>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">Two more rooms<br><em class="font-serif italic font-bold">worth opening.</em></h2>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-8 md:gap-12">
-                <!-- RADIO -->
-                <div class="bg-[#ece5cf]/55 border border-[#4b5320]/[0.12] rounded-3xl p-9 md:p-11 card-hover">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="8" width="20" height="12" rx="2"/><path d="M6 8l12-5"/><circle cx="8" cy="14" r="2"/><path d="M14 13h5M14 16h5"/></svg>
-                        </div>
-                        <div>
-                            <p class="font-mono text-xs tracking-[0.18em] text-ink-100/50 uppercase">Radio</p>
-                            <h3 class="text-ink-400 font-black text-2xl">The station graph</h3>
-                        </div>
-                    </div>
-                    <p class="text-ink-100/75 text-lg leading-relaxed mb-6">The largest single file in the app, and not a stream player. Radio is a navigable graph of stations with a 3D visualizer &mdash; and behind it, live AI music generation through Lyria, Google's realtime model. You steer it mid-broadcast with a prompt.</p>
-                    <div class="bg-[#f6f1e2]/70 border border-[#4b5320]/[0.10] rounded-2xl p-5">
-                        <p class="font-mono text-xs text-ink-100/60"><span class="text-brand-600 font-semibold">you:</span> take it somewhere colder.</p>
-                        <p class="font-mono text-xs text-ink-100/60 mt-1.5"><span class="text-brand-600 font-semibold">radio:</span> steering&hellip; key &rarr; D dorian &middot; texture thins &middot; tape wow up.</p>
-                        <p class="font-mono text-[10px] tracking-[0.15em] text-ink-100/40 mt-3">Illustrative exchange, not a capture.</p>
-                    </div>
-                </div>
-
-                <!-- THEMES -->
-                <div class="bg-[#ece5cf]/55 border border-[#4b5320]/[0.12] rounded-3xl p-9 md:p-11 card-hover">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 000 18c1.5 0 2-1 2-2s-.5-2-.5-3 .5-2 2-2h2a3 3 0 003-3c0-4-4-8-8.5-8z"/></svg>
-                        </div>
-                        <div>
-                            <p class="font-mono text-xs tracking-[0.18em] text-ink-100/50 uppercase">Appearance</p>
-                            <h3 class="text-ink-400 font-black text-2xl">Make it yours</h3>
-                        </div>
-                    </div>
-                    <p class="text-ink-100/75 text-lg leading-relaxed mb-6">Set a background image and the interface reads its dominant color, then derives an accent from it. Glass blur, base tone, accent &mdash; the whole app re-tunes to the image you chose. Eleven presets ship for when you would rather not choose.</p>
-                    <div class="flex flex-wrap gap-2.5">
-                        <span class="mood-chip" style="background:#0a0a0f;color:#f6f1e2;border-color:#0a0a0f">Obsidian</span>
-                        <span class="mood-chip">Ecru</span>
-                        <span class="mood-chip">Slate</span>
-                        <span class="mood-chip">Moss</span>
-                        <span class="mood-chip lit">+ adaptive from image</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PAPER TEAR DIVIDER -->
-    <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip.png" alt=""></div>
-
-    <!-- ==================== CTA ==================== -->
+    <!-- ==================== 9. CTA ==================== -->
     <section class="py-28 md:py-40 relative">
         <div class="gradient-line max-w-4xl mx-auto mb-28"></div>
         <div class="max-w-4xl mx-auto px-8 text-center">
             <div class="title-paper-wrap">
-                <div class="title-paper-adopt"><img src="../assets/images/paper-sheet-semi-rough.png" alt="" aria-hidden="true" class="title-paper-img"></div>
+                <div class="title-paper-adopt"><img src="../assets/images/paper-sheet-deep-navy.png" alt="" aria-hidden="true" class="title-paper-img"></div>
                 <h2 class="relative text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight mb-6">Sixteen voices.<br>One of them <em class="font-serif italic font-bold">isn't you.</em></h2>
-                <p class="relative text-2xl text-ink-100/70 max-w-3xl mx-auto mb-14 leading-relaxed">Composure is built in-house at Propagation House &mdash; the same engine behind our own sound work, now with an agent in the band. Read the full dispatch for how it came apart and came back together.</p>
+                <p class="relative text-2xl text-ink-100/70 max-w-3xl mx-auto mb-14 leading-relaxed">Built in-house at Propagation House &mdash; the same engine behind our own sound work, now with an agent in the band.</p>
             </div>
             <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-5">
                 <a href="../house-news/articles/composure.html" class="px-10 py-4 bg-brand-600 hover:bg-brand-500 text-paper-50 text-lg font-bold rounded-2xl transition shadow-xl shadow-brand-600/30 flex items-center gap-3">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.332 0-2.5.477-3.5 1.253"/></svg>
                     Read the Full Dispatch
                 </a>
-                <a href="https://www.propagation.house" class="px-10 py-4 bg-[#4b5320]/[0.06] hover:bg-[#4b5320]/[0.12] text-ink-400 text-lg font-bold rounded-2xl border border-[#4b5320]/15 transition flex items-center gap-3">
+                <a href="https://www.propagation.house" class="px-10 py-4 bg-[#0a5a7d]/[0.06] hover:bg-[#0a5a7d]/[0.12] text-ink-400 text-lg font-bold rounded-2xl border border-[#0a5a7d]/15 transition flex items-center gap-3">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5m0 0l7-7m-7 7l7 7"/></svg>
                     Back to the Studio
                 </a>
@@ -855,12 +621,12 @@
     </section>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer class="border-t border-[#4b5320]/10 py-16">
+    <footer class="border-t border-[#0a5a7d]/10 py-16">
         <div class="max-w-7xl mx-auto px-8">
             <div class="flex flex-col md:flex-row items-center justify-between gap-8">
                 <div class="flex items-center gap-3">
                     <a href="https://www.propagation.house" target="_blank" class="opacity-40 hover:opacity-70 transition">
-                        <img src="../substrate-v2/ph-mark-dark.png" alt="Propagation House" class="w-7 h-7">
+                        <img src="../substrate-v2/ph-mark.png" alt="Propagation House" class="w-7 h-7">
                     </a>
                     <span class="text-ink-100/50 text-base">Composure &copy; 2026 Propagation House &middot; <a href="https://www.propagation.house" target="_blank" class="hover:text-ink-400 transition">propagation.house</a> &middot; Est. 2013 &middot; Washington, USA</span>
                 </div>
