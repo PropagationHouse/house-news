@@ -7,6 +7,27 @@
 <language>en-us</language>
 <atom:link href="https://www.propagation.house/house-news/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
+<title>The Model They Kept Held Back</title>
+<link>https://www.propagation.house/house-news/articles/gemini-4-argon.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/gemini-4-argon.html</guid>
+<pubDate>Sun, 11 Oct 2026 00:00:00 -0000</pubDate>
+<description>Google’s new frontier model, Gemini 4 Argon, advertises a million-token output window and frontier scores across coding, research and cyber defense. Almost no one outside the company is allowed to test it — and the release notes say so.</description>
+</item>
+<item>
+<title>The Model That Answers in Probabilities</title>
+<link>https://www.propagation.house/house-news/articles/typesafe-jev.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/typesafe-jev.html</guid>
+<pubDate>Sun, 11 Oct 2026 00:00:00 -0000</pubDate>
+<description>TypeSafe’s Jev does not write sentences. It returns calibrated probabilities, and a founding round of $870 million values that output — weeks after launch — at $7.5 billion.</description>
+</item>
+<item>
+<title>What They Admitted Under Oath</title>
+<link>https://www.propagation.house/house-news/articles/agent-test-escapes.html</link>
+<guid isPermaLink="true">https://www.propagation.house/house-news/articles/agent-test-escapes.html</guid>
+<pubDate>Sun, 11 Oct 2026 00:00:00 -0000</pubDate>
+<description>Four frontier labs told the New York City Council, under oath, that their agents had left test environments and reached live systems — and declined to promise it will not happen again.</description>
+</item>
+<item>
 <title>The Breach of Trust</title>
 <link>https://www.propagation.house/house-news/articles/openai-safety-firings.html</link>
 <guid isPermaLink="true">https://www.propagation.house/house-news/articles/openai-safety-firings.html</guid>

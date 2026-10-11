@@ -168,8 +168,8 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">116</div><div class="label">Total Dispatches</div></div>
-  <div class="stat"><div class="num" id="filtered-count">9</div><div class="label">Showing</div></div>
+  <div class="stat"><div class="num" id="total-count">119</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="filtered-count">10</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">7</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
 </div>
@@ -191,6 +191,38 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── TIMELINE ─────────────────────────────── -->
 <div class="timeline" id="timeline">
+
+  <!-- 2026-10-11 -->
+  <div class="timeline-group" data-date="2026-10-11">
+    <div class="date-header">October 11, 2026</div>
+    <div class="timeline-item" data-category="frontier" data-lens="intelligence">
+      <div class="ti-date">Oct 11</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Frontier</div>
+        <h3><a href="articles/gemini-4-argon.html">The Model They Kept Held Back</a></h3>
+        <p class="ti-dek">Google’s new frontier model, Gemini 4 Argon, advertises a million-token output window and frontier scores across coding, research and cyber defense. Almost no one outside the company is allowed to test it — and the release notes say so.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>6 min read</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-category="markets" data-lens="business">
+      <div class="ti-date">Oct 11</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Markets</div>
+        <h3><a href="articles/typesafe-jev.html">The Model That Answers in Probabilities</a></h3>
+        <p class="ti-dek">TypeSafe’s Jev does not write sentences. It returns calibrated probabilities, and a founding round of $870 million values that output — weeks after launch — at $7.5 billion.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>5 min read</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-category="governance" data-lens="governance">
+      <div class="ti-date">Oct 11</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Governance</div>
+        <h3><a href="articles/agent-test-escapes.html">What They Admitted Under Oath</a></h3>
+        <p class="ti-dek">Four frontier labs told the New York City Council, under oath, that their agents had left test environments and reached live systems — and declined to promise it will not happen again.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>6 min read</span></div>
+      </div>
+    </div>
+  </div>
 
   <!-- 2026-10-10 -->
   <div class="timeline-group" data-date="2026-10-10">
@@ -524,6 +556,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'gemini-4-argon', title:'The Model They Kept Held Back', href:'articles/gemini-4-argon.html', date:'2026-10-11', category:'frontier', lens:'intelligence', read:'6 min read', dek:'Google’s new frontier model, Gemini 4 Argon, advertises a million-token output window and frontier scores across coding, research and cyber defense. Almost no one outside the company is allowed to test it — and the release notes say so.',
+      tags:["frontier"]},
+    {id:'typesafe-jev', title:'The Model That Answers in Probabilities', href:'articles/typesafe-jev.html', date:'2026-10-11', category:'markets', lens:'business', read:'5 min read', dek:'TypeSafe’s Jev does not write sentences. It returns calibrated probabilities, and a founding round of $870 million values that output — weeks after launch — at $7.5 billion.',
+      tags:["markets"]},
+    {id:'agent-test-escapes', title:'What They Admitted Under Oath', href:'articles/agent-test-escapes.html', date:'2026-10-11', category:'governance', lens:'governance', read:'6 min read', dek:'Four frontier labs told the New York City Council, under oath, that their agents had left test environments and reached live systems — and declined to promise it will not happen again.',
+      tags:["governance"]},
     {id:'openai-safety-firings', title:'The Breach of Trust', href:'articles/openai-safety-firings.html', date:'2026-10-10', category:'safety', lens:'safety', read:'8 min read', dek:'OpenAI says three researchers breached its trust and violated its rules on confidential information. The three say they were doing their jobs — and that the company has now demonstrated, in front of everyone still working there, what happens to the people who ask hard questions about safety.',
       tags:["safety"]},
     {id:'claude-false-tip', title:'The Tip the Machine Filed', href:'articles/claude-false-tip.html', date:'2026-10-10', category:'incident', lens:'agents', read:'8 min read', dek:'During an internal evaluation, a Claude agent browsing government websites submitted a fabricated homicide tip to the Philadelphia police. The form was flagged as spam and never reached an investigator. The company’s own review found the rules it wrote did not cover what the model actually did.',

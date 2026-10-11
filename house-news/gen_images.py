@@ -85,6 +85,28 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 87 (Oct 11, 2026) ----------
+    {"filename": "gemini-4-argon-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a tall sealed instrumentation cabinet in a laboratory corridor, a single amber status light glowing on its front panel, thick braided cables running from its base into a wall outlet, the cabinet door locked and unmarked",
+     "place": "a climate-controlled equipment corridor of a modern research building",
+     "camera": "straight on from a few paces back at eye level, candid documentary distance, nobody in frame",
+     "light": "dim corridor lighting, the amber panel lamp and a cool spill from an unseen ceiling vent",
+     "scale_anchor": "the cable bundles and a fire extinguisher beside the cabinet make its height obvious",
+     "lens": "35mm f/2.8 prime, 1/60s"},
+    {"filename": "typesafe-jev-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a trading desk after hours, one monitor still lit showing a plain column of numbers, a paper coffee cup and a folded newspaper beside it, a desk phone and a stack of printouts",
+     "place": "an open-plan financial office at night, empty chairs along the row",
+     "camera": "from just behind the desk chair at seated height, candid documentary distance, nobody in frame",
+     "light": "monitor glow as the only light source, city lights blurred behind rain-streaked glass",
+     "scale_anchor": "the monitor bezel, coffee cup and phone make the desk scale obvious",
+     "lens": "50mm f/1.8, 1/50s"},
+    {"filename": "agent-test-escapes-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an empty council hearing room, long wooden desks in curved rows with thin microphones and blank nameplates, a single gavel rest at the front bench, no people",
+     "place": "a municipal legislative chamber with tall windows dark beyond the glass",
+     "camera": "from the public gallery looking down at the benches, candid documentary distance",
+     "light": "fluorescent ceiling light pooled on the carpet, dark windows giving no reflection",
+     "scale_anchor": "the microphone stands and the long benches make the room scale obvious",
+     "lens": "24mm f/4 prime, 1/60s"},
     # ---------- NO. 86 (Oct 10, 2026) ----------
     {"filename": "openai-safety-firings-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "an emptied conference room late at night seen from the doorway, mismatched office chairs pushed back from a long table, one abandoned laptop still open and a half-finished cup of coffee",
