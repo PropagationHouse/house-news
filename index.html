@@ -112,6 +112,7 @@ img{max-width:100%;display:block}
 /* section-head.tear-up — header drops down so the paper tears cleanly against the content, with a soft gradient instead of a hard competing line */
 .section-head.tear-up{padding-top:96px}
 .paper-tear.paper-tear-up img{-webkit-mask-image:linear-gradient(to bottom,#000 52%,transparent 100%);mask-image:linear-gradient(to bottom,#000 52%,transparent 100%)}
+.paper-tear:not(.paper-tear-up) img{-webkit-mask-image:linear-gradient(to top,#000 52%,transparent 100%);mask-image:linear-gradient(to top,#000 52%,transparent 100%)}
 @media(max-width:1023px){.section-head.tear-up{padding-top:64px}}
 
 /* HOUSE: EDITORIAL GRID — wired style: lead center, side stories flanking left+right at bottom */
@@ -249,9 +250,11 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 .feature.substrate .sf-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-top:1px solid var(--rule);margin-top:26px;padding-top:18px;clear:both}
 .feature.substrate .sf-stat .n{font-family:var(--serif);font-weight:900;font-size:26px;line-height:1}
 .feature.substrate .sf-stat .l{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
-.feature.substrate .feature-visual{min-height:0;float:right;width:47%;max-width:520px;margin:8px 0 16px 40px;background:linear-gradient(135deg,#0f1108,#1a1d12 55%,#4b5320);border-left:1px solid var(--rule)} /* wrap: image right, text flows around */
+.feature.substrate .feature-visual{min-height:0;float:right;width:47%;max-width:520px;margin:8px 0 16px 40px;background:transparent;border-left:none;position:relative;overflow:visible;padding:2.7% 5.2%;isolation:isolate} /* wrap: image right, text flows around - image sits on the house paper sheet */
+.feature.substrate .feature-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:none;z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
+.feature.substrate .feature-visual::after{content:none}
 .feature.substrate .dek{max-width:none} /* kill legacy 520px cap — caps defeat the float; text must be free to wrap */
-.feature.substrate .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block}
+.feature.substrate .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
 .feature .cta-row{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
 .feature .cta-row a{display:inline-block;padding:12px 22px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s}
 .feature .cta-row a.primary{background:var(--accent);color:var(--paper)}
@@ -261,7 +264,7 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 /* WALMART FEATURE (mm-feature) — wider column, image uncropped on house paper sheet */
 #mm-feature{grid-template-columns:minmax(0,1fr) minmax(0,1.22fr)}
 #mm-feature .feature-visual{background:transparent;overflow:visible;min-height:0;padding:2.7% 5.2%;align-self:center;isolation:isolate}
-#mm-feature .feature-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:rotate(-1.2deg);z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
+#mm-feature .feature-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:none;z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
 #mm-feature .feature-visual::after{content:none}
 #mm-feature .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
 @media (max-width:920px){#mm-feature{grid-template-columns:1fr}}
@@ -269,13 +272,13 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 /* UN FEATURE (un-feature) — newest work, sits above the Walmart feature; same paper-sheet treatment */
 #un-feature{grid-template-columns:minmax(0,1fr) minmax(0,1.22fr)}
 #un-feature .feature-visual{background:transparent;overflow:visible;min-height:0;padding:2.7% 5.2%;align-self:center;isolation:isolate}
-#un-feature .feature-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:rotate(1.2deg);z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
+#un-feature .feature-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:none;z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
 #un-feature .feature-visual::after{content:none}
 #un-feature .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
 @media (max-width:920px){#un-feature{grid-template-columns:1fr}}
 /* BRIDGE FEATURE (the-bridge) — book cover on house paper sheet, same treatment as UN/Walmart */
 #the-bridge .feature-visual{background:transparent;overflow:visible;min-height:0;padding:2.7% 5.2%;align-self:center;isolation:isolate}
-#the-bridge .feature-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:rotate(-1.2deg);z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
+#the-bridge .feature-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:none;z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
 #the-bridge .feature-visual::after{content:none}
 #the-bridge .feature-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
 /* FEATURE STACK — UN + Walmart share one divider, no dead air between the two images */
@@ -301,7 +304,7 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 .composure-band .cb-text h3 em{font-style:italic;font-weight:400}
 .composure-band .cb-text p{font-size:15px;line-height:1.55;color:#3a3d2e;max-width:520px;margin-bottom:20px}
 .composure-band .cb-visual{border-left:1px solid var(--rule);position:relative;overflow:visible;background:transparent;min-height:0;padding:2.7% 5.2%;align-self:center;isolation:isolate}
-.composure-band .cb-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:rotate(-1.2deg);z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
+.composure-band .cb-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:none;z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
 .composure-band .cb-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
 
 /* MERCH — two SKUs, photo cards, shop links out */
