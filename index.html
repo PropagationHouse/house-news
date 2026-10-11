@@ -300,8 +300,9 @@ a.mm-card-link:hover h3{border-bottom-color:var(--accent)}
 .composure-band .cb-text h3{font-family:var(--serif);font-weight:900;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;margin-bottom:12px}
 .composure-band .cb-text h3 em{font-style:italic;font-weight:400}
 .composure-band .cb-text p{font-size:15px;line-height:1.55;color:#3a3d2e;max-width:520px;margin-bottom:20px}
-.composure-band .cb-visual{border-left:1px solid var(--rule);position:relative;overflow:hidden;background:linear-gradient(135deg,#0f1108,#1a1d12 55%,#4b5320);min-height:300px}
-.composure-band .cb-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.composure-band .cb-visual{border-left:1px solid var(--rule);position:relative;overflow:visible;background:transparent;min-height:0;padding:2.7% 5.2%;align-self:center;isolation:isolate}
+.composure-band .cb-visual::before{content:"";position:absolute;inset:0;background:url("assets/images/paper-sheet-fill-2x.jpg?v=1") center/cover no-repeat;transform:rotate(-1.2deg);z-index:0;box-shadow:0 14px 34px rgba(18,20,10,.15)}
+.composure-band .cb-visual img{position:relative;inset:auto;width:100%;height:auto;display:block;z-index:1;object-fit:initial;box-shadow:0 6px 18px rgba(26,29,18,.14)}
 
 /* MERCH — two SKUs, photo cards, shop links out */
 .merch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin-bottom:16px}
@@ -376,7 +377,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
   #un-feature .feature-visual{padding:2.7% 5.2%}
   .composure-band{grid-template-columns:1fr}
   .composure-band .cb-text{padding:32px 24px}
-  .composure-band .cb-visual{border-left:none;border-top:1px solid var(--rule);min-height:220px}
+  .composure-band .cb-visual{border-left:none;border-top:1px solid var(--rule);min-height:0;padding:2.7% 5.2%}
   .merch-grid{grid-template-columns:1fr}
   .merch-grid .merch-card{border-right:none;border-bottom:1px solid var(--rule);padding:28px 20px}
   .merch-grid .merch-card:last-child{border-bottom:none}
@@ -657,7 +658,7 @@ footer .foot-bottom{display:flex;justify-content:space-between;align-items:cente
     <p>A MIDI engine built around sixteen role-labeled channels and a mood primitive &mdash; compose with an agent at the keys, or take the chair yourself. Everything played is captured without ceremony; the rest is the studio&rsquo;s practice in sound, distilled into a working instrument.</p>
     <div class="cta-row"><a class="ghost" href="/composure/">Open Composure &rarr;</a></div>
   </div>
-  <div class="cb-visual"><img src="house-news/assets/images/composure-hero.jpg" alt="Composure channel map rendered as a live state diagram." onerror="this.remove()"></div>
+  <div class="cb-visual"><img src="house-news/assets/images/composure-hero.jpg" alt="Composure running: the Synth Forge panel open on a Velvet Pad patch." onerror="this.remove()"></div>
 </section>
 
 <!-- TORN PAPER DIVIDER: Products corridor bottom edge — downward tear (paper hangs down into Multimedia, closes the sheet) -->
