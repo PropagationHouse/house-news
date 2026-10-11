@@ -172,8 +172,6 @@
         .room-card:hover { transform:translateY(-3px); box-shadow:0 8px 40px rgba(75,83,32,0.08); border-color:rgba(75,83,32,0.2); }
         .room-num { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.18em; color:#8a8f7a; }
 
-        /* HONEST NOTES */
-        .honest-note { border-left:3px solid rgba(179,64,47,0.55); padding-left:18px; }
     </style>
 </head>
 <body class="font-sans antialiased overflow-x-hidden text-lg">
@@ -833,45 +831,6 @@
 
     <!-- PAPER TEAR DIVIDER -->
     <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip.png" alt=""></div>
-
-    <!-- ==================== HONEST NOTES ==================== -->
-    <section id="notes" class="py-28 md:py-40 relative">
-        <div class="max-w-4xl mx-auto px-8">
-            <div class="text-center mb-16">
-                <p class="text-[#b3402f] text-lg font-bold uppercase tracking-widest mb-4">Honest Notes</p>
-                <h2 class="text-4xl sm:text-5xl font-black text-ink-400 leading-tight">What it isn't.</h2>
-                <p class="text-2xl text-ink-100/70 max-w-2xl mx-auto mt-6 leading-relaxed">An earlier version of this page overclaimed in four places. They are corrected here, on the page, because an instrument you can trust is worth more than one that sounds perfect.</p>
-            </div>
-
-            <div class="space-y-6">
-                <div class="honest-note">
-                    <h3 class="text-ink-400 font-bold text-xl mb-1">There is no Bluetooth MIDI.</h3>
-                    <p class="text-ink-100/70 leading-relaxed">The app uses Web MIDI, so it will accept a keyboard your operating system has already paired over Bluetooth &mdash; but Composure is not doing the Bluetooth work. The tablet-to-desktop link is over your local network, not BLE.</p>
-                </div>
-                <div class="honest-note">
-                    <h3 class="text-ink-400 font-bold text-xl mb-1">Drum Forge models analog, not physics.</h3>
-                    <p class="text-ink-100/70 leading-relaxed">The earlier page called it &ldquo;physical-model synthesis, not samples.&rdquo; It is analog-style synthesis built on Tone.js oscillators, and the app also ships a sample engine. Good sounds; the wrong word.</p>
-                </div>
-                <div class="honest-note">
-                    <h3 class="text-ink-400 font-bold text-xl mb-1">&ldquo;Scribe &mdash; Always Listening&rdquo; was a slogan, not a sensor.</h3>
-                    <p class="text-ink-100/70 leading-relaxed">The pulsing red dot in the sidebar is a static element with no state behind it. The real, useful feature is a setting: launch on startup and capture MIDI without being asked. That is worth having; the dot is decoration.</p>
-                </div>
-                <div class="honest-note">
-                    <h3 class="text-ink-400 font-bold text-xl mb-1">The Obsidian export is not built yet.</h3>
-                    <p class="text-ink-100/70 leading-relaxed">Settings shows an Obsidian vault-path field. It has no handler and nothing writes a markdown file. The intent is real; the feature is not implemented, so it is off the page until it is.</p>
-                </div>
-                <div class="honest-note">
-                    <h3 class="text-ink-400 font-bold text-xl mb-1">Room count, corrected.</h3>
-                    <p class="text-ink-100/70 leading-relaxed">The page used to say thirteen rooms. The app has eleven in the sidebar and fourteen reachable views in its state model. Pick the number you can defend: this page uses eleven in the nav, fourteen in the app.</p>
-                </div>
-            </div>
-
-            <p class="text-center text-ink-100/50 mt-14 leading-relaxed">Five honest limitations cost less trust than one discovered overstatement.</p>
-        </div>
-    </section>
-
-    <!-- ── PAPER TEAR DIVIDER ── -->
-    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip.png" alt=""></div>
 
     <!-- ==================== CTA ==================== -->
     <section class="py-28 md:py-40 relative">
