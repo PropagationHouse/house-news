@@ -123,6 +123,7 @@
         .plate:hover { transform:rotate(0deg) translateY(-4px); box-shadow:0 16px 50px rgba(26,29,18,0.12); }
         .plate figcaption { font-size:13px; line-height:1.5; color:#6b6e5a; padding-top:12px; }
         .plate figcaption strong { color:#4b5320; font-weight:700; letter-spacing:.04em; }
+        .room-shot { display:block; width:100%; height:auto; border-radius:12px; border:1px solid rgba(75,83,32,0.14); box-shadow:0 8px 30px rgba(26,29,18,0.10); }
 
         /* Sketch canvas — DoodleSketch: ink strokes ARE melody lines */
         .sketch-canvas { position:relative; height:250px; background:#f6f1e2; border:1px solid rgba(75,83,32,0.12); border-radius:14px; overflow:hidden; }
@@ -535,18 +536,7 @@
                             <span class="font-mono text-xs text-brand-600">8s loop</span>
                         </div>
                         <div class="p-5">
-                            <div class="sketch-canvas">
-                                <svg viewBox="0 0 400 250" preserveAspectRatio="none" aria-hidden="true">
-                                    <path d="M22 190 C 70 120, 110 210, 160 140 S 250 90, 300 150" fill="none" stroke="#4b5320" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
-                                    <path d="M40 90 C 90 60, 150 130, 210 70 S 320 60, 372 110" fill="none" stroke="#8a5f2f" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-                                    <path d="M60 220 C 120 200, 200 235, 280 205 S 350 190, 385 210" fill="none" stroke="#6b4f8a" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
-                                </svg>
-                                <div class="sketch-playhead"></div>
-                            </div>
-                            <div class="sketch-meta">
-                                <span class="dot"></span>
-                                <span>3 ink voices &middot; 96 bpm &middot; loop 8s</span>
-                            </div>
+                            <img class="room-shot" src="shots/02-sketch.png" alt="Composure's Sketch room &mdash; freehand melody drawn on an 8-second loop, ink strokes as melody lines">
                         </div>
                     </div>
                     <figcaption><strong>Sketch</strong> &mdash; Every ink stroke is a melody line. The playhead traces your drawing; the voices hold color, glow, and pitch. This is the live room, rendered in house paper.</figcaption>
@@ -612,32 +602,8 @@
                     </div>
                     <span class="font-mono text-xs text-brand-600">128 bpm &middot; swing 12%</span>
                 </div>
-                <div class="p-6 md:p-8">
-                    <div class="seq-row">
-                        <span class="seq-label">Boom Kick</span><span class="seq-type">membrane</span>
-                        <div class="seq-steps"><div class="seq-step acc playhead"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step on"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step acc"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step on"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div></div>
-                    </div>
-                    <div class="seq-row">
-                        <span class="seq-label">Crack Snare</span><span class="seq-type">noise</span>
-                        <div class="seq-steps"><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step acc"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step acc"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div></div>
-                    </div>
-                    <div class="seq-row">
-                        <span class="seq-label">Closed Hat</span><span class="seq-type">metal</span>
-                        <div class="seq-steps"><div class="seq-step on"></div><div class="seq-step"></div><div class="seq-step on"></div><div class="seq-step"></div><div class="seq-step on"></div><div class="seq-step"></div><div class="seq-step on"></div><div class="seq-step"></div><div class="seq-step on"></div><div class="seq-step"></div><div class="seq-step on"></div><div class="seq-step"></div><div class="seq-step on"></div><div class="seq-step"></div><div class="seq-step on"></div><div class="seq-step"></div></div>
-                    </div>
-                    <div class="seq-row">
-                        <span class="seq-label">Open Hat</span><span class="seq-type">metal</span>
-                        <div class="seq-steps"><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step on"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div></div>
-                    </div>
-                    <div class="seq-row">
-                        <span class="seq-label">Sub Pulse</span><span class="seq-type">membrane</span>
-                        <div class="seq-steps"><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step on"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step on"></div><div class="seq-step"></div></div>
-                    </div>
-                    <div class="seq-row">
-                        <span class="seq-label">909 Kick</span><span class="seq-type">membrane</span>
-                        <div class="seq-steps"><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step on"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div><div class="seq-step"></div></div>
-                    </div>
-                    <p class="font-mono text-xs text-ink-100/40 mt-5 leading-relaxed">Every voice is synthesized &mdash; membrane, noise, metal, FM, pluck &mdash; with per-voice pitch, decay, tone, snap, filter, and sends. Describe a kit and the AI builds it; export the pattern as MIDI.</p>
+                <div class="p-5">
+                    <img class="room-shot" src="shots/04-drum-forge.png" alt="Drum Forge - physical-model drum synthesis with a 16-step sequencer, kit pads, and per-voice pitch, filter and envelope controls">
                 </div>
             </div>
 
@@ -652,14 +618,7 @@
                         <span class="quest-diff" style="color:#b4a0ff;border-color:rgba(180,160,255,0.4);background:rgba(180,160,255,0.08)">LEGENDARY &middot; 1000 XP</span>
                     </div>
                     <div class="p-6 md:p-8">
-                        <h3 class="text-ink-400 font-bold text-2xl mb-3">Odd Meter Mastery</h3>
-                        <p class="text-ink-100/70 text-lg leading-relaxed mb-5">Play a cohesive 16-bar melody in 7/8 time. The Scribe is listening &mdash; perform it live and the AI judges your take against the criteria.</p>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="quest-diff" style="color:#10b981;border-color:rgba(16,185,129,0.35);background:rgba(16,185,129,0.06)">EASY &middot; 100</span>
-                            <span class="quest-diff" style="color:#F27D26;border-color:rgba(242,125,38,0.35);background:rgba(242,125,38,0.06)">MEDIUM &middot; 250</span>
-                            <span class="quest-diff" style="color:#ffb3b3;border-color:rgba(255,179,179,0.4);background:rgba(255,179,179,0.08)">HARD &middot; 500</span>
-                        </div>
-                        <p class="font-mono text-xs text-ink-100/40 leading-relaxed">Quests are written by the AI, timed, and judged on what you actually play. Gauntlet mode chains them room to room.</p>
+                        <img class="room-shot" src="shots/05-dungeon-master.png" alt="Dungeon Master - Coach Mode quest board with level, XP, skills, and an active quest judged on what you play">
                     </div>
                 </div>
 
@@ -673,24 +632,7 @@
                         <span class="font-mono text-xs text-brand-600">8 voices</span>
                     </div>
                     <div class="p-6 md:p-8">
-                        <p class="text-ink-100/70 text-lg leading-relaxed mb-6">Pick a mood &mdash; or invent one. The engine composes an evolving eight-voice texture around it: root, scale, tempo, density, and voices that mutate as it breathes.</p>
-                        <div class="flex flex-wrap gap-2.5">
-                            <span class="mood-chip lit">Dark</span>
-                            <span class="mood-chip">Joy</span>
-                            <span class="mood-chip">Mystic</span>
-                            <span class="mood-chip">Deep</span>
-                            <span class="mood-chip">Calm</span>
-                            <span class="mood-chip">Sad</span>
-                            <span class="mood-chip">Tense</span>
-                            <span class="mood-chip">Sweet</span>
-                            <span class="mood-chip">Cinematic</span>
-                            <span class="mood-chip">Ethereal</span>
-                            <span class="mood-chip">Warm</span>
-                            <span class="mood-chip">Cosmic</span>
-                            <span class="mood-chip">Meditative</span>
-                            <span class="mood-chip">Dreamlike</span>
-                        </div>
-                        <p class="font-mono text-xs text-ink-100/40 mt-6 leading-relaxed">Fourteen built-in moods, plus <code class="text-brand-600">create_mood(&ldquo;anything&rdquo;)</code>.</p>
+                        <img class="room-shot" src="shots/10-soundscapes.png" alt="Soundscapes - generative ambient engine with mood, scale, tempo and per-voice density controls">
                     </div>
                 </div>
             </div>
@@ -710,6 +652,64 @@
                 <div class="room-card"><span class="room-num">11</span><h4 class="text-ink-400 font-bold text-lg mt-1 mb-1.5">Dungeon Master</h4><p class="text-ink-100/60 text-[15px] leading-relaxed">Gamified practice &mdash; AI-written quests, judged on what you actually play.</p></div>
                 <div class="room-card"><span class="room-num">12</span><h4 class="text-ink-400 font-bold text-lg mt-1 mb-1.5">The Vault</h4><p class="text-ink-100/60 text-[15px] leading-relaxed">Every session, recording, kit, and patch &mdash; searchable, downloadable, permanent.</p></div>
                 <div class="room-card"><span class="room-num">13</span><h4 class="text-ink-400 font-bold text-lg mt-1 mb-1.5">Settings</h4><p class="text-ink-100/60 text-[15px] leading-relaxed">The Scribe, channel labels, device sync, haptics, models, and the Substrate link.</p></div>
+            </div>
+
+            <!-- ═══ THE REST OF THE ROOMS — real captures ═══ -->
+            <div class="text-center mt-24 mb-12">
+                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">The Rest of the Building</p>
+                <h3 class="text-3xl sm:text-4xl font-black text-ink-400 leading-tight">Every room, as it runs.</h3>
+                <p class="text-xl text-ink-100/70 max-w-3xl mx-auto mt-5 leading-relaxed">Captures from the live app &mdash; no mockups, no renders. The dark instrument on the house paper.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-6">
+                <figure class="plate">
+                    <div class="ui-frame rounded-2xl overflow-hidden">
+                        <div class="ui-titlebar"><span class="font-mono text-xs text-ink-100/60 tracking-wide">Timeline &mdash; the session feed</span><span class="font-mono text-xs text-brand-600">01</span></div>
+                        <div class="p-4"><img class="room-shot" src="shots/01-timeline.png" alt="Timeline - the session feed with capture cards, type badges and mini visualizers"></div>
+                    </div>
+                    <figcaption><strong>Timeline</strong> &mdash; every capture, filed and replayable.</figcaption>
+                </figure>
+                <figure class="plate tilt-r">
+                    <div class="ui-frame rounded-2xl overflow-hidden">
+                        <div class="ui-titlebar"><span class="font-mono text-xs text-ink-100/60 tracking-wide">Record &mdash; the Scribe's console</span><span class="font-mono text-xs text-brand-600">02</span></div>
+                        <div class="p-4"><img class="room-shot" src="shots/08-record.png" alt="Record - MIDI and audio capture console with live note visualizer"></div>
+                    </div>
+                    <figcaption><strong>Record</strong> &mdash; MIDI from hardware, audio from the bus or mic.</figcaption>
+                </figure>
+                <figure class="plate">
+                    <div class="ui-frame rounded-2xl overflow-hidden">
+                        <div class="ui-titlebar"><span class="font-mono text-xs text-ink-100/60 tracking-wide">Brainstorm &mdash; generation from text</span><span class="font-mono text-xs text-brand-600">03</span></div>
+                        <div class="p-4"><img class="room-shot" src="shots/09-brainstorm.png" alt="Brainstorm - describe an idea in plain language and generate MIDI, kits or patches"></div>
+                    </div>
+                    <figcaption><strong>Brainstorm</strong> &mdash; describe it, and it exists.</figcaption>
+                </figure>
+                <figure class="plate tilt-r">
+                    <div class="ui-frame rounded-2xl overflow-hidden">
+                        <div class="ui-titlebar"><span class="font-mono text-xs text-ink-100/60 tracking-wide">Synth Forge &mdash; patch design</span><span class="font-mono text-xs text-brand-600">04</span></div>
+                        <div class="p-4"><img class="room-shot" src="shots/06-synth-forge.png" alt="Synth Forge - full synthesis workbench with oscillator, filter, envelope and effects sections"></div>
+                    </div>
+                    <figcaption><strong>Synth Forge</strong> &mdash; a full synthesis workbench, AI-designed patches.</figcaption>
+                </figure>
+                <figure class="plate">
+                    <div class="ui-frame rounded-2xl overflow-hidden">
+                        <div class="ui-titlebar"><span class="font-mono text-xs text-ink-100/60 tracking-wide">Composer &mdash; piano roll &amp; sheet music</span><span class="font-mono text-xs text-brand-600">09</span></div>
+                        <div class="p-4"><img class="room-shot" src="shots/07-composer.png" alt="Composer - piano roll with rendered sheet music, tempo and take markers"></div>
+                    </div>
+                    <figcaption><strong>Composer</strong> &mdash; the arrangement, written out as notation.</figcaption>
+                </figure>
+                <figure class="plate tilt-r">
+                    <div class="ui-frame rounded-2xl overflow-hidden">
+                        <div class="ui-titlebar"><span class="font-mono text-xs text-ink-100/60 tracking-wide">Knowledge Graph &mdash; everything, linked</span><span class="font-mono text-xs text-brand-600">10</span></div>
+                        <div class="p-4"><img class="room-shot" src="shots/11-knowledge-graph.png" alt="Knowledge Graph - a force-directed map of every session, linked by shared tags and words"></div>
+                    </div>
+                    <figcaption><strong>Knowledge Graph</strong> &mdash; the archive, as a map.</figcaption>
+                </figure>
+                <figure class="plate sm:col-span-2">
+                    <div class="ui-frame rounded-2xl overflow-hidden">
+                        <div class="ui-titlebar"><span class="font-mono text-xs text-ink-100/60 tracking-wide">Settings &mdash; the Scribe, device sync, the Substrate link</span><span class="font-mono text-xs text-brand-600">13</span></div>
+                        <div class="p-4"><img class="room-shot" src="shots/12-settings.png" alt="Settings - Scribe options, channel labels, device sync, haptics, models and the Substrate link"></div>
+                    </div>
+                    <figcaption><strong>Settings</strong> &mdash; where the instrument is wired to everything else.</figcaption>
+                </figure>
             </div>
         </div>
     </section>
