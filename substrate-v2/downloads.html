@@ -221,7 +221,12 @@
   if (banner) banner.style.display = 'block';
   var note = document.getElementById('session-note');
   if (note) note.style.display = 'block';
-  var tier = qs.get('file') || '';
+  // Which files this purchase unlocked. The verify route passes the full list
+  // in `files`; `file` is only the first item, so a Beta buyer (exe + zip)
+  // would read as a one-time buyer if we trusted it alone. Derive the tier
+  // from the full list, falling back to `file` for older links.
+  var owned = (qs.get('files') || qs.get('file') || '').split(',').filter(Boolean);
+  var tier = owned.indexOf('zip') !== -1 ? 'zip' : (owned[0] || '');
   var upsell = document.getElementById('beta-upsell');
   if (upsell && tier === 'exe') upsell.style.display = 'block';
 

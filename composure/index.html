@@ -26,8 +26,12 @@
         "applicationCategory": "MusicApplication",
         "operatingSystem": "Windows, Android",
         "author": { "@type": "Organization", "name": "Propagation House" },
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "softwareVersion": "1.8.0"
+        "offers": [
+            { "@type": "Offer", "name": "Composure for Android", "price": "12.00", "priceCurrency": "USD", "url": "https://buy.stripe.com/3cIeV6cYP74PcMh3V5asg03" },
+            { "@type": "Offer", "name": "Composure for Windows", "price": "16.00", "priceCurrency": "USD", "url": "https://buy.stripe.com/4gM3co7Ev88T6nT4Z9asg04" },
+            { "@type": "Offer", "name": "Composure - PC + Android", "price": "22.44", "priceCurrency": "USD", "url": "https://buy.stripe.com/dRm14g3ofbl57rXbnxasg05" }
+        ],
+        "softwareVersion": "1.8.1"
     }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -211,6 +215,34 @@
         .hero-paper-img-wrap { filter:drop-shadow(0 18px 40px rgba(0,0,0,.45)); }
         .title-paper-adopt { filter:drop-shadow(0 14px 30px rgba(0,0,0,.42)); }
         .paper-tear img { opacity:.9; filter:drop-shadow(0 2px 14px rgba(0,0,0,.30)); }
+
+        /* ============ STOREFRONT ============ */
+        .buy-card {
+            display:flex; flex-direction:column;
+            background:var(--ui-panel); border:1px solid var(--ui-line);
+            border-radius:22px; padding:30px 28px;
+            backdrop-filter:blur(6px);
+            transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+        }
+        .buy-card:hover { border-color:rgba(127,212,236,.42); box-shadow:0 8px 50px rgba(0,0,0,.38); transform:translateY(-3px); }
+        .buy-card.is-bundle { border-color:rgba(127,212,236,.45); background:rgba(127,212,236,.07); }
+        .buy-card.is-bundle:hover { border-color:rgba(127,212,236,.72); }
+        .buy-meta { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ui-accent); margin-bottom:10px; }
+        .buy-name { font-weight:900; font-size:26px; letter-spacing:-.01em; color:var(--ui-ink); margin-bottom:6px; }
+        .buy-price { font-weight:900; font-size:44px; line-height:1; color:var(--ui-ink); margin-bottom:14px; }
+        .buy-was { font-size:18px; font-weight:700; color:var(--ui-mute); text-decoration:line-through; margin-left:6px; }
+        .buy-note { font-size:15px; line-height:1.55; color:var(--ui-soft); margin-bottom:18px; }
+        .buy-list { list-style:none; padding:0; margin:0 0 26px; display:flex; flex-direction:column; gap:9px; }
+        .buy-list li { position:relative; padding-left:20px; font-size:14px; line-height:1.5; color:var(--ui-mute)!important; }
+        .buy-list li::before { content:'\2014'; position:absolute; left:0; color:var(--ui-accent); font-weight:700; }
+        .buy-btn {
+            margin-top:auto; display:inline-flex; align-items:center; justify-content:center;
+            background:#0e7ea6; color:#ffffff; font-weight:700; font-size:16px;
+            padding:15px 24px; border-radius:14px; text-decoration:none;
+            box-shadow:0 12px 34px rgba(0,0,0,.30);
+            transition:background .2s ease, box-shadow .2s ease;
+        }
+        .buy-btn:hover { background:#1f7599; box-shadow:0 14px 40px rgba(0,0,0,.42); }
     </style>
 </head>
 <body class="font-sans antialiased overflow-x-hidden text-lg">
@@ -233,6 +265,7 @@
                 <a href="#collaborator" class="hover:text-ink-400 transition">The Collaborator</a>
                 <a href="#daw" class="hover:text-ink-400 transition">In Your DAW</a>
                 <a href="#pocket" class="hover:text-ink-400 transition">Pocket &amp; Desk</a>
+                <a href="#get" class="hover:text-ink-400 transition">Get It</a>
                 <a href="../house-news/articles/composure.html" class="flex items-center gap-2 bg-[#0a5a7d]/[0.06] hover:bg-[#0a5a7d]/[0.12] px-5 py-2.5 rounded-xl transition border border-[#0a5a7d]/[0.15]">
                     Read the Dispatch
                 </a>
@@ -535,6 +568,61 @@
     <!-- PAPER TEAR DIVIDER -->
     <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip-deep.png" alt=""></div>
 
+    <!-- ==================== 7b. GET IT ==================== -->
+    <section id="get" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-14">
+                <p class="text-brand-600 text-lg font-bold uppercase tracking-widest mb-4">Get Composure</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight">One instrument.<br><em class="font-serif italic font-bold">Pick your build.</em></h2>
+                <p class="text-2xl text-ink-100/70 max-w-3xl mx-auto mt-6 leading-relaxed">One-time purchase, yours to keep. Both builds are the full instrument &mdash; take the one that matches the machine in front of you, or both.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
+
+                <div class="buy-card">
+                    <p class="buy-meta">Pocket</p>
+                    <h3 class="buy-name">Android</h3>
+                    <p class="buy-price">$12</p>
+                    <p class="buy-note">The full instrument on the phone or tablet &mdash; standalone, or a controller for the desk.</p>
+                    <ul class="buy-list">
+                        <li>Direct-install APK &middot; 13 MB</li>
+                        <li>Sixteen channels, every room</li>
+                        <li>Plays the desktop over your network</li>
+                    </ul>
+                    <a class="buy-btn" href="https://buy.stripe.com/3cIeV6cYP74PcMh3V5asg03">Buy for Android</a>
+                </div>
+
+                <div class="buy-card">
+                    <p class="buy-meta">Desk</p>
+                    <h3 class="buy-name">Windows</h3>
+                    <p class="buy-price">$16</p>
+                    <p class="buy-note">The instrument at the desk, with the agentic collaborator and the virtual MIDI port.</p>
+                    <ul class="buy-list">
+                        <li>NSIS installer &middot; 204 MB</li>
+                        <li>Per-user install, no admin required</li>
+                        <li>Virtual MIDI out &amp; clock for your DAW</li>
+                    </ul>
+                    <a class="buy-btn" href="https://buy.stripe.com/4gM3co7Ev88T6nT4Z9asg04">Buy for Windows</a>
+                </div>
+
+                <div class="buy-card is-bundle">
+                    <p class="buy-meta">Both</p>
+                    <h3 class="buy-name">Pocket &amp; Desk</h3>
+                    <p class="buy-price">$22.44 <span class="buy-was">$28</span></p>
+                    <p class="buy-note">The whole thing, on every machine you own &mdash; $5.56 less than buying the two apart.</p>
+                    <ul class="buy-list">
+                        <li>Windows installer + Android APK</li>
+                        <li>Both builds, one purchase</li>
+                        <li>The same links for every future build</li>
+                    </ul>
+                    <a class="buy-btn" href="https://buy.stripe.com/dRm14g3ofbl57rXbnxasg05">Buy both</a>
+                </div>
+            </div>
+
+            <p class="text-ink-100/50 text-base text-center mt-10">Paid by card through Stripe. Your download links appear the moment payment clears &mdash; <a href="/account/login" class="text-brand-600 underline underline-offset-4">sign in</a> to reach them any time.</p>
+        </div>
+    </section>
+
     <!-- ==================== 8. THE ROOMS ==================== -->
     <section id="rooms" class="py-28 md:py-40 relative">
         <div class="max-w-7xl mx-auto px-8">
@@ -609,8 +697,12 @@
                 <h2 class="relative text-4xl sm:text-5xl md:text-6xl font-black text-ink-400 leading-tight mb-6">One instrument.<br><em class="font-serif italic font-bold">Two players.</em></h2>
                 <p class="relative text-2xl text-ink-100/70 max-w-3xl mx-auto mb-14 leading-relaxed">Built in-house at Propagation House &mdash; sixteen channels on one virtual instrument, playable by hand or by an agent, on Android and desktop.</p>
             </div>
-            <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-5">
-                <a href="../house-news/articles/composure.html" class="px-10 py-4 bg-brand-600 hover:bg-brand-500 text-paper-50 text-lg font-bold rounded-2xl transition shadow-xl shadow-brand-600/30 flex items-center gap-3">
+            <div class="relative z-10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-5">
+                <a href="#get" class="px-10 py-4 bg-brand-600 hover:bg-brand-500 text-paper-50 text-lg font-bold rounded-2xl transition shadow-xl shadow-brand-600/30 flex items-center gap-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    Get Composure
+                </a>
+                <a href="../house-news/articles/composure.html" class="px-10 py-4 bg-[#0a5a7d]/[0.06] hover:bg-[#0a5a7d]/[0.12] text-ink-400 text-lg font-bold rounded-2xl border border-[#0a5a7d]/15 transition flex items-center gap-3">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.332 0-2.5.477-3.5 1.253"/></svg>
                     Read the Full Dispatch
                 </a>

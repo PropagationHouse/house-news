@@ -1,16 +1,15 @@
-// GET /api/account/download?file=exe|zip
+// GET /api/account/download?file=exe|zip|composure-pc|composure-android
 //
 // The permanent locker: no session_id needed, no 7-day link to lose. The
 // entitlement is read live from Stripe on every request and a fresh presigned
 // Blob URL is minted, so a reinstalled machine is never locked out.
 //
-// Tier rules mirror api/verify.js exactly:
-//   one-time (exe) -> exe only
-//   Beta     (zip) -> zip, and exe too (the desktop build ships inside the bundle)
+// The gate is the catalog's file list, not a single "best tier": purchases are
+// not nested (Composure PC and Composure Android are separate buys), so what
+// someone may download is the union of every product they own.
 
 const blob = require('@vercel/blob');
 const auth = require('../../lib/auth');
-const stripe = require('../../lib/stripe');
 const ent = require('../../lib/entitlements');
 
 const SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
@@ -28,15 +27,15 @@ module.exports = async (req, res) => {
   if (!process.env.BLOB_READ_WRITE_TOKEN) return fail(500, 'Delivery not configured on server.');
 
   const q = req.query || {};
-  const want = q.file === 'zip' ? 'zip' : 'exe';
+  const want = q.file || '';
 
   try {
     const rows = await ent.ledgerFor(s.customer, s.email);
-    const tier = ent.bestTier(rows);
-    if (!tier) return fail(403, 'No Substrate purchase is attached to this account.');
+    const allowed = ent.filesFor(rows);
+    if (!allowed.length) return fail(403, 'No purchase with a download is attached to this account.');
 
-    if (want !== tier && tier !== 'zip') {
-      return fail(403, 'That file is not part of this purchase. The desktop + Android bundle ships with the Beta pass.');
+    if (allowed.indexOf(want) === -1) {
+      return fail(403, 'That file is not part of your purchases.');
     }
 
     const file = ent.FILES[want];

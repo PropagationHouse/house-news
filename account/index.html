@@ -126,23 +126,28 @@
 
       // ---- Locker -------------------------------------------------------
       var L = $('locker');
-      if (!me.can_download) {
-        L.innerHTML = '<div class="row"><div><div class="t">No Substrate purchase on this account</div>' +
+      // One row per file the account owns, across every product. The list comes
+      // from the catalog, so a new product needs no change here.
+      var DL = {
+        'exe':               { t: 'Substrate for Windows',         s: 'The desktop build, always the newest.' },
+        'zip':               { t: 'Substrate — desktop + Android', s: 'Both builds in one archive.' },
+        'composure-pc':      { t: 'Composure for Windows',         s: 'The instrument at the desk.' },
+        'composure-android': { t: 'Composure for Android',         s: 'The instrument in your pocket.' }
+      };
+      var files = me.downloads || [];
+      if (!files.length) {
+        L.innerHTML = '<div class="row"><div><div class="t">No purchases on this account</div>' +
           '<div class="s">If you bought with a different email, sign in with that one.</div></div>' +
-          '<a class="btn ghost" href="/substrate">See the offer</a></div>';
+          '<a class="btn ghost" href="/composure">See the offer</a></div>';
       } else {
         var html = '';
-        var beta = me.tier === 'zip';
-        html += '<div class="row"><div><div class="t">' +
-          (beta ? 'Substrate Beta — desktop + Android bundle' : 'Substrate for Windows') +
-          '<span class="badge on">' + (beta ? 'Active' : 'Owned') + '</span></div>' +
-          '<div class="s">Always the newest build — this link never expires.</div></div>' +
-          '<a class="btn" href="/api/account/download?file=' + me.tier + '">Download</a></div>';
-        if (beta) {
-          html += '<div class="row"><div><div class="t">Windows installer only</div>' +
-            '<div class="s">Just the desktop build, without the Android app.</div></div>' +
-            '<a class="btn ghost" href="/api/account/download?file=exe">Download</a></div>';
-        }
+        files.forEach(function(f){
+          var d = DL[f] || { t: f, s: 'Your download.' };
+          html += '<div class="row"><div><div class="t">' + esc(d.t) +
+            '<span class="badge on">Owned</span></div>' +
+            '<div class="s">' + esc(d.s) + ' This link never expires.</div></div>' +
+            '<a class="btn" href="/api/account/download?file=' + encodeURIComponent(f) + '">Download</a></div>';
+        });
         L.innerHTML = html;
       }
 

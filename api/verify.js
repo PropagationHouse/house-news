@@ -1,15 +1,8 @@
 const blob = require('@vercel/blob');
+const ent = require('../lib/entitlements');
 
-// Allowlist: only these two prices ever unlock a download.
-const PRICE_MAP = {
-  'price_1ThGrz2Qx6iNdTCBPtrQbl0E': 'exe',   // PWYW one-time (Substrate PC)
-  'price_1UDBka2Qx6iNdTCBLnN0ciIZ': 'zip',   // $11.99/mo Beta
-};
-const FILES = {
-  exe: 'Substrate-Setup.exe',
-  zip: 'Substrate-Bundle-Desktop-Android.zip',
-};
-
+// No allowlist lives here. The catalog in lib/entitlements.js is the single
+// source of truth for what a price unlocks — this route just asks it.
 const SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
 const MARGIN = 60 * 60 * 1000; // safety margin for API clock skew
 
@@ -39,35 +32,49 @@ module.exports = async (req, res) => {
       return send(402, 'Payment not complete for this session.');
     }
 
+    // Every price in the session the catalog knows about. A session may carry
+    // more than one, so collect them all rather than breaking on the first.
     const items = (s.line_items && s.line_items.data) || [];
-    let tier = null;
+    const hits = [];
     for (const it of items) {
       const pid = it.price && it.price.id;
-      if (pid && PRICE_MAP[pid]) { tier = PRICE_MAP[pid]; break; }
+      const entry = pid ? ent.catalogFor(pid) : null;
+      if (entry) hits.push(entry);
     }
-    if (!tier) return send(403, 'This session does not include a Substrate purchase.');
+    if (!hits.length) return send(403, 'This session does not include a purchase with a download.');
 
-    // Landing mode: bounce to the downloads page, which remembers the session.
+    // What this session is allowed to fetch.
+    const allowed = [];
+    hits.forEach(function (h) {
+      (h.files || []).forEach(function (f) {
+        if (allowed.indexOf(f) === -1) allowed.push(f);
+      });
+    });
+    const landing = hits[0].landing || '/substrate/downloads';
+
+    // Landing mode: bounce to the product's downloads page, which remembers
+    // the session. `file` is the first thing they bought (Substrate's page
+    // reads it for its upsell); `files` is the full list, so a page can show
+    // exactly the cards this purchase unlocked.
     if (q.landing === '1') {
       res.statusCode = 302;
       res.setHeader('Location',
-        '/substrate/downloads?session_id=' + encodeURIComponent(sid) +
-        '&fresh=1&file=' + tier);
+        landing + '?session_id=' + encodeURIComponent(sid) +
+        '&fresh=1&file=' + encodeURIComponent(allowed[0]) +
+        '&files=' + encodeURIComponent(allowed.join(',')));
       res.end();
       return;
     }
 
-    const validUntil = Date.now() + SEVEN_DAYS - MARGIN;
-    // Tier enforcement: a session may only fetch files its purchase includes.
-    // one-time (exe) -> exe only. Beta (zip) -> either (the desktop build ships inside the Beta).
-    let fkey = tier;
-    if (q.file && FILES[q.file] && q.file !== tier) {
-      if (tier !== 'zip') {
-        return send(403, 'That file is not part of this purchase. The desktop + Android bundle ships with the Beta pass.');
-      }
-      fkey = q.file;
+    // Direct download: the requested file must be one this session unlocked.
+    const want = q.file || allowed[0];
+    if (allowed.indexOf(want) === -1) {
+      return send(403, 'That file is not part of this purchase.');
     }
-    const file = FILES[fkey];
+    const file = ent.FILES[want];
+    if (!file) return send(400, 'Unknown file.');
+
+    const validUntil = Date.now() + SEVEN_DAYS - MARGIN;
     const tok = await blob.issueSignedToken({
       pathname: file,
       operations: ['get'],

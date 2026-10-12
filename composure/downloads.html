@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280">
+    <title>Composure &mdash; Downloads</title>
+    <meta name="description" content="Your Composure downloads &mdash; the Windows installer and the Android app.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a5a7d' rx='20' width='100' height='100'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='%23cfe6ef' font-family='Georgia'>C</text></svg>" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#c2e2f2',100:'#9fd0e8',200:'#7cc0de',300:'#4fa6cf',400:'#3d94bb',500:'#1f7599',600:'#0a5a7d',700:'#084a68',800:'#063a53',900:'#042c40',950:'#021e2c' },
+                        paper: { 50:'#cbe7f4',100:'#a3d0e5',200:'#8cc2da',300:'#6fb0cf',400:'#57a0c4',500:'#4494ba' },
+                        ink: { 100:'#26414d',200:'#1c3540',300:'#142a34',400:'#081d26',500:'#04141b' },
+                    },
+                    fontFamily: {
+                        sans: ['Acumin Pro','Helvetica Neue','Arial','sans-serif'],
+                        mono: ['JetBrains Mono','Fira Code','monospace'],
+                        serif: ['Playfair Display','Georgia','serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        @font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+        @font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+        @font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+        @font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
+
+        /* Same dark unification as the product page: the app's own ground, so
+           the two pages read as one document. */
+        :root{
+            --ui-bg:#123d50;
+            --ui-panel:rgba(255,255,255,.055);
+            --ui-line:rgba(160,220,240,.20);
+            --ui-ink:#ffffff;
+            --ui-soft:rgba(226,242,250,.80);
+            --ui-mute:rgba(226,242,250,.55);
+            --ui-accent:#7fd4ec;
+        }
+        body { background:var(--ui-bg); color:var(--ui-ink); }
+        body::after {
+            content:''; position:fixed; inset:0; pointer-events:none; z-index:1; opacity:.07;
+            mix-blend-mode:screen;
+            background:url('../assets/images/paper-sheet-fill-2x.jpg') center / cover no-repeat;
+        }
+        .grid-bg {
+            background-image:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(127,212,236,.08) 0%, transparent 70%),
+                radial-gradient(rgba(255,255,255,.035) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px;
+        }
+        ::selection { background: rgba(127,212,236,.30); }
+
+        nav { background:rgba(18,61,80,.88)!important; border-bottom-color:var(--ui-line)!important; }
+        nav a, nav span, nav svg { color:var(--ui-ink)!important; }
+
+        h1, h2, h3 { color:var(--ui-ink); }
+        .muted { color:var(--ui-soft); }
+        .faint { color:var(--ui-mute); }
+        .accent { color:var(--ui-accent); }
+
+        .dl-card {
+            background:var(--ui-panel);
+            border:1px solid var(--ui-line);
+            backdrop-filter:blur(6px);
+            transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+        }
+        .dl-card:hover { border-color:rgba(127,212,236,.42); box-shadow:0 8px 50px rgba(0,0,0,.38); }
+        .dl-card.is-fresh { border-color:rgba(127,212,236,.55); box-shadow:0 8px 50px rgba(0,0,0,.42); }
+
+        .btn {
+            display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+            background:#0e7ea6; color:#ffffff; font-weight:700;
+            padding:1rem 2rem; border-radius:1rem; text-decoration:none;
+            transition:background .2s ease, box-shadow .2s ease;
+            box-shadow:0 12px 34px rgba(0,0,0,.30);
+        }
+        .btn:hover { background:#1f7599; }
+        .btn.is-disabled {
+            opacity:.45; cursor:not-allowed; pointer-events:none; box-shadow:none;
+        }
+        .btn-ghost {
+            background:rgba(255,255,255,.08); border:1px solid var(--ui-line);
+            color:#ffffff; box-shadow:none;
+        }
+        .btn-ghost:hover { background:rgba(127,212,236,.16); }
+
+        .meta { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ui-mute); }
+        .rule { border-top:1px solid var(--ui-line); }
+        .paper-tear img { opacity:.9; filter:drop-shadow(0 2px 14px rgba(0,0,0,.30)); }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden text-lg">
+
+    <!-- ==================== NAV ==================== -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-2xl border-b">
+        <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
+            <a href="https://www.propagation.house/composure/" class="flex items-center gap-2.5 group">
+                <img src="../substrate-v2/ph-mark.png" alt="Propagation House" class="w-6 h-6 opacity-70 group-hover:opacity-100 transition">
+                <span class="font-bold text-xl tracking-tight">Composure</span>
+            </a>
+            <div class="flex items-center gap-8 text-[15px] font-medium">
+                <a href="/account/login" class="hover:opacity-70 transition">Sign in</a>
+                <a href="https://www.propagation.house/composure/" class="hover:opacity-70 transition">Back to Composure</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="relative pt-40 pb-16 grid-bg">
+        <div class="max-w-4xl mx-auto px-8 text-center">
+            <p class="meta mb-5">Your Download</p>
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-black leading-[1.05] tracking-tight mb-6">
+                Composure is yours.<br>
+                <em class="font-serif italic font-bold accent">Take it with you.</em>
+            </h1>
+            <p class="muted text-xl leading-relaxed max-w-2xl mx-auto">
+                Both builds are the full instrument. Install the one that matches the machine in front of you &mdash; or both, if you bought the bundle.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== SESSION BANNER ==================== -->
+    <section class="pb-4">
+        <div class="max-w-4xl mx-auto px-8">
+            <div id="pay-banner" style="display:none" class="rounded-2xl border border-[#7fd4ec]/40 bg-[#7fd4ec]/[0.10] px-6 py-4 text-center">
+                <p class="text-base"><span class="font-bold">Payment received.</span> <span class="muted">Your links are live below.</span></p>
+            </div>
+            <div id="bad-banner" style="display:none" class="rounded-2xl border border-[#7fd4ec]/25 bg-white/[0.05] px-6 py-4 text-center">
+                <p class="text-base"><span class="font-bold">No active session.</span> <span class="muted">Open this page from your purchase receipt, or <a href="/account/login" class="accent underline underline-offset-4">sign in</a> to reach your downloads any time.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DOWNLOADS ==================== -->
+    <section class="py-12 pb-28">
+        <div class="max-w-4xl mx-auto px-8 space-y-8">
+
+            <!-- Windows -->
+            <div id="card-composure-pc" class="dl-card rounded-2xl p-8" style="display:none">
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
+                    <div class="flex-1">
+                        <p class="meta mb-3">Desktop &middot; Windows x64</p>
+                        <h2 class="text-3xl font-black mb-3">Composure for Windows</h2>
+                        <p class="muted text-base leading-relaxed mb-4">
+                            The full instrument at the desk &mdash; sixteen channels, the agentic collaborator, and the virtual MIDI port that lets it play your DAW.
+                        </p>
+                        <p class="faint text-sm">NSIS installer &middot; per-user, no admin required &middot; 204 MB</p>
+                    </div>
+                    <div class="flex-shrink-0 sm:pt-8">
+                        <a class="btn" data-paid-dl="composure-pc" href="#">Download for Windows</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Android -->
+            <div id="card-composure-android" class="dl-card rounded-2xl p-8" style="display:none">
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
+                    <div class="flex-1">
+                        <p class="meta mb-3">Pocket &middot; Android</p>
+                        <h2 class="text-3xl font-black mb-3">Composure for Android</h2>
+                        <p class="muted text-base leading-relaxed mb-4">
+                            The whole thing on the phone or tablet &mdash; standalone, or a controller for the instrument at the desk.
+                        </p>
+                        <p class="faint text-sm">Direct install APK &middot; 13 MB</p>
+                    </div>
+                    <div class="flex-shrink-0 sm:pt-8">
+                        <a class="btn" data-paid-dl="composure-android" href="#">Download for Android</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nothing found -->
+            <div id="card-none" class="dl-card rounded-2xl p-8 text-center" style="display:none">
+                <h2 class="text-2xl font-black mb-3">No purchase found on this link</h2>
+                <p class="muted text-base leading-relaxed mb-6 max-w-xl mx-auto">
+                    This page reads your purchase from the link in your receipt. If you got here some other way, sign in with the email you bought with and your downloads will be waiting.
+                </p>
+                <a href="/account/login" class="btn btn-ghost">Sign in</a>
+            </div>
+
+            <!-- Install notes -->
+            <div class="dl-card rounded-2xl p-8">
+                <p class="muted text-base leading-relaxed"><span class="font-bold">Install notes.</span> Windows will warn on first run &mdash; the installer isn't signed with a commercial certificate, so choose <span class="font-bold">More info &rarr; Run anyway</span>. On Android, allow installs from your browser when it asks. New builds land at these same links, so re-download to update.</p>
+            </div>
+
+            <p id="session-note" style="display:none" class="faint text-sm text-center">These links expire in 7 days. <a href="/account/login" class="accent underline underline-offset-4">Sign in to your account</a> and they never expire.</p>
+            <p class="faint text-base text-center">Something wrong with the file? <a href="mailto:TinyPyrate@gmail.com" class="accent underline underline-offset-4">Write the studio</a>.</p>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-[#7fd4ec]/15">
+        <div class="max-w-4xl mx-auto px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span class="faint text-sm">Composure &mdash; a Propagation House project</span>
+            <span class="flex items-center gap-5">
+                <a href="/account/login" class="accent text-sm underline underline-offset-4">Sign in</a>
+                <a href="https://www.propagation.house/composure/" class="accent text-sm underline underline-offset-4">Back to propagation.house/composure</a>
+            </span>
+        </div>
+    </footer>
+
+<script>
+(function () {
+  var qs = new URLSearchParams(location.search);
+  var sid = qs.get('session_id') || '';
+  var valid = /^cs_(live|test)_[A-Za-z0-9]{10,}$/.test(sid);
+
+  var payBanner = document.getElementById('pay-banner');
+  var badBanner = document.getElementById('bad-banner');
+  var noneCard = document.getElementById('card-none');
+  var note = document.getElementById('session-note');
+  var cards = document.querySelectorAll('[id^="card-composure-"]');
+
+  function show(el) { if (el) el.style.display = ''; }
+
+  if (!valid) {
+    // No session: nothing is unlocked. Point at the account instead.
+    if (badBanner) badBanner.style.display = 'block';
+    if (noneCard) noneCard.style.display = 'block';
+    return;
+  }
+
+  // Which files this purchase unlocked. The verify route passes the full list;
+  // fall back to the single `file` param for older links.
+  var files = (qs.get('files') || qs.get('file') || '').split(',').filter(Boolean);
+  var fresh = qs.get('file') || '';
+
+  var shown = 0;
+  cards.forEach(function (card) {
+    var key = card.id.replace('card-', '');
+    if (files.indexOf(key) === -1) return;
+    var btn = card.querySelector('[data-paid-dl]');
+    if (btn) {
+      btn.setAttribute('href', '/api/verify?session_id=' + encodeURIComponent(sid) + '&file=' + key);
+    }
+    if (key === fresh) card.classList.add('is-fresh');
+    show(card);
+    shown++;
+  });
+
+  if (!shown) {
+    if (noneCard) noneCard.style.display = 'block';
+    return;
+  }
+
+  if (payBanner) payBanner.style.display = 'block';
+  if (note) note.style.display = 'block';
+})();
+</script>
+</body>
+</html>

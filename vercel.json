@@ -33,6 +33,14 @@
       "destination": "/composure/index.html"
     },
     {
+      "source": "/composure/downloads",
+      "destination": "/composure/downloads.html"
+    },
+    {
+      "source": "/composure/downloads/",
+      "destination": "/composure/downloads.html"
+    },
+    {
       "source": "/substrate/philosophy.html",
       "destination": "/substrate-v2/philosophy.html"
     },

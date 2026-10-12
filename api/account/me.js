@@ -23,6 +23,9 @@ module.exports = async (req, res) => {
     const customerId = (customer && customer.id) || s.customer || null;
     const rows = customerId ? await ent.ledgerFor(customerId, s.email) : [];
     const tier = ent.bestTier(rows);
+    // The real entitlement: every file across every product owned. `tier` is
+    // kept for older clients, but the locker renders from this list.
+    const downloads = ent.filesFor(rows);
     const md = (customer && customer.metadata) || {};
 
     return send(200, {
@@ -32,7 +35,8 @@ module.exports = async (req, res) => {
       customer_id: customerId,
       has_billing_portal: !!(customer && customer.id),
       tier: tier,
-      can_download: !!tier,
+      downloads: downloads,
+      can_download: downloads.length > 0,
       prefs: {
         alerts: md.optin_alerts === 'true',
         news: md.optin_news === 'true',
