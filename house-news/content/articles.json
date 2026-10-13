@@ -1471,6 +1471,42 @@
       "status": "published",
       "filename": "articles/agent-test-escapes.html",
       "read_time": "6 min read"
+    },
+    {
+      "title": "The Fourteen-Month Push to the <em>Frontier</em>",
+      "kicker": "Frontier · Meta · October 13, 2026",
+      "dek": "Meta calls Muse Wonder and Muse Wonder Full its first frontier models — the most capable systems it has built, aimed at agents that keep working after the prompt ends, and released after fourteen months of development.",
+      "author": "Propagation House",
+      "date": "2026-10-13",
+      "category": "frontier",
+      "lens": "intelligence",
+      "status": "published",
+      "filename": "articles/meta-muse-wonder.html",
+      "read_time": "6 min read"
+    },
+    {
+      "title": "The Chip Built to <em>Answer</em>",
+      "kicker": "Infrastructure · Microsoft · October 13, 2026",
+      "dek": "Microsoft unveiled the Maia 300 on Monday, its third-generation custom accelerator and the chip it wants at the center of its own products — built for inference, not training, and aimed at forty percent more tokens per megawatt than leading GPU systems.",
+      "author": "Propagation House",
+      "date": "2026-10-13",
+      "category": "infrastructure",
+      "lens": "infrastructure",
+      "status": "published",
+      "filename": "articles/microsoft-maia-300.html",
+      "read_time": "5 min read"
+    },
+    {
+      "title": "The Correction the Fund <em>Names</em>",
+      "kicker": "Markets · IMF · October 13, 2026",
+      "dek": "The International Monetary Fund’s October stability report names an AI-driven market correction as a plausible near-term threat to financial stability — a re-pricing of expectations big enough, in its own scenario, to pull global output down by 1.1% by 2028.",
+      "author": "Propagation House",
+      "date": "2026-10-13",
+      "category": "markets",
+      "lens": "business",
+      "status": "published",
+      "filename": "articles/imf-ai-correction.html",
+      "read_time": "5 min read"
     }
   ],
   "drafts": [],

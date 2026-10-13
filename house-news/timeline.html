@@ -168,8 +168,8 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">119</div><div class="label">Total Dispatches</div></div>
-  <div class="stat"><div class="num" id="filtered-count">10</div><div class="label">Showing</div></div>
+  <div class="stat"><div class="num" id="total-count">122</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="filtered-count">11</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">7</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
 </div>
@@ -191,6 +191,38 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── TIMELINE ─────────────────────────────── -->
 <div class="timeline" id="timeline">
+
+  <!-- 2026-10-13 -->
+  <div class="timeline-group" data-date="2026-10-13">
+    <div class="date-header">October 13, 2026</div>
+    <div class="timeline-item" data-category="frontier" data-lens="intelligence">
+      <div class="ti-date">Oct 13</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Frontier</div>
+        <h3><a href="articles/meta-muse-wonder.html">The Fourteen-Month Push to the <em>Frontier</em></a></h3>
+        <p class="ti-dek">Meta calls Muse Wonder and Muse Wonder Full its first frontier models — the most capable systems it has built, aimed at agents that keep working after the prompt ends, and released after fourteen months of development.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>6 min read</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-category="infrastructure" data-lens="infrastructure">
+      <div class="ti-date">Oct 13</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Infrastructure</div>
+        <h3><a href="articles/microsoft-maia-300.html">The Chip Built to <em>Answer</em></a></h3>
+        <p class="ti-dek">Microsoft unveiled the Maia 300 on Monday, its third-generation custom accelerator and the chip it wants at the center of its own products — built for inference, not training, and aimed at forty percent more tokens per megawatt than leading GPU systems.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>5 min read</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-category="markets" data-lens="business">
+      <div class="ti-date">Oct 13</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Markets</div>
+        <h3><a href="articles/imf-ai-correction.html">The Correction the Fund <em>Names</em></a></h3>
+        <p class="ti-dek">The International Monetary Fund’s October stability report names an AI-driven market correction as a plausible near-term threat to financial stability — a re-pricing of expectations big enough, in its own scenario, to pull global output down by 1.1% by 2028.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>5 min read</span></div>
+      </div>
+    </div>
+  </div>
 
   <!-- 2026-10-11 -->
   <div class="timeline-group" data-date="2026-10-11">
@@ -556,6 +588,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'meta-muse-wonder', title:'The Fourteen-Month Push to the <em>Frontier</em>', href:'articles/meta-muse-wonder.html', date:'2026-10-13', category:'frontier', lens:'intelligence', read:'6 min read', dek:'Meta calls Muse Wonder and Muse Wonder Full its first frontier models — the most capable systems it has built, aimed at agents that keep working after the prompt ends, and released after fourteen months of development.',
+      tags:["frontier"]},
+    {id:'microsoft-maia-300', title:'The Chip Built to <em>Answer</em>', href:'articles/microsoft-maia-300.html', date:'2026-10-13', category:'infrastructure', lens:'infrastructure', read:'5 min read', dek:'Microsoft unveiled the Maia 300 on Monday, its third-generation custom accelerator and the chip it wants at the center of its own products — built for inference, not training, and aimed at forty percent more tokens per megawatt than leading GPU systems.',
+      tags:["infrastructure"]},
+    {id:'imf-ai-correction', title:'The Correction the Fund <em>Names</em>', href:'articles/imf-ai-correction.html', date:'2026-10-13', category:'markets', lens:'business', read:'5 min read', dek:'The International Monetary Fund’s October stability report names an AI-driven market correction as a plausible near-term threat to financial stability — a re-pricing of expectations big enough, in its own scenario, to pull global output down by 1.1% by 2028.',
+      tags:["markets"]},
     {id:'gemini-4-argon', title:'The Model They Kept Held Back', href:'articles/gemini-4-argon.html', date:'2026-10-11', category:'frontier', lens:'intelligence', read:'6 min read', dek:'Google’s new frontier model, Gemini 4 Argon, advertises a million-token output window and frontier scores across coding, research and cyber defense. Almost no one outside the company is allowed to test it — and the release notes say so.',
       tags:["frontier"]},
     {id:'typesafe-jev', title:'The Model That Answers in Probabilities', href:'articles/typesafe-jev.html', date:'2026-10-11', category:'markets', lens:'business', read:'5 min read', dek:'TypeSafe’s Jev does not write sentences. It returns calibrated probabilities, and a founding round of $870 million values that output — weeks after launch — at $7.5 billion.',

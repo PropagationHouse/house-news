@@ -85,6 +85,28 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 88 (Oct 13, 2026) ----------
+    {"filename": "meta-muse-wonder-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a studio wall covered in a hand-drawn timeline of index cards and printed pages spanning more than a year, one card circled in marker, a pinned strip of masking tape marking a launch date",
+     "place": "a design studio war room with a long whiteboard and stacked printouts",
+     "camera": "straight on from a few paces back at eye level, candid documentary distance, nobody in frame",
+     "light": "late-afternoon window light raking across the wall, desk lamp adding a warm pool low in frame",
+     "scale_anchor": "a desk chair, coffee mug and scattered markers in the foreground make the wall scale obvious",
+     "lens": "35mm f/2.8 prime, 1/60s"},
+    {"filename": "microsoft-maia-300-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a row of matte black server racks in a data hall, one rack pulled halfway out on its rails with its side panel leaning against the next rack, cable bundles dressed down the back",
+     "place": "a clean data hall aisle with a raised floor and painted lane markings",
+     "camera": "from the aisle at standing height looking down the row, candid documentary distance, nobody in frame",
+     "light": "cool overhead LED trays down the aisle, a service lamp clipped to the pulled rack casting a warm work light",
+     "scale_anchor": "a rolling step ladder and a technician's water bottle on the floor make the rack height obvious",
+     "lens": "24mm f/4 prime, 1/60s"},
+    {"filename": "imf-ai-correction-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a long conference table in an institutional briefing room, a thick stapled report lying open to a line chart, a glass of water and a pen beside it, chairs pushed back around the table after the briefing",
+     "place": "a marble-and-fabric institutional briefing room with heavy curtains drawn",
+     "camera": "from the head of the table at seated height, candid documentary distance, nobody in frame",
+     "light": "overhead chandelier light pooled on the report, daylight bleeding through the curtain edges",
+     "scale_anchor": "the water glass, pen and chair backs make the table scale obvious",
+     "lens": "35mm f/2.8 prime, 1/50s"},
     # ---------- NO. 87 (Oct 11, 2026) ----------
     {"filename": "gemini-4-argon-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a tall sealed instrumentation cabinet in a laboratory corridor, a single amber status light glowing on its front panel, thick braided cables running from its base into a wall outlet, the cabinet door locked and unmarked",

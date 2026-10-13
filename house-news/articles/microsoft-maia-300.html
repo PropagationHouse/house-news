@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="../favicon.png">
+<title>The Chip Built to Answer - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:99}
+.brand{font-family:var(--serif);font-weight:900;font-size:26px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.brand em{font-style:italic;font-weight:400}
+.article-hero{max-width:820px;margin:0 auto;padding:64px 24px 40px;text-align:center}
+.article-hero .kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:18px}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);max-width:680px;margin:12px auto 0;line-height:1.5}
+.hero-figure .caption strong{color:var(--ink)}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px 24px;font-size:19px;line-height:1.7;color:#26291b}
+.article-body p{margin-bottom:28px}
+.article-body .lead-para::first-letter{font-family:var(--serif);font-size:64px;font-weight:900;float:left;line-height:.85;padding:6px 10px 0 0;color:var(--accent)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:32px;line-height:1.15;letter-spacing:-.015em;margin:44px 0 18px}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body a{color:var(--accent);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+.article-body a:hover{text-decoration-color:var(--accent)}
+.article-body blockquote{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.45;color:var(--accent-dark);border-left:3px solid var(--accent);padding:4px 0 4px 24px;margin:36px 0}
+.article-body blockquote cite{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.4;color:var(--accent-dark);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:28px 0;margin:40px 0;text-align:center}
+.article-body .offset-quote strong{font-style:normal;font-weight:700}
+.article-body .stat-row{display:flex;gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:36px 0}
+.article-body .stat{flex:1;padding:20px 12px;text-align:center}
+.article-row .stat + .stat, .article-body .stat + .stat{border-left:1px solid var(--rule)}
+.article-body .stat .num{font-family:var(--serif);font-weight:900;font-size:34px;color:var(--accent-dark)}
+.article-body .stat .lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:40px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-weight:700}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);text-decoration:none;border:1px solid var(--rule);padding:6px 12px;border-radius:2px}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:24px;flex-shrink:0}.article-foot .author-bio .avatar img{width:34px;height:34px;object-fit:contain;display:block}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.55;color:#3a3d2e}
+.related{max-width:1200px;margin:0 auto;padding:48px 24px 72px;border-top:1px solid var(--rule)}
+.related .section-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.25;margin-bottom:6px}
+.related article h3 a{color:var(--ink);text-decoration:none}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:12px;color:var(--muted)}
+@media(max-width:760px){.masthead nav{display:none}.article-body .stat-row{flex-direction:column}.article-body .stat+.stat{border-left:none;border-top:1px solid var(--rule)}.related .rel-grid{grid-template-columns:1fr}}
+
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+
+.masthead .logo a{color:var(--ink);text-decoration:none}
+
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.masthead nav a{color:var(--muted);text-decoration:none;transition:color .2s}
+
+.masthead nav a:hover{color:var(--accent)}
+
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">Infrastructure</div><nav><a href="../index.html">Dispatches</a><a href="../index.html#house">Studio</a><a href="../timeline.html">Field Notes</a><a href="../timeline.html">Index</a></nav></header>
+<div class="article-hero">
+  <div class="kicker">Infrastructure &middot; Microsoft</div>
+  <h1>The Chip Built to <em>Answer</em></h1>
+  <p class="dek">Microsoft unveiled the Maia 300 on Monday, its third-generation custom accelerator and the chip it wants at the center of its own products &mdash; built for inference, not training, and aimed at forty percent more tokens per megawatt than leading GPU systems.</p>
+  <div class="byline">By <strong>Propagation House</strong><span class="sep">&middot;</span>Tuesday, October 13, 2026<span class="sep">&middot;</span>5 min read</div>
+</div>
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/microsoft-maia-300-hero.jpg" alt="A documentary photograph of a row of matte server racks in a data hall, one rack pulled halfway out on its rails, a rolling ladder and a technician&rsquo;s water bottle on the floor nearby" /></div><p class="caption">One rack pulled on its rails. <strong>Photograph by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">The announcement described the chip in the language of power rather than transistors. Maia 300, unveiled October 12, is Microsoft&rsquo;s third-generation custom AI accelerator and its first designed primarily for inference &mdash; the work of answering, not teaching. A rack of 96 accelerators is expected to deliver up to seven times the token throughput of a Maia 200 rack, at a projected 40% more tokens per megawatt than leading GPU-based systems. Production begins in 2027 across deployments Microsoft measures in gigawatts, with the chip set to become the company&rsquo;s primary inference platform for Copilot, agents and everything else it ships.</p>
+<p>The numbers Microsoft led with are the operating numbers. Maia 300 is the third generation of the company&rsquo;s custom AI accelerator and the first built primarily for inference &mdash; generating the answer rather than training the mind. Microsoft projects 40 percent more tokens per megawatt than leading GPU-based systems, and a rack of 96 accelerators delivering up to seven times the token throughput of a Maia 200 rack. A rack, a watt and a token: the chip is announced in the units its buyers actually pay in.</p>
+<p>The workload list tells the same story. Long-context reasoning, low-latency conversation and sustained multi-step agentic tasks are the jobs of a model already trained &mdash; the traffic that spikes when a person asks, and spikes again when an agent asks on their behalf. Training runs once and makes the news. Inference runs forever and makes the invoice.</p>
+<blockquote>Training is a capital expense with a press cycle. Inference is rent, and Microsoft just bought the building.</blockquote>
+<h2>Training Was the <em>Headline</em></h2>
+<p>For three years the industry measured its chips by training runs &mdash; the cluster big enough to teach a frontier model, announced with a photograph of the rack and a founder standing beside it. Maia 300 points the other way: Microsoft says the chip is intended to become its primary inference platform for its own products and services, reducing its reliance on external GPU suppliers for the workloads it runs every day. The customers of that decision are Copilot, the agents, and everything else Microsoft ships.</p>
+<p>Production is planned for 2027, with Microsoft targeting deployments it measures in gigawatts across the Maia family &mdash; capacity described in power rather than chip counts. It is a telling unit of account. The limiting factor has stopped being wafers and started being substations, and a company that once bought its accelerators by the pallet now forecasts its roadmap in megawatts.</p>
+<h2>One Platform, One <em>Silicon</em></h2>
+<p>The strategic line is stated plainly: Maia becomes Microsoft&rsquo;s primary inference platform for its own products. That is vertical integration in the oldest sense &mdash; the platform company deciding that the most expensive input in its business should not be priced by someone else. Every large platform is drawing the same conclusion at the same time, which is why the announcement matters beyond Redmond: the accelerator market is being split into chips made for sale and chips made for use.</p>
+<p>What Microsoft did not claim matters too. There is no challenge to Nvidia&rsquo;s training dominance here, no benchmark war on that ground &mdash; just a chip built to answer, sized for the second half of the sentence the industry has been finishing for three years. The race to train produced the models. The race to answer pays for them.</p>
+<div class="stat-row"><div class="stat"><div class="num">40%</div><div class="lbl">More Tokens per Megawatt</div></div><div class="stat"><div class="num">7&times;</div><div class="lbl">Throughput vs. Maia 200 Racks</div></div><div class="stat"><div class="num">96</div><div class="lbl">Accelerators per Rack</div></div><div class="stat"><div class="num">2027</div><div class="lbl">Production Rollout Begins</div></div></div>
+<div class="takeaways"><h4>The Takeaways</h4><ul>
+<li>Microsoft announced the Maia 300 on October 12, its third-generation custom AI accelerator, built primarily for inference workloads such as Copilot responses and multi-step agent tasks.</li><li>Microsoft projects 40% more tokens per megawatt than leading GPU-based systems, with a 96-accelerator rack delivering up to seven times the token throughput of a Maia 200 rack.</li><li>Production is planned for 2027, with Microsoft targeting multi-gigawatt Azure Maia deployments and describing capacity in power terms rather than chip counts.</li><li>The strategic goal is stated plainly: Maia 300 becomes Microsoft&rsquo;s primary inference platform, reducing its reliance on external GPU suppliers for its own products.</li><li>Training made the headlines for three years; inference pays the bills &mdash; Microsoft is now building for the second half of the sentence.</li>
+</ul></div>
+</article>
+<div class="article-foot"><div class="tags"><a href="../timeline.html?category=microsoft">microsoft</a><a href="../timeline.html?category=maia">maia</a><a href="../timeline.html?category=chips">chips</a><a href="../timeline.html?category=infrastructure">infrastructure</a><a href="../timeline.html?category=inference">inference</a></div><div class="author-bio"><div class="avatar"><img src="../assets/images/ph-logo-mark.png" alt="Propagation House"></div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming &mdash; and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">Frontier &middot; October 12</div><h3><a href="meta-muse-wonder.html">The Fourteen-Month Push to the <em>Frontier</em></a></h3><div class="meta">6 min read</div></article><article><div class="kicker">Infrastructure &middot; October 10</div><h3><a href="yandex-data-centers-struck.html">The Training Hall Is a <em>Target</em></a></h3><div class="meta">7 min read</div></article><article><div class="kicker">Governance &middot; September 24</div><h3><a href="unsc-ai-briefing.html">Two Rivals, One <em>Room</em></a></h3><div class="meta">4 min read</div></article></div></section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>
