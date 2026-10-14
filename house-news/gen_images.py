@@ -85,6 +85,28 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 89 (Oct 14, 2026) ----------
+    {"filename": "eu-first-enforcement-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an empty European committee room, long curved wooden desks in rows, blank nameplates in brass holders, a thick stack of bound documents left open at the centre seat, tall windows dark behind",
+     "place": "a European Commission committee room in Brussels after hours",
+     "camera": "from the back of the room at standing height looking toward the centre seat, candid documentary distance, nobody in frame",
+     "light": "cool overhead panel light pooled on the centre seat, the windows black behind the desks",
+     "scale_anchor": "the nameplates, brass holders and chair rows make the room scale obvious.",
+     "lens": "28mm f/4 prime, 1/60s"},
+    {"filename": "nvidia-china-share-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a warehouse staging aisle with pallets of plain antistatic cartons of accelerator hardware stacked and shrink-wrapped, one pallet half-emptied with a printed inventory tally sheet clipped to a board on top",
+     "place": "a distributor logistics warehouse with painted floor lanes and metal racking",
+     "camera": "from the aisle at standing height looking down the row, candid documentary distance, nobody in frame",
+     "light": "high industrial ceiling lights with a pale patch of daylight from a loading door at the far end",
+     "scale_anchor": "a hand pallet jack and floor scale beside the pallets make the carton stack scale obvious.",
+     "lens": "35mm f/2.8 prime, 1/60s"},
+    {"filename": "figure-helix-homes-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "an ordinary suburban bedroom, a comforter half smoothed over the mattress with two pillows squared at the head, a bipedal humanoid robot standing at the foot of the bed seen from behind",
+     "place": "an ordinary untidy suburban bedroom with a nightstand and dresser, morning curtains half open",
+     "camera": "from the bedroom doorway at standing height, candid documentary distance, nobody in frame",
+     "light": "soft morning daylight through the half-open curtains falling across the comforter",
+     "scale_anchor": "the nightstand, dresser and door frame make the bed and robot scale obvious.",
+     "lens": "35mm f/2.8 prime, 1/60s"},
     # ---------- NO. 88 (Oct 13, 2026) ----------
     {"filename": "meta-muse-wonder-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a studio wall covered in a hand-drawn timeline of index cards and printed pages spanning more than a year, one card circled in marker, a pinned strip of masking tape marking a launch date",
