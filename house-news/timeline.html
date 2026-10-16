@@ -168,8 +168,8 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">128</div><div class="label">Total Dispatches</div></div>
-  <div class="stat"><div class="num" id="filtered-count">13</div><div class="label">Showing</div></div>
+  <div class="stat"><div class="num" id="total-count">131</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="filtered-count">14</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">7</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
 </div>
@@ -191,6 +191,38 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── TIMELINE ─────────────────────────────── -->
 <div class="timeline" id="timeline">
+
+  <!-- 2026-10-16 -->
+  <div class="timeline-group" data-date="2026-10-16">
+    <div class="date-header">October 16, 2026</div>
+    <div class="timeline-item" data-category="policy" data-lens="regulatory_policy">
+      <div class="ti-date">Oct 16</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Policy</div>
+        <h3><a href="articles/ftc-civil-demands.html">The Fifty-Page <em>Question</em></a></h3>
+        <p class="ti-dek">The Federal Trade Commission sent civil investigative demands to OpenAI and Anthropic, each more than fifty pages long, seeking records of safety incidents, safeguards and marketing claims. The subpoenas of the hearing room have been replaced by the paperwork of the file.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>6 min read</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-category="markets" data-lens="business">
+      <div class="ti-date">Oct 16</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Markets</div>
+        <h3><a href="articles/anthropic-q3-offering.html">The Quarter Before the <em>Offering</em></a></h3>
+        <p class="ti-dek">Anthropic told prospective investors that third-quarter revenue reached $16.8 billion with adjusted profitability for a second straight quarter — and that formal IPO marketing may begin the week of November 9, at a valuation above $2 trillion.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>6 min read</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-category="security" data-lens="security_infrastructure">
+      <div class="ti-date">Oct 16</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Security</div>
+        <h3><a href="articles/frontier-distillation-pact.html">The Wall Around the <em>Reasoning</em></a></h3>
+        <p class="ti-dek">OpenAI, Anthropic and Google have begun sharing indicators of adversarial distillation through the Frontier Model Forum — comparing traffic patterns and account fingerprints while their own labs accuse Chinese firms of harvesting millions of exchanges to rebuild their models cheaply.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>6 min read</span></div>
+      </div>
+    </div>
+  </div>
 
   <!-- 2026-10-15 -->
   <div class="timeline-group" data-date="2026-10-15">
@@ -652,6 +684,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'ftc-civil-demands', title:'The Fifty-Page <em>Question</em>', href:'articles/ftc-civil-demands.html', date:'2026-10-16', category:'policy', lens:'regulatory_policy', read:'6 min read', dek:'The Federal Trade Commission sent civil investigative demands to OpenAI and Anthropic, each more than fifty pages long, seeking records of safety incidents, safeguards and marketing claims. The subpoenas of the hearing room have been replaced by the paperwork of the file.',
+      tags:["policy"]},
+    {id:'anthropic-q3-offering', title:'The Quarter Before the <em>Offering</em>', href:'articles/anthropic-q3-offering.html', date:'2026-10-16', category:'markets', lens:'business', read:'6 min read', dek:'Anthropic told prospective investors that third-quarter revenue reached $16.8 billion with adjusted profitability for a second straight quarter — and that formal IPO marketing may begin the week of November 9, at a valuation above $2 trillion.',
+      tags:["markets"]},
+    {id:'frontier-distillation-pact', title:'The Wall Around the <em>Reasoning</em>', href:'articles/frontier-distillation-pact.html', date:'2026-10-16', category:'security', lens:'security_infrastructure', read:'6 min read', dek:'OpenAI, Anthropic and Google have begun sharing indicators of adversarial distillation through the Frontier Model Forum — comparing traffic patterns and account fingerprints while their own labs accuse Chinese firms of harvesting millions of exchanges to rebuild their models cheaply.',
+      tags:["security"]},
     {id:'eight-states-sue-openai', title:'The Eight Who <em>Sued</em>', href:'articles/eight-states-sue-openai.html', date:'2026-10-15', category:'policy', lens:'regulatory_policy', read:'6 min read', dek:'Eight states filed separate suits against OpenAI on the same day, all making the same claim: that ChatGPT was sold as safe for children and is not. The voluntary era of AI self-regulation just met its first coordinated legal front.',
       tags:["policy"]},
     {id:'ai-chip-rout', title:'The Trillion That <em>Left</em>', href:'articles/ai-chip-rout.html', date:'2026-10-15', category:'markets', lens:'infrastructure', read:'6 min read', dek:'More than a trillion dollars left AI and chip stocks this week — on the same days the chipmakers reported record profits. The market stopped asking whether AI works and started asking who pays for it.',

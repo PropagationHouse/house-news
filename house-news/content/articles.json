@@ -1579,6 +1579,42 @@
       "status": "published",
       "filename": "articles/un-agent-safeguards.html",
       "read_time": "6 min read"
+    },
+    {
+      "title": "The Fifty-Page <em>Question</em>",
+      "kicker": "Policy · Federal Trade Commission · October 16, 2026",
+      "dek": "The Federal Trade Commission sent civil investigative demands to OpenAI and Anthropic, each more than fifty pages long, seeking records of safety incidents, safeguards and marketing claims. The subpoenas of the hearing room have been replaced by the paperwork of the file.",
+      "author": "Propagation House",
+      "date": "2026-10-16",
+      "category": "policy",
+      "lens": "regulatory_policy",
+      "status": "published",
+      "filename": "articles/ftc-civil-demands.html",
+      "read_time": "6 min read"
+    },
+    {
+      "title": "The Quarter Before the <em>Offering</em>",
+      "kicker": "Markets · Anthropic · October 16, 2026",
+      "dek": "Anthropic told prospective investors that third-quarter revenue reached $16.8 billion with adjusted profitability for a second straight quarter — and that formal IPO marketing may begin the week of November 9, at a valuation above $2 trillion.",
+      "author": "Propagation House",
+      "date": "2026-10-16",
+      "category": "markets",
+      "lens": "business",
+      "status": "published",
+      "filename": "articles/anthropic-q3-offering.html",
+      "read_time": "6 min read"
+    },
+    {
+      "title": "The Wall Around the <em>Reasoning</em>",
+      "kicker": "Security · Frontier Model Forum · October 16, 2026",
+      "dek": "OpenAI, Anthropic and Google have begun sharing indicators of adversarial distillation through the Frontier Model Forum — comparing traffic patterns and account fingerprints while their own labs accuse Chinese firms of harvesting millions of exchanges to rebuild their models cheaply.",
+      "author": "Propagation House",
+      "date": "2026-10-16",
+      "category": "security",
+      "lens": "security_infrastructure",
+      "status": "published",
+      "filename": "articles/frontier-distillation-pact.html",
+      "read_time": "6 min read"
     }
   ],
   "drafts": [],
