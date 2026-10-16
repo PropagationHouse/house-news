@@ -1543,6 +1543,42 @@
       "status": "published",
       "filename": "articles/nvidia-china-share.html",
       "read_time": "5 min read"
+    },
+    {
+      "title": "The Eight Who <em>Sued</em>",
+      "kicker": "Policy · State Attorneys General · October 15, 2026",
+      "dek": "Eight states filed separate suits against OpenAI on the same day, all making the same claim: that ChatGPT was sold as safe for children and is not. The voluntary era of AI self-regulation just met its first coordinated legal front.",
+      "author": "Propagation House",
+      "date": "2026-10-15",
+      "category": "policy",
+      "lens": "regulatory_policy",
+      "status": "published",
+      "filename": "articles/eight-states-sue-openai.html",
+      "read_time": "6 min read"
+    },
+    {
+      "title": "The Trillion That <em>Left</em>",
+      "kicker": "Markets · Semiconductors · October 15, 2026",
+      "dek": "More than a trillion dollars left AI and chip stocks this week — on the same days the chipmakers reported record profits. The market stopped asking whether AI works and started asking who pays for it.",
+      "author": "Propagation House",
+      "date": "2026-10-15",
+      "category": "markets",
+      "lens": "infrastructure",
+      "status": "published",
+      "filename": "articles/ai-chip-rout.html",
+      "read_time": "6 min read"
+    },
+    {
+      "title": "The Safeguards That <em>Unravel</em>",
+      "kicker": "Governance · United Nations · October 15, 2026",
+      "dek": "A UN-backed scientific panel says the safeguards built to contain AI agents are coming apart — and that stopping the last breach did not prove anyone can stop the next one. It wants assurance to move from the model to the whole system.",
+      "author": "Propagation House",
+      "date": "2026-10-15",
+      "category": "governance",
+      "lens": "regulatory_policy",
+      "status": "published",
+      "filename": "articles/un-agent-safeguards.html",
+      "read_time": "6 min read"
     }
   ],
   "drafts": [],

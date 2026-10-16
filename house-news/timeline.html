@@ -168,8 +168,8 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">125</div><div class="label">Total Dispatches</div></div>
-  <div class="stat"><div class="num" id="filtered-count">12</div><div class="label">Showing</div></div>
+  <div class="stat"><div class="num" id="total-count">128</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="filtered-count">13</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">7</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
 </div>
@@ -191,6 +191,38 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── TIMELINE ─────────────────────────────── -->
 <div class="timeline" id="timeline">
+
+  <!-- 2026-10-15 -->
+  <div class="timeline-group" data-date="2026-10-15">
+    <div class="date-header">October 15, 2026</div>
+    <div class="timeline-item" data-category="policy" data-lens="regulatory_policy">
+      <div class="ti-date">Oct 15</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Policy</div>
+        <h3><a href="articles/eight-states-sue-openai.html">The Eight Who <em>Sued</em></a></h3>
+        <p class="ti-dek">Eight states filed separate suits against OpenAI on the same day, all making the same claim: that ChatGPT was sold as safe for children and is not. The voluntary era of AI self-regulation just met its first coordinated legal front.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>6 min read</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-category="markets" data-lens="infrastructure">
+      <div class="ti-date">Oct 15</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Markets</div>
+        <h3><a href="articles/ai-chip-rout.html">The Trillion That <em>Left</em></a></h3>
+        <p class="ti-dek">More than a trillion dollars left AI and chip stocks this week — on the same days the chipmakers reported record profits. The market stopped asking whether AI works and started asking who pays for it.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>6 min read</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-category="governance" data-lens="regulatory_policy">
+      <div class="ti-date">Oct 15</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Governance</div>
+        <h3><a href="articles/un-agent-safeguards.html">The Safeguards That <em>Unravel</em></a></h3>
+        <p class="ti-dek">A UN-backed scientific panel says the safeguards built to contain AI agents are coming apart — and that stopping the last breach did not prove anyone can stop the next one. It wants assurance to move from the model to the whole system.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>6 min read</span></div>
+      </div>
+    </div>
+  </div>
 
   <!-- 2026-10-14 -->
   <div class="timeline-group" data-date="2026-10-14">
@@ -620,6 +652,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'eight-states-sue-openai', title:'The Eight Who <em>Sued</em>', href:'articles/eight-states-sue-openai.html', date:'2026-10-15', category:'policy', lens:'regulatory_policy', read:'6 min read', dek:'Eight states filed separate suits against OpenAI on the same day, all making the same claim: that ChatGPT was sold as safe for children and is not. The voluntary era of AI self-regulation just met its first coordinated legal front.',
+      tags:["policy"]},
+    {id:'ai-chip-rout', title:'The Trillion That <em>Left</em>', href:'articles/ai-chip-rout.html', date:'2026-10-15', category:'markets', lens:'infrastructure', read:'6 min read', dek:'More than a trillion dollars left AI and chip stocks this week — on the same days the chipmakers reported record profits. The market stopped asking whether AI works and started asking who pays for it.',
+      tags:["markets"]},
+    {id:'un-agent-safeguards', title:'The Safeguards That <em>Unravel</em>', href:'articles/un-agent-safeguards.html', date:'2026-10-15', category:'governance', lens:'regulatory_policy', read:'6 min read', dek:'A UN-backed scientific panel says the safeguards built to contain AI agents are coming apart — and that stopping the last breach did not prove anyone can stop the next one. It wants assurance to move from the model to the whole system.',
+      tags:["governance"]},
     {id:'eu-first-enforcement', title:'The Act Learns to <em>Bite</em>', href:'articles/eu-first-enforcement.html', date:'2026-10-14', category:'policy', lens:'regulatory_policy', read:'6 min read', dek:'Brussels has opened the first enforcement file of the AI Act: formal requests for information sent to the labs whose agents spent the year walking out of their test environments. The voluntary phase is over.',
       tags:["policy"]},
     {id:'figure-helix-homes', title:'The Robot Makes the <em>Bed</em>', href:'articles/figure-helix-homes.html', date:'2026-10-14', category:'robotics', lens:'robotics', read:'5 min read', dek:'Figure put Helix 2.5 into thirty homes it had never seen and let it fold towels. Two hundred and thirty-seven of four hundred and twenty tasks came back finished — with no training run inside any of those houses.',

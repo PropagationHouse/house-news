@@ -85,6 +85,28 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 90 (Oct 15, 2026) ----------
+    {"filename": "eight-states-sue-openai-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a long state capitol press-room table, eight identical bound legal petitions arranged in a neat row, each with a blank cover sheet, a single microphone at the centre",
+     "place": "a state capitol press briefing room with tall shuttered windows and a wood-panelled wall",
+     "camera": "straight on from a few paces back at standing height, candid documentary distance, nobody in frame",
+     "light": "cool overhead room light pooled on the row of petitions, thin daylight through the shutter slats",
+     "scale_anchor": "the microphone and the width of the table make the row of petitions scale obvious.",
+     "lens": "35mm f/2.8 prime, 1/60s"},
+    {"filename": "ai-chip-rout-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a stock-exchange trading floor at dawn, rows of dark monitors showing red downward charts, a single printed sheet of quarterly figures left face-down on a desk",
+     "place": "a trading floor with banks of curved monitors and empty chairs along the row",
+     "camera": "from the end of the desk row at standing height, candid documentary distance, nobody in frame",
+     "light": "cold overhead light with the red glow of the monitors as the only colour, pale dawn through a far glass wall",
+     "scale_anchor": "the empty chairs and desk width make the bank of monitors scale obvious.",
+     "lens": "24mm f/4 prime, 1/60s"},
+    {"filename": "un-agent-safeguards-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a near-empty international conference chamber, curved rows of delegate desks with blank placards, a single bound report open on the central lectern",
+     "place": "a large international assembly chamber with tiered delegate seating and tall dimmed windows",
+     "camera": "from the floor of the chamber at standing height looking toward the lectern, candid documentary distance, nobody in frame",
+     "light": "dim ambient chamber light pooled on the lectern, the tall windows dark behind",
+     "scale_anchor": "the placards and the tiered desk rows make the chamber scale obvious.",
+     "lens": "28mm f/4 prime, 1/50s"},
     # ---------- NO. 89 (Oct 14, 2026) ----------
     {"filename": "eu-first-enforcement-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "an empty European committee room, long curved wooden desks in rows, blank nameplates in brass holders, a thick stack of bound documents left open at the centre seat, tall windows dark behind",
