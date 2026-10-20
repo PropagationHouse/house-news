@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="../favicon.png">
+<title>Five Percent, Set Aside - house</title>
+<style>
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");font-weight:400;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-ItPro.otf") format("opentype");font-weight:400;font-style:italic}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");font-weight:700;font-style:normal}
+@font-face{font-family:"Acumin Pro";src:url("../assets/fonts/acumin-pro/Acumin-BdItPro.otf") format("opentype");font-weight:700;font-style:italic}
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap");
+:root{--ink:#1a1d12;--paper:#f5f2e6;--rule:#c8c3ad;--accent:#4b5320;--accent-dark:#3a4018;--muted:#6b6e5a;--bg-tint:#eae6d2;--highlight:#f0ead0;--serif:"Playfair Display",Georgia,serif;--sans:"Acumin Pro","Helvetica Neue",Arial,sans-serif;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:99}
+.brand{font-family:var(--serif);font-weight:900;font-size:26px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.brand em{font-style:italic;font-weight:400}
+.article-hero{max-width:820px;margin:0 auto;padding:64px 24px 40px;text-align:center}
+.article-hero .kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:18px}
+.article-hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px}
+.article-hero h1 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-hero .dek{font-size:21px;line-height:1.5;color:#3a3d2e;max-width:620px;margin:0 auto 28px;font-weight:400}
+.article-hero .dek em{font-family:var(--serif);font-style:italic;color:var(--accent-dark)}
+.article-hero .byline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.article-hero .byline strong{color:var(--ink);font-weight:700}
+.article-hero .byline .sep{margin:0 10px;color:var(--rule)}
+.hero-figure{max-width:1200px;margin:0 auto 48px;padding:0 24px}
+.hero-figure .hero-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d12 0%,#2a2e1a 40%,#4b5320 100%);position:relative;overflow:hidden}
+.hero-figure .hero-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.hero-figure .hero-img::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(245,242,230,.04) 3px,rgba(245,242,230,.04) 4px)}
+.hero-figure .hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(75,83,32,.5) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(245,242,230,.08) 0%,transparent 50%)}
+.hero-figure .caption{font-size:13px;color:var(--muted);max-width:680px;margin:12px auto 0;line-height:1.5}
+.hero-figure .caption strong{color:var(--ink)}
+.article-body{max-width:var(--measure);margin:0 auto;padding:0 24px 24px;font-size:19px;line-height:1.7;color:#26291b}
+.article-body p{margin-bottom:28px}
+.article-body .lead-para::first-letter{font-family:var(--serif);font-size:64px;font-weight:900;float:left;line-height:.85;padding:6px 10px 0 0;color:var(--accent)}
+.article-body h2{font-family:var(--serif);font-weight:900;font-size:32px;line-height:1.15;letter-spacing:-.015em;margin:44px 0 18px}
+.article-body h2 em{font-style:italic;font-weight:400;color:var(--accent-dark)}
+.article-body a{color:var(--accent);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+.article-body a:hover{text-decoration-color:var(--accent)}
+.article-body blockquote{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.45;color:var(--accent-dark);border-left:3px solid var(--accent);padding:4px 0 4px 24px;margin:36px 0}
+.article-body blockquote cite{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.article-body .offset-quote{font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.4;color:var(--accent-dark);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:28px 0;margin:40px 0;text-align:center}
+.article-body .offset-quote strong{font-style:normal;font-weight:700}
+.article-body .stat-row{display:flex;gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:36px 0}
+.article-body .stat{flex:1;padding:20px 12px;text-align:center}
+.article-row .stat + .stat, .article-body .stat + .stat{border-left:1px solid var(--rule)}
+.article-body .stat .num{font-family:var(--serif);font-weight:900;font-size:34px;color:var(--accent-dark)}
+.article-body .stat .lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.article-body ul,.article-body ol{margin:32px 0;padding-left:24px}
+.article-body li{margin-bottom:10px;line-height:1.6}
+.article-body .takeaways{background:var(--bg-tint);border-left:4px solid var(--accent);padding:28px 32px;margin:40px 0}
+.article-body .takeaways h4{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-weight:700}
+.article-body .takeaways ul{margin:0;padding-left:18px}
+.article-body .takeaways li{font-size:16px;color:#3a3d2e;margin-bottom:8px}
+.article-foot{max-width:var(--measure);margin:0 auto;padding:48px 24px;border-top:1px solid var(--rule)}
+.article-foot .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.article-foot .tags a{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);text-decoration:none;border:1px solid var(--rule);padding:6px 12px;border-radius:2px}
+.article-foot .tags a:hover{background:var(--accent);color:var(--paper)}
+.article-foot .author-bio{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--bg-tint)}
+.article-foot .author-bio .avatar{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:24px;flex-shrink:0}.article-foot .author-bio .avatar img{width:34px;height:34px;object-fit:contain;display:block}
+.article-foot .author-bio .bio-text h4{font-family:var(--serif);font-weight:700;font-size:18px;margin-bottom:4px}
+.article-foot .author-bio .bio-text .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.article-foot .author-bio .bio-text p{font-size:14px;line-height:1.55;color:#3a3d2e}
+.related{max-width:1200px;margin:0 auto;padding:48px 24px 72px;border-top:1px solid var(--rule)}
+.related .section-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:24px}
+.related .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.related article .kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px}
+.related article h3{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.25;margin-bottom:6px}
+.related article h3 a{color:var(--ink);text-decoration:none}
+.related article h3 a:hover{color:var(--accent)}
+.related article .meta{font-size:12px;color:var(--muted)}
+@media(max-width:760px){.masthead nav{display:none}.article-body .stat-row{flex-direction:column}.article-body .stat+.stat{border-left:none;border-top:1px solid var(--rule)}.related .rel-grid{grid-template-columns:1fr}}
+
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:100;transition:width .1s linear}
+
+.masthead{border-bottom:1px solid var(--ink);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;background:var(--paper);position:sticky;top:0;z-index:50}
+
+.masthead .logo{font-family:var(--sans);font-weight:900;font-size:22px;letter-spacing:-.02em}
+
+.masthead .logo a{color:var(--ink);text-decoration:none}
+
+.masthead nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.masthead nav a{color:var(--muted);text-decoration:none;transition:color .2s}
+
+.masthead nav a:hover{color:var(--accent)}
+
+.masthead .section-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<header class="masthead"><div class="logo"><a href="../index.html">house</a></div><div class="section-tag">Markets</div><nav><a href="../index.html">Dispatches</a><a href="../index.html#house">Studio</a><a href="../timeline.html">Field Notes</a><a href="../timeline.html">Index</a></nav></header>
+<div class="article-hero">
+  <div class="kicker">Markets · Anthropic</div>
+  <h1>Five Percent, <em>Set Aside</em></h1>
+  <p class="dek">Anthropic says it will put 5% of its equity into a new Public Benefit Fund — roughly $48 billion at its reported $965 billion valuation — subject to shareholder approval, with the board able to grow the stake as the company’s value rises, all ahead of a reported November IPO.</p>
+  <div class="byline">By <strong>Propagation House</strong><span class="sep">·</span>Tuesday, October 20, 2026<span class="sep">·</span>6 min read</div>
+</div>
+<div class="hero-figure"><div class="hero-img"><img src="../assets/images/anthropic-public-benefit-fund-hero.jpg" alt="A documentary photograph of a shareholders meeting room before the doors open, one printed resolution face-up on a linen runner down the long table, stacked proxy cards at each place, morning light through vertical blinds" /></div><p class="caption">A resolution, a percentage, and a valuation doing the arithmetic. <strong>Photograph by house.</strong></p></div>
+<article class="article-body">
+<p class="lead-para">Anthropic announced on October 18 that it plans to allocate 5% of its equity to a new Anthropic Public Benefit Fund, a stake worth roughly $48 billion at the company’s reported $965 billion valuation, according to CNBC and the company’s own announcement. The allocation requires shareholder approval, and the board would gain authority to add two percentage points to the fund for every 50% increase in the company’s value above an undisclosed baseline. The proposal arrives weeks before a public offering reportedly set to begin formal marketing the week of November 9.</p>
+<p>The first thing to hold onto is what the number is not: $48 billion is equity value at a private valuation, not a cash donation, and it becomes real only in shares that are themselves worth what the market says on the day the market gets to say it. What the number definitely is, is a claim about structure. A company about to sell stock to the public is proposing to ring-fence a twentieth of itself for purposes that are not the shareholders’ — and asking those same shareholders to vote for it.</p>
+<h2>What a Public Benefit Corporation Keeps <em>Back</em></h2>
+<p>Anthropic is already a public benefit corporation, a corporate form that writes a stated public purpose into the charter alongside the fiduciary duty to owners. The fund is that promise made financial: a dedicated equity pool intended to fund public-benefit initiatives, including donations responding to the social and economic effects of AI. The escalator clause — two more points per 50% rise in value — converts the company’s own success into a rising public share, automatically, without a new vote each time.</p>
+<blockquote>A charter says what a company is for. A fund says what it owes — and this one is denominated in the company’s own stock.</blockquote>
+<p>That design has a precedent logic and a criticism logic. The precedent: mission-locked structures have historically been used to keep founders’ control aligned with stated purpose through an IPO’s dilution. The criticism: equity set aside for “social and economic effects” of the company’s own product is a company deciding, in advance and in its own favor, how much harm is enough to pay for — and the baseline against which the escalator measures is deliberately undisclosed.</p>
+<h2>The Timing Is the <em>Story</em></h2>
+<p>The announcement lands one week after Anthropic reported $16.8 billion in quarterly revenue and a second straight adjusted-profitable quarter to prospective investors, and days before formal IPO marketing is reported to begin. Prospectuses are documents of disclosed risk; this one now also carries a disclosed obligation, voted on by the people being asked to buy in. For underwriters it is a marketing line — a slice of a $965 billion valuation committed to the public benefit before anyone buys. For regulators reading the same week’s news, it is a company volunteering a number while the Federal Trade Commission is collecting fifty pages of questions about what its products actually do.</p>
+<h2>What Approval <em>Means</em></h2>
+<p>Shareholders approving the fund are not being asked to believe a forecast; they are being asked to accept a smaller claim on the company’s upside in exchange for a structure that outlasts them. Whether $48 billion of equity ends up funding anything at the scale its valuation implies depends on the IPO’s final price, the baseline nobody outside the boardroom knows, and the votes. What is already settled is the shape: the largest AI IPO yet will carry a public-benefit ledger on its balance sheet from day one, sized in advance, growing by formula — an answer to a question the industry has so far answered mostly with blog posts.</p>
+<div class="stat-row"><div class="stat"><div class="num">5%</div><div class="lbl">Equity Pledged to the Fund</div></div><div class="stat"><div class="num">~$48B</div><div class="lbl">Value at $965B Valuation</div></div><div class="stat"><div class="num">+2 pts</div><div class="lbl">Per 50% Rise in Company Value</div></div><div class="stat"><div class="num">Nov 9</div><div class="lbl">Reported IPO Marketing Week</div></div></div>
+<div class="takeaways"><h4>The Takeaways</h4><ul>
+<li>Anthropic plans to allocate 5% of its equity to a new Anthropic Public Benefit Fund — roughly $48 billion at its reported $965 billion valuation, subject to shareholder approval.</li><li>The fund supports public-benefit initiatives including responses to AI’s social and economic effects; the board can add 2 points per 50% rise in company value above an undisclosed baseline.</li><li>$48 billion is equity value at a private valuation, not cash, and will move with the eventual IPO price.</li><li>The proposal arrives ahead of a reported November IPO, with formal marketing possibly beginning the week of November 9 at a target above $2 trillion.</li><li>Anthropic is already a public benefit corporation; the fund converts that charter promise into a sized, escalator-linked equity pool.</li>
+</ul></div>
+</article>
+<div class="article-foot"><div class="tags"><a href="../timeline.html?category=anthropic">anthropic</a><a href="../timeline.html?category=ipo">ipo</a><a href="../timeline.html?category=markets">markets</a><a href="../timeline.html?category=public-benefit">public-benefit</a><a href="../timeline.html?category=governance">governance</a></div><div class="author-bio"><div class="avatar"><img src="../assets/images/ph-logo-mark.png" alt="Propagation House"></div><div class="bio-text"><h4>Propagation House</h4><div class="role">house Editorial</div><p>Dispatches from the intelligence frontier. Propagation House tracks what the machines are becoming — and what it means for the people who build, fund, and regulate them.</p></div></div></div>
+<section class="related"><div class="section-label">Related Dispatches</div><div class="rel-grid"><article><div class="kicker">Markets · October 16</div><h3><a href="anthropic-q3-offering.html">The Quarter Before the <em>Offering</em></a></h3><div class="meta">6 min read</div></article><article><div class="kicker">Policy · October 16</div><h3><a href="ftc-civil-demands.html">The Fifty-Page <em>Question</em></a></h3><div class="meta">6 min read</div></article><article><div class="kicker">Governance · October 15</div><h3><a href="un-agent-safeguards.html">The Safeguards That <em>Unravel</em></a></h3><div class="meta">6 min read</div></article></div></section>
+<script>(function(){var bar=document.getElementById("progress");function update(){var h=document.documentElement;var scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(scrolled*100)+"%";}window.addEventListener("scroll",update,{passive:true});update();})();</script>
+</body>
+</html>

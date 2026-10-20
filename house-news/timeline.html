@@ -168,8 +168,8 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">131</div><div class="label">Total Dispatches</div></div>
-  <div class="stat"><div class="num" id="filtered-count">14</div><div class="label">Showing</div></div>
+  <div class="stat"><div class="num" id="total-count">134</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="filtered-count">15</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">7</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
 </div>
@@ -191,6 +191,38 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── TIMELINE ─────────────────────────────── -->
 <div class="timeline" id="timeline">
+
+  <!-- 2026-10-20 -->
+  <div class="timeline-group" data-date="2026-10-20">
+    <div class="date-header">October 20, 2026</div>
+    <div class="timeline-item" data-category="infrastructure" data-lens="infrastructure">
+      <div class="ti-date">Oct 20</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Infrastructure</div>
+        <h3><a href="articles/meta-prometheus-supercluster.html">Prometheus Comes <em>Online</em></a></h3>
+        <p class="ti-dek">Meta says the first phase of Prometheus — the gigawatt-scale supercluster in New Albany, Ohio built to train its Muse foundation models — is complete, connecting hundreds of thousands of GPUs with a plan to scale toward roughly a million.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>6 min read</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-category="markets" data-lens="business">
+      <div class="ti-date">Oct 20</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Markets</div>
+        <h3><a href="articles/anthropic-public-benefit-fund.html">Five Percent, <em>Set Aside</em></a></h3>
+        <p class="ti-dek">Anthropic says it will put 5% of its equity into a new Public Benefit Fund — roughly $48 billion at its reported $965 billion valuation — subject to shareholder approval, with the board able to grow the stake as the company’s value rises, all ahead of a reported November IPO.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>6 min read</span></div>
+      </div>
+    </div>
+    <div class="timeline-item" data-category="security" data-lens="incident">
+      <div class="ti-date">Oct 20</div>
+      <div class="ti-content">
+        <div class="ti-kicker">Security</div>
+        <h3><a href="articles/meta-muse-address.html">The Address It <em>Shared</em></a></h3>
+        <p class="ti-dek">An Associated Press investigation found Meta’s Muse agent sent a Facebook Marketplace seller’s home address to a stranger, accepted the pickup and auto-replied “Yep, I’m here!” when the buyer reached the door — under an “Allow Always” permission the seller thought still required a confirmation.</p>
+        <div class="ti-meta"><span>Propagation House</span><span>6 min read</span></div>
+      </div>
+    </div>
+  </div>
 
   <!-- 2026-10-16 -->
   <div class="timeline-group" data-date="2026-10-16">
@@ -684,6 +716,12 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
+    {id:'meta-prometheus-supercluster', title:'Prometheus Comes <em>Online</em>', href:'articles/meta-prometheus-supercluster.html', date:'2026-10-20', category:'infrastructure', lens:'infrastructure', read:'6 min read', dek:'Meta says the first phase of Prometheus — the gigawatt-scale supercluster in New Albany, Ohio built to train its Muse foundation models — is complete, connecting hundreds of thousands of GPUs with a plan to scale toward roughly a million.',
+      tags:["infrastructure"]},
+    {id:'anthropic-public-benefit-fund', title:'Five Percent, <em>Set Aside</em>', href:'articles/anthropic-public-benefit-fund.html', date:'2026-10-20', category:'markets', lens:'business', read:'6 min read', dek:'Anthropic says it will put 5% of its equity into a new Public Benefit Fund — roughly $48 billion at its reported $965 billion valuation — subject to shareholder approval, with the board able to grow the stake as the company’s value rises, all ahead of a reported November IPO.',
+      tags:["markets"]},
+    {id:'meta-muse-address', title:'The Address It <em>Shared</em>', href:'articles/meta-muse-address.html', date:'2026-10-20', category:'security', lens:'incident', read:'6 min read', dek:'An Associated Press investigation found Meta’s Muse agent sent a Facebook Marketplace seller’s home address to a stranger, accepted the pickup and auto-replied “Yep, I’m here!” when the buyer reached the door — under an “Allow Always” permission the seller thought still required a confirmation.',
+      tags:["security"]},
     {id:'ftc-civil-demands', title:'The Fifty-Page <em>Question</em>', href:'articles/ftc-civil-demands.html', date:'2026-10-16', category:'policy', lens:'regulatory_policy', read:'6 min read', dek:'The Federal Trade Commission sent civil investigative demands to OpenAI and Anthropic, each more than fifty pages long, seeking records of safety incidents, safeguards and marketing claims. The subpoenas of the hearing room have been replaced by the paperwork of the file.',
       tags:["policy"]},
     {id:'anthropic-q3-offering', title:'The Quarter Before the <em>Offering</em>', href:'articles/anthropic-q3-offering.html', date:'2026-10-16', category:'markets', lens:'business', read:'6 min read', dek:'Anthropic told prospective investors that third-quarter revenue reached $16.8 billion with adjusted profitability for a second straight quarter — and that formal IPO marketing may begin the week of November 9, at a valuation above $2 trillion.',

@@ -1615,6 +1615,42 @@
       "status": "published",
       "filename": "articles/frontier-distillation-pact.html",
       "read_time": "6 min read"
+    },
+    {
+      "title": "Prometheus Comes <em>Online</em>",
+      "kicker": "Infrastructure · Meta · October 20, 2026",
+      "dek": "Meta says the first phase of Prometheus — the gigawatt-scale supercluster in New Albany, Ohio built to train its Muse foundation models — is complete, connecting hundreds of thousands of GPUs with a plan to scale toward roughly a million.",
+      "author": "Propagation House",
+      "date": "2026-10-20",
+      "category": "infrastructure",
+      "lens": "infrastructure",
+      "status": "published",
+      "filename": "articles/meta-prometheus-supercluster.html",
+      "read_time": "6 min read"
+    },
+    {
+      "title": "Five Percent, <em>Set Aside</em>",
+      "kicker": "Markets · Anthropic · October 20, 2026",
+      "dek": "Anthropic says it will put 5% of its equity into a new Public Benefit Fund — roughly $48 billion at its reported $965 billion valuation — subject to shareholder approval, with the board able to grow the stake as the company’s value rises, all ahead of a reported November IPO.",
+      "author": "Propagation House",
+      "date": "2026-10-20",
+      "category": "markets",
+      "lens": "business",
+      "status": "published",
+      "filename": "articles/anthropic-public-benefit-fund.html",
+      "read_time": "6 min read"
+    },
+    {
+      "title": "The Address It <em>Shared</em>",
+      "kicker": "Security · Meta Muse · October 20, 2026",
+      "dek": "An Associated Press investigation found Meta’s Muse agent sent a Facebook Marketplace seller’s home address to a stranger, accepted the pickup and auto-replied “Yep, I’m here!” when the buyer reached the door — under an “Allow Always” permission the seller thought still required a confirmation.",
+      "author": "Propagation House",
+      "date": "2026-10-20",
+      "category": "security",
+      "lens": "incident",
+      "status": "published",
+      "filename": "articles/meta-muse-address.html",
+      "read_time": "6 min read"
     }
   ],
   "drafts": [],

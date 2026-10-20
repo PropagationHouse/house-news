@@ -85,6 +85,28 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 92 (Oct 20, 2026) ----------
+    {"filename": "meta-prometheus-supercluster-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a long low data-center building on flat Ohio farmland at dusk, rows of cooling units along its roofline, a single floodlight glowing at the loading dock, wide empty sky above",
+     "place": "a gigawatt-scale data-center campus at the edge of flat farmland, chain-link fence and a gravel service road in the foreground",
+     "camera": "from across the service road at standing height, candid documentary distance, nobody in frame",
+     "light": "last dusk light along the horizon with hard floodlight pooling at the loading dock and cool sky above",
+     "scale_anchor": "the fence posts and the loading dock doors make the length of the building scale obvious.",
+     "lens": "35mm f/4 prime, 1/50s"},
+    {"filename": "anthropic-public-benefit-fund-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a shareholders meeting room before the doors open, one printed resolution face-up on a linen runner down the long table, stacked proxy cards at each place, morning light through vertical blinds",
+     "place": "a corporate shareholder meeting room with a long conference table, high-back chairs and vertical blinds",
+     "camera": "from the head of the table at standing height, candid documentary distance, nobody in frame",
+     "light": "cool morning daylight striping through the vertical blinds with a low warm downlight pooled on the printed resolution",
+     "scale_anchor": "the stacked proxy cards and chair row make the length of the table scale obvious.",
+     "lens": "28mm f/4 prime, 1/60s"},
+    {"filename": "meta-muse-address-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a suburban porch at blue hour, a small wrapped package left beside the front door under a motion light, no people in frame, a house number partially visible on the post",
+     "place": "a modest suburban house porch with a screen door, a concrete step and a wooden number post",
+     "camera": "from the walkway at standing height looking toward the door, candid documentary distance, nobody in frame",
+     "light": "blue-hour ambient light with a single hard motion-light cone pooling on the package and the step",
+     "scale_anchor": "the package and the doormat make the porch scale obvious.",
+     "lens": "35mm f/2 prime, 1/40s"},
     # ---------- NO. 91 (Oct 16, 2026) ----------
     {"filename": "ftc-civil-demands-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a federal agency conference room, two thick bound document volumes stacked at each end of a long polished table, an empty brass nameplate holder at the head",
