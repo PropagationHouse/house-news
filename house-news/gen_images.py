@@ -85,6 +85,14 @@ def resolve(entry: dict) -> str:
 # 5 approved style-test renders are copied (copy_from); 36 are rendered.
 # ============================================================
 IMAGES = [
+    # ---------- NO. 93 DRAFT (Oct 26, 2026) - samsung-listening-tv ----------
+    {"filename": "samsung-listening-tv-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
+     "subject": "a dark living room at night, a 50-inch Samsung Crystal UHD flat-screen television glowing faintly above a slim soundbar on a low media console — thin black bezel with a small centered SAMSUNG logo at the bottom edge and Samsung's characteristic slim V-shaped pedestal stand, the empty couch opposite reflected in the dark screen, no people in frame",
+     "place": "an ordinary suburban living room at night with a media console, a couch and a window with the curtains drawn",
+     "camera": "from behind the couch at standing height looking toward the television, candid documentary distance, nobody in frame",
+     "light": "the television as the only light source spilling faint blue-white across the console and carpet, the room otherwise dark",
+     "scale_anchor": "the soundbar and media console make the size of the screen obvious.",
+     "lens": "35mm f/2 prime, 1/30s"},
     # ---------- NO. 92 (Oct 20, 2026) ----------
     {"filename": "meta-prometheus-supercluster-hero.jpg", "aspect_ratio": "16:9", "lane": "b",
      "subject": "a long low data-center building on flat Ohio farmland at dusk, rows of cooling units along its roofline, a single floodlight glowing at the loading dock, wide empty sky above",
