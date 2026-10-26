@@ -168,8 +168,8 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── STATS ────────────────────────────────── -->
 <div class="stats-bar">
-  <div class="stat"><div class="num" id="total-count">135</div><div class="label">Total Dispatches</div></div>
-  <div class="stat"><div class="num" id="filtered-count">16</div><div class="label">Showing</div></div>
+  <div class="stat"><div class="num" id="total-count">134</div><div class="label">Total Dispatches</div></div>
+  <div class="stat"><div class="num" id="filtered-count">15</div><div class="label">Showing</div></div>
   <div class="stat"><div class="num">7</div><div class="label">Categories</div></div>
   <div class="stat"><div class="num">3</div><div class="label">Lenses</div></div>
 </div>
@@ -191,20 +191,6 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
 
 <!-- ── TIMELINE ─────────────────────────────── -->
 <div class="timeline" id="timeline">
-
-  <!-- 2026-10-26 -->
-  <div class="timeline-group" data-date="2026-10-26">
-    <div class="date-header">October 26, 2026</div>
-    <div class="timeline-item" data-category="security" data-lens="policy">
-      <div class="ti-date">Oct 26</div>
-      <div class="ti-content">
-        <div class="ti-kicker">Security</div>
-        <h3><a href="articles/samsung-listening-tv.html">The Company That Truly <em>Listens</em></a></h3>
-        <p class="ti-dek">A researcher opened the $3,000 television he paid for, found an ad network listening through his soundbar, and drew a cyber-abuse ban from OpenAI two days later. The neighbor who did this would land on a registry. The corporation gets a checkbox.</p>
-        <div class="ti-meta"><span>Propagation House</span><span>6 min read</span></div>
-      </div>
-    </div>
-  </div>
 
   <!-- 2026-10-20 -->
   <div class="timeline-group" data-date="2026-10-20">
@@ -730,8 +716,6 @@ footer .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--rule);f
   // Topic sets are hand-curated from each article's kicker + dek so the
   // graph reflects what the stories are actually about, not just category.
   const ARTICLES = [
-    {id:'samsung-listening-tv', title:'The Company That Truly <em>Listens</em>', href:'articles/samsung-listening-tv.html', date:'2026-10-26', category:'security', lens:'policy', read:'6 min read', dek:'A researcher opened the $3,000 television he paid for, found an ad network listening through his soundbar, and drew a cyber-abuse ban from OpenAI two days later. The neighbor who did this would land on a registry. The corporation gets a checkbox.',
-      tags:["security"]},
     {id:'meta-prometheus-supercluster', title:'Prometheus Comes <em>Online</em>', href:'articles/meta-prometheus-supercluster.html', date:'2026-10-20', category:'infrastructure', lens:'infrastructure', read:'6 min read', dek:'Meta says the first phase of Prometheus — the gigawatt-scale supercluster in New Albany, Ohio built to train its Muse foundation models — is complete, connecting hundreds of thousands of GPUs with a plan to scale toward roughly a million.',
       tags:["infrastructure"]},
     {id:'anthropic-public-benefit-fund', title:'Five Percent, <em>Set Aside</em>', href:'articles/anthropic-public-benefit-fund.html', date:'2026-10-20', category:'markets', lens:'business', read:'6 min read', dek:'Anthropic says it will put 5% of its equity into a new Public Benefit Fund — roughly $48 billion at its reported $965 billion valuation — subject to shareholder approval, with the board able to grow the stake as the company’s value rises, all ahead of a reported November IPO.',

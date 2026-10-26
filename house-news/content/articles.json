@@ -1651,18 +1651,6 @@
       "status": "published",
       "filename": "articles/meta-muse-address.html",
       "read_time": "6 min read"
-    },
-    {
-      "title": "The Company That Truly <em>Listens</em>",
-      "kicker": "Security · Samsung · October 26, 2026",
-      "dek": "A researcher opened the $3,000 television he paid for, found an ad network listening through his soundbar, and drew a cyber-abuse ban from OpenAI two days later. The neighbor who did this would land on a registry. The corporation gets a checkbox.",
-      "author": "Propagation House",
-      "date": "2026-10-26",
-      "category": "security",
-      "lens": "policy",
-      "status": "published",
-      "filename": "articles/samsung-listening-tv.html",
-      "read_time": "6 min read"
     }
   ],
   "drafts": [],
