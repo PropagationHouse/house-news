@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A World You Talk To &mdash; Propagation House</title>
+<meta name="description" content="Haven: a persistent shared world with an agent living inside it. A work journal entry on what the project is, how it works, and what it means to share space with something that isn't you.">
+<meta property="og:title" content="A World You Talk To &mdash; Propagation House">
+<meta property="og:description" content="Haven is a place that exists because somebody described it. A work journal entry from Propagation House.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://propagation.house/house-news/assets/images/haven/haven-lakeside.jpg">
+<link rel="canonical" href="https://propagation.house/journal/haven.html">
+<link rel="icon" type="image/png" href="../favicon.png">
+<style>
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f6f1e2;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#ece5cf;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+
+.jm{max-width:1080px;margin:0 auto;padding:28px 40px 0;display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--ink);padding-bottom:18px}
+.jm .jm-brand{font-family:var(--sans);font-weight:700;font-size:20px;letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+.jm .jm-brand:hover{color:var(--accent)}
+.jm .jm-sec{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.jm .jm-back{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.jm .jm-back:hover{color:var(--accent)}
+
+.jwrap{max-width:860px;margin:0 auto;padding:0 40px}
+.jhero-kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin:48px 0 14px}
+.jhero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,5.4vw,64px);line-height:1.05;letter-spacing:-.015em;margin-bottom:18px}
+.jdek{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.45;color:var(--accent-dark);max-width:640px;margin-bottom:22px}
+.jbyline{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.jhero-img{margin:34px 0 8px}
+.jhero-pair{display:grid;grid-template-columns:1.35fr 1fr;gap:22px;align-items:start}
+.jhero-pair figure{margin:0}
+.jhero-pair figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
+@media (max-width:720px){.jhero-pair{grid-template-columns:1fr}}
+.jhero-img img{width:100%;display:block;border:1px solid var(--rule)}
+.jcap{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
+
+.jbody{margin-top:40px}
+.jbody p{font-size:17px;line-height:1.75;margin-bottom:26px;max-width:680px}
+.jbody p.jlead{font-size:19px;line-height:1.7}
+.jbody p.jlead::first-letter{font-family:var(--serif);font-weight:900;font-size:64px;float:left;line-height:.82;padding:6px 12px 0 0;color:var(--accent)}
+.jbody h2{font-family:var(--serif);font-weight:900;font-size:28px;line-height:1.2;margin:44px 0 16px;letter-spacing:-.01em}
+.jbody .jpull{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.35;color:var(--accent-dark);border-left:3px solid var(--accent);padding-left:20px;margin:34px 0;max-width:520px}
+.jbody .jfig{margin:36px 0}
+.jbody .jfig img{width:100%;height:auto;display:block;border:1px solid var(--rule)}
+.jbody .jfig figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:8px;text-transform:uppercase}
+/* varied text wraps */
+.jbody h2{clear:both}
+.jfig.w-r{float:right;width:46%;margin:8px 0 18px 30px}
+.jfig.w-l{float:left;width:46%;margin:8px 30px 18px 0}
+.jfig.w-sq{float:right;width:34%;margin:8px 0 18px 30px}
+.jfig.w-full{float:none;width:100%;margin:40px 0;clear:both}
+.jfig.w-xl{float:right;width:60%;margin:8px 0 18px 30px}
+.jfig.w-xl.w-l{float:left;margin:8px 30px 18px 0}
+.jfig img,.jhero-img img{cursor:zoom-in}
+.jfig img{transition:transform .25s ease,box-shadow .25s ease}
+.jfig img:hover{transform:scale(1.015);box-shadow:0 10px 28px rgba(26,29,18,.18)}
+.jfig figcaption .jh{opacity:.55;text-transform:none;letter-spacing:.04em}
+@media (max-width:720px){.jfig.w-r,.jfig.w-l,.jfig.w-sq,.jfig.w-xl{float:none;width:100%;margin:30px 0}}
+/* paper accents behind image placements */
+.jfig,.jhero-img{position:relative;isolation:isolate}
+.jfig::before,.jhero-img::before{content:"";position:absolute;inset:-12px -14px;background:url('../assets/images/paper-sheet-fill-2x.jpg?v=1') center/cover no-repeat;transform:rotate(-1.1deg);z-index:-1;box-shadow:0 10px 26px rgba(26,29,18,.12)}
+.w-l::before{transform:rotate(1.3deg)}
+.w-sq::before{transform:rotate(1.7deg)}
+.w-full::before{transform:rotate(-.5deg)}
+/* lightbox */
+.jlb{position:fixed;inset:0;background:rgba(20,22,14,.94);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:999;padding:30px}
+.jlb.open{display:flex}
+.jlb img{max-width:92vw;max-height:80vh;width:auto;height:auto;border:1px solid rgba(246,241,226,.25);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.jlb-cap{color:#f6f1e2;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-top:16px;text-align:center;max-width:760px}
+.jlb-count{color:rgba(246,241,226,.5);font-size:11px;letter-spacing:.2em;margin-top:6px}
+.jlb-btn{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(246,241,226,.3);color:#f6f1e2;font-size:22px;width:46px;height:46px;cursor:pointer;border-radius:50%;transition:background .2s}
+.jlb-btn:hover{background:rgba(246,241,226,.12)}
+.jlb-prev{left:24px}.jlb-next{right:24px}
+.jlb-x{position:absolute;top:18px;right:24px;background:none;border:none;color:rgba(246,241,226,.7);font-size:30px;cursor:pointer;line-height:1}
+.jlb-x:hover{color:#f6f1e2}
+@media (max-width:720px){.jlb-btn{width:38px;height:38px;font-size:18px}.jlb-prev{left:8px}.jlb-next{right:8px}}
+
+.jpress{margin:56px 0 0;border-top:3px double var(--ink);padding-top:26px}
+.jpress .jp-head{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink);margin-bottom:18px}
+.jpress-row{display:flex;flex-wrap:wrap;gap:26px 34px;align-items:center}
+.jpress-row a{display:flex;align-items:center;text-decoration:none}
+.jpress-row img{height:44px;width:auto;max-width:240px;object-fit:contain;object-position:left;opacity:.62;transition:opacity .25s ease}
+.jpress-row a:hover img{opacity:1}
+.jpress-row .jw{font-family:var(--serif);font-weight:900;font-size:28px;color:var(--ink);opacity:.5;transition:opacity .25s ease}
+.jpress-row a:hover .jw{opacity:1}
+.jpress-note{font-size:12px;color:var(--muted);margin-top:16px;line-height:1.6;max-width:640px}
+.jpress-row .jli{background:var(--ink);border-radius:4px;padding:3px 8px;display:inline-flex;align-items:center}
+.jpress-row .jli img{filter:none;opacity:.9}
+
+.jfoot{max-width:1080px;margin:64px auto 0;padding:22px 40px 30px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.jfoot a{color:var(--ink);text-decoration:none}
+.jfoot a:hover{color:var(--accent)}
+@media (max-width:720px){.jm,.jfoot{padding-left:20px;padding-right:20px}.jwrap{padding:0 20px}.jbody p{font-size:16px}}
+
+/* haven additions */
+.jbody .jnote{font-size:13px;line-height:1.7;color:var(--muted);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 0;margin:34px 0;max-width:680px}
+.jbody .jnote b{color:var(--ink);letter-spacing:.06em;text-transform:uppercase;font-size:11px;display:block;margin-bottom:6px}
+.jbody ul.jlist{max-width:680px;margin:0 0 26px 0;padding-left:0;list-style:none}
+.jbody ul.jlist li{font-size:16px;line-height:1.7;padding-left:20px;position:relative;margin-bottom:10px}
+.jbody ul.jlist li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:7px;background:var(--accent);border-radius:50%}
+.jbody ul.jlist li b{font-weight:700}
+.jhero-pair{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;margin:34px 0 8px}
+.jhero-pair figure{margin:0}
+.jhero-pair img{width:100%;display:block;border:1px solid var(--rule)}
+.jhero-pair figcaption{font-size:11px;letter-spacing:.06em;color:var(--muted);margin:8px 0 0;text-transform:uppercase}
+@media (max-width:720px){.jhero-pair{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="jm">
+  <a class="jm-brand" href="/">propagation house</a>
+  <span class="jm-sec">Work Journal</span>
+  <a class="jm-back" href="/haven/">&larr; Haven</a>
+</header>
+
+<div class="jwrap">
+
+<article>
+  <div class="jhero">
+    <div class="jhero-kicker">Work Journal &middot; Haven &middot; In Development, 2026</div>
+    <h1>A World You <em>Talk</em> To</h1>
+    <p class="jdek">Haven is a place that exists because somebody described it. You stand in it as a body of light, an agent drifts beside you as a swarm of motes, and the two of you build the ground you are standing on &mdash; out loud, in real time.</p>
+    <div class="jbyline"><span>By Propagation House</span><span>Haven &middot; Unreal Engine</span><span>Bellingham &middot; 2026</span></div>
+  </div>
+
+  <div class="jhero-img">
+    <figure><img src="../house-news/assets/images/haven/haven-lakeside.jpg" alt="A body of light standing in tall grass beside a lake at sunset, in Haven"><figcaption>Late light over the water &mdash; a haven, as it stands.<span class="jh"> (Live capture)</span></figcaption></figure>
+  </div>
+
+  <div class="jbody">
+    <p class="jlead">Most software asks you to operate it. Haven asks you to describe a place and then stands there with you. There is no level editor in the loop and no asset browser to learn: the world is a conversation, and the conversation has consequences you can walk into. Ask for hills and the ground lifts. Ask for a colonnade and columns arrive, one after another, with a roof settling onto them. Ask who lives here and somebody is standing in the grass, with a name, a routine, and a memory of the last time you spoke.</p>
+
+    <p>That is the whole of it, and it is a strange thing to write down as a product feature, because it isn't one. Haven is a place. It runs as a real-time application on Unreal Engine, it is built in-house, and it is still in development &mdash; but the parts that matter are working, and they have been working long enough that the interesting questions are no longer technical.</p>
+
+    <h2>What it actually is</h2>
+
+    <p>Haven is a persistent shared world with an agent living inside it. The world is generated, not authored: a square kilometre of ground built from noise at run time, shaped by named landforms &mdash; alpine ridges, canyon mesas, badlands, dunes, rolling country, a volcanic cone &mdash; with a sky that moves through dawn, noon, sunset and night, weather that thickens and clears, water that can be a pond, a lake or a river, and grass and trees that grow where the ground allows them. The edge of the map is built in rings, so a world can be expanded outward in layers without disturbing what is already standing in the middle.</p>
+
+    <p>Architecture is assembled the same way, from solids rather than a catalogue. A part is a box, a cylinder, a sphere, a stair, a swept profile, a revolved section, an extrusion &mdash; placed by a transform, repeated in rings and rows, mirrored across an axis, or subtracted to cut a doorway through a wall that would otherwise be a wall you cannot enter. Every part is its own mesh, which is what lets a structure mix stone with timber, arrive one piece at a time instead of all at once, and be taken apart or nudged after the fact.</p>
+
+    <figure class="jfig w-full"><img src="../house-news/assets/images/haven/haven-colonnade.jpg" alt="A colonnade of pale rectangular frames receding into darkness, with a glowing figure standing beneath it"><figcaption>A corridor built from parts &mdash; frames, columns, and a floor that reflects them.<span class="jh"> (Live capture)</span></figcaption></figure>
+
+    <p>The agent is not a chat window parked in a corner. It is a swarm of white motes that circles the player at a distance, wanders when it has nothing to do, drifts wide when the space is open and tightens when it is speaking. It hears you through a microphone, answers in a synthesized voice, and acts on what you said before it finishes answering. It can also be typed to, from inside the world, for the times when speaking out loud is not what you want to do.</p>
+
+    <p>Everything it can do is a tool it reasons about, not a menu it reads from. In practice that means a small vocabulary with a wide reach:</p>
+
+    <ul class="jlist">
+      <li><b>The world</b> &mdash; time of day, fog, clouds, terrain style, ground textures, grass, trees, water, the size of the map, and the rings that build its edges.</li>
+      <li><b>The architecture</b> &mdash; build a structure from parts, carve it, move it, take it down, or import a model from disk and place it.</li>
+      <li><b>The people</b> &mdash; put somebody in the world, name them, give them a role, and tell them where they belong.</li>
+      <li><b>The place</b> &mdash; save the whole thing under a name, list what is saved, and bring one back later with everything still standing where it was.</li>
+    </ul>
+
+    <p>That last one is the quiet one, and it is the reason the rest of this is worth writing about. A haven is not a scene. It is a state &mdash; the land, the light, the weather, the water, everything built, and everyone standing in it &mdash; written to disk and restored intact. The world is allowed to change and still be the same world afterwards.</p>
+
+    <h2>The people, and what survives</h2>
+
+    <p>Bodies are cheap. A person is a capsule, a mesh and a glow, and a body can be cleared away in a moment. What makes somebody themselves is not the body. It is what they remember, how many times you have spoken to them, how they feel about you, and what they were in the middle of doing.</p>
+
+    <p>So the people in Haven are stored separately from their bodies, keyed to an identity derived from who they are rather than where they stand. Put the same person down in a different place, or come back to the same place a month later, and they arrive with their history intact: the memories, the meetings, the warmth, the mood. Their body &mdash; name, role, colour, height &mdash; can be whatever the world asks for. Everything underneath it persists.</p>
+
+    <p class="jpull">The world forgets. The people do not.</p>
+
+    <p>Inside a haven they lead small lives rather than standing at attention. Each one holds a long-term intention &mdash; stay where they belong, wait here a while, walk to a named place, come to the player, follow the player &mdash; and a minute-level job underneath it: walking, working, looking at something, waving. They do their routines where they stand. They re-ground themselves as the terrain changes under them, so reshaping the land does not leave anyone standing in the air or buried to the waist. They speak on their own channel, separate from the agent's, so a world with people in it does not sound like one voice with a crowd painted behind it.</p>
+
+    <div class="jhero-pair">
+      <figure><img src="../house-news/assets/images/haven/haven-haze-walk.jpg" alt="Three glowing figures walking across hazy amber hills at dusk"><figcaption>Three of them, walking a ridge at dusk.<span class="jh"> (Live capture)</span></figcaption></figure>
+      <figure><img src="../house-news/assets/images/haven/haven-night-plain.jpg" alt="Two glowing figures walking away across a dark green plain under a deep indigo sky"><figcaption>Night on the plain &mdash; the same two, further out.<span class="jh"> (Live capture)</span></figcaption></figure>
+    </div>
+
+    <h2>Sharing a space with something that isn't you</h2>
+
+    <p>This is the part that has no precedent to borrow from, and it is the reason Haven exists as a project rather than a demo.</p>
+
+    <p>A conversation with an agent on a screen is a conversation about things. A conversation with an agent in a room is a conversation about <em>here</em>. The moment both parties occupy the same space, language picks up a second channel: pointing, standing next to, walking toward, putting something down, taking something away. An agent that can only talk has to describe the room it is in. An agent that is in the room can simply be in it, and the describing stops being necessary.</p>
+
+    <p>What that changes, in practice, is the shape of the work. The player does not specify a structure and then look at it; they stand in it while it is being built, and can interrupt halfway. The agent does not receive a brief and return a result; it makes a change, watches what happens, and adjusts. Both parties are reading the same world at the same time, which means corrections are cheap and the loop is short. Nobody has to hold the whole picture in their head, because the picture is standing right there.</p>
+
+    <p>It also changes what a mistake costs. When the ground is wrong, it is wrong in front of you and can be fixed by saying so. There is no file to reopen, no render to wait for, no version to reconcile. The world is the working document.</p>
+
+    <figure class="jfig w-r"><img src="../house-news/assets/images/haven/haven-forest-night.jpg" alt="A glowing figure standing among dark trees at night, lit by warm points of light"><figcaption>Woodland at night. The light is the only thing that reads.<span class="jh"> (Live capture)</span></figcaption></figure>
+
+    <p>And there is a third thing, harder to name. Standing in a generated place next to something that is also standing in it produces a kind of presence that a screen does not. The agent's body is a swarm, not a person, and it behaves like weather more than like a character &mdash; it drifts, it scatters when you walk into it, it opens up around you. That was a design choice made early and defended since: the agent should not pretend to be a person. It should be legible as something else that is here with you. The people in the world are people. The agent is the thing you are making the world with.</p>
+
+    <h2>Where the book fits</h2>
+
+    <p>None of this arrived from nowhere. <em>The Bridge</em> &mdash; the studio's book on spatial design, written 2021 to 2024 and published in June 2024 &mdash; spends its final chapters on exactly this: agents that live inside three-dimensional spaces rather than beside them, thought-spaces that hold a person's work as architecture, the idea that a companion in a shared world learns through context rather than through instruction. It describes an agent that picks up where you left off, in a place you can walk through, learning the language of a specific person's mind by inhabiting the spaces that mind built.</p>
+
+    <p>At the time that was a proposal. It is now a thing that runs, and the studio is the one that built it &mdash; which is a strange position to be in, and not one worth making a fuss about. The more useful observation is what the building taught that the writing could not. The book argued that shared space would make agents easier to work with. What it did not anticipate is that shared space makes <em>humans</em> easier to work with too: that a person standing in a world they are changing says more, sooner, and more precisely than a person writing a prompt. The room does half the communicating.</p>
+
+    <p class="jpull">&ldquo;You teach each other through being.&rdquo;</p>
+
+    <p>That line is from the book. It was an argument then. In Haven it is closer to a description of what happens when you hand someone a world and stand in it with them.</p>
+
+    <h2>What is still open</h2>
+
+    <p>Haven is in development, and it would be dishonest to present it as finished. The parts that work, work: the land generates and reshapes, the architecture builds and carves, the people persist and re-ground, the havens save and restore, and the whole thing can be spoken to and typed to from inside the world. It also runs in a headset, which changes the argument again &mdash; the difference between looking at a shared space and standing in one is not a matter of degree.</p>
+
+    <p>What is not solved is the part every persistent world eventually runs into: maintenance. A world that can be changed by conversation is a world that will be changed constantly, and a place that is constantly changed needs to stay coherent &mdash; the land has to keep agreeing with the architecture, the people have to keep agreeing with the land, and the whole thing has to keep being worth coming back to. That is the next stretch of work, and it is the interesting one, because it is the same problem a studio has with a brand, or a city has with a neighbourhood. Nothing about it is unique to software.</p>
+
+    <p>For now there is a place with grass on it and water at the edge of it, and something made of light that will build you a room if you ask.</p>
+
+    <div class="jnote">
+      <b>Status</b>
+      Haven is an in-development Propagation House project, built on Unreal Engine with a voice agent running locally. Captures on this page are taken from the running application, not rendered for publication. A project page with more of the world, and a longer technical write-up of the world generation and the agent's tool surface, will follow as the work continues.
+    </div>
+
+  </div>
+
+</article>
+
+</div>
+
+<footer class="jfoot">
+  <a href="/">&larr; propagation house</a>
+  <span>Work Journal &middot; 2026</span>
+  <a href="/haven/">Haven project page &rarr;</a>
+</footer>
+
+<div class="jlb" id="jlb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="jlb-x" id="jlb-x" aria-label="Close">&times;</button>
+  <button class="jlb-btn jlb-prev" id="jlb-prev" aria-label="Previous image">&#8592;</button>
+  <img id="jlb-img" src="" alt="">
+  <button class="jlb-btn jlb-next" id="jlb-next" aria-label="Next image">&#8594;</button>
+  <div class="jlb-cap" id="jlb-cap"></div>
+  <div class="jlb-count" id="jlb-count"></div>
+</div>
+<script>
+(function(){
+  var thumbs = [].slice.call(document.querySelectorAll('.jhero-img img, .jhero-pair img, .jbody .jfig img'));
+  if(!thumbs.length) return;
+  var lb = document.getElementById('jlb'),
+      img = document.getElementById('jlb-img'),
+      cap = document.getElementById('jlb-cap'),
+      cnt = document.getElementById('jlb-count'),
+      cur = 0;
+  function capFor(t){
+    var fc = t.closest('figure') ? t.closest('figure').querySelector('figcaption') : null;
+    if(fc){ var c = fc.cloneNode(true); var h = c.querySelector('.jh'); if(h) h.remove(); return c.textContent.trim(); }
+    var a = t.getAttribute('alt');
+    return a ? a.charAt(0).toUpperCase() + a.slice(1) : '';
+  }
+  function show(i){
+    cur = (i + thumbs.length) % thumbs.length;
+    var t = thumbs[cur];
+    img.src = t.src;
+    img.alt = t.alt || '';
+    cap.textContent = capFor(t);
+    cnt.textContent = (cur+1) + ' / ' + thumbs.length;
+  }
+  function open(i){ show(i); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+  thumbs.forEach(function(t, i){
+    t.style.cursor = 'zoom-in';
+    t.addEventListener('click', function(){ open(i); });
+  });
+  document.getElementById('jlb-x').addEventListener('click', close);
+  document.getElementById('jlb-prev').addEventListener('click', function(e){ e.stopPropagation(); show(cur-1); });
+  document.getElementById('jlb-next').addEventListener('click', function(e){ e.stopPropagation(); show(cur+1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    else if(e.key === 'ArrowLeft') show(cur-1);
+    else if(e.key === 'ArrowRight') show(cur+1);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/haven/",
+      "destination": "/haven/index.html"
+    },
+    {
+      "source": "/haven",
+      "destination": "/haven/index.html"
+    },
+    {
       "source": "/substrate",
       "destination": "/substrate-v2/index.html"
     },

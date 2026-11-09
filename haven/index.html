@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Haven &mdash; A World You Talk To &middot; Propagation House</title>
+<meta name="description" content="Haven is a persistent shared world with an agent living inside it. You stand in it as a body of light; the agent drifts beside you as a swarm of motes; together you build the ground you are standing on.">
+<meta property="og:title" content="Haven &mdash; A World You Talk To">
+<meta property="og:description" content="A persistent shared world with an agent living inside it. In development at Propagation House.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://propagation.house/house-news/assets/images/haven/haven-lakeside.jpg">
+<link rel="canonical" href="https://propagation.house/haven/">
+<link rel="icon" type="image/png" href="../favicon.png">
+<style>
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+@font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+:root{
+  --ink:#1a1d12;
+  --paper:#f6f1e2;
+  --rule:#c8c3ad;
+  --accent:#4b5320;
+  --accent-dark:#3a4018;
+  --muted:#6b6e5a;
+  --bg-tint:#ece5cf;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Acumin Pro','Helvetica Neue',Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+img{max-width:100%}
+a{color:inherit}
+
+.hm{position:sticky;top:0;z-index:60;background:rgba(246,241,226,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.hm-in{max-width:1180px;margin:0 auto;padding:14px 40px;display:flex;align-items:baseline;justify-content:space-between;gap:20px}
+.hm-brand{font-weight:700;font-size:18px;letter-spacing:-.03em;text-decoration:none}
+.hm-brand:hover{color:var(--accent)}
+.hm-nav{display:flex;gap:26px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.hm-nav a{text-decoration:none}
+.hm-nav a:hover{color:var(--accent)}
+@media(max-width:760px){.hm-nav{display:none}.hm-in{padding:12px 20px}}
+
+.hero{position:relative;min-height:min(88vh,760px);display:flex;align-items:flex-end;overflow:hidden;background:#0c0f0a}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(6,8,4,.96) 0%,rgba(6,8,4,.82) 26%,rgba(6,8,4,.46) 58%,rgba(6,8,4,.30) 78%,rgba(6,8,4,.52) 100%)}
+.hero-in{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 40px 64px;width:100%;color:#f6f1e2}
+.hero-kicker{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:#c9d3a8;margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.hero-kicker .dot{width:7px;height:7px;border-radius:50%;background:#c9d3a8;box-shadow:0 0 12px #c9d3a8}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(56px,10vw,132px);line-height:.9;letter-spacing:-.03em;margin-bottom:20px}
+.hero p{font-family:var(--serif);font-style:italic;font-size:clamp(19px,2.2vw,26px);line-height:1.4;max-width:660px;color:#e4ddc8}
+.hero-meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,241,226,.62);border-top:1px solid rgba(246,241,226,.22);padding-top:16px}
+@media(max-width:760px){.hero-in{padding:0 20px 44px}}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+@media(max-width:760px){.wrap{padding:0 20px}}
+
+.lede{padding:76px 0 20px}
+.lede .inner{max-width:760px}
+.lede p{font-size:21px;line-height:1.62;color:var(--ink)}
+.lede p+p{margin-top:22px;font-size:17px;line-height:1.75;color:#3c4033}
+
+.stats{border-top:3px double var(--ink);border-bottom:1px solid var(--rule);margin:56px 0 0}
+.stats-in{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{padding:26px 22px 26px 0;border-right:1px solid #b3ad93}
+.stat:last-child{border-right:none}
+.stat .n{font-family:var(--serif);font-weight:900;font-size:34px;line-height:1;letter-spacing:-.02em;color:var(--accent-dark)}
+.stat .l{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-top:8px;line-height:1.5}
+@media(max-width:820px){.stats-in{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--rule)}}
+
+.shead{display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-bottom:1px solid var(--rule);padding-bottom:14px;margin:0 0 34px}
+.shead .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.shead .n{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.block{padding:64px 0 0}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.two p{font-size:16.5px;line-height:1.78;color:#33372b}
+.two p+p{margin-top:18px}
+@media(max-width:820px){.two{grid-template-columns:1fr;gap:0}.two>div+div{margin-top:18px}}
+
+.row{display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:center;padding:64px 0;border-bottom:1px solid var(--rule)}
+.row h3{font-family:var(--serif);font-weight:900;font-size:clamp(26px,3.2vw,38px);line-height:1.1;letter-spacing:-.015em;margin-bottom:14px}
+.row h3 em{font-style:italic}
+.row .num{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:12px}
+.row p{font-size:16.5px;line-height:1.78;color:#33372b;max-width:520px}
+.row p+p{margin-top:16px}
+.row .shot{position:relative;isolation:isolate}
+.row .shot img{width:100%;display:block;border:1px solid var(--rule);cursor:zoom-in;transition:transform .25s ease,box-shadow .25s ease}
+.row .shot img:hover{transform:scale(1.012);box-shadow:0 10px 28px rgba(26,29,18,.18)}
+.row .shot::before{content:"";position:absolute;inset:-11px -13px;background:url('../assets/images/paper-sheet-fill-2x.jpg?v=1') center/cover no-repeat;transform:rotate(-1deg);z-index:-1;box-shadow:0 10px 26px rgba(26,29,18,.12)}
+.row.rev .shot::before{transform:rotate(1.1deg)}
+.row .cap{font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:9px;text-transform:uppercase}
+@media(max-width:900px){.row{grid-template-columns:1fr;gap:30px;padding:48px 0}}
+
+.pull{font-family:var(--serif);font-style:italic;font-size:clamp(24px,3.4vw,38px);line-height:1.28;color:var(--accent-dark);border-left:4px solid var(--accent);padding-left:26px;margin:56px 0;max-width:760px}
+
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:10px}
+.gal figure{margin:0}
+.gal img{width:100%;display:block;border:1px solid var(--rule);cursor:zoom-in;transition:transform .25s ease,box-shadow .25s ease}
+.gal img:hover{transform:scale(1.015);box-shadow:0 10px 28px rgba(26,29,18,.18)}
+.gal figcaption{font-size:10px;letter-spacing:.08em;color:var(--muted);margin-top:7px;text-transform:uppercase;line-height:1.5}
+@media(max-width:820px){.gal{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.gal{grid-template-columns:1fr}}
+
+.caps{border-top:1px solid var(--rule)}
+.cap-row{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:20px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.cap-row .t{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.cap-row .d{font-size:16px;line-height:1.7;color:#33372b}
+@media(max-width:700px){.cap-row{grid-template-columns:1fr;gap:6px}}
+
+.status{margin:70px 0 0;border:1px solid var(--rule);background:var(--bg-tint);padding:30px 32px}
+.status .t{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:12px}
+.status p{font-size:15.5px;line-height:1.75;color:#3c4033;max-width:760px}
+.status p+p{margin-top:12px}
+
+.cta{margin:70px 0 0;border-top:3px double var(--ink);padding-top:30px;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.cta .txt{max-width:560px}
+.cta h4{font-family:var(--serif);font-weight:900;font-size:26px;line-height:1.2;margin-bottom:8px}
+.cta p{font-size:15px;line-height:1.7;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);text-decoration:none;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:16px 26px;transition:background .2s ease,transform .2s ease}
+.btn:hover{background:var(--accent);transform:translateY(-1px)}
+
+.hf{max-width:1180px;margin:80px auto 0;padding:24px 40px 40px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.hf a{text-decoration:none}
+.hf a:hover{color:var(--accent)}
+@media(max-width:760px){.hf{padding:20px 20px 32px}}
+
+.lb{position:fixed;inset:0;background:rgba(12,15,10,.95);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:999;padding:30px}
+.lb.open{display:flex}
+.lb img{max-width:94vw;max-height:82vh;width:auto;height:auto;border:1px solid rgba(246,241,226,.25);box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.lb-cap{color:#f6f1e2;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-top:16px;text-align:center;max-width:780px}
+.lb-x{position:absolute;top:18px;right:24px;background:none;border:none;color:rgba(246,241,226,.7);font-size:32px;cursor:pointer;line-height:1}
+.lb-x:hover{color:#f6f1e2}
+.lb-b{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(246,241,226,.3);color:#f6f1e2;font-size:22px;width:46px;height:46px;cursor:pointer;border-radius:50%}
+.lb-b:hover{background:rgba(246,241,226,.12)}
+.lb-p{left:24px}.lb-n{right:24px}
+</style>
+</head>
+<body>
+
+<header class="hm">
+  <div class="hm-in">
+    <a class="hm-brand" href="/">propagation house</a>
+    <nav class="hm-nav">
+      <a href="#what">The World</a>
+      <a href="#agent">The Agent</a>
+      <a href="#people">The People</a>
+      <a href="#space">Shared Space</a>
+      <a href="#state">Status</a>
+      <a href="/journal/haven.html">Journal &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="../house-news/assets/images/haven/haven-lakeside.jpg" alt="A body of light standing in tall grass beside a lake at sunset">
+  <div class="hero-in">
+    <div class="hero-kicker"><span class="dot"></span> In Development &middot; 2026</div>
+    <h1>Haven</h1>
+    <p>A world you talk to. You stand in it as a body of light, an agent drifts beside you as a swarm of motes, and together you build the ground you are standing on.</p>
+    <div class="hero-meta">
+      <span>Propagation House</span>
+      <span>Unreal Engine &middot; Real-time</span>
+      <span>Voice &amp; Text</span>
+      <span>Persistent</span>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <section class="lede">
+    <div class="inner">
+      <p>Most software asks you to operate it. Haven asks you to describe a place and then stands there with you.</p>
+      <p>There is no level editor in the loop and no asset browser to learn. The world is a conversation, and the conversation has consequences you can walk into. Ask for hills and the ground lifts. Ask for a colonnade and columns arrive, one after another, with a roof settling onto them. Ask who lives here and somebody is standing in the grass &mdash; with a name, a routine, and a memory of the last time you spoke.</p>
+    </div>
+    <div class="stats">
+      <div class="stats-in">
+        <div class="stat"><div class="n">1 km&sup2;</div><div class="l">Generated ground,<br>built at run time</div></div>
+        <div class="stat"><div class="n">Nine</div><div class="l">Named landform<br>presets</div></div>
+        <div class="stat"><div class="n">1,400</div><div class="l">Motes in the<br>agent&rsquo;s body</div></div>
+        <div class="stat"><div class="n">Saved</div><div class="l">Havens restored<br>exactly as left</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="what">
+    <div class="shead"><span class="k">01 &middot; The World</span><span class="n">Generated, not authored</span></div>
+    <div class="two">
+      <div>
+        <p>Haven is a persistent shared world with an agent living inside it. The ground is a square kilometre built from noise at run time &mdash; not a terrain file, not a heightmap painted by hand. It is shaped by named landforms: alpine ridges, jagged peaks, canyon mesas, badlands, dunes, rolling hills, plateaus, a volcanic cone, flat open country.</p>
+        <p>The sky moves through dawn, noon, sunset and night. Weather thickens and clears. Water can be a pond, a lake or a river, or all three at once. Grass and trees grow where the ground allows them &mdash; slope and altitude decide, so a mountain gets rock and a valley gets canopy.</p>
+      </div>
+      <div>
+        <p>The edge of the map is built in rings: a band of terrain style stacked around the outside. Each ring goes outside the last, so a world can be expanded outward in layers without disturbing what is already standing in the middle. The centre keeps what it had; the edge grows.</p>
+        <p>Architecture is assembled the same way &mdash; from solids rather than a catalogue. A part is a box, a cylinder, a sphere, a stair, a swept profile, a revolved section, an extrusion. It can be repeated in rings and rows, mirrored across an axis, or subtracted, which is how a wall gets a doorway instead of being a wall you cannot enter.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="txt">
+      <div class="num">Built from parts</div>
+      <h3>Nothing arrives <em>all at once</em></h3>
+      <p>Every part is its own mesh. That single decision is what lets a structure mix stone with timber, arrive one piece at a time instead of appearing whole, and be taken apart or nudged after the fact.</p>
+      <p>Which means the person standing in the room can interrupt halfway through. Change the spacing. Move a column. Cut a second doorway. The building is not a result that gets delivered &mdash; it is a thing being made, in front of you, and you are in it while it happens.</p>
+    </div>
+    <div class="shot">
+      <img src="../house-news/assets/images/haven/haven-colonnade.jpg" alt="A colonnade of pale rectangular frames receding into darkness, with a glowing figure standing beneath it">
+      <div class="cap">A corridor built from parts &mdash; frames, columns, and a floor that reflects them. Live capture.</div>
+    </div>
+  </section>
+
+  <section class="row" id="agent">
+    <div class="txt">
+      <div class="num">The agent</div>
+      <h3>A swarm, not a <em>character</em></h3>
+      <p>The agent is not a chat window parked in a corner. It is a swarm of white motes that circles the player at a distance, wanders when it has nothing to do, drifts wide when the space is open and tightens when it is speaking. Walk into it and it opens around you.</p>
+      <p>That was a design choice made early and defended since: the agent should not pretend to be a person. It should be legible as something else that is here with you. The people in the world are people. The agent is the thing you are making the world with.</p>
+      <p>It hears you through a microphone, answers in a synthesized voice, and acts on what you said before it finishes answering. It can also be typed to, from inside the world, for the times when speaking out loud is not what you want to do.</p>
+    </div>
+    <div class="shot">
+      <img src="../house-news/assets/images/haven/haven-field-dusk.jpg" alt="A glowing figure standing in a field of grass and wildflowers at dusk, with motes falling above">
+      <div class="cap">The swarm above the shoulder, scattering. Live capture.</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="shead"><span class="k">What it can do</span><span class="n">Tools, not menus</span></div>
+    <div class="caps">
+      <div class="cap-row"><div class="t">The world</div><div class="d">Time of day, fog, clouds, terrain style, ground textures, grass, trees, water, the size of the map, and the rings that build its edges.</div></div>
+      <div class="cap-row"><div class="t">The architecture</div><div class="d">Build a structure from parts, carve it, move it, take it down &mdash; or import a model from disk and place it.</div></div>
+      <div class="cap-row"><div class="t">The people</div><div class="d">Put somebody in the world, name them, give them a role, and tell them where they belong.</div></div>
+      <div class="cap-row"><div class="t">The place</div><div class="d">Save the whole thing under a name, list what is saved, and bring one back later with everything still standing where it was.</div></div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.78;color:#33372b;max-width:760px;margin-top:26px">Everything the agent can do is a tool it reasons about rather than a menu it reads from. That distinction matters more than it sounds: a menu has edges, and a conversation does not. Ask for something the vocabulary does not cover and the agent composes it from what it has &mdash; a colonnade is a column repeated, a vault is a profile revolved, an arch is a section swept along a path.</p>
+  </section>
+
+  <section class="block" id="people">
+    <div class="shead"><span class="k">02 &middot; The People</span><span class="n">The world forgets, the people do not</span></div>
+    <div class="two">
+      <div>
+        <p>Bodies are cheap. A person is a capsule, a mesh and a glow, and a body can be cleared away in a moment. What makes somebody themselves is not the body. It is what they remember, how many times you have spoken to them, how they feel about you, and what they were in the middle of doing.</p>
+        <p>So the people in Haven are stored separately from their bodies, keyed to an identity derived from who they are rather than where they stand. Put the same person down in a different place, or come back to the same place a month later, and they arrive with their history intact.</p>
+      </div>
+      <div>
+        <p>Inside a haven they lead small lives rather than standing at attention. Each one holds a long-term intention &mdash; stay where they belong, wait here a while, walk to a named place, come to the player, follow the player &mdash; and a minute-level job underneath it: walking, working, looking at something, waving.</p>
+        <p>They re-ground themselves as the terrain changes under them, so reshaping the land does not leave anyone standing in the air or buried to the waist. They speak on their own channel, separate from the agent&rsquo;s, so a world with people in it does not sound like one voice with a crowd painted behind it.</p>
+      </div>
+    </div>
+    <div class="pull">&ldquo;The world forgets. The people do not.&rdquo;</div>
+  </section>
+
+  <section class="block">
+    <div class="shead"><span class="k">Frames from the running application</span><span class="n">Live captures</span></div>
+    <div class="gal">
+      <figure><img src="../house-news/assets/images/haven/haven-haze-walk.jpg" alt="Three glowing figures walking across hazy amber hills at dusk"><figcaption>Three of them, walking a ridge at dusk.</figcaption></figure>
+      <figure><img src="../house-news/assets/images/haven/haven-night-plain.jpg" alt="Two glowing figures walking away across a dark green plain under a deep indigo sky"><figcaption>Night on the plain.</figcaption></figure>
+      <figure><img src="../house-news/assets/images/haven/haven-forest-night.jpg" alt="A glowing figure standing among dark trees at night, lit by warm points of light"><figcaption>Woodland at night &mdash; the light is the only thing that reads.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="block" id="space">
+    <div class="shead"><span class="k">03 &middot; Shared Space</span><span class="n">The part with no precedent</span></div>
+    <div class="two">
+      <div>
+        <p>A conversation with an agent on a screen is a conversation about things. A conversation with an agent in a room is a conversation about <em>here</em>. The moment both parties occupy the same space, language picks up a second channel: pointing, standing next to, walking toward, putting something down, taking something away.</p>
+        <p>An agent that can only talk has to describe the room it is in. An agent that is in the room can simply be in it, and the describing stops being necessary.</p>
+      </div>
+      <div>
+        <p>What that changes is the shape of the work. The player does not specify a structure and then look at it; they stand in it while it is being built, and can interrupt halfway. The agent does not receive a brief and return a result; it makes a change, watches what happens, and adjusts.</p>
+        <p>Both parties are reading the same world at the same time, which means corrections are cheap and the loop is short. Nobody has to hold the whole picture in their head, because the picture is standing right there.</p>
+      </div>
+    </div>
+    <div class="pull">&ldquo;You teach each other through being.&rdquo;</div>
+    <p style="font-size:16.5px;line-height:1.78;color:#33372b;max-width:760px">That line is from <a href="/the-bridge.html" style="color:var(--accent-dark);text-decoration:underline;text-decoration-color:var(--rule)"><em>The Bridge</em></a> &mdash; the studio&rsquo;s book on spatial design, written 2021 to 2024 and published in June 2024. Its final chapters describe agents that live inside three-dimensional spaces rather than beside them: thought-spaces that hold a person&rsquo;s work as architecture, companions that learn through context rather than instruction, an agent that picks up where you left off in a place you can walk through. At the time that was a proposal. Haven is the studio building it.</p>
+  </section>
+
+  <section class="block" id="state">
+    <div class="shead"><span class="k">04 &middot; Status</span><span class="n">In development</span></div>
+    <div class="status">
+      <div class="t">Where the work stands</div>
+      <p>The parts that work, work: the land generates and reshapes, the architecture builds and carves, the people persist and re-ground, the havens save and restore, and the whole thing can be spoken to and typed to from inside the world. It also runs in a headset, which changes the argument again &mdash; the difference between looking at a shared space and standing in one is not a matter of degree.</p>
+      <p>What is not solved is the part every persistent world eventually runs into: maintenance. A world that can be changed by conversation is a world that will be changed constantly, and a place that is constantly changed needs to stay coherent &mdash; the land has to keep agreeing with the architecture, the people have to keep agreeing with the land, and the whole thing has to keep being worth coming back to. That is the next stretch of work.</p>
+      <p>For now there is a place with grass on it and water at the edge of it, and something made of light that will build you a room if you ask.</p>
+    </div>
+
+    <div class="cta">
+      <div class="txt">
+        <h4>The long version</h4>
+        <p>A work journal entry on what Haven is, how it works, and what it means to share space with something that isn&rsquo;t you.</p>
+      </div>
+      <a class="btn" href="/journal/haven.html">Read the journal &rarr;</a>
+    </div>
+  </section>
+
+</div>
+
+<footer class="hf">
+  <a href="/">&larr; propagation house</a>
+  <span>Haven &middot; In Development &middot; 2026</span>
+  <a href="/journal/haven.html">Work Journal &rarr;</a>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-x" id="lb-x" aria-label="Close">&times;</button>
+  <button class="lb-b lb-p" id="lb-p" aria-label="Previous">&#8592;</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-b lb-n" id="lb-n" aria-label="Next">&#8594;</button>
+  <div class="lb-cap" id="lb-cap"></div>
+</div>
+<script>
+(function(){
+  var thumbs=[].slice.call(document.querySelectorAll('.gal img, .row .shot img'));
+  if(!thumbs.length) return;
+  var lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),cur=0;
+  function capFor(t){
+    var f=t.closest('figure');
+    if(f&&f.querySelector('figcaption')) return f.querySelector('figcaption').textContent.trim();
+    var s=t.closest('.shot');
+    if(s&&s.querySelector('.cap')) return s.querySelector('.cap').textContent.trim();
+    return t.alt||'';
+  }
+  function show(i){cur=(i+thumbs.length)%thumbs.length;var t=thumbs[cur];img.src=t.src;img.alt=t.alt||'';cap.textContent=capFor(t);}
+  function open(i){show(i);lb.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';}
+  thumbs.forEach(function(t,i){t.style.cursor='zoom-in';t.addEventListener('click',function(){open(i);});});
+  document.getElementById('lb-x').addEventListener('click',close);
+  document.getElementById('lb-p').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
+  document.getElementById('lb-n').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') close();
+    else if(e.key==='ArrowLeft') show(cur-1);
+    else if(e.key==='ArrowRight') show(cur+1);
+  });
+})();
+</script>
+</body>
+</html>
