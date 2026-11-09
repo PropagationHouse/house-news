@@ -55,13 +55,55 @@ a{color:inherit}
 .hero-meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,241,226,.62);border-top:1px solid rgba(246,241,226,.22);padding-top:16px}
 @media(max-width:760px){.hero-in{padding:0 20px 44px}}
 
-.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
-@media(max-width:760px){.wrap{padding:0 20px}}
+/* full-bleed image slides */
+.slide{position:relative;display:flex;align-items:flex-end;overflow:hidden;background:#0c0f0a;min-height:min(86vh,720px)}
+.slide>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.94}
+.slide::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(6,8,4,.97) 0%,rgba(6,8,4,.88) 28%,rgba(6,8,4,.56) 60%,rgba(6,8,4,.34) 82%,rgba(6,8,4,.58) 100%)}
+.slide-in{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 40px 58px;width:100%;color:#f6f1e2}
+.slide-kicker{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:#c9d3a8;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.slide-kicker .dot{width:7px;height:7px;border-radius:50%;background:#c9d3a8;box-shadow:0 0 12px #c9d3a8}
+.slide h2{font-family:var(--serif);font-weight:900;font-size:clamp(30px,4.4vw,58px);line-height:1.04;letter-spacing:-.02em;margin-bottom:18px;max-width:840px}
+.slide h2 em{font-style:italic}
+.slide .body{max-width:680px}
+.slide .body p{font-size:17px;line-height:1.72;color:#e6dfcb}
+.slide .body p+p{margin-top:16px}
+.slide .pull{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.6vw,30px);line-height:1.3;color:#c9d3a8;border-left:3px solid rgba(201,211,168,.55);padding-left:20px;margin:26px 0 0;max-width:600px}
+.slide .cap{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,241,226,.52);margin-top:24px;border-top:1px solid rgba(246,241,226,.2);padding-top:12px;max-width:680px}
+.slide .caps{border-top:1px solid rgba(246,241,226,.3);margin-top:6px;max-width:900px}
+.slide .two{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1000px}
+.slide .two p{font-size:16px;line-height:1.72;color:#e6dfcb}
+.slide .two p+p{margin-top:14px}
+.slide .stats{border-top:1px solid rgba(246,241,226,.28);border-bottom:none;margin:34px 0 0;max-width:920px}
+.slide .stats-in{grid-template-columns:repeat(4,1fr)}
+.slide .stat{border-right:1px solid rgba(246,241,226,.16);padding:18px 18px 0 0}
+.slide .stat .n{color:#c9d3a8}
+.slide .stat .l{color:rgba(246,241,226,.6)}
+.slide .note{font-size:16px;line-height:1.72;color:#e6dfcb;max-width:760px;margin-top:24px}
+@media(max-width:820px){.slide .two{grid-template-columns:1fr;gap:14px}.slide .stats-in{grid-template-columns:1fr 1fr}.slide .stat:nth-child(2){border-right:none}}
+.slide .cap-row{display:grid;grid-template-columns:190px 1fr;gap:26px;padding:15px 0;border-bottom:1px solid rgba(246,241,226,.16);align-items:baseline}
+.slide .cap-row .t{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#c9d3a8}
+.slide .cap-row .d{font-size:15.5px;line-height:1.65;color:#e6dfcb}
+.slide .cta{margin:30px 0 0;border-top:1px solid rgba(246,241,226,.24);padding-top:22px;display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
+.slide .cta .txt{max-width:560px}
+.slide .cta h4{font-family:var(--serif);font-weight:900;font-size:24px;line-height:1.2;margin-bottom:6px;color:#f6f1e2}
+.slide .cta p{font-size:14.5px;line-height:1.65;color:rgba(246,241,226,.66)}
+.slide .btn{display:inline-flex;align-items:center;gap:10px;background:#f6f1e2;color:#1a1d12;text-decoration:none;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:16px 26px;transition:background .2s ease,transform .2s ease}
+.slide .btn:hover{background:#c9d3a8;transform:translateY(-1px)}
+@media(max-width:760px){.slide-in{padding:0 20px 44px}.slide{min-height:min(78vh,620px)}.slide .cap-row{grid-template-columns:1fr;gap:5px}}
 
-.lede{padding:76px 0 20px}
-.lede .inner{max-width:760px}
-.lede p{font-size:21px;line-height:1.62;color:var(--ink)}
-.lede p+p{margin-top:22px;font-size:17px;line-height:1.75;color:#3c4033}
+/* the three-up strip keeps the paper styling */
+.strip{background:var(--paper);padding:56px 0 60px;border-bottom:1px solid var(--rule)}
+.strip-in{max-width:1180px;margin:0 auto;padding:0 40px}
+.strip-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-bottom:1px solid var(--rule);padding-bottom:14px;margin:0 0 26px}
+.strip-head .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.strip-head .n{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.strip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.strip-grid figure{margin:0}
+.strip-grid img{width:100%;display:block;border:1px solid var(--rule);cursor:zoom-in;transition:transform .25s ease,box-shadow .25s ease}
+.strip-grid img:hover{transform:scale(1.015);box-shadow:0 10px 28px rgba(26,29,18,.18)}
+.strip-grid figcaption{font-size:10px;letter-spacing:.08em;color:var(--muted);margin-top:7px;text-transform:uppercase;line-height:1.5}
+@media(max-width:820px){.strip-in{padding:0 20px}.strip-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.strip-grid{grid-template-columns:1fr}}
 
 .stats{border-top:3px double var(--ink);border-bottom:1px solid var(--rule);margin:56px 0 0}
 .stats-in{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
@@ -71,50 +113,18 @@ a{color:inherit}
 .stat .l{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-top:8px;line-height:1.5}
 @media(max-width:820px){.stats-in{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--rule)}}
 
-.shead{display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-bottom:1px solid var(--rule);padding-bottom:14px;margin:0 0 34px}
-.shead .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent)}
-.shead .n{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.block{padding:64px 0 0}
-
 .two{display:grid;grid-template-columns:1fr 1fr;gap:44px}
 .two p{font-size:16.5px;line-height:1.78;color:#33372b}
 .two p+p{margin-top:18px}
 @media(max-width:820px){.two{grid-template-columns:1fr;gap:0}.two>div+div{margin-top:18px}}
 
-.row{display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:center;padding:64px 0;border-bottom:1px solid var(--rule)}
-.row h3{font-family:var(--serif);font-weight:900;font-size:clamp(26px,3.2vw,38px);line-height:1.1;letter-spacing:-.015em;margin-bottom:14px}
-.row h3 em{font-style:italic}
-.row .num{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:12px}
-.row p{font-size:16.5px;line-height:1.78;color:#33372b;max-width:520px}
-.row p+p{margin-top:16px}
-.row .shot{position:relative;isolation:isolate}
-.row .shot img{width:100%;display:block;border:1px solid var(--rule);cursor:zoom-in;transition:transform .25s ease,box-shadow .25s ease}
-.row .shot img:hover{transform:scale(1.012);box-shadow:0 10px 28px rgba(26,29,18,.18)}
-.row .shot::before{content:"";position:absolute;inset:-11px -13px;background:url('../assets/images/paper-sheet-fill-2x.jpg?v=1') center/cover no-repeat;transform:rotate(-1deg);z-index:-1;box-shadow:0 10px 26px rgba(26,29,18,.12)}
-.row.rev .shot::before{transform:rotate(1.1deg)}
-.row .cap{font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:9px;text-transform:uppercase}
-@media(max-width:900px){.row{grid-template-columns:1fr;gap:30px;padding:48px 0}}
-
 .pull{font-family:var(--serif);font-style:italic;font-size:clamp(24px,3.4vw,38px);line-height:1.28;color:var(--accent-dark);border-left:4px solid var(--accent);padding-left:26px;margin:56px 0;max-width:760px}
-
-.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:10px}
-.gal figure{margin:0}
-.gal img{width:100%;display:block;border:1px solid var(--rule);cursor:zoom-in;transition:transform .25s ease,box-shadow .25s ease}
-.gal img:hover{transform:scale(1.015);box-shadow:0 10px 28px rgba(26,29,18,.18)}
-.gal figcaption{font-size:10px;letter-spacing:.08em;color:var(--muted);margin-top:7px;text-transform:uppercase;line-height:1.5}
-@media(max-width:820px){.gal{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.gal{grid-template-columns:1fr}}
 
 .caps{border-top:1px solid var(--rule)}
 .cap-row{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:20px 0;border-bottom:1px solid var(--rule);align-items:baseline}
 .cap-row .t{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent)}
 .cap-row .d{font-size:16px;line-height:1.7;color:#33372b}
 @media(max-width:700px){.cap-row{grid-template-columns:1fr;gap:6px}}
-
-.status{margin:70px 0 0;border:1px solid var(--rule);background:var(--bg-tint);padding:30px 32px}
-.status .t{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:12px}
-.status p{font-size:15.5px;line-height:1.75;color:#3c4033;max-width:760px}
-.status p+p{margin-top:12px}
 
 .cta{margin:70px 0 0;border-top:3px double var(--ink);padding-top:30px;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
 .cta .txt{max-width:560px}
@@ -170,12 +180,13 @@ a{color:inherit}
   </div>
 </section>
 
-<div class="wrap">
-
-  <section class="lede">
-    <div class="inner">
-      <p>Most software asks you to operate it. Haven asks you to describe a place and then stands there with you.</p>
-      <p>There is no level editor in the loop and no asset browser to learn. The world is a conversation, and the conversation has consequences you can walk into. Ask for hills and the ground lifts. Ask for a colonnade and columns arrive, one after another, with a roof settling onto them. Ask who lives here and somebody is standing in the grass &mdash; with a name, a routine, and a memory of the last time you spoke.</p>
+<section class="slide">
+  <img src="../house-news/assets/images/haven/haven-haze-three.jpg" alt="Three glowing figures crossing hazy amber hills at dusk">
+  <div class="slide-in">
+    <div class="slide-kicker"><span class="dot"></span> The premise</div>
+    <h2>Describe a place, then <em>stand in it</em></h2>
+    <div class="body">
+      <p>Most software asks you to operate it. Haven asks you to describe a place and then stands there with you. There is no level editor in the loop and no asset browser to learn &mdash; the world is a conversation, and the conversation has consequences you can walk into. Ask for hills and the ground lifts. Ask for a colonnade and columns arrive, one after another, with a roof settling onto them. Ask who lives here and somebody is standing in the grass, with a name, a routine, and a memory of the last time you spoke.</p>
     </div>
     <div class="stats">
       <div class="stats-in">
@@ -185,13 +196,18 @@ a{color:inherit}
         <div class="stat"><div class="n">Saved</div><div class="l">Havens restored<br>exactly as left</div></div>
       </div>
     </div>
-  </section>
+    <div class="cap">Late light over hazy hills &mdash; live capture from the running application.</div>
+  </div>
+</section>
 
-  <section class="block" id="what">
-    <div class="shead"><span class="k">01 &middot; The World</span><span class="n">Generated, not authored</span></div>
+<section class="slide" id="what">
+  <img src="../house-news/assets/images/haven/haven-field-dusk.jpg" alt="A glowing figure standing in a field of grass and wildflowers at dusk">
+  <div class="slide-in">
+    <div class="slide-kicker"><span class="dot"></span> 01 &middot; The World</div>
+    <h2>Generated, <em>not authored</em></h2>
     <div class="two">
       <div>
-        <p>Haven is a persistent shared world with an agent living inside it. The ground is a square kilometre built from noise at run time &mdash; not a terrain file, not a heightmap painted by hand. It is shaped by named landforms: alpine ridges, jagged peaks, canyon mesas, badlands, dunes, rolling hills, plateaus, a volcanic cone, flat open country.</p>
+        <p>The ground is a square kilometre built from noise at run time &mdash; not a terrain file, not a heightmap painted by hand. It is shaped by named landforms: alpine ridges, jagged peaks, canyon mesas, badlands, dunes, rolling hills, plateaus, a volcanic cone, flat open country.</p>
         <p>The sky moves through dawn, noon, sunset and night. Weather thickens and clears. Water can be a pond, a lake or a river, or all three at once. Grass and trees grow where the ground allows them &mdash; slope and altitude decide, so a mountain gets rock and a valley gets canopy.</p>
       </div>
       <div>
@@ -199,48 +215,57 @@ a{color:inherit}
         <p>Architecture is assembled the same way &mdash; from solids rather than a catalogue. A part is a box, a cylinder, a sphere, a stair, a swept profile, a revolved section, an extrusion. It can be repeated in rings and rows, mirrored across an axis, or subtracted, which is how a wall gets a doorway instead of being a wall you cannot enter.</p>
       </div>
     </div>
-  </section>
+    <div class="cap">Grass and wildflowers at dusk, with the swarm overhead.</div>
+  </div>
+</section>
 
-  <section class="row">
-    <div class="txt">
-      <div class="num">Built from parts</div>
-      <h3>Nothing arrives <em>all at once</em></h3>
+<section class="slide">
+  <img src="../house-news/assets/images/haven/haven-colonnade.jpg" alt="A colonnade of pale rectangular frames receding into darkness, with a glowing figure standing beneath it">
+  <div class="slide-in">
+    <div class="slide-kicker"><span class="dot"></span> Built from parts</div>
+    <h2>Nothing arrives <em>all at once</em></h2>
+    <div class="body">
       <p>Every part is its own mesh. That single decision is what lets a structure mix stone with timber, arrive one piece at a time instead of appearing whole, and be taken apart or nudged after the fact.</p>
       <p>Which means the person standing in the room can interrupt halfway through. Change the spacing. Move a column. Cut a second doorway. The building is not a result that gets delivered &mdash; it is a thing being made, in front of you, and you are in it while it happens.</p>
     </div>
-    <div class="shot">
-      <img src="../house-news/assets/images/haven/haven-colonnade.jpg" alt="A colonnade of pale rectangular frames receding into darkness, with a glowing figure standing beneath it">
-      <div class="cap">A corridor built from parts &mdash; frames, columns, and a floor that reflects them. Live capture.</div>
-    </div>
-  </section>
+    <div class="cap">A corridor built from parts &mdash; frames, columns, and a floor that reflects them.</div>
+  </div>
+</section>
 
-  <section class="row" id="agent">
-    <div class="txt">
-      <div class="num">The agent</div>
-      <h3>A swarm, not a <em>character</em></h3>
+<section class="slide" id="agent">
+  <img src="../house-news/assets/images/haven/haven-forest-night.jpg" alt="A glowing figure standing among dark trees at night, lit by warm points of light">
+  <div class="slide-in">
+    <div class="slide-kicker"><span class="dot"></span> The agent</div>
+    <h2>A swarm, not a <em>character</em></h2>
+    <div class="body">
       <p>The agent is not a chat window parked in a corner. It is a swarm of white motes that circles the player at a distance, wanders when it has nothing to do, drifts wide when the space is open and tightens when it is speaking. Walk into it and it opens around you.</p>
       <p>That was a design choice made early and defended since: the agent should not pretend to be a person. It should be legible as something else that is here with you. The people in the world are people. The agent is the thing you are making the world with.</p>
       <p>It hears you through a microphone, answers in a synthesized voice, and acts on what you said before it finishes answering. It can also be typed to, from inside the world, for the times when speaking out loud is not what you want to do.</p>
     </div>
-    <div class="shot">
-      <img src="../house-news/assets/images/haven/haven-field-dusk.jpg" alt="A glowing figure standing in a field of grass and wildflowers at dusk, with motes falling above">
-      <div class="cap">The swarm above the shoulder, scattering. Live capture.</div>
-    </div>
-  </section>
+    <div class="cap">Woodland at night &mdash; the light is the only thing that reads.</div>
+  </div>
+</section>
 
-  <section class="block">
-    <div class="shead"><span class="k">What it can do</span><span class="n">Tools, not menus</span></div>
+<section class="slide">
+  <img src="../house-news/assets/images/haven/haven-night-plain.jpg" alt="Two glowing figures walking away across a dark green plain under a deep indigo sky">
+  <div class="slide-in">
+    <div class="slide-kicker"><span class="dot"></span> What it can do</div>
+    <h2>Tools, <em>not menus</em></h2>
     <div class="caps">
       <div class="cap-row"><div class="t">The world</div><div class="d">Time of day, fog, clouds, terrain style, ground textures, grass, trees, water, the size of the map, and the rings that build its edges.</div></div>
       <div class="cap-row"><div class="t">The architecture</div><div class="d">Build a structure from parts, carve it, move it, take it down &mdash; or import a model from disk and place it.</div></div>
       <div class="cap-row"><div class="t">The people</div><div class="d">Put somebody in the world, name them, give them a role, and tell them where they belong.</div></div>
       <div class="cap-row"><div class="t">The place</div><div class="d">Save the whole thing under a name, list what is saved, and bring one back later with everything still standing where it was.</div></div>
     </div>
-    <p style="font-size:16.5px;line-height:1.78;color:#33372b;max-width:760px;margin-top:26px">Everything the agent can do is a tool it reasons about rather than a menu it reads from. That distinction matters more than it sounds: a menu has edges, and a conversation does not. Ask for something the vocabulary does not cover and the agent composes it from what it has &mdash; a colonnade is a column repeated, a vault is a profile revolved, an arch is a section swept along a path.</p>
-  </section>
+    <p class="note">Everything the agent can do is a tool it reasons about rather than a menu it reads from. That distinction matters more than it sounds: a menu has edges, and a conversation does not. Ask for something the vocabulary does not cover and the agent composes it from what it has &mdash; a colonnade is a column repeated, a vault is a profile revolved, an arch is a section swept along a path.</p>
+  </div>
+</section>
 
-  <section class="block" id="people">
-    <div class="shead"><span class="k">02 &middot; The People</span><span class="n">The world forgets, the people do not</span></div>
+<section class="slide" id="people">
+  <img src="../house-news/assets/images/haven/haven-haze-walk.jpg" alt="Three glowing figures walking across hazy amber hills at dusk">
+  <div class="slide-in">
+    <div class="slide-kicker"><span class="dot"></span> 02 &middot; The People</div>
+    <h2>The world forgets. <em>The people do not.</em></h2>
     <div class="two">
       <div>
         <p>Bodies are cheap. A person is a capsule, a mesh and a glow, and a body can be cleared away in a moment. What makes somebody themselves is not the body. It is what they remember, how many times you have spoken to them, how they feel about you, and what they were in the middle of doing.</p>
@@ -251,20 +276,26 @@ a{color:inherit}
         <p>They re-ground themselves as the terrain changes under them, so reshaping the land does not leave anyone standing in the air or buried to the waist. They speak on their own channel, separate from the agent&rsquo;s, so a world with people in it does not sound like one voice with a crowd painted behind it.</p>
       </div>
     </div>
-    <div class="pull">&ldquo;The world forgets. The people do not.&rdquo;</div>
-  </section>
+    <div class="cap">Three of them, walking a ridge at dusk.</div>
+  </div>
+</section>
 
-  <section class="block">
-    <div class="shead"><span class="k">Frames from the running application</span><span class="n">Live captures</span></div>
-    <div class="gal">
+<section class="strip">
+  <div class="strip-in">
+    <div class="strip-head"><span class="k">Frames from the running application</span><span class="n">Live captures</span></div>
+    <div class="strip-grid">
       <figure><img src="../house-news/assets/images/haven/haven-haze-walk.jpg" alt="Three glowing figures walking across hazy amber hills at dusk"><figcaption>Three of them, walking a ridge at dusk.</figcaption></figure>
       <figure><img src="../house-news/assets/images/haven/haven-night-plain.jpg" alt="Two glowing figures walking away across a dark green plain under a deep indigo sky"><figcaption>Night on the plain.</figcaption></figure>
       <figure><img src="../house-news/assets/images/haven/haven-forest-night.jpg" alt="A glowing figure standing among dark trees at night, lit by warm points of light"><figcaption>Woodland at night &mdash; the light is the only thing that reads.</figcaption></figure>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="block" id="space">
-    <div class="shead"><span class="k">03 &middot; Shared Space</span><span class="n">The part with no precedent</span></div>
+<section class="slide" id="space">
+  <img src="../house-news/assets/images/haven/haven-field-dusk.jpg" alt="A glowing figure standing in a field of grass and wildflowers at dusk, with motes falling above">
+  <div class="slide-in">
+    <div class="slide-kicker"><span class="dot"></span> 03 &middot; Shared Space</div>
+    <h2>The part with <em>no precedent</em></h2>
     <div class="two">
       <div>
         <p>A conversation with an agent on a screen is a conversation about things. A conversation with an agent in a room is a conversation about <em>here</em>. The moment both parties occupy the same space, language picks up a second channel: pointing, standing next to, walking toward, putting something down, taking something away.</p>
@@ -276,18 +307,20 @@ a{color:inherit}
       </div>
     </div>
     <div class="pull">&ldquo;You teach each other through being.&rdquo;</div>
-    <p style="font-size:16.5px;line-height:1.78;color:#33372b;max-width:760px">That line is from <a href="/the-bridge.html" style="color:var(--accent-dark);text-decoration:underline;text-decoration-color:var(--rule)"><em>The Bridge</em></a> &mdash; the studio&rsquo;s book on spatial design, written 2021 to 2024 and published in June 2024. Its final chapters describe agents that live inside three-dimensional spaces rather than beside them: thought-spaces that hold a person&rsquo;s work as architecture, companions that learn through context rather than instruction, an agent that picks up where you left off in a place you can walk through. At the time that was a proposal. Haven is the studio building it.</p>
-  </section>
+    <p class="note">That line is from <a href="/the-bridge.html"><em>The Bridge</em></a> &mdash; the studio&rsquo;s book on spatial design, written 2021 to 2024 and published in June 2024. Its final chapters describe agents that live inside three-dimensional spaces rather than beside them: thought-spaces that hold a person&rsquo;s work as architecture, companions that learn through context rather than instruction, an agent that picks up where you left off in a place you can walk through. At the time that was a proposal. Haven is the studio building it.</p>
+  </div>
+</section>
 
-  <section class="block" id="state">
-    <div class="shead"><span class="k">04 &middot; Status</span><span class="n">In development</span></div>
-    <div class="status">
-      <div class="t">Where the work stands</div>
+<section class="slide" id="state">
+  <img src="../house-news/assets/images/haven/haven-lakeside.jpg" alt="A body of light standing in tall grass beside a lake at sunset">
+  <div class="slide-in">
+    <div class="slide-kicker"><span class="dot"></span> 04 &middot; Status</div>
+    <h2>In <em>development</em></h2>
+    <div class="body">
       <p>The parts that work, work: the land generates and reshapes, the architecture builds and carves, the people persist and re-ground, the havens save and restore, and the whole thing can be spoken to and typed to from inside the world. It also runs in a headset, which changes the argument again &mdash; the difference between looking at a shared space and standing in one is not a matter of degree.</p>
       <p>What is not solved is the part every persistent world eventually runs into: maintenance. A world that can be changed by conversation is a world that will be changed constantly, and a place that is constantly changed needs to stay coherent &mdash; the land has to keep agreeing with the architecture, the people have to keep agreeing with the land, and the whole thing has to keep being worth coming back to. That is the next stretch of work.</p>
       <p>For now there is a place with grass on it and water at the edge of it, and something made of light that will build you a room if you ask.</p>
     </div>
-
     <div class="cta">
       <div class="txt">
         <h4>The long version</h4>
@@ -295,9 +328,8 @@ a{color:inherit}
       </div>
       <a class="btn" href="/journal/haven.html">Read the journal &rarr;</a>
     </div>
-  </section>
-
-</div>
+  </div>
+</section>
 
 <footer class="hf">
   <a href="/">&larr; propagation house</a>
@@ -314,7 +346,7 @@ a{color:inherit}
 </div>
 <script>
 (function(){
-  var thumbs=[].slice.call(document.querySelectorAll('.gal img, .row .shot img'));
+  var thumbs=[].slice.call(document.querySelectorAll('.strip-grid img'));
   if(!thumbs.length) return;
   var lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),cur=0;
   function capFor(t){
