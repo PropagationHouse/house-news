@@ -38,3 +38,7 @@ temp_*.txt
 
 # Torn-edge strip assets (keep locally for reuse, not committed)
 assets/images/torn-*-strip.png
+
+# Local scratch (probe scripts, screenshots, session dumps)
+temp/
+*.bak-precap

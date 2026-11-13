@@ -1,0 +1,557 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280">
+    <title>Substrate &mdash; Autonomous Desktop Agent</title>
+    <meta name="description" content="Substrate is an autonomous desktop agent that lives on your machine. It reads and writes files, runs commands, browses the web, and runs scheduled jobs &mdash; then reports back in plain language.">
+    <meta property="og:title" content="Substrate &mdash; Autonomous Desktop Agent">
+    <meta property="og:description" content="A resident, not an app. An autonomous desktop agent that works while you're away, model-independent by design.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.propagation.house/substrate-v3/">
+    <meta property="og:image" content="https://www.propagation.house/substrate-v3/og-image.svg">
+    <link rel="canonical" href="https://www.propagation.house/substrate-v3/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.propagation.house/substrate-v3/og-image.svg">
+    <meta name="twitter:title" content="Substrate &mdash; Autonomous Desktop Agent">
+    <meta name="twitter:description" content="A resident, not an app. An autonomous desktop agent that works while you're away, model-independent by design.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23a08c64' rx='20' width='100' height='100'/><text x='50' y='72' text-anchor='middle' fill='white' font-size='60' font-weight='bold'>S</text></svg>" type="image/svg+xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Substrate",
+        "description": "An autonomous desktop agent that lives on your machine: files, shell, browser, voice, memory, and scheduled work, model-independent by design.",
+        "url": "https://www.propagation.house/substrate-v3/",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Windows",
+        "author": { "@type": "Organization", "name": "Propagation House" },
+        "license": "https://spdx.org/licenses/BSL-1.1.html"
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#faf7f0',100:'#f3eeda',200:'#e6e0c4',300:'#d4cc9a',400:'#a8b862',500:'#8a9a4f',600:'#6b7d38',700:'#4b5320',800:'#3a4018',900:'#2c3112',950:'#14180a' },
+                        paper: { 50:'#fdfbf4',100:'#f6f1e2',200:'#ece5cf',300:'#e0d8bf',400:'#d3c9a8',500:'#c8c3ad' },
+                        ink: { 100:'#3a3d2e',200:'#2f3126',300:'#24271c',400:'#1a1d12',500:'#11140c' },
+                    },
+                    fontFamily: {
+                        sans: ['Acumin Pro','Helvetica Neue','Arial','sans-serif'],
+                        mono: ['JetBrains Mono','Fira Code','monospace'],
+                        serif: ['Playfair Display','Georgia','serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        @font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-RPro.otf') format('opentype');font-weight:400;font-style:normal}
+        @font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-ItPro.otf') format('opentype');font-weight:400;font-style:italic}
+        @font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-BdPro.otf') format('opentype');font-weight:700;font-style:normal}
+        @font-face{font-family:'Acumin Pro';src:url('../house-news/assets/fonts/acumin-pro/Acumin-BdItPro.otf') format('opentype');font-weight:700;font-style:italic}
+
+        :root{
+            --ui-bg:#12150c;
+            --ui-panel:rgba(255,255,255,.045);
+            --ui-line:rgba(196,214,150,.20);
+            --ui-ink:#ffffff;
+            --ui-soft:rgba(238,242,226,.80);
+            --ui-mute:rgba(238,242,226,.52);
+            --ui-accent:#b6c877;
+        }
+        body { background:var(--ui-bg); color:var(--ui-ink); }
+        ::selection { background: rgba(182,200,119,.30); }
+
+        .grid-bg {
+            background-image:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(182,200,119,.09) 0%, transparent 70%),
+                radial-gradient(rgba(255,255,255,.035) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #d4cc9a 45%, #b6c877 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .gradient-line { height:1px; background:linear-gradient(90deg,transparent,rgba(182,200,119,.45),transparent); }
+
+        body::after{content:'';position:fixed;inset:-100px;z-index:9999;pointer-events:none;opacity:.07;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:300px 300px;animation:grainDrift 14s steps(10) infinite}
+        @keyframes grainDrift{0%{transform:translate(0,0)}10%{transform:translate(-18px,12px)}20%{transform:translate(14px,-20px)}30%{transform:translate(-22px,-8px)}40%{transform:translate(20px,16px)}50%{transform:translate(-12px,22px)}60%{transform:translate(16px,-14px)}70%{transform:translate(-20px,10px)}80%{transform:translate(10px,-22px)}90%{transform:translate(-14px,-16px)}100%{transform:translate(0,0)}}
+
+        .paper-tear{position:relative;line-height:0;pointer-events:none;margin:0 -12px;width:calc(100% + 24px);max-width:none}
+        .paper-tear img{width:100%;height:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
+        @media(min-width:1024px){.paper-tear{margin:0 -24px;width:calc(100% + 48px)}}
+        @media(min-width:1440px){.paper-tear{width:100vw;margin-left:calc(50% - 50vw)}}
+        .paper-tear.paper-tear-up img{-webkit-mask-image:linear-gradient(to bottom,#000 30%,#000 52%,transparent 100%);mask-image:linear-gradient(to bottom,#000 30%,#000 52%,transparent 100%)}
+        .paper-tear.paper-tear-down img{-webkit-mask-image:linear-gradient(to top,#000 30%,#000 52%,transparent 100%);mask-image:linear-gradient(to top,#000 30%,#000 52%,transparent 100%)}
+
+        .hero-paper-img-wrap { position:absolute; top:-6%; left:50%; transform:translateX(calc(-50% + 1.03%)); width:1250px; max-width:none; z-index:0; pointer-events:none; filter:drop-shadow(0 18px 40px rgba(0,0,0,.5)); }
+        .hero-paper-img-wrap img { display:block; width:100%; height:auto; -webkit-mask-image:radial-gradient(ellipse 105% 100% at 50% 42%, #000 62%, transparent 100%); mask-image:radial-gradient(ellipse 105% 100% at 50% 42%, #000 62%, transparent 100%); }
+        @media (min-width:768px){ .hero-paper-img-wrap{ top:auto; bottom:26%; } }
+        @media (max-width: 768px) { .hero-paper-img-wrap { width:150%; } }
+
+        .title-paper-wrap { position:relative; display:block; margin-left:auto; margin-right:auto; width:fit-content; }
+        .title-paper-adopt { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:132%; max-width:none; pointer-events:none; z-index:0; filter:drop-shadow(0 14px 30px rgba(0,0,0,.45)); }
+        .title-paper-adopt img { display:block; width:100%; height:auto; -webkit-mask-image:radial-gradient(ellipse 108% 100% at 50% 46%, #000 62%, transparent 100%); mask-image:radial-gradient(ellipse 108% 100% at 50% 46%, #000 62%, transparent 100%); }
+        @media (max-width: 768px) { .title-paper-adopt { width:180%; } }
+
+        .hero-lede { color:var(--ui-soft); }
+        .title-paper-wrap h1, .title-paper-wrap h2, .title-paper-wrap h2 em { color:#ffffff; -webkit-text-fill-color:#ffffff; }
+        .title-paper-wrap > p, .title-paper-wrap p { color:#e8eeda; }
+        .title-paper-wrap .gradient-text { background:none; -webkit-text-fill-color:#d9e6ae; color:#d9e6ae; }
+
+        .plate { background:rgba(255,255,255,.05); border:1px solid var(--ui-line); padding:14px 14px 16px; box-shadow:0 10px 40px rgba(0,0,0,.38); transition:transform .25s ease, box-shadow .25s ease; }
+        .plate:hover { transform:translateY(-4px); box-shadow:0 16px 50px rgba(0,0,0,.48); }
+        .plate figcaption { font-size:13px; line-height:1.5; color:var(--ui-soft); padding-top:12px; }
+        .plate figcaption strong { color:var(--ui-accent); font-weight:700; letter-spacing:.04em; }
+        .room-shot { display:block; width:100%; height:auto; border-radius:12px; border:1px solid var(--ui-line); box-shadow:0 8px 30px rgba(0,0,0,.42); }
+
+        .shot-placeholder {
+            display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+            width:100%; aspect-ratio:16/9; border-radius:12px;
+            border:1px dashed rgba(182,200,119,.42);
+            background:
+                repeating-linear-gradient(135deg, rgba(255,255,255,.022) 0 12px, transparent 12px 24px),
+                rgba(255,255,255,.02);
+            color:var(--ui-mute);
+        }
+        .shot-placeholder .ph-label { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:rgba(182,200,119,.75); }
+        .shot-placeholder .ph-title { font-size:15px; color:var(--ui-soft); }
+
+        .card-hover { background:var(--ui-panel); border:1px solid var(--ui-line); backdrop-filter:blur(6px); transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+        .card-hover:hover { transform:translateY(-4px); border-color:rgba(182,200,119,.42); box-shadow:0 8px 50px rgba(0,0,0,.38); }
+        .room-card { background:rgba(255,255,255,.04); border:1px solid var(--ui-line); border-radius:20px; padding:22px; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+        .room-card:hover { transform:translateY(-3px); border-color:rgba(182,200,119,.36); box-shadow:0 8px 40px rgba(0,0,0,.34); }
+
+        .stat-num { font-family:'Acumin Pro','Helvetica Neue',Arial,sans-serif; font-weight:900; letter-spacing:-.03em; line-height:1; color:#fff; }
+        .stat-label { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ui-mute); }
+
+        .moment-row { border-top:1px solid var(--ui-line); padding-top:18px; }
+        .moment-row h3 { font-weight:900; font-size:19px; color:#fff; letter-spacing:-.01em; margin-bottom:4px; }
+        .moment-row p { font-size:16px; line-height:1.55; color:var(--ui-soft); margin:0; }
+        .moment-kicker { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ui-accent); }
+
+        .buy-card { position:relative; display:flex; flex-direction:column; background:rgba(255,255,255,.045); border:1px solid var(--ui-line); border-radius:20px; padding:26px; transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+        .buy-card:hover { transform:translateY(-4px); border-color:rgba(182,200,119,.40); box-shadow:0 12px 44px rgba(0,0,0,.42); }
+        .buy-card.is-feature { border-color:rgba(182,200,119,.55); background:rgba(182,200,119,.09); }
+        .buy-meta { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ui-accent); margin-bottom:6px; }
+        .buy-name { font-weight:900; font-size:24px; color:#fff; margin-bottom:2px; }
+        .buy-price { font-weight:900; font-size:38px; letter-spacing:-.03em; color:#fff; line-height:1.1; margin:10px 0 4px; }
+        .buy-price small { font-size:14px; font-weight:700; letter-spacing:0; color:var(--ui-mute); }
+        .buy-sub { font-size:14px; color:var(--ui-mute); margin-bottom:18px; }
+        .buy-list { list-style:none; padding:0; margin:0 0 22px; }
+        .buy-list li { position:relative; padding-left:20px; font-size:14px; line-height:1.55; color:var(--ui-soft); margin-bottom:8px; }
+        .buy-list li::before { content:'\2014'; position:absolute; left:0; color:var(--ui-accent); font-weight:700; }
+        .buy-btn { margin-top:auto; display:inline-flex; align-items:center; justify-content:center; background:#6b7d38; color:#fff; font-weight:700; font-size:16px; padding:15px 24px; border-radius:14px; text-decoration:none; box-shadow:0 12px 34px rgba(0,0,0,.34); transition:background .2s ease, box-shadow .2s ease; }
+        .buy-btn:hover { background:#8a9a4f; box-shadow:0 14px 40px rgba(0,0,0,.46); }
+
+        .terminal { background:rgba(0,0,0,.42); border:1px solid var(--ui-line); border-radius:14px; padding:18px 20px; font-family:'JetBrains Mono',monospace; font-size:13.5px; line-height:1.85; color:#dfe8c8; overflow-x:auto; }
+        .terminal .c { color:rgba(238,242,226,.42); }
+
+        nav { background:rgba(18,21,12,.88)!important; border-bottom-color:var(--ui-line)!important; backdrop-filter:blur(20px); }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden text-lg">
+
+    <!-- ==================== NAV ==================== -->
+    <nav class="fixed top-0 w-full z-50 border-b">
+        <div class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="https://www.propagation.house" class="flex items-center gap-2.5 group">
+                    <img src="../substrate-v3/ph-mark.png" alt="Propagation House" class="w-6 h-6 opacity-70 group-hover:opacity-100 transition">
+                    <span class="text-white font-bold text-xl tracking-tight">Substrate</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center gap-10 text-[15px] font-medium" style="color:var(--ui-soft)">
+                <a href="https://www.propagation.house" class="hover:text-white transition flex items-center gap-1.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    Propagation House
+                </a>
+                <a href="#resident" class="hover:text-white transition">The Resident</a>
+                <a href="#day" class="hover:text-white transition">Day to Day</a>
+                <a href="#get" class="hover:text-white transition">Get It</a>
+                <a href="#get" class="flex items-center gap-2 px-5 py-2.5 rounded-xl transition border" style="background:rgba(182,200,119,.10);border-color:rgba(182,200,119,.30);color:#d9e6ae">
+                    Download
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== 1. HERO ==================== -->
+    <section class="relative min-h-[100vh] flex items-center justify-center pt-16 grid-bg overflow-hidden">
+        <div class="hero-paper-img-wrap"><img src="../assets/images/paper-sheet-deep-navy-lift.png" alt="" aria-hidden="true" class="hero-paper-img"></div>
+        <div class="relative z-10 max-w-5xl mx-auto px-8 text-center py-24">
+            <div class="title-paper-wrap">
+                <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full text-base font-semibold mb-8 tracking-wide" style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.34);color:#fff">
+                    <span class="w-2 h-2 rounded-full" style="background:#d9e6ae"></span>
+                    Source Available &middot; BSL 1.1
+                </div>
+                <h1 class="relative text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black leading-[0.9] tracking-tighter mb-6">Substrate</h1>
+                <p class="relative text-2xl sm:text-3xl md:text-4xl font-bold leading-snug tracking-tight mb-8">
+                    The intelligence layer<br>
+                    <span class="gradient-text">for your machine.</span>
+                </p>
+            </div>
+
+            <p class="hero-lede relative max-w-2xl mx-auto mb-14 text-lg md:text-xl leading-relaxed">
+                A resident, not an app. Substrate lives on your machine and works the way you do &mdash; it reads and writes files, runs commands, browses the web, and keeps to a schedule, then tells you what it did in plain language.
+            </p>
+
+            <div class="relative flex flex-col sm:flex-row items-center justify-center gap-5 mb-20">
+                <a href="#get" class="px-10 py-4 text-lg font-bold rounded-2xl transition shadow-xl" style="background:#6b7d38;color:#fff">
+                    Get Substrate
+                </a>
+                <a href="#resident" class="px-10 py-4 text-lg font-bold rounded-2xl border transition" style="background:rgba(255,255,255,.06);border-color:rgba(196,214,150,.28);color:#fff">
+                    See What It Does
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HERO IMAGE: real capture plate goes here when the shot exists -->
+
+
+    <!-- PAPER TEAR DIVIDER -->
+    <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip-deep.png" alt=""></div>
+
+    <!-- ==================== 2. WHAT IT IS ==================== -->
+    <section id="resident" class="py-28 md:py-40 relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-20">
+                <p class="text-lg font-bold uppercase tracking-widest mb-4" style="color:var(--ui-accent)">What It Is</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-white">A resident,<br><em class="font-serif italic font-bold">not an app.</em></h2>
+                <p class="text-2xl max-w-3xl mx-auto mt-6 leading-relaxed" style="color:var(--ui-soft)">One system on your machine, tuned to you.</p>
+            </div>
+
+            <p class="text-xl md:text-2xl max-w-4xl mx-auto text-center leading-relaxed" style="color:var(--ui-soft)">
+                Substrate is a source-available agentic system that turns your machine from an inanimate silo into something conversational, proactive, and autonomous. It is model-independent by design &mdash; pair it with an OpenRouter key and it loads any model online, run entirely offline through your preferred model library, or take a hybrid approach with both. It learns your patterns and remembers your context, adapting into a uniquely tuned agent specific to each user. One foundational substrate, infinite potential outcomes.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== 3. THE TRIO ==================== -->
+    <section class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+                <div class="card-hover rounded-3xl p-9">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(182,200,119,.12);border:1px solid rgba(182,200,119,.24)">
+                        <svg class="w-7 h-7" style="color:var(--ui-accent)" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    </div>
+                    <h3 class="text-white font-black text-xl mb-3">A resident, not an app</h3>
+                    <p class="text-lg leading-relaxed" style="color:var(--ui-soft)">It reads and writes files, runs commands, browses the web, and runs scheduled jobs &mdash; then reports back in plain language.</p>
+                </div>
+                <div class="card-hover rounded-3xl p-9">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(182,200,119,.12);border:1px solid rgba(182,200,119,.24)">
+                        <svg class="w-7 h-7" style="color:var(--ui-accent)" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                    </div>
+                    <h3 class="text-white font-black text-xl mb-3">It works while you're away</h3>
+                    <p class="text-lg leading-relaxed" style="color:var(--ui-soft)">Give it a goal and it plans, acts, and verifies on its own &mdash; chaining tools across steps, recovering from errors, and asking only when a decision is genuinely yours.</p>
+                </div>
+                <div class="card-hover rounded-3xl p-9">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(182,200,119,.12);border:1px solid rgba(182,200,119,.24)">
+                        <svg class="w-7 h-7" style="color:var(--ui-accent)" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 3a3 3 0 013 3v6a3 3 0 01-6 0V6a3 3 0 013-3z"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg>
+                    </div>
+                    <h3 class="text-white font-black text-xl mb-3">Voice or text, with memory</h3>
+                    <p class="text-lg leading-relaxed" style="color:var(--ui-soft)">Talk or type &mdash; it replies in text and can read every answer aloud. Everything it learns persists between sessions, so it knows your projects, preferences, and past work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAPER TEAR DIVIDER -->
+    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip-deep.png" alt=""></div>
+
+    <!-- ==================== 3b. CAPABILITIES ==================== -->
+    <section id="can" class="py-28 md:py-36 relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <p class="text-lg font-bold uppercase tracking-widest mb-4" style="color:var(--ui-accent)">What It Can Do</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-white">Twelve things<br><em class="font-serif italic font-bold">it does today.</em></h2>
+                <p class="text-2xl max-w-3xl mx-auto mt-6 leading-relaxed" style="color:var(--ui-soft)">Every line below runs in the current build.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <div class="room-card">
+                    <p class="stat-label mb-2">Files</p>
+                    <h3 class="text-white font-black text-lg mb-2">Reads and writes your files</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">Opens, searches, edits, and creates files and folders anywhere you point it. Surgical find-and-replace, not whole-file rewrites.</p>
+                </div>
+
+                <div class="room-card">
+                    <p class="stat-label mb-2">Shell</p>
+                    <h3 class="text-white font-black text-lg mb-2">Runs commands</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">PowerShell, CMD, or Bash &mdash; installs packages, runs scripts, reads the output, and acts on what came back.</p>
+                </div>
+
+                <div class="room-card">
+                    <p class="stat-label mb-2">Browser</p>
+                    <h3 class="text-white font-black text-lg mb-2">Drives a real browser</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">Navigates, clicks, types, fills forms, reads pages, and takes screenshots through Chrome DevTools &mdash; its own window, not yours.</p>
+                </div>
+
+                <div class="room-card">
+                    <p class="stat-label mb-2">Desktop</p>
+                    <h3 class="text-white font-black text-lg mb-2">Controls the desktop</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">Moves the mouse, types, reads window contents, launches apps, and handles dialogs &mdash; for the software that has no API.</p>
+                </div>
+
+                <div class="room-card">
+                    <p class="stat-label mb-2">Web</p>
+                    <h3 class="text-white font-black text-lg mb-2">Searches and fetches</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">Searches the live web and pulls full pages down as readable text, with the sources it used.</p>
+                </div>
+
+                <div class="room-card">
+                    <p class="stat-label mb-2">Memory</p>
+                    <h3 class="text-white font-black text-lg mb-2">Remembers across sessions</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">Stores facts and searches past conversations. Close the app, come back a week later, it still knows the project.</p>
+                </div>
+
+                <div class="room-card">
+                    <p class="stat-label mb-2">Schedule</p>
+                    <h3 class="text-white font-black text-lg mb-2">Works on a clock</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">Recurring jobs run on their own &mdash; overnight research, morning briefings, standing checks &mdash; and report when they're done.</p>
+                </div>
+
+                <div class="room-card">
+                    <p class="stat-label mb-2">Voice</p>
+                    <h3 class="text-white font-black text-lg mb-2">Talks and listens</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">Speech in, speech out. Ask out loud, get an answer read back. Text input works the same way.</p>
+                </div>
+
+                <div class="room-card">
+                    <p class="stat-label mb-2">Documents</p>
+                    <h3 class="text-white font-black text-lg mb-2">Reads PDFs</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">Extracts text, searches inside long documents, and pulls metadata &mdash; then works with what it found.</p>
+                </div>
+
+                <div class="room-card">
+                    <p class="stat-label mb-2">Images</p>
+                    <h3 class="text-white font-black text-lg mb-2">Generates images</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">Creates visuals from a prompt through Flux, DALL&middot;E, or Imagen, and saves them where you asked.</p>
+                </div>
+
+                <div class="room-card">
+                    <p class="stat-label mb-2">Delegation</p>
+                    <h3 class="text-white font-black text-lg mb-2">Spawns sub-agents</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">Splits work across background agents that run in parallel, then collects what each one returns.</p>
+                </div>
+
+                <div class="room-card">
+                    <p class="stat-label mb-2">Repetition</p>
+                    <h3 class="text-white font-black text-lg mb-2">Saves what it learns</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">Turns a working procedure into a macro or skill, so the same job runs the same way every time after that.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 4. STAT ROW ==================== -->
+    <section class="relative py-24">
+        <div class="max-w-5xl mx-auto px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
+                <div>
+                    <div class="stat-num text-6xl md:text-7xl">5+</div>
+                    <div class="stat-label mt-3">LLM Providers</div>
+                </div>
+                <div>
+                    <div class="stat-num text-6xl md:text-7xl">3</div>
+                    <div class="stat-label mt-3">UI Interfaces</div>
+                </div>
+                <div>
+                    <div class="stat-num text-6xl md:text-7xl">100%</div>
+                    <div class="stat-label mt-3">Model Agnostic</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 5. DAY TO DAY ==================== -->
+    <section id="day" class="py-28 md:py-40 relative">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <p class="text-lg font-bold uppercase tracking-widest mb-4" style="color:var(--ui-accent)">Day to Day</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-white">What it actually<br><em class="font-serif italic font-bold">does for you.</em></h2>
+                <p class="text-2xl max-w-3xl mx-auto mt-6 leading-relaxed" style="color:var(--ui-soft)">Not a feature list. Four things that happen on a normal day.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-x-14 gap-y-12">
+                <div class="moment-row">
+                    <p class="moment-kicker mb-2">06:40 &mdash; before you're up</p>
+                    <h3>It already did the reading</h3>
+                    <p>A scheduled job runs at 8:00. It searches, opens sources, checks them against each other, and leaves three stories drafted and waiting &mdash; with the links it actually visited.</p>
+                </div>
+                <div class="moment-row">
+                    <p class="moment-kicker mb-2">09:15 &mdash; you're mid-project</p>
+                    <h3>It works in your files</h3>
+                    <p>Point it at a folder and ask for the change. It reads before it writes, keeps the edits small, and tells you which files it touched so you can check the diff yourself.</p>
+                </div>
+                <div class="moment-row">
+                    <p class="moment-kicker mb-2">14:00 &mdash; something's broken</p>
+                    <h3>It goes and looks</h3>
+                    <p>Runs the command, reads the error, searches for the cause, tries the fix, and reports what it found. If it needs a decision that's yours, it stops and asks instead of guessing.</p>
+                </div>
+                <div class="moment-row">
+                    <p class="moment-kicker mb-2">22:30 &mdash; you're done for the night</p>
+                    <h3>It picks up tomorrow</h3>
+                    <p>Memory persists across sessions. Next morning it knows what you were building, what broke, and what you decided &mdash; without being told again.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAPER TEAR DIVIDER -->
+    <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip-deep.png" alt=""></div>
+
+
+    <!-- ==================== 7. GET IT ==================== -->
+    <section id="get" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-14">
+                <p class="text-lg font-bold uppercase tracking-widest mb-4" style="color:var(--ui-accent)">Get Substrate</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-white">One system.<br><em class="font-serif italic font-bold">Pick your build.</em></h2>
+                <p class="text-2xl max-w-3xl mx-auto mt-6 leading-relaxed" style="color:var(--ui-soft)">The stable build is free and stays free. The paid builds are the newer ones &mdash; same system, shipped more often.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
+
+                <div class="buy-card">
+                    <p class="buy-meta">Free Forever</p>
+                    <h3 class="buy-name">The Stable Build</h3>
+                    <p class="buy-price">$0</p>
+                    <p class="buy-sub">Current release: v1.3.2</p>
+                    <ul class="buy-list">
+                        <li>Full one-click Windows installer</li>
+                        <li>Yours forever, no account needed</li>
+                        <li>Updates arrive with each public release</li>
+                    </ul>
+                    <a href="/substrate/downloads" target="_blank" rel="noopener" class="buy-btn">Download for Windows</a>
+                </div>
+
+                <div class="buy-card is-feature">
+                    <p class="buy-meta">One-Time</p>
+                    <h3 class="buy-name">Name Your Price</h3>
+                    <p class="buy-price">You pick</p>
+                    <p class="buy-sub">A straight-up thank-you</p>
+                    <ul class="buy-list">
+                        <li>The latest Windows build &mdash; this version, yours to keep</li>
+                        <li>You choose the amount, honor system</li>
+                        <li>PC only &mdash; the Android app rides the Beta</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/aFa14g6ArfBl9A563dasg00" target="_blank" rel="noopener" class="buy-btn">Name Your Price</a>
+                </div>
+
+                <div class="buy-card">
+                    <p class="buy-meta">Monthly</p>
+                    <h3 class="buy-name">Ride the Beta</h3>
+                    <p class="buy-price">$11.99<small> / mo</small></p>
+                    <p class="buy-sub">Cancel anytime</p>
+                    <ul class="buy-list">
+                        <li>Every new build the day it lands &mdash; PC and Android</li>
+                        <li>The Android companion app, included</li>
+                        <li>Cancel anytime &mdash; keep that month's version</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/cNibIUgb1dtdh2xcrBasg02" target="_blank" rel="noopener" class="buy-btn">Subscribe</a>
+                </div>
+
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-12 text-left">
+                <div class="room-card">
+                    <p class="stat-label mb-2">Version</p>
+                    <p class="text-white font-bold text-lg">v1.3.2</p>
+                    <p class="text-sm mt-1" style="color:var(--ui-mute)">Latest stable release</p>
+                </div>
+                <div class="room-card">
+                    <p class="stat-label mb-2">Requirements</p>
+                    <p class="text-white font-bold text-lg">Python 3.10+</p>
+                    <p class="text-sm mt-1" style="color:var(--ui-mute)">Windows 10/11 &middot; 64-bit</p>
+                </div>
+                <div class="room-card">
+                    <p class="stat-label mb-2">Recommended</p>
+                    <p class="text-white font-bold text-lg">OpenRouter key</p>
+                    <p class="text-sm mt-1" style="color:var(--ui-mute)">Every model online, one key &middot; local optional</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAPER TEAR DIVIDER -->
+    <div class="paper-tear paper-tear-down" aria-hidden="true"><img src="../assets/images/torn-down-strip-deep.png" alt=""></div>
+
+    <!-- ==================== 8. QUICK START ==================== -->
+    <section id="quickstart" class="py-28 md:py-40 relative">
+        <div class="max-w-5xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <p class="text-lg font-bold uppercase tracking-widest mb-4" style="color:var(--ui-accent)">Quick Start</p>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-white">Two minutes<br><em class="font-serif italic font-bold">to first conversation.</em></h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div>
+                    <p class="stat-num text-5xl mb-4" style="color:var(--ui-accent)">1</p>
+                    <h3 class="text-white font-black text-lg mb-2">Install Substrate</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">Download the Windows installer and run it. No dependencies to chase, nothing to configure &mdash; the app just opens.</p>
+                </div>
+                <div>
+                    <p class="stat-num text-5xl mb-4" style="color:var(--ui-accent)">2</p>
+                    <h3 class="text-white font-black text-lg mb-2">Grab an OpenRouter key</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">Create a key at openrouter.ai/keys and copy it. One key, hundreds of models &mdash; every frontier and open model online.</p>
+                </div>
+                <div>
+                    <p class="stat-num text-5xl mb-4" style="color:var(--ui-accent)">3</p>
+                    <h3 class="text-white font-black text-lg mb-2">Plug it in, pick a model</h3>
+                    <p class="text-base leading-relaxed" style="color:var(--ui-soft)">Open the API input menu, paste your key, select a model. Models load automatically. First conversation, two minutes in.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PAPER TEAR DIVIDER -->
+    <div class="paper-tear paper-tear-up" aria-hidden="true"><img src="../assets/images/torn-up-strip-deep.png" alt=""></div>
+
+    <!-- ==================== 9. CTA ==================== -->
+    <section class="py-28 md:py-40 relative">
+        <div class="max-w-4xl mx-auto px-8 text-center">
+            <div class="title-paper-wrap">
+                <div class="title-paper-adopt"><img src="../assets/images/paper-sheet-deep-navy-lift.png" alt="" aria-hidden="true" class="title-paper-img"></div>
+                <h2 class="relative text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-6">Ready to give your desktop<br><em class="font-serif italic font-bold">an intelligence layer?</em></h2>
+                <p class="relative text-2xl max-w-3xl mx-auto mb-14 leading-relaxed">Free for personal use, source-available, and running entirely on your machine. Your data stays local. Your agent stays yours.</p>
+            </div>
+            <div class="relative z-10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-5">
+                <a href="#get" class="px-10 py-4 text-lg font-bold rounded-2xl transition shadow-xl" style="background:#6b7d38;color:#fff">Get Substrate</a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="border-t py-16" style="border-color:var(--ui-line)">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="flex items-center gap-3">
+                    <a href="https://www.propagation.house" class="opacity-40 hover:opacity-70 transition">
+                        <img src="../substrate-v3/ph-mark.png" alt="Propagation House" class="w-7 h-7">
+                    </a>
+                    <span class="text-base" style="color:var(--ui-mute)">Substrate &copy; 2025&ndash;2026 Michael Blackstone &middot; Propagation House &middot; BSL 1.1</span>
+                </div>
+                <div class="flex items-center gap-8 text-base font-medium" style="color:var(--ui-mute)">
+                    <a href="https://www.propagation.house/composure/" class="hover:text-white transition">Composure</a>
+                    <a href="https://www.propagation.house/house-news/" class="hover:text-white transition">House News</a>
+                    <a href="https://www.propagation.house" class="hover:text-white transition">Propagation House</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
